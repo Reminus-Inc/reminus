@@ -1,0 +1,29 @@
+# 無視するディレクトリ
+node_modules/
+dist/
+build/
+out/
+
+# 無視するファイル
+*.min.js
+*.log
+
+# 環境固有のファイル
+.env
+*.env.*
+
+# フォーマット不要の静的アセット
+public/
+assets/
+*.png
+*.jpg
+*.gif
+*.svg
+
+# TypeScript ビルド出力
+*.d.ts
+
+# パッケージロックファイル
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
