@@ -9,11 +9,12 @@ export const metadata = {
     "Enterprise software development and technical consulting services",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  "use cache";
   return (
     <html lang="ja" className="scroll-smooth">
       <body className={inter.className}>

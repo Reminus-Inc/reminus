@@ -1,28 +1,9 @@
-"use client";
-
-import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { useEffect, useState } from "react";
+import { MotionDiv, Subtitle } from "@/app/_components/hero/cc";
 
-export function Hero() {
-  const fullText =
-    "一流SaaSスタートアップ経験者が、ソフトウェアエンジニアリングを全方位で支援する";
-  const [text, setText] = useState("");
-
-  useEffect(() => {
-    let currentIndex = 0;
-    const interval = setInterval(() => {
-      if (currentIndex <= fullText.length) {
-        setText(fullText.slice(0, currentIndex));
-        currentIndex++;
-      } else {
-        clearInterval(interval);
-      }
-    }, 75);
-
-    return () => clearInterval(interval);
-  }, []);
+export async function Hero() {
+  "use cache";
 
   return (
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -31,13 +12,13 @@ export function Hero() {
       </div>
       <div className="container px-4 md:px-6 relative z-10">
         <div className="flex flex-col items-center space-y-8 text-center">
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
             <div className="relative">
-              <motion.div
+              <MotionDiv
                 className="absolute -inset-x-20 -inset-y-10 bg-gradient-to-r from-[#fafafa] via-white to-[#fafafa] opacity-50 blur-xl"
                 animate={{
                   scale: [1, 1.05, 1],
@@ -53,24 +34,11 @@ export function Hero() {
                 <h1 className="relative text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none text-black">
                   Reminus
                 </h1>
-                <p className="relative text-lg md:text-xl text-neutral-600 h-20 flex items-center justify-center">
-                  <AnimatePresence>
-                    {text.split("").map((char, index) => (
-                      <motion.span
-                        key={index}
-                        initial={{ opacity: 0, y: -1 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        {char}
-                      </motion.span>
-                    ))}
-                  </AnimatePresence>
-                </p>
+                <Subtitle />
               </div>
             </div>
-          </motion.div>
-          <motion.div
+          </MotionDiv>
+          <MotionDiv
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
@@ -96,7 +64,7 @@ export function Hero() {
                 <span>サービス詳細</span>
               </a>
             </Button>
-          </motion.div>
+          </MotionDiv>
         </div>
       </div>
     </div>

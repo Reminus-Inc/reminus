@@ -4,7 +4,8 @@ import { Competence } from "@/app/_components/competence";
 import { Services } from "@/app/_components/services";
 import { Hero } from "@/app/_components/hero";
 
-export default function Home() {
+export default async function Home() {
+  "use cache";
   return (
     <div className="flex flex-col min-h-screen">
       <section className="relative">
