@@ -14,7 +14,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  "use cache";
+  // "use cache";
   return (
     <html lang="ja" className="scroll-smooth">
       <body className={inter.className}>

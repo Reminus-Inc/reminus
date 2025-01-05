@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { MotionDiv, Subtitle } from "@/app/_components/hero/cc";
 
 export async function Hero() {
-  "use cache";
+  // "use cache";
 
   return (
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden">

@@ -5,13 +5,13 @@ import { Services } from "@/app/_components/services";
 import { Hero } from "@/app/_components/hero";
 
 export default async function Home() {
-  "use cache";
+  // "use cache";
   return (
     <div className="flex flex-col min-h-screen">
       <section className="relative">
         <Hero />
       </section>
-      <section className="relative py-24">
+      <section className="relative py-24 mx-auto">
         <Services />
       </section>
 
