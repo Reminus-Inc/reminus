@@ -7,15 +7,11 @@ import { Hero } from "@/app/_components/hero";
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-      <section className="bg-gradient-to-b from-gray-50 to-white">
-        <section className="relative">
-          <div className="absolute inset-0 grid-pattern opacity-30" />
-          <Hero />
-        </section>
-        <section className="relative py-24">
-          <div className="absolute inset-0" />
-          <Services />
-        </section>
+      <section className="relative">
+        <Hero />
+      </section>
+      <section className="relative py-24">
+        <Services />
       </section>
 
       {/*<section className="relative">*/}
