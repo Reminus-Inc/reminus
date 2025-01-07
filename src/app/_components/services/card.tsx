@@ -4,8 +4,7 @@ import { ArrowRight, Check, X } from "lucide-react";
 import { MotionDiv } from "../hero/cc";
 import { Service } from ".";
 
-
-export function ServiceDialog({ service }: { service: Service }) {
+export function ServiceCard({ service }: { service: Service }) {
     return (
       <Dialog>
         <DialogTrigger asChild>
@@ -24,7 +23,7 @@ export function ServiceDialog({ service }: { service: Service }) {
 
         <DialogContent className="max-w-[95vw] h-[90vh] p-0 border-0">
             <DialogTitle className="hidden"/>
-        <div className="min-h-[160px] bg-gradient-to-b from-neutral-700 to-black flex items-center">
+        <div className="min-h-[160px] bg-gradient-to-b from-neutral-800 to-black flex items-center">
           <div className="w-full max-w-6xl mx-auto px-8 py-12">
             <div className="flex items-start gap-6">
               <service.icon className="w-14 h-14 shrink-0 text-white" />
@@ -49,11 +48,11 @@ export function ServiceDialog({ service }: { service: Service }) {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="flex gap-5 items-start group"
+                  className="flex gap-5 items-start"
                 >
                   <Check className="w-7 h-7 text-primary mt-1 shrink-0" />
                   <div>
-                    <h4 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
+                    <h4 className="text-2xl font-bold mb-3">
                       {point.title}
                     </h4>
                     <p className="text-lg text-muted-foreground">

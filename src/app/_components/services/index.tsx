@@ -14,7 +14,7 @@ import {
   Handshake,
 } from "lucide-react";
 import { MotionDiv } from "@/app/_components/hero/cc";
-import { ServiceDialog } from "./service-dialog";
+import { ServiceCard } from "./card";
 
 export type Service = {
   title: string;
@@ -257,7 +257,7 @@ export async function Services() {
              transition={{ delay: i * 0.1 }}
              className="h-full"
            >
-             <ServiceDialog service={service} />
+             <ServiceCard service={service} />
            </MotionDiv>
           </MotionDiv>
         ))}
