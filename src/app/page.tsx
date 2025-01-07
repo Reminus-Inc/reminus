@@ -1,4 +1,4 @@
-import { CaseStudies } from "@/app/_components/cast-studies";
+import { CaseStudies } from "@/app/_components/case-studies";
 import { Contact } from "@/app/_components/contact";
 import { Competence } from "@/app/_components/competence";
 import { Services } from "@/app/_components/services";

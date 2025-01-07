@@ -254,7 +254,7 @@ export async function Services() {
             </Card>
           </MotionDiv>
         ))}
-      </MotionDiv>
+   ˚   </MotionDiv>
       <div className="max-w-2xl mx-auto text-center">
         <p className="text-gray-600">
           ご予算に応じて、アドバイザリーや顧問から実行支援まで柔軟に対応いたします。
