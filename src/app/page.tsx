@@ -1,8 +1,8 @@
 import { CaseStudies } from "@/app/_components/case-studies";
 import { Contact } from "@/app/_components/contact";
 import { Competence } from "@/app/_components/competence";
-import { Services } from "@/app/_components/services";
 import { Hero } from "@/app/_components/hero";
+import { Services } from "./_components/services";
 
 export default async function Home() {
   // "use cache";

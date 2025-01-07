@@ -23,7 +23,7 @@ export const MotionDiv: React.FC<MotionDivProps> = ({
 
 export const Subtitle = () => {
   const fullText =
-    "一流SaaSスタートアップ経験者が、ソフトウェアエンジニアリングを全方位で支援する";
+    "トップレベルのSaaSエンジニアリングの洞察を、事業に実装する";
   const [text, setText] = useState("");
 
   useEffect(() => {
@@ -41,19 +41,12 @@ export const Subtitle = () => {
   }, []);
 
   return (
-    <p className="relative text-lg md:text-xl text-neutral-600 h-20 flex items-center justify-center">
-      <AnimatePresence>
-        {text.split("").map((char, index) => (
-          <motion.span
-            key={index}
-            initial={{ opacity: 0, y: -1 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.2 }}
-          >
-            {char}
-          </motion.span>
-        ))}
-      </AnimatePresence>
+    <>
+    <p className="relative text-lg md:text-xl text-neutral-600 h-20 flex items-center justify-center leading-loose">
+        {text}
     </p>
+    
+    </>
+
   );
 };

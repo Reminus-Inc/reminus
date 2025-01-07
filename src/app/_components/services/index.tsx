@@ -14,8 +14,17 @@ import {
   Handshake,
 } from "lucide-react";
 import { MotionDiv } from "@/app/_components/hero/cc";
+import { ServiceDialog } from "./service-dialog";
 
-const services = [
+export type Service = {
+  title: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  summary: string;
+  description: string;
+  points: { title: string; description: string }[];
+}
+
+const services: Service[] = [
   {
     title: "社外CTO",
     icon: MapPin,
@@ -229,7 +238,7 @@ export async function Services() {
   // "use cache";
   return (
     <div className="container px-4 md:px-6 relative py-24">
-      <h2 className="text-3xl font-bold tracking-tighter text-center mb-12">
+      <h2 className="text-3xl font-bold tracking-tighter text-center mb-20">
         提供サービス
       </h2>
       <MotionDiv
@@ -239,25 +248,23 @@ export async function Services() {
         viewport={{ once: true }}
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
       >
-        {services.map((service) => (
+        {services.map((service,i) => (
           <MotionDiv key={service.title} variants={item}>
-            <Card className="hover-card-animation h-full flex flex-col">
-              <CardHeader>
-                <service.icon className="w-10 h-10 mb-2" />
-                <CardTitle>{service.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 min-h-[72px]">
-                  {service.description}
-                </p>
-              </CardContent>
-            </Card>
+            <MotionDiv
+             key={service.title}
+             initial={{ opacity: 0, y: 20 }}
+             animate={{ opacity: 1, y: 0 }}
+             transition={{ delay: i * 0.1 }}
+             className="h-full"
+           >
+             <ServiceDialog service={service} />
+           </MotionDiv>
           </MotionDiv>
         ))}
-   ˚   </MotionDiv>
-      <div className="max-w-2xl mx-auto text-center">
+      </MotionDiv>
+      <div className="mx-auto text-center">
         <p className="text-gray-600">
-          ご予算に応じて、アドバイザリーや顧問から実行支援まで柔軟に対応いたします。
+          ご予算に応じて、アドバイザリーや顧問から実行まで柔軟に対応いたします。
         </p>
       </div>
     </div>
