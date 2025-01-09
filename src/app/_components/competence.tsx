@@ -100,7 +100,9 @@ export function Competence() {
                 className="group border-white/20 hover:border-white/40 transition-colors bg-white/10 hover:bg-white/20"
               >
                 <a href="#contact" className="flex items-center gap-2">
-                  <span className="text-sm sm:text-base text-white">相談する</span>
+                  <span className="text-sm sm:text-base text-white">
+                    相談する
+                  </span>
                   <ArrowUpRight className="h-4 w-4 text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </a>
               </Button>
