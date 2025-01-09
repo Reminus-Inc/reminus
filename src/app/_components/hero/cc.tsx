@@ -22,8 +22,7 @@ export const MotionDiv: React.FC<MotionDivProps> = ({
 };
 
 export const Subtitle = () => {
-  const fullText =
-    "トップレベルのSaaSエンジニアリングの洞察を、事業に実装する";
+  const fullText = "トップレベルのSaaSエンジニアリングの洞察を、事業に実装する";
   const [text, setText] = useState("");
 
   useEffect(() => {
@@ -42,11 +41,9 @@ export const Subtitle = () => {
 
   return (
     <>
-    <p className="relative text-lg md:text-xl text-neutral-600 h-20 flex items-center justify-center leading-loose">
+      <p className="relative text-lg md:text-xl text-neutral-600 h-20 flex items-center justify-center leading-loose">
         {text}
-    </p>
-    
+      </p>
     </>
-
   );
 };
