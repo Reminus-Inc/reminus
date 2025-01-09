@@ -15,12 +15,12 @@ export default async function Home() {
         <Services />
       </section>
 
-      {/*<section className="relative">*/}
-      {/*  <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-black" />*/}
-      {/*  <div className="absolute inset-0 grid-pattern opacity-10" />*/}
-      {/*  <div className="absolute inset-0 noise opacity-50" />*/}
-      {/*  <Competence />*/}
-      {/*</section>*/}
+      <section className="relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-black" />
+        <div className="absolute inset-0 grid-pattern opacity-10" />
+        <div className="absolute inset-0 noise opacity-50" />
+        <Competence />
+      </section>
 
       {/*<section className="relative bg-gradient-to-b from-white to-gray-50 py-24">*/}
       {/*  <div className="absolute inset-0 noise" />*/}
