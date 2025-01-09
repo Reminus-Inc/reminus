@@ -19,7 +19,7 @@ export default async function Home() {
         <Competence />
       </section>
 
-      <section className="relative">
+      <section className="relative mx-auto">
        <CaseStudies />
       </section>
 
