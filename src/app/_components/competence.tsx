@@ -6,7 +6,7 @@ import { Users, Lightbulb, ArrowUpRight } from "lucide-react";
 
 export function Competence() {
   return (
-    <section className="bg-gradient-to-b from-neutral-800 to-black min-h-screen py-24">
+    <section className="bg-gradient-to-b from-neutral-800 to-black py-24">
       <div className="relative container mx-auto px-4 md:px-6">
         <div className="max-w-5xl mx-auto space-y-16">
           {/* Header and Reasons*/}
@@ -97,11 +97,11 @@ export function Competence() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="group border-white/20 hover:border-white/40 transition-colors text-black"
+                className="group border-white/20 hover:border-white/40 transition-colors bg-white/10 hover:bg-white/20"
               >
                 <a href="#contact" className="flex items-center gap-2">
-                  <span>相談する</span>
-                  <ArrowUpRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  <span className="text-sm sm:text-base text-white">相談する</span>
+                  <ArrowUpRight className="h-4 w-4 text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </a>
               </Button>
             </div>
