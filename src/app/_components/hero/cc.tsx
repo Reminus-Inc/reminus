@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, MotionProps } from "framer-motion";
+import { motion, MotionProps } from "motion/react";
 import { useEffect, useState } from "react";
 interface MotionDivProps extends MotionProps {
   children?: React.ReactNode;
@@ -20,6 +20,7 @@ export const MotionDiv: React.FC<MotionDivProps> = ({
     <motion.div className={className} {...props} />
   );
 };
+
 export const Subtitle = () => {
   const fullText = "洗練されたSaaSエンジニアリングを事業に実装する";
   const [text1, setText1] = useState("");
