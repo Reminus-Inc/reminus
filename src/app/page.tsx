@@ -1,11 +1,11 @@
-import { Contact } from "@/app/_components/contact";
 import { Competence } from "@/app/_components/competence";
 import { Hero } from "@/app/_components/hero";
 import { Services } from "./_components/services";
 import { CaseStudies } from "@/app/_components/case-studies";
 import React from "react";
+import { Contact } from "@/app/_components/contact";
 
-export default async function Home() {
+export default function Home() {
   // "use cache";
   return (
     <div className="flex flex-col min-h-svh">
@@ -23,9 +23,9 @@ export default async function Home() {
       <section className="relative">
         <CaseStudies />
       </section>
-      {/*<section className="relative bg-white py-24">*/}
-      {/*  <Contact />*/}
-      {/*</section>*/}
+      <section className="relative mx-auto">
+        <Contact />
+      </section>
     </div>
   );
 }
