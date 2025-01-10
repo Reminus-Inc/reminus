@@ -18,7 +18,7 @@ import { ServiceCard } from "./card";
 import { ReactNode } from "react";
 
 export type Service = {
-  title: string ;
+  title: string;
   titleDialog?: ReactNode;
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   summary: string;
@@ -103,7 +103,13 @@ const services: Service[] = [
 
   {
     title: "フロントエンドアーキテクト",
-    titleDialog: <>フロントエンド<br className="sm:hidden"/>アーキテクト</>,
+    titleDialog: (
+      <>
+        フロントエンド
+        <br className="sm:hidden" />
+        アーキテクト
+      </>
+    ),
     icon: Zap,
     summary:
       "売上や顧客満足度とコスト効率につながり、ブランド価値を高める最先端のUI/UX",
@@ -129,7 +135,13 @@ const services: Service[] = [
   },
   {
     title: "SREing/オブザーバビリティ",
-    titleDialog: <>SREing/<br className="sm:hidden"/>オブザーバビリティ</>,
+    titleDialog: (
+      <>
+        SREing/
+        <br className="sm:hidden" />
+        オブザーバビリティ
+      </>
+    ),
     icon: BarChart,
     summary:
       "障害検知力・障害対応力・システム信頼性を強化し、持続可能なシステム運用を支える",
@@ -155,7 +167,13 @@ const services: Service[] = [
   },
   {
     title: "パフォーマンスチューニング",
-    titleDialog: <>パフォーマンス<br className="sm:hidden"/>チューニング</>,
+    titleDialog: (
+      <>
+        パフォーマンス
+        <br className="sm:hidden" />
+        チューニング
+      </>
+    ),
     icon: TrendingUp,
     summary: "売上・顧客満足度向上とコスト削減・利益率UPを同時に実現する",
     description:
@@ -180,7 +198,13 @@ const services: Service[] = [
   },
   {
     title: "自動テストエンジニア",
-    titleDialog: <>自動テスト<br className="sm:hidden"/>エンジニア</>,
+    titleDialog: (
+      <>
+        自動テスト
+        <br className="sm:hidden" />
+        エンジニア
+      </>
+    ),
     icon: CheckCircle,
     summary: "自動テストで事業成長速度と開発持続性を支える",
     description:
@@ -247,7 +271,10 @@ const item = {
 export async function Services() {
   // "use cache";
   return (
-    <div className="container px-4 md:px-6 relative py-24 md:py-36">
+    <div
+      className="container px-4 md:px-6 relative py-24 md:py-36"
+      id="services"
+    >
       <h2 className="text-3xl font-bold tracking-tighter text-center mb-20">
         提供サービス
       </h2>

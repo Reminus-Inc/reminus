@@ -23,7 +23,7 @@ export default function Home() {
       <section className="relative">
         <CaseStudies />
       </section>
-      <section className="relative mx-auto">
+      <section className="relative">
         <Contact />
       </section>
     </div>

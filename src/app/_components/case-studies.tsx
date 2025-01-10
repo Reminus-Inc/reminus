@@ -101,7 +101,7 @@ const CHART_COLORS = [
 
 export function CaseStudies() {
   return (
-    <section className="py-24 md:py-36 bg-neutral-50 flex justify-center">
+    <section className="py-24 md:py-36 flex justify-center" id="case-studies">
       <div className="container px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -110,7 +110,7 @@ export function CaseStudies() {
         >
           <div className="text-center">
             <h2 className="text-3xl font-bold tracking-tighter mb-4">
-              支援事例
+              実績と事例
             </h2>
           </div>
 

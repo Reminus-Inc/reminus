@@ -60,8 +60,8 @@ export async function Hero() {
               variant="outline"
               className="overflow-hidden group border-neutral-200 hover:border-neutral-300 hover:bg-neutral-50/50 transition-colors"
             >
-              <a href="#services" className="flex items-center">
-                <span>サービス詳細</span>
+              <a href="#case-studies" className="flex items-center">
+                <span>事例を見る</span>
               </a>
             </Button>
           </MotionDiv>
