@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Reminus",
   description:
-    "Enterprise software development and technical consulting services",
+    "エンジニアリングの課題に直面していますか？Reminusは洗練されたエンジニアリングの洞察を事業と組織に実装し、企業のエンジニアリングのレベルを押し上げるサービスを提供しています。お気軽にご相談ください。",
 };
 
 export default async function RootLayout({
