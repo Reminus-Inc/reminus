@@ -6,7 +6,7 @@ export async function Hero() {
   // "use cache";
 
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <div className="min-h-svh flex items-center justify-center relative overflow-hidden">
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-r from-white via-[#fafafa] to-white" />
       </div>
