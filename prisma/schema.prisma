@@ -1,0 +1,20 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Inquiry {
+  id        String   @id @default(cuid())
+  company   String
+  name      String?
+  sns       String?
+  service   String?
+  content   String   @db.Text
+  email     String
+  createdAt DateTime @default(now())
+}
+
