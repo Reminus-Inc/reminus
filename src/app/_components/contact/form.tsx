@@ -63,7 +63,7 @@ export function ContactForm() {
                   value="individual"
                   className="data-[state=active]:bg-white"
                 >
-                  事業者名
+                  個人事業主
                 </TabsTrigger>
               </TabsList>
               <TabsContent value="company">
