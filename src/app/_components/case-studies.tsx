@@ -101,7 +101,7 @@ const CHART_COLORS = [
 
 export function CaseStudies() {
   return (
-    <section className="py-24 md:py-36 flex justify-center" id="case-studies">
+    <section className="py-24 md:py-36 flex justify-center bg-gradient-to-b from-white to-neutral-100" id="case-studies">
       <div className="container px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

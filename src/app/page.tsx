@@ -4,6 +4,7 @@ import { Services } from "./_components/services";
 import { CaseStudies } from "@/app/_components/case-studies";
 import React from "react";
 import { Contact } from "@/app/_components/contact";
+import { Management } from "./_components/management";
 
 export default function Home() {
   // "use cache";
@@ -22,6 +23,9 @@ export default function Home() {
 
       <section className="relative">
         <CaseStudies />
+      </section>
+      <section className="relative">
+        <Management />
       </section>
       <section className="relative">
         <Contact />
