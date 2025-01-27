@@ -150,7 +150,7 @@ export function ContactForm() {
             className="w-full bg-black text-white hover:bg-neutral-800 transition-colors py-6 text-base"
             disabled={pending}
           >
-            {pending ? "送信中..." : "相談する"}
+            {pending ? "送信中..." : "送信する"}
           </Button>
         </form>
       </CardContent>
