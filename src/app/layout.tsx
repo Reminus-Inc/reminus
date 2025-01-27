@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,6 +28,7 @@ export default async function RootLayout({
         </footer>
         <Toaster />
       </body>
+      { !!process.env.GA_ID && <GoogleAnalytics gaId={process.env.GA_ID} /> }
     </html>
   );
 }
