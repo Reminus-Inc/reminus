@@ -96,8 +96,7 @@ export function Management() {
                     執筆
                   </li>
                 </ul>
-                <div className="flex justify-start gap-4 text-base mt-8">
-                  <div className="flex items-center gap-6">
+                  <div className="flex items-center gap-6 pt-2">
                     <Link
                       href="https://zenn.dev/sumiren"
                       className="inline-flex items-center px-4 py-2 rounded-full border border-gray-200 text-gray-600 hover:bg-gray-50 hover:border-gray-300 transition-all"
@@ -116,7 +115,6 @@ export function Management() {
                       <Twitter className="w-4 h-4 mr-2" />X
                     </Link>
                   </div>
-                </div>
               </div>
             </div>
           </div>
