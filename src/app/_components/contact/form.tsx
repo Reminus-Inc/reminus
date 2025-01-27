@@ -138,7 +138,7 @@ export function ContactForm() {
               <Textarea
                 id="content"
                 name="content"
-                placeholder="「〇〇に興味を持った」 「◯◯で見た」「◯◯と話したい」など、自由にご記入ください。"
+                placeholder="「〇〇に興味を持った」 「〇〇で見た」など、自由にご記入ください。"
                 required
                 className="min-h-[150px] border-gray-200 focus:border-gray-400 transition-colors resize-none"
               />
