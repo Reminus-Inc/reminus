@@ -11,7 +11,7 @@ export function Management() {
         </div>
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-12 md:gap-24 items-start">
-            <div className="mx-auto md:mx-0 max-w-[200px] md:max-w-none">
+            <div className="mx-auto md:mx-0 max-w-[160px] md:max-w-none">
               <div className="w-full aspect-square md:w-[240px] md:h-[240px] rounded-full bg-white shadow-sm border-4 border-gray-300 overflow-hidden">
                 <Image
                   src="/profile.png"
@@ -24,17 +24,17 @@ export function Management() {
             </div>
             <div className="space-y-8">
               <div className="text-center md:text-left">
-                <h3 className="text-4xl font-medium mb-3 tracking-tighter">sumiren</h3>
+                <h3 className="text-3xl md:text-4xl font-medium mb-3 tracking-tighter">sumiren</h3>
                 <p className="text-gray-600 text-lg md:text-xl">創業者</p>
               </div>
               <div className="prose prose-gray max-w-none text-left">
-                <p className="text-gray-600 leading-relaxed text-base">
-                  株式会社ヘンリーにてソフトウェアエンジニアとしてSaaSプロダクトの急成長に尽力。事業フェーズに合わせ、プロダクトエンジニア・SRE・アーキテクトなど多様な役割を担い、エンジニアリングマネージャとしてチームビルディングやロードマップ推進にも取り組む。また、ヘンリー入社以前にSIerでのマネージャ経験があり、複数の顧客企業と信頼関係を築きながら最長で2年に渡る継続的なエンジニアリング支援を行う。2025年3月、株式会社Reminusを創業。
+                <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                  株式会社ヘンリーにてソフトウェアエンジニアとしてSaaSプロダクトの急成長に尽力。事業フェーズに合わせ、プロダクトエンジニア・SRE・アーキテクト・EMなど多様な役割を担い、ロードマップ推進やチームビルディングにも取り組む。ヘンリー入社以前にSIerでのマネージャ経験もあり、複数の顧客企業と信頼関係を築きエンジニアリング支援を2年以上に渡り継続する。2025年3月、株式会社Reminusを創業。
                 </p>
               </div>
               <div className="space-y-4">
-                <h4 className="font-medium text-left text-lg">コンテンツ発信</h4>
-                <ul className="space-y-2 text-gray-600 list-none pl-0 text-base text-left">
+                <h4 className="font-medium text-left text-base md:text-lg">コンテンツ発信</h4>
+                <ul className="space-y-2 text-gray-600 list-none pl-0 text-sm md:text-base text-left">
                   <li className="relative pl-4">
                     <span className="absolute left-0">・</span>
                     <Link
@@ -96,25 +96,25 @@ export function Management() {
                     執筆
                   </li>
                 </ul>
-                  <div className="flex items-center gap-6 pt-2">
-                    <Link
-                      href="https://zenn.dev/sumiren"
-                      className="inline-flex items-center px-4 py-2 rounded-full border border-gray-200 text-gray-600 hover:bg-gray-50 hover:border-gray-300 transition-all"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Zenn
-                    </Link>
-                    <Link
-                      href="https://twitter.com/sumiren_t"
-                      className="inline-flex items-center px-4 py-2 rounded-full border border-gray-200 text-gray-600 hover:bg-gray-50 hover:border-gray-300 transition-all"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Twitter className="w-4 h-4 mr-2" />X
-                    </Link>
-                  </div>
+                <div className="flex items-center gap-6 pt-2">
+                  <Link
+                    href="https://zenn.dev/sumiren"
+                    className="inline-flex items-center px-4 py-2 rounded-full border border-gray-200 text-gray-600 hover:bg-gray-50 hover:border-gray-300 transition-all"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    Zenn
+                  </Link>
+                  <Link
+                    href="https://twitter.com/sumiren_t"
+                    className="inline-flex items-center px-4 py-2 rounded-full border border-gray-200 text-gray-600 hover:bg-gray-50 hover:border-gray-300 transition-all"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Twitter className="w-4 h-4 mr-2" />X
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
