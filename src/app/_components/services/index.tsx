@@ -298,11 +298,6 @@ export async function Services() {
           </MotionDiv>
         ))}
       </MotionDiv>
-      <div className="mx-auto text-center">
-        <p className="text-gray-600">
-          ご予算に応じて、アドバイザリーや顧問から実行まで柔軟に対応いたします。
-        </p>
-      </div>
     </div>
   );
 }
