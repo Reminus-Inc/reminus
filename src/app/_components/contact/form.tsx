@@ -144,14 +144,18 @@ export function ContactForm() {
               />
             </div>
           </div>
-
-          <Button
-            type="submit"
-            className="w-full bg-black text-white hover:bg-neutral-800 transition-colors py-6 text-base"
-            disabled={pending}
-          >
-            {pending ? "送信中..." : "送信する"}
-          </Button>
+          <div>
+            <p className="md:text-lg flex justify-center md:justify-start text-muted-foreground">
+              30分で<strong>技術課題</strong>を特定します。
+            </p>
+            <Button
+              type="submit"
+              className="w-full bg-black text-white hover:bg-neutral-800 transition-colors py-6 my-4 text-base"
+              disabled={pending}
+            >
+              {pending ? "送信中..." : "30分無料相談を申し込む"}
+            </Button>
+          </div>
         </form>
       </CardContent>
     </Card>
