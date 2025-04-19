@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
+import { Clock, Clock3Icon, ClockIcon } from "lucide-react";
 
 export function ContactForm() {
   const [state, formAction, pending] = useActionState(submitInquiry, {
@@ -110,7 +111,7 @@ export function ContactForm() {
               <TabsContent value="sns">
                 <Input
                   name="name"
-                  placeholder="X: @reminusinc"
+                  placeholder="X: @reminus_pr"
                   required
                   className="border-gray-200 focus:border-gray-400 transition-colors"
                 />
@@ -145,8 +146,12 @@ export function ContactForm() {
             </div>
           </div>
           <div>
-            <p className="md:text-lg flex justify-center md:justify-start text-muted-foreground">
-              30分で<strong>技術課題</strong>を特定します。
+            <p className="md:text-lg flex justify-center items-center md:justify-start text-muted-foreground">
+            <ClockIcon
+              size={18}
+              className="flex-none fill-none stroke-current text-muted-foreground"
+            />
+            <span className="ml-1 ">30分で<strong>技術課題</strong>を特定します。</span>
             </p>
             <Button
               type="submit"
