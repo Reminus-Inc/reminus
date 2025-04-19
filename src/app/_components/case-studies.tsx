@@ -17,21 +17,24 @@ import { MotionDiv } from "./hero/cc";
 
 const serviceData = [
   {
-    name: "CTO・VPoE・EM",
-    count: 2,
-  },
-  {
-    name: "VPoT\nフロントアーキ",
-    count: 3,
+    name: "CTO",
+    count: 4,
   },
   {
     name: "SREing\nオブザーバビリティ\nパフォーマンス改善",
-    count: 2,
+    count: 3,
   },
   {
-    name: "自動テスト・QAE",
-    count: 1,
+    name: "VPoT・フロントアーキ",
+    count: 3,
   },
+
+  {
+    name: "VPoE・EM",
+    count: 2,
+  },
+
+
 ];
 
 const totalClients = serviceData.reduce((acc, curr) => acc + curr.count, 0);
