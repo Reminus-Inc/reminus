@@ -54,9 +54,9 @@ export function Hero() {
                 href="#contact" 
                 className="flex items-center gap-2"
                 onClick={() => {
-                  window.gtag?.('event', 'hero_click', {
+                  window.gtag?.('event', 'hero_contact_link_click', {
                     'event_category': 'engagement',
-                    'event_label': 'contact_link'
+                    'event_label': 'hero_contact_link_click'
                   });
                 }}
               >
@@ -74,9 +74,9 @@ export function Hero() {
                 href="#case-studies" 
                 className="flex items-center"
                 onClick={() => {
-                  window.gtag?.('event', 'hero_click', {
+                  window.gtag?.('event', 'hero_case_studies_link_click', {
                     'event_category': 'engagement',
-                    'event_label': 'case_studies_link'
+                    'event_label': 'hero_case_studies_link_click'
                   });
                 }}
               >
