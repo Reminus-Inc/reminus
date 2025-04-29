@@ -49,7 +49,16 @@ export async function Hero() {
               size="lg"
               className="group overflow-hidden bg-black hover:bg-neutral-800 transition-colors"
             >
-              <a href="#contact" className="flex items-center gap-2">
+              <a 
+                href="#contact" 
+                className="flex items-center gap-2"
+                onClick={() => {
+                  window.gtag?.('event', 'hero_click', {
+                    'event_category': 'engagement',
+                    'event_label': 'contact_link'
+                  });
+                }}
+              >
                 <span>お問い合わせ</span>
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </a>
@@ -60,7 +69,16 @@ export async function Hero() {
               variant="outline"
               className="overflow-hidden group border-neutral-200 hover:border-neutral-300 hover:bg-neutral-50/50 transition-colors"
             >
-              <a href="#case-studies" className="flex items-center">
+              <a 
+                href="#case-studies" 
+                className="flex items-center"
+                onClick={() => {
+                  window.gtag?.('event', 'hero_click', {
+                    'event_category': 'engagement',
+                    'event_label': 'case_studies_link'
+                  });
+                }}
+              >
                 <span>事例を見る</span>
               </a>
             </Button>
