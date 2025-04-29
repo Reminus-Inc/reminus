@@ -29,7 +29,7 @@ export function Management() {
               </div>
               <div className="prose prose-gray max-w-none text-left">
                 <p className="text-gray-600 leading-relaxed text-sm md:text-base">
-                  株式会社ヘンリーにてソフトウェアエンジニアとしてSaaSプロダクトの急成長に尽力。事業フェーズに合わせ、プロダクトエンジニア・SRE・アーキテクト・EMなど多様な役割を担い、ロードマップ推進やチームビルディングにも取り組む。ヘンリー入社以前にSIerでのマネージャ経験もあり、複数の顧客企業と信頼関係を築きエンジニアリング支援を2年以上に渡り継続する。2025年3月、株式会社Reminusを創業。
+                  株式会社ヘンリーにてソフトウェアエンジニアとしてSaaSプロダクトの急成長に尽力。事業フェーズに合わせ、Webエンジニア・SRE・アーキテクト・EMなど多様な役割を担い、ロードマップ推進やチームビルディングにも取り組む。個人で2社の社外CTO経験、3社の技術顧問経験を持つ。経営執行レイヤから専門的な支援まで広く行い、資金調達にも貢献。2025年3月、株式会社Reminusを創業。
                 </p>
               </div>
               <div className="space-y-4">
