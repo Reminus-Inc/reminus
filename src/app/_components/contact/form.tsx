@@ -45,6 +45,11 @@ export function ContactForm() {
           onSubmit={(e) => {
             e.preventDefault();
             const formData = new FormData(e.currentTarget);
+            // Google Analyticsイベント送信
+            window.gtag?.('event', 'form_submit', {
+              'event_category': 'conversion',
+              'event_label': 'contact_form'
+            });
             startTransition(() => {
               formAction(formData);
             });
@@ -146,20 +151,46 @@ export function ContactForm() {
             </div>
           </div>
           <div>
-            <p className="md:text-lg flex justify-center items-center md:justify-start text-muted-foreground">
+            <p className="md:text-lg flex justify-center items-center md:justify-start text-muted-foreground font-semibold">
             <ClockIcon
               size={18}
               className="flex-none fill-none stroke-current text-muted-foreground"
             />
             <span className="ml-1 ">30分で<strong>技術課題</strong>を特定します。</span>
             </p>
-            <Button
-              type="submit"
-              className="w-full bg-black text-white hover:bg-neutral-800 transition-colors py-6 my-4 text-base"
-              disabled={pending}
-            >
-              {pending ? "送信中..." : "30分無料相談を申し込む"}
-            </Button>
+            <div className="flex flex-col gap-4 my-4">
+              <Button
+                type="submit"
+                className="w-full bg-black text-white hover:bg-neutral-800 transition-colors py-6 text-base"
+                disabled={pending}
+              >
+                {pending ? "送信中..." : "30分無料相談を申し込む"}
+              </Button>
+              
+              <div className="flex items-center justify-center my-2">
+                <div className="h-px bg-gray-200 flex-grow"></div>
+                <span className="px-4 text-gray-500 text-sm font-medium">または</span>
+                <div className="h-px bg-gray-200 flex-grow"></div>
+              </div>
+              
+              <a
+                href="https://app.spirinc.com/t/ehgkmSL6AUg30aq0DgLj8/as/bVHSfFLfKjuZwsK17EPxq/confirm"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full"
+              >
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="w-full border-neutral-200 hover:border-neutral-300 hover:bg-neutral-50/50 transition-colors py-6 text-base"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  Spirで直接日程調整する
+                </Button>
+              </a>
+            </div>
           </div>
         </form>
       </CardContent>
