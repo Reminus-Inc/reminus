@@ -22,19 +22,12 @@ const serviceData = [
   },
   {
     name: "SREing\nオブザーバビリティ\nパフォーマンス改善",
-    count: 3,
+    count: 4,
   },
   {
-    name: "VPoT・フロントアーキ",
+    name: "アーキテクト\nフロントエンド",
     count: 3,
   },
-
-  {
-    name: "VPoE・EM",
-    count: 2,
-  },
-
-
 ];
 
 const totalClients = serviceData.reduce((acc, curr) => acc + curr.count, 0);
