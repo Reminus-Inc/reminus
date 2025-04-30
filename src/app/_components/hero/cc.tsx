@@ -29,7 +29,7 @@ export const Subtitle = () => {
 
   return (
     <>
-      <p className="relative text-lg md:text-xl text-neutral-600 h-20 flex items-center justify-center leading-loose">
+      <p className="relative text-xl md:text-2xl text-neutral-600 h-20 flex items-center justify-center leading-loose">
         <motion.span
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

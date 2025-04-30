@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { MotionDiv, Subtitle } from "@/app/_components/hero/cc";
 
 export function Hero() {
@@ -32,7 +32,7 @@ export function Hero() {
                 }}
               />
               <div className="relative space-y-4">
-                <h1 className="relative text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none text-black">
+                <h1 className="relative text-5xl font-bold tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl/none text-black">
                   Reminus
                 </h1>
                 <Subtitle />
@@ -48,11 +48,11 @@ export function Hero() {
             <Button
               asChild
               size="lg"
-              className="group overflow-hidden bg-black hover:bg-neutral-800 transition-colors"
+              className="group overflow-hidden bg-black hover:bg-neutral-800 transition-colors text-lg py-7 px-8"
             >
               <a 
                 href="#contact" 
-                className="flex items-center gap-2"
+                className="flex items-center gap-3"
                 onClick={() => {
                   window.gtag?.('event', 'hero_contact_link_click', {
                     'event_category': 'engagement',
@@ -61,14 +61,14 @@ export function Hero() {
                 }}
               >
                 <span>お問い合わせ</span>
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowUpRight className="h-5 w-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
             </Button>
             <Button
               asChild
               size="lg"
               variant="outline"
-              className="overflow-hidden group border-neutral-200 hover:border-neutral-300 hover:bg-neutral-50/50 transition-colors"
+              className="overflow-hidden group border-neutral-200 hover:border-neutral-300 hover:bg-neutral-50/50 transition-colors text-lg py-7 px-8"
             >
               <a 
                 href="#case-studies" 

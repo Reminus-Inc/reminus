@@ -7,7 +7,9 @@ export function Management() {
     <section className="w-full py-24 md:py-36 bg-white">
       <div className="container px-4 md:px-6 lg:px-8 mx-auto">
         <div className="text-center">
-          <h2 className="text-3xl tracking-tighter mb-20">経営陣紹介</h2>
+          <h2 className="text-3xl font-bold tracking-tight text-center mb-20">
+              経営陣紹介
+            </h2>       
         </div>
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-12 md:gap-24 items-start">

@@ -27,13 +27,13 @@ export function ServiceCard({ service }: { service: Service }) {
             <p className="text-gray-600 min-h-[72px] mb-4">{service.description}</p>
             <div className="mt-auto flex items-center justify-end gap-1 text-primary font-medium group-hover:font-bold">
               <span className="transition-all duration-300 group-hover:scale-105">詳しく見る</span>
-              <ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+              <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </div>
           </CardContent>
         </Card>
       </DialogTrigger>
 
-      <DialogContent className="max-w-[95vw] h-[95dvh] md:h-[90dvh] p-0 border-0">
+      <DialogContent className="max-w-[95vw] h-[95dvh] md:h-[90dvh] p-0 border-0" autoFocus={false} onOpenAutoFocus={(e) => e.preventDefault()}>
         <DialogTitle className="hidden" />
         <div className="min-h-[160px] bg-gradient-to-b from-neutral-800 to-black flex items-center">
           <div className="w-full max-w-6xl mx-auto px-8 py-6 sm:py-8 md:py-12">
@@ -76,7 +76,7 @@ export function ServiceCard({ service }: { service: Service }) {
         </div>
 
         <DialogClose asChild className="">
-          <X className="absolute right-4 top-4 p-2 rounded-full hover:bg-white/10 transition-colors w-7 h-7 text-white mt-1 shrink-0" />
+          <X className="absolute right-6 top-6 p-2.5 rounded-full hover:bg-white/10 transition-colors w-10 h-10 text-white shrink-0 cursor-pointer" />
         </DialogClose>
       </DialogContent>
     </Dialog>

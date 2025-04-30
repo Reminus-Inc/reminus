@@ -17,12 +17,10 @@ export function Competence() {
               className="space-y-6"
             >
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-white">
-                提供サービスが多すぎると
-                <br className="md:hidden" />
-                お思いでしょうか？
+                幅広いサービスの理由
               </h2>
               <p className="text-base md:text-lg text-neutral-300 leading-relaxed max-w-4xl">
-                「こんなに多くのサービスを十分な専門性で提供できるのか」と疑問をお持ちかもしれませんが、私たちがスタートアップの急成長中を実現してきたソフトウェアエンジニアであることが、幅広いサービス提供を可能としています。
+                「こんなに多くのサービスを本当に提供できるのか」と疑問をお持ちかもしれません。私たちがスタートアップの急成長中を実現してきたソフトウェアエンジニアであることが、幅広いサービス提供を可能としています。
               </p>
             </motion.div>
 
@@ -37,12 +35,10 @@ export function Competence() {
                 <Users className="w-8 h-8 text-white shrink-0 mt-1" />
                 <div className="space-y-4">
                   <h3 className="text-xl md:text-2xl font-semibold text-white">
-                    高い水準で複数の役割をこなす
-                    <br className="sm:hidden" />
-                    "能力密度"の高さ
+                    高いレベルで複数の役割をこなす環境
                   </h3>
                   <p className="text-sm md:text-base text-neutral-300 leading-relaxed">
-                    ハイレベルなSaaSスタートアップでは、少人数で複数の専門領域を同時に担うのが日常です。エンジニアリングに関してもビジネス理解に関しても、一人のエンジニアが高い水準で複数の役割をこなす「能力密度の高さ」が当たり前となっています。
+                    ハイレベルなSaaSスタートアップでは、複数の専門領域を同時に担うのが日常です。エンジニアリングに関してもビジネス理解に関しても、一人ひとりが高いレベルで複数の役割をこなす「能力密度の高さ」が当たり前となっています。
                   </p>
                 </div>
               </motion.div>
@@ -61,7 +57,7 @@ export function Competence() {
                     手段に囚われない文化
                   </h3>
                   <p className="text-sm md:text-base text-neutral-300 leading-relaxed">
-                    急成長中のSaaSスタートアップでは、手段にとらわれず、本当に事業成長に必要な施策をトップダウンで考え抜く結果、一人ひとりが自然と幅広い領域で多様な取り組みを行う文化が根付いています。
+                    急成長中のSaaSスタートアップでは、手段にとらわれず、本当に事業成長に必要な施策をトップダウンで考え抜く結果、一人ひとりが自然と幅広い領域に取り組む文化が根付いています。
                   </p>
                 </div>
               </motion.div>
@@ -76,19 +72,17 @@ export function Competence() {
             className="space-y-8"
           >
             <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-white">
-              横断領域に特化して
-              <br className="sm:hidden" />
-              深さと幅広さを両立
+              エンジニアリングの共通課題に特化
             </h3>
             <div className="space-y-6 text-base md:text-lg text-neutral-300 leading-relaxed">
               <p>
-                加えて、Reminusのラインナップは「できることの羅列」ではありません。私たちは、あらゆるエンジニアリング組織に共通の横断的機能に特化してサービスを提供しています。貴社の事業に不足しているエッセンスを補い、エンジニアリングの質を引き上げることに特化しています。
+                また、Reminusはあらゆるエンジニアリング組織がぶつかる横断領域の課題に特化してサービスを提供しています。貴社に不足しているエッセンスを補い、エンジニアリングの質を引き上げることに特化しています。
               </p>
             </div>
             <div className="space-y-6 text-base md:text-lg text-neutral-300 leading-relaxed">
               <p>
                 どのようなフェーズの企業様でもお気軽にご相談ください。
-                創業期であれば、CTO代行などにより、貴社の経営戦略を踏まえた技術戦略の立案と推進など、経営レイヤから支援させていただきます。すでに優れた人材が揃っている企業様には、専門的な技術領域に特化したご支援を行い、さらなる飛躍の手伝いをさせていただきます。
+                創業期であれば、CTO代行による貴社の経営戦略を踏まえた技術戦略推進など、経営レイヤから支援させていただきます。すでに優れた人材が揃っている企業様には、専門的な技術領域に特化したご支援を行い、さらなる飛躍の手伝いをさせていただきます。
               </p>
             </div>
             <div className="flex justify-center">
@@ -96,13 +90,13 @@ export function Competence() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="group border-white/20 hover:border-white/40 transition-colors bg-white/10 hover:bg-white/20 mt-4"
+                className="group border-white/20 hover:border-white/40 transition-colors bg-white/10 hover:bg-white/20 mt-4 text-lg py-7 px-8"
               >
-                <a href="#contact" className="flex items-center gap-2">
-                  <span className="text-sm sm:text-base text-white">
+                <a href="#contact" className="flex items-center gap-3">
+                  <span className="text-white">
                     お問い合わせ
                   </span>
-                  <ArrowUpRight className="h-4 w-4 text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  <ArrowUpRight className="h-5 w-5 text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </a>
               </Button>
             </div>
