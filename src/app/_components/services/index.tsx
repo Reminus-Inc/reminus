@@ -1,3 +1,5 @@
+"use client";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Code,
@@ -218,8 +220,16 @@ const item = {
   show: { opacity: 1, y: 0 },
 } as const;
 
-export async function Services() {
-  // "use cache";
+export function Services() {
+  const handleServiceListClick = () => {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'service_list_click', {
+        'event_category': 'engagement',
+        'event_label': 'service_list'
+      });
+    }
+  };
+
   return (
     <div
       className="container px-4 md:px-6 relative py-24 md:py-36"
@@ -234,6 +244,7 @@ export async function Services() {
         whileInView="show"
         viewport={{ once: true }}
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
+        onClick={handleServiceListClick}
       >
         {services.map((service, i) => (
           <MotionDiv key={i} variants={item}>

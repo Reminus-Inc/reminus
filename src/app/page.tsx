@@ -18,11 +18,11 @@ export default function Home() {
       </section>
 
       <section className="relative">
-        <Competence />
-      </section>
-
-      <section className="relative">
         <CaseStudies />
+      </section>
+      
+      <section className="relative">
+        <Competence />
       </section>
       <section className="relative">
         <Management />

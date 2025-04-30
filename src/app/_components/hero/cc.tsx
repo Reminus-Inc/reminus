@@ -1,10 +1,10 @@
 "use client";
 
 import { motion, MotionProps } from "motion/react";
-import { useEffect, useState } from "react";
 interface MotionDivProps extends MotionProps {
   children?: React.ReactNode;
   className?: string;
+  onClick?: () => void;
 }
 
 export const MotionDiv: React.FC<MotionDivProps> = ({
@@ -23,38 +23,22 @@ export const MotionDiv: React.FC<MotionDivProps> = ({
 
 export const Subtitle = () => {
   const fullText = "洗練されたSaaSエンジニアリングを事業に実装する";
-  const [text1, setText1] = useState("");
-  const [text2, setText2] = useState("");
-
-  useEffect(() => {
-    const splitIndex = fullText.indexOf("を"); // 「を」で分割するインデックスを取得
-    const part1 = fullText.slice(0, splitIndex + 1); // 「を」を含めた前半部分
-    const part2 = fullText.slice(splitIndex + 1); // 「を」以降の後半部分
-
-    let currentIndex = 0;
-
-    const interval = setInterval(() => {
-      if (currentIndex <= fullText.length) {
-        if (currentIndex <= part1.length) {
-          setText1(part1.slice(0, currentIndex)); // text1 をアニメーション
-        } else {
-          setText2(part2.slice(0, currentIndex - part1.length)); // text2 をアニメーション
-        }
-        currentIndex++;
-      } else {
-        clearInterval(interval);
-      }
-    }, 100);
-
-    return () => clearInterval(interval);
-  }, []);
+  const splitIndex = fullText.indexOf("を");
+  const part1 = fullText.slice(0, splitIndex + 1);
+  const part2 = fullText.slice(splitIndex + 1);
 
   return (
     <>
       <p className="relative text-lg md:text-xl text-neutral-600 h-20 flex items-center justify-center leading-loose">
-        {text1}
-        <br className="md:hidden" />
-        {text2}
+        <motion.span
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+        >
+          {part1}
+          <br className="md:hidden" />
+          {part2}
+        </motion.span>
       </p>
     </>
   );
