@@ -34,11 +34,11 @@ const totalClients = serviceData.reduce((acc, curr) => acc + curr.count, 0);
 
 const caseStudies = [
   {
-    title: "創業期のコア機能リード〜調達後は社外CTOとして技術戦略牽引",
+    title: "社外CTOとして技術戦略リード・調達後の組織立ち上げ",
     industry: "FinTech",
     companySize: "シード",
     description: [
-      "創業期、複雑な財務計算モデルの初期実装とアドバイザリを担当。着実なMVP構築により、投資家からの信頼獲得に貢献。シードラウンドでの調達に成功。",
+      "創業期は複雑な財務計算モデルの初期実装とアーキテクチャを担当。着実なMVP構築により、投資家からの信頼獲得に貢献。シードラウンドでの調達に成功。",
       "調達後は社外CTOとして経営層で経営戦略に沿った技術戦略を担当。エンジニアリング施策の統括、採用設計と開発組織立ち上げを牽引。",
       "事例記載時点でエンジニア数を2名から6名まで拡大しており、プロダクトのスケールを加速中。",
     ],
@@ -60,7 +60,7 @@ const caseStudies = [
     ],
   },
   {
-    title: "業界特化型ナレッジベースSaaSの立ち上げを一手に担い推進",
+    title: "CS特化SaaSの立ち上げを事業構想から推進",
     industry: "事業会社",
     companySize: "新規サービス立ち上げ",
     description: [
@@ -71,7 +71,7 @@ const caseStudies = [
     services: ["技術顧問", "アーキテクト", "フロントエンド"],
   },
   {
-    title: "オブザーバビリティでパフォーマンス課題特定と障害対応安定化を実現",
+    title: "オブザーバビリティでパフォーマンス課題を特定",
     industry: "アパレル",
     companySize: "シリーズB",
     description: [
