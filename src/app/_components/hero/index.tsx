@@ -1,91 +1,62 @@
-"use client";
+"use client"
 
-import { Button } from "@/components/ui/button";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { MotionDiv, Subtitle } from "@/app/_components/hero/cc";
+import { ArrowRight, MapPin, Network, Zap, BarChart3, LineChart, CheckCircle } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 export function Hero() {
-
   return (
-    <div className="min-h-svh flex items-center justify-center relative overflow-hidden">
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-[#fafafa] to-white" />
-      </div>
-      <div className="container px-4 md:px-6 relative z-10">
-        <div className="flex flex-col items-center space-y-8 text-center">
-          <MotionDiv
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="relative">
-              <MotionDiv
-                className="absolute -inset-x-20 -inset-y-10 bg-gradient-to-r from-[#fafafa] via-white to-[#fafafa] opacity-50 blur-xl"
-                animate={{
-                  scale: [1, 1.05, 1],
-                  opacity: [0.5, 0.3, 0.5],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                }}
-              />
-              <div className="relative space-y-4">
-                <h1 className="relative text-5xl font-bold tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl/none text-black">
-                  Reminus
-                </h1>
-                <Subtitle />
+      <div className="relative bg-white py-12 md:py-16 overflow-hidden">
+        <div className="container mx-auto px-4">
+          <div className="relative">
+            {/* 背景の装飾要素 - デスクトップのみ表示 */}
+            <div className="absolute right-0 top-0 w-1/3 h-full hidden md:block">
+              <div className="absolute right-10 top-10 w-64 h-64 bg-gray-100 rounded-full opacity-50"></div>
+              <div className="absolute right-40 top-40 w-32 h-32 bg-gray-200 rounded-full opacity-30"></div>
+              <div className="absolute right-20 top-60 w-48 h-48 bg-gray-300 rounded-full opacity-20"></div>
+            </div>
+
+            <div className="relative z-10 max-w-3xl mx-auto md:mx-0">
+              <div className="space-y-6">
+                <h1 className="text-5xl md:text-6xl font-bold tracking-tight">Reminus</h1>
+                <p className="text-xl md:text-2xl text-gray-700">洗練されたSaaSエンジニアリングを事業に実装する</p>
+                <p className="text-gray-600">
+                  非エンジニア創業者の右腕──経営とエンジニアリングをつなぐ<br/>CTOパートナーがスタートアップの事業成長を加速します。
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button className="bg-black hover:bg-gray-800 text-white h-12 text-base"  asChild>
+                  <a 
+                    href="#contact" 
+                    className="flex items-center gap-3"
+                    onClick={() => {
+                      window.gtag?.('event', 'hero_contact_link_click', {
+                        'event_category': 'engagement',
+                        'event_label': 'hero_contact_link_click'
+                      });
+                    }}
+                  >
+                    お問い合わせ <ArrowRight />
+                    </a>
+                  </Button>
+                  <Button variant="outline" className="h-12 text-base sm:w-36" asChild>
+                  <a 
+                    href="#contact" 
+                    className="flex items-center gap-3"
+                    onClick={() => {
+                      window.gtag?.('event', 'hero_contact_link_click', {
+                        'event_category': 'engagement',
+                        'event_label': 'hero_contact_link_click'
+                      });
+                    }}
+                  >
+                    事例を見る
+                    </a>
+                  </Button>
+                </div>
               </div>
             </div>
-          </MotionDiv>
-          <MotionDiv
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="space-x-4"
-          >
-            <Button
-              asChild
-              size="lg"
-              className="group overflow-hidden bg-black hover:bg-neutral-800 transition-colors text-lg py-7 px-8"
-            >
-              <a 
-                href="#contact" 
-                className="flex items-center gap-3"
-                onClick={() => {
-                  window.gtag?.('event', 'hero_contact_link_click', {
-                    'event_category': 'engagement',
-                    'event_label': 'hero_contact_link_click'
-                  });
-                }}
-              >
-                <span>お問い合わせ</span>
-                <ArrowUpRight className="h-5 w-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </a>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="overflow-hidden group border-neutral-200 hover:border-neutral-300 hover:bg-neutral-50/50 transition-colors text-lg py-7 px-8"
-            >
-              <a 
-                href="#case-studies" 
-                className="flex items-center"
-                onClick={() => {
-                  window.gtag?.('event', 'hero_case_studies_link_click', {
-                    'event_category': 'engagement',
-                    'event_label': 'hero_case_studies_link_click'
-                  });
-                }}
-              >
-                <span>事例を見る</span>
-              </a>
-            </Button>
-          </MotionDiv>
+          </div>
         </div>
       </div>
-    </div>
-  );
+  )
 }
+

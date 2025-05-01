@@ -45,7 +45,7 @@ export function Management() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      OpenTelemetryって本当に必要？今エンジニアが知っておくべきオブザーバビリティとは
+                      OpenTelemetryって本当に必要？今知っておくべきオブザーバビリティとは
                     </Link>{" "}
                     登壇
                   </li>

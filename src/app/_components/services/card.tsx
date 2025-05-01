@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ArrowRight, Check, X } from 'lucide-react';
 import {
   Dialog,
   DialogClose,
@@ -7,30 +7,27 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { ArrowRight, Check, X, ChevronRight, ExternalLink, MoveRight, ArrowUpRight, ChevronsRight, Play, ChevronRightCircle } from "lucide-react";
 import { MotionDiv } from "../hero/cc";
 import { Service } from ".";
+import React from 'react';
 
 export function ServiceCard({ service }: { service: Service }) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Card className="h-full flex flex-col transition-all duration-300 cursor-pointer border hover:border-[#cccccc] relative overflow-hidden group card-clickable-effect bg-white">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          <CardHeader className="pb-2">
-            <div className="flex items-center justify-between">
-              <service.icon className="w-10 h-10 mb-2 text-primary transition-transform duration-300 group-hover:scale-110" />
-            </div>
-            <CardTitle className="text-xl">{service.title}</CardTitle>
-          </CardHeader>
-          <CardContent className="flex flex-col flex-grow pt-2">
-            <p className="text-gray-600 min-h-[72px] mb-4">{service.description}</p>
-            <div className="mt-auto flex items-center justify-end gap-1 text-primary font-medium group-hover:font-bold">
-              <span className="transition-all duration-300 group-hover:scale-105">詳しく見る</span>
-              <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </div>
-          </CardContent>
-        </Card>
+        <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow h-full cursor-pointer">
+          <div className="mb-4">
+            {React.createElement(service.icon, { className: "h-10 w-10 text-black" })}
+          </div>
+          <h3 className="text-xl font-bold mb-3">{service.title}</h3>
+          <p className="text-gray-600 mb-4">
+            {service.description}
+          </p>
+          <div className="flex items-center text-black font-medium group">
+            <span>詳しく見る</span>
+            <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+          </div>
+        </div>
       </DialogTrigger>
 
       <DialogContent className="max-w-[95vw] h-[95dvh] md:h-[90dvh] p-0 border-0" autoFocus={false} onOpenAutoFocus={(e) => e.preventDefault()}>
@@ -38,10 +35,10 @@ export function ServiceCard({ service }: { service: Service }) {
         <div className="min-h-[160px] bg-gradient-to-b from-neutral-800 to-black flex items-center">
           <div className="w-full max-w-6xl mx-auto px-8 py-6 sm:py-8 md:py-12">
             <div className="flex items-start gap-6">
-              <service.icon className="w-14 h-14 shrink-0 text-white" />
+              {React.createElement(service.icon, { className: "w-14 h-14 shrink-0 text-white" })}
               <div>
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 text-white">
-                  {service.titleDialog ? service.titleDialog :  service.title}
+                  {service.titleDialog ? service.titleDialog : service.title}
                 </h2>
                 <p className="text-base sm:text-lg md:text-xl text-neutral-200">{service.summary}</p>
               </div>

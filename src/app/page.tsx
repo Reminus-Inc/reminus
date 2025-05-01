@@ -13,7 +13,7 @@ export default function Home() {
       <section className="relative">
         <Hero />
       </section>
-      <section className="relative mx-auto">
+      <section className="relative">
         <Services />
       </section>
 
