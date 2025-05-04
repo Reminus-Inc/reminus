@@ -39,12 +39,12 @@ export function Hero() {
                   </Button>
                   <Button variant="outline" className="h-12 text-base sm:w-36" asChild>
                   <a 
-                    href="#contact" 
+                    href="#case-studies" 
                     className="flex items-center gap-3"
                     onClick={() => {
-                      window.gtag?.('event', 'hero_contact_link_click', {
+                      window.gtag?.('event', 'hero_case_studies_link_click', {
                         'event_category': 'engagement',
-                        'event_label': 'hero_contact_link_click'
+                        'event_label': 'hero_case_studies_link_click'
                       });
                     }}
                   >
