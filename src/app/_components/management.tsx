@@ -7,7 +7,7 @@ export function Management() {
     <section className="w-full py-24 md:py-36 bg-white">
       <div className="container px-4 md:px-6 lg:px-8 mx-auto">
         <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-center mb-20">
+          <h2 className="text-3xl font-bold tracking-tighter text-center mb-20">
               経営陣紹介
             </h2>       
         </div>
