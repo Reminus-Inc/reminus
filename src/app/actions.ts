@@ -192,7 +192,7 @@ export async function requestDocument(
     return {
       message: "資料を請求いただきありがとうございます。",
       status: "success",
-      downloadUrl: "/documents/cto-partnership-guide.pdf",
+      downloadUrl: "/documents/reminus_ctopartner_intro_v1.pdf",
     };
   } catch (error) {
     if (error instanceof z.ZodError) {
