@@ -1,22 +1,17 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
-  Code,
-  Users,
-  Layout,
-  Cpu,
   BarChart,
   CheckCircle,
   MapPin,
   Network,
   Zap,
-  DollarSign,
   TrendingUp,
-  Handshake,
+  ArrowRight,
 } from "lucide-react";
 import { MotionDiv } from "@/app/_components/hero/cc";
 import { ServiceCard } from "./card";
+import { Button } from "@/components/ui/button";
 import { ReactNode } from "react";
 
 export type Service = {
@@ -81,11 +76,7 @@ const services: Service[] = [
 
   {
     title: "フロントエンド",
-    titleDialog: (
-      <>
-        フロントエンド
-      </>
-    ),
+    titleDialog: <>フロントエンド</>,
     icon: Zap,
     summary:
       "売上や顧客満足度とコスト効率につながり、ブランド価値を高める最先端のUI/UX",
@@ -222,44 +213,61 @@ const item = {
 
 export function Services() {
   const handleServiceListClick = () => {
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'service_list_click', {
-        'event_category': 'engagement',
-        'event_label': 'service_list'
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "service_list_click", {
+        event_category: "engagement",
+        event_label: "service_list",
       });
     }
   };
 
   return (
-    <div
-      className="w-full py-12 bg-gray-50 flex justify-center"
-      id="services"
-    >
+    <div className="w-full py-12 bg-gray-50 flex justify-center" id="services">
       <div className="container px-4 md:px-6">
-      <h2 className="text-3xl font-bold tracking-tighter text-center mb-20">
-        提供サービス
-      </h2>
-      <MotionDiv
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
-        onClick={handleServiceListClick}
-      >
-        {services.map((service, i) => (
-          <MotionDiv key={i} variants={item}>
-            <MotionDiv
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              className="h-full"
-            >
-              <ServiceCard service={service} />
+        <h2 className="text-3xl font-bold tracking-tighter text-center mb-20">
+          提供サービス
+        </h2>
+        <MotionDiv
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
+          onClick={handleServiceListClick}
+        >
+          {services.map((service, i) => (
+            <MotionDiv key={i} variants={item}>
+              <MotionDiv
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                className="h-full"
+              >
+                <ServiceCard service={service} />
+              </MotionDiv>
             </MotionDiv>
-          </MotionDiv>
-        ))}
-      </MotionDiv>
+          ))}
+        </MotionDiv>
+
+        <div className="flex justify-center mt-8">
+          <Button
+            className="bg-black hover:bg-gray-800 text-white h-16 text-base px-8"
+            asChild
+          >
+            <a
+              href="#contact"
+              className="flex items-center gap-3"
+              onClick={() => {
+                window.gtag?.("event", "services_contact_link_click", {
+                  event_category: "engagement",
+                  event_label: "services_contact_link_click",
+                });
+              }}
+            >
+              お問い合わせ <ArrowRight />
+            </a>
+          </Button>
+        </div>
       </div>
     </div>
   );

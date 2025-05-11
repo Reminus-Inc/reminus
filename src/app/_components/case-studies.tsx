@@ -12,8 +12,9 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ChartContainer } from "@/components/ui/chart";
-import { Users } from "lucide-react";
+import { ArrowRight, Users } from "lucide-react";
 import { MotionDiv } from "./hero/cc";
+import { Button } from "@/components/ui/button";
 
 const serviceData = [
   {
@@ -207,6 +208,26 @@ export function CaseStudies() {
                 </Card>
               </motion.div>
             ))}
+          </div>
+          
+          <div className="flex justify-center mt-12">
+            <Button
+              className="bg-black hover:bg-gray-800 text-white h-16 text-base px-8"
+              asChild
+            >
+              <a
+                href="#contact"
+                className="flex items-center gap-3"
+                onClick={() => {
+                  window.gtag?.("event", "case_studies_contact_link_click", {
+                    event_category: "engagement",
+                    event_label: "case_studies_contact_link_click",
+                  });
+                }}
+              >
+                お問い合わせ <ArrowRight />
+              </a>
+            </Button>
           </div>
         </motion.div>
       </div>
