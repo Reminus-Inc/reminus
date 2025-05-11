@@ -6,33 +6,72 @@ import { z } from "zod";
 const prisma = new PrismaClient();
 
 const formSchema = z.object({
-  company: z.string().min(1, { message: "会社名を入力してください" }),
-  name: z.string().min(1, { message: "お名前またはSNSのIDを入力してください" }),
+  company: z
+    .string()
+    .min(1, { message: "会社名を入力してください" })
+    .max(100, { message: "会社名は100文字以内で入力してください" }),
+  name: z
+    .string()
+    .min(1, { message: "お名前またはSNSのIDを入力してください" })
+    .max(50, { message: "お名前は50文字以内で入力してください" }),
   email: z
     .string()
-    .email({ message: "有効なメールアドレスを入力してください" }),
-  content: z.string().min(1, { message: "お問い合わせ内容を入力してください" }),
+    .email({ message: "有効なメールアドレスを入力してください" })
+    .max(255, { message: "メールアドレスは255文字以内で入力してください" }),
+  content: z
+    .string()
+    .max(5000, { message: "お問い合わせ内容は5000文字以内で入力してください" })
+    .optional(),
 });
 
-export type ActionState = {
+const documentRequestSchema = z.object({
+  company: z
+    .string()
+    .min(1, { message: "会社名を入力してください" })
+    .max(100, { message: "会社名は100文字以内で入力してください" }),
+  name: z
+    .string()
+    .min(1, { message: "お名前を入力してください" })
+    .max(50, { message: "お名前は50文字以内で入力してください" }),
+  email: z
+    .string()
+    .email({ message: "有効なメールアドレスを入力してください" })
+    .max(255, { message: "メールアドレスは255文字以内で入力してください" }),
+  phone: z
+    .string()
+    .min(1, { message: "電話番号を入力してください" })
+    .max(20, { message: "電話番号は20文字以内で入力してください" })
+    .regex(/^[0-9\-]+$/, {
+      message: "電話番号は数字とハイフンのみ使用できます",
+    }),
+});
+
+export type InquiryActionState = {
   message: string;
   errors?: string[];
   status: "idle" | "success" | "error";
 };
 
+export type DocumentRequestActionState = {
+  message: string;
+  errors?: string[];
+  status: "idle" | "success" | "error";
+  downloadUrl?: string;
+};
+
 export async function submitInquiry(
-  _: ActionState,
+  _: InquiryActionState,
   formData: FormData,
-): Promise<ActionState> {
+): Promise<InquiryActionState> {
   try {
-    console.log("server!");
     const validatedFields = formSchema.parse(Object.fromEntries(formData));
 
     const inquiry = await prisma.inquiry.create({
-      data: validatedFields,
+      data: {
+        ...validatedFields,
+        content: validatedFields.content || "",
+      },
     });
-
-    console.log("inquiry successfully added", inquiry);
 
     // Slack通知を送信
     await fetch(process.env.SLACK_WEBHOOK_URL!, {
@@ -82,7 +121,80 @@ export async function submitInquiry(
       status: "success",
     };
   } catch (error) {
-    console.error("Error", error);
+    if (error instanceof z.ZodError) {
+      return {
+        message: "エラーが発生しました",
+        errors: error.errors.map((e) => e.message),
+        status: "error",
+      };
+    }
+    return {
+      message: "エラーが発生しました",
+      errors: ["予期せぬエラーが発生しました"],
+      status: "error",
+    };
+  }
+}
+
+export async function requestDocument(
+  _: DocumentRequestActionState,
+  formData: FormData,
+): Promise<DocumentRequestActionState> {
+  try {
+    const validatedFields = documentRequestSchema.parse(
+      Object.fromEntries(formData),
+    );
+
+    await prisma.documentRequest.create({
+      data: validatedFields,
+    });
+
+    if (process.env.SLACK_WEBHOOK_URL) {
+      await fetch(process.env.SLACK_WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          blocks: [
+            {
+              type: "header",
+              text: {
+                type: "plain_text",
+                text: "📄 資料請求がありました",
+                emoji: true,
+              },
+            },
+            {
+              type: "section",
+              fields: [
+                {
+                  type: "mrkdwn",
+                  text: `*会社名:*\n${validatedFields.company}`,
+                },
+                {
+                  type: "mrkdwn",
+                  text: `*お名前:*\n${validatedFields.name}`,
+                },
+                {
+                  type: "mrkdwn",
+                  text: `*メール:*\n${validatedFields.email}`,
+                },
+                {
+                  type: "mrkdwn",
+                  text: `*電話番号:*\n${validatedFields.phone}`,
+                },
+              ],
+            },
+          ],
+        }),
+      });
+    }
+
+    return {
+      message: "資料を請求いただきありがとうございます。",
+      status: "success",
+      downloadUrl: "/documents/cto-partnership-guide.pdf",
+    };
+  } catch (error) {
     if (error instanceof z.ZodError) {
       return {
         message: "エラーが発生しました",
