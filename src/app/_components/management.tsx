@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ExternalLink, Twitter } from "lucide-react"
+import { DownloadButton } from "./download-button"
 
 export function Management() {
   return (
@@ -117,6 +118,14 @@ export function Management() {
                     <Twitter className="w-4 h-4 mr-2" />X
                   </Link>
                 </div>
+              </div>
+            </div>
+          </div>
+          <div className="flex justify-center mt-16">
+            <div className="text-center">
+              <p className="text-gray-600 mb-6">CTOパートナーサービスの詳細資料をご用意しています</p>
+              <div className="flex justify-center">
+                <DownloadButton />
               </div>
             </div>
           </div>
