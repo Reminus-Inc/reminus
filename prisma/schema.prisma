@@ -16,3 +16,12 @@ model Inquiry {
   createdAt DateTime @default(now())
 }
 
+model DocumentRequest {
+  id        String   @id @default(cuid())
+  company   String
+  name      String
+  email     String
+  phone     String
+  createdAt DateTime @default(now())
+}
+
