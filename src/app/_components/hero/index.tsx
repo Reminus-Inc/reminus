@@ -1,7 +1,7 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { DownloadButton } from "@/app/_components/download-button";
+import { ContactButton } from "@/app/_components/contact-button";
 
 export function Hero() {
   return (
@@ -29,41 +29,8 @@ export function Hero() {
                 CTOパートナーがスタートアップの事業成長を加速します。
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  className="bg-black hover:bg-gray-800 text-white h-16 text-base sm:w-48"
-                  asChild
-                >
-                  <a
-                    href="#contact"
-                    className="flex items-center gap-3"
-                    onClick={() => {
-                      window.gtag?.("event", "hero_contact_link_click", {
-                        event_category: "engagement",
-                        event_label: "hero_contact_link_click",
-                      });
-                    }}
-                  >
-                    お問い合わせ <ArrowRight />
-                  </a>
-                </Button>
-                <Button
-                  variant="outline"
-                  className="h-16 text-base sm:w-48"
-                  asChild
-                >
-                  <a
-                    href="#case-studies"
-                    className="flex items-center gap-3"
-                    onClick={() => {
-                      window.gtag?.("event", "hero_case_studies_link_click", {
-                        event_category: "engagement",
-                        event_label: "hero_case_studies_link_click",
-                      });
-                    }}
-                  >
-                    事例を見る
-                  </a>
-                </Button>
+                <DownloadButton />
+                <ContactButton />
               </div>
             </div>
           </div>

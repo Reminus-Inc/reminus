@@ -7,11 +7,11 @@ import {
   Network,
   Zap,
   TrendingUp,
-  ArrowRight,
 } from "lucide-react";
 import { MotionDiv } from "@/app/_components/hero/cc";
 import { ServiceCard } from "./card";
-import { Button } from "@/components/ui/button";
+import { DownloadButton } from "@/app/_components/download-button";
+import { ContactButton } from "@/app/_components/contact-button";
 import { ReactNode } from "react";
 
 export type Service = {
@@ -249,24 +249,9 @@ export function Services() {
           ))}
         </MotionDiv>
 
-        <div className="flex justify-center mt-8">
-          <Button
-            className="bg-black hover:bg-gray-800 text-white h-16 text-base px-8"
-            asChild
-          >
-            <a
-              href="#contact"
-              className="flex items-center gap-3"
-              onClick={() => {
-                window.gtag?.("event", "services_contact_link_click", {
-                  event_category: "engagement",
-                  event_label: "services_contact_link_click",
-                });
-              }}
-            >
-              お問い合わせ <ArrowRight />
-            </a>
-          </Button>
+        <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+          <DownloadButton />
+          <ContactButton />
         </div>
       </div>
     </div>
