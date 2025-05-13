@@ -2,6 +2,8 @@
 
 import { PrismaClient } from "@prisma/client";
 import { z } from "zod";
+import fs from "fs";
+import path from "path";
 
 const prisma = new PrismaClient();
 
@@ -149,6 +151,24 @@ export async function requestDocument(
       data: validatedFields,
     });
 
+    // 最新の資料ファイルを取得
+    let latestFile = "";
+    try {
+      const documentsDir = path.join(process.cwd(), "public", "documents");
+      const files = fs.readdirSync(documentsDir)
+        .filter((file) => fs.statSync(path.join(documentsDir, file)).isFile());
+      if (files.length > 0) {
+        files.sort((a, b) => {
+          const aTime = fs.statSync(path.join(documentsDir, a)).mtime.getTime();
+          const bTime = fs.statSync(path.join(documentsDir, b)).mtime.getTime();
+          return bTime - aTime;
+        });
+        latestFile = files[0];
+      }
+    } catch (e) {
+      // エラー時は空文字のまま
+    }
+
     if (process.env.SLACK_WEBHOOK_URL) {
       await fetch(process.env.SLACK_WEBHOOK_URL, {
         method: "POST",
@@ -192,7 +212,7 @@ export async function requestDocument(
     return {
       message: "資料を請求いただきありがとうございます。",
       status: "success",
-      downloadUrl: "/documents/reminus_ctopartner_intro_v1.pdf",
+      downloadUrl: latestFile ? `/documents/${latestFile}` : undefined,
     };
   } catch (error) {
     if (error instanceof z.ZodError) {
