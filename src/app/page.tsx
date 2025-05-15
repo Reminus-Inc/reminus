@@ -5,7 +5,6 @@ import { CaseStudies } from "@/app/_components/case-studies";
 import React from "react";
 import { Contact } from "@/app/_components/contact";
 import { Management } from "./_components/management";
-import { CTOPartnerDetails } from "./_components/cto-partner-details";
 
 export default function Home() {
   // "use cache";
