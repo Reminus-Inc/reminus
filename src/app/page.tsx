@@ -15,9 +15,6 @@ export default function Home() {
         <Hero />
       </section>
       <section className="relative">
-        <CTOPartnerDetails />
-      </section>
-      <section className="relative">
         <Services />
       </section>
 
