@@ -5,6 +5,8 @@ import { CaseStudies } from "@/app/_components/case-studies";
 import React from "react";
 import { Contact } from "@/app/_components/contact";
 import { Management } from "./_components/management";
+import { CTOPartnerPlans } from "./_components/cto-partner-plans";
+import { CTOPartnerServiceRange } from "./_components/cto-partner-service-range";
 
 export default function Home() {
   // "use cache";
@@ -14,9 +16,14 @@ export default function Home() {
         <Hero />
       </section>
       <section className="relative">
+        <CTOPartnerPlans />
+      </section>
+      <section className="relative">
+        <CTOPartnerServiceRange />
+      </section>
+      <section className="relative">
         <Services />
       </section>
-
       <section className="relative">
         <CaseStudies />
       </section>
