@@ -18,15 +18,15 @@ export function Hero() {
           <div className="relative z-10 max-w-3xl mx-auto md:mx-0">
             <div className="space-y-6">
               <h1 className="text-5xl md:text-6xl font-bold tracking-tight">
-                Reminus
+                Reminus CTOパートナー
               </h1>
               <p className="text-xl md:text-2xl text-gray-700">
-                洗練されたSaaSエンジニアリングを事業に実装する
+                非エンジニア創業者向け｜SaaSスタートアップの技術・採用・組織を支援
               </p>
               <p className="text-gray-600">
-                非エンジニア創業者の右腕──経営とエンジニアリングをつなぐ
+                経営に技術を持ち込み、市場戦略とプロダクトにレバレッジを効かせます。
                 <br />
-                CTOパートナーがスタートアップの事業成長を加速します。
+                技術基盤を支え、採用と組織立ち上げにも伴走し、持続性ある組織の土台を作ります。
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <DownloadButton />
