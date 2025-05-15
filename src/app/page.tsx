@@ -5,6 +5,7 @@ import { CaseStudies } from "@/app/_components/case-studies";
 import React from "react";
 import { Contact } from "@/app/_components/contact";
 import { Management } from "./_components/management";
+import { CTOPartnerDetails } from "./_components/cto-partner-details";
 
 export default function Home() {
   // "use cache";
@@ -12,6 +13,9 @@ export default function Home() {
     <div className="flex flex-col min-h-svh">
       <section className="relative">
         <Hero />
+      </section>
+      <section className="relative">
+        <CTOPartnerDetails />
       </section>
       <section className="relative">
         <Services />

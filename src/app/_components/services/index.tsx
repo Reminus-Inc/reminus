@@ -225,7 +225,7 @@ export function Services() {
     <div className="w-full py-12 bg-gray-50 flex justify-center" id="services">
       <div className="container px-4 md:px-6">
         <h2 className="text-3xl font-bold tracking-tighter text-center mb-20">
-          提供サービス
+          その他の提供サービス
         </h2>
         <MotionDiv
           variants={container}

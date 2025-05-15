@@ -5,7 +5,7 @@ import { ContactButton } from "@/app/_components/contact-button";
 
 export function Hero() {
   return (
-    <div className="relative bg-white py-12 md:py-16 overflow-hidden">
+    <div className="relative bg-white py-16 md:py-24 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="relative">
           {/* 背景の装飾要素 - デスクトップのみ表示 */}
@@ -20,15 +20,16 @@ export function Hero() {
               <h1 className="text-5xl md:text-6xl font-bold tracking-tight">
                 Reminus CTOパートナー
               </h1>
-              <p className="text-xl md:text-2xl text-gray-700">
-                非エンジニア創業者向け｜SaaSスタートアップの技術・採用・組織を支援
+              <div className="bg-blue-600 h-1 w-24 my-6"></div>
+              <p className="text-3xl md:text-4xl font-semibold text-gray-800">
+                技術と経営をつなぎ、<br />
+                スタートアップの成長を加速する
               </p>
-              <p className="text-gray-600">
-                経営に技術を持ち込み、市場戦略とプロダクトにレバレッジを効かせます。
-                <br />
-                技術基盤を支え、採用と組織立ち上げにも伴走し、持続性ある組織の土台を作ります。
+              <p className="text-xl text-gray-600 max-w-2xl mt-4">
+                非エンジニア創業者向けCTOパートナーが、技術戦略の構築から
+                エンジニア採用・組織づくりまで一貫してサポートします。
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 mt-8">
                 <DownloadButton />
                 <ContactButton />
               </div>
