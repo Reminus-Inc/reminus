@@ -1,5 +1,7 @@
 "use client";
 
+import { CtoPartnerCta } from "../cto-partner-cta";
+import { EngineeringElements } from "../engineering-elements";
 import { CtoPartnerHero } from "./cto-partner-hero";
 
 export function CtoPartner() {
@@ -7,10 +9,11 @@ export function CtoPartner() {
     <div className="flex flex-col">
       <main className="">
         <CtoPartnerHero />
+        <EngineeringElements />
         {/*<ServicePlans />
         <PhaseSupport />
-        <EngagementStyle />
-        <CtoPartnerCta /> */}
+        <EngagementStyle />*/}
+        <CtoPartnerCta /> 
       </main>
     </div>
   );
