@@ -35,13 +35,13 @@ export function CtoPartnerHero() {
               <div className="border-2 border-gray-200 rounded-lg p-3 md:p-4">
                 <div className="grid grid-cols-3 gap-2 md:gap-3 min-h-20">
                   <div className="bg-gray-100 p-2 md:p-3 rounded-lg text-center flex items-center justify-center ">
-                    <p className="font-medium text-sm ">市場・<br className="xl:hidden" />製品戦略</p>
+                    <p className="font-medium text-sm xl:text-base">市場・<br className="xl:hidden" />製品戦略</p>
                   </div>
                   <div className="bg-gray-100 p-2 md:p-3 rounded-lg text-center flex items-center justify-center">
-                    <p className="font-medium text-xs ">ビジネス・<br className="hidden md:block" />オペレーション</p>
+                    <p className="font-medium text-xs lg:text-sm xl:text-base tracking-tighter">ビジネス・<br className="hidden md:block" />オペレーション</p>
                   </div>
                   <div className="bg-gray-100 p-2 md:p-3 rounded-lg text-center flex items-center justify-center">
-                    <p className="font-medium text-sm ">プロダクト<br className="xl:hidden" />開発</p>
+                    <p className="font-medium text-sm xl:text-base">プロダクト<br className="xl:hidden" />開発</p>
                   </div>
                 </div>
                 <div className="mt-2 md:mt-3 text-center">
