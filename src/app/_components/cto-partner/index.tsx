@@ -1,6 +1,5 @@
 "use client";
 
-import { CtoPartnerCta } from "../cto-partner-cta";
 import { EngineeringElements } from "../engineering-elements";
 import { ServicePlans } from "../service-plans";
 import { CtoPartnerHero } from "./cto-partner-hero";
@@ -14,7 +13,7 @@ export function CtoPartner() {
         <ServicePlans />
         {/* <PhaseSupport />
         <EngagementStyle />*/}
-        <CtoPartnerCta /> 
+        {/* <CtoPartnerCta /> */}
       </main>
     </div>
   );

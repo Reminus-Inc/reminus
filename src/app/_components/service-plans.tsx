@@ -3,6 +3,7 @@
 import { CheckCircle, ChevronRight } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { DownloadButton } from "./download-button";
 
 export function ServicePlans() {
   return (
@@ -116,6 +117,14 @@ export function ServicePlans() {
               </Button>
             </div>
           </Card>
+        </div>
+        <div className="flex justify-center mt-16">
+          <div className="text-center">
+            <p className="text-gray-600 mb-6">具体的な費用感を含む資料もどうぞ！</p>
+            <div className="flex justify-center">
+              <DownloadButton />
+            </div>
+          </div>
         </div>
       </div>
     </section>
