@@ -13,7 +13,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ChartContainer } from "@/components/ui/chart";
 import { Users } from "lucide-react";
-import { MotionDiv } from "./hero/cc";
+import { MotionDiv } from "./cto-partner/cc";
 import { DownloadButton } from "@/app/_components/download-button";
 import { ContactButton } from "@/app/_components/contact-button";
 

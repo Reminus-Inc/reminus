@@ -8,7 +8,7 @@ import {
   TrendingUp,
   Users,
 } from "lucide-react";
-import { MotionDiv } from "@/app/_components/hero/cc";
+import { MotionDiv } from "@/app/_components/cto-partner/cc";
 import { ServiceCard } from "./card";
 import { DownloadButton } from "@/app/_components/download-button";
 import { ContactButton } from "@/app/_components/contact-button";

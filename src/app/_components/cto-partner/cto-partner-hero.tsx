@@ -7,7 +7,7 @@ import { DownloadButton } from "../download-button";
 export function CtoPartnerHero() {
   return (
     <section id="value" className="bg-emerald-50 min-h-[calc(100svh-72px)] flex flex-col">
-      <div className="lg:container mx-auto px-4 flex flex-col md:flex-row md:flex-grow items-center justify-center gap-8 md:gap-12 py-12 md:py-16">
+      <div className="lg:container mx-auto px-4 flex flex-col md:flex-row md:flex-grow items-cente justify-center gap-8 md:gap-12 py-12 md:py-16">
         <div className="md:w-1/2 space-y-4 md:space-y-6">
           <div className="inline-block bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm font-medium mb-2 md:mb-4">
             Reminus CTOパートナー

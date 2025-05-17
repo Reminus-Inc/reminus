@@ -1,5 +1,5 @@
 import { Competence } from "@/app/_components/competence";
-import { CtoPartner, Hero } from "@/app/_components/hero";
+import { CtoPartner } from "@/app/_components/cto-partner";
 import { Services } from "./_components/services";
 import { CaseStudies } from "@/app/_components/case-studies";
 import React from "react";

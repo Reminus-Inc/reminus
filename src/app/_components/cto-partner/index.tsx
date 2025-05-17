@@ -12,8 +12,8 @@ export function CtoPartner() {
     <div className="flex flex-col">
       <main className="">
         <CtoPartnerHero />
-        {/* <EngineeringElements />
-        <ServicePlans />
+        <EngineeringElements />
+        {/*<ServicePlans />
         <PhaseSupport />
         <EngagementStyle />
         <CtoPartnerCta /> */}

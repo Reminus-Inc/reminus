@@ -7,7 +7,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { MotionDiv } from "../hero/cc";
+import { MotionDiv } from "../cto-partner/cc";
 import { Service } from ".";
 import React from 'react';
 
