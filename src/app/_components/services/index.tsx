@@ -3,10 +3,10 @@
 import {
   BarChart,
   CheckCircle,
-  MapPin,
   Network,
   Zap,
   TrendingUp,
+  Users,
 } from "lucide-react";
 import { MotionDiv } from "@/app/_components/hero/cc";
 import { ServiceCard } from "./card";
@@ -25,31 +25,7 @@ export type Service = {
 
 const services: Service[] = [
   {
-    title: "社外CTO",
-    icon: MapPin,
-    summary: "経営とエンジニアリングを結びつけ、持続的な事業成長を可能にする",
-    description:
-      "技術戦略の策定、開発ロードマップの作成、エンジニアリング施策の推進を通じて、経営者が抱える技術的課題を解決します。",
-    points: [
-      {
-        title: "技術戦略の策定",
-        description:
-          "採用技術をどこかで大きく見直さないといけないかもしれない、という不安はありませんか？事業戦略に基づいた技術戦略とその実現ロードマップを策定し、長期的な技術選定を支援します。",
-      },
-      {
-        title: "開発ロードマップの策定",
-        description:
-          "開発効率と実現性を両立するには、経営視点とエンジニアリング視点の高度な融合が必要です。事業計画とソフトウェア特性を踏まえ、開発順序とスケジュールを明確化します。",
-      },
-      {
-        title: "経営視点のリスク管理・エンジニアリング施策推進",
-        description:
-          "持続的な成長には、事業状況に応じたリスク検知や技術戦略と現状のギャップ把握、さらにそれを埋める施策の実行が重要です。技術戦略と現状を繋ぎ、施策の管理と推進を行います。",
-      },
-    ],
-  },
-  {
-    title: "アーキテクト",
+    title: "VPoT",
     icon: Network,
     summary:
       "短期的なロードマップ達成と将来のスケーラビリティを両立するアーキテクチャ設計",
@@ -73,7 +49,30 @@ const services: Service[] = [
       },
     ],
   },
-
+  {
+    title: "エンジニアリングマネージャ",
+    icon: Users,
+    summary: "組織をエンジニアリングに最適化し、なめらかなプロダクト開発を実現",
+    description:
+      "エンジニアリング組織のあり方に漠然とした不安はありませんか？貴社に最適なエンジニアリング文化を共に策定し、開発プロセスや採用戦略を通じて実現を支援します。",
+    points: [
+      {
+        title: "エンジニアリング文化の醸成",
+        description:
+          "プロダクトを成長させられるエンジニアリング組織には共通の特徴があります。貴社のフェーズやメンバの特性に応じてそうしたエッセンスを導入し、組織独自のエンジニアリング文化を形成します。",
+      },
+      {
+        title: "開発生産性の向上",
+        description:
+          "リソースを効果的に活用し出来高を最大化するには、技術とマネジメントの両方の視点が重要です。組織設計、開発プロセスの改善、コミュニケーション改善を通じて、開発生産性を最大化します。",
+      },
+      {
+        title: "エンジニア採用強化",
+        description:
+          "優れたエンジニアに訴求し、また自社へのマッチ度を測るには、同等に優れたエンジニアの感性が必要です。組織状況やフェーズに応じた採用戦略とプロセスを設計し、組織拡大を支援します。",
+      },
+    ],
+  },
   {
     title: "フロントエンド",
     titleDialog: <>フロントエンド</>,
@@ -164,12 +163,10 @@ const services: Service[] = [
     ],
   },
   {
-    title: "自動テストエンジニア",
+    title: "自動テスト",
     titleDialog: (
       <>
         自動テスト
-        <br className="sm:hidden" />
-        エンジニア
       </>
     ),
     icon: CheckCircle,
@@ -225,7 +222,7 @@ export function Services() {
     <div className="w-full py-12 bg-gray-50 flex justify-center" id="services">
       <div className="container px-4 md:px-6">
         <h2 className="text-3xl font-bold tracking-tighter text-center mb-20">
-          提供サービス
+          その他の提供サービス
         </h2>
         <MotionDiv
           variants={container}

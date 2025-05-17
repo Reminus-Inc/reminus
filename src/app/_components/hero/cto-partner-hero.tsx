@@ -1,0 +1,128 @@
+"use client";
+
+import { CheckCircle } from "lucide-react";
+import { ContactButton } from "../contact-button";
+import { DownloadButton } from "../download-button";
+
+export function CtoPartnerHero() {
+  return (
+    <section id="value" className="bg-emerald-50 min-h-[calc(100svh-72px)] flex flex-col">
+      <div className="lg:container mx-auto px-4 flex flex-col md:flex-row md:flex-grow items-center justify-center gap-8 md:gap-12 py-12 md:py-16">
+        <div className="md:w-1/2 space-y-4 md:space-y-6">
+          <div className="inline-block bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm font-medium mb-2 md:mb-4">
+            Reminus CTOパートナー
+          </div>
+          <div className="text-base md:text-lg font-semibold text-emerald-800 mb-2">非エンジニア創業者へ</div>
+
+          <h1 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold leading-tight text-gray-900 mb-4 md:mb-6">
+            Reminusが経営に技術を持ち込み、<br className="hidden lg:block" />市場戦略とプロダクトにレバレッジを効かせます。
+          </h1>
+          <p className="text-sm md:text-base xl:text-lg text-gray-600 leading-relaxed mb-6 md:mb-8 ">
+            市場やプロダクトに注力できるよう、<br/>Reminusが経営に技術を持ち込み、技術基盤を支えます。
+          </p>
+          <p className="text-sm md:text-base xl:text-lg text-gray-600 leading-relaxed mb-6 md:mb-8 ">
+            さらに、採用と組織立ち上げにも伴走し、<br/>エンジニアにアトラクトできる持続性ある組織の土台を作ります。
+          </p>
+          <div className="hidden md:flex flex-col sm:flex-row gap-4 pt-8">
+            <DownloadButton variant="primary" iconPosition="left">資料ダウンロード</DownloadButton>
+            <ContactButton aggressive />
+          </div>
+        </div>
+        <div className="mt-12 md:mt-0 w-full md:w-1/2 max-w-lg mx-auto md:max-w-none">
+          <div className="bg-white rounded-xl shadow-lg p-4 md:p-6">
+            <div className="flex flex-col space-y-4 md:space-y-6">
+              {/* 競争優位性のグループ */}
+              <div className="border-2 border-gray-200 rounded-lg p-3 md:p-4">
+                <div className="grid grid-cols-3 gap-2 md:gap-3 min-h-20">
+                  <div className="bg-gray-100 p-2 md:p-3 rounded-lg text-center flex items-center justify-center ">
+                    <p className="font-medium text-sm ">市場・<br className="xl:hidden" />製品戦略</p>
+                  </div>
+                  <div className="bg-gray-100 p-2 md:p-3 rounded-lg text-center flex items-center justify-center">
+                    <p className="font-medium text-xs ">ビジネス・<br className="hidden md:block" />オペレーション</p>
+                  </div>
+                  <div className="bg-gray-100 p-2 md:p-3 rounded-lg text-center flex items-center justify-center">
+                    <p className="font-medium text-sm ">プロダクト<br className="xl:hidden" />開発</p>
+                  </div>
+                </div>
+                <div className="mt-2 md:mt-3 text-center">
+                  <p className="font-medium text-gray-700 text-sm md:text-base">自社の競争優位性</p>
+                </div>
+              </div>
+
+              {/* 掛け算記号 */}
+              <div className="flex justify-center">
+                <div className="bg-emerald-100 rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center text-emerald-600 text-xl md:text-2xl font-bold shadow-sm">
+                  ×
+                </div>
+              </div>
+
+              {/* Reminusの提供価値 */}
+              <div className="border-2 border-emerald-200 rounded-lg p-3 md:p-4 bg-emerald-50">
+                <div className="grid grid-cols-3 gap-2 md:gap-3 min-h-20">
+                  <div className="bg-emerald-100 p-2 md:p-3 rounded-lg text-center flex items-center justify-center">
+                    <p className="font-medium text-emerald-700 text-sm ">技術戦略</p>
+                  </div>
+                  <div className="bg-emerald-100 p-2 md:p-3 rounded-lg text-center flex items-center justify-center">
+                    <p className="font-medium text-emerald-700 text-sm ">エンジニア<br className="xl:hidden" />採用</p>
+                  </div>
+                  <div className="bg-emerald-100 p-2 md:p-3 rounded-lg text-center flex items-center justify-center">
+                    <p className="font-medium text-emerald-700 text-sm ">開発組織</p>
+                  </div>
+                </div>
+                <div className="mt-2 md:mt-3 text-center">
+                  <p className="font-medium text-emerald-700 text-sm md:text-base">
+                    Reminus CTOパートナーの提供価値
+                  </p>
+                </div>
+              </div>
+
+              {/* イコール記号 */}
+              <div className="flex justify-center">
+                <div className="bg-emerald-100 rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center text-emerald-600 text-xl md:text-2xl font-bold shadow-sm">
+                  =
+                </div>
+              </div>
+
+              {/* 成功するスタートアップ */}
+              <div className="border-2 border-emerald-500 rounded-lg p-3 md:p-4 bg-emerald-50">
+                <div className="flex justify-center">
+                  <div className="bg-emerald-500 px-3 py-1 md:px-4 md:py-2 rounded-lg shadow-sm">
+                    <p className="font-medium text-white text-sm md:text-base h-12 flex items-center justify-center">
+                      持続的成長するSaaSスタートアップ
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="md:hidden bg-emerald-50 py-8">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <DownloadButton variant="primary" iconPosition="left">資料ダウンロード</DownloadButton>
+            <ContactButton aggressive />
+          </div>
+        </div>
+      </div>
+      <div className="bg-white py-12 relative">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row items-center justify-center">
+            <div className="flex items-center mb-4 md:mb-0 text-gray-700">
+              <CheckCircle className="h-5 w-5 text-emerald-600 mr-2 shrink-0" />
+              <span className="font-medium md:text-lg xl:text-xl">
+                <span className="text-emerald-700">Reminus</span> 支援実績 11社
+              </span>
+              <span className="mx-4 text-gray-300">|</span>
+              <span className="font-medium md:text-lg xl:text-xl">
+                <span className="text-emerald-700">Reminus CTOパートナー</span> 支援実績 4社
+              </span>
+            </div>
+            {/* ロゴエリアは将来的に追加する可能性がある */}
+          </div>
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-neutral-200 w-full"></div>
+      </div>
+    </section>
+  );
+}

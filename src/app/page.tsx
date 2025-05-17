@@ -1,5 +1,5 @@
 import { Competence } from "@/app/_components/competence";
-import { Hero } from "@/app/_components/hero";
+import { CtoPartner, Hero } from "@/app/_components/hero";
 import { Services } from "./_components/services";
 import { CaseStudies } from "@/app/_components/case-studies";
 import React from "react";
@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-svh">
       <section className="relative">
-        <Hero />
+        <CtoPartner />
       </section>
       <section className="relative">
         <Services />

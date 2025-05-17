@@ -15,7 +15,21 @@ import { CheckIcon, Download, X } from "lucide-react";
 import { requestDocument } from "@/app/actions";
 import { useEffect } from "react";
 
-export function DownloadButton() {
+export interface DownloadButtonProps {
+  className?: string;
+  variant?: "default" | "primary" | "outline" | "round";
+  size?: "default" | "small" | "large";
+  children?: React.ReactNode;
+  iconPosition?: "left" | "right";
+}
+
+export function DownloadButton({ 
+  className = "", 
+  variant = "default",
+  size = "default",
+  children,
+  iconPosition = "right"
+}: DownloadButtonProps) {
   const [state, formAction, pending] = useActionState(requestDocument, {
     status: "idle",
     message: "",
@@ -59,11 +73,50 @@ export function DownloadButton() {
     }
   }, [state]);
 
+  // Generate button classes based on variant and size
+  const getButtonClasses = () => {
+    let buttonClasses = "text-white ";
+    
+    // Variant styles
+    switch (variant) {
+      case "primary":
+        buttonClasses += "bg-emerald-600 hover:bg-emerald-700 ";
+        break;
+      case "outline":
+        buttonClasses += "bg-transparent border border-black text-black hover:bg-gray-100 ";
+        break;
+      case "round":
+        buttonClasses += "bg-black hover:bg-gray-800 rounded-full ";
+        break;
+      default:
+        buttonClasses += "bg-black hover:bg-gray-800 ";
+    }
+    
+    // Size styles
+    switch (size) {
+      case "small":
+        buttonClasses += "h-10 text-sm ";
+        break;
+      case "large":
+        buttonClasses += "h-16 text-base ";
+        break;
+      default:
+        buttonClasses += "h-16 text-base ";
+    }
+    
+    // Width for non-round variants
+    if (variant !== "round") {
+      buttonClasses += "sm:w-48 ";
+    }
+    
+    return buttonClasses + className;
+  };
+
   return (
     <Dialog>
       <DialogTrigger asChild>
         <Button
-          className="bg-black hover:bg-gray-800 text-white h-16 text-base sm:w-48"
+          className={getButtonClasses()}
           disabled={pending}
           onClick={() => {
             window.gtag?.("event", "download_link_click", {
@@ -73,8 +126,9 @@ export function DownloadButton() {
           }}
         >
           <span className="flex items-center gap-3">
-            {pending ? "送信中..." : "資料ダウンロード"}{" "}
-            {!pending && <Download className="h-4 w-4" />}
+            {iconPosition === "left" && !pending && <Download className="h-4 w-4" />}
+            {pending ? "送信中..." : children || "資料ダウンロード"}
+            {iconPosition === "right" && !pending && <Download className="h-4 w-4" />}
           </span>
         </Button>
       </DialogTrigger>
