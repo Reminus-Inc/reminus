@@ -3,6 +3,7 @@
 import { CheckCircle, ChevronRight } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { DownloadButton } from "./download-button";
 
 export function ServicePlans() {
   return (
@@ -17,7 +18,7 @@ export function ServicePlans() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-8 mb-16">
           <Card className="border-2 hover:border-emerald-300 transition-all flex flex-col">
             <CardHeader className="text-center border-b pb-6">
               <CardTitle className="text-2xl text-emerald-600">Starterプラン</CardTitle>
@@ -101,6 +102,20 @@ export function ServicePlans() {
               </div>
             </CardContent>
           </Card>
+        </div>
+        <div className="max-w-2xl mx-auto">
+          <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-100">
+            <div className="flex flex-col items-center text-center">
+              <p className="text-base text-gray-700 mb-6">
+                <span className="text-blue-600">📘</span> プランの詳細と費用感をまとめた資料をご用意しています。
+                <br />
+                より具体的な検討に向けて、ぜひご覧ください。
+              </p>
+              <DownloadButton variant="primary" iconPosition="left">
+                資料ダウンロード
+              </DownloadButton>
+            </div>
+          </div>
         </div>
       </div>
     </section>
