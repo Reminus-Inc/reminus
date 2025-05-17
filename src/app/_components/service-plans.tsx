@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 
 export function ServicePlans() {
   return (
-    <section id="plans" className="py-20 bg-gray-50">
+    <section id="plans" className="py-32 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -23,7 +23,7 @@ export function ServicePlans() {
               <CardTitle className="text-2xl text-emerald-600">Starterプラン</CardTitle>
               <CardDescription className="text-lg mt-2">技術と採用の定期的な相談</CardDescription>
             </CardHeader>
-            <CardContent className="pt-6 flex-grow">
+            <CardContent className="pt-6 flex-grow pb-20">
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
@@ -39,11 +39,6 @@ export function ServicePlans() {
                 </div>
               </div>
             </CardContent>
-            <div className="p-6 mt-auto">
-              <Button className="bg-emerald-600 hover:bg-emerald-700 w-full">
-                詳細を見る <ChevronRight className="ml-2 h-4 w-4" />
-              </Button>
-            </div>
           </Card>
 
           <Card className="border-2 border-emerald-600 shadow-lg relative hover:shadow-xl transition-all flex flex-col">
@@ -54,7 +49,7 @@ export function ServicePlans() {
               <CardTitle className="text-2xl text-emerald-600">Earlyプラン</CardTitle>
               <CardDescription className="text-lg mt-2">経営に技術を持ち込む</CardDescription>
             </CardHeader>
-            <CardContent className="pt-6 flex-grow">
+            <CardContent className="pt-6 flex-grow pb-20">
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
@@ -74,11 +69,6 @@ export function ServicePlans() {
                 </div>
               </div>
             </CardContent>
-            <div className="p-6 mt-auto">
-              <Button className="bg-emerald-600 hover:bg-emerald-700 w-full">
-                詳細を見る <ChevronRight className="ml-2 h-4 w-4" />
-              </Button>
-            </div>
           </Card>
 
           <Card className="border-2 hover:border-emerald-300 transition-all flex flex-col">
@@ -86,7 +76,7 @@ export function ServicePlans() {
               <CardTitle className="text-2xl text-emerald-600">Growthプラン</CardTitle>
               <CardDescription className="text-lg mt-2">戦略を執行に落とし込む</CardDescription>
             </CardHeader>
-            <CardContent className="pt-6 flex-grow">
+            <CardContent className="pt-6 flex-grow pb-20">
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
@@ -110,11 +100,6 @@ export function ServicePlans() {
                 </div>
               </div>
             </CardContent>
-            <div className="p-6 mt-auto">
-              <Button className="bg-emerald-600 hover:bg-emerald-700 w-full">
-                詳細を見る <ChevronRight className="ml-2 h-4 w-4" />
-              </Button>
-            </div>
           </Card>
         </div>
       </div>
