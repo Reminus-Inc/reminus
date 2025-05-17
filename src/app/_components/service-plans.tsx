@@ -13,11 +13,11 @@ export function ServicePlans() {
             成長フェーズに合わせた<span className="text-emerald-600">3つのプラン</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            技術・採用・組織の観点から、貴社の成長を伴走支援します。各フェーズに応じた最適な支援を通じて、成長の障壁を取り除きます。
+          技術・採用・組織の観点から、貴社の成長を伴走支援します。<br className="hidden md:block"  />課題に沿って必要な領域にフォーカスし、成長の障壁を取り除きます。
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-8">
           <Card className="border-2 hover:border-emerald-300 transition-all flex flex-col">
             <CardHeader className="text-center border-b pb-6">
               <CardTitle className="text-2xl text-emerald-600">Starterプラン</CardTitle>
