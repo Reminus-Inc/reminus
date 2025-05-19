@@ -13,7 +13,8 @@ export function CtoPartner() {
         <EngineeringElements />
         <ServicePlans />
         {/* <PhaseSupport />
-        <EngagementStyle />*/}
+        <EngagementStyle />*/} 
+        {/* <導入事例 />*/}
         <CtoPartnerCta /> 
       </main>
     </div>

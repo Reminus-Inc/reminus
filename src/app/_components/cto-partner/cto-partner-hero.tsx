@@ -18,29 +18,29 @@ export function CtoPartnerHero() {
             Reminusが経営に技術を持ち込み、<br className="hidden lg:block" />市場戦略とプロダクトにレバレッジを効かせます。
           </h1>
           <p className="text-sm md:text-base xl:text-lg text-gray-600 leading-relaxed mb-6 md:mb-8 ">
-            市場やプロダクトに注力できるよう、<br/>Reminusが経営に技術を持ち込み、技術基盤を支えます。
+            市場やプロダクトに注力できるよう、<br className="hidden lg:block"/>Reminusが経営に技術を持ち込み、技術基盤を支えます。
           </p>
           <p className="text-sm md:text-base xl:text-lg text-gray-600 leading-relaxed mb-6 md:mb-8 ">
-            さらに、採用と組織立ち上げにも伴走し、<br/>エンジニアにアトラクトできる持続性ある組織の土台を作ります。
+            さらに、採用と組織立ち上げにも伴走し、<br className="hidden lg:block"/>エンジニアに訴求できる持続性ある組織の土台を作ります。
           </p>
           <div className="hidden md:flex flex-col sm:flex-row gap-4 pt-8">
             <DownloadButton variant="primary" iconPosition="left">資料ダウンロード</DownloadButton>
             <ContactButton aggressive />
           </div>
         </div>
-        <div className="mt-12 md:mt-0 w-full md:w-1/2 max-w-lg mx-auto md:max-w-none">
+        <div className="mt-0 md:mt-0 w-full md:w-1/2 max-w-lg mx-auto md:max-w-none">
           <div className="bg-white rounded-xl shadow-lg p-4 md:p-6">
             <div className="flex flex-col space-y-4 md:space-y-6">
               {/* 競争優位性のグループ */}
               <div className="border-2 border-gray-200 rounded-lg p-3 md:p-4">
-                <div className="grid grid-cols-3 gap-2 md:gap-3 min-h-20">
-                  <div className="bg-gray-100 p-2 md:p-3 rounded-lg text-center flex items-center justify-center ">
+                <div className="grid grid-cols-3 gap-2 md:gap-3 min-h-12 md:min-h-20">
+                  <div className="bg-gray-100 p-1 md:p-3 rounded-lg text-center flex items-center justify-center ">
                     <p className="font-medium text-sm xl:text-base">市場・<br className="xl:hidden" />製品戦略</p>
                   </div>
-                  <div className="bg-gray-100 p-2 md:p-3 rounded-lg text-center flex items-center justify-center">
-                    <p className="font-medium text-xs lg:text-sm xl:text-base tracking-tighter">ビジネス・<br className="hidden md:block" />オペレーション</p>
+                  <div className="bg-gray-100 p-1 md:p-3 rounded-lg text-center flex items-center justify-center">
+                    <p className="font-medium text-xs lg:text-sm xl:text-base tracking-tighter">ビジネス・<br />オペレーション</p>
                   </div>
-                  <div className="bg-gray-100 p-2 md:p-3 rounded-lg text-center flex items-center justify-center">
+                  <div className="bg-gray-100 p-1 md:p-3 rounded-lg text-center flex items-center justify-center">
                     <p className="font-medium text-sm xl:text-base">プロダクト<br className="xl:hidden" />開発</p>
                   </div>
                 </div>
@@ -58,14 +58,14 @@ export function CtoPartnerHero() {
 
               {/* Reminusの提供価値 */}
               <div className="border-2 border-emerald-200 rounded-lg p-3 md:p-4 bg-emerald-50">
-                <div className="grid grid-cols-3 gap-2 md:gap-3 min-h-20">
-                  <div className="bg-emerald-100 p-2 md:p-3 rounded-lg text-center flex items-center justify-center">
+                <div className="grid grid-cols-3 gap-2 md:gap-3 min-h-12 md:min-h-20">
+                  <div className="bg-emerald-100 p-1 md:p-3 rounded-lg text-center flex items-center justify-center">
                     <p className="font-medium text-emerald-700 text-sm ">技術戦略</p>
                   </div>
-                  <div className="bg-emerald-100 p-2 md:p-3 rounded-lg text-center flex items-center justify-center">
+                  <div className="bg-emerald-100 p-1 md:p-3 rounded-lg text-center flex items-center justify-center">
                     <p className="font-medium text-emerald-700 text-sm ">エンジニア<br className="xl:hidden" />採用</p>
                   </div>
-                  <div className="bg-emerald-100 p-2 md:p-3 rounded-lg text-center flex items-center justify-center">
+                  <div className="bg-emerald-100 p-1 md:p-3 rounded-lg text-center flex items-center justify-center">
                     <p className="font-medium text-emerald-700 text-sm ">開発組織</p>
                   </div>
                 </div>
@@ -105,20 +105,17 @@ export function CtoPartnerHero() {
           </div>
         </div>
       </div>
-      <div className="bg-white py-12 relative">
+      <div className="bg-white relative">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-center">
-            <div className="flex items-center mb-4 md:mb-0 text-gray-700">
-              <CheckCircle className="h-5 w-5 text-emerald-600 mr-2 shrink-0" />
-              <span className="font-medium md:text-lg xl:text-xl">
-                <span className="text-emerald-700">Reminus</span> 支援実績 11社
+            <div className="flex justify-center items-center min-h-20 text-gray-700">
+              <CheckCircle className="h-5 w-5 text-emerald-600 mr-2 shrink-0 " />
+              <span className="font-medium text-sm md:text-lg xl:text-xl">
+                <span className="text-emerald-700">Reminus</span><br className="bllck md:hidden" />支援実績 11社
               </span>
               <span className="mx-4 text-gray-300">|</span>
-              <span className="font-medium md:text-lg xl:text-xl">
-                <span className="text-emerald-700">Reminus CTOパートナー</span> 支援実績 4社
+              <span className="font-medium text-sm md:text-lg xl:text-xl">
+                <span className="text-emerald-700">Reminus CTOパートナー</span><br className="bllck md:hidden"/>支援実績 4社
               </span>
-            </div>
-            {/* ロゴエリアは将来的に追加する可能性がある */}
           </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-px bg-neutral-200 w-full"></div>
