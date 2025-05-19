@@ -210,7 +210,7 @@ export async function requestDocument(
     }
 
     return {
-      message: "資料を請求いただきありがとうございます。",
+      message: "資料請求ありがとうございます。",
       status: "success",
       downloadUrl: latestFile ? `/documents/${latestFile}` : undefined,
     };

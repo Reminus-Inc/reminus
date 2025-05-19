@@ -17,7 +17,7 @@ export function EngineeringElements() {
 
         <div className="max-w-5xl mx-auto">
           {/* 技術戦略 */}
-          <div className="mb-8 bg-gradient-to-r from-emerald-50 to-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+          <div className="mb-8 bg-emerald-50 lg:bg-gradient-to-r lg:from-emerald-50 lg:to-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all">
             <div className="flex flex-col md:flex-row">
               <div className="md:w-1/3 p-8 flex flex-col items-center justify-center text-center">
                 <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mb-4">
@@ -40,7 +40,7 @@ export function EngineeringElements() {
           </div>
 
           {/* エンジニア採用 */}
-          <div className="mb-8 bg-gradient-to-r from-emerald-50 to-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+          <div className="mb-8 bg-emerald-50 lg:bg-gradient-to-r lg:from-emerald-50 lg:to-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all">
             <div className="flex flex-col md:flex-row">
               <div className="md:w-1/3 p-8 flex flex-col items-center justify-center text-center">
                 <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mb-4">
@@ -63,7 +63,7 @@ export function EngineeringElements() {
           </div>
 
           {/* 組織開発 */}
-          <div className="bg-gradient-to-r from-emerald-50 to-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+          <div className="mb-8 bg-emerald-50 md:bg-gradient-to-r md:from-emerald-50 md:to-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all">
             <div className="flex flex-col md:flex-row">
               <div className="md:w-1/3 p-8 flex flex-col items-center justify-center text-center">
                 <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mb-4">

@@ -11,7 +11,7 @@ export function ServicePlans() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            成長フェーズに合わせた<span className="text-emerald-600">3つのプラン</span>
+            成長フェーズに合わせた<span className="text-emerald-600"><br className="md:hidden" />3つのプラン</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
           技術・採用・組織の観点から、貴社の成長を伴走支援します。<br className="hidden md:block"  />課題に沿って必要な領域にフォーカスし、成長の障壁を取り除きます。
