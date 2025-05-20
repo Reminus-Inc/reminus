@@ -34,7 +34,7 @@ export default async function RootLayout({
               <Link href="#plans" className="text-gray-600 hover:text-gray-900">
                 プラン
               </Link>
-              <Link href="#workflow" className="text-gray-600 hover:text-gray-900">
+              <Link href="#phase" className="text-gray-600 hover:text-gray-900">
                 支援内容
               </Link>
               <Link href="#case-studies" className="text-gray-600 hover:text-gray-900">

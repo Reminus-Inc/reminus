@@ -2,6 +2,7 @@
 
 import { CtoPartnerCta } from "../cto-partner-cta";
 import { EngineeringElements } from "../engineering-elements";
+import { PhaseSupport } from "../phase-support";
 import { ServicePlans } from "../service-plans";
 import { CtoPartnerHero } from "./cto-partner-hero";
 
@@ -12,8 +13,8 @@ export function CtoPartner() {
         <CtoPartnerHero />
         <EngineeringElements />
         <ServicePlans />
-        {/* <PhaseSupport />
-        <EngagementStyle />*/} 
+        <PhaseSupport />
+        {/* <EngagementStyle />*/} 
         {/* <導入事例 />*/}
         <CtoPartnerCta /> 
       </main>
