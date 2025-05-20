@@ -14,13 +14,11 @@ export default function Home() {
         <CtoPartner />
       </section>
       <section className="relative">
-        <Services />
-      </section>
-
-      <section className="relative">
         <CaseStudies />
       </section>
-      
+      <section className="relative">
+        <Services />
+      </section>
       <section className="relative">
         <Competence />
       </section>

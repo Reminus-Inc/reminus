@@ -55,7 +55,7 @@ export function EngineeringElements() {
                 <p className="text-gray-600 text-lg">
                   <strong>「いい人がいない」は、採り方が設計されていないだけかもしれません。</strong>
                   <span className="block mt-2">
-                  スカウト文面や面接設計の定期相談から、採用戦略・採用プロセス設計、スカウト伴走や訴求支援、採用PDCA管理まで、段階的に支援します。
+                  スカウトや選考の定期相談から、採用戦略・プロセス設計、優先度判断、スカウト伴走や実行推進まで、組織コンディションに応じて支援します。
                   </span>
                 </p>
               </div>

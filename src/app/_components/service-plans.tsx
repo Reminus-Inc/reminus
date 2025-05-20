@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle, ChevronRight } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { DownloadButton } from "./download-button";
@@ -32,7 +32,7 @@ export function ServicePlans() {
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
-                  <p>スカウト文面や選考内容の定期相談</p>
+                  <p>スカウト文面やJD内容の定期相談</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
@@ -58,7 +58,7 @@ export function ServicePlans() {
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
-                  <p>採用戦略やプロセス、チャネル、JD設計</p>
+                  <p>採用戦略やプロセス設計、人材優先度判断</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
@@ -85,7 +85,7 @@ export function ServicePlans() {
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
-                  <p>採用活動の継続改善とPDCA管理</p>
+                  <p>採用活動推進、スカウト伴走や広報支援</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
@@ -93,7 +93,7 @@ export function ServicePlans() {
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
-                  <p>会議体の設計と必要に応じたファシリ</p>
+                  <p>会議体の設計とファシテーション</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />

@@ -37,6 +37,9 @@ export default async function RootLayout({
               <Link href="#workflow" className="text-gray-600 hover:text-gray-900">
                 支援内容
               </Link>
+              <Link href="#case-studies" className="text-gray-600 hover:text-gray-900">
+                実績と事例
+              </Link>
               <Link href="#services" className="text-gray-600 hover:text-gray-900">
                 その他サービス
               </Link>
