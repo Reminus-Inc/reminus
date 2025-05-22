@@ -151,23 +151,7 @@ export async function requestDocument(
       data: validatedFields,
     });
 
-    // 最新の資料ファイルを取得
-    let latestFile = "";
-    try {
-      const documentsDir = path.join(process.cwd(), "public", "documents");
-      const files = fs.readdirSync(documentsDir)
-        .filter((file) => fs.statSync(path.join(documentsDir, file)).isFile());
-      if (files.length > 0) {
-        files.sort((a, b) => {
-          const aTime = fs.statSync(path.join(documentsDir, a)).mtime.getTime();
-          const bTime = fs.statSync(path.join(documentsDir, b)).mtime.getTime();
-          return bTime - aTime;
-        });
-        latestFile = files[0];
-      }
-    } catch (e) {
-      // エラー時は空文字のまま
-    }
+    const latestFile = "reminus_ctopartner_intro_v1.0.1.pdf";
 
     if (process.env.SLACK_WEBHOOK_URL) {
       await fetch(process.env.SLACK_WEBHOOK_URL, {
