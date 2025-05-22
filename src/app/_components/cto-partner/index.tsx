@@ -1,6 +1,7 @@
 "use client";
 
 import { CtoPartnerCta } from "../cto-partner-cta";
+import { EngagementStyle } from "../engagement-style";
 import { EngineeringElements } from "../engineering-elements";
 import { PhaseSupport } from "../phase-support";
 import { ServicePlans } from "../service-plans";
@@ -14,7 +15,7 @@ export function CtoPartner() {
         <EngineeringElements />
         <ServicePlans />
         <PhaseSupport />
-        {/* <EngagementStyle />*/} 
+        <EngagementStyle /> 
         {/* <導入事例 />*/}
         <CtoPartnerCta /> 
       </main>
