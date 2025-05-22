@@ -6,7 +6,7 @@ import { DownloadButton } from "../download-button";
 
 export function CtoPartnerHero() {
   return (
-    <section id="value" className="bg-emerald-50 min-h-[calc(100svh-72px)] flex flex-col">
+    <section id="value" className="bg-emerald-50  flex flex-col">
       <div className="lg:container mx-auto px-4 flex flex-col md:flex-row md:flex-grow items-center justify-center gap-8 md:gap-12 py-12 md:py-16">
         <div className="md:w-1/2 space-y-4 md:space-y-6">
           <div className="inline-block bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm font-medium mb-2 md:mb-4">
@@ -18,10 +18,15 @@ export function CtoPartnerHero() {
             Reminusが経営に技術を持ち込み、<br className="hidden lg:block" />市場戦略とプロダクトにレバレッジを効かせます。
           </h1>
           <p className="text-sm md:text-base xl:text-lg text-gray-600 leading-relaxed mb-6 md:mb-8 ">
-            市場やプロダクトに注力できるよう、<br className="hidden lg:block"/>Reminusが経営に技術を持ち込み、技術基盤を支えます。
+          「ボードメンバーに技術がわかる人がいない…」<br className="hidden lg:block"/>その不安、Reminusが解消します。
           </p>
           <p className="text-sm md:text-base xl:text-lg text-gray-600 leading-relaxed mb-6 md:mb-8 ">
-            さらに、採用と組織立ち上げにも伴走し、<br className="hidden lg:block"/>エンジニアに訴求できる持続性ある組織の土台を作ります。
+          Reminusが技術視点を補うことで、経営判断に自信と速度、広がりを。<br className="hidden lg:block"/>市場・製品戦略に技術的洞察を提供し、新たな可能性をももたらします。
+          </p>
+          <p className="text-sm md:text-base xl:text-lg text-gray-600 leading-relaxed mb-6 md:mb-8 ">
+          さらに、SaaSの持続的成長の鍵であるプロダクト志向組織の確立。<br className="hidden lg:block"/>
+          Reminusは、採用戦略からスカウト伴走、組織づくりまで伴走します。
+        
           </p>
           <div className="hidden md:flex flex-col sm:flex-row gap-4 pt-8">
             <DownloadButton variant="primary" iconPosition="left">資料ダウンロード</DownloadButton>
@@ -30,7 +35,7 @@ export function CtoPartnerHero() {
         </div>
         <div className="mt-0 md:mt-0 w-full md:w-1/2 max-w-lg mx-auto md:max-w-none">
           <div className="bg-white rounded-xl shadow-lg p-4 md:p-6">
-            <div className="flex flex-col space-y-4 md:space-y-6">
+            <div className="flex flex-col space-y-2 md:space-y-4">
               {/* 競争優位性のグループ */}
               <div className="border-2 border-gray-200 rounded-lg p-3 md:p-4">
                 <div className="grid grid-cols-3 gap-2 md:gap-3 min-h-12 md:min-h-20">
