@@ -19,7 +19,7 @@ export function ServicePlans() {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8 mb-16">
-          <Card className="border-2 hover:border-emerald-300 transition-all flex flex-col">
+          <Card className="border-2 flex flex-col">
             <CardHeader className="text-center border-b pb-6">
               <CardTitle className="text-2xl text-emerald-600">Starterプラン</CardTitle>
               <CardDescription className="text-lg mt-2">技術と採用の定期的な相談</CardDescription>
@@ -42,7 +42,7 @@ export function ServicePlans() {
             </CardContent>
           </Card>
 
-          <Card className="border-2 border-emerald-600 shadow-lg relative hover:shadow-xl transition-all flex flex-col">
+          <Card className="border-2 border-emerald-600 shadow-lg relative flex flex-col">
             <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-emerald-600 text-white px-4 py-1 rounded-full text-sm font-medium">
               おすすめ
             </div>
@@ -72,7 +72,7 @@ export function ServicePlans() {
             </CardContent>
           </Card>
 
-          <Card className="border-2 hover:border-emerald-300 transition-all flex flex-col">
+          <Card className="border-2 flex flex-col">
             <CardHeader className="text-center border-b pb-6">
               <CardTitle className="text-2xl text-emerald-600">Growthプラン</CardTitle>
               <CardDescription className="text-lg mt-2">戦略を執行に落とし込む</CardDescription>
