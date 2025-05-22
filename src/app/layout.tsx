@@ -50,7 +50,7 @@ export default async function RootLayout({
         {children}
         <footer className="bg-background text-center py-8">
           <div className="container mx-auto px-4">
-            <p>&copy; 2025 Reminus. All rights reserved.</p>
+            <p>&copy; 2025 Reminus.（レミナス） All rights reserved.</p>
           </div>
         </footer>
         <Toaster />
