@@ -8,9 +8,9 @@ import { ContactButton } from "./_components/contact-button";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Reminus",
+  title: "株式会社Reminus（レミナス）｜非エンジニア創業者のためのCTOサービス",
   description:
-    "エンジニアリングの課題に直面していますか？Reminusは洗練されたエンジニアリングの洞察を事業と組織に実装し、企業のエンジニアリングのレベルを押し上げるサービスを提供しています。お気軽にご相談ください。",
+    "ビジネスのプロフェッショナルであられる創業者様、技術戦略や開発チームの構築でお困りではありませんか？株式会社Reminus（レミナス）は、まるでCTOのように事業成長を加速するCTOサービスで、あなたのビジネスを技術面から強力にサポートします。まずはお気軽にご相談ください。",
 };
 
 export default async function RootLayout({
