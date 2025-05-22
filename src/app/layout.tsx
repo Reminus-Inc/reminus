@@ -38,10 +38,13 @@ export default async function RootLayout({
                 支援内容
               </Link>
               <Link href="#case-studies" className="text-gray-600 hover:text-gray-900">
-                実績と事例
+                事例
               </Link>
               <Link href="#services" className="text-gray-600 hover:text-gray-900">
                 その他サービス
+              </Link>
+              <Link href="#management" className="text-gray-600 hover:text-gray-900">
+                経営陣紹介
               </Link>
             </nav>
             <ContactButton isHeader={true} />

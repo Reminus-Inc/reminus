@@ -106,10 +106,8 @@ export function ServicePlans() {
         <div className="max-w-2xl mx-auto">
           <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-100">
             <div className="flex flex-col items-center text-center">
-              <p className="text-base text-gray-700 mb-6">
-                <span className="text-blue-600">📘</span> プランの詳細と費用感をまとめた資料をご用意しています。
-                <br />
-                より具体的な検討に向けて、ぜひご覧ください。
+              <p className="text-base md:text-lg text-gray-700 mb-6">
+                <span className="text-blue-600">📝</span> どのプランが最適？ 詳細な料金と内容を資料でご確認いただけます。
               </p>
               <DownloadButton variant="primary" iconPosition="left">
                 資料ダウンロード
