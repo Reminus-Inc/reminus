@@ -65,13 +65,13 @@ export function CtoPartnerHero() {
               <div className="border-2 border-emerald-200 rounded-lg p-3 md:p-4 bg-emerald-50">
                 <div className="grid grid-cols-3 gap-2 md:gap-3 min-h-12 md:min-h-20">
                   <div className="bg-emerald-100 p-1 md:p-3 rounded-lg text-center flex items-center justify-center">
-                    <p className="font-medium text-emerald-700 text-sm ">技術戦略</p>
+                    <p className="font-medium text-emerald-700 text-sm xl:text-base">技術戦略</p>
                   </div>
                   <div className="bg-emerald-100 p-1 md:p-3 rounded-lg text-center flex items-center justify-center">
-                    <p className="font-medium text-emerald-700 text-sm ">エンジニア<br className="xl:hidden" />採用</p>
+                    <p className="font-medium text-emerald-700 text-sm xl:text-base">エンジニア<br className="xl:hidden" />採用</p>
                   </div>
                   <div className="bg-emerald-100 p-1 md:p-3 rounded-lg text-center flex items-center justify-center">
-                    <p className="font-medium text-emerald-700 text-sm ">開発組織</p>
+                    <p className="font-medium text-emerald-700 text-sm xl:text-base">開発組織</p>
                   </div>
                 </div>
                 <div className="mt-2 md:mt-3 text-center">
