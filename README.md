@@ -11,6 +11,6 @@ Landing page of Reminus, Inc.
 ## Getting Started
 
 * Prepare a MySQL database and a Slack App.
-* Create `.env` file and define `DATABASE_URL` and `SLACK_WEBHOOK_URL`
+* Create `.env` file and define `DATABASE_URL`, `SLACK_WEBHOOK_URL`, and `X_PIXEL_ID`
 * `pnpm install && pnpm dlx prisma generate && pnpm dlx prisma migrate deploy`
 * `pnpm dev` or `pnpm build && pnpm start`
