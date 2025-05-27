@@ -1,7 +1,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics } from "@next/third-parties/google";
+import Script from "next/script";
 import Link from "next/link";
 import { ContactButton } from "./_components/contact-button";
 
@@ -37,13 +38,22 @@ export default async function RootLayout({
               <Link href="#phase" className="text-gray-600 hover:text-gray-900">
                 支援内容
               </Link>
-              <Link href="#case-studies" className="text-gray-600 hover:text-gray-900">
+              <Link
+                href="#case-studies"
+                className="text-gray-600 hover:text-gray-900"
+              >
                 事例
               </Link>
-              <Link href="#services" className="text-gray-600 hover:text-gray-900">
+              <Link
+                href="#services"
+                className="text-gray-600 hover:text-gray-900"
+              >
                 その他サービス
               </Link>
-              <Link href="#management" className="text-gray-600 hover:text-gray-900">
+              <Link
+                href="#management"
+                className="text-gray-600 hover:text-gray-900"
+              >
                 経営陣紹介
               </Link>
             </nav>
@@ -58,7 +68,12 @@ export default async function RootLayout({
         </footer>
         <Toaster />
       </body>
-      { !!process.env.GA_ID && <GoogleAnalytics gaId={process.env.GA_ID} /> }
+      {!!process.env.GA_ID && <GoogleAnalytics gaId={process.env.GA_ID} />}
+      {!!process.env.X_PIXEL_ID && (
+        <Script id="x-pixel" strategy="afterInteractive">
+          {`!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');twq('config','${process.env.X_PIXEL_ID}');`}
+        </Script>
+      )}
     </html>
   );
 }
