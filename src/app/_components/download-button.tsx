@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label"
 import { CheckIcon, Download, X } from "lucide-react"
 import { requestDocument } from "@/app/actions"
 import { useEffect } from "react"
+import { trackCTAClick, trackFormStart, trackGenerateLead } from "@/lib/analytics"
 
 export interface DownloadButtonProps {
   className?: string
@@ -36,6 +37,7 @@ export function DownloadButton({
     name: "",
     company: "",
   })
+  const [hasStartedForm, setHasStartedForm] = useState(false)
 
   const formRef = useRef<HTMLFormElement>(null)
 
@@ -48,6 +50,7 @@ export function DownloadButton({
         name: "",
         company: "",
       })
+      setHasStartedForm(false)
     }
 
     if (state.status === "success" && state.downloadUrl) {
@@ -61,11 +64,8 @@ export function DownloadButton({
       link.click()
       document.body.removeChild(link)
 
-      // Google Analyticsイベント送信
-      window.gtag?.("event", "document_downloaded", {
-        event_category: "conversion",
-        event_label: "document_download_completed",
-      })
+      // Lead完了イベント送信
+      trackGenerateLead("download")
     }
   }, [state])
 
@@ -115,10 +115,7 @@ export function DownloadButton({
           className={getButtonClasses()}
           disabled={pending}
           onClick={() => {
-            window.gtag?.("event", "download_link_click", {
-              event_category: "engagement",
-              event_label: "download_link_click",
-            })
+            trackCTAClick("download")
           }}
         >
           <span className="flex items-center gap-3">
@@ -239,6 +236,12 @@ export function DownloadButton({
                           email: e.target.value,
                         }))
                       }
+                      onFocus={() => {
+                        if (!hasStartedForm) {
+                          trackFormStart("download")
+                          setHasStartedForm(true)
+                        }
+                      }}
                       className="border-[#e0e0e0] focus:border-neutral-700 focus:ring-neutral-700 h-10 sm:h-12 text-sm sm:text-base"
                     />
                     {state.errors?.find((error) => error.includes("メールアドレス")) && (

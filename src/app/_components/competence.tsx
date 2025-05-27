@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { Users, Lightbulb, ArrowUpRight } from "lucide-react";
+import { trackCTAClick } from "@/lib/analytics";
 
 export function Competence() {
   return (
@@ -92,7 +93,7 @@ export function Competence() {
                 variant="outline"
                 className="group border-white/20 hover:border-white/40 transition-colors bg-white/10 hover:bg-white/20 mt-4 text-lg py-7 px-8"
               >
-                <a href="#contact" className="flex items-center gap-3">
+                <a href="#contact" className="flex items-center gap-3" onClick={() => trackCTAClick("contact")}>
                   <span className="text-white">
                     お問い合わせ
                   </span>

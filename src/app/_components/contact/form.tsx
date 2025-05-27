@@ -1,12 +1,13 @@
 "use client";
 
 import { startTransition, useActionState, useRef, useState } from "react";
-import { submitInquiry, InquiryActionState } from "@/app/actions";
+import { submitInquiry } from "@/app/actions";
 import { useToast } from "@/hooks/use-toast";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useEffect } from "react";
+import { trackCTAClick, trackFormStart, trackGenerateLead, trackSpirPageView } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
@@ -17,6 +18,7 @@ export function ContactForm() {
     status: "idle",
     message: "",
   });
+  const [hasStartedForm, setHasStartedForm] = useState(false);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -26,6 +28,9 @@ export function ContactForm() {
         description: state.message,
       });
       ref.current?.reset();
+      setHasStartedForm(false);
+      // Lead完了イベント送信
+      trackGenerateLead("contact");
     } else if (state.status === "error") {
       toast({
         variant: "destructive",
@@ -45,11 +50,6 @@ export function ContactForm() {
           onSubmit={(e) => {
             e.preventDefault();
             const formData = new FormData(e.currentTarget);
-            // Google Analyticsイベント送信
-            window.gtag?.("event", "form_submit", {
-              event_category: "conversion",
-              event_label: "contact_form",
-            });
             startTransition(() => {
               formAction(formData);
             });
@@ -77,6 +77,12 @@ export function ContactForm() {
                   name="company"
                   placeholder="株式会社Reminus"
                   required
+                  onFocus={() => {
+                    if (!hasStartedForm) {
+                      trackFormStart("contact");
+                      setHasStartedForm(true);
+                    }
+                  }}
                   className="border-gray-200 focus:border-gray-400 transition-colors"
                 />
               </TabsContent>
@@ -174,6 +180,10 @@ export function ContactForm() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full"
+                onClick={() => {
+                  trackCTAClick("spir");
+                  trackSpirPageView();
+                }}
               >
                 <Button
                   type="button"
