@@ -2,15 +2,25 @@
 
 declare global {
   interface Window {
-    gtag?: (command: string, ...args: any[]) => void;
-    twq?: (command: string, event: string, parameters?: any) => void;
+    gtag?: (command: string, target?: string, config?: {
+      event_category?: string;
+      event_label?: string;
+      [key: string]: unknown;
+    }) => void;
+    twq?: (command: string, event: string, parameters?: {
+      content_name?: string;
+      event_name?: string;
+      [key: string]: unknown;
+    }) => void;
   }
 }
 
 interface EventParameters {
   cta_type?: "download" | "contact" | "spir";
   form_id?: "download" | "contact";
-  [key: string]: any;
+  event_category?: string;
+  event_label?: string;
+  [key: string]: unknown;
 }
 
 export const trackEvent = (

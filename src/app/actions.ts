@@ -2,8 +2,6 @@
 
 import { PrismaClient } from "@prisma/client";
 import { z } from "zod";
-import fs from "fs";
-import path from "path";
 
 const prisma = new PrismaClient();
 
@@ -68,7 +66,7 @@ export async function submitInquiry(
   try {
     const validatedFields = formSchema.parse(Object.fromEntries(formData));
 
-    const inquiry = await prisma.inquiry.create({
+    await prisma.inquiry.create({
       data: {
         ...validatedFields,
         content: validatedFields.content || "",

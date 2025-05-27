@@ -76,7 +76,7 @@ export function EngineeringElements() {
               </div>
               <div className="p-8 md:w-2/3 md:border-l border-emerald-100 bg-white flex items-center">
                 <p className="text-gray-600 text-lg">
-                  <strong>組織の設計と開発マネジメントが、"バットを振れる回数"を増やします。</strong>
+                  <strong>組織の設計と開発マネジメントが、&ldquo;バットを振れる回数&rdquo;を増やします。</strong>
                   <span className="block mt-2">
                     組織構造や職能の設計、開発プロセスやカルチャーの整備、マネジメント施策の運用や実行伴走まで、プランに応じて支援します。
                   </span>

@@ -1,8 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { ArrowRight, ArrowRightCircle } from "lucide-react";
-
 export function PhaseSupport() {
   return (
     

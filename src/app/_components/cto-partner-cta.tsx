@@ -1,8 +1,5 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
-import { DownloadButton } from "./download-button";
 import { ContactButton } from "./contact-button";
 
 export function CtoPartnerCta() {
