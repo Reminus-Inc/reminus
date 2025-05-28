@@ -16,8 +16,7 @@ declare global {
 }
 
 interface EventParameters {
-  cta_type?: "download" | "contact" | "spir";
-  form_id?: "download" | "contact";
+  interaction_type?: "download" | "contact" | "spir";
   event_category?: string;
   event_label?: string;
   [key: string]: unknown;
@@ -42,13 +41,13 @@ export const trackEvent = (
     switch (eventName) {
       case "cta_click":
         window.twq("track", "ClickButton", { 
-          content_name: parameters.cta_type,
+          content_name: parameters.interaction_type,
           ...parameters 
         });
         break;
       case "form_start":
         window.twq("track", "StartTrial", {
-          content_name: parameters.form_id,
+          content_name: parameters.interaction_type,
           ...parameters
         });
         break;
@@ -60,7 +59,7 @@ export const trackEvent = (
         break;
       case "generate_lead":
         window.twq("track", "Lead", {
-          content_name: parameters.form_id,
+          content_name: parameters.interaction_type,
           ...parameters
         });
         // X Pixel Event トラッキング (tw-pto6l-pto6l)
@@ -77,19 +76,19 @@ export const trackEvent = (
 };
 
 // Specific event tracking functions
-export const trackCTAClick = (ctaType: "download" | "contact" | "spir") => {
+export const trackCTAClick = (interactionType: "download" | "contact" | "spir") => {
   trackEvent("cta_click", {
-    cta_type: ctaType,
+    interaction_type: interactionType,
     event_category: "engagement",
-    event_label: `cta_click_${ctaType}`,
+    event_label: `cta_click_${interactionType}`,
   });
 };
 
-export const trackFormStart = (formId: "download" | "contact") => {
+export const trackFormStart = (interactionType: "download" | "contact") => {
   trackEvent("form_start", {
-    form_id: formId,
+    interaction_type: interactionType,
     event_category: "engagement",
-    event_label: `form_start_${formId}`,
+    event_label: `form_start_${interactionType}`,
   });
 };
 
@@ -100,10 +99,10 @@ export const trackSpirPageView = () => {
   });
 };
 
-export const trackGenerateLead = (formId: "download" | "contact") => {
+export const trackGenerateLead = (interactionType: "download" | "contact") => {
   trackEvent("generate_lead", {
-    form_id: formId,
+    interaction_type: interactionType,
     event_category: "conversion",
-    event_label: `lead_${formId}`,
+    event_label: `lead_${interactionType}`,
   });
 };
