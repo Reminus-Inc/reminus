@@ -141,8 +141,9 @@
                     <p className="text-[#666] text-sm">非エンジニア創業者向け CTOパートナー<br className="md:hidden" />サービス紹介資料を30秒で無料ダウンロード</p>
                   </div>
 
-                  <div className="space-y-4 sm:space-y-6 pt-2 sm:pt-4">
-                    <div className="flex items-start space-x-4">
+                  <div className="space-y-3 md:space-y-6 mt-4 md:mt-6">
+                    {/* Desktop version - show all 3 items */}
+                    <div className="hidden md:flex items-start space-x-4">
                       <div className="bg-neutral-100 p-3 rounded-full flex-shrink-0">
                         <svg className="h-5 w-5 text-neutral-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path
@@ -161,9 +162,9 @@
                       </div>
                     </div>
 
-                    <div className="flex items-start space-x-4">
-                      <div className="bg-neutral-100 p-3 rounded-full flex-shrink-0">
-                        <svg className="h-5 w-5 text-neutral-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div className="flex items-center space-x-3 md:items-start md:space-x-4">
+                      <div className="bg-emerald-100 md:bg-neutral-100 p-2 md:p-3 rounded-full flex-shrink-0">
+                        <svg className="h-4 md:h-5 w-4 md:w-5 text-emerald-700 md:text-neutral-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -172,17 +173,17 @@
                           />
                         </svg>
                       </div>
-                      <div>
-                        <h4 className="font-medium text-[#333]">プラン比較と料金体系</h4>
-                        <p className="text-sm text-[#666] mt-1">
+                      <div className="md:flex-1">
+                        <h4 className="font-medium text-[#333] text-sm md:text-base">プラン比較と料金体系</h4>
+                        <p className="hidden md:block text-sm text-[#666] mt-1">
                           各プランの具体的なサービス内容と料金体系をご確認いただけます
                         </p>
                       </div>
                     </div>
 
-                    <div className="flex items-start space-x-4">
-                      <div className="bg-neutral-100 p-3 rounded-full flex-shrink-0">
-                        <svg className="h-5 w-5 text-neutral-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div className="flex items-center space-x-3 md:items-start md:space-x-4">
+                      <div className="bg-emerald-100 md:bg-neutral-100 p-2 md:p-3 rounded-full flex-shrink-0">
+                        <svg className="h-4 md:h-5 w-4 md:w-5 text-emerald-700 md:text-neutral-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -191,9 +192,11 @@
                           />
                         </svg>
                       </div>
-                      <div>
-                        <h4 className="font-medium text-[#333]">成功事例の紹介</h4>
-                        <p className="text-sm text-[#666] mt-1">実際のクライアントの成功事例と具体的な成果をご紹介</p>
+                      <div className="md:flex-1">
+                        <h4 className="font-medium text-[#333] text-sm md:text-base">成功事例の紹介</h4>
+                        <p className="hidden md:block text-sm text-[#666] mt-1">
+                          実際のクライアントの成功事例と具体的な成果をご紹介
+                        </p>
                       </div>
                     </div>
                   </div>
