@@ -242,7 +242,7 @@ export function DownloadButton({
                           setHasStartedForm(true)
                         }
                       }}
-                      className="border-[#e0e0e0] focus:border-neutral-700 focus:ring-neutral-700 h-10 sm:h-12 text-sm sm:text-base"
+                      className="border-[#e0e0e0] focus:border-neutral-700 focus:ring-neutral-700 h-10 sm:h-12 text-base"
                     />
                     {state.errors?.find((error) => error.includes("メールアドレス")) && (
                       <p className="text-red-500 text-xs mt-1">
@@ -267,7 +267,7 @@ export function DownloadButton({
                           phone: e.target.value,
                         }))
                       }
-                      className="border-[#e0e0e0] focus:border-neutral-700 focus:ring-neutral-700 h-10 sm:h-12 text-sm sm:text-base"
+                      className="border-[#e0e0e0] focus:border-neutral-700 focus:ring-neutral-700 h-10 sm:h-12 text-base"
                     />
                     {state.errors?.find((error) => error.includes("電話番号")) && (
                       <p className="text-red-500 text-xs mt-1">
@@ -291,7 +291,7 @@ export function DownloadButton({
                           name: e.target.value,
                         }))
                       }
-                      className="border-[#e0e0e0] focus:border-neutral-700 focus:ring-neutral-700 h-10 sm:h-12 text-sm sm:text-base"
+                      className="border-[#e0e0e0] focus:border-neutral-700 focus:ring-neutral-700 h-10 sm:h-12 text-base"
                     />
                     {state.errors?.find((error) => error.includes("お名前")) && (
                       <p className="text-red-500 text-xs mt-1">
@@ -315,7 +315,7 @@ export function DownloadButton({
                           company: e.target.value,
                         }))
                       }
-                      className="border-[#e0e0e0] focus:border-neutral-700 focus:ring-neutral-700 h-10 sm:h-12 text-sm sm:text-base"
+                      className="border-[#e0e0e0] focus:border-neutral-700 focus:ring-neutral-700 h-10 sm:h-12 text-base"
                     />
                     {state.errors?.find((error) => error.includes("会社名")) && (
                       <p className="text-red-500 text-xs mt-1">
@@ -326,7 +326,7 @@ export function DownloadButton({
                   <div className="pt-4">
                     <Button
                       type="submit"
-                      className="w-full bg-black hover:bg-gray-800 text-white font-medium h-10 sm:h-12 text-sm sm:text-base"
+                      className="w-full bg-black hover:bg-gray-800 text-white font-medium h-10 sm:h-12 text-base"
                       disabled={pending}
                     >
                       {pending ? "送信中..." : "資料をダウンロード"}
