@@ -125,7 +125,7 @@
             </span>
           </Button>
         </DialogTrigger>
-        <DialogContent className="sm:max-w-[700px] p-0 border-0 shadow-xl max-w-[95vw] max-h-[80vh] overflow-y-auto">
+        <DialogContent className="sm:max-w-[700px] p-0 border-0 shadow-xl max-w-[95vw] max-h-[90vh] sm:max-h-[80vh] overflow-y-auto">
           <DialogTitle className="sr-only">資料ダウンロードフォーム</DialogTitle>
           <div className="relative bg-white rounded-lg overflow-visible">
             <DialogClose className="fixed right-4 top-4 z-50 rounded-sm opacity-70 bg-white/80 p-1 ring-offset-white transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2">
@@ -342,6 +342,8 @@
                       ご入力いただいた情報は、関連する情報提供のみに使用いたします。
                     </p>
                   </form>
+                  {/* Extra padding for mobile keyboard */}
+                  <div className="h-20 sm:h-0" />
                 </div>
               </div>
             ) : (
