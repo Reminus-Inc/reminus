@@ -64,15 +64,8 @@ export function DownloadButton({
     }
 
     if (state.status === "success" && state.downloadUrl) {
-      // PDF自動ダウンロード用のリンクを作成して自動クリック
-      const link = document.createElement("a");
-      link.href = state.downloadUrl;
-      // URLからファイル名を取得
-      const fileName = state.downloadUrl.split("/").pop();
-      link.download = fileName || "document.pdf";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      // 別タブでPDFを開く（元のページは維持）
+      window.open(state.downloadUrl, "_blank", "noopener,noreferrer");
 
       // Lead完了イベント送信
       trackGenerateLead("download");
@@ -443,15 +436,8 @@ export function DownloadButton({
                   className="mt-4 bg-emerald-600 hover:bg-emerald-700 text-white"
                   disabled={pending}
                   onClick={() => {
-                    const link = document.createElement("a");
-                    link.href = state.downloadUrl!;
-                    // URLからファイル名を取得
-                    const fileName = state.downloadUrl!.split("/").pop();
-                    link.download =
-                      fileName || "Reminus_CTOパートナー_紹介資料.pdf";
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
+                    // 別タブでPDFを開く（元のページは維持）
+                    window.open(state.downloadUrl!, "_blank", "noopener,noreferrer");
                   }}
                 >
                   <Download className="mr-2 h-4 w-4" />
