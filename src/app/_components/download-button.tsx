@@ -61,12 +61,7 @@ export function DownloadButton({
         company: "",
       });
       setHasStartedForm(false);
-    }
-
-    if (state.status === "success" && state.downloadUrl) {
-      // 別タブでPDFを開く（元のページは維持）
-      window.open(state.downloadUrl, "_blank", "noopener,noreferrer");
-
+      
       // Lead完了イベント送信
       trackGenerateLead("download");
     }
@@ -429,7 +424,7 @@ export function DownloadButton({
                     <br />
                   </>
                 )}
-                資料のダウンロードが開始されます。
+                資料ダウンロードの準備ができました。
               </p>
               {state.downloadUrl && (
                 <Button
@@ -441,7 +436,7 @@ export function DownloadButton({
                   }}
                 >
                   <Download className="mr-2 h-4 w-4" />
-                  資料を再ダウンロード
+                  資料を開く
                 </Button>
               )}
             </div>
