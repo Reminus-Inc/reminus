@@ -148,7 +148,7 @@ export function DownloadButton({
                     <span className="text-emerald-600 font-medium">
                       CTOパートナー
                     </span>
-                    <br className="md:hidden" />
+                    <br />
                     サービス紹介資料を30秒で無料ダウンロード
                   </p>
                 </div>
