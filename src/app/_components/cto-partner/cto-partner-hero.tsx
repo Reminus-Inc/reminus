@@ -3,11 +3,36 @@
 import { CheckCircle } from "lucide-react";
 import { ContactButton } from "../contact-button";
 import { DownloadButton } from "../download-button";
+import Image from "next/image";
+
+const clientLogos = [
+  { 
+    name: "DRESS CODE", 
+    logo: "/logos/dress_code.svg", 
+    url: "https://www.dress-code.com/",
+    height: 30,
+    spHeight: 20
+  },
+  { 
+    name: "Zaimo", 
+    logo: "/logos/zaimo.svg", 
+    url: "https://lp.zaimo.ai/",
+    height: 25,
+    spHeight: 18
+  },
+  { 
+    name: "SalesBrain", 
+    logo: "/logos/salesbrain.png_medium", 
+    url: "https://salesbrain.jp",
+    height: 34,
+    spHeight: 24
+  },
+];
 
 export function CtoPartnerHero() {
   return (
     <section id="value" className="bg-emerald-50  flex flex-col">
-      <div className="lg:container mx-auto px-4 flex flex-col md:flex-row md:flex-grow items-center justify-center gap-8 md:gap-12 py-12 md:py-16">
+      <div className="lg:container mx-auto px-4 flex flex-col md:flex-row md:flex-grow items-center justify-center gap-8 md:gap-12 py-6 md:py-8">
         <div className="md:w-1/2 space-y-4 md:space-y-6">
           <div className="inline-block bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm font-medium mb-2 md:mb-4">
             Reminus CTOパートナー
@@ -65,13 +90,13 @@ export function CtoPartnerHero() {
               <div className="border-2 border-emerald-200 rounded-lg p-3 md:p-4 bg-emerald-50">
                 <div className="grid grid-cols-3 gap-2 md:gap-3 min-h-12 md:min-h-20">
                   <div className="bg-emerald-100 p-1 md:p-3 rounded-lg text-center flex items-center justify-center">
-                    <p className="font-medium text-emerald-700 text-sm xl:text-base">技術戦略</p>
+                    <p className="font-bold text-emerald-700 text-sm xl:text-base">技術戦略</p>
                   </div>
                   <div className="bg-emerald-100 p-1 md:p-3 rounded-lg text-center flex items-center justify-center">
-                    <p className="font-medium text-emerald-700 text-sm xl:text-base">エンジニア<br className="xl:hidden" />採用</p>
+                    <p className="font-bold text-emerald-700 text-sm xl:text-base">エンジニア<br className="xl:hidden" />採用</p>
                   </div>
                   <div className="bg-emerald-100 p-1 md:p-3 rounded-lg text-center flex items-center justify-center">
-                    <p className="font-medium text-emerald-700 text-sm xl:text-base">開発組織</p>
+                    <p className="font-bold  text-emerald-700 text-sm xl:text-base">開発組織</p>
                   </div>
                 </div>
                 <div className="mt-2 md:mt-3 text-center">
@@ -111,8 +136,8 @@ export function CtoPartnerHero() {
         </div>
       </div>
       <div className="bg-white relative">
-        <div className="container mx-auto px-4">
-            <div className="flex justify-center items-center min-h-20 text-gray-700">
+        <div className="container mx-auto px-4 py-8 md:py-8">
+            <div className="flex justify-center items-center text-gray-700">
               <CheckCircle className="h-5 w-5 text-emerald-600 mr-2 shrink-0 " />
               <span className="font-medium text-sm md:text-lg xl:text-xl">
                 <span className="text-emerald-700">Reminus</span><br className="bllck md:hidden" />支援実績 11社
@@ -121,6 +146,50 @@ export function CtoPartnerHero() {
               <span className="font-medium text-sm md:text-lg xl:text-xl">
                 <span className="text-emerald-700">Reminus CTOパートナー</span><br className="bllck md:hidden"/>支援実績 4社
               </span>
+          </div>
+          
+          {/* ロゴセクション */}
+          <div className="pt-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 md:flex md:flex-wrap md:justify-center md:items-center gap-6 sm:gap-8 md:gap-12 lg:gap-16">
+              {clientLogos.map((client, index) => (
+                <a
+                  key={index}
+                  href={client.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity"
+                >
+                  <div className="block sm:hidden" style={{ height: client.spHeight }}>
+                    <Image
+                      src={client.logo}
+                      alt={`${client.name} logo`}
+                      height={client.spHeight}
+                      width={200}
+                      style={{ 
+                        height: '100%', 
+                        width: 'auto',
+                        maxWidth: 'none',
+                        objectFit: 'contain'
+                      }}
+                    />
+                  </div>
+                  <div className="hidden sm:block" style={{ height: client.height }}>
+                    <Image
+                      src={client.logo}
+                      alt={`${client.name} logo`}
+                      height={client.height}
+                      width={200}
+                      style={{ 
+                        height: '100%', 
+                        width: 'auto',
+                        maxWidth: 'none',
+                        objectFit: 'contain'
+                      }}
+                    />
+                  </div>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-px bg-neutral-200 w-full"></div>
