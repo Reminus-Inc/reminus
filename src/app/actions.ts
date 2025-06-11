@@ -149,7 +149,7 @@ export async function requestDocument(
       data: validatedFields,
     });
 
-    const latestFile = "reminus_ctopartner_intro_v1.0.1.pdf";
+    const latestFile = "reminus_ctopartner_intro_v1.0.2.pdf";
 
     if (process.env.SLACK_WEBHOOK_URL) {
       await fetch(process.env.SLACK_WEBHOOK_URL, {
