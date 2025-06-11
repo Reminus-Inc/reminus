@@ -11,21 +11,27 @@ const clientLogos = [
     logo: "/logos/dress_code.svg", 
     url: "https://www.dress-code.com/",
     height: 30,
-    spHeight: 20
+    spHeight: 21,
+    width: 245,
+    spWidth: 172
   },
   { 
     name: "Zaimo", 
     logo: "/logos/zaimo.svg", 
     url: "https://lp.zaimo.ai/",
     height: 25,
-    spHeight: 18
+    spHeight: 18,
+    width: 120,
+    spWidth: 85
   },
   { 
     name: "SalesBrain", 
     logo: "/logos/salesbrain.png", 
     url: "https://salesbrain.jp",
     height: 34,
-    spHeight: 24
+    spHeight: 24,
+    width: 201,
+    spWidth: 142
   },
 ];
 
@@ -159,30 +165,30 @@ export function CtoPartnerHero() {
                   rel="noopener noreferrer"
                   className="flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity"
                 >
-                  <div className="block sm:hidden" style={{ height: client.spHeight }}>
+                  <div className="block sm:hidden">
                     <Image
                       src={client.logo}
                       alt={`${client.name} logo`}
                       height={client.spHeight}
-                      width={200}
+                      width={client.spWidth}
+                      priority
                       style={{ 
-                        height: '100%', 
-                        width: 'auto',
-                        maxWidth: 'none',
+                        height: `${client.spHeight}px`,
+                        width: `${client.spWidth}px`,
                         objectFit: 'contain'
                       }}
                     />
                   </div>
-                  <div className="hidden sm:block" style={{ height: client.height }}>
+                  <div className="hidden sm:block">
                     <Image
                       src={client.logo}
                       alt={`${client.name} logo`}
                       height={client.height}
-                      width={200}
+                      width={client.width}
+                      priority
                       style={{ 
-                        height: '100%', 
-                        width: 'auto',
-                        maxWidth: 'none',
+                        height: `${client.height}px`,
+                        width: `${client.width}px`,
                         objectFit: 'contain'
                       }}
                     />
