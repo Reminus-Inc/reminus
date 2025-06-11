@@ -105,9 +105,12 @@ export function ServicePlans() {
         <div className="max-w-2xl mx-auto">
           <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-100">
             <div className="flex flex-col items-center text-center">
-              <p className="text-base md:text-lg text-gray-700 mb-6">
-                <span className="text-blue-600">📝</span> どのプランが最適？ 詳細な料金と内容を資料でご確認いただけます。
-              </p>
+              <div className="flex items-center justify-center gap-3 mb-6">
+                <CheckCircle className="h-5 w-5 text-emerald-600 shrink-0" />
+                <p className="text-base md:text-lg text-gray-700">
+                  料金と事例を資料でご用意しております。
+                </p>
+              </div>
               <DownloadButton variant="primary" iconPosition="left">
                 資料ダウンロード
               </DownloadButton>
