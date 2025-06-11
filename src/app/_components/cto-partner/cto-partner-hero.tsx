@@ -22,7 +22,7 @@ const clientLogos = [
   },
   { 
     name: "SalesBrain", 
-    logo: "/logos/salesbrain.png_medium", 
+    logo: "/logos/salesbrain.png", 
     url: "https://salesbrain.jp",
     height: 34,
     spHeight: 24
