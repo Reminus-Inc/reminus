@@ -440,7 +440,7 @@ export function DownloadButton({
                 </Button>
               )}
               {state.status === "success" && (
-                <div id="immedio-config" data-pageType='thanks' />
+                <div id="immedio-config" data-pagetype='thanks' />
               )}
             </div>
           )}
