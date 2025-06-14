@@ -15,8 +15,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Download, X } from "lucide-react";
 import { requestDocument } from "@/app/actions";
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
 import {
   trackCTAClick,
   trackFormStart,
@@ -37,7 +35,6 @@ export function DownloadButton({
   children,
   iconPosition = "right",
 }: DownloadButtonProps) {
-  const router = useRouter();
   const [state, formAction, pending] = useActionState(requestDocument, {
     status: "idle",
     message: "",
@@ -51,16 +48,6 @@ export function DownloadButton({
   const [hasStartedForm, setHasStartedForm] = useState(false);
 
   const formRef = useRef<HTMLFormElement>(null);
-
-  useEffect(() => {
-    // Redirect immediately on success without resetting form
-    if (state.status === "success" && state.redirect) {
-      const redirectUrl = state.downloadUrl 
-        ? `${state.redirect}?download=${encodeURIComponent(state.downloadUrl)}`
-        : state.redirect;
-      router.push(redirectUrl);
-    }
-  }, [state, router]);
 
   // Generate button classes based on variant and size
   const getButtonClasses = () => {
