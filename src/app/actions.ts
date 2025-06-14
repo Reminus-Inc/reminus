@@ -57,6 +57,7 @@ export type DocumentRequestActionState = {
   errors?: string[];
   status: "idle" | "success" | "error";
   downloadUrl?: string;
+  redirect?: string;
 };
 
 export async function submitInquiry(
@@ -195,6 +196,7 @@ export async function requestDocument(
       message: "資料請求ありがとうございます。",
       status: "success",
       downloadUrl: latestFile ? `/documents/${latestFile}` : undefined,
+      redirect: "/download-thanks",
     };
   } catch (error) {
     if (error instanceof z.ZodError) {

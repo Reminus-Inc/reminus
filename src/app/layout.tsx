@@ -6,6 +6,7 @@ import Script from "next/script";
 import { XPixelPageView } from "./_components/x-pixel-pageview";
 import Link from "next/link";
 import { ContactButton } from "./_components/contact-button";
+import { NavMenu } from "./_components/nav-menu";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,38 +27,13 @@ export default async function RootLayout({
         <header className="border-b h-18">
           <div className="container mx-auto px-4 py-4 flex justify-between items-center">
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-gray-900">Reminus</h1>
+              <Link href="/">
+                <h1 className="text-2xl font-bold text-gray-900 cursor-pointer hover:text-gray-700 transition-colors">
+                  Reminus
+                </h1>
+              </Link>
             </div>
-            <nav className="hidden md:flex space-x-8">
-              <Link href="#value" className="text-gray-600 hover:text-gray-900">
-                サービス
-              </Link>
-              <Link href="#plans" className="text-gray-600 hover:text-gray-900">
-                プラン
-              </Link>
-              <Link href="#phase" className="text-gray-600 hover:text-gray-900">
-                支援内容
-              </Link>
-              <Link
-                href="#case-studies"
-                className="text-gray-600 hover:text-gray-900"
-              >
-                事例
-              </Link>
-              <Link
-                href="#services"
-                className="text-gray-600 hover:text-gray-900"
-              >
-                その他サービス
-              </Link>
-              <Link
-                href="#management"
-                className="text-gray-600 hover:text-gray-900"
-              >
-                経営陣紹介
-              </Link>
-            </nav>
-            <ContactButton isHeader={true} />
+            <NavMenu />
           </div>
         </header>
         {children}

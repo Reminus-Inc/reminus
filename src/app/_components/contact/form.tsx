@@ -152,7 +152,7 @@ export function ContactForm() {
                 name="content"
                 placeholder="「〇〇に興味を持った」 「〇〇で見た」など、自由にご記入ください。"
                 required
-                className="min-h-[150px] border-gray-200 focus:border-gray-400 transition-colors resize-none"
+                className="min-h-[60px] border-gray-200 focus:border-gray-400 transition-colors resize-none"
               />
             </div>
           </div>
@@ -176,7 +176,7 @@ export function ContactForm() {
               </div>
 
               <a
-                href="https://app.spirinc.com/t/ehgkmSL6AUg30aq0DgLj8/as/bVHSfFLfKjuZwsK17EPxq/confirm"
+                href="https://meetings.immedio.io/date_select?uk=8ze2jVpsiNsxvR2jIEnM#calendar"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full"
@@ -204,15 +204,12 @@ export function ContactForm() {
                       d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                     />
                   </svg>
-                  Spirで直接日程調整する
+                  直接日程調整する
                 </Button>
               </a>
             </div>
           </div>
         </form>
-        {state.status === "success" && (
-          <div id="immedio-config" data-pageType='thanks' />
-        )}
       </CardContent>
     </Card>
   );

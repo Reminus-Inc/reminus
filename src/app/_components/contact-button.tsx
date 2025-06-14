@@ -3,6 +3,7 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackCTAClick } from "@/lib/analytics";
+import Link from "next/link";
 
 export interface ContactButtonProps {
   isHeader?: boolean;
@@ -31,8 +32,8 @@ export function ContactButton({
       className={buttonClasses}
       asChild
     >
-      <a
-        href="#contact"
+      <Link
+        href="/contact"
         className={`flex items-center gap-3`}
         onClick={() => {
           trackCTAClick("contact");
@@ -49,7 +50,7 @@ export function ContactButton({
         )}
         
         {iconPosition === "right" && <ArrowRight className={isHeader ? "h-4 w-4" : "h-5 w-5"} />}
-      </a>
+      </Link>
     </Button>
   );
 }

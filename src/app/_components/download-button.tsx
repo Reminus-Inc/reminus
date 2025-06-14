@@ -13,9 +13,10 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { CheckIcon, Download, X } from "lucide-react";
+import { Download, X } from "lucide-react";
 import { requestDocument } from "@/app/actions";
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import {
   trackCTAClick,
   trackFormStart,
@@ -37,6 +38,7 @@ export function DownloadButton({
   children,
   iconPosition = "right",
 }: DownloadButtonProps) {
+  const router = useRouter();
   const [state, formAction, pending] = useActionState(requestDocument, {
     status: "idle",
     message: "",
@@ -62,10 +64,15 @@ export function DownloadButton({
       });
       setHasStartedForm(false);
       
-      // Lead完了イベント送信
-      trackGenerateLead("download");
+      // Redirect to thanks page with download URL
+      if (state.redirect) {
+        const redirectUrl = state.downloadUrl 
+          ? `${state.redirect}?download=${encodeURIComponent(state.downloadUrl)}`
+          : state.redirect;
+        router.push(redirectUrl);
+      }
     }
-  }, [state]);
+  }, [state, router]);
 
   // Generate button classes based on variant and size
   const getButtonClasses = () => {
@@ -136,22 +143,21 @@ export function DownloadButton({
             <span className="sr-only">Close</span>
           </DialogClose>
 
-          {state.status !== "success" ? (
-            <div className="grid grid-cols-1 md:grid-cols-2">
-              <div className="bg-emerald-50 p-6 md:p-8 space-y-4 md:space-y-6">
-                <div>
-                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
-                    資料ダウンロード
-                  </h2>
-                  <p className="text-gray-700 text-sm">
-                    非エンジニア創業者向け{" "}
-                    <span className="text-emerald-600 font-medium">
-                      CTOパートナー
-                    </span>
-                    <br />
-                    サービス紹介資料を30秒で無料ダウンロード
-                  </p>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-2">
+            <div className="bg-emerald-50 p-6 md:p-8 space-y-4 md:space-y-6">
+              <div>
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
+                  資料ダウンロード
+                </h2>
+                <p className="text-gray-700 text-sm">
+                  非エンジニア創業者向け{" "}
+                  <span className="text-emerald-600 font-medium">
+                    CTOパートナー
+                  </span>
+                  <br />
+                  サービス紹介資料を30秒で無料ダウンロード
+                </p>
+              </div>
 
                 <div className="space-y-3 md:space-y-6 mt-4 md:mt-6">
                   {/* Desktop version - show all 3 items */}
@@ -235,9 +241,9 @@ export function DownloadButton({
                 </div>
               </div>
 
-              {/* 右側：フォーム */}
-              <div className="p-6 md:p-8">
-                <form
+            {/* 右側：フォーム */}
+            <div className="p-6 md:p-8">
+              <form
                   ref={formRef}
                   action={(formData) => {
                     // Save current form values
@@ -406,44 +412,11 @@ export function DownloadButton({
                   <p className="text-xs text-gray-600 text-left pt-2">
                     ご入力いただいた情報は、関連する情報提供のみに使用いたします。
                   </p>
-                </form>
-                {/* Extra padding for mobile keyboard */}
-                <div className="h-20 sm:h-0" />
-              </div>
+              </form>
+              {/* Extra padding for mobile keyboard */}
+              <div className="h-20 sm:h-0" />
             </div>
-          ) : (
-            <div className="py-12 md:py-16 px-6 md:px-8 flex flex-col items-center justify-center space-y-4">
-              <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center">
-                <CheckIcon className="w-8 h-8 text-emerald-600" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900">送信完了</h3>
-              <p className="text-center text-gray-600">
-                {state.message && (
-                  <>
-                    {state.message}
-                    <br />
-                  </>
-                )}
-                資料ダウンロードの準備ができました。
-              </p>
-              {state.downloadUrl && (
-                <Button
-                  className="mt-4 bg-emerald-600 hover:bg-emerald-700 text-white"
-                  disabled={pending}
-                  onClick={() => {
-                    // 別タブでPDFを開く（元のページは維持）
-                    window.open(state.downloadUrl!, "_blank", "noopener,noreferrer");
-                  }}
-                >
-                  <Download className="mr-2 h-4 w-4" />
-                  資料を開く
-                </Button>
-              )}
-              {state.status === "success" && (
-                <div id="immedio-config" data-pagetype='thanks' />
-              )}
-            </div>
-          )}
+          </div>
         </div>
       </DialogContent>
     </Dialog>

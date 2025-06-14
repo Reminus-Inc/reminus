@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { Users, Lightbulb, ArrowUpRight } from "lucide-react";
 import { trackCTAClick } from "@/lib/analytics";
+import Link from "next/link";
 
 export function Competence() {
   return (
@@ -93,12 +94,12 @@ export function Competence() {
                 variant="outline"
                 className="group border-white/20 hover:border-white/40 transition-colors bg-white/10 hover:bg-white/20 mt-4 text-lg py-7 px-8"
               >
-                <a href="#contact" className="flex items-center gap-3" onClick={() => trackCTAClick("contact")}>
+                <Link href="/contact" className="flex items-center gap-3" onClick={() => trackCTAClick("contact")}>
                   <span className="text-white">
                     お問い合わせ
                   </span>
                   <ArrowUpRight className="h-5 w-5 text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </a>
+                </Link>
               </Button>
             </div>
           </motion.div>
