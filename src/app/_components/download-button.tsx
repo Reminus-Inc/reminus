@@ -20,7 +20,6 @@ import { useRouter } from "next/navigation";
 import {
   trackCTAClick,
   trackFormStart,
-  trackGenerateLead,
 } from "@/lib/analytics";
 
 export interface DownloadButtonProps {

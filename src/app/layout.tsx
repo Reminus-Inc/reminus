@@ -5,7 +5,6 @@ import { GoogleTagManager } from "@next/third-parties/google";
 import Script from "next/script";
 import { XPixelPageView } from "./_components/x-pixel-pageview";
 import Link from "next/link";
-import { ContactButton } from "./_components/contact-button";
 import { NavMenu } from "./_components/nav-menu";
 
 const inter = Inter({ subsets: ["latin"] });
