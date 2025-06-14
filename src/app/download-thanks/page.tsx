@@ -2,14 +2,12 @@
 
 import { Button } from "@/components/ui/button";
 import { CheckIcon, Download } from "lucide-react";
-import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import { trackGenerateLead } from "@/lib/analytics";
 
 export default function DownloadThanksPage() {
-  const searchParams = useSearchParams();
-  const downloadUrl = searchParams.get("download") || "/documents/reminus_ctopartner_intro_v1.0.2.pdf";
-  
+  const downloadUrl = "/documents/reminus_ctopartner_intro_v1.0.2.pdf";
+
   useEffect(() => {
     // ページロード時にLead完了イベントを送信
     trackGenerateLead("download");
@@ -27,13 +25,11 @@ export default function DownloadThanksPage() {
             <CheckIcon className="w-8 h-8 text-emerald-600" />
           </div>
           <h1 className="text-2xl font-bold text-gray-900 mb-4">送信完了</h1>
-          <p className="text-gray-600 mb-2">
-            資料請求ありがとうございます。
-          </p>
+          <p className="text-gray-600 mb-2">資料請求ありがとうございます。</p>
           <p className="text-gray-600 mb-6">
             資料ダウンロードの準備ができました。
           </p>
-          
+
           <Button
             className="w-full bg-emerald-600 hover:bg-emerald-700 text-white"
             onClick={handleDownload}
@@ -41,8 +37,8 @@ export default function DownloadThanksPage() {
             <Download className="mr-2 h-4 w-4" />
             資料を開く
           </Button>
-          
-          <div id="immedio-config" data-pagetype='thanks' />
+
+          <div id="immedio-config" data-pagetype="thanks" />
         </div>
       </div>
     </div>
