@@ -2,6 +2,7 @@
 
 import { PrismaClient } from "@prisma/client";
 import { z } from "zod";
+import { redirect } from "next/navigation";
 
 const prisma = new PrismaClient();
 
@@ -150,54 +151,6 @@ export async function requestDocument(
       data: validatedFields,
     });
 
-    const latestFile = "reminus_ctopartner_intro_v1.0.2.pdf";
-
-    if (process.env.SLACK_WEBHOOK_URL) {
-      await fetch(process.env.SLACK_WEBHOOK_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          blocks: [
-            {
-              type: "header",
-              text: {
-                type: "plain_text",
-                text: "📄 資料請求がありました",
-                emoji: true,
-              },
-            },
-            {
-              type: "section",
-              fields: [
-                {
-                  type: "mrkdwn",
-                  text: `*会社名:*\n${validatedFields.company}`,
-                },
-                {
-                  type: "mrkdwn",
-                  text: `*お名前:*\n${validatedFields.name}`,
-                },
-                {
-                  type: "mrkdwn",
-                  text: `*メール:*\n${validatedFields.email}`,
-                },
-                {
-                  type: "mrkdwn",
-                  text: `*電話番号:*\n${validatedFields.phone}`,
-                },
-              ],
-            },
-          ],
-        }),
-      });
-    }
-
-    return {
-      message: "資料請求ありがとうございます。",
-      status: "success",
-      downloadUrl: latestFile ? `/documents/${latestFile}` : undefined,
-      redirect: "/download-thanks",
-    };
   } catch (error) {
     if (error instanceof z.ZodError) {
       return {
@@ -212,4 +165,6 @@ export async function requestDocument(
       status: "error",
     };
   }
+  redirect(`/download-thanks`);
+
 }
