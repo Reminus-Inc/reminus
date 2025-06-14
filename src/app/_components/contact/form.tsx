@@ -210,6 +210,9 @@ export function ContactForm() {
             </div>
           </div>
         </form>
+        {state.status === "success" && (
+          <div id="immedio-config" data-pageType='thanks' />
+        )}
       </CardContent>
     </Card>
   );

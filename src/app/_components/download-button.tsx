@@ -439,6 +439,9 @@ export function DownloadButton({
                   資料を開く
                 </Button>
               )}
+              {state.status === "success" && (
+                <div id="immedio-config" data-pageType='thanks' />
+              )}
             </div>
           )}
         </div>
