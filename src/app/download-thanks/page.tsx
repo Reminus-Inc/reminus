@@ -2,29 +2,15 @@
 
 import { Button } from "@/components/ui/button";
 import { CheckIcon, Download } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { trackGenerateLead } from "@/lib/analytics";
 
 export default function DownloadThanksPage() {
   const downloadUrl = "/documents/reminus_ctopartner_intro_v1.0.2.pdf";
-  const hasDownloaded = useRef(false);
 
   useEffect(() => {
     // ページロード時にLead完了イベントを送信
     trackGenerateLead("download");
-
-    // 既にダウンロード済みの場合はスキップ
-    if (hasDownloaded.current) return;
-    hasDownloaded.current = true;
-
-    // 自動的にダウンロードを開始（現在のページは維持）
-    const link = document.createElement("a");
-    link.href = downloadUrl;
-    link.download = "reminus_ctopartner_intro.pdf";
-    link.style.display = "none";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
   }, []);
 
   const handleDownload = () => {
@@ -41,8 +27,7 @@ export default function DownloadThanksPage() {
           <h1 className="text-2xl font-bold text-gray-900 mb-4">送信完了</h1>
           <p className="text-gray-600 mb-2">資料請求ありがとうございます。</p>
           <p className="text-gray-600 mb-6">
-            資料ダウンロードを開始します。
-            開始されない場合はボタンから開いてください。
+            資料ダウンロードの準備ができました。
           </p>
 
           <Button
