@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 import Script from "next/script";
 import { XPixelPageView } from "./_components/x-pixel-pageview";
 import Link from "next/link";
@@ -20,7 +20,6 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // "use cache";
   return (
     <html lang="ja" className="scroll-smooth">
       <body className={inter.className}>
@@ -70,7 +69,7 @@ export default async function RootLayout({
         <Toaster />
         {/* XPixelPageView はベタ打ちPixel IDでも動作するように更新 */}
         <XPixelPageView />
-        {!!process.env.GA_ID && <GoogleAnalytics gaId={process.env.GA_ID} />}
+        {!!process.env.GTM_ID && <GoogleTagManager gtmId={process.env.GTM_ID} />}
         {/* Twitter/X Pixel - 初期化してから読み込み */}
         <Script
           id="x-pixel-init"
