@@ -53,23 +53,12 @@ export function DownloadButton({
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
-    // Reset form values on success
-    if (state.status === "success") {
-      setFormValues({
-        email: "",
-        phone: "",
-        name: "",
-        company: "",
-      });
-      setHasStartedForm(false);
-      
-      // Redirect to thanks page with download URL
-      if (state.redirect) {
-        const redirectUrl = state.downloadUrl 
-          ? `${state.redirect}?download=${encodeURIComponent(state.downloadUrl)}`
-          : state.redirect;
-        router.push(redirectUrl);
-      }
+    // Redirect immediately on success without resetting form
+    if (state.status === "success" && state.redirect) {
+      const redirectUrl = state.downloadUrl 
+        ? `${state.redirect}?download=${encodeURIComponent(state.downloadUrl)}`
+        : state.redirect;
+      router.push(redirectUrl);
     }
   }, [state, router]);
 
