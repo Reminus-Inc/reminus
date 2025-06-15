@@ -196,7 +196,7 @@ export async function requestDocument(
       message: "資料請求ありがとうございます。",
       status: "success",
       downloadUrl: latestFile ? `/documents/${latestFile}` : undefined,
-      redirect: "/download-thanks",
+      redirect: `/download-thanks?${params.toString()}`,
     };
   } catch (error) {
     if (error instanceof z.ZodError) {
