@@ -36,9 +36,9 @@ export default async function RootLayout({
           </div>
         </header>
         <main className="flex-1 flex flex-col">{children}</main>
-        <footer className="bg-background text-center py-8">
+        <footer className="bg-background text-center py-4 sm:py-8">
           <div className="container mx-auto px-4">
-            <p>&copy; 2025 Reminus.（レミナス） All rights reserved.</p>
+            <p className="text-xs sm:text-sm md:text-base">&copy; 2025 Reminus.（レミナス） All rights reserved.</p>
           </div>
         </footer>
         <Toaster />

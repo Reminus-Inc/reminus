@@ -12,7 +12,7 @@ export default function DownloadThanksPage() {
   }, []);
 
   return (
-    <div className="flex-1 flex items-center justify-center bg-gray-50">
+    <div className="flex-1 flex items-center justify-center bg-gray-50 pb-32">
       <div className="max-w-md w-full mx-auto px-4">
         <div className="bg-white rounded-lg shadow-lg p-6 sm:p-8 text-center">
           <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -21,7 +21,7 @@ export default function DownloadThanksPage() {
           <h1 className="text-2xl font-bold text-gray-900 mb-4">送信完了</h1>
           <p className="text-gray-600 mb-2">資料請求ありがとうございます。</p>
           <p className="text-gray-600 mb-6">
-            以下のボタンから資料をご確認ください。
+            以下から資料をご確認ください。
           </p>
 
           <Suspense fallback={
