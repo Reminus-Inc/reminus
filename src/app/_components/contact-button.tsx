@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
+import { Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { trackCTAClick } from "@/lib/analytics";
 import Link from "next/link";
@@ -39,7 +39,7 @@ export function ContactButton({
           trackCTAClick("contact");
         }}
       >
-        {iconPosition === "left" && <ArrowRight className={isHeader ? "h-4 w-4" : "h-5 w-5"} />}
+        {iconPosition === "left" && <Calendar className={isHeader ? "h-4 w-4" : "h-5 w-5"} />}
         
         {aggressive ? (
           <span className="block leading-tight">
@@ -49,7 +49,7 @@ export function ContactButton({
           <>お問い合わせ</>
         )}
         
-        {iconPosition === "right" && <ArrowRight className={isHeader ? "h-4 w-4" : "h-5 w-5"} />}
+        {iconPosition === "right" && <Calendar className={isHeader ? "h-4 w-4" : "h-5 w-5"} />}
       </Link>
     </Button>
   );
