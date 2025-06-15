@@ -15,7 +15,7 @@ export function ViewDocumentButton() {
     const params = new URLSearchParams({
       email: email,
       person_name: name,
-      company: company,
+      company_name: company,
     });
     const url = `https://box.reminus.co.jp/p/reminus/reminus-ctopartner-intro?ownerEmail=sumiren%40reminus.co.jp&${params.toString()}`;
     window.open(url, "_blank", "noopener,noreferrer");

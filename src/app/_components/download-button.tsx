@@ -53,9 +53,12 @@ export function DownloadButton({
 
   useEffect(() => {
     if (state.status === "success" && state.redirect) {
-      const redirectUrl = state.downloadUrl
-        ? `${state.redirect}?download=${encodeURIComponent(state.downloadUrl)}`
-        : state.redirect;
+      let redirectUrl = state.redirect;
+      if (state.downloadUrl) {
+        // Check if redirect already has query params
+        const separator = state.redirect.includes('?') ? '&' : '?';
+        redirectUrl = `${state.redirect}${separator}download=${encodeURIComponent(state.downloadUrl)}`;
+      }
       router.push(redirectUrl);
     }
   }, [state, router]);
