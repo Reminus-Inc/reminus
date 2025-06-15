@@ -1,21 +1,15 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { CheckIcon, Download } from "lucide-react";
-import { useEffect } from "react";
+import { CheckIcon } from "lucide-react";
+import { useEffect, Suspense } from "react";
 import { trackGenerateLead } from "@/lib/analytics";
+import { ViewDocumentButton } from "./view-document-button";
 
 export default function DownloadThanksPage() {
-  const downloadUrl = "/documents/reminus_ctopartner_intro_v1.0.2.pdf";
-
   useEffect(() => {
     // ページロード時にLead完了イベントを送信
     trackGenerateLead("download");
   }, []);
-
-  const handleDownload = () => {
-    window.open(downloadUrl, "_blank", "noopener,noreferrer");
-  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -27,16 +21,14 @@ export default function DownloadThanksPage() {
           <h1 className="text-2xl font-bold text-gray-900 mb-4">送信完了</h1>
           <p className="text-gray-600 mb-2">資料請求ありがとうございます。</p>
           <p className="text-gray-600 mb-6">
-            資料ダウンロードの準備ができました。
+            以下のボタンから資料をご確認ください。
           </p>
 
-          <Button
-            className="w-full bg-emerald-600 hover:bg-emerald-700 text-white"
-            onClick={handleDownload}
-          >
-            <Download className="mr-2 h-4 w-4" />
-            資料を開く
-          </Button>
+          <Suspense fallback={
+            <div className="w-full h-10 bg-gray-200 animate-pulse rounded" />
+          }>
+            <ViewDocumentButton />
+          </Suspense>
 
           <div id="immedio-config" data-pagetype="thanks" />
         </div>
