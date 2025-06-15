@@ -150,6 +150,12 @@ export async function requestDocument(
       data: validatedFields,
     });
 
+    const params = new URLSearchParams({
+      email: validatedFields.email,
+      name: validatedFields.name,
+      company: validatedFields.company,
+    });
+
     const latestFile = "reminus_ctopartner_intro_v1.0.2.pdf";
 
     if (process.env.SLACK_WEBHOOK_URL) {
