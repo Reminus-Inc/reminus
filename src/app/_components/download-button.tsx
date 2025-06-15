@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Download, X } from "lucide-react";
+import { FileText, X } from "lucide-react";
 import { requestDocument } from "@/app/actions";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
@@ -112,17 +112,17 @@ export function DownloadButton({
         >
           <span className="flex items-center gap-3">
             {iconPosition === "left" && !finishing && (
-              <Download className="h-4 w-4" />
+              <FileText className="h-4 w-4" />
             )}
-            {finishing ? "送信中..." : children || "資料ダウンロード"}
+            {finishing ? "送信中..." : children || "資料を見る"}
             {iconPosition === "right" && !finishing && (
-              <Download className="h-4 w-4" />
+              <FileText className="h-4 w-4" />
             )}
           </span>
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[700px] p-0 border-0 shadow-xl max-w-[95vw] max-h-[90svh] sm:max-h-[80svh] overflow-y-auto">
-        <DialogTitle className="sr-only">資料ダウンロードフォーム</DialogTitle>
+        <DialogTitle className="sr-only">資料請求フォーム</DialogTitle>
         <div className="relative bg-white rounded-lg overflow-visible">
           <DialogClose className="fixed right-4 top-4 z-50 rounded-sm opacity-70 bg-white/80 p-1 ring-offset-white transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2">
             <X className="h-4 w-4" />
@@ -133,7 +133,7 @@ export function DownloadButton({
             <div className="bg-emerald-50 p-6 md:p-8 space-y-4 md:space-y-6">
               <div>
                 <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
-                  資料ダウンロード
+                  資料を受け取る
                 </h2>
                 <p className="text-gray-700 text-sm">
                   非エンジニア創業者向け{" "}
@@ -377,7 +377,7 @@ export function DownloadButton({
                     className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium h-10 sm:h-12 text-base"
                     disabled={finishing}
                   >
-                    {finishing ? "送信中..." : "資料をダウンロード"}
+                    {finishing ? "送信中..." : "資料を受け取る"}
                   </Button>
                 </div>
                 {state.status === "error" && !state.errors?.length && (
