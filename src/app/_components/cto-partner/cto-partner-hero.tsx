@@ -61,7 +61,7 @@ export function CtoPartnerHero() {
           </p>
           <div className="hidden md:flex flex-col sm:flex-row gap-4 pt-8">
             <DownloadButton variant="primary" iconPosition="left">資料を見る</DownloadButton>
-            <ContactButton aggressive />
+            <ContactButton aggressive iconPosition="left" />
           </div>
         </div>
         <div className="mt-0 md:mt-0 w-full md:w-1/2 max-w-lg mx-auto md:max-w-none">
@@ -137,7 +137,7 @@ export function CtoPartnerHero() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <DownloadButton variant="primary" iconPosition="left">資料を見る</DownloadButton>
-            <ContactButton aggressive />
+            <ContactButton aggressive iconPosition="left" />
           </div>
         </div>
       </div>
