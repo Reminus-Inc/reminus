@@ -12,9 +12,9 @@ export default function DownloadThanksPage() {
   }, []);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="max-w-md w-full mx-auto p-8">
-        <div className="bg-white rounded-lg shadow-lg p-8 text-center">
+    <div className="flex-1 flex items-center justify-center bg-gray-50">
+      <div className="max-w-md w-full mx-auto px-4">
+        <div className="bg-white rounded-lg shadow-lg p-6 sm:p-8 text-center">
           <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <CheckIcon className="w-8 h-8 text-emerald-600" />
           </div>

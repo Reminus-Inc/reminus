@@ -22,7 +22,7 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="ja" className="scroll-smooth">
-      <body className={inter.className}>
+      <body className={`${inter.className} min-h-svh flex flex-col`}>
         <header className="border-b h-18">
           <div className="container mx-auto px-4 py-4 flex justify-between items-center">
             <div className="flex items-center">
@@ -35,7 +35,7 @@ export default async function RootLayout({
             <NavMenu />
           </div>
         </header>
-        {children}
+        <main className="flex-1 flex flex-col">{children}</main>
         <footer className="bg-background text-center py-8">
           <div className="container mx-auto px-4">
             <p>&copy; 2025 Reminus.（レミナス） All rights reserved.</p>
@@ -44,7 +44,9 @@ export default async function RootLayout({
         <Toaster />
         {/* XPixelPageView はベタ打ちPixel IDでも動作するように更新 */}
         <XPixelPageView />
-        {!!process.env.GTM_ID && <GoogleTagManager gtmId={process.env.GTM_ID} />}
+        {!!process.env.GTM_ID && (
+          <GoogleTagManager gtmId={process.env.GTM_ID} />
+        )}
         {/* Twitter/X Pixel - 初期化してから読み込み */}
         <Script
           id="x-pixel-init"
