@@ -4,8 +4,8 @@ export function CompanyOverview() {
       <div className="container px-4 md:px-6 lg:px-8 mx-auto">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tighter text-center mb-8">
-              会社概要
+            <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">
+              Reminus
             </h2>
           </div>
           
@@ -14,7 +14,7 @@ export function CompanyOverview() {
               <div className="space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-[140px_1fr] gap-4 md:gap-8 items-start border-b border-gray-100 pb-6">
                   <dt className="text-sm md:text-base font-medium text-gray-900">会社名</dt>
-                  <dd className="text-sm md:text-base text-gray-700">株式会社Reminus（レミナス）</dd>
+                  <dd className="text-sm md:text-base text-gray-700">株式会社Reminus</dd>
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-[140px_1fr] gap-4 md:gap-8 items-start border-b border-gray-100 pb-6">
