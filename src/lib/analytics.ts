@@ -62,8 +62,11 @@ export const trackEvent = (
           content_name: parameters.interaction_type,
           ...parameters
         });
-        // X Pixel Event トラッキング (tw-pto6l-pto6l)
-        window.twq("event", "tw-pto6l-pto6l", {});
+        // X Pixel Event トラッキング (tw-pto6l-pto6m) - コンバージョン完了
+        window.twq("event", "tw-pto6l-pto6m", {
+          content_name: parameters.interaction_type,
+          ...parameters
+        });
         break;
       default:
         // For other custom events
@@ -99,10 +102,18 @@ export const trackSpirPageView = () => {
   });
 };
 
-export const trackGenerateLead = (interactionType: "download" | "contact") => {
+export const trackGenerateLead = (
+  interactionType: "download" | "contact",
+  conversionData?: { email?: string; phone?: string; name?: string; company?: string }
+) => {
   trackEvent("generate_lead", {
     interaction_type: interactionType,
     event_category: "conversion",
     event_label: `lead_${interactionType}`,
+    // Twitter Pixel用のコンバージョンパラメータ
+    email: conversionData?.email,
+    phone_number: conversionData?.phone,
+    content_name: interactionType,
+    ...conversionData
   });
 };

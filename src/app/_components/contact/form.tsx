@@ -27,10 +27,20 @@ export function ContactForm() {
         title: "お問い合わせ完了",
         description: state.message,
       });
+      
+      // フォームデータを取得してコンバージョントラッキング
+      const formData = new FormData(ref.current!);
+      const conversionData = {
+        email: formData.get("email") as string,
+        name: formData.get("name") as string,
+        company: formData.get("company") as string,
+      };
+      
+      // Lead完了イベント送信（コンバージョンデータ付き）
+      trackGenerateLead("contact", conversionData);
+      
       ref.current?.reset();
       setHasStartedForm(false);
-      // Lead完了イベント送信
-      trackGenerateLead("contact");
     } else if (state.status === "error") {
       toast({
         variant: "destructive",
