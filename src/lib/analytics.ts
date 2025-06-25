@@ -62,8 +62,8 @@ export const trackEvent = (
           content_name: parameters.interaction_type,
           ...parameters
         });
-        // X Pixel Event トラッキング (tw-pto6l-pto6l)
-        window.twq("event", "tw-pto6l-pto6l", {});
+        // X Pixel Event トラッキング (tw-pto6l-pto6m)
+        window.twq("event", "tw-pto6l-pto6m", {});
         break;
       default:
         // For other custom events
