@@ -60,7 +60,7 @@ export function CtoPartnerHero() {
         
           </p>
           <div className="hidden md:flex flex-col sm:flex-row gap-4 pt-8">
-            <DownloadButton variant="primary" iconPosition="left">資料を見る</DownloadButton>
+            <DownloadButton variant="primary" iconPosition="left">資料ダウンロード</DownloadButton>
             <ContactButton aggressive iconPosition="left" />
           </div>
         </div>
@@ -136,7 +136,7 @@ export function CtoPartnerHero() {
       <div className="md:hidden bg-emerald-50 py-8">
         <div className="container mx-auto px-4">
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <DownloadButton variant="primary" iconPosition="left">資料を見る</DownloadButton>
+            <DownloadButton variant="primary" iconPosition="left">資料ダウンロード</DownloadButton>
             <ContactButton aggressive iconPosition="left" />
           </div>
         </div>

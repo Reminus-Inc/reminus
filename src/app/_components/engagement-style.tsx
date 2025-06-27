@@ -129,7 +129,7 @@ export function EngagementStyle() {
               className="inline-flex items-center justify-center border border-emerald-600 text-emerald-600 bg-white hover:bg-emerald-50 font-medium py-3 px-8 rounded-full text-base transition-colors"
               iconPosition="right"
             >
-              資料を見る
+              資料ダウンロード
             </DownloadButton>
           </div>
         </div>

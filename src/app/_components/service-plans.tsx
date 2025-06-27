@@ -112,7 +112,7 @@ export function ServicePlans() {
                 </p>
               </div>
               <DownloadButton variant="primary" iconPosition="left">
-                資料を見る
+                資料ダウンロード
               </DownloadButton>
             </div>
           </div>
