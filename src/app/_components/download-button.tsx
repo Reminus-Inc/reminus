@@ -117,7 +117,7 @@ export function DownloadButton({
             {iconPosition === "left" && !finishing && (
               <FileText className="h-4 w-4" />
             )}
-            {finishing ? "送信中..." : children || "資料を見る"}
+            {finishing ? "送信中..." : children || "資料ダウンロード"}
             {iconPosition === "right" && !finishing && (
               <FileText className="h-4 w-4" />
             )}
@@ -136,7 +136,7 @@ export function DownloadButton({
             <div className="bg-emerald-50 p-6 md:p-8 space-y-4 md:space-y-6">
               <div>
                 <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
-                  資料を受け取る
+                  資料ダウンロード
                 </h2>
                 <p className="text-gray-700 text-sm">
                   非エンジニア創業者向け{" "}
@@ -380,7 +380,7 @@ export function DownloadButton({
                     className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium h-10 sm:h-12 text-base"
                     disabled={finishing}
                   >
-                    {finishing ? "送信中..." : "資料を受け取る"}
+                    {finishing ? "送信中..." : "資料ダウンロード"}
                   </Button>
                 </div>
                 {state.status === "error" && !state.errors?.length && (

@@ -27,7 +27,7 @@ export function ViewDocumentButton() {
       onClick={handleViewDocument}
     >
       <ExternalLink className="mr-2 h-4 w-4" />
-      資料を見る
+      資料ダウンロード
     </Button>
   );
 }
