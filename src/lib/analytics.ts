@@ -34,25 +34,26 @@ export const trackEvent = (
   eventName: string,
   parameters: EventParameters = {},
 ) => {
-  /* ---- 追加ここから ---- */
   console.log("[trackEvent]", eventName, JSON.stringify(parameters));
   console.log("  gtag:", typeof window !== "undefined" && !!window.gtag);
   console.log("  twq :", typeof window !== "undefined" && !!window.twq);
-  /* ---- 追加ここまで ---- */
 
-  // GA4 tracking
+  // --- GA4 ---
   if (typeof window !== "undefined") {
+    const payload = {
+      ...parameters,
+      event_category: parameters.event_category ?? "custom",
+      event_label: parameters.event_label ?? eventName,
+    };
+
     if (window.gtag) {
-      window.gtag("event", eventName, { ...parameters });
-    } else if (Array.isArray((window as any).dataLayer)) {
-      // gtag 未定義なら dataLayer に直接積む
-      (window as any).dataLayer.push({
-        event: eventName,
-        ...parameters,
-      });
+      window.gtag("event", eventName, payload);
+    } else {
+      // gtag 未定義なら dataLayer へ
+      const dl = ((window as any).dataLayer ||= []);
+      dl.push({ event: eventName, ...payload });
     }
   }
-
   // X Pixel tracking
   if (typeof window !== "undefined" && window.twq) {
     // Map custom events to X Pixel events
