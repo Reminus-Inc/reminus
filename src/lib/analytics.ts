@@ -2,16 +2,24 @@
 
 declare global {
   interface Window {
-    gtag?: (command: string, target?: string, config?: {
-      event_category?: string;
-      event_label?: string;
-      [key: string]: unknown;
-    }) => void;
-    twq?: (command: string, event: string, parameters?: {
-      content_name?: string;
-      event_name?: string;
-      [key: string]: unknown;
-    }) => void;
+    gtag?: (
+      command: string,
+      target?: string,
+      config?: {
+        event_category?: string;
+        event_label?: string;
+        [key: string]: unknown;
+      },
+    ) => void;
+    twq?: (
+      command: string,
+      event: string,
+      parameters?: {
+        content_name?: string;
+        event_name?: string;
+        [key: string]: unknown;
+      },
+    ) => void;
   }
 }
 
@@ -24,21 +32,25 @@ interface EventParameters {
 
 export const trackEvent = (
   eventName: string,
-  parameters: EventParameters = {}
+  parameters: EventParameters = {},
 ) => {
-    /* ---- 追加ここから ---- */
-    console.log("[trackEvent]", eventName, JSON.stringify(parameters));
-    console.log("  gtag:", typeof window !== "undefined" && !!window.gtag);
-    console.log("  twq :", typeof window !== "undefined" && !!window.twq);
-    /* ---- 追加ここまで ---- */
-    
+  /* ---- 追加ここから ---- */
+  console.log("[trackEvent]", eventName, JSON.stringify(parameters));
+  console.log("  gtag:", typeof window !== "undefined" && !!window.gtag);
+  console.log("  twq :", typeof window !== "undefined" && !!window.twq);
+  /* ---- 追加ここまで ---- */
+
   // GA4 tracking
-  if (typeof window !== "undefined" && window.gtag) {
-    window.gtag("event", eventName, {
-      ...parameters,
-      event_category: parameters.event_category || "custom",
-      event_label: parameters.event_label || eventName,
-    });
+  if (typeof window !== "undefined") {
+    if (window.gtag) {
+      window.gtag("event", eventName, { ...parameters });
+    } else if (Array.isArray((window as any).dataLayer)) {
+      // gtag 未定義なら dataLayer に直接積む
+      (window as any).dataLayer.push({
+        event: eventName,
+        ...parameters,
+      });
+    }
   }
 
   // X Pixel tracking
@@ -46,46 +58,48 @@ export const trackEvent = (
     // Map custom events to X Pixel events
     switch (eventName) {
       case "cta_click":
-        window.twq("track", "ClickButton", { 
+        window.twq("track", "ClickButton", {
           content_name: parameters.interaction_type,
-          ...parameters 
+          ...parameters,
         });
         break;
       case "form_start":
         window.twq("track", "StartTrial", {
           content_name: parameters.interaction_type,
-          ...parameters
+          ...parameters,
         });
         break;
       case "spir_page_view":
         window.twq("track", "PageView", {
           content_name: "spir_booking",
-          ...parameters
+          ...parameters,
         });
         break;
       case "generate_lead":
         window.twq("track", "Lead", {
           content_name: parameters.interaction_type,
-          ...parameters
+          ...parameters,
         });
         // X Pixel Event トラッキング (tw-pto6l-pto6m) - コンバージョン完了
         window.twq("event", "tw-pto6l-pto6m", {
           content_name: parameters.interaction_type,
-          ...parameters
+          ...parameters,
         });
         break;
       default:
         // For other custom events
         window.twq("track", "CustomEvent", {
           event_name: eventName,
-          ...parameters
+          ...parameters,
         });
     }
   }
 };
 
 // Specific event tracking functions
-export const trackCTAClick = (interactionType: "download" | "contact" | "spir") => {
+export const trackCTAClick = (
+  interactionType: "download" | "contact" | "spir",
+) => {
   trackEvent("cta_click", {
     interaction_type: interactionType,
     event_category: "engagement",
@@ -110,7 +124,12 @@ export const trackSpirPageView = () => {
 
 export const trackGenerateLead = (
   interactionType: "download" | "contact",
-  conversionData?: { email?: string; phone?: string; name?: string; company?: string }
+  conversionData?: {
+    email?: string;
+    phone?: string;
+    name?: string;
+    company?: string;
+  },
 ) => {
   trackEvent("generate_lead", {
     interaction_type: interactionType,
@@ -120,6 +139,6 @@ export const trackGenerateLead = (
     email: conversionData?.email,
     phone_number: conversionData?.phone,
     content_name: interactionType,
-    ...conversionData
+    ...conversionData,
   });
 };
