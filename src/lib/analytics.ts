@@ -49,11 +49,12 @@ export const trackEvent = (
     if (window.gtag) {
       window.gtag("event", eventName, payload);
     } else {
-      // gtag 未定義なら dataLayer へ
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const dl = ((window as any).dataLayer ||= []);
       dl.push({ event: eventName, ...payload });
     }
   }
+
   // X Pixel tracking
   if (typeof window !== "undefined" && window.twq) {
     // Map custom events to X Pixel events
