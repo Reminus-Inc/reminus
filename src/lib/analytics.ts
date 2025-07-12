@@ -26,6 +26,12 @@ export const trackEvent = (
   eventName: string,
   parameters: EventParameters = {}
 ) => {
+    /* ---- 追加ここから ---- */
+    console.log("[trackEvent]", eventName, JSON.stringify(parameters));
+    console.log("  gtag:", typeof window !== "undefined" && !!window.gtag);
+    console.log("  twq :", typeof window !== "undefined" && !!window.twq);
+    /* ---- 追加ここまで ---- */
+    
   // GA4 tracking
   if (typeof window !== "undefined" && window.gtag) {
     window.gtag("event", eventName, {
