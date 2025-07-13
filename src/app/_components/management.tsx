@@ -35,11 +35,10 @@ export function Management() {
               <div className="prose prose-gray max-w-none text-left">
                 <p className="text-gray-600 leading-relaxed text-sm md:text-base">
                   株式会社ヘンリーで SaaS
-                  プロダクトの急成長を牽引し、ソフトウェアエンジニア／EM／SRE
-                  と立場を変えながら技術と組織の両面をリード。
+                  の急成長を牽引し、ソフトウェアエンジニア／EM／SRE
+                  と立場を変えながら技術と組織をリード。
                   その後、セールステックSaaSスタートアップ immedio
-                  でCTOとして技術戦略と事業スケールを推進。
-                  加えて、2社の社外CTOと3 社の技術顧問経験を持つ。 2025
+                  でCTOとして技術から経営を推進。加えて、2社の社外CTOと3社の技術顧問経験を持つ。経営レイヤから専門的な支援まで広く行い、資金調達にも貢献。2025
                   年、株式会社Reminusを創業し、スタートアップの成長を加速する事業を展開している。
                 </p>
               </div>
