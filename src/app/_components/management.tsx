@@ -1,7 +1,7 @@
-import Image from "next/image"
-import Link from "next/link"
-import { ExternalLink, Twitter } from "lucide-react"
-import { DownloadButton } from "./download-button"
+import Image from "next/image";
+import Link from "next/link";
+import { ExternalLink, Twitter } from "lucide-react";
+import { DownloadButton } from "./download-button";
 
 export function Management() {
   return (
@@ -9,8 +9,8 @@ export function Management() {
       <div className="container px-4 md:px-6 lg:px-8 mx-auto">
         <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tighter text-center mb-20">
-              経営陣紹介
-            </h2>       
+            経営陣紹介
+          </h2>
         </div>
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-12 md:gap-24 items-start">
@@ -27,16 +27,26 @@ export function Management() {
             </div>
             <div className="space-y-8">
               <div className="text-center md:text-left">
-                <h3 className="text-3xl md:text-4xl font-medium mb-3 tracking-tighter">sumiren</h3>
+                <h3 className="text-3xl md:text-4xl font-medium mb-3 tracking-tighter">
+                  sumiren
+                </h3>
                 <p className="text-gray-600 text-lg md:text-xl">創業者</p>
               </div>
               <div className="prose prose-gray max-w-none text-left">
                 <p className="text-gray-600 leading-relaxed text-sm md:text-base">
-                  株式会社ヘンリーにてSaaSプロダクトの急成長に尽力。ソフトウェアエンジニア・エンジニアリングマネージャ・SREなど多様な役割を事業フェーズに合わせて担う。2社の社外CTO経験、3社の技術顧問経験を持つ。経営レイヤから専門的な支援まで広く行い、資金調達にも貢献。2025年3月、株式会社Reminusを創業。
+                  株式会社ヘンリーで SaaS
+                  プロダクトの急成長を牽引し、ソフトウェアエンジニア／EM／SRE
+                  と立場を変えながら技術と組織の両面をリード。
+                  その後、セールステックSaaSスタートアップ immedio
+                  でCTOとして技術戦略と事業スケールを推進。
+                  加えて、2社の社外CTOと3 社の技術顧問経験を持つ。 2025
+                  年、株式会社Reminusを創業し、スタートアップの成長を加速する事業を展開している。
                 </p>
               </div>
               <div className="space-y-4">
-                <h4 className="font-medium text-left text-base md:text-lg">コンテンツ発信</h4>
+                <h4 className="font-medium text-left text-base md:text-lg">
+                  コンテンツ発信
+                </h4>
                 <ul className="space-y-2 text-gray-600 list-none pl-0 text-sm md:text-base text-left">
                   <li className="relative pl-4">
                     <span className="absolute left-0">・</span>
@@ -94,7 +104,8 @@ export function Management() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Next.jsのPPR + StreamingがVercelで実行されるときの全体像を掴む
+                      Next.jsのPPR +
+                      StreamingがVercelで実行されるときの全体像を掴む
                     </Link>{" "}
                     執筆
                   </li>
@@ -123,7 +134,9 @@ export function Management() {
           </div>
           <div className="flex justify-center mt-16">
             <div className="text-center">
-              <p className="text-gray-600 mb-6">CTOパートナーサービスの詳細資料をご用意しています</p>
+              <p className="text-gray-600 mb-6">
+                CTOパートナーサービスの詳細資料をご用意しています
+              </p>
               <div className="flex justify-center">
                 <DownloadButton />
               </div>
@@ -132,5 +145,5 @@ export function Management() {
         </div>
       </div>
     </section>
-  )
+  );
 }

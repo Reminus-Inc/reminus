@@ -1,4 +1,3 @@
-import { Competence } from "@/app/_components/competence";
 import { CtoPartner } from "@/app/_components/cto-partner";
 import { Services } from "./_components/services";
 import { CaseStudies } from "@/app/_components/case-studies";
@@ -18,9 +17,6 @@ export default function Home() {
       </section>
       <section className="relative">
         <Services />
-      </section>
-      <section className="relative">
-        <Competence />
       </section>
       <section className="relative">
         <Management />
