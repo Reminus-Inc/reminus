@@ -13,24 +13,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-
-const serviceData = [
-  {
-    name: "CTO",
-    count: 4,
-  },
-  {
-    name: "SREing\nオブザーバビリティ\nパフォーマンス改善",
-    count: 4,
-  },
-  {
-    name: "アーキテクト\nフロントエンド",
-    count: 3,
-  },
-];
-
-const totalClients = serviceData.reduce((acc, curr) => acc + curr.count, 0);
-
 const caseStudies = [
   {
     title: "社外CTOとして技術戦略リード・調達後の組織立ち上げ",
@@ -77,14 +59,6 @@ const caseStudies = [
     services: ["オブザーバビリティ", "SREing"],
   },
 ];
-
-const CHART_COLORS = [
-  "rgb(38, 38, 38)",
-  "rgb(82, 82, 82)",
-  "rgb(115, 115, 115)",
-  "rgb(163, 163, 163)",
-] as const;
-
 export function CaseStudies() {
   return (
     <section
