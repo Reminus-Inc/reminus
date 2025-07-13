@@ -20,9 +20,6 @@ export default function Home() {
         <Services />
       </section>
       <section className="relative">
-        <Competence />
-      </section>
-      <section className="relative">
         <Management />
       </section>
       <section className="relative">
