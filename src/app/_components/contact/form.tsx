@@ -7,7 +7,12 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useEffect } from "react";
-import { trackCTAClick, trackFormStart, trackGenerateLead, trackSpirPageView } from "@/lib/analytics";
+import {
+  trackCTAClick,
+  trackFormStart,
+  trackGenerateLead,
+  trackSpirPageView,
+} from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
@@ -27,7 +32,7 @@ export function ContactForm() {
         title: "お問い合わせ完了",
         description: state.message,
       });
-      
+
       // フォームデータを取得してコンバージョントラッキング
       const formData = new FormData(ref.current!);
       const conversionData = {
@@ -35,10 +40,10 @@ export function ContactForm() {
         name: formData.get("name") as string,
         company: formData.get("company") as string,
       };
-      
+
       // Lead完了イベント送信（コンバージョンデータ付き）
       trackGenerateLead("contact", conversionData);
-      
+
       ref.current?.reset();
       setHasStartedForm(false);
     } else if (state.status === "error") {
@@ -138,7 +143,6 @@ export function ContactForm() {
                 />
               </TabsContent>
             </Tabs>
-
             <div className="space-y-2">
               <Label htmlFor="email" className="text-sm font-medium">
                 メールアドレス
@@ -218,6 +222,19 @@ export function ContactForm() {
                 </Button>
               </a>
             </div>
+
+            <p className="text-xs text-gray-500 text-center">
+              お問い合わせいただくことで、当社の
+              <a
+                href="/privacy-policy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-gray-700 transition-colors"
+              >
+                プライバシーポリシー
+              </a>
+              に同意したものとみなします。
+            </p>
           </div>
         </form>
       </CardContent>
