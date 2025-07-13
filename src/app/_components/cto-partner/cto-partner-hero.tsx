@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, AlertTriangle, Settings, Users, Building2 } from "lucide-react";
 import { ContactButton } from "../contact-button";
 import { DownloadButton } from "../download-button";
 import Image from "next/image";
@@ -40,96 +40,17 @@ export function CtoPartnerHero() {
     <section id="value" className="bg-emerald-50  flex flex-col">
       <div className="lg:container mx-auto px-4 flex flex-col md:flex-row md:flex-grow items-center justify-center gap-8 md:gap-12 py-6 md:py-8">
         <div className="md:w-1/2 space-y-4 md:space-y-6">
-          <div className="inline-block bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm font-medium mb-2 md:mb-4">
-            Reminus CTOパートナー
-          </div>
           <div className="text-base md:text-lg font-semibold text-emerald-800 mb-2">非エンジニア創業者へ</div>
 
           <h1 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold leading-tight text-gray-900 mb-4 md:mb-6">
-            Reminusが経営に技術を持ち込み、<br className="hidden lg:block" />市場戦略とプロダクトにレバレッジを効かせます。
+            技術責任者不在のスタートアップに、<br className="hidden lg:block" />&ldquo;CTOパートナー&rdquo;を。
           </h1>
           <p className="text-sm md:text-base xl:text-lg text-gray-600 leading-relaxed mb-6 md:mb-8 ">
-          「ボードメンバーに技術がわかる人がいない…」<br className="hidden lg:block"/>その不安、Reminusが解消します。
-          </p>
-          <p className="text-sm md:text-base xl:text-lg text-gray-600 leading-relaxed mb-6 md:mb-8 ">
-          Reminusが技術視点を補うことで、経営判断に自信と速度、広がりを。<br className="hidden lg:block"/>市場・製品戦略に技術的洞察を提供し、新たな可能性をももたらします。
-          </p>
-          <p className="text-sm md:text-base xl:text-lg text-gray-600 leading-relaxed mb-6 md:mb-8 ">
-          さらに、SaaSの持続的成長の鍵であるプロダクト志向組織の確立。<br className="hidden lg:block"/>
-          Reminusは、採用戦略からスカウト伴走、組織づくりまで伴走します。
-        
+          開発ロードマップ策定から採用まで、Reminus が技術面で丸ごと伴走サポートします。
           </p>
           <div className="hidden md:flex flex-col sm:flex-row gap-4 pt-8">
             <DownloadButton variant="primary" iconPosition="left">資料ダウンロード</DownloadButton>
             <ContactButton aggressive iconPosition="left" />
-          </div>
-        </div>
-        <div className="mt-0 md:mt-0 w-full md:w-1/2 max-w-lg mx-auto md:max-w-none">
-          <div className="bg-white rounded-xl shadow-lg p-4 md:p-6">
-            <div className="flex flex-col space-y-2 md:space-y-4">
-              {/* 競争優位性のグループ */}
-              <div className="border-2 border-gray-200 rounded-lg p-3 md:p-4">
-                <div className="grid grid-cols-3 gap-2 md:gap-3 min-h-12 md:min-h-20">
-                  <div className="bg-gray-100 p-1 md:p-3 rounded-lg text-center flex items-center justify-center ">
-                    <p className="font-medium text-sm xl:text-base">市場・<br className="xl:hidden" />製品戦略</p>
-                  </div>
-                  <div className="bg-gray-100 p-1 md:p-3 rounded-lg text-center flex items-center justify-center">
-                    <p className="font-medium text-xs lg:text-sm xl:text-base tracking-tighter">ビジネス・<br />オペレーション</p>
-                  </div>
-                  <div className="bg-gray-100 p-1 md:p-3 rounded-lg text-center flex items-center justify-center">
-                    <p className="font-medium text-sm xl:text-base">プロダクト<br className="xl:hidden" />開発</p>
-                  </div>
-                </div>
-                <div className="mt-2 md:mt-3 text-center">
-                  <p className="font-medium text-gray-700 text-sm md:text-base">自社の競争優位性</p>
-                </div>
-              </div>
-
-              {/* 掛け算記号 */}
-              <div className="flex justify-center">
-                <div className="bg-emerald-100 rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center text-emerald-600 text-xl md:text-2xl font-bold shadow-sm">
-                  ×
-                </div>
-              </div>
-
-              {/* Reminusの提供価値 */}
-              <div className="border-2 border-emerald-200 rounded-lg p-3 md:p-4 bg-emerald-50">
-                <div className="grid grid-cols-3 gap-2 md:gap-3 min-h-12 md:min-h-20">
-                  <div className="bg-emerald-100 p-1 md:p-3 rounded-lg text-center flex items-center justify-center">
-                    <p className="font-bold text-emerald-700 text-sm xl:text-base">技術戦略</p>
-                  </div>
-                  <div className="bg-emerald-100 p-1 md:p-3 rounded-lg text-center flex items-center justify-center">
-                    <p className="font-bold text-emerald-700 text-sm xl:text-base">エンジニア<br className="xl:hidden" />採用</p>
-                  </div>
-                  <div className="bg-emerald-100 p-1 md:p-3 rounded-lg text-center flex items-center justify-center">
-                    <p className="font-bold  text-emerald-700 text-sm xl:text-base">開発組織</p>
-                  </div>
-                </div>
-                <div className="mt-2 md:mt-3 text-center">
-                  <p className="font-medium text-emerald-700 text-sm md:text-base">
-                    Reminus CTOパートナーの提供価値
-                  </p>
-                </div>
-              </div>
-
-              {/* イコール記号 */}
-              <div className="flex justify-center">
-                <div className="bg-emerald-100 rounded-full w-8 h-8 md:w-10 md:h-10 flex items-center justify-center text-emerald-600 text-xl md:text-2xl font-bold shadow-sm">
-                  =
-                </div>
-              </div>
-
-              {/* 成功するスタートアップ */}
-              <div className="border-2 border-emerald-500 rounded-lg p-3 md:p-4 bg-emerald-50">
-                <div className="flex justify-center">
-                  <div className="bg-emerald-500 px-3 py-1 md:px-4 md:py-2 rounded-lg shadow-sm">
-                    <p className="font-medium text-white text-sm md:text-base h-12 flex items-center justify-center">
-                      持続的成長するSaaSスタートアップ
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -199,6 +120,126 @@ export function CtoPartnerHero() {
           </div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-px bg-neutral-200 w-full"></div>
+      </div>
+      
+      {/* 課題セクション */}
+      <div className="bg-gray-50 py-12 md:py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-8 md:mb-12">
+              こんな課題を抱えていませんか？
+            </h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12 md:mb-16">
+              <div className="flex items-start gap-3 text-left">
+                <AlertTriangle className="h-5 w-5 text-red-500 mt-1 shrink-0" />
+                <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+                  適切なエンジニア／CTOが採用できず、開発が停滞している
+                </p>
+              </div>
+              <div className="flex items-start gap-3 text-left">
+                <AlertTriangle className="h-5 w-5 text-red-500 mt-1 shrink-0" />
+                <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+                  言語・クラウド・アーキテクチャなど技術選定の判断材料が足りない
+                </p>
+              </div>
+              <div className="flex items-start gap-3 text-left">
+                <AlertTriangle className="h-5 w-5 text-red-500 mt-1 shrink-0" />
+                <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+                  技術負債が膨らみ、リリース速度と品質が低下している
+                </p>
+              </div>
+              <div className="flex items-start gap-3 text-left">
+                <AlertTriangle className="h-5 w-5 text-red-500 mt-1 shrink-0" />
+                <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+                  プロダクト志向の組織文化や評価制度をどう作ればいいかわからない
+                </p>
+              </div>
+              <div className="flex items-start gap-3 text-left">
+                <AlertTriangle className="h-5 w-5 text-red-500 mt-1 shrink-0" />
+                <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+                  投資家・取引先に技術計画を説明できず、信頼を得にくい
+                </p>
+              </div>
+              <div className="flex items-start gap-3 text-left">
+                <AlertTriangle className="h-5 w-5 text-red-500 mt-1 shrink-0" />
+                <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+                  経営とエンジニアリングを橋渡しする&ldquo;技術ブレーン&rdquo;が社内にいない
+                </p>
+              </div>
+            </div>
+            
+            <div className="text-center">
+              <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-emerald-600">
+                その課題、ReminusのCTOパートナーが解決します。
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* 解決策セクション */}
+      <div className="bg-white py-12 md:py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 text-center mb-8 md:mb-12">
+              Reminusが解決する3つの柱
+            </h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 mb-12 md:mb-16">
+              {/* 技術戦略 */}
+              <div className="text-center">
+                <div className="bg-emerald-100 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                  <Settings className="w-8 h-8 text-emerald-600" />
+                </div>
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-4">技術戦略</h3>
+                <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                  開発初期の壁打ちから。プロダクトや市場に沿った技術選定。施策の運用やロードマップ策定までご相談可能
+                </p>
+              </div>
+              
+              {/* エンジニア採用 */}
+              <div className="text-center">
+                <div className="bg-emerald-100 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                  <Users className="w-8 h-8 text-emerald-600" />
+                </div>
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-4">エンジニア採用</h3>
+                <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                  エンジニアが採用戦略から入るので、適切な人材の募集・選定が可能
+                </p>
+              </div>
+              
+              {/* 組織デザイン */}
+              <div className="text-center">
+                <div className="bg-emerald-100 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                  <Building2 className="w-8 h-8 text-emerald-600" />
+                </div>
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-4">組織デザイン</h3>
+                <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                  開発プロセスやカルチャー整備、マネジメントまでご相談可能
+                </p>
+              </div>
+            </div>
+            
+            <div className="bg-emerald-50 rounded-xl p-6 md:p-8 text-center mb-8">
+              <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-4">
+                CTO不在でもプロダクト成長を止めない「3本柱」。
+              </h3>
+              <p className="text-sm md:text-base text-gray-600">
+                採用面接同席から開発プロセス設計まで、バラけやすい施策をワンストップで統合。
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <p className="text-lg font-medium text-gray-900 mb-4">
+                まずはご相談ください
+              </p>
+              <ContactButton aggressive iconPosition="left">
+                無料相談を予約する
+              </ContactButton>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
