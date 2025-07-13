@@ -252,22 +252,21 @@ export function DownloadButton({
               >
                 <div className="space-y-2">
                   <Label
-                    htmlFor="email"
+                    htmlFor="company"
                     className="text-gray-900 font-medium text-sm"
                   >
-                    メールアドレス <span className="text-emerald-600">*</span>
+                    会社名 <span className="text-emerald-600">*</span>
                   </Label>
                   <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="example@company.com"
+                    id="company"
+                    name="company"
+                    placeholder="株式会社Reminus"
                     required
-                    value={formValues.email}
+                    value={formValues.company}
                     onChange={(e) =>
                       setFormValues((prev) => ({
                         ...prev,
-                        email: e.target.value,
+                        company: e.target.value,
                       }))
                     }
                     onFocus={() => {
@@ -278,13 +277,36 @@ export function DownloadButton({
                     }}
                     className="border-gray-200 focus:border-emerald-600 focus:ring-emerald-600 h-10 sm:h-12 text-base"
                   />
-                  {state.errors?.find((error) =>
-                    error.includes("メールアドレス"),
-                  ) && (
+                  {state.errors?.find((error) => error.includes("会社名")) && (
                     <p className="text-red-500 text-xs mt-1">
-                      {state.errors?.find((error) =>
-                        error.includes("メールアドレス"),
-                      )}
+                      {state.errors?.find((error) => error.includes("会社名"))}
+                    </p>
+                  )}
+                </div>
+                <div className="space-y-2">
+                  <Label
+                    htmlFor="name"
+                    className="text-gray-900 font-medium text-sm"
+                  >
+                    お名前 <span className="text-emerald-600">*</span>
+                  </Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    placeholder="山田 太郎"
+                    required
+                    value={formValues.name}
+                    onChange={(e) =>
+                      setFormValues((prev) => ({
+                        ...prev,
+                        name: e.target.value,
+                      }))
+                    }
+                    className="border-gray-200 focus:border-emerald-600 focus:ring-emerald-600 h-10 sm:h-12 text-base"
+                  />
+                  {state.errors?.find((error) => error.includes("お名前")) && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {state.errors?.find((error) => error.includes("お名前"))}
                     </p>
                   )}
                 </div>
@@ -322,55 +344,33 @@ export function DownloadButton({
                 </div>
                 <div className="space-y-2">
                   <Label
-                    htmlFor="name"
+                    htmlFor="email"
                     className="text-gray-900 font-medium text-sm"
                   >
-                    お名前 <span className="text-emerald-600">*</span>
+                    メールアドレス <span className="text-emerald-600">*</span>
                   </Label>
                   <Input
-                    id="name"
-                    name="name"
-                    placeholder="山田 太郎"
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="example@company.com"
                     required
-                    value={formValues.name}
+                    value={formValues.email}
                     onChange={(e) =>
                       setFormValues((prev) => ({
                         ...prev,
-                        name: e.target.value,
+                        email: e.target.value,
                       }))
                     }
                     className="border-gray-200 focus:border-emerald-600 focus:ring-emerald-600 h-10 sm:h-12 text-base"
                   />
-                  {state.errors?.find((error) => error.includes("お名前")) && (
+                  {state.errors?.find((error) =>
+                    error.includes("メールアドレス"),
+                  ) && (
                     <p className="text-red-500 text-xs mt-1">
-                      {state.errors?.find((error) => error.includes("お名前"))}
-                    </p>
-                  )}
-                </div>
-                <div className="space-y-2">
-                  <Label
-                    htmlFor="company"
-                    className="text-gray-900 font-medium text-sm"
-                  >
-                    会社名 <span className="text-emerald-600">*</span>
-                  </Label>
-                  <Input
-                    id="company"
-                    name="company"
-                    placeholder="株式会社Reminus"
-                    required
-                    value={formValues.company}
-                    onChange={(e) =>
-                      setFormValues((prev) => ({
-                        ...prev,
-                        company: e.target.value,
-                      }))
-                    }
-                    className="border-gray-200 focus:border-emerald-600 focus:ring-emerald-600 h-10 sm:h-12 text-base"
-                  />
-                  {state.errors?.find((error) => error.includes("会社名")) && (
-                    <p className="text-red-500 text-xs mt-1">
-                      {state.errors?.find((error) => error.includes("会社名"))}
+                      {state.errors?.find((error) =>
+                        error.includes("メールアドレス"),
+                      )}
                     </p>
                   )}
                 </div>
@@ -388,9 +388,15 @@ export function DownloadButton({
                     {state.message}
                   </p>
                 )}
-                <p className="text-xs text-gray-600 text-left pt-2">
-                  ご入力いただいた情報は、関連する情報提供のみに使用いたします。
-                </p>
+                <div className="space-y-2 pt-4">
+                  <p className="text-xs text-gray-500 text-left">
+                    資料請求いただくことで、当社の
+                    <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-700 transition-colors">
+                      プライバシーポリシー
+                    </a>
+                    に同意したものとみなします。
+                  </p>
+                </div>
               </form>
               {/* Extra padding for mobile keyboard */}
               <div className="h-20 sm:h-0" />
