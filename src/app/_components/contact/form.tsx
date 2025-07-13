@@ -39,7 +39,6 @@ export function ContactForm() {
         email: formData.get("email") as string,
         name: formData.get("name") as string,
         company: formData.get("company") as string,
-        phone: formData.get("phone") as string,
       };
 
       // Lead完了イベント送信（コンバージョンデータ付き）
