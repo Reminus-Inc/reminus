@@ -2,7 +2,6 @@
 
 import { CtoPartnerCta } from "../cto-partner-cta";
 import { EngagementStyle } from "../engagement-style";
-import { EngineeringElements } from "../engineering-elements";
 import { PhaseSupport } from "../phase-support";
 import { ServicePlans } from "../service-plans";
 import { CtoPartnerHero } from "./cto-partner-hero";
@@ -12,7 +11,6 @@ export function CtoPartner() {
     <div className="flex flex-col">
       <main className="">
         <CtoPartnerHero />
-        <EngineeringElements />
         <ServicePlans />
         <PhaseSupport />
         <EngagementStyle /> 
