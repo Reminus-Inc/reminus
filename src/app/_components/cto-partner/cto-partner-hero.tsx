@@ -37,26 +37,21 @@ const clientLogos = [
 
 export function CtoPartnerHero() {
   return (
-    <section id="value" className="bg-emerald-50  flex flex-col">
-      <div className="lg:container mx-auto px-4 flex flex-col md:flex-row md:flex-grow items-center justify-center gap-8 md:gap-12 py-6 md:py-8">
-        <div className="md:w-1/2 space-y-4 md:space-y-6">
-          <div className="text-base md:text-lg font-semibold text-emerald-800 mb-2">非エンジニア創業者へ</div>
+    <section id="value" className="flex flex-col">
+      <div className="relative bg-fixed bg-cover bg-center bg-bottom bg-no-repeat" style={{backgroundImage: 'url(/hero-background.jpg)'}}>
+        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div className="relative z-10 lg:container mx-auto px-4 flex flex-col justify-between min-h-[90vh] py-20">
+          <div className="text-center md:text-left md:w-1/2 space-y-4 md:space-y-6">
+            <div className="text-base md:text-lg font-semibold text-emerald-200 mb-2">非エンジニア創業者へ</div>
 
-          <h1 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold leading-tight text-gray-900 mb-4 md:mb-6">
-            技術責任者不在のスタートアップに、<br className="hidden lg:block" />&ldquo;CTOパートナー&rdquo;を。
-          </h1>
-          <p className="text-sm md:text-base xl:text-lg text-gray-600 leading-relaxed mb-6 md:mb-8 ">
-          開発ロードマップ策定から採用まで、Reminus が技術面で丸ごと伴走サポートします。
-          </p>
-          <div className="hidden md:flex flex-col sm:flex-row gap-4 pt-8">
-            <DownloadButton variant="primary" iconPosition="left">資料ダウンロード</DownloadButton>
-            <ContactButton aggressive iconPosition="left" />
+            <h1 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight text-white mb-4 md:mb-6">
+              技術責任者不在のスタートアップに、<br className="hidden lg:block" />&ldquo;CTOパートナー&rdquo;を。
+            </h1>
+            <p className="text-base md:text-lg xl:text-xl text-gray-200 leading-relaxed">
+            開発ロードマップ策定から採用まで、Reminus が技術面で丸ごと伴走サポートします。
+            </p>
           </div>
-        </div>
-      </div>
-      <div className="md:hidden bg-emerald-50 py-8">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <DownloadButton variant="primary" iconPosition="left">資料ダウンロード</DownloadButton>
             <ContactButton aggressive iconPosition="left" />
           </div>
