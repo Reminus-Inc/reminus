@@ -1,8 +1,5 @@
 "use client";
 
-import { CheckCircle } from "lucide-react";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { DownloadButton } from "./download-button";
 
 export function ServicePlans() {
   return (

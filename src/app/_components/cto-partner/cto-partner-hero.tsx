@@ -43,7 +43,7 @@ export function CtoPartnerHero() {
           <div className="text-base md:text-lg font-semibold text-emerald-800 mb-2">非エンジニア創業者へ</div>
 
           <h1 className="text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold leading-tight text-gray-900 mb-4 md:mb-6">
-            技術責任者不在のスタートアップに、<br className="hidden lg:block" />"CTOパートナー"を。
+            技術責任者不在のスタートアップに、<br className="hidden lg:block" />&ldquo;CTOパートナー&rdquo;を。
           </h1>
           <p className="text-sm md:text-base xl:text-lg text-gray-600 leading-relaxed mb-6 md:mb-8 ">
           開発ロードマップ策定から採用まで、Reminus が技術面で丸ごと伴走サポートします。
@@ -164,7 +164,7 @@ export function CtoPartnerHero() {
               <div className="flex items-start gap-3 text-left">
                 <AlertTriangle className="h-5 w-5 text-red-500 mt-1 shrink-0" />
                 <p className="text-sm md:text-base text-gray-700 leading-relaxed">
-                  経営とエンジニアリングを橋渡しする"技術ブレーン"が社内にいない
+                  経営とエンジニアリングを橋渡しする&ldquo;技術ブレーン&rdquo;が社内にいない
                 </p>
               </div>
             </div>
