@@ -13,6 +13,13 @@ import { ServiceCard } from "./card";
 import { DownloadButton } from "@/app/_components/download-button";
 import { ContactButton } from "@/app/_components/contact-button";
 import { ReactNode } from "react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 export type Service = {
   title: string;
@@ -220,16 +227,17 @@ export function Services() {
 
   return (
     <div className="w-full py-16 bg-gray-50 flex justify-center" id="services">
-      <div className="container px-4 md:px-6">
+      <div className="container px-4 md:px-6 max-w-7xl">
         <h2 className="text-3xl font-bold tracking-tighter text-center mb-20">
           その他の提供サービス  
         </h2>
+        {/* Desktop view */}
         <MotionDiv
           variants={container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
+          className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
           onClick={handleServiceListClick}
         >
           {services.map((service, i) => (
@@ -245,6 +253,20 @@ export function Services() {
             </MotionDiv>
           ))}
         </MotionDiv>
+
+        <Carousel className="md:hidden w-[85%] max-w-xs mx-auto mb-16" onClick={handleServiceListClick}>
+          <CarouselContent>
+            {services.map((service, i) => (
+              <CarouselItem key={i}>
+                <div className="p-1">
+                  <ServiceCard service={service} />
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
 
         <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
           <DownloadButton />
