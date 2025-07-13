@@ -1,12 +1,20 @@
+import Image from "next/image";
+
 export function CompanyOverview() {
   return (
     <section className="w-full py-24 md:py-36 bg-gray-50">
       <div className="container px-4 md:px-6 lg:px-8 mx-auto">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">
-              Reminus
-            </h2>
+            <div className="flex justify-center mb-8">
+              <Image
+                src="/reminus/logo.svg"
+                alt="Reminus"
+                width={180}
+                height={60}
+                className="h-12 w-auto"
+              />
+            </div>
           </div>
           
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">

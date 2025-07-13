@@ -6,6 +6,7 @@ import Script from "next/script";
 import { XPixelPageView } from "./_components/x-pixel-pageview";
 import Link from "next/link";
 import { NavMenu } from "./_components/nav-menu";
+import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,13 +24,18 @@ export default async function RootLayout({
   return (
     <html lang="ja" className="scroll-smooth">
       <body className={`${inter.className} min-h-svh flex flex-col`}>
-        <header className="border-b h-18">
-          <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+        <header className="border-b">
+          <div className="container mx-auto px-4 py-6 flex justify-between items-center">
             <div className="flex items-center">
-              <Link href="/">
-                <h1 className="text-2xl font-bold text-gray-900 cursor-pointer hover:text-gray-700 transition-colors">
-                  Reminus
-                </h1>
+              <Link href="/" className="hover:opacity-80 transition-opacity">
+                <Image
+                  src="/reminus/logo.svg"
+                  alt="Reminus"
+                  width={120}
+                  height={40}
+                  className="h-6 w-auto"
+                  priority
+                />
               </Link>
             </div>
             <NavMenu />
