@@ -4,9 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { GoogleTagManager } from "@next/third-parties/google";
 import Script from "next/script";
 import { XPixelPageView } from "./_components/x-pixel-pageview";
-import Link from "next/link";
-import { NavMenu } from "./_components/nav-menu";
-import Image from "next/image";
+import { Header } from "./_components/header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,24 +22,8 @@ export default async function RootLayout({
   return (
     <html lang="ja" className="scroll-smooth">
       <body className={`${inter.className} min-h-svh flex flex-col`}>
-        <header className="border-b">
-          <div className="container mx-auto px-4 py-6 flex justify-between items-center">
-            <div className="flex items-center">
-              <Link href="/" className="hover:opacity-80 transition-opacity">
-                <Image
-                  src="/reminus/logo.svg"
-                  alt="Reminus"
-                  width={120}
-                  height={40}
-                  className="h-6 w-auto"
-                  priority
-                />
-              </Link>
-            </div>
-            <NavMenu />
-          </div>
-        </header>
-        <main className="flex-1 flex flex-col">{children}</main>
+        <Header />
+        <main className="flex-1 flex flex-col pt-16">{children}</main>
         <footer className="bg-background text-center py-4 sm:py-8">
           <div className="container mx-auto px-4">
             <p className="text-xs sm:text-sm md:text-base">&copy; 2025 Reminus.（レミナス） All rights reserved.</p>
