@@ -2,47 +2,20 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Header } from "./header";
+import { DownloadButton } from "./download-button";
+import { ContactButton } from "./contact-button";
 
 export function NavMenu() {
   const pathname = usePathname();
   const isRoot = pathname === "/";
   const [isOpen, setIsOpen] = useState(false);
 
-  // モバイルメニューが開いている間、背景のスクロールを制御
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-
-    // クリーンアップ関数
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isOpen]);
-
-  // ESCキーでメニューを閉じる機能
-  useEffect(() => {
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && isOpen) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener('keydown', handleEscape);
-    return () => {
-      document.removeEventListener('keydown', handleEscape);
-    };
-  }, [isOpen]);
-
   if (!isRoot) return null;
 
   const menuItems = [
-    { href: "#value", label: "サービス" },
     { href: "#plans", label: "プラン" },
     { href: "#phase", label: "支援内容" },
     { href: "#case-studies", label: "事例" },
@@ -57,17 +30,58 @@ export function NavMenu() {
   return (
     <>
       {/* デスクトップナビゲーション */}
-      <nav className="hidden md:flex space-x-8">
-        {menuItems.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className="text-gray-600 hover:text-gray-900"
+      <div className="hidden lg:flex items-center space-x-8">
+        <nav className="flex space-x-8">
+          {menuItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-gray-600 hover:text-gray-900 text-sm whitespace-nowrap"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+        
+        {/* CTA ボタン */}
+        <div className="flex items-center space-x-4">
+          <DownloadButton 
+            variant="primary"
+            size="small"
+            iconPosition="left"
           >
-            {item.label}
-          </Link>
-        ))}
-      </nav>
+            資料ダウンロード
+          </DownloadButton>
+          <ContactButton aggressive iconPosition="left" size="small">無料相談を予約する</ContactButton>
+        </div>
+      </div>
+
+      {/* タブレット・中間幅での表示 */}
+      <div className="hidden md:flex lg:hidden items-center space-x-4">
+        {/* CTA ボタン */}
+        <div className="flex items-center space-x-3">
+          <DownloadButton 
+            variant="primary"
+            size="small"
+            iconPosition="left"
+          >
+            資料ダウンロード
+          </DownloadButton>
+          <ContactButton aggressive iconPosition="left" size="small">無料相談を予約する</ContactButton>
+        </div>
+        
+        {/* ハンバーガーボタン */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="メニューを開く"
+        >
+          {isOpen ? (
+            <X className="h-6 w-6 text-gray-600" />
+          ) : (
+            <Menu className="h-6 w-6 text-gray-600" />
+          )}
+        </button>
+      </div>
 
       {/* モバイルハンバーガーボタン */}
       <button
@@ -84,7 +98,7 @@ export function NavMenu() {
 
       {/* モバイルメニューオーバーレイ */}
       {isOpen && (
-        <div className="md:hidden fixed inset-0 z-[9999] bg-white">
+        <div className="lg:hidden fixed inset-0 z-[9999] bg-white">
           <Header 
             showNavMenu={false}
             onLogoClick={handleLinkClick}
@@ -103,7 +117,7 @@ export function NavMenu() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="block py-3 text-lg text-gray-600 hover:text-gray-900 border-b border-gray-100"
+                    className="block py-1 text-gray-600 hover:text-gray-900"
                     onClick={handleLinkClick}
                   >
                     {item.label}
@@ -111,6 +125,23 @@ export function NavMenu() {
                 </li>
               ))}
             </ul>
+            
+            {/* モバイル用 CTA ボタン */}
+            <div className="mt-6 space-y-4">
+                <div>
+                  <DownloadButton 
+                    variant="primary"
+                    size="small"
+                    iconPosition="left"
+                    className="w-full"
+                  >
+                    資料ダウンロード
+                  </DownloadButton>
+                </div>
+                <div>
+                  <ContactButton aggressive iconPosition="left" size="small" className="w-full" onClick={() => setTimeout(() => setIsOpen(false), 300)}>無料相談を予約する</ContactButton>
+                </div>
+            </div>
           </nav>
         </div>
       )}
