@@ -38,7 +38,7 @@ const clientLogos = [
 export function CtoPartnerHero() {
   return (
     <section id="value" className="flex flex-col">
-      <div className="relative md:bg-fixed bg-cover bg-center bg-bottom bg-no-repeat" style={{backgroundImage: 'url(/hero-background.jpg)'}}>
+      <div className="relative md:bg-fixed bg-cover bg-bottom bg-no-repeat" style={{backgroundImage: 'url(/hero-background.jpg)'}}>
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         <div className="relative z-10 lg:container mx-auto px-4 flex flex-col justify-between min-h-[90vh] py-20">
           <div className="text-center md:text-left md:w-1/2 space-y-4 md:space-y-6">

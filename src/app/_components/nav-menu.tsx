@@ -2,13 +2,42 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { Header } from "./header";
 
 export function NavMenu() {
   const pathname = usePathname();
   const isRoot = pathname === "/";
   const [isOpen, setIsOpen] = useState(false);
+
+  // モバイルメニューが開いている間、背景のスクロールを制御
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // クリーンアップ関数
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
+  // ESCキーでメニューを閉じる機能
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isOpen) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, [isOpen]);
 
   if (!isRoot) return null;
 
@@ -42,7 +71,7 @@ export function NavMenu() {
 
       {/* モバイルハンバーガーボタン */}
       <button
-        className="md:hidden p-2"
+        className="md:hidden"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="メニューを開く"
       >
@@ -55,17 +84,20 @@ export function NavMenu() {
 
       {/* モバイルメニューオーバーレイ */}
       {isOpen && (
-        <div className="md:hidden fixed inset-0 z-50 bg-white">
-          <div className="flex justify-between items-center p-4 border-b">
-            <div className="font-bold text-xl text-emerald-600">Reminus</div>
-            <button
-              onClick={() => setIsOpen(false)}
-              aria-label="メニューを閉じる"
-            >
-              <X className="h-6 w-6 text-gray-600" />
-            </button>
-          </div>
-          <nav className="p-4">
+        <div className="md:hidden fixed inset-0 z-[9999] bg-white">
+          <Header 
+            showNavMenu={false}
+            onLogoClick={handleLinkClick}
+            rightContent={
+              <button
+                onClick={() => setIsOpen(false)}
+                aria-label="メニューを閉じる"
+              >
+                <X className="h-6 w-6 text-gray-600" />
+              </button>
+            }
+          />
+          <nav className="p-4 pt-20">
             <ul className="space-y-4">
               {menuItems.map((item) => (
                 <li key={item.href}>
