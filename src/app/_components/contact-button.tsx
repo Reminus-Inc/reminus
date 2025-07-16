@@ -10,7 +10,9 @@ export interface ContactButtonProps {
   aggressive?: boolean;
   variant?: "outline" | "round";
   iconPosition?: "left" | "right";
+  size?: "default" | "small";
   className?: string;
+  onClick?: () => void;
   children?: React.ReactNode;
 }
 
@@ -19,17 +21,31 @@ export function ContactButton({
   aggressive = false, 
   variant = "outline",
   iconPosition = "right",
+  size = "default",
   className = "",
+  onClick,
   children
 }: ContactButtonProps) {
-  const buttonClasses = variant === "round" 
-    ? `inline-flex items-center justify-center rounded-full text-base ${className}`
-    : `text-base ${isHeader ? "h-10 sm:w-36" : "h-16 sm:w-48"} ${className}`;
+
+
+  const getButtonClasses = () => {
+    let buttonClasses = variant === "round" 
+    ? `inline-flex items-center justify-center rounded-full text-base `
+    : `text-base ${isHeader ? "h-10 sm:w-36" : "h-16 sm:w-48"} `;
+    switch (size) {
+      case "small":
+        buttonClasses += "h-10 text-sm ";
+        break;
+      default:
+        buttonClasses += "h-16 text-base ";
+    }
+    return buttonClasses + className;
+  };
 
   return (
     <Button
       variant={variant === "round" ? "outline" : "outline"}
-      className={buttonClasses}
+      className={getButtonClasses()}
       asChild
     >
       <Link
@@ -37,6 +53,7 @@ export function ContactButton({
         className={`flex items-center gap-3`}
         onClick={() => {
           trackCTAClick("contact");
+          onClick?.();
         }}
       >
         {iconPosition === "left" && <Calendar className={isHeader ? "h-4 w-4" : "h-5 w-5"} />}

@@ -46,6 +46,7 @@ export function DownloadButton({
     company: "",
   });
   const [hasStartedForm, setHasStartedForm] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const finishing = pending || state.status === "success";
 
@@ -62,6 +63,7 @@ export function DownloadButton({
       router.push(redirectUrl);
     }
   }, [state, router]);
+
 
   // Generate button classes based on variant and size
   const getButtonClasses = () => {
@@ -104,13 +106,14 @@ export function DownloadButton({
   };
 
   return (
-    <Dialog>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         <Button
           className={getButtonClasses()}
           disabled={finishing}
           onClick={() => {
             trackCTAClick("download");
+            setIsOpen(true);
           }}
         >
           <span className="flex items-center gap-3">
