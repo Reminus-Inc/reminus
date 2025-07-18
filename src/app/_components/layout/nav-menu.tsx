@@ -5,8 +5,8 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Header } from "./header";
-import { DownloadButton } from "./download-button";
-import { ContactButton } from "./contact-button";
+import { DownloadButton } from "../ui/download-button";
+import { ContactButton } from "../ui/contact-button";
 
 export function NavMenu() {
   const pathname = usePathname();
@@ -42,17 +42,15 @@ export function NavMenu() {
             </Link>
           ))}
         </nav>
-        
+
         {/* CTA ボタン */}
         <div className="flex items-center space-x-4">
-          <DownloadButton 
-            variant="primary"
-            size="small"
-            iconPosition="left"
-          >
+          <DownloadButton variant="primary" size="small" iconPosition="left">
             資料ダウンロード
           </DownloadButton>
-          <ContactButton aggressive iconPosition="left" size="small">無料相談を予約する</ContactButton>
+          <ContactButton aggressive iconPosition="left" size="small">
+            無料相談を予約する
+          </ContactButton>
         </div>
       </div>
 
@@ -60,21 +58,16 @@ export function NavMenu() {
       <div className="hidden md:flex lg:hidden items-center space-x-4">
         {/* CTA ボタン */}
         <div className="flex items-center space-x-3">
-          <DownloadButton 
-            variant="primary"
-            size="small"
-            iconPosition="left"
-          >
+          <DownloadButton variant="primary" size="small" iconPosition="left">
             資料ダウンロード
           </DownloadButton>
-          <ContactButton aggressive iconPosition="left" size="small">無料相談を予約する</ContactButton>
+          <ContactButton aggressive iconPosition="left" size="small">
+            無料相談を予約する
+          </ContactButton>
         </div>
-        
+
         {/* ハンバーガーボタン */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="メニューを開く"
-        >
+        <button onClick={() => setIsOpen(!isOpen)} aria-label="メニューを開く">
           {isOpen ? (
             <X className="h-6 w-6 text-gray-600" />
           ) : (
@@ -99,7 +92,7 @@ export function NavMenu() {
       {/* モバイルメニューオーバーレイ */}
       {isOpen && (
         <div className="lg:hidden fixed inset-0 z-[9999] bg-white">
-          <Header 
+          <Header
             showNavMenu={false}
             onLogoClick={handleLinkClick}
             rightContent={
@@ -125,22 +118,30 @@ export function NavMenu() {
                 </li>
               ))}
             </ul>
-            
+
             {/* モバイル用 CTA ボタン */}
             <div className="mt-6 space-y-4">
-                <div>
-                  <DownloadButton 
-                    variant="primary"
-                    size="small"
-                    iconPosition="left"
-                    className="w-full"
-                  >
-                    資料ダウンロード
-                  </DownloadButton>
-                </div>
-                <div>
-                  <ContactButton aggressive iconPosition="left" size="small" className="w-full" onClick={() => setTimeout(() => setIsOpen(false), 300)}>無料相談を予約する</ContactButton>
-                </div>
+              <div>
+                <DownloadButton
+                  variant="primary"
+                  size="small"
+                  iconPosition="left"
+                  className="w-full"
+                >
+                  資料ダウンロード
+                </DownloadButton>
+              </div>
+              <div>
+                <ContactButton
+                  aggressive
+                  iconPosition="left"
+                  size="small"
+                  className="w-full"
+                  onClick={() => setTimeout(() => setIsOpen(false), 300)}
+                >
+                  無料相談を予約する
+                </ContactButton>
+              </div>
             </div>
           </nav>
         </div>

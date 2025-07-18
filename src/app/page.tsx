@@ -1,22 +1,49 @@
-import { CtoPartner } from "@/app/_components/cto-partner";
-import { Services } from "./_components/services";
-import { CaseStudies } from "@/app/_components/case-studies";
+import { FirstView } from "./_components/sections/first-view";
+import { ClientLogos } from "./_components/sections/client-logos";
+import { Challenges } from "./_components/sections/challenges";
+import { Solutions } from "./_components/sections/solutions";
+import { ServicePlans } from "./_components/sections/service-plans";
+import { PhaseSupport } from "./_components/sections/phase-support";
+import { EngagementStyle } from "./_components/sections/engagement-style";
+import { Cta } from "./_components/sections/cta";
+import { ServiceOfferings } from "./_components/sections/service-offerings";
+import { CaseStudies } from "@/app/_components/sections/case-studies";
 import React from "react";
-import { Management } from "./_components/management";
-import { CompanyOverview } from "./_components/company-overview";
+import { Management } from "./_components/sections/management";
+import { CompanyOverview } from "./_components/sections/company-overview";
 
 export default function Home() {
-  // "use cache";
   return (
     <div className="flex flex-col min-h-svh">
       <section className="relative">
-        <CtoPartner />
+        <FirstView />
+      </section>
+      <section className="relative">
+        <ClientLogos />
+      </section>
+      <section className="relative">
+        <Challenges />
+      </section>
+      <section className="relative">
+        <Solutions />
+      </section>
+      <section className="relative">
+        <ServicePlans />
+      </section>
+      <section className="relative">
+        <PhaseSupport />
+      </section>
+      <section className="relative">
+        <EngagementStyle />
+      </section>
+      <section className="relative">
+        <Cta />
       </section>
       <section className="relative">
         <CaseStudies />
       </section>
       <section className="relative">
-        <Services />
+        <ServiceOfferings />
       </section>
       <section className="relative">
         <Management />

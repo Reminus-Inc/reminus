@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ExternalLink, Twitter } from "lucide-react";
-import { DownloadButton } from "./download-button";
+import { DownloadButton } from "../ui/download-button";
 
 export function Management() {
   return (

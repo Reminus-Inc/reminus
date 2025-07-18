@@ -1,6 +1,6 @@
 "use client"
 
-import { DownloadButton } from "./download-button"
+import { DownloadButton } from "../ui/download-button"
 
 export function EngagementStyle() {
   return (
