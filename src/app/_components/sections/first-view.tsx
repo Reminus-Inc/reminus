@@ -7,12 +7,12 @@ export function FirstView() {
   return (
     <>
       <div
-        className="fixed z-[-1] top-0 left-0 w-full h-full bg-cover bg-bottom md:bg-[center_60%] bg-no-repeat"
+        className="absolute md:fixed z-[-1] top-0 left-0 w-full h-full bg-cover bg-[center_50%] md:bg-[center_60%] bg-no-repeat"
         style={{ backgroundImage: "url(/hero-background.jpg)" }}
       />
-      <div className="relative z-10 container mx-auto px-4 flex flex-col justify-between min-h-[90vh] py-10">
+      <div className="relative z-10 container mx-auto px-4 flex flex-col justify-between min-h-[85vh] py-8">
         <div className="text-center md:text-left space-y-4">
-          <h1 className="text-3xl md:text-[2.5rem] leading-[1.6] md:leading-[1.45] font-bold tracking-wide text-gray-900 mb-8">
+          <h1 className="text-3xl md:text-[2.5rem] leading-[1.5] md:leading-[1.45] font-bold tracking-wide text-gray-900 mb-6">
             技術責任者不在の
             <br />
             スタートアップに
