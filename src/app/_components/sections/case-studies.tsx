@@ -4,11 +4,9 @@ import { motion } from "motion/react";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { DownloadButton } from "@/app/_components/download-button";
-import { ContactButton } from "@/app/_components/contact-button";
-import {
-  Carousel,
-} from "@/components/ui/carousel";
+import { DownloadButton } from "@/app/_components/ui/download-button";
+import { ContactButton } from "@/app/_components/ui/contact-button";
+import { Carousel } from "@/components/ui/carousel";
 const caseStudies = [
   {
     title: "社外CTOとして技術戦略リード・調達後の組織立ち上げ",
@@ -110,7 +108,7 @@ export function CaseStudies() {
 
           {/* Mobile carousel view */}
           <div className="md:hidden bleed">
-            <Carousel 
+            <Carousel
               opts={{ align: "start" }}
               items={caseStudies.map((study, index) => (
                 <Card key={index} className="h-full">

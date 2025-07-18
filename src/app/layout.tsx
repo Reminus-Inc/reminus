@@ -3,8 +3,8 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { GoogleTagManager } from "@next/third-parties/google";
 import Script from "next/script";
-import { XPixelPageView } from "./_components/x-pixel-pageview";
-import { Header } from "./_components/header";
+import { XPixelPageView } from "./_components/layout/x-pixel-pageview";
+import { Header } from "./_components/layout/header";
 
 const inter = Inter({ subsets: ["latin"] });
 
