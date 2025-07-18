@@ -24,10 +24,10 @@ export default async function RootLayout({
       <body className={`${inter.className} min-h-svh flex flex-col`}>
         <Header />
         <main className="flex-1 flex flex-col pt-16">{children}</main>
-        <footer className="bg-background text-center py-4 sm:py-8">
-          <div className="container mx-auto px-4">
-            <p className="text-xs sm:text-sm md:text-base">&copy; 2025 Reminus.（レミナス） All rights reserved.</p>
-          </div>
+        <footer className="container mx-auto bg-background py-3">
+          <p className="text-center">
+            <small>&copy; 2025 Reminus.（レミナス） All rights reserved.</small>
+          </p>
         </footer>
         <Toaster />
         {/* XPixelPageView はベタ打ちPixel IDでも動作するように更新 */}
