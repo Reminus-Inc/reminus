@@ -8,10 +8,6 @@ import { DownloadButton } from "@/app/_components/download-button";
 import { ContactButton } from "@/app/_components/contact-button";
 import {
   Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 const caseStudies = [
   {
@@ -113,41 +109,36 @@ export function CaseStudies() {
           </div>
 
           {/* Mobile carousel view */}
-          <Carousel className="md:hidden w-[85%] max-w-sm mx-auto">
-            <CarouselContent>
-              {caseStudies.map((study, index) => (
-                <CarouselItem key={index}>
-                  <div className="p-1">
-                    <Card className="h-full">
-                      <CardHeader className="space-y-2">
-                        <CardTitle className="text-xl">{study.title}</CardTitle>
-                        <div className="flex flex-wrap gap-2">
-                          <Badge variant="secondary">{study.industry}</Badge>
-                          <Badge variant="outline">{study.companySize}</Badge>
-                        </div>
-                      </CardHeader>
-                      <CardContent className="space-y-4">
-                        <ul className="list-disc pl-5 text-slate-600 text-base space-y-2">
-                          {study.description.map((item, index) => (
-                            <li key={index}>{item}</li>
-                          ))}
-                        </ul>
-                        <div className="flex flex-wrap gap-2">
-                          {study.services.map((service) => (
-                            <Badge key={service} variant="secondary">
-                              {service}
-                            </Badge>
-                          ))}
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </CarouselItem>
+          <div className="md:hidden bleed">
+            <Carousel 
+              opts={{ align: "start" }}
+              items={caseStudies.map((study, index) => (
+                <Card key={index} className="h-full">
+                  <CardHeader className="space-y-2">
+                    <CardTitle className="text-xl">{study.title}</CardTitle>
+                    <div className="flex flex-wrap gap-2">
+                      <Badge variant="secondary">{study.industry}</Badge>
+                      <Badge variant="outline">{study.companySize}</Badge>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <ul className="list-disc pl-5 text-slate-600 text-base space-y-2">
+                      {study.description.map((item, index) => (
+                        <li key={index}>{item}</li>
+                      ))}
+                    </ul>
+                    <div className="flex flex-wrap gap-2">
+                      {study.services.map((service) => (
+                        <Badge key={service} variant="secondary">
+                          {service}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
               ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
+            />
+          </div>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4 mt-12">
             <DownloadButton />

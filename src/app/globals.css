@@ -109,3 +109,14 @@ body {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   animation: pulse-border 0.5s;
 }
+
+@layer utilities {
+  .bleed {
+    position: relative;
+    left: 50%;
+    right: 50%;
+    width: 100vw;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+}

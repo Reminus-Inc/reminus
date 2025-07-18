@@ -15,10 +15,6 @@ import { ContactButton } from "@/app/_components/contact-button";
 import { ReactNode } from "react";
 import {
   Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 
 export type Service = {
@@ -254,19 +250,14 @@ export function Services() {
           ))}
         </MotionDiv>
 
-        <Carousel className="md:hidden w-[85%] max-w-xs mx-auto mb-16" onClick={handleServiceListClick}>
-          <CarouselContent>
-            {services.map((service, i) => (
-              <CarouselItem key={i}>
-                <div className="p-1">
-                  <ServiceCard service={service} />
-                </div>
-              </CarouselItem>
+        <div className="md:hidden mb-16 bleed" onClick={handleServiceListClick}>
+          <Carousel 
+            opts={{ align: "start" }}
+            items={services.map((service, i) => (
+              <ServiceCard key={i} service={service} />
             ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
+          />
+        </div>
 
         <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
           <DownloadButton />
