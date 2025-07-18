@@ -16,7 +16,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
-import { ClockIcon } from "lucide-react";
 
 export function ContactForm() {
   const [state, formAction, pending] = useActionState(submitInquiry, {
@@ -177,8 +176,7 @@ export function ContactForm() {
                 className="w-full bg-black text-white hover:bg-neutral-800 transition-colors py-6 text-base"
                 disabled={pending}
               >
-                <ClockIcon size={18} className="mr-2 h-4 w-4" />
-                {pending ? "送信中..." : "30分無料相談を申し込む"}
+                {pending ? "送信中..." : "送信する"}
               </Button>
 
               <div className="flex items-center justify-center my-2">
