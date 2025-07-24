@@ -10,6 +10,9 @@ const chipVariants = cva(
       color: {
         default: "text-gray-600 bg-gray-100",
         red: "text-red-500 bg-red-100",
+        orange: "text-orange-500 bg-orange-100",
+        blue: "text-blue-500 bg-blue-100",
+        green: "text-green-600 bg-green-100",
       },
     },
     defaultVariants: {
