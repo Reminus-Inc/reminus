@@ -10,11 +10,10 @@ import { ServiceOfferings } from "./_components/sections/service-offerings";
 import { CaseStudies } from "@/app/_components/sections/case-studies";
 import React from "react";
 import { Management } from "./_components/sections/management";
-import { CompanyOverview } from "./_components/sections/company-overview";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-svh">
+    <div className="flex min-h-svh flex-col">
       <section className="relative">
         <FirstView />
       </section>
@@ -47,9 +46,6 @@ export default function Home() {
       </section>
       <section className="relative">
         <Management />
-      </section>
-      <section className="relative">
-        <CompanyOverview />
       </section>
     </div>
   );
