@@ -5,6 +5,7 @@ import { Solutions } from "./_components/sections/solutions";
 import { ServicePlans } from "./_components/sections/service-plans";
 import { PhaseSupport } from "./_components/sections/phase-support";
 import { EngagementStyle } from "./_components/sections/engagement-style";
+import { CompanyOverview } from "./_components/sections/company-overview";
 import { Cta } from "./_components/sections/cta";
 import { ServiceOfferings } from "./_components/sections/service-offerings";
 import { CaseStudies } from "@/app/_components/sections/case-studies";
@@ -47,6 +48,8 @@ export default function Home() {
       <section className="relative">
         <Management />
       </section>
+
+      <CompanyOverview />
     </div>
   );
 }
