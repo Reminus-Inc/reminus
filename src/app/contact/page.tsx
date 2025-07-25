@@ -13,7 +13,7 @@ export default function ContactPage() {
     <main className="pb-24 pt-12">
       <h1 className="mb-12 text-center text-3xl font-bold">お問い合わせ</h1>
 
-      <div className="mx-auto max-w-[600] space-y-8 px-5">
+      <div className="mx-auto max-w-[600px] space-y-8 px-5">
         <SchedulingButton variant="outlined" />
         <p className="text-center tracking-wider text-gray-600">または、</p>
         <div>
