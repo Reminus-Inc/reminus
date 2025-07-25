@@ -55,7 +55,7 @@ export function Management() {
   return (
     <section id="management" className="w-full bg-white py-20 md:py-32">
       <div className="container mx-auto max-w-5xl px-5">
-        <h2 className="mb-14 text-center text-3xl font-semibold tracking-wider">
+        <h2 className="mb-14 text-center text-3xl font-semibold tracking-wide">
           経営者紹介
         </h2>
 
@@ -73,9 +73,7 @@ export function Management() {
           </div>
 
           <div className="flex-1">
-            <h3 className="mb-4 text-3xl font-medium tracking-wide md:text-4xl">
-              sumiren
-            </h3>
+            <h3 className="mb-4 text-3xl font-medium md:text-4xl">sumiren</h3>
 
             <div className="space-y-6">
               <div className="prose prose-gray max-w-none text-left">
@@ -126,11 +124,11 @@ export function Management() {
                 </Link>
                 <Link
                   href="https://twitter.com/sumiren_t"
-                  className="inline-flex items-center rounded-full border border-gray-200 px-4 py-2 text-gray-600 transition-all hover:border-gray-300 hover:bg-gray-50"
+                  className="inline-flex items-center rounded-full border border-gray-200 px-7 py-2 text-gray-600 transition-all hover:border-gray-300 hover:bg-gray-50"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <ExternalLink className="mr-2 h-4 w-4" />X (Twitter)
+                  <ExternalLink className="mr-2 h-4 w-4" />X
                 </Link>
               </div>
             </div>
