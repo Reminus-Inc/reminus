@@ -1,12 +1,23 @@
 "use client";
 
-import { SecondaryButton } from "@/app/_components/ui/secondary-button";
+import {
+  PrimaryButton,
+  PrimaryButtonProps,
+} from "@/app/_components/ui/primary-button";
 import { trackCTAClick, trackSpirPageView } from "@/lib/analytics";
 import Link from "next/link";
 
-export const SchedulingButton = () => {
+const DEFAULT_LABEL = "直接日程調整する";
+
+type SchedulingButtonProps = PrimaryButtonProps & {
+  label?: string;
+};
+export const SchedulingButton = ({
+  label = DEFAULT_LABEL,
+  ...props
+}: SchedulingButtonProps) => {
   return (
-    <SecondaryButton asChild>
+    <PrimaryButton asChild {...props}>
       <Link
         href="https://meetings.immedio.io/date_select?uk=8ze2jVpsiNsxvR2jIEnM#calendar"
         target="_blank"
@@ -16,8 +27,8 @@ export const SchedulingButton = () => {
           trackSpirPageView();
         }}
       >
-        直接日程調整する
+        {label}
       </Link>
-    </SecondaryButton>
+    </PrimaryButton>
   );
 };

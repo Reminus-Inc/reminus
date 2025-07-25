@@ -1,16 +1,15 @@
-import { FirstView } from "./_components/sections/first-view";
-import { ClientLogos } from "./_components/sections/client-logos";
+import { CaseStudies } from "@/app/_components/sections/case-studies";
 import { Challenges } from "./_components/sections/challenges";
-import { Solutions } from "./_components/sections/solutions";
-import { ServicePlans } from "./_components/sections/service-plans";
-import { PhaseSupport } from "./_components/sections/phase-support";
-import { EngagementStyle } from "./_components/sections/engagement-style";
+import { ClientLogos } from "./_components/sections/client-logos";
 import { CompanyOverview } from "./_components/sections/company-overview";
 import { Cta } from "./_components/sections/cta";
-import { ServiceOfferings } from "./_components/sections/service-offerings";
-import { CaseStudies } from "@/app/_components/sections/case-studies";
-import React from "react";
+import { EngagementStyle } from "./_components/sections/engagement-style";
+import { FirstView } from "./_components/sections/first-view";
 import { Management } from "./_components/sections/management";
+import { PhaseSupport } from "./_components/sections/phase-support";
+import { ServiceOfferings } from "./_components/sections/service-offerings";
+import { ServicePlans } from "./_components/sections/service-plans";
+import { Solutions } from "./_components/sections/solutions";
 
 export default function Home() {
   return (
@@ -18,9 +17,11 @@ export default function Home() {
       <section className="relative">
         <FirstView />
       </section>
-      <section className="relative">
-        <ClientLogos />
-      </section>
+      <div className="border-b border-gray-200 bg-white py-8">
+        <div className="container mx-auto px-6">
+          <ClientLogos />
+        </div>
+      </div>
       <section className="relative">
         <Challenges />
       </section>
