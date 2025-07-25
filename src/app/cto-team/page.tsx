@@ -57,13 +57,13 @@ export default function CTOTeamPage() {
               </ul>
 
               <div className="mt-10 flex justify-center lg:justify-start">
-                <div className="w-full max-w-[440]">
+                <div className="w-full max-w-[440px]">
                   <SchedulingButton label="今すぐ日程調整" />
                 </div>
               </div>
             </div>
 
-            <div className="hidden w-full justify-center sm:flex lg:max-w-[460]">
+            <div className="hidden w-full justify-center sm:flex lg:max-w-[460px]">
               <Card>
                 <CardContent className="p-6">
                   <h2 className="mb-4 text-lg font-semibold text-gray-800">
@@ -157,7 +157,7 @@ export default function CTOTeamPage() {
                   <img
                     src="/single-developer.svg"
                     alt=""
-                    className="mx-auto w-full max-w-[280]"
+                    className="mx-auto w-full max-w-[280px]"
                   />
                 </div>
               </CardContent>
@@ -200,7 +200,7 @@ export default function CTOTeamPage() {
                   <img
                     src="/cto-team.svg"
                     alt=""
-                    className="mx-auto w-full max-w-[340]"
+                    className="mx-auto w-full max-w-[340px]"
                   />
                 </div>
               </CardContent>
@@ -215,7 +215,7 @@ export default function CTOTeamPage() {
         <H2 className="text-white">
           開発で失敗するリスク、今すぐゼロにしませんか？
         </H2>
-        <div className="mx-auto max-w-[600] space-y-8">
+        <div className="mx-auto max-w-[600px] space-y-8">
           <SchedulingButton />
           <p className="text-center tracking-wider text-white">または、</p>
           <div>

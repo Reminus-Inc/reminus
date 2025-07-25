@@ -61,7 +61,7 @@ export function Management() {
 
         <div className="flex flex-col gap-5 md:flex-row md:gap-20">
           <div className="flex items-center justify-center md:items-start md:justify-start">
-            <div className="aspect-square h-[160] w-[160] overflow-hidden rounded-full border-4 border-gray-200 bg-white shadow-sm md:h-[240] md:w-[240]">
+            <div className="aspect-square h-[160px] w-[160px] overflow-hidden rounded-full border-4 border-gray-200 bg-white shadow-sm md:h-[240px] md:w-[240px]">
               <Image
                 src="/profile.png"
                 alt=""
