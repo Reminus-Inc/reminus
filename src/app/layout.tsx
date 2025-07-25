@@ -5,6 +5,7 @@ import { GoogleTagManager } from "@next/third-parties/google";
 import Script from "next/script";
 import { XPixelPageView } from "./_components/layout/x-pixel-pageview";
 import { Header } from "./_components/layout/header";
+import { Footer } from "./_components/layout/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,14 +22,10 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="ja" className="scroll-smooth">
-      <body className={`${inter.className} min-h-svh flex flex-col`}>
+      <body className={`${inter.className} flex min-h-svh flex-col`}>
         <Header />
-        <main className="flex-1 flex flex-col pt-16">{children}</main>
-        <footer className="bg-background text-center py-4 sm:py-8">
-          <div className="container mx-auto px-4">
-            <p className="text-xs sm:text-sm md:text-base">&copy; 2025 Reminus.（レミナス） All rights reserved.</p>
-          </div>
-        </footer>
+        <main className="flex flex-1 flex-col pt-16">{children}</main>
+        <Footer />
         <Toaster />
         {/* XPixelPageView はベタ打ちPixel IDでも動作するように更新 */}
         <XPixelPageView />
