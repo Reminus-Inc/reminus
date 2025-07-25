@@ -19,6 +19,12 @@ import { ContactForm } from "@/app/_components/ui/contact-form";
 import { ClientLogos } from "../_components/sections/client-logos";
 import { CompanyOverview } from "../_components/sections/company-overview";
 
+export const metadata = {
+  title: "CTO付きエンジニアチーム | Reminus",
+  description:
+    "エンジニア紹介で失敗したくないあなたへ。Reminusの「CTO付きエンジニアチーム」が、技術戦略から実装・マネジメントまで丸ごと伴走します。",
+};
+
 export default function CTOTeamPage() {
   return (
     <main className="theme-cto-team">

@@ -10,7 +10,7 @@ import { Footer } from "./_components/layout/footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "株式会社Reminus（レミナス）｜非エンジニア創業者のためのCTOサービス",
+  title: "株式会社Reminus（レミナス）｜非エンジニア経営者のためのCTOサービス",
   description:
     "ビジネスのプロフェッショナルであられる創業者様、技術戦略や開発チームの構築でお困りではありませんか？株式会社Reminus（レミナス）は、まるでCTOのように事業成長を加速するCTOサービスで、あなたのビジネスを技術面から強力にサポートします。まずはお気軽にご相談ください。",
 };
