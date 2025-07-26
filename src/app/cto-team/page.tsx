@@ -32,7 +32,7 @@ export default function CTOTeamPage() {
         <div className="container mx-auto max-w-7xl px-6">
           <div className="flex flex-col justify-between gap-20 lg:flex-row lg:gap-10">
             <div className="lg:pt-6">
-              <p className="text-center text-sm font-semibold tracking-wide text-orange-400 sm:text-base lg:text-left">
+              <p className="text-center text-sm font-bold tracking-wide text-orange-400 sm:text-base lg:text-left">
                 エンジニア紹介で
                 <span className="whitespace-nowrap">
                   失敗したくないあなたへ
@@ -60,7 +60,7 @@ export default function CTOTeamPage() {
               </p>
 
               <div className="-mx-2 sm:mx-0">
-                <ul className="mx-auto mt-5 table space-y-2 text-base font-semibold text-white sm:space-y-4 sm:text-xl lg:block">
+                <ul className="mx-auto mt-5 table space-y-2 text-base font-bold text-white sm:space-y-4 sm:text-xl lg:block">
                   <li className="flex items-center gap-3 tracking-wide">
                     <Zap className="h-6 w-6 text-orange-400" />
                     プロダクトの立ち上げを劇的に加速
@@ -86,7 +86,7 @@ export default function CTOTeamPage() {
             <div className="hidden w-full justify-center sm:flex lg:max-w-[460px]">
               <Card>
                 <CardContent className="p-6">
-                  <h2 className="mb-4 text-lg font-semibold text-gray-800">
+                  <h2 className="mb-4 text-lg font-bold text-gray-800">
                     どのような内容でもお気軽にご相談ください！
                   </h2>
                   <ContactForm
@@ -136,7 +136,7 @@ export default function CTOTeamPage() {
           が選ばれるのか？
         </H2>
         <div className="space-y-12">
-          <p className="text-center text-sm leading-relaxed text-gray-800 sm:text-lg sm:leading-relaxed">
+          <p className="text-center text-sm leading-[1.7] text-gray-800 sm:text-lg sm:leading-relaxed">
             スタートアップの成功を左右するのは、
             <span className="whitespace-nowrap">事業立ち上げのスピード</span>
             です。
@@ -211,7 +211,7 @@ export default function CTOTeamPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="mx-auto table px-4 text-sm text-gray-800 sm:text-base">
-                <ul className="space-y-3 font-semibold">
+                <ul className="space-y-3 font-bold">
                   <li className="flex items-center gap-3">
                     <div>
                       <Check className="h-5 w-5 text-orange-500" />
@@ -264,7 +264,7 @@ export default function CTOTeamPage() {
           <div>
             <Card>
               <CardContent className="space-y-5 p-5 sm:p-7">
-                <p className="font-semibold leading-relaxed tracking-wider text-gray-800">
+                <p className="font-bold leading-relaxed tracking-wider text-gray-800">
                   どのような内容でもお気軽にご相談ください！
                 </p>
                 <ContactForm
@@ -311,7 +311,7 @@ const H2 = ({
   return (
     <h2
       className={cn(
-        "text-center text-2xl font-semibold leading-[1.4] text-gray-800 sm:text-3xl sm:leading-[1.4] md:text-4xl md:leading-[1.4]",
+        "text-center text-2xl font-bold leading-[1.4] text-gray-800 sm:text-3xl sm:leading-[1.4] md:text-4xl md:leading-[1.4]",
         className
       )}
     >
