@@ -51,11 +51,11 @@ export default function CTOTeamPage() {
                 <img
                   src="/cto-team/hero.svg"
                   alt=""
-                  className="mx-auto w-[80%] max-w-[400px] sm:hidden"
+                  className="mx-auto w-[90%] max-w-[400px] sm:hidden"
                 />
               </div>
 
-              <p className="mt-10 text-center text-sm leading-[1.8] tracking-wide text-gray-200 sm:text-base sm:leading-relaxed lg:text-left">
+              <p className="mt-10 text-center text-sm leading-[1.8] tracking-wide text-white sm:text-base sm:leading-relaxed lg:text-left">
                 もう、エンジニアのミスマッチやマネジメントの悩みに時間を浪費するのはやめませんか？
               </p>
 
