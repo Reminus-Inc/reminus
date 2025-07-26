@@ -77,15 +77,10 @@ export function Management() {
 
             <div className="space-y-6">
               <div className="prose prose-gray max-w-none text-left">
-                <p className="text-sm leading-relaxed text-gray-600 md:text-base md:leading-relaxed">
-                  株式会社ヘンリーで SaaS
-                  の急成長を牽引し、ソフトウェアエンジニア／EM／SRE
-                  と立場を変えながら技術と組織をリード。
-                  <br />
-                  その後、セールステックSaaSスタートアップ immedio
-                  でCTOとして技術から経営を推進。加えて、2社の社外CTOと3社の技術顧問経験を持つ。経営レイヤから専門的な支援まで広く行い、資金調達にも貢献。
-                  <br />
-                  2025年、株式会社Reminusを創業し、スタートアップの成長を加速する事業を展開している。
+                <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                  株式会社ヘンリーで医療SaaSの急成長をソフトウェアエンジニアやSREとして牽引。その後、株式会社immedioでCTOを務め、Sales
+                  Techマルチプロダクトの経営を技術から推進する。2社の社外CTOと3社の技術顧問として経営から専門支援まで広く支援し、
+                  資金調達にも貢献した経験を持つ。2025年、株式会社Reminusを創業し、スタートアップの成長を加速する事業を展開している。
                 </p>
               </div>
 
