@@ -20,7 +20,7 @@ export function NavMenu() {
     { href: "#phase", label: "支援内容" },
     { href: "#case-studies", label: "事例" },
     { href: "#services", label: "その他サービス" },
-    { href: "#management", label: "経営陣紹介" },
+    { href: "#management", label: "経営者紹介" },
   ];
 
   const handleLinkClick = () => {
@@ -30,13 +30,13 @@ export function NavMenu() {
   return (
     <>
       {/* デスクトップナビゲーション */}
-      <div className="hidden lg:flex items-center space-x-8">
+      <div className="hidden items-center space-x-8 lg:flex">
         <nav className="flex space-x-8">
           {menuItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-gray-600 hover:text-gray-900 text-sm whitespace-nowrap"
+              className="whitespace-nowrap text-sm text-gray-600 hover:text-gray-900"
             >
               {item.label}
             </Link>
@@ -55,7 +55,7 @@ export function NavMenu() {
       </div>
 
       {/* タブレット・中間幅での表示 */}
-      <div className="hidden md:flex lg:hidden items-center space-x-4">
+      <div className="hidden items-center space-x-4 md:flex lg:hidden">
         {/* CTA ボタン */}
         <div className="flex items-center space-x-3">
           <DownloadButton variant="primary" size="small" iconPosition="left">
@@ -91,7 +91,7 @@ export function NavMenu() {
 
       {/* モバイルメニューオーバーレイ */}
       {isOpen && (
-        <div className="lg:hidden fixed inset-0 z-[9999] bg-white">
+        <div className="fixed inset-0 z-[9999] bg-white lg:hidden">
           <Header
             showNavMenu={false}
             onLogoClick={handleLinkClick}

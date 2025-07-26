@@ -5,25 +5,24 @@ import { ContactButton } from "../ui/contact-button";
 
 export function FirstView() {
   return (
-    <div
-      className="relative md:bg-fixed bg-cover bg-bottom bg-no-repeat"
-      style={{ backgroundImage: "url(/hero-background.jpg)" }}
-    >
-      <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-      <div className="relative z-10 lg:container mx-auto px-4 flex flex-col justify-between min-h-[90vh] py-20">
-        <div className="text-center md:text-left md:w-1/2 space-y-4 md:space-y-6">
-          <div className="text-base md:text-lg font-semibold text-emerald-200 mb-2">
-            非エンジニア創業者へ
-          </div>
-
-          <h1 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight text-white mb-4 md:mb-6">
-            技術責任者不在のスタートアップに、
-            <br className="hidden lg:block" />
-            &ldquo;CTOパートナー&rdquo;を。
+    <>
+      <div
+        className="absolute md:fixed z-[-1] top-0 left-0 w-full h-full bg-cover bg-[center_50%] md:bg-[center_60%] bg-no-repeat"
+        style={{ backgroundImage: "url(/hero-background.jpg)" }}
+      />
+      <div className="relative z-10 container mx-auto px-4 flex flex-col justify-between min-h-[85vh] py-8">
+        <div className="text-center md:text-left space-y-4">
+          <h1 className="text-3xl md:text-[2.5rem] leading-[1.5] md:leading-[1.45] font-bold tracking-wide text-gray-900 mb-6">
+            技術責任者不在の
+            <br />
+            スタートアップに
+            <br />
+            CTOパートナーを。
           </h1>
-          <p className="text-base md:text-lg xl:text-xl text-gray-200 leading-relaxed">
-            開発ロードマップ策定から採用まで、Reminus
-            が技術面で丸ごと伴走サポートします。
+          <p className="text-base text-gray-900 leading-[1.9]">
+            開発ロードマップ策定から採用まで、
+            <br />
+            Reminusが技術面で丸ごと伴走サポートします。
           </p>
         </div>
         <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
@@ -33,6 +32,6 @@ export function FirstView() {
           <ContactButton aggressive iconPosition="left" />
         </div>
       </div>
-    </div>
+    </>
   );
 }
