@@ -1,7 +1,5 @@
-import { CheckIcon } from "lucide-react";
 import { Suspense } from "react";
 import { Metadata } from "next";
-import { ViewDocumentButton } from "./view-document-button";
 import { DownloadThanksContent } from "./download-thanks-content";
 
 export const metadata: Metadata = {
