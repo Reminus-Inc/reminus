@@ -131,6 +131,7 @@ export default function CTOTeamPage() {
       <Section className="bg-gray-50">
         <H2>
           なぜ「エンジニア紹介」ではなく
+          <br className="hidden md:block" />
           <span className="text-orange-500">「CTO付きチーム」</span>
           が選ばれるのか？
         </H2>
