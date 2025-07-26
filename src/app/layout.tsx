@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "株式会社Reminus（レミナス）｜非エンジニア経営者のためのCTOサービス",
   description:
-    "技術戦略や開発チームの構築でお困りの創業者様へ。株式会社Reminus（レミナス）は、バーチャルCTOとして事業成長を技術面から強力にサポートします。まずはお気軽にご相談ください。",
+    "技術戦略や開発チームの構築でお困りの創業者様へ。株式会社Reminus（レミナス）がCTOを代行し、事業成長を技術面から強力にサポートします。まずはお気軽にご相談ください。",
 };
 
 export default async function RootLayout({
