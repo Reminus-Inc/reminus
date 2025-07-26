@@ -36,7 +36,7 @@ export function Competence() {
               >
                 <Users className="w-8 h-8 text-white shrink-0 mt-1" />
                 <div className="space-y-4">
-                  <h3 className="text-xl md:text-2xl font-semibold text-white">
+                  <h3 className="text-xl md:text-2xl font-bold text-white">
                     高いレベルで複数の役割をこなす環境
                   </h3>
                   <p className="text-sm md:text-base text-neutral-300 leading-relaxed">
@@ -53,7 +53,7 @@ export function Competence() {
               >
                 <Lightbulb className="w-8 h-8 text-white shrink-0 mt-1" />
                 <div className="space-y-4">
-                  <h3 className="text-xl md:text-2xl font-semibold text-white">
+                  <h3 className="text-xl md:text-2xl font-bold text-white">
                     事業成長のためなら
                     <br className="sm:hidden" />
                     手段に囚われない文化

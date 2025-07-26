@@ -15,7 +15,7 @@ export const PrimaryButton = ({
 }: PrimaryButtonProps) => {
   const variants = cva(
     // TODO: h-auto は button のスタイル調整したタイミングで削除
-    "block h-auto w-full rounded-full py-5 text-center text-lg font-semibold tracking-wider transition-colors duration-300",
+    "block h-auto w-full rounded-full py-5 text-center text-lg font-bold tracking-wider transition-colors duration-300",
     {
       variants: {
         variant: {

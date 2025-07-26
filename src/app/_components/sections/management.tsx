@@ -55,7 +55,7 @@ export function Management() {
   return (
     <section id="management" className="w-full bg-white py-20 md:py-32">
       <div className="container mx-auto max-w-5xl px-5">
-        <h2 className="mb-14 text-center text-3xl font-semibold tracking-wide">
+        <h2 className="mb-14 text-center text-3xl font-bold tracking-wide">
           経営者紹介
         </h2>
 

@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const chipVariants = cva(
-  "inline-flex items-center rounded-full text-xs font-semibold tracking-wider px-3 py-1",
+  "inline-flex items-center rounded-full text-xs font-bold tracking-wider px-3 py-1",
   {
     variants: {
       color: {

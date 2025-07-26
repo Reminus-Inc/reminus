@@ -19,7 +19,7 @@ export default function PrivacyPolicyPage() {
             <CardContent className="p-8 sm:p-12 space-y-8">
               {/* 1. 個人情報の定義 */}
               <section className="space-y-4">
-                <h2 className="text-xl font-semibold">1. 個人情報の定義</h2>
+                <h2 className="text-xl font-bold">1. 個人情報の定義</h2>
                 <p className="text-gray-700 leading-relaxed">
                   本ポリシーにおいて「個人情報」とは、生存する個人に関する情報であって、氏名、生年月日、住所、電話番号、
                   メールアドレスその他の記述等により特定の個人を識別できるもの
@@ -30,7 +30,7 @@ export default function PrivacyPolicyPage() {
 
               {/* 2. 個人情報の収集方法 */}
               <section className="space-y-4">
-                <h2 className="text-xl font-semibold">2. 個人情報の収集方法</h2>
+                <h2 className="text-xl font-bold">2. 個人情報の収集方法</h2>
                 <p className="text-gray-700 leading-relaxed">
                   当社は、以下の方法により個人情報を収集することがあります。
                 </p>
@@ -45,7 +45,7 @@ export default function PrivacyPolicyPage() {
 
               {/* 3. 個人情報の利用目的 */}
               <section className="space-y-4">
-                <h2 className="text-xl font-semibold">3. 個人情報の利用目的</h2>
+                <h2 className="text-xl font-bold">3. 個人情報の利用目的</h2>
                 <p className="text-gray-700 leading-relaxed">
                   当社は、取得した個人情報を以下の目的で利用します。
                 </p>
@@ -61,7 +61,7 @@ export default function PrivacyPolicyPage() {
 
               {/* 4. 個人情報の第三者提供・委託 */}
               <section className="space-y-4">
-                <h2 className="text-xl font-semibold">4. 個人情報の第三者提供および委託</h2>
+                <h2 className="text-xl font-bold">4. 個人情報の第三者提供および委託</h2>
                 <p className="text-gray-700 leading-relaxed">
                   当社は、次の場合を除き、個人情報を第三者に提供しません。
                 </p>
@@ -79,7 +79,7 @@ export default function PrivacyPolicyPage() {
 
               {/* 5. 個人情報の開示・訂正・削除 */}
               <section className="space-y-4">
-                <h2 className="text-xl font-semibold">5. 個人情報の開示・訂正・削除</h2>
+                <h2 className="text-xl font-bold">5. 個人情報の開示・訂正・削除</h2>
                 <p className="text-gray-700 leading-relaxed">
                   開示、訂正、削除、利用停止等をご希望の場合は、
                   <a
@@ -96,7 +96,7 @@ export default function PrivacyPolicyPage() {
 
               {/* 6. Cookie 等 */}
               <section className="space-y-4">
-                <h2 className="text-xl font-semibold">6. クッキー（Cookie）および広告ID等について</h2>
+                <h2 className="text-xl font-bold">6. クッキー（Cookie）および広告ID等について</h2>
                 <p className="text-gray-700 leading-relaxed">
                   当社ウェブサイトでは、ユーザー体験向上・アクセス解析・広告配信のために Cookie や類似技術を使用します。
                   これにより取得した情報は、Google LLC、X Corp. 等の第三者サービスに提供される場合があります。
@@ -108,7 +108,7 @@ export default function PrivacyPolicyPage() {
 
               {/* 7. 個人情報保護管理者 */}
               <section className="space-y-4">
-                <h2 className="text-xl font-semibold">7. 個人情報保護管理者</h2>
+                <h2 className="text-xl font-bold">7. 個人情報保護管理者</h2>
                 <p className="text-gray-700 leading-relaxed">
                   株式会社Reminus 個人情報保護管理者 太田 蓮
                 </p>
@@ -116,7 +116,7 @@ export default function PrivacyPolicyPage() {
 
               {/* 8. プライバシーポリシーの変更 */}
               <section className="space-y-4">
-                <h2 className="text-xl font-semibold">8. プライバシーポリシーの変更</h2>
+                <h2 className="text-xl font-bold">8. プライバシーポリシーの変更</h2>
                 <p className="text-gray-700 leading-relaxed">
                   本ポリシーは、法令の改正や当社方針の変更により改訂することがあります。
                   改訂後のポリシーは、本ウェブサイトに掲載した時点から適用されます。

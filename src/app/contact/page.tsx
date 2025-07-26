@@ -22,7 +22,7 @@ export default function ContactPage() {
         <div>
           <Card>
             <CardContent className="space-y-5 p-7">
-              <p className="font-semibold leading-relaxed tracking-wider text-gray-800">
+              <p className="font-bold leading-relaxed tracking-wider text-gray-800">
                 どのような内容でもお気軽にご相談ください！
               </p>
               <ContactForm />

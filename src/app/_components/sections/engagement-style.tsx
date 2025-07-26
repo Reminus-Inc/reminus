@@ -25,7 +25,7 @@ export function EngagementStyle() {
                 </div>
               </div>
               <div className="flex-grow">
-                <h3 className="text-lg font-semibold text-emerald-600">定期ミーティング</h3>
+                <h3 className="text-lg font-bold text-emerald-600">定期ミーティング</h3>
                 <p className="text-gray-700 mt-1">
                   週1回45分程度の定期ミーティングを実施します。
                 </p>
@@ -40,7 +40,7 @@ export function EngagementStyle() {
                 </div>
               </div>
               <div className="flex-grow">
-                <h3 className="text-lg font-semibold text-emerald-600">スポットミーティング</h3>
+                <h3 className="text-lg font-bold text-emerald-600">スポットミーティング</h3>
                 <p className="text-gray-700 mt-1">
                   プランに応じて月に2〜3回程度、適宜スポットのミーティングを実施いたします。
                 </p>
@@ -55,7 +55,7 @@ export function EngagementStyle() {
                 </div>
               </div>
               <div className="flex-grow">
-                <h3 className="text-lg font-semibold text-emerald-600">技術・採用相談</h3>
+                <h3 className="text-lg font-bold text-emerald-600">技術・採用相談</h3>
                 <p className="text-gray-700 mt-1">
                   技術的な方向性の壁打ちやレビュー、採用に関する相談など、日々の課題に対するアドバイスを提供します。
                 </p>
@@ -71,7 +71,7 @@ export function EngagementStyle() {
               </div>
               <div className="flex-grow">
                 <div className="flex flex-col md:flex-row md:items-center gap-2">
-                  <h3 className="text-lg font-semibold text-emerald-600">戦略領域の支援</h3>
+                  <h3 className="text-lg font-bold text-emerald-600">戦略領域の支援</h3>
                   <span className="text-xs font-medium text-white bg-emerald-600 px-2 py-0.5 rounded-full inline-block w-fit">
                     Early~
                   </span>
@@ -91,7 +91,7 @@ export function EngagementStyle() {
               </div>
               <div className="flex-grow">
                 <div className="flex flex-col md:flex-row md:items-center gap-2">
-                  <h3 className="text-lg font-semibold text-emerald-600">日常的なコミュニケーション</h3>
+                  <h3 className="text-lg font-bold text-emerald-600">日常的なコミュニケーション</h3>
                   <span className="text-xs font-medium text-white bg-emerald-600 px-2 py-0.5 rounded-full inline-block w-fit">
                     Early~
                   </span>
@@ -111,7 +111,7 @@ export function EngagementStyle() {
               </div>
               <div className="flex-grow">
                 <div className="flex flex-col md:flex-row md:items-center gap-2">
-                  <h3 className="text-lg font-semibold text-emerald-600">執行の伴走支援</h3>
+                  <h3 className="text-lg font-bold text-emerald-600">執行の伴走支援</h3>
                   <span className="text-xs font-medium text-white bg-emerald-600 px-2 py-0.5 rounded-full inline-block w-fit">
                     Growth
                   </span>

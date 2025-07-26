@@ -48,7 +48,7 @@ const TableRow = ({ children }: { children: React.ReactNode }) => {
 };
 
 const TableLabel = ({ children }: { children: React.ReactNode }) => {
-  return <p className="w-[120px] font-semibold">{children}</p>;
+  return <p className="w-[120px] font-bold">{children}</p>;
 };
 
 const TableValue = ({ children }: { children: React.ReactNode }) => {

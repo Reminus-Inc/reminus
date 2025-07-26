@@ -27,11 +27,11 @@ export function PhaseSupport() {
                 創業期・MVP
               </h3>
               <div className="bg-white p-6 rounded-lg shadow-md">
-                <h4 className="text-xl font-semibold mb-3">課題</h4>
+                <h4 className="text-xl font-bold mb-3">課題</h4>
                 <p className="text-gray-700 mb-4">
                   MVPローンチにあたり優先度の高い技術施策が不明。エンジニアも集まらない。
                 </p>
-                <h4 className="text-xl font-semibold mb-3">Reminusの支援</h4>
+                <h4 className="text-xl font-bold mb-3">Reminusの支援</h4>
                 <p className="text-gray-700 mb-2">
                   技術と採用のアドバイザリ。現場の方含めた技術・採用課題への壁打ちやレビュー。
                 </p>
@@ -56,11 +56,11 @@ export function PhaseSupport() {
                 MVP後〜探索期
               </h3>
               <div className="bg-white p-6 rounded-lg shadow-md">
-                <h4 className="text-xl font-semibold mb-3">課題</h4>
+                <h4 className="text-xl font-bold mb-3">課題</h4>
                 <p className="text-gray-700 mb-4">
                   技術的な見通しがないために、戦略や構想の解像度が粗い。現場が困惑し、自信を持って進めない。
                 </p>
-                <h4 className="text-xl font-semibold mb-3">Reminusの支援</h4>
+                <h4 className="text-xl font-bold mb-3">Reminusの支援</h4>
                 <p className="text-gray-700 mb-2">
                   経営に技術を持ち込む。技術と組織の観点から戦略の意思決定を支援し、加速・高精度化します。
                 </p>
@@ -83,11 +83,11 @@ export function PhaseSupport() {
                 PMF・グロース期
               </h3>
               <div className="bg-white p-6 rounded-lg shadow-md">
-                <h4 className="text-xl font-semibold mb-3">課題</h4>
+                <h4 className="text-xl font-bold mb-3">課題</h4>
                 <p className="text-gray-700 mb-4">
                   戦略に対して拡大した組織で実行が追いつかない。学習サイクルにブレーキがかかる。
                 </p>
-                <h4 className="text-xl font-semibold mb-3">Reminusの支援</h4>
+                <h4 className="text-xl font-bold mb-3">Reminusの支援</h4>
                 <p className="text-gray-700 mb-2">
                   戦略を執行に落とし込む。経営と伴走し、技術・組織・採用の実行推進を支援。
                 </p>
