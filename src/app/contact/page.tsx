@@ -6,6 +6,9 @@ import { SchedulingButton } from "./scheduling-button";
 export const metadata: Metadata = {
   title: "お問い合わせ | Reminus",
   description: "Reminusへのお問い合わせはこちらから。",
+  robots: {
+    index: false,
+  },
 };
 
 export default function ContactPage() {
