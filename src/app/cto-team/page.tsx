@@ -209,7 +209,9 @@ export default function CTOTeamPage() {
             </Card>
           </div>
         </div>
+      </Section>
 
+      <Section className="bg-white">
         <ClientLogos />
       </Section>
 
