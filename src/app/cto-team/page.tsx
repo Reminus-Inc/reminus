@@ -119,9 +119,9 @@ export default function CTOTeamPage() {
           <p className="text-center text-lg leading-relaxed text-gray-800">
             スタートアップの成功を左右するのは、事業立ち上げのスピードです。
             <br />
-            CTO付きエンジニアチームなら、今すぐプロダクト開発にフルフォーカス可能です。
+            CTO付きエンジニアチームなら、今日からプロダクトに集中できます。
           </p>
-          <div className="grid max-w-6xl gap-6 lg:grid-cols-2 lg:gap-12">
+          <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-2 lg:gap-12">
             <Card className="border-2 border-gray-200">
               <CardHeader className="py-8 text-center">
                 <CardTitle className="text-xl tracking-wide text-gray-600 sm:text-2xl">
@@ -152,11 +152,7 @@ export default function CTOTeamPage() {
                   </li>
                   <li className="flex items-center gap-3">
                     <X className="h-5 w-5 text-red-500" />
-                    <p>
-                      プロダクト開発が中心で、
-                      <br className="hidden md:block" />
-                      事業全体への視野や主体性が期待しづらい
-                    </p>
+                    <p>事業やGo-to-Marketの目線がない</p>
                   </li>
                 </ul>
                 <div className="mt-6 px-6 sm:mt-12">
