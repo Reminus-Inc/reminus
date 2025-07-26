@@ -4,7 +4,6 @@ import { Toaster } from "@/components/ui/toaster";
 import { GoogleTagManager } from "@next/third-parties/google";
 import Script from "next/script";
 import { XPixelPageView } from "./_components/layout/x-pixel-pageview";
-import { Header } from "./_components/layout/header";
 import { Footer } from "./_components/layout/footer";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -23,8 +22,7 @@ export default async function RootLayout({
   return (
     <html lang="ja" className="scroll-smooth">
       <body className={`${inter.className} flex min-h-svh flex-col`}>
-        <Header />
-        <main className="flex flex-1 flex-col pt-16">{children}</main>
+        {children}
         <Footer />
         <Toaster />
         {/* XPixelPageView はベタ打ちPixel IDでも動作するように更新 */}
