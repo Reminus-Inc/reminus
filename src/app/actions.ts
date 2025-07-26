@@ -2,6 +2,7 @@
 
 import { PrismaClient } from "@prisma/client";
 import { z } from "zod";
+import { hubspotService } from "@/lib/hubspot";
 
 const prisma = new PrismaClient();
 
@@ -72,6 +73,14 @@ export async function submitInquiry(
         ...validatedFields,
         content: validatedFields.content || "",
       },
+    });
+
+    // HubSpotにコンタクトを作成
+    await hubspotService.createInquiryContact({
+      email: validatedFields.email,
+      name: validatedFields.name,
+      company: validatedFields.company,
+      content: validatedFields.content,
     });
 
     // Slack通知を送信
@@ -148,6 +157,14 @@ export async function requestDocument(
 
     await prisma.documentRequest.create({
       data: validatedFields,
+    });
+
+    // HubSpotにコンタクトを作成
+    await hubspotService.createDocumentRequestContact({
+      email: validatedFields.email,
+      name: validatedFields.name,
+      company: validatedFields.company,
+      phone: validatedFields.phone,
     });
 
     const params = new URLSearchParams({
