@@ -40,13 +40,13 @@ export default function Home() {
       <section className="relative">
         <Cta />
       </section>
-      <section className="relative">
+      <section className="relative" data-nosnippet>
         <CaseStudies />
       </section>
-      <section className="relative">
+      <section className="relative" data-nosnippet>
         <ServiceOfferings />
       </section>
-      <section className="relative">
+      <section className="relative" data-nosnippet>
         <Management />
       </section>
 
