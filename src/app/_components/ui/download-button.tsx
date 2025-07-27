@@ -1,39 +1,30 @@
 "use client";
 
-import type React from "react";
-
-import { startTransition, useActionState, useRef, useState } from "react";
+import { requestDocument } from "@/app/actions";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
-  DialogContent,
-  DialogTrigger,
   DialogClose,
+  DialogContent,
   DialogTitle,
+  DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { FileText, X } from "lucide-react";
-import { requestDocument } from "@/app/actions";
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
 import { trackCTAClick, trackFormStart } from "@/lib/analytics";
+import { X } from "lucide-react";
+import { useRouter } from "next/navigation";
+import {
+  startTransition,
+  useActionState,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import { PrimaryButton, PrimaryButtonProps } from "./primary-button";
 
-export interface DownloadButtonProps {
-  className?: string;
-  variant?: "default" | "primary" | "outline" | "round";
-  size?: "default" | "small" | "large";
-  children?: React.ReactNode;
-  iconPosition?: "left" | "right";
-}
-
-export function DownloadButton({
-  className = "",
-  variant = "default",
-  size = "default",
-  children,
-  iconPosition = "right",
-}: DownloadButtonProps) {
+export interface DownloadButtonProps extends PrimaryButtonProps {}
+export function DownloadButton({ ...props }: DownloadButtonProps) {
   const router = useRouter();
   const [state, formAction, pending] = useActionState(requestDocument, {
     status: "idle",
@@ -47,9 +38,7 @@ export function DownloadButton({
   });
   const [hasStartedForm, setHasStartedForm] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-
   const finishing = pending || state.status === "success";
-
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
@@ -57,93 +46,46 @@ export function DownloadButton({
       let redirectUrl = state.redirect;
       if (state.downloadUrl) {
         // Check if redirect already has query params
-        const separator = state.redirect.includes('?') ? '&' : '?';
+        const separator = state.redirect.includes("?") ? "&" : "?";
         redirectUrl = `${state.redirect}${separator}download=${encodeURIComponent(state.downloadUrl)}`;
       }
       router.push(redirectUrl);
     }
   }, [state, router]);
 
-
-  // Generate button classes based on variant and size
-  const getButtonClasses = () => {
-    let buttonClasses = "text-white ";
-
-    // Variant styles
-    switch (variant) {
-      case "primary":
-        buttonClasses += "bg-emerald-600 hover:bg-emerald-700 ";
-        break;
-      case "outline":
-        buttonClasses +=
-          "bg-transparent border border-black text-black hover:bg-gray-100 ";
-        break;
-      case "round":
-        buttonClasses += "bg-black hover:bg-gray-800 rounded-full ";
-        break;
-      default:
-        buttonClasses += "bg-black hover:bg-gray-800 ";
-    }
-
-    // Size styles
-    switch (size) {
-      case "small":
-        buttonClasses += "h-10 text-sm ";
-        break;
-      case "large":
-        buttonClasses += "h-16 text-base ";
-        break;
-      default:
-        buttonClasses += "h-16 text-base ";
-    }
-
-    // Width for non-round variants
-    if (variant !== "round") {
-      buttonClasses += "sm:w-48 ";
-    }
-
-    return buttonClasses + className;
-  };
-
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button
-          className={getButtonClasses()}
+        <PrimaryButton
           disabled={finishing}
           onClick={() => {
             trackCTAClick("download");
             setIsOpen(true);
           }}
+          {...props}
         >
           <span className="flex items-center gap-3">
-            {iconPosition === "left" && !finishing && (
-              <FileText className="h-4 w-4" />
-            )}
-            {finishing ? "送信中..." : children || "資料ダウンロード"}
-            {iconPosition === "right" && !finishing && (
-              <FileText className="h-4 w-4" />
-            )}
+            {finishing ? "送信中..." : "資料ダウンロード"}
           </span>
-        </Button>
+        </PrimaryButton>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[700px] p-0 border-0 shadow-xl max-w-[95vw] max-h-[90svh] sm:max-h-[80svh] overflow-y-auto">
+      <DialogContent className="max-h-[90svh] max-w-[95vw] overflow-y-auto border-0 p-0 shadow-xl sm:max-h-[80svh] sm:max-w-[700px]">
         <DialogTitle className="sr-only">資料請求フォーム</DialogTitle>
-        <div className="relative bg-white rounded-lg overflow-visible">
-          <DialogClose className="fixed right-4 top-4 z-50 rounded-sm opacity-70 bg-white/80 p-1 ring-offset-white transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2">
+        <div className="relative overflow-visible rounded-lg bg-white">
+          <DialogClose className="fixed right-4 top-4 z-50 rounded-sm bg-white/80 p-1 opacity-70 ring-offset-white transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-slate-950 focus:ring-offset-2">
             <X className="h-4 w-4" />
             <span className="sr-only">Close</span>
           </DialogClose>
 
           <div className="grid grid-cols-1 md:grid-cols-2">
-            <div className="bg-emerald-50 p-6 md:p-8 space-y-4 md:space-y-6">
+            <div className="space-y-4 bg-emerald-50 p-6 md:space-y-6 md:p-8">
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
+                <h2 className="mb-2 text-xl font-bold text-gray-900 sm:text-2xl">
                   資料ダウンロード
                 </h2>
-                <p className="text-gray-700 text-sm">
+                <p className="text-sm text-gray-700">
                   非エンジニア創業者向け{" "}
-                  <span className="text-emerald-600 font-medium">
+                  <span className="font-medium text-emerald-600">
                     CTOパートナー
                   </span>
                   <br />
@@ -151,10 +93,10 @@ export function DownloadButton({
                 </p>
               </div>
 
-              <div className="space-y-3 md:space-y-6 mt-4 md:mt-6">
+              <div className="mt-4 space-y-3 md:mt-6 md:space-y-6">
                 {/* Desktop version - show all 3 items */}
-                <div className="hidden md:flex items-start space-x-4">
-                  <div className="bg-emerald-100 p-3 rounded-full flex-shrink-0">
+                <div className="hidden items-start space-x-4 md:flex">
+                  <div className="flex-shrink-0 rounded-full bg-emerald-100 p-3">
                     <svg
                       className="h-5 w-5 text-emerald-600"
                       fill="none"
@@ -173,16 +115,16 @@ export function DownloadButton({
                     <h4 className="font-medium text-gray-900">
                       スタートアップの課題と解決策
                     </h4>
-                    <p className="text-sm text-gray-600 mt-1">
+                    <p className="mt-1 text-sm text-gray-600">
                       CTOパートナーが非エンジニア創業者の課題をどのように解決するか
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-center space-x-3 md:items-start md:space-x-4">
-                  <div className="bg-emerald-100 p-2 md:p-3 rounded-full flex-shrink-0">
+                  <div className="flex-shrink-0 rounded-full bg-emerald-100 p-2 md:p-3">
                     <svg
-                      className="h-4 md:h-5 w-4 md:w-5 text-emerald-600"
+                      className="h-4 w-4 text-emerald-600 md:h-5 md:w-5"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -196,19 +138,19 @@ export function DownloadButton({
                     </svg>
                   </div>
                   <div className="md:flex-1">
-                    <h4 className="font-medium text-gray-900 text-sm md:text-base">
+                    <h4 className="text-sm font-medium text-gray-900 md:text-base">
                       プラン比較と料金体系
                     </h4>
-                    <p className="hidden md:block text-sm text-gray-600 mt-1">
+                    <p className="mt-1 hidden text-sm text-gray-600 md:block">
                       各プランの具体的なサービス内容と料金体系をご確認いただけます
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-center space-x-3 md:items-start md:space-x-4">
-                  <div className="bg-emerald-100 p-2 md:p-3 rounded-full flex-shrink-0">
+                  <div className="flex-shrink-0 rounded-full bg-emerald-100 p-2 md:p-3">
                     <svg
-                      className="h-4 md:h-5 w-4 md:w-5 text-emerald-600"
+                      className="h-4 w-4 text-emerald-600 md:h-5 md:w-5"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -222,10 +164,10 @@ export function DownloadButton({
                     </svg>
                   </div>
                   <div className="md:flex-1">
-                    <h4 className="font-medium text-gray-900 text-sm md:text-base">
+                    <h4 className="text-sm font-medium text-gray-900 md:text-base">
                       成功事例の紹介
                     </h4>
-                    <p className="hidden md:block text-sm text-gray-600 mt-1">
+                    <p className="mt-1 hidden text-sm text-gray-600 md:block">
                       実際のクライアントの成功事例と具体的な成果をご紹介
                     </p>
                   </div>
@@ -256,7 +198,7 @@ export function DownloadButton({
                 <div className="space-y-2">
                   <Label
                     htmlFor="company"
-                    className="text-gray-900 font-medium text-sm"
+                    className="text-sm font-medium text-gray-900"
                   >
                     会社名 <span className="text-emerald-600">*</span>
                   </Label>
@@ -278,10 +220,10 @@ export function DownloadButton({
                         setHasStartedForm(true);
                       }
                     }}
-                    className="border-gray-200 focus:border-emerald-600 focus:ring-emerald-600 h-10 sm:h-12 text-base"
+                    className="h-10 border-gray-200 text-base focus:border-emerald-600 focus:ring-emerald-600 sm:h-12"
                   />
                   {state.errors?.find((error) => error.includes("会社名")) && (
-                    <p className="text-red-500 text-xs mt-1">
+                    <p className="mt-1 text-xs text-red-500">
                       {state.errors?.find((error) => error.includes("会社名"))}
                     </p>
                   )}
@@ -289,7 +231,7 @@ export function DownloadButton({
                 <div className="space-y-2">
                   <Label
                     htmlFor="name"
-                    className="text-gray-900 font-medium text-sm"
+                    className="text-sm font-medium text-gray-900"
                   >
                     お名前 <span className="text-emerald-600">*</span>
                   </Label>
@@ -305,10 +247,10 @@ export function DownloadButton({
                         name: e.target.value,
                       }))
                     }
-                    className="border-gray-200 focus:border-emerald-600 focus:ring-emerald-600 h-10 sm:h-12 text-base"
+                    className="h-10 border-gray-200 text-base focus:border-emerald-600 focus:ring-emerald-600 sm:h-12"
                   />
                   {state.errors?.find((error) => error.includes("お名前")) && (
-                    <p className="text-red-500 text-xs mt-1">
+                    <p className="mt-1 text-xs text-red-500">
                       {state.errors?.find((error) => error.includes("お名前"))}
                     </p>
                   )}
@@ -316,7 +258,7 @@ export function DownloadButton({
                 <div className="space-y-2">
                   <Label
                     htmlFor="phone"
-                    className="text-gray-900 font-medium text-sm"
+                    className="text-sm font-medium text-gray-900"
                   >
                     電話番号 <span className="text-emerald-600">*</span>
                   </Label>
@@ -333,14 +275,14 @@ export function DownloadButton({
                         phone: e.target.value,
                       }))
                     }
-                    className="border-gray-200 focus:border-emerald-600 focus:ring-emerald-600 h-10 sm:h-12 text-base"
+                    className="h-10 border-gray-200 text-base focus:border-emerald-600 focus:ring-emerald-600 sm:h-12"
                   />
                   {state.errors?.find((error) =>
-                    error.includes("電話番号"),
+                    error.includes("電話番号")
                   ) && (
-                    <p className="text-red-500 text-xs mt-1">
+                    <p className="mt-1 text-xs text-red-500">
                       {state.errors?.find((error) =>
-                        error.includes("電話番号"),
+                        error.includes("電話番号")
                       )}
                     </p>
                   )}
@@ -348,7 +290,7 @@ export function DownloadButton({
                 <div className="space-y-2">
                   <Label
                     htmlFor="email"
-                    className="text-gray-900 font-medium text-sm"
+                    className="text-sm font-medium text-gray-900"
                   >
                     メールアドレス <span className="text-emerald-600">*</span>
                   </Label>
@@ -365,14 +307,14 @@ export function DownloadButton({
                         email: e.target.value,
                       }))
                     }
-                    className="border-gray-200 focus:border-emerald-600 focus:ring-emerald-600 h-10 sm:h-12 text-base"
+                    className="h-10 border-gray-200 text-base focus:border-emerald-600 focus:ring-emerald-600 sm:h-12"
                   />
                   {state.errors?.find((error) =>
-                    error.includes("メールアドレス"),
+                    error.includes("メールアドレス")
                   ) && (
-                    <p className="text-red-500 text-xs mt-1">
+                    <p className="mt-1 text-xs text-red-500">
                       {state.errors?.find((error) =>
-                        error.includes("メールアドレス"),
+                        error.includes("メールアドレス")
                       )}
                     </p>
                   )}
@@ -380,21 +322,26 @@ export function DownloadButton({
                 <div className="pt-4">
                   <Button
                     type="submit"
-                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium h-10 sm:h-12 text-base"
+                    className="h-10 w-full bg-emerald-600 text-base font-medium text-white hover:bg-emerald-700 sm:h-12"
                     disabled={finishing}
                   >
                     {finishing ? "送信中..." : "資料ダウンロード"}
                   </Button>
                 </div>
                 {state.status === "error" && !state.errors?.length && (
-                  <p className="text-red-500 text-sm text-center">
+                  <p className="text-center text-sm text-red-500">
                     {state.message}
                   </p>
                 )}
                 <div className="space-y-2 pt-4">
-                  <p className="text-xs text-gray-500 text-left">
+                  <p className="text-left text-xs text-gray-500">
                     資料請求いただくことで、当社の
-                    <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-700 transition-colors">
+                    <a
+                      href="/privacy-policy"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline transition-colors hover:text-gray-700"
+                    >
                       プライバシーポリシー
                     </a>
                     に同意したものとみなします。

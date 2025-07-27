@@ -17,6 +17,7 @@ import {
   useState,
 } from "react";
 import { PrimaryButton, PrimaryButtonProps } from "./primary-button";
+import { cn } from "@/lib/utils";
 
 type ContactFormProps = {
   autoFocus?: boolean;
@@ -35,6 +36,7 @@ export const ContactForm = ({
     status: "idle",
     message: "",
   });
+  const { className: _, ...restButtonProps } = buttonProps || {};
   const [hasStartedForm, setHasStartedForm] = useState(false);
   const { toast } = useToast();
 
@@ -173,8 +175,8 @@ export const ContactForm = ({
           type="submit"
           disabled={pending}
           variant="filled"
-          className="py-4"
-          {...buttonProps}
+          className={cn("w-full py-4", buttonProps?.className)}
+          {...restButtonProps}
         >
           {pending ? "送信中..." : "送信する"}
         </PrimaryButton>

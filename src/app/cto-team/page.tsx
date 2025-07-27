@@ -77,8 +77,8 @@ export default function CTOTeamPage() {
               </div>
 
               <div className="mt-10 flex justify-center lg:justify-start">
-                <div className="w-full max-w-[440px]">
-                  <SchedulingButton label="今すぐ日程調整" />
+                <div className="w-full max-w-[400px]">
+                  <SchedulingButton label="今すぐ日程調整" className="w-full" />
                 </div>
               </div>
             </div>
@@ -259,7 +259,7 @@ export default function CTOTeamPage() {
           開発で失敗するリスク、今すぐゼロにしませんか？
         </H2>
         <div className="mx-auto max-w-[600px] space-y-8">
-          <SchedulingButton />
+          <SchedulingButton className="w-full" />
           <p className="text-center tracking-wider text-white">または、</p>
           <div>
             <Card>
