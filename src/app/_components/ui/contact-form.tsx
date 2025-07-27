@@ -36,7 +36,6 @@ export const ContactForm = ({
     status: "idle",
     message: "",
   });
-  const { className: _, ...restButtonProps } = buttonProps || {};
   const [hasStartedForm, setHasStartedForm] = useState(false);
   const { toast } = useToast();
 
@@ -175,8 +174,8 @@ export const ContactForm = ({
           type="submit"
           disabled={pending}
           variant="filled"
-          className={cn("w-full py-4", buttonProps?.className)}
-          {...restButtonProps}
+          fullWidth
+          {...buttonProps}
         >
           {pending ? "送信中..." : "送信する"}
         </PrimaryButton>

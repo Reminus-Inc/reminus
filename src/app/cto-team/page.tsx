@@ -78,7 +78,11 @@ export default function CTOTeamPage() {
 
               <div className="mt-10 flex justify-center lg:justify-start">
                 <div className="w-full max-w-[400px]">
-                  <SchedulingButton label="今すぐ日程調整" className="w-full" />
+                  <SchedulingButton
+                    label="今すぐ日程調整"
+                    fullWidth
+                    density="relaxed"
+                  />
                 </div>
               </div>
             </div>
@@ -94,7 +98,7 @@ export default function CTOTeamPage() {
                     showChip={false}
                     buttonProps={{
                       variant: "outlined",
-                      className: "py-2.5",
+                      density: "compact",
                     }}
                   />
                 </CardContent>
@@ -259,7 +263,7 @@ export default function CTOTeamPage() {
           開発で失敗するリスク、今すぐゼロにしませんか？
         </H2>
         <div className="mx-auto max-w-[600px] space-y-8">
-          <SchedulingButton className="w-full" />
+          <SchedulingButton density="relaxed" fullWidth />
           <p className="text-center tracking-wider text-white">または、</p>
           <div>
             <Card>
@@ -270,7 +274,7 @@ export default function CTOTeamPage() {
                 <ContactForm
                   buttonProps={{
                     variant: "outlined",
-                    className: "py-3",
+                    density: "compact",
                   }}
                 />
               </CardContent>

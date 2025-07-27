@@ -112,11 +112,11 @@ export function NavMenu() {
             </ul>
 
             <div className="mt-6 space-y-4 md:hidden">
-              <DownloadButton className="w-full" color="white" />
+              <DownloadButton color="white" fullWidth />
               <ContactButton
                 aggressive
                 color="white"
-                className="w-full"
+                fullWidth
                 onClick={() => setTimeout(() => setIsOpen(false), 300)}
               />
             </div>

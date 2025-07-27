@@ -18,21 +18,59 @@ const primaryButtonVariants = cva(
         white: "",
       },
       size: {
-        small: "py-3 px-6 text-sm",
-        default: "py-4 px-12 text-lg",
+        small: "px-6 text-sm",
+        default: "px-12 text-lg",
+      },
+      density: {
+        default: "",
+        relaxed: "",
+        compact: "",
+      },
+      fullWidth: {
+        true: "w-full",
       },
       shadow: {
         true: "shadow-[0_0_20px_color-mix(in_hsl,var(--primary)_50%,transparent)]",
       },
     },
     compoundVariants: [
-      // filled × primary
+      // size * density
+      {
+        size: "small",
+        density: "default",
+        class: "py-3",
+      },
+      {
+        size: "small",
+        density: "relaxed",
+        class: "py-4",
+      },
+      {
+        size: "default",
+        density: "default",
+        class: "py-4",
+      },
+      {
+        size: "default",
+        density: "relaxed",
+        class: "py-5",
+      },
+      {
+        size: "default",
+        density: "compact",
+        class: "py-3",
+      },
+      {
+        size: "small",
+        density: "compact",
+        class: "py-2.5",
+      },
+      // variant * color
       {
         variant: "filled",
         color: "primary",
         class: "bg-primary text-primary-foreground hover:bg-primary-hover",
       },
-      // outlined × primary
       {
         variant: "outlined",
         color: "primary",
@@ -43,29 +81,31 @@ const primaryButtonVariants = cva(
           "hover:ring-primary-hover hover:text-primary-hover",
         ].join(" "),
       },
-      // filled × white
       {
         variant: "filled",
         color: "white",
-        class:
-          "bg-primary-foreground text-primary hover:bg-primary-foreground/90",
+        class: [
+          "bg-white text-primary",
+          "hover:bg-transparent hover:text-white hover:ring-white hover:ring-1",
+        ],
       },
-      // outlined × white
       {
         variant: "outlined",
         color: "white",
         class: [
           "bg-transparent",
-          "text-primary-foreground",
-          "ring-inset ring-1 ring-primary-foreground",
-          "hover:ring-primary-foreground/80",
+          "text-white",
+          "ring-inset ring-1 ring-white",
+          "hover:bg-white hover:text-primary",
         ].join(" "),
       },
     ],
     defaultVariants: {
       variant: "filled",
-      color: "primary",
       size: "default",
+      color: "primary",
+      density: "default",
+      fullWidth: false,
       shadow: false,
     },
   }
@@ -81,6 +121,8 @@ export const PrimaryButton = ({
   variant,
   color,
   size,
+  density,
+  fullWidth,
   shadow,
   asChild = false,
   className,
@@ -91,7 +133,14 @@ export const PrimaryButton = ({
   return (
     <Comp
       className={cn(
-        primaryButtonVariants({ variant, color, size, shadow }),
+        primaryButtonVariants({
+          variant,
+          color,
+          size,
+          shadow,
+          fullWidth,
+          density,
+        }),
         className
       )}
       {...props}
