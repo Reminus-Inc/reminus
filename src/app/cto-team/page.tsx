@@ -112,7 +112,7 @@ export default function CTOTeamPage() {
         <div className="flex justify-center">
           <ul className="grid max-w-4xl gap-x-8 gap-y-4 md:grid-cols-2 md:gap-y-6">
             {[
-              "紹介されたエンジニアとのミスマッチが不安",
+              "紹介されたエンジニアがミスマッチ",
               "技術的な意思決定ができる人がいない",
               "開発の進捗がブラックボックス化している",
               "品質が低く、バグや手戻りが多い",
@@ -136,12 +136,12 @@ export default function CTOTeamPage() {
           が選ばれるのか？
         </H2>
         <div className="space-y-12">
-          <p className="text-center text-sm leading-[1.7] text-gray-800 sm:text-lg sm:leading-relaxed">
+          <p className="text-center text-sm leading-[1.8] text-gray-800 sm:text-lg sm:leading-[1.7]">
             スタートアップの成功を左右するのは、
             <span className="whitespace-nowrap">事業立ち上げのスピード</span>
             です。
             <br />
-            CTO付きエンジニアチームなら採用の不安の悩みゼロ。今日からプロダクトに集中できます。
+            CTO付きエンジニアチームなら採用の悩みゼロ。今日からプロダクトに集中できます。
           </p>
           <div className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-2 lg:gap-12">
             <Card className="border-2 border-gray-200">
