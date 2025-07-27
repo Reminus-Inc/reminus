@@ -222,13 +222,13 @@ export default function CTOTeamPage() {
                     <div>
                       <Check className="h-5 w-5 text-orange-500" />
                     </div>
-                    <p>採用コストゼロ。実績ある体制で即立ち上げ</p>
+                    <p>採用コストゼロ。開発サイクルを即始動</p>
                   </li>
                   <li className="flex items-center gap-3">
                     <div>
                       <Check className="h-5 w-5 text-orange-500" />
                     </div>
-                    <p>最技術とマネジメントを全てお任せ</p>
+                    <p>技術とマネジメントを全てお任せ</p>
                   </li>
                   <li className="flex items-center gap-3">
                     <div>
