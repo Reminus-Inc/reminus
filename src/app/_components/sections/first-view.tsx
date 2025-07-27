@@ -7,8 +7,8 @@ import Image from "next/image";
 
 export function FirstView() {
   return (
-    <div className="flex flex-col justify-center gap-10 px-6 pt-4 sm:gap-5 md:pt-6 lg:flex-row lg:pt-8">
-      <div className="lg:w-fit lg:flex-none">
+    <div className="flex flex-col items-center justify-center gap-10 px-6 pt-4 sm:gap-5 md:pt-6 lg:flex-row lg:gap-0 lg:pt-8">
+      <div className="lg:w-fit lg:flex-none lg:pl-8">
         <SubTitle />
         <Title className="mt-2" />
         <Description className="mt-4 sm:mt-6" />
