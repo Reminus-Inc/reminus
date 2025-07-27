@@ -6,13 +6,11 @@ import Link from "next/link";
 import { PrimaryButton, PrimaryButtonProps } from "./primary-button";
 
 export interface ContactButtonProps extends PrimaryButtonProps {
-  isHeader?: boolean;
   aggressive?: boolean;
   onClick?: () => void;
   children?: React.ReactNode;
 }
 export function ContactButton({
-  isHeader = false,
   aggressive = false,
   onClick,
   children,

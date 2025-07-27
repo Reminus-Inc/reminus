@@ -23,8 +23,7 @@ import {
 } from "react";
 import { PrimaryButton, PrimaryButtonProps } from "./primary-button";
 
-export interface DownloadButtonProps extends PrimaryButtonProps {}
-export function DownloadButton({ ...props }: DownloadButtonProps) {
+export function DownloadButton({ ...props }: PrimaryButtonProps) {
   const router = useRouter();
   const [state, formAction, pending] = useActionState(requestDocument, {
     status: "idle",
