@@ -6,7 +6,6 @@ const clientLogos = [
   {
     name: "DRESS CODE",
     logo: "/logos/dress_code.svg",
-    url: "https://www.dress-code.com/",
     height: 30,
     spHeight: 21,
     width: 245,
@@ -15,7 +14,6 @@ const clientLogos = [
   {
     name: "Zaimo",
     logo: "/logos/zaimo.svg",
-    url: "https://lp.zaimo.ai/",
     height: 25,
     spHeight: 18,
     width: 120,
@@ -24,7 +22,6 @@ const clientLogos = [
   {
     name: "SalesBrain",
     logo: "/logos/salesbrain.png",
-    url: "https://salesbrain.jp",
     height: 34,
     spHeight: 24,
     width: 201,
@@ -37,12 +34,9 @@ export function ClientLogos() {
     <div className="space-y-6 sm:space-y-8">
       <div className="flex flex-wrap justify-center gap-x-8 gap-y-5 md:gap-x-12 md:gap-y-6">
         {clientLogos.map((client, index) => (
-          <a
+          <div
             key={index}
-            href={client.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex cursor-pointer items-center justify-center transition-opacity hover:opacity-80"
+            className="flex items-center justify-center"
           >
             <div className="block sm:hidden">
               <Image
@@ -72,7 +66,7 @@ export function ClientLogos() {
                 }}
               />
             </div>
-          </a>
+          </div>
         ))}
       </div>
 
