@@ -39,7 +39,7 @@ export default function CTOTeamPage() {
                 </span>
               </p>
 
-              <h1 className="mt-2 text-center text-[1.7rem] font-bold leading-[1.4] tracking-wide text-white sm:text-4xl sm:leading-[1.4] md:text-[2.6rem] md:leading-[1.35] lg:text-left">
+              <h1 className="mt-2 text-center text-[1.75rem] font-bold leading-[1.4] tracking-wide text-white sm:text-4xl sm:leading-[1.4] md:text-[2.6rem] md:leading-[1.35] lg:text-left">
                 CTO率いる
                 <span className="whitespace-nowrap">開発チームで</span>
                 <br />
