@@ -17,10 +17,8 @@ export default function Home() {
       <section className="relative">
         <FirstView />
       </section>
-      <div className="border-b border-gray-200 bg-white py-8">
-        <div className="container mx-auto px-6">
-          <ClientLogos />
-        </div>
+      <div className="container mx-auto px-6 py-12 sm:py-16">
+        <ClientLogos />
       </div>
       <section className="relative">
         <Challenges />

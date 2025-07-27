@@ -25,21 +25,23 @@ export function Header({
   };
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-50 h-16 border-b bg-white">
-      <div className="mx-auto flex h-full items-center justify-between px-4 xl:container">
-        <div className="flex items-center">
-          <Link
-            href="/"
-            className="transition-opacity hover:opacity-80"
-            onClick={handleLogoClick}
-          >
-            <ReminusLogo
-              className="h-4 w-auto md:h-6 md:scale-90"
-              aria-label="Reminus"
-            />
-          </Link>
+    <header className="sticky left-0 top-0 z-10 bg-white py-4 sm:py-5 lg:relative">
+      <div className="mx-auto w-full max-w-[1360px] px-6">
+        <div className="flex h-full items-center justify-between">
+          <div className="flex items-center">
+            <Link
+              href="/"
+              className="transition-opacity hover:opacity-80"
+              onClick={handleLogoClick}
+            >
+              <ReminusLogo
+                className="h-4 w-auto md:h-6 md:scale-90"
+                aria-label="Reminus"
+              />
+            </Link>
+          </div>
+          {rightContent || (showNavMenu && <NavMenu />)}
         </div>
-        {rightContent || (showNavMenu && <NavMenu />)}
       </div>
     </header>
   );

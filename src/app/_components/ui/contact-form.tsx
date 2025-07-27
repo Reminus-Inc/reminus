@@ -173,7 +173,7 @@ export const ContactForm = ({
           type="submit"
           disabled={pending}
           variant="filled"
-          className="py-4"
+          fullWidth
           {...buttonProps}
         >
           {pending ? "送信中..." : "送信する"}

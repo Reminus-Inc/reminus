@@ -1,34 +1,151 @@
 "use client";
 
-import { Button, ButtonProps } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { cva } from "class-variance-authority";
+import { cva, type VariantProps } from "class-variance-authority";
+import { Slot } from "@radix-ui/react-slot";
+import * as React from "react";
 
-export type PrimaryButtonProps = Omit<ButtonProps, "variant"> & {
-  variant?: "filled" | "outlined";
-};
+const primaryButtonVariants = cva(
+  "inline-flex items-center justify-center rounded-full text-center font-bold tracking-wider transition-all duration-300 disabled:pointer-events-none disabled:opacity-50",
+  {
+    variants: {
+      variant: {
+        filled: "",
+        outlined: "",
+      },
+      color: {
+        primary: "",
+        white: "",
+      },
+      size: {
+        small: "px-6 text-sm",
+        default: "px-12 text-lg",
+      },
+      density: {
+        default: "",
+        relaxed: "",
+        compact: "",
+      },
+      fullWidth: {
+        true: "w-full",
+      },
+      shadow: {
+        true: "shadow-[0_0_20px_color-mix(in_hsl,var(--primary)_50%,transparent)]",
+      },
+    },
+    compoundVariants: [
+      // size * density
+      {
+        size: "small",
+        density: "default",
+        class: "py-3",
+      },
+      {
+        size: "small",
+        density: "relaxed",
+        class: "py-4",
+      },
+      {
+        size: "default",
+        density: "default",
+        class: "py-4",
+      },
+      {
+        size: "default",
+        density: "relaxed",
+        class: "py-5",
+      },
+      {
+        size: "default",
+        density: "compact",
+        class: "py-3",
+      },
+      {
+        size: "small",
+        density: "compact",
+        class: "py-2.5",
+      },
+      // variant * color
+      {
+        variant: "filled",
+        color: "primary",
+        class: "bg-primary text-primary-foreground hover:bg-primary-hover",
+      },
+      {
+        variant: "outlined",
+        color: "primary",
+        class: [
+          "bg-transparent",
+          "text-primary",
+          "ring-inset ring-1 ring-primary",
+          "hover:ring-primary-hover hover:text-primary-hover",
+        ].join(" "),
+      },
+      {
+        variant: "filled",
+        color: "white",
+        class: [
+          "bg-white text-primary",
+          "hover:bg-transparent hover:text-white hover:ring-white hover:ring-1",
+        ],
+      },
+      {
+        variant: "outlined",
+        color: "white",
+        class: [
+          "bg-transparent",
+          "text-white",
+          "ring-inset ring-1 ring-white",
+          "hover:bg-white hover:text-primary",
+        ].join(" "),
+      },
+    ],
+    defaultVariants: {
+      variant: "filled",
+      size: "default",
+      color: "primary",
+      density: "default",
+      fullWidth: false,
+      shadow: false,
+    },
+  }
+);
+export interface PrimaryButtonProps
+  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "color">,
+    VariantProps<typeof primaryButtonVariants> {
+  asChild?: boolean;
+  className?: string;
+  children?: React.ReactNode;
+}
 export const PrimaryButton = ({
-  variant = "filled",
-  children,
+  variant,
+  color,
+  size,
+  density,
+  fullWidth,
+  shadow,
+  asChild = false,
   className,
+  children,
   ...props
 }: PrimaryButtonProps) => {
-  const variants = cva(
-    // TODO: h-auto は button のスタイル調整したタイミングで削除
-    "block h-auto w-full rounded-full py-5 text-center text-lg font-bold tracking-wider transition-colors duration-300",
-    {
-      variants: {
-        variant: {
-          filled: "bg-primary text-primary-foreground hover:bg-primary-hover",
-          outlined:
-            "border-primary border text-primary bg-transparent hover:bg-transparent hover:text-primary-hover hover:border-primary-hover",
-        },
-      },
-    }
-  );
+  const Comp = asChild ? Slot : "button";
   return (
-    <Button className={cn(variants({ variant, className }))} {...props}>
+    <Comp
+      className={cn(
+        primaryButtonVariants({
+          variant,
+          color,
+          size,
+          shadow,
+          fullWidth,
+          density,
+        }),
+        className
+      )}
+      {...props}
+    >
       {children}
-    </Button>
+    </Comp>
   );
 };

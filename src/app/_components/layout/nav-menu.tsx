@@ -45,12 +45,8 @@ export function NavMenu() {
 
         {/* CTA ボタン */}
         <div className="flex items-center space-x-4">
-          <DownloadButton variant="primary" size="small" iconPosition="left">
-            資料ダウンロード
-          </DownloadButton>
-          <ContactButton aggressive iconPosition="left" size="small">
-            無料相談を予約する
-          </ContactButton>
+          <DownloadButton size="small" />
+          <ContactButton size="small" aggressive />
         </div>
       </div>
 
@@ -58,12 +54,8 @@ export function NavMenu() {
       <div className="hidden items-center space-x-4 md:flex lg:hidden">
         {/* CTA ボタン */}
         <div className="flex items-center space-x-3">
-          <DownloadButton variant="primary" size="small" iconPosition="left">
-            資料ダウンロード
-          </DownloadButton>
-          <ContactButton aggressive iconPosition="left" size="small">
-            無料相談を予約する
-          </ContactButton>
+          <DownloadButton size="small" />
+          <ContactButton size="small" aggressive />
         </div>
 
         {/* ハンバーガーボタン */}
@@ -91,7 +83,7 @@ export function NavMenu() {
 
       {/* モバイルメニューオーバーレイ */}
       {isOpen && (
-        <div className="fixed inset-0 z-[9999] bg-white lg:hidden">
+        <div className="fixed inset-0 z-[9999] bg-primary lg:hidden">
           <Header
             showNavMenu={false}
             onLogoClick={handleLinkClick}
@@ -104,13 +96,13 @@ export function NavMenu() {
               </button>
             }
           />
-          <nav className="p-4 pt-20">
-            <ul className="space-y-4">
+          <nav className="px-6 py-10">
+            <ul>
               {menuItems.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="block py-1 text-gray-600 hover:text-gray-900"
+                    className="block py-2 text-lg font-bold text-white"
                     onClick={handleLinkClick}
                   >
                     {item.label}
@@ -119,29 +111,14 @@ export function NavMenu() {
               ))}
             </ul>
 
-            {/* モバイル用 CTA ボタン */}
-            <div className="mt-6 space-y-4">
-              <div>
-                <DownloadButton
-                  variant="primary"
-                  size="small"
-                  iconPosition="left"
-                  className="w-full"
-                >
-                  資料ダウンロード
-                </DownloadButton>
-              </div>
-              <div>
-                <ContactButton
-                  aggressive
-                  iconPosition="left"
-                  size="small"
-                  className="w-full"
-                  onClick={() => setTimeout(() => setIsOpen(false), 300)}
-                >
-                  無料相談を予約する
-                </ContactButton>
-              </div>
+            <div className="mt-6 space-y-4 md:hidden">
+              <DownloadButton color="white" fullWidth />
+              <ContactButton
+                aggressive
+                color="white"
+                fullWidth
+                onClick={() => setTimeout(() => setIsOpen(false), 300)}
+              />
             </div>
           </nav>
         </div>
