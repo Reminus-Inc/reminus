@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export function FirstView() {
   return (
-    <div className="flex flex-col items-center justify-center gap-10 px-6 pt-4 sm:gap-5 md:pt-6 lg:flex-row lg:gap-0 lg:pt-8">
+    <div className="flex flex-col items-center justify-center px-6 pt-4 md:pt-6 lg:flex-row lg:pt-4">
       <div className="lg:w-fit lg:flex-none lg:pl-8">
         <SubTitle />
         <Title className="mt-2" />
@@ -34,7 +34,7 @@ export function FirstView() {
         </div>
       </div>
 
-      <div className="hidden lg:block">
+      <div className="hidden pt-4 lg:block">
         <Image src="/hero.svg" alt="" width={544} height={446} />
       </div>
     </div>
