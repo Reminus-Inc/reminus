@@ -1,5 +1,7 @@
 "use client";
 
+import { MainHeading } from "../ui/main-heading";
+import { Section } from "../ui/section";
 import { ArrowRight, Check, X } from "lucide-react";
 import {
   BarChart,
@@ -16,7 +18,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { MotionDiv } from "@/app/_components/ui/motion-div";
 import { DownloadButton } from "@/app/_components/ui/download-button";
 import { ContactButton } from "@/app/_components/ui/contact-button";
 import { ReactNode } from "react";
@@ -36,38 +37,38 @@ function ServiceCard({ service }: { service: Service }) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow h-full cursor-pointer">
+        <div className="h-full cursor-pointer rounded-xl border border-gray-100 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
           <div className="mb-4">
             {React.createElement(service.icon, {
               className: "h-10 w-10 text-black",
             })}
           </div>
-          <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-          <p className="text-gray-600 mb-4">{service.description}</p>
-          <div className="flex items-center text-black font-medium group">
+          <h3 className="mb-3 text-xl font-bold">{service.title}</h3>
+          <p className="mb-4 text-gray-600">{service.description}</p>
+          <div className="group flex items-center font-medium text-black">
             <span>詳しく見る</span>
-            <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+            <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </div>
         </div>
       </DialogTrigger>
 
       <DialogContent
-        className="max-w-[95vw] h-[95dvh] md:h-[90dvh] p-0 border-0"
+        className="h-[95dvh] max-w-[95vw] border-0 p-0 md:h-[90dvh]"
         autoFocus={false}
         onOpenAutoFocus={(e) => e.preventDefault()}
       >
         <DialogTitle className="hidden" />
-        <div className="min-h-[160px] bg-gradient-to-b from-neutral-800 to-black flex items-center">
-          <div className="w-full max-w-6xl mx-auto px-8 py-6 sm:py-8 md:py-12">
+        <div className="flex min-h-[160px] items-center bg-gradient-to-b from-neutral-800 to-black">
+          <div className="mx-auto w-full max-w-6xl px-8 py-6 sm:py-8 md:py-12">
             <div className="flex items-start gap-6">
               {React.createElement(service.icon, {
                 className: "w-14 h-14 shrink-0 text-white",
               })}
               <div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 text-white">
+                <h2 className="mb-3 text-xl font-bold text-white sm:text-2xl md:text-3xl">
                   {service.titleDialog ? service.titleDialog : service.title}
                 </h2>
-                <p className="text-base sm:text-lg md:text-xl text-neutral-200">
+                <p className="text-base text-neutral-200 sm:text-lg md:text-xl">
                   {service.summary}
                 </p>
               </div>
@@ -75,38 +76,35 @@ function ServiceCard({ service }: { service: Service }) {
           </div>
         </div>
 
-        <div className="bg-white overflow-auto flex-1">
-          <div className="w-full max-w-6xl mx-auto px-8 py-6 sm:py-8 md:py-12">
-            <p className="text-sm sm:text-lg md:text-xl mb-6 sm:mb-8 md:mb-12">
+        <div className="flex-1 overflow-auto bg-white">
+          <div className="mx-auto w-full max-w-6xl px-8 py-6 sm:py-8 md:py-12">
+            <p className="mb-6 text-sm sm:mb-8 sm:text-lg md:mb-12 md:text-xl">
               {service.description}
             </p>
 
             <div className="space-y-6 sm:space-y-8 md:space-y-12">
               {service.points.map((point, index) => (
-                <MotionDiv
+                <div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="flex gap-5 items-start"
+                  className="flex items-start gap-5"
                 >
-                  <Check className="w-7 h-7 text-primary md:mt-1 shrink-0" />
+                  <Check className="h-7 w-7 shrink-0 text-primary md:mt-1" />
                   <div>
-                    <h4 className="text-lg sm:text-xl md:text-2xl font-bold mb-3">
+                    <h4 className="mb-3 text-lg font-bold sm:text-xl md:text-2xl">
                       {point.title}
                     </h4>
-                    <p className="text-sm sm:text-lg md:text-xl text-muted-foreground">
+                    <p className="text-sm text-muted-foreground sm:text-lg md:text-xl">
                       {point.description}
                     </p>
                   </div>
-                </MotionDiv>
+                </div>
               ))}
             </div>
           </div>
         </div>
 
         <DialogClose asChild className="">
-          <X className="absolute right-6 top-6 p-2.5 rounded-full hover:bg-white/10 transition-colors w-10 h-10 text-white shrink-0 cursor-pointer" />
+          <X className="absolute right-6 top-6 h-10 w-10 shrink-0 cursor-pointer rounded-full p-2.5 text-white transition-colors hover:bg-white/10" />
         </DialogClose>
       </DialogContent>
     </Dialog>
@@ -279,20 +277,6 @@ const services: Service[] = [
   },
 ];
 
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-} as const;
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
-} as const;
 
 export function ServiceOfferings() {
   const handleServiceListClick = () => {
@@ -305,48 +289,33 @@ export function ServiceOfferings() {
   };
 
   return (
-    <div className="w-full py-16 bg-gray-50 flex justify-center" id="services">
-      <div className="container px-4 md:px-6 max-w-7xl">
-        <h2 className="text-3xl font-bold tracking-tighter text-center mb-20">
-          その他の提供サービス
-        </h2>
-        {/* Desktop view */}
-        <MotionDiv
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
-          onClick={handleServiceListClick}
-        >
-          {services.map((service, i) => (
-            <MotionDiv key={i} variants={item}>
-              <MotionDiv
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                className="h-full"
-              >
-                <ServiceCard service={service} />
-              </MotionDiv>
-            </MotionDiv>
-          ))}
-        </MotionDiv>
-
-        <div className="md:hidden mb-16 bleed" onClick={handleServiceListClick}>
-          <Carousel
-            opts={{ align: "start" }}
-            items={services.map((service, i) => (
-              <ServiceCard key={i} service={service} />
-            ))}
-          />
-        </div>
-
-        <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
-          <DownloadButton />
-          <ContactButton />
-        </div>
+    <Section className="bg-gray-50" id="services">
+      <MainHeading>その他の提供サービス</MainHeading>
+      {/* Desktop view */}
+      <div
+        className="mb-16 hidden gap-6 md:grid md:grid-cols-2 lg:grid-cols-3"
+        onClick={handleServiceListClick}
+      >
+        {services.map((service, i) => (
+          <div key={i} className="h-full">
+            <ServiceCard service={service} />
+          </div>
+        ))}
       </div>
-    </div>
+
+      <div className="bleed mb-16 md:hidden" onClick={handleServiceListClick}>
+        <Carousel
+          opts={{ align: "start" }}
+          items={services.map((service, i) => (
+            <ServiceCard key={i} service={service} />
+          ))}
+        />
+      </div>
+
+      <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+        <DownloadButton />
+        <ContactButton />
+      </div>
+    </Section>
   );
 }

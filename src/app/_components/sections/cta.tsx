@@ -1,25 +1,50 @@
 "use client";
 
-import { ContactButton } from "../ui/contact-button";
+import Image from "next/image";
+import { DownloadButton } from "../ui/download-button";
+import { Heading } from "../ui/heading";
 
 export function Cta() {
   return (
-    <section className="bg-emerald-600 py-20 text-white">
-      <div className="container mx-auto px-4 text-center">
-        <h2 className="mb-6 text-3xl font-bold md:text-4xl">
-          技術から、
-          <br className="md:hidden" />
-          経営とプロダクトを
-          <br className="lg:hidden" />
-          加速しませんか？
-        </h2>
-        <p className="mx-auto mb-8 max-w-3xl text-xl">
-          非エンジニア創業者様のSaaSスタートアップを技術面からサポートします。
-          <br className="hidden md:block" />
-          まずは無料相談からお気軽にどうぞ。
-        </p>
-        <div className="flex flex-col justify-center gap-4 sm:flex-row">
-          <ContactButton aggressive variant="outlined" color="white" />
+    <section className="bg-gradient-to-b from-gray-50 from-[50%] to-white to-50% py-10">
+      <div className="container mx-auto px-4">
+        <div className="rounded-lg bg-emerald-500 p-8 sm:p-10 md:p-16 lg:pr-12">
+          <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-14">
+            <div className="order-2 flex-shrink-0 lg:order-1">
+              <div className="flex justify-center md:block">
+                <Image
+                  src="/document-example.png"
+                  alt="Reminus CTO パートナー概要資料"
+                  width={383}
+                  height={237}
+                  className="w-full max-w-[420px]"
+                />
+              </div>
+            </div>
+
+            <div className="order-1 flex flex-col gap-8 text-white lg:order-2">
+              <div className="space-y-3">
+                <Heading level="h2" className="text-start text-white">
+                  技術から、
+                  <br />
+                  経営とプロダクトを加速させませんか？
+                </Heading>
+                <p className="text-sm leading-7 tracking-wide lg:text-base lg:leading-[1.65]">
+                  Reminus CTOパートナー概要資料です。
+                  <br />
+                  課題整理シート、料金プラン、事例などをまとめています。
+                </p>
+              </div>
+
+              <DownloadButton
+                shadow
+                fullWidth
+                variant="filled"
+                color="white"
+                className="md:max-w-[300px]"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -16,9 +16,8 @@ export function NavMenu() {
   if (!isRoot) return null;
 
   const menuItems = [
-    { href: "#plans", label: "プラン" },
-    { href: "#phase", label: "支援内容" },
-    { href: "#case-studies", label: "事例" },
+    { href: "#service-overview", label: "サービス概要" },
+    { href: "#case-studies", label: "事例紹介" },
     { href: "#services", label: "その他サービス" },
     { href: "#management", label: "経営者紹介" },
   ];

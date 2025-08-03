@@ -63,7 +63,7 @@ export function DownloadButton({ ...props }: PrimaryButtonProps) {
           }}
           {...props}
         >
-          <span className="flex items-center gap-3">
+          <span className="flex items-center gap-3 whitespace-nowrap">
             {finishing ? "送信中..." : "資料ダウンロード"}
           </span>
         </PrimaryButton>

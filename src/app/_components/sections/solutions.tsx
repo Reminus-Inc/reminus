@@ -1,75 +1,84 @@
 "use client";
 
-import { Settings, Users, Building2 } from "lucide-react";
+import { MainHeading } from "../ui/main-heading";
+import { Settings, Users, Building2, LucideIcon } from "lucide-react";
 import { ContactButton } from "../ui/contact-button";
+import { Heading } from "../ui/heading";
+import { Section } from "../ui/section";
 
 export function Solutions() {
   return (
-    <div className="bg-white py-12 md:py-16">
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-5xl">
-          <h2 className="mb-8 text-center text-xl font-bold text-gray-900 md:mb-12 md:text-2xl lg:text-3xl">
-            Reminusが解決する3つの柱
-          </h2>
+    <Section className="bg-white" fullWidth="lg">
+      <MainHeading subtitle="技術戦略・採用・組織設計をワンストップで統合し、非エンジニア経営者が抱える技術の不安を解消します。">
+        <span className="text-gray-900">課題を解決に導く</span>
+        <span className="whitespace-nowrap">
+          <span className="relative -bottom-1 mx-1 text-5xl font-bold text-emerald-500 sm:text-6xl">
+            3
+          </span>
+          <span className="text-gray-900">つの柱</span>
+        </span>
+      </MainHeading>
 
-          <div className="mb-12 grid grid-cols-1 gap-8 md:mb-16 md:grid-cols-3 md:gap-6">
-            {/* 技術戦略 */}
-            <div className="text-center">
-              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100">
-                <Settings className="h-8 w-8 text-emerald-600" />
-              </div>
-              <h3 className="mb-4 text-lg font-bold text-gray-900 md:text-xl">
-                技術戦略
-              </h3>
-              <p className="text-sm leading-relaxed text-gray-600 md:text-base">
-                開発初期の壁打ちから。プロダクトや市場に沿った技術選定。施策の運用やロードマップ策定までご相談可能
-              </p>
-            </div>
+      <div className="mb-16 flex flex-col justify-center gap-6 lg:flex-row lg:gap-10">
+        <SolutionCard
+          icon={Settings}
+          title="技術戦略"
+          subtitle="経営判断を最短で下す"
+          description="事業目標から逆算し最適な技術を選定し、開発計画を可視化。何をいつ作るかが明確になり、経営判断が加速します。"
+        />
+        <SolutionCard
+          icon={Users}
+          title="エンジニア採用"
+          subtitle="入社後の定着率を向上"
+          description="CTO経験者が戦略設計から面接同席まで伴走。候補者の納得感を高め、貴社にフィットする人材の定着率を最大化します。"
+        />
+        <SolutionCard
+          icon={Building2}
+          title="組織デザイン"
+          subtitle="属人化ゼロでリリースが安定"
+          description="組織体制と職能を設計し、マネジメント施策を仕組み化。属人化を防ぎ、継続成長できる開発チームを実現します。"
+        />
+      </div>
 
-            {/* エンジニア採用 */}
-            <div className="text-center">
-              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100">
-                <Users className="h-8 w-8 text-emerald-600" />
-              </div>
-              <h3 className="mb-4 text-lg font-bold text-gray-900 md:text-xl">
-                エンジニア採用
-              </h3>
-              <p className="text-sm leading-relaxed text-gray-600 md:text-base">
-                エンジニアが採用戦略から入るので、適切な人材の募集・選定が可能
-              </p>
-            </div>
+      <div className="text-center">
+        <Heading tag="h3" level="h4" className="mb-6">
+          お気軽にご相談ください！
+        </Heading>
+        <ContactButton aggressive />
+      </div>
+    </Section>
+  );
+}
 
-            {/* 組織デザイン */}
-            <div className="text-center">
-              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100">
-                <Building2 className="h-8 w-8 text-emerald-600" />
-              </div>
-              <h3 className="mb-4 text-lg font-bold text-gray-900 md:text-xl">
-                組織デザイン
-              </h3>
-              <p className="text-sm leading-relaxed text-gray-600 md:text-base">
-                開発プロセスやカルチャー整備、マネジメントまでご相談可能
-              </p>
-            </div>
-          </div>
-
-          <div className="mb-8 rounded-xl bg-emerald-50 p-6 text-center md:p-8">
-            <h3 className="mb-4 text-lg font-bold text-gray-900 md:text-xl">
-              CTO不在でもプロダクト成長を止めない「3本柱」。
-            </h3>
-            <p className="text-sm text-gray-600 md:text-base">
-              採用面接同席から開発プロセス設計まで、バラけやすい施策をワンストップで統合。
-            </p>
-          </div>
-
-          <div className="text-center">
-            <p className="mb-4 text-lg font-medium text-gray-900">
-              まずはご相談ください
-            </p>
-            <ContactButton aggressive />
-          </div>
+type SolutionCardProps = {
+  icon: LucideIcon;
+  title: string;
+  subtitle: string;
+  description: string;
+};
+const SolutionCard = ({
+  icon: Icon,
+  title,
+  subtitle,
+  description,
+}: SolutionCardProps) => {
+  return (
+    <div className="relative rounded-lg border-2 border-emerald-400 bg-white p-10 pt-7 lg:max-w-[390px]">
+      <div className="mb-4 flex items-center gap-4 lg:-ml-3 lg:mb-5 lg:justify-center">
+        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100">
+          <Icon className="h-6 w-6 text-emerald-500" />
         </div>
+        <h3 className="text-[1.4rem] font-bold tracking-wider text-emerald-500">
+          {title}
+        </h3>
+      </div>
+
+      <div className="space-y-1.5">
+        <h4 className="text-lg font-bold leading-7 text-gray-800">
+          {subtitle}
+        </h4>
+        <p className="leading-7 text-gray-800">{description}</p>
       </div>
     </div>
   );
-}
+};
