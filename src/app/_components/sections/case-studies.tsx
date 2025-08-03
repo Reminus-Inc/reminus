@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "motion/react";
-
+import { MainHeading } from "../ui/main-heading";
+import { Section } from "../ui/section";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { DownloadButton } from "@/app/_components/ui/download-button";
@@ -53,97 +53,80 @@ const caseStudies = [
     services: ["オブザーバビリティ", "SREing"],
   },
 ];
+
 export function CaseStudies() {
   return (
-    <section
-      className="py-24 md:py-36 flex justify-center bg-gradient-to-b from-white to-neutral-100"
-      id="case-studies"
-    >
-      <div className="container px-4 md:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="space-y-16"
-        >
-          <div className="text-center">
-            <h2 className="text-3xl font-bold tracking-tighter mb-4">
-              事例紹介
-            </h2>
-          </div>
-          {/* Desktop view */}
-          <div className="hidden md:grid max-w-8xl mx-auto grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-            {caseStudies.map((study, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.2 }}
-              >
-                <Card className="h-full md:p-2 xl:p-0">
-                  <CardHeader className="space-y-2">
-                    <CardTitle className="text-xl">{study.title}</CardTitle>
-                    <div className="flex flex-wrap gap-2">
-                      <Badge variant="secondary">{study.industry}</Badge>
-                      <Badge variant="outline">{study.companySize}</Badge>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <ul className="list-disc pl-5 text-slate-600 text-base space-y-2">
-                      {study.description.map((item, index) => (
-                        <li key={index}>{item}</li>
-                      ))}
-                    </ul>
-                    <div className="flex flex-wrap gap-2">
-                      {study.services.map((service) => (
-                        <Badge key={service} variant="secondary">
-                          {service}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
+    <Section id="case-studies">
+      <div className="space-y-16">
+        <MainHeading>事例紹介</MainHeading>
+        {/* Desktop view */}
+        <div className="max-w-8xl mx-auto hidden grid-cols-1 gap-6 md:grid md:grid-cols-2 xl:grid-cols-3">
+          {caseStudies.map((study, index) => (
+            <div key={index}>
+              <Card className="h-full md:p-2 xl:p-0">
+                <CardHeader className="space-y-2">
+                  <CardTitle className="text-xl">{study.title}</CardTitle>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge variant="secondary">{study.industry}</Badge>
+                    <Badge variant="outline">{study.companySize}</Badge>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <ul className="list-disc space-y-2 pl-5 text-base text-slate-600">
+                    {study.description.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
+                  </ul>
+                  <div className="flex flex-wrap gap-2">
+                    {study.services.map((service) => (
+                      <Badge key={service} variant="secondary">
+                        {service}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          ))}
+        </div>
+
+        {/* Mobile carousel view */}
+        <div className="bleed md:hidden">
+          <Carousel
+            opts={{ align: "start" }}
+            items={caseStudies.map((study, index) => (
+              <Card key={index} className="h-full">
+                <CardHeader className="space-y-2">
+                  <CardTitle className="text-xl">{study.title}</CardTitle>
+                  <div className="flex flex-wrap gap-2">
+                    <Badge variant="secondary">{study.industry}</Badge>
+                    <Badge variant="outline">{study.companySize}</Badge>
+                  </div>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <ul className="list-disc space-y-2 pl-5 text-base text-slate-600">
+                    {study.description.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
+                  </ul>
+                  <div className="flex flex-wrap gap-2">
+                    {study.services.map((service) => (
+                      <Badge key={service} variant="secondary">
+                        {service}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
             ))}
-          </div>
+          />
+        </div>
 
-          {/* Mobile carousel view */}
-          <div className="md:hidden bleed">
-            <Carousel
-              opts={{ align: "start" }}
-              items={caseStudies.map((study, index) => (
-                <Card key={index} className="h-full">
-                  <CardHeader className="space-y-2">
-                    <CardTitle className="text-xl">{study.title}</CardTitle>
-                    <div className="flex flex-wrap gap-2">
-                      <Badge variant="secondary">{study.industry}</Badge>
-                      <Badge variant="outline">{study.companySize}</Badge>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <ul className="list-disc pl-5 text-slate-600 text-base space-y-2">
-                      {study.description.map((item, index) => (
-                        <li key={index}>{item}</li>
-                      ))}
-                    </ul>
-                    <div className="flex flex-wrap gap-2">
-                      {study.services.map((service) => (
-                        <Badge key={service} variant="secondary">
-                          {service}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            />
-          </div>
-
-          <div className="flex flex-col sm:flex-row justify-center gap-4 mt-12">
-            <DownloadButton />
-            <ContactButton />
-          </div>
-        </motion.div>
+        <div className="mt-12 flex flex-col justify-center gap-4 sm:flex-row">
+          <DownloadButton />
+          <ContactButton />
+        </div>
       </div>
-    </section>
+    </Section>
   );
 }
