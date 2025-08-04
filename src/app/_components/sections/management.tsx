@@ -79,9 +79,8 @@ export function Management() {
           <div className="space-y-6">
             <div className="prose prose-gray max-w-none text-left">
               <p className="text-sm leading-7 text-gray-600 md:text-base md:leading-7">
-                株式会社ヘンリーで医療SaaSの急成長をソフトウェアエンジニアやSREとして牽引。その後、株式会社immedioでCTOを務め、Sales
-                Techマルチプロダクトの経営を技術から推進する。2社の社外CTOと3社の技術顧問として経営から専門支援まで広く支援し、
-                資金調達にも貢献した経験を持つ。2025年、株式会社Reminusを創業し、スタートアップの成長を加速する事業を展開している。
+                株式会社ヘンリーで医療SaaSの急成長をソフトウェアエンジニアやSREとして牽引後、株式会社immedioでCTOを務め、Sales
+                Techマルチプロダクトの経営を技術から推進する。社外CTO・技術顧問として累計5社を支援し、資金調達にも貢献した経験を持つ。2025年、株式会社Reminusを創業。
               </p>
             </div>
 
