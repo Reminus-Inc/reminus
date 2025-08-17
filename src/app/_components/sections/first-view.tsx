@@ -18,17 +18,17 @@ export function FirstView() {
             alt=""
             width={544}
             height={446}
-            className="w-[80%] max-w-[544px]"
+            className="w-[90%] max-w-[544px]"
           />
         </div>
-        <div className="mx-auto mt-10 max-w-[340px] space-y-5 lg:mx-0">
-          <DownloadButton fullWidth>資料ダウンロード</DownloadButton>
-          <ContactButton
-            aggressive
+        <div className="mx-auto mt-8 max-w-[340px] space-y-5 lg:mx-0">
+          <DownloadButton
             fullWidth
-            density="relaxed"
-            className="lg:hidden"
-          />
+            className="lg:shadow-xl lg:shadow-emerald-100/50"
+          >
+            資料ダウンロード
+          </DownloadButton>
+          <ContactButton aggressive fullWidth className="lg:hidden" />
         </div>
       </div>
 

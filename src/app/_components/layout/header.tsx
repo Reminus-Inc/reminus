@@ -20,12 +20,14 @@ export function Header({
     if (window.location.pathname === "/") {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
+      // URLからハッシュフラグメントを除去
+      window.history.replaceState(null, "", window.location.pathname);
     }
     onLogoClick?.();
   };
 
   return (
-    <header className="sticky left-0 top-0 z-10 bg-white py-4 sm:py-5 lg:relative">
+    <header className="sticky left-0 top-0 z-10 flex h-[60px] items-center bg-white sm:h-[80px] lg:relative">
       <div className="mx-auto w-full max-w-[1360px] px-6">
         <div className="flex h-full items-center justify-between">
           <div className="flex items-center">

@@ -29,9 +29,6 @@ const primaryButtonVariants = cva(
       fullWidth: {
         true: "w-full",
       },
-      shadow: {
-        true: "shadow-[0_0_20px_color-mix(in_hsl,var(--primary)_50%,transparent)]",
-      },
     },
     compoundVariants: [
       // size * density
@@ -106,7 +103,6 @@ const primaryButtonVariants = cva(
       color: "primary",
       density: "default",
       fullWidth: false,
-      shadow: false,
     },
   }
 );
@@ -123,7 +119,6 @@ export const PrimaryButton = ({
   size,
   density,
   fullWidth,
-  shadow,
   asChild = false,
   className,
   children,
@@ -137,7 +132,6 @@ export const PrimaryButton = ({
           variant,
           color,
           size,
-          shadow,
           fullWidth,
           density,
         }),
