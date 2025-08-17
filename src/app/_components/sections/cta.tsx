@@ -8,16 +8,16 @@ export function Cta() {
   return (
     <section className="bg-gradient-to-b from-gray-50 from-[50%] to-white to-50% py-10">
       <div className="container mx-auto px-4">
-        <div className="rounded-lg bg-emerald-500 p-8 sm:p-10 md:p-16 lg:pr-12">
-          <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-14">
+        <div className="rounded-lg bg-emerald-500 p-8 sm:p-10 md:p-16 lg:px-12">
+          <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-12">
             <div className="order-2 flex-shrink-0 lg:order-1">
               <div className="flex justify-center md:block">
                 <Image
-                  src="/document-example.png"
+                  src="/document-example2.png"
                   alt="Reminus CTO パートナー概要資料"
-                  width={383}
-                  height={237}
-                  className="w-full max-w-[420px]"
+                  width={1326}
+                  height={842}
+                  className="w-full max-w-[442px]"
                 />
               </div>
             </div>
@@ -29,7 +29,7 @@ export function Cta() {
                   <br />
                   経営とプロダクトを加速させませんか？
                 </Heading>
-                <p className="text-sm leading-7 tracking-wide lg:text-base lg:leading-[1.65]">
+                <p className="text-sm leading-[1.65] tracking-wide lg:text-base lg:leading-[1.65]">
                   Reminus CTOパートナー概要資料です。
                   <br />
                   課題整理シート、料金プラン、事例などをまとめています。
@@ -37,7 +37,6 @@ export function Cta() {
               </div>
 
               <DownloadButton
-                shadow
                 fullWidth
                 variant="filled"
                 color="white"

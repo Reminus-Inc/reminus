@@ -54,7 +54,7 @@ export function ServiceOverview() {
                 />
                 <ServiceFeature
                   icon={Shield}
-                  title="解雇リスク0%"
+                  title="解雇リスク0"
                   description="貴社とのマッチ度に応じたCTOが支援するため、採用トラブルを未然にブロック。"
                 />
               </ul>
@@ -243,7 +243,7 @@ const ProposalBox = ({ title, text, children }: ProposalBoxProps) => (
   <div className="rounded border border-emerald-500 bg-white p-5 lg:h-44 xl:h-32">
     <MobileLabel type="proposal" text="ご提案" className="text-emerald-500" />
     {title && (
-      <h5 className="mb-1 text-base font-bold tracking-wide text-gray-800">
+      <h5 className="mb-1 text-base font-bold tracking-wide text-gray-800 lg:text-emerald-500">
         {title}
       </h5>
     )}

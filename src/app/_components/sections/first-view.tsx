@@ -11,7 +11,7 @@ export function FirstView() {
       <div className="lg:w-fit lg:flex-none lg:pl-8">
         <SubTitle />
         <Title className="mt-2" />
-        <Description className="mt-4 sm:mt-6" />
+        <Description className="mt-4" />
         <div className="mt-8 flex justify-center lg:hidden">
           <Image
             src="/hero.svg"
@@ -21,10 +21,8 @@ export function FirstView() {
             className="w-[80%] max-w-[544px]"
           />
         </div>
-        <div className="mx-auto mt-10 max-w-[380px] space-y-5 lg:mx-0">
-          <DownloadButton shadow fullWidth density="relaxed">
-            資料ダウンロード
-          </DownloadButton>
+        <div className="mx-auto mt-10 max-w-[340px] space-y-5 lg:mx-0">
+          <DownloadButton fullWidth>資料ダウンロード</DownloadButton>
           <ContactButton
             aggressive
             fullWidth
@@ -68,7 +66,7 @@ const Description = ({ className }: { className?: string }) => {
   return (
     <p
       className={cn(
-        "text-center leading-[1.75] text-gray-600 sm:text-xl sm:leading-[1.75] lg:text-start",
+        "text-center leading-[1.75] text-gray-600 sm:text-xl sm:leading-[1.8] lg:text-start",
         className
       )}
     >

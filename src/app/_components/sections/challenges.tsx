@@ -44,14 +44,16 @@ type ChallengeCardProps = {
 };
 const ChallengeCard = ({ title, description }: ChallengeCardProps) => {
   return (
-    <div className="rounded-lg border border-gray-200 bg-white p-7 lg:w-[420px]">
-      <div className="mb-2.5 flex items-center gap-3">
-        <AlertTriangle className="h-5 w-5 text-red-500" />
-        <h3 className="text-xl font-bold tracking-wide text-gray-800">
+    <div className="rounded-lg border border-gray-200 bg-white p-4 sm:p-7 lg:w-[420px]">
+      <div className="mb-2.5 flex items-center gap-2">
+        <AlertTriangle className="h-5 w-5 flex-shrink-0 text-red-500" />
+        <h3 className="text-base font-bold tracking-wide text-gray-800 sm:text-lg md:text-xl">
           {title}
         </h3>
       </div>
-      <p className="text-base leading-7 text-gray-600">{description}</p>
+      <p className="text-sm leading-7 text-gray-600 sm:text-base sm:leading-7">
+        {description}
+      </p>
     </div>
   );
 };

@@ -19,6 +19,8 @@ import { ContactForm } from "@/app/_components/ui/contact-form";
 import { ClientLogos } from "../_components/sections/client-logos";
 import { CompanyOverview } from "../_components/sections/company-overview";
 
+import Image from "next/image";
+
 export const metadata = {
   title: "CTO付きエンジニアチーム | Reminus",
   description:
@@ -48,9 +50,11 @@ export default function CTOTeamPage() {
               </h1>
 
               <div className="mt-4 sm:hidden">
-                <img
+                <Image
                   src="/cto-team/hero.svg"
                   alt=""
+                  width={750}
+                  height={500}
                   className="mx-auto w-[90%] max-w-[400px] sm:hidden"
                 />
               </div>
@@ -77,12 +81,8 @@ export default function CTOTeamPage() {
               </div>
 
               <div className="mt-10 flex justify-center lg:justify-start">
-                <div className="w-full max-w-[400px]">
-                  <SchedulingButton
-                    label="今すぐ日程調整"
-                    fullWidth
-                    density="relaxed"
-                  />
+                <div className="w-full max-w-[360px]">
+                  <SchedulingButton label="今すぐ日程調整" fullWidth />
                 </div>
               </div>
             </div>
@@ -191,9 +191,11 @@ export default function CTOTeamPage() {
                   </li>
                 </ul>
                 <div className="mt-8 sm:mt-12">
-                  <img
+                  <Image
                     src="/cto-team/single-developer.svg"
                     alt=""
+                    width={388}
+                    height={301}
                     className="mx-auto w-[70%] max-w-[280px] sm:w-full"
                   />
                 </div>
@@ -242,9 +244,11 @@ export default function CTOTeamPage() {
                   </li>
                 </ul>
                 <div className="mt-10 sm:mt-11">
-                  <img
+                  <Image
                     src="/cto-team/cto-team.svg"
                     alt=""
+                    width={418}
+                    height={275}
                     className="mx-auto w-[80%] max-w-[344px] sm:w-full"
                   />
                 </div>
@@ -254,9 +258,7 @@ export default function CTOTeamPage() {
         </div>
       </Section>
 
-      <Section className="bg-white">
-        <ClientLogos />
-      </Section>
+      <ClientLogos />
 
       <Section className="bg-gray-800">
         <H2 className="text-white">
