@@ -13,7 +13,7 @@ export function Cta() {
             <div className="order-2 flex-shrink-0 lg:order-1">
               <div className="flex justify-center md:block">
                 <Image
-                  src="/document-example2.png"
+                  src="/document-example.png"
                   alt="Reminus CTO パートナー概要資料"
                   width={1326}
                   height={842}
