@@ -32,8 +32,8 @@ export default function CTOTeamPage() {
     <>
       <div className="bg-gray-800 pb-16 pt-4 md:pb-20 lg:pb-16 lg:pt-0">
         <div className="container mx-auto max-w-7xl px-6">
-          <div className="flex flex-col justify-between gap-20 lg:flex-row lg:gap-10">
-            <div className="lg:pt-6">
+          <div className="flex flex-col items-center justify-between gap-20 lg:flex-row lg:gap-10">
+            <div>
               <p className="text-center text-sm font-bold tracking-wide text-orange-400 sm:text-base lg:text-left">
                 エンジニア紹介で
                 <span className="whitespace-nowrap">
@@ -41,7 +41,7 @@ export default function CTOTeamPage() {
                 </span>
               </p>
 
-              <h1 className="mt-2 text-center text-[1.75rem] font-bold leading-[1.4] tracking-wide text-white sm:text-4xl sm:leading-[1.4] md:text-[2.6rem] md:leading-[1.35] lg:text-left">
+              <h1 className="mt-2 text-center text-[1.75rem] font-bold leading-[1.4] tracking-wide text-white sm:text-4xl sm:leading-[1.4] md:text-[2.6rem] md:leading-[1.4] lg:text-left">
                 CTO率いる
                 <span className="whitespace-nowrap">開発チームで</span>
                 <br />
@@ -94,8 +94,6 @@ export default function CTOTeamPage() {
                     どのような内容でもお気軽にご相談ください！
                   </h2>
                   <ContactForm
-                    showContent={false}
-                    showChip={false}
                     buttonProps={{
                       variant: "outlined",
                     }}

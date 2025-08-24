@@ -157,7 +157,7 @@ export const ContactForm = ({
           {pending ? "送信中..." : "送信する"}
         </PrimaryButton>
 
-        <p className="text-center text-xs text-gray-500">
+        <p className="text-center text-xs leading-5 text-gray-500">
           お問い合わせいただくことで、当社の
           <a
             href="/privacy-policy"
