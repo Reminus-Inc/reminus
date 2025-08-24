@@ -3,7 +3,6 @@
 import { submitInquiry } from "@/app/actions";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 
@@ -19,13 +18,11 @@ import {
 import { PrimaryButton, PrimaryButtonProps } from "./primary-button";
 
 type ContactFormProps = {
-  autoFocus?: boolean;
   showContent?: boolean;
   showChip?: boolean;
   buttonProps?: PrimaryButtonProps;
 };
 export const ContactForm = ({
-  autoFocus = false,
   showContent = true,
   showChip = true,
   buttonProps,
@@ -76,63 +73,43 @@ export const ContactForm = ({
   };
 
   return (
-    <form ref={ref} onSubmit={handleSubmit} className="space-y-7">
+    <form ref={ref} onSubmit={handleSubmit} className="w-full space-y-7">
       <div className="space-y-5">
         <div className="space-y-2">
-          <Tabs defaultValue="company">
-            <div className="flex items-center gap-2">
-              <TabsList>
-                <TabsTrigger value="company">会社名</TabsTrigger>
-                <TabsTrigger value="individual">個人事業主</TabsTrigger>
-              </TabsList>
-              {showChip && <Chip color="red">必須</Chip>}
-            </div>
-            <TabsContent value="company">
-              <Input
-                name="company"
-                placeholder="株式会社Reminus"
-                required
-                autoFocus={autoFocus}
-                onFocus={() => {
-                  if (!hasStartedForm) {
-                    trackFormStart("contact");
-                    setHasStartedForm(true);
-                  }
-                }}
-              />
-            </TabsContent>
-            <TabsContent value="individual">
-              <Input name="company" placeholder="屋号等" defaultValue="個人" />
-            </TabsContent>
-          </Tabs>
+          <div className="flex items-center gap-2">
+            <Label htmlFor="company" className="text-sm text-gray-800">
+              会社名
+            </Label>
+            {showChip && <Chip color="red">必須</Chip>}
+          </div>
+          <Input
+            id="company"
+            name="company"
+            placeholder="株式会社Reminus"
+            required
+            onFocus={() => {
+              if (!hasStartedForm) {
+                trackFormStart("contact");
+                setHasStartedForm(true);
+              }
+            }}
+          />
         </div>
 
         <div className="space-y-2">
-          <Tabs defaultValue="name">
-            <div className="flex items-center gap-2">
-              <TabsList>
-                <TabsTrigger value="name">お名前</TabsTrigger>
-                <TabsTrigger value="sns">SNSのID</TabsTrigger>
-              </TabsList>
-              {showChip && <Chip color="red">必須</Chip>}
-            </div>
-            <TabsContent value="name">
-              <Input
-                name="name"
-                placeholder="山田太郎"
-                required
-                className="border-gray-200 transition-colors focus:border-gray-400"
-              />
-            </TabsContent>
-            <TabsContent value="sns">
-              <Input
-                name="name"
-                placeholder="X: @reminus_pr"
-                required
-                className="border-gray-200 transition-colors focus:border-gray-400"
-              />
-            </TabsContent>
-          </Tabs>
+          <div className="flex items-center gap-2">
+            <Label htmlFor="name" className="text-sm text-gray-800">
+              お名前
+            </Label>
+            {showChip && <Chip color="red">必須</Chip>}
+          </div>
+          <Input
+            id="name"
+            name="name"
+            placeholder="山田太郎"
+            required
+            className="border-gray-200 transition-colors focus:border-gray-400"
+          />
         </div>
 
         <div className="space-y-2">
@@ -173,6 +150,7 @@ export const ContactForm = ({
           type="submit"
           disabled={pending}
           variant="filled"
+          size="medium"
           fullWidth
           {...buttonProps}
         >

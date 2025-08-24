@@ -98,7 +98,6 @@ export default function CTOTeamPage() {
                     showChip={false}
                     buttonProps={{
                       variant: "outlined",
-                      density: "compact",
                     }}
                   />
                 </CardContent>
@@ -276,7 +275,6 @@ export default function CTOTeamPage() {
                 <ContactForm
                   buttonProps={{
                     variant: "outlined",
-                    density: "compact",
                   }}
                 />
               </CardContent>

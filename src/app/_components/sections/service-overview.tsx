@@ -20,7 +20,7 @@ export function ServiceOverview() {
 
       <div className="space-y-20">
         <div>
-          <Heading level="h3" className="mb-10">
+          <Heading level="h3" className="mb-10 text-center">
             サブスクCTOで、
             <span className="whitespace-nowrap">
               コストもリスクもスマートに。
@@ -73,7 +73,7 @@ export function ServiceOverview() {
         </div>
 
         <div>
-          <Heading level="h3" className="mb-14">
+          <Heading level="h3" className="mb-14 text-center">
             フェーズに合わせた支援を
             <span className="whitespace-nowrap">ご提案します！</span>
           </Heading>

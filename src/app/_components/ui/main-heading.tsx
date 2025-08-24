@@ -13,7 +13,7 @@ export function MainHeading({
   children,
 }: MainHeadingProps) {
   return (
-    <div className={cn("mb-12 space-y-7 md:mb-16", className)}>
+    <div className={cn("mb-12 space-y-7 text-center md:mb-16", className)}>
       <Heading level="h2">{children}</Heading>
       {subtitle && (
         <p className="text-center text-base leading-7 text-gray-600">

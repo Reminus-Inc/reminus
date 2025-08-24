@@ -19,12 +19,12 @@ const primaryButtonVariants = cva(
       },
       size: {
         small: "px-6 text-sm",
+        medium: "px-8 text-base",
         default: "px-12 text-lg",
       },
       density: {
         default: "",
         relaxed: "",
-        compact: "",
       },
       fullWidth: {
         true: "w-full",
@@ -43,6 +43,16 @@ const primaryButtonVariants = cva(
         class: "py-4",
       },
       {
+        size: "medium",
+        density: "default",
+        class: "py-3.5",
+      },
+      {
+        size: "medium",
+        density: "relaxed",
+        class: "py-4.5",
+      },
+      {
         size: "default",
         density: "default",
         class: "py-4",
@@ -51,16 +61,6 @@ const primaryButtonVariants = cva(
         size: "default",
         density: "relaxed",
         class: "py-5",
-      },
-      {
-        size: "default",
-        density: "compact",
-        class: "py-3",
-      },
-      {
-        size: "small",
-        density: "compact",
-        class: "py-2.5",
       },
       // variant * color
       {
