@@ -1,25 +1,23 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { Header } from "./header";
 import { DownloadButton } from "../ui/download-button";
 import { ContactButton } from "../ui/contact-button";
 
 export function NavMenu() {
-  const pathname = usePathname();
-  const isRoot = pathname === "/";
   const [isOpen, setIsOpen] = useState(false);
-
-  if (!isRoot) return null;
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
 
   const menuItems = [
-    { href: "#service-overview", label: "サービス概要" },
-    { href: "#case-studies", label: "事例紹介" },
-    { href: "#services", label: "その他サービス" },
-    { href: "#management", label: "経営者紹介" },
+    { href: isHomePage ? "#service-overview" : "/#service-overview", label: "サービス概要" },
+    { href: isHomePage ? "#case-studies" : "/#case-studies", label: "事例紹介" },
+    { href: isHomePage ? "#services" : "/#services", label: "その他サービス" },
+    { href: isHomePage ? "#management" : "/#management", label: "経営者紹介" },
   ];
 
   const handleLinkClick = () => {

@@ -7,7 +7,7 @@ export default async function ContactLayout({
 }) {
   return (
     <>
-      <Header showNavMenu={false} />
+      <Header />
       <main>{children}</main>
     </>
   );
