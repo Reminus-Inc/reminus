@@ -6,13 +6,13 @@ export default function DownloadPage() {
   return (
     <main className="bg-white pb-16 pt-8">
       <div className="container mx-auto flex flex-col justify-center gap-14 px-6 lg:flex-row lg:gap-20">
-        <div className="space-y-6">
+        <div className="space-y-6 lg:w-[475px]">
           <Heading level="h2" tag="h1">
             サービス紹介資料
           </Heading>
 
           <div className="rounded bg-gray-50 p-4">
-            <div className="rounded-sm mx-auto max-w-[442px] aspect-[1326/842]">
+            <div className="rounded-sm mx-auto max-w-[720px] sm:max-w-[442px] aspect-[1326/842]">
                 <Image
                   src="/document-example.png"
                   alt="Reminus CTO パートナー概要資料"
