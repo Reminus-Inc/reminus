@@ -43,7 +43,6 @@ export function ClientLogos() {
                   alt={`${client.name} logo`}
                   height={client.spHeight}
                   width={client.spWidth}
-                  priority
                   style={{
                     height: `${client.spHeight}px`,
                     width: `${client.spWidth}px`,
@@ -57,7 +56,6 @@ export function ClientLogos() {
                   alt={`${client.name} logo`}
                   height={client.height}
                   width={client.width}
-                  priority
                   style={{
                     height: `${client.height}px`,
                     width: `${client.width}px`,

@@ -20,6 +20,7 @@ export default function DownloadPage() {
                   width={1326}
                   height={842}
                   priority
+                  fetchPriority="high"
                   className="block w-full h-auto"
                 />
             </div>
