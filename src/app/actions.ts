@@ -158,7 +158,14 @@ export async function requestDocument(
 
     const latestFile = "reminus_ctopartner_intro_v1.0.2.pdf";
 
-    if (process.env.SLACK_WEBHOOK_URL) {
+    console.log('資料請求受信完了:', {
+      ...validatedFields,
+      timestamp: new Date().toISOString(),
+      environment: process.env.APP_ENVIRONMENT || 'production'
+    });
+
+    if (process.env.SLACK_WEBHOOK_URL && process.env.APP_ENVIRONMENT !== 'development') {
+      console.log('Slack通知を送信します');
       await fetch(process.env.SLACK_WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
