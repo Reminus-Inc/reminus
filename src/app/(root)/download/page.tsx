@@ -1,5 +1,4 @@
 import { DownloadForm } from "@/app/_components/ui/download-form";
-import Image from "next/image";
 import { Heading } from "@/app/_components/ui/heading";
 
 export default function DownloadPage() {
