@@ -4,7 +4,7 @@ import { Heading } from "@/app/_components/ui/heading";
 
 export default function DownloadPage() {
   return (
-    <main className="flex-1 bg-white pb-16 pt-8">
+    <main className="bg-white pb-16 pt-8">
       <div className="container mx-auto flex flex-col justify-center gap-14 px-6 lg:flex-row lg:gap-20">
         <div className="space-y-6">
           <Heading level="h2" tag="h1">
