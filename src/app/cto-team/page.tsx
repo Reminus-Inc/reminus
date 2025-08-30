@@ -12,7 +12,7 @@ import {
 
 import { cn } from "@/lib/utils";
 
-import { SchedulingButton } from "@/app/contact/scheduling-button";
+import { SchedulingButton } from "@/app/(root)/contact/scheduling-button";
 
 import { Management } from "@/app/_components/sections/management";
 import { ContactForm } from "@/app/_components/ui/contact-form";

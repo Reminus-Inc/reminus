@@ -43,3 +43,6 @@ next-env.d.ts
 .idea
 
 **/.claude/settings.local.json
+
+# playwright-mcp
+.playwright-mcp/
