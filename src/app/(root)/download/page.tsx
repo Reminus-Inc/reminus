@@ -13,14 +13,16 @@ export default function DownloadPage() {
 
           <div className="rounded bg-gray-50 p-4">
             <div className="rounded-sm">
-              <Image
-                src="/document-example.png"
-                alt="Reminus CTO パートナー概要資料"
-                width={1326}
-                height={842}
-                priority
-                className="mx-auto w-full max-w-[442px]"
-              />
+              <div className="mx-auto w-full max-w-[442px]">
+                <Image
+                  src="/document-example.png"
+                  alt="Reminus CTO パートナー概要資料"
+                  width={1326}
+                  height={842}
+                  priority
+                  className="block w-full h-auto"
+                />
+              </div>
             </div>
           </div>
 
