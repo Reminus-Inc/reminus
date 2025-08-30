@@ -4,7 +4,11 @@ import { trackCTAClick } from "@/lib/analytics";
 import Link from "next/link";
 import { PrimaryButton, PrimaryButtonProps } from "./primary-button";
 
-export function DownloadButton({ ...props }: PrimaryButtonProps) {
+interface DownloadButtonProps extends PrimaryButtonProps {
+  onClick?: () => void;
+}
+
+export function DownloadButton({ onClick, ...props }: DownloadButtonProps) {
   return (
     <PrimaryButton asChild {...props}>
       <Link
@@ -12,6 +16,7 @@ export function DownloadButton({ ...props }: PrimaryButtonProps) {
         className="flex items-center gap-3"
         onClick={() => {
           trackCTAClick("download");
+          onClick?.();
         }}
       >
         <span className="whitespace-nowrap">資料ダウンロード</span>
