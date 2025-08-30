@@ -18,6 +18,7 @@ export function FirstView() {
             alt=""
             width={544}
             height={446}
+            priority
             className="w-[90%] max-w-[544px]"
           />
         </div>
