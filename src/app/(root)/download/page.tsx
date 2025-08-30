@@ -1,6 +1,7 @@
 import { DownloadForm } from "@/app/_components/ui/download-form";
 import Image from "next/image";
 import { Heading } from "@/app/_components/ui/heading";
+import {CheckCircle2} from "lucide-react";
 
 export default function DownloadPage() {
   return (
@@ -29,10 +30,27 @@ export default function DownloadPage() {
               この資料で分かること
             </Heading>
 
-            <ul className="list-disc space-y-1.5 pl-5 font-bold text-gray-600">
-              <li>スタートアップの課題と解決策</li>
-              <li>プラン比較と料金体系</li>
-              <li>成功事例の紹介</li>
+            <ul className="space-y-2.5">
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" />
+                <span className="font-bold text-gray-700">サービスのコンセプト</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" />
+                <span className="font-bold text-gray-700">プロダクト経営の全体像フレームワーク</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" />
+                <span className="font-bold text-gray-700">各事業フェーズのよくある課題と解決策</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" />
+                <span className="font-bold text-gray-700">プランごとの料金とサービス内容  </span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" />
+                <span className="font-bold text-gray-700">導入事例</span>
+              </li>
             </ul>
           </div>
         </div>
