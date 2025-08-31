@@ -1,7 +1,16 @@
 import { DownloadForm } from "@/app/_components/ui/download-form";
 import Image from "next/image";
 import { Heading } from "@/app/_components/ui/heading";
-import {CheckCircle2} from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "資料ダウンロード | Reminus",
+  description: "Reminusのサービス紹介資料をダウンロードできます。",
+  robots: {
+    index: false,
+  },
+};
 
 export default function DownloadPage() {
   return (
@@ -13,15 +22,15 @@ export default function DownloadPage() {
           </Heading>
 
           <div className="rounded bg-gray-50 p-4">
-            <div className="rounded-sm mx-auto max-w-[720px] sm:max-w-[442px] aspect-[1326/842]">
-                <Image
-                  src="/document-example.png"
-                  alt="Reminus CTO パートナー概要資料"
-                  width={1326}
-                  height={842}
-                  priority
-                  className="block w-full h-auto"
-                />
+            <div className="mx-auto aspect-[1326/842] max-w-[720px] rounded-sm sm:max-w-[442px]">
+              <Image
+                src="/document-example.png"
+                alt="Reminus CTO パートナー概要資料"
+                width={1326}
+                height={842}
+                priority
+                className="block h-auto w-full"
+              />
             </div>
           </div>
 
@@ -33,19 +42,27 @@ export default function DownloadPage() {
             <ul className="space-y-2.5">
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" />
-                <span className="font-bold text-gray-700">サービスのコンセプト</span>
+                <span className="font-bold text-gray-700">
+                  サービスのコンセプト
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" />
-                <span className="font-bold text-gray-700">プロダクト経営の全体像フレームワーク</span>
+                <span className="font-bold text-gray-700">
+                  プロダクト経営の全体像フレームワーク
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" />
-                <span className="font-bold text-gray-700">各事業フェーズのよくある課題と解決策</span>
+                <span className="font-bold text-gray-700">
+                  各事業フェーズのよくある課題と解決策
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" />
-                <span className="font-bold text-gray-700">プランごとの料金とサービス内容  </span>
+                <span className="font-bold text-gray-700">
+                  プランごとの料金とサービス内容{" "}
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" />
