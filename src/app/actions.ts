@@ -141,14 +141,23 @@ export async function requestDocument(
   _: DocumentRequestActionState,
   formData: FormData,
 ): Promise<DocumentRequestActionState> {
+  const startTime = performance.now();
+  console.log('🔄 資料請求処理開始:', new Date().toISOString());
+  
   try {
+    const validationStart = performance.now();
     const validatedFields = documentRequestSchema.parse(
       Object.fromEntries(formData),
     );
+    const validationEnd = performance.now();
+    console.log(`✅ バリデーション完了: ${(validationEnd - validationStart).toFixed(2)}ms`);
 
+    const dbStart = performance.now();
     await prisma.documentRequest.create({
       data: validatedFields,
     });
+    const dbEnd = performance.now();
+    console.log(`💾 DB保存完了: ${(dbEnd - dbStart).toFixed(2)}ms`);
 
     const params = new URLSearchParams({
       email: validatedFields.email,
@@ -165,7 +174,8 @@ export async function requestDocument(
     });
 
     if (process.env.SLACK_WEBHOOK_URL && process.env.APP_ENVIRONMENT !== 'development') {
-      console.log('Slack通知を送信します');
+      const slackStart = performance.now();
+      console.log('📨 Slack通知を送信します');
       await fetch(process.env.SLACK_WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -203,7 +213,13 @@ export async function requestDocument(
           ],
         }),
       });
+      const slackEnd = performance.now();
+      console.log(`📨 Slack通知完了: ${(slackEnd - slackStart).toFixed(2)}ms`);
     }
+
+    const endTime = performance.now();
+    const totalTime = endTime - startTime;
+    console.log(`🎉 資料請求処理完了: 合計${totalTime.toFixed(2)}ms`);
 
     return {
       message: "資料請求ありがとうございます。",
@@ -212,6 +228,10 @@ export async function requestDocument(
       redirect: `/download-thanks?${params.toString()}`,
     };
   } catch (error) {
+    const errorTime = performance.now();
+    const totalTime = errorTime - startTime;
+    console.log(`❌ 資料請求処理エラー: ${totalTime.toFixed(2)}ms`, error);
+    
     if (error instanceof z.ZodError) {
       return {
         message: "エラーが発生しました",
