@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { Suspense } from "react";
 import { DownloadThanksContent } from "./download-thanks-content";
 
 export const metadata: Metadata = {
@@ -10,5 +11,9 @@ export const metadata: Metadata = {
 };
 
 export default function DownloadThanksPage() {
-  return <DownloadThanksContent />;
+  return (
+    <Suspense fallback={null}>
+      <DownloadThanksContent />
+    </Suspense>
+  );
 }
