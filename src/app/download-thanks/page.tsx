@@ -24,7 +24,9 @@ export default function DownloadThanksPage() {
           <p className="mb-2 text-gray-600">資料請求ありがとうございます。</p>
           <p className="mb-6 text-gray-600">以下から資料をご確認ください。</p>
 
-          <ViewDocumentButton />
+          <Suspense fallback={null}>
+            <ViewDocumentButton />
+          </Suspense>
           <div id="immedio-config" data-pagetype="thanks" />
 
           <Suspense fallback={null}>
