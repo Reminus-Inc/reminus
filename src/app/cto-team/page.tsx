@@ -1,6 +1,7 @@
 import { DownloadForm } from "@/app/_components/ui/download-form";
 import { DOCUMENT_TYPE } from "@/app/constants";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { PrimaryButton } from "@/app/_components/ui/primary-button";
 import {
   AlertTriangle,
   Check,
@@ -14,13 +15,13 @@ import {
 
 import { cn } from "@/lib/utils";
 
-import { SchedulingButton } from "@/app/(root)/contact/scheduling-button";
-
 import { Management } from "@/app/_components/sections/management";
 import { ClientLogos } from "../_components/sections/client-logos";
 import { CompanyOverview } from "../_components/sections/company-overview";
 
 import Image from "next/image";
+import Link from "next/link";
+import { Heading } from "@/app/_components/ui/heading";
 
 export const metadata = {
   title: "CTO付きエンジニアチーム | Reminus",
@@ -33,8 +34,8 @@ export default function CTOTeamPage() {
     <>
       <div className="bg-gray-800 pb-16 pt-4 md:pb-20 lg:pb-16 lg:pt-0">
         <div className="container mx-auto max-w-7xl px-6">
-          <div className="flex flex-col items-center justify-between gap-20 lg:flex-row lg:gap-10">
-            <div>
+          <div className="flex flex-col justify-between gap-16 lg:flex-row lg:gap-10">
+            <div className="lg:pt-14">
               <p className="text-center text-sm font-bold tracking-wide text-orange-400 sm:text-base lg:text-left">
                 エンジニア紹介で
                 <span className="whitespace-nowrap">
@@ -42,7 +43,7 @@ export default function CTOTeamPage() {
                 </span>
               </p>
 
-              <h1 className="mt-2 text-center text-[1.75rem] font-bold leading-[1.4] tracking-wide text-white sm:text-4xl sm:leading-[1.4] md:text-[2.6rem] md:leading-[1.4] lg:text-left">
+              <h1 className="mt-2 text-center text-[1.75rem] font-bold leading-[1.45] tracking-wide text-white sm:text-4xl sm:leading-[1.45] md:text-[2.6rem] md:leading-[1.4] lg:text-left">
                 CTO率いる
                 <span className="whitespace-nowrap">開発チームで</span>
                 <br />
@@ -50,13 +51,13 @@ export default function CTOTeamPage() {
                 をゼロにする。
               </h1>
 
-              <div className="mt-4 sm:hidden">
+              <div className="mt-4 lg:hidden">
                 <Image
                   src="/cto-team/hero.svg"
                   alt=""
                   width={750}
                   height={500}
-                  className="mx-auto w-[90%] max-w-[400px] sm:hidden"
+                  className="mx-auto w-[90%] max-w-[400px]"
                 />
               </div>
 
@@ -81,9 +82,17 @@ export default function CTOTeamPage() {
                 </ul>
               </div>
 
-              <div className="mt-10 flex justify-center lg:justify-start">
+              <div className="mt-10 flex justify-center sm:hidden lg:justify-start">
                 <div className="w-full max-w-[360px]">
-                  <SchedulingButton label="今すぐ日程調整" fullWidth />
+                  <PrimaryButton
+                    asChild
+                    fullWidth
+                    variant="filled"
+                    color="primary"
+                    size="medium"
+                  >
+                    <Link href="#download-section">資料ダウンロード</Link>
+                  </PrimaryButton>
                 </div>
               </div>
             </div>
@@ -91,9 +100,9 @@ export default function CTOTeamPage() {
             <div className="hidden w-full justify-center sm:flex lg:max-w-[460px]">
               <Card>
                 <CardContent className="p-6">
-                  <h2 className="mb-4 text-lg font-bold text-gray-800">
-                    どのような内容でもお気軽にご相談ください！
-                  </h2>
+                  <Heading tag="h2" level="h4" className="mb-3">
+                    サービス紹介資料をダウンロード&nbsp;(無料)
+                  </Heading>
                   <DownloadForm documentType={DOCUMENT_TYPE.CTO_UNIT} />
                 </CardContent>
               </Card>
@@ -254,23 +263,19 @@ export default function CTOTeamPage() {
 
       <ClientLogos />
 
-      <Section className="bg-gray-800">
+      <Section className="bg-gray-800" id="download-section">
         <H2 className="text-white">
           開発で失敗するリスク、今すぐゼロにしませんか？
         </H2>
-        <div className="mx-auto max-w-[600px] space-y-8">
-          <SchedulingButton density="relaxed" fullWidth />
-          <p className="text-center tracking-wider text-white">または、</p>
-          <div>
-            <Card>
-              <CardContent className="space-y-5 p-5 sm:p-7">
-                <p className="font-bold leading-relaxed tracking-wider text-gray-800">
-                  どのような内容でもお気軽にご相談ください！
-                </p>
-                <DownloadForm documentType={DOCUMENT_TYPE.CTO_UNIT} />
-              </CardContent>
-            </Card>
-          </div>
+        <div className="mx-auto max-w-[560px] space-y-8">
+          <Card>
+            <CardContent className="space-y-5 p-5 sm:p-7">
+              <Heading tag="h3" level="h4" className="mb-3">
+                サービス紹介資料をダウンロード&nbsp;(無料)
+              </Heading>
+              <DownloadForm documentType={DOCUMENT_TYPE.CTO_UNIT} />
+            </CardContent>
+          </Card>
         </div>
       </Section>
 
@@ -283,12 +288,14 @@ export default function CTOTeamPage() {
 const Section = ({
   children,
   className,
+  id,
 }: {
   children: React.ReactNode;
   className?: string;
+  id?: string;
 }) => {
   return (
-    <section className={cn("py-16 md:py-24", className)}>
+    <section id={id} className={cn("py-16 md:py-24", className)}>
       <div className="container mx-auto space-y-10 px-6 md:space-y-16">
         {children}
       </div>

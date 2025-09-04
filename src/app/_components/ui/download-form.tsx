@@ -161,7 +161,7 @@ export const DownloadForm = ({ documentType }: DocumentFormProps) => {
           size="medium"
           fullWidth
         >
-          {pending ? "送信中..." : "ダウンロードする"}
+          {pending ? "送信中..." : "資料をダウンロードする"}
         </PrimaryButton>
 
         {otherError && (
