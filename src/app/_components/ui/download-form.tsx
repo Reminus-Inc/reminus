@@ -14,7 +14,6 @@ import { PrimaryButton } from "./primary-button";
 
 type DocumentFormProps = {
   documentType: DocumentType;
-  beforeThanks? : (formValues: FormValues) => void;
 };
 
 type FormValues = {
@@ -24,7 +23,16 @@ type FormValues = {
   phone: string;
 };
 
-export const DownloadForm = ({ documentType, beforeThanks }: DocumentFormProps) => {
+export const DownloadForm = ({
+  documentType,
+}: Exclude<DocumentFormProps, "beforeThanks">) => {
+  return <HookDownloadForm documentType={documentType} />;
+};
+
+export const HookDownloadForm = ({
+  documentType,
+  beforeThanks,
+}: DocumentFormProps & { beforeThanks?: (formValues: FormValues) => void }) => {
   const router = useRouter();
 
   const getRequestDocument = (
