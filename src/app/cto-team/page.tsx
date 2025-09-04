@@ -111,7 +111,7 @@ export default function CTOTeamPage() {
         </div>
       </div>
 
-      <Section>
+      <Section containerClassName="space-y-10 md:space-y-14">
         <H2>
           こんなことで
           <span className="whitespace-nowrap">お困りではありませんか？</span>
@@ -135,7 +135,7 @@ export default function CTOTeamPage() {
         </div>
       </Section>
 
-      <Section className="bg-gray-50">
+      <Section className="bg-gray-50" containerClassName="space-y-8">
         <H2>
           なぜ「エンジニア紹介」ではなく
           <br className="hidden md:block" />
@@ -263,7 +263,11 @@ export default function CTOTeamPage() {
 
       <ClientLogos />
 
-      <Section className="bg-gray-800" id="download-section">
+      <Section
+        className="bg-gray-800"
+        containerClassName="space-y-10 md:space-y-16"
+        id="download-section"
+      >
         <H2 className="text-white">
           開発で失敗するリスク、今すぐゼロにしませんか？
         </H2>
@@ -288,15 +292,17 @@ export default function CTOTeamPage() {
 const Section = ({
   children,
   className,
+  containerClassName,
   id,
 }: {
   children: React.ReactNode;
   className?: string;
+  containerClassName?: string;
   id?: string;
 }) => {
   return (
     <section id={id} className={cn("py-16 md:py-24", className)}>
-      <div className="container mx-auto space-y-10 px-6 md:space-y-16">
+      <div className={cn("container mx-auto px-6", containerClassName)}>
         {children}
       </div>
     </section>
