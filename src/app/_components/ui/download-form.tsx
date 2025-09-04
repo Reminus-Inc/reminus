@@ -14,8 +14,17 @@ import { PrimaryButton } from "./primary-button";
 
 type DocumentFormProps = {
   documentType: DocumentType;
+  beforeThanks? : (formValues: FormValues) => void;
 };
-export const DownloadForm = ({ documentType }: DocumentFormProps) => {
+
+type FormValues = {
+  company: string;
+  name: string;
+  email: string;
+  phone: string;
+};
+
+export const DownloadForm = ({ documentType, beforeThanks }: DocumentFormProps) => {
   const router = useRouter();
 
   const getRequestDocument = (
@@ -37,9 +46,10 @@ export const DownloadForm = ({ documentType }: DocumentFormProps) => {
 
   useEffect(() => {
     if (state.status === "success" && state.redirect) {
+      beforeThanks?.(formValues);
       router.push(state.redirect);
     }
-  }, [state.status, state.redirect, router]);
+  }, [state.status, state.redirect, router, beforeThanks, formValues]);
 
   const companyError = useMemo(
     () => state.errors?.find((error) => error.includes("会社名")),

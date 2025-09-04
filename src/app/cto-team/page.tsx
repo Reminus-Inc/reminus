@@ -4,13 +4,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PrimaryButton } from "@/app/_components/ui/primary-button";
 import {
   AlertTriangle,
-  Check,
-  SquareCheckBig,
-  ThumbsUp,
+  Check, SquareCheckBig, ThumbsUp,
   User,
   Users,
-  X,
-  Zap,
+  X, Zap,
 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -22,6 +19,7 @@ import { CompanyOverview } from "../_components/sections/company-overview";
 import Image from "next/image";
 import Link from "next/link";
 import { Heading } from "@/app/_components/ui/heading";
+import { SecondDownloadForm } from "@/app/cto-team/second-download-form";
 
 export const metadata = {
   title: "CTO付きエンジニアチーム | Reminus",
@@ -30,6 +28,7 @@ export const metadata = {
 };
 
 export default function CTOTeamPage() {
+
   return (
     <>
       <div className="bg-gray-800 pb-16 pt-4 md:pb-20 lg:pb-16 lg:pt-0">
@@ -277,7 +276,7 @@ export default function CTOTeamPage() {
               <Heading tag="h3" level="h4" className="mb-3">
                 サービス紹介資料をダウンロード&nbsp;(無料)
               </Heading>
-              <DownloadForm documentType={DOCUMENT_TYPE.CTO_UNIT} />
+              <SecondDownloadForm />
             </CardContent>
           </Card>
         </div>
