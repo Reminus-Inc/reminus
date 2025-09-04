@@ -2,6 +2,10 @@
 
 import { PrismaClient } from "@prisma/client";
 import { z } from "zod";
+import {
+  DOCUMENT_TYPE_MAP,
+  type DocumentType,
+} from "./constants";
 
 const prisma = new PrismaClient();
 
@@ -56,13 +60,12 @@ export type DocumentRequestActionState = {
   message: string;
   errors?: string[];
   status: "idle" | "success" | "error";
-  downloadUrl?: string;
   redirect?: string;
 };
 
 export async function submitInquiry(
   _: InquiryActionState,
-  formData: FormData,
+  formData: FormData
 ): Promise<InquiryActionState> {
   try {
     const validatedFields = formSchema.parse(Object.fromEntries(formData));
@@ -140,17 +143,20 @@ export async function submitInquiry(
 export async function requestDocument(
   _: DocumentRequestActionState,
   formData: FormData,
+  documentType: DocumentType
 ): Promise<DocumentRequestActionState> {
   const startTime = performance.now();
-  console.log('🔄 資料請求処理開始:', new Date().toISOString());
-  
+  console.log("🔄 資料請求処理開始:", new Date().toISOString());
+
   try {
     const validationStart = performance.now();
     const validatedFields = documentRequestSchema.parse(
-      Object.fromEntries(formData),
+      Object.fromEntries(formData)
     );
     const validationEnd = performance.now();
-    console.log(`✅ バリデーション完了: ${(validationEnd - validationStart).toFixed(2)}ms`);
+    console.log(
+      `✅ バリデーション完了: ${(validationEnd - validationStart).toFixed(2)}ms`
+    );
 
     const dbStart = performance.now();
     await prisma.documentRequest.create({
@@ -163,19 +169,22 @@ export async function requestDocument(
       email: validatedFields.email,
       name: validatedFields.name,
       company: validatedFields.company,
+      documentType: documentType,
     });
 
-    const latestFile = "reminus_ctopartner_intro_v1.0.2.pdf";
-
-    console.log('資料請求受信完了:', {
+    console.log("資料請求受信完了:", {
       ...validatedFields,
+      documentType: DOCUMENT_TYPE_MAP[documentType],
       timestamp: new Date().toISOString(),
-      environment: process.env.APP_ENVIRONMENT || 'production'
+      environment: process.env.APP_ENVIRONMENT || "production",
     });
 
-    if (process.env.SLACK_WEBHOOK_URL && process.env.APP_ENVIRONMENT !== 'development') {
+    if (
+      process.env.SLACK_WEBHOOK_URL &&
+      process.env.APP_ENVIRONMENT !== "development"
+    ) {
       const slackStart = performance.now();
-      console.log('📨 Slack通知を送信します');
+      console.log("📨 Slack通知を送信します");
       await fetch(process.env.SLACK_WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -185,7 +194,7 @@ export async function requestDocument(
               type: "header",
               text: {
                 type: "plain_text",
-                text: "📄 資料請求がありました",
+                text: `📄 ${DOCUMENT_TYPE_MAP[documentType]}の資料請求がありました`,
                 emoji: true,
               },
             },
@@ -224,14 +233,13 @@ export async function requestDocument(
     return {
       message: "資料請求ありがとうございます。",
       status: "success",
-      downloadUrl: latestFile ? `/documents/${latestFile}` : undefined,
       redirect: `/download-thanks?${params.toString()}`,
     };
   } catch (error) {
     const errorTime = performance.now();
     const totalTime = errorTime - startTime;
     console.log(`❌ 資料請求処理エラー: ${totalTime.toFixed(2)}ms`, error);
-    
+
     if (error instanceof z.ZodError) {
       return {
         message: "エラーが発生しました",

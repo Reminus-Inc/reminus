@@ -1,5 +1,6 @@
 import { DownloadForm } from "@/app/_components/ui/download-form";
 import Image from "next/image";
+import { DOCUMENT_TYPE } from "@/app/constants";
 import { Heading } from "@/app/_components/ui/heading";
 import { CheckCircle2 } from "lucide-react";
 import { Metadata } from "next";
@@ -73,7 +74,7 @@ export default function DownloadPage() {
         </div>
 
         <div className="flex h-fit justify-center rounded-lg border border-gray-300 px-7 py-6 lg:max-w-[400px]">
-          <DownloadForm />
+          <DownloadForm documentType={DOCUMENT_TYPE.CTO_PARTNER} />
         </div>
       </div>
     </main>
