@@ -16,9 +16,23 @@ type DocumentFormProps = {
   documentType: DocumentType;
 };
 
+type FormValues = {
+  company: string;
+  name: string;
+  email: string;
+  phone: string;
+};
+
 export const DownloadForm = ({
   documentType,
-}: DocumentFormProps) => {
+}: Exclude<DocumentFormProps, "beforeThanks">) => {
+  return <HookDownloadForm documentType={documentType} />;
+};
+
+export const HookDownloadForm = ({
+  documentType,
+  beforeThanks,
+}: DocumentFormProps & { beforeThanks?: (formValues: FormValues) => void }) => {
   const router = useRouter();
 
   const getRequestDocument = (
@@ -40,9 +54,10 @@ export const DownloadForm = ({
 
   useEffect(() => {
     if (state.status === "success" && state.redirect) {
+      beforeThanks?.(formValues);
       router.push(state.redirect);
     }
-  }, [state.status, state.redirect, router, formValues]);
+  }, [state.status, state.redirect, router, beforeThanks, formValues]);
 
   const companyError = useMemo(
     () => state.errors?.find((error) => error.includes("会社名")),
@@ -187,6 +202,3 @@ export const DownloadForm = ({
     </form>
   );
 };
-
-export class HookDownloadForm {
-}
