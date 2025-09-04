@@ -15,7 +15,7 @@ declare global {
 export function SecondDownloadForm() {
   return (
     <DownloadForm documentType={DOCUMENT_TYPE.CTO_UNIT} beforeThanks={(formValues) => {
-      immedio.submitFormData({
+      window.immedio?.submitFormData({
         additionalData: {
             email: formValues.email,
             person_name: formValues.name,
