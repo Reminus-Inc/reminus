@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 import { useSearchParams } from "next/navigation";
+import { DOCUMENT_URL_MAP, type DocumentType } from "@/app/constants";
 
 export function ViewDocumentButton() {
   const searchParams = useSearchParams();
@@ -10,6 +11,7 @@ export function ViewDocumentButton() {
   const email = searchParams.get("email") || "";
   const name = searchParams.get("name") || "";
   const company = searchParams.get("company") || "";
+  const documentType = searchParams.get("documentType") as DocumentType;
 
   const handleViewDocument = () => {
     const params = new URLSearchParams({
@@ -17,7 +19,7 @@ export function ViewDocumentButton() {
       person_name: name,
       company_name: company,
     });
-    const url = `https://box.reminus.co.jp/p/reminus/reminus-ctopartner-intro?ownerEmail=sumiren%40reminus.co.jp&${params.toString()}`;
+    const url = `${DOCUMENT_URL_MAP[documentType]}?ownerEmail=sumiren%40reminus.co.jp&${params.toString()}`;
     window.open(url, "_blank", "noopener,noreferrer");
   };
 

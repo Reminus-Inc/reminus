@@ -2,6 +2,10 @@
 
 import { PrismaClient } from "@prisma/client";
 import { z } from "zod";
+import {
+  DOCUMENT_TYPE_MAP,
+  type DocumentType,
+} from "./constants";
 
 const prisma = new PrismaClient();
 
@@ -56,7 +60,6 @@ export type DocumentRequestActionState = {
   message: string;
   errors?: string[];
   status: "idle" | "success" | "error";
-  downloadUrl?: string;
   redirect?: string;
 };
 
@@ -139,7 +142,8 @@ export async function submitInquiry(
 
 export async function requestDocument(
   _: DocumentRequestActionState,
-  formData: FormData
+  formData: FormData,
+  documentType: DocumentType
 ): Promise<DocumentRequestActionState> {
   const startTime = performance.now();
   console.log("🔄 資料請求処理開始:", new Date().toISOString());
@@ -165,12 +169,12 @@ export async function requestDocument(
       email: validatedFields.email,
       name: validatedFields.name,
       company: validatedFields.company,
+      documentType: documentType,
     });
-
-    const latestFile = "reminus_ctopartner_intro_v1.0.2.pdf";
 
     console.log("資料請求受信完了:", {
       ...validatedFields,
+      documentType: DOCUMENT_TYPE_MAP[documentType],
       timestamp: new Date().toISOString(),
       environment: process.env.APP_ENVIRONMENT || "production",
     });
@@ -190,7 +194,7 @@ export async function requestDocument(
               type: "header",
               text: {
                 type: "plain_text",
-                text: "📄 資料請求がありました",
+                text: `📄 ${DOCUMENT_TYPE_MAP[documentType]}の資料請求がありました`,
                 emoji: true,
               },
             },
@@ -229,7 +233,6 @@ export async function requestDocument(
     return {
       message: "資料請求ありがとうございます。",
       status: "success",
-      downloadUrl: latestFile ? `/documents/${latestFile}` : undefined,
       redirect: `/download-thanks?${params.toString()}`,
     };
   } catch (error) {

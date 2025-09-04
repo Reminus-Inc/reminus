@@ -1,6 +1,10 @@
 "use client";
 
-import { requestDocument } from "@/app/actions";
+import {
+  requestDocument,
+  type DocumentRequestActionState,
+} from "@/app/actions";
+import { type DocumentType } from "@/app/constants";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { trackFormStart } from "@/lib/analytics";
@@ -8,9 +12,18 @@ import { useRouter } from "next/navigation";
 import { useActionState, useEffect, useMemo, useState } from "react";
 import { PrimaryButton } from "./primary-button";
 
-export const DownloadForm = () => {
+type DocumentFormProps = {
+  documentType: DocumentType;
+};
+export const DownloadForm = ({ documentType }: DocumentFormProps) => {
   const router = useRouter();
-  const [state, formAction, pending] = useActionState(requestDocument, {
+
+  const getRequestDocument = (
+    prev: DocumentRequestActionState,
+    formData: FormData
+  ) => requestDocument(prev, formData, documentType);
+
+  const [state, formAction, pending] = useActionState(getRequestDocument, {
     status: "idle",
     message: "",
   });
@@ -24,14 +37,9 @@ export const DownloadForm = () => {
 
   useEffect(() => {
     if (state.status === "success" && state.redirect) {
-      let redirectUrl = state.redirect;
-      if (state.downloadUrl) {
-        const separator = state.redirect.includes("?") ? "&" : "?";
-        redirectUrl = `${state.redirect}${separator}download=${encodeURIComponent(state.downloadUrl)}`;
-      }
-      router.push(redirectUrl);
+      router.push(state.redirect);
     }
-  }, [state, router]);
+  }, [state.status, state.redirect, router]);
 
   const companyError = useMemo(
     () => state.errors?.find((error) => error.includes("会社名")),

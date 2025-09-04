@@ -1,3 +1,5 @@
+import { DownloadForm } from "@/app/_components/ui/download-form";
+import { DOCUMENT_TYPE } from "@/app/constants";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   AlertTriangle,
@@ -15,7 +17,6 @@ import { cn } from "@/lib/utils";
 import { SchedulingButton } from "@/app/(root)/contact/scheduling-button";
 
 import { Management } from "@/app/_components/sections/management";
-import { ContactForm } from "@/app/_components/ui/contact-form";
 import { ClientLogos } from "../_components/sections/client-logos";
 import { CompanyOverview } from "../_components/sections/company-overview";
 
@@ -93,11 +94,7 @@ export default function CTOTeamPage() {
                   <h2 className="mb-4 text-lg font-bold text-gray-800">
                     どのような内容でもお気軽にご相談ください！
                   </h2>
-                  <ContactForm
-                    buttonProps={{
-                      variant: "outlined",
-                    }}
-                  />
+                  <DownloadForm documentType={DOCUMENT_TYPE.CTO_UNIT} />
                 </CardContent>
               </Card>
             </div>
@@ -270,11 +267,7 @@ export default function CTOTeamPage() {
                 <p className="font-bold leading-relaxed tracking-wider text-gray-800">
                   どのような内容でもお気軽にご相談ください！
                 </p>
-                <ContactForm
-                  buttonProps={{
-                    variant: "outlined",
-                  }}
-                />
+                <DownloadForm documentType={DOCUMENT_TYPE.CTO_UNIT} />
               </CardContent>
             </Card>
           </div>
