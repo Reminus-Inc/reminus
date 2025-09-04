@@ -6,7 +6,7 @@ import { useSearchParams } from "next/navigation";
 
 export function ViewDocumentButton() {
   const searchParams = useSearchParams();
-  
+
   const email = searchParams.get("email") || "";
   const name = searchParams.get("name") || "";
   const company = searchParams.get("company") || "";
@@ -23,7 +23,7 @@ export function ViewDocumentButton() {
 
   return (
     <Button
-      className="w-full bg-emerald-600 hover:bg-emerald-700 text-white"
+      className="w-full bg-emerald-600 text-white hover:bg-emerald-700"
       onClick={handleViewDocument}
     >
       <ExternalLink className="mr-2 h-4 w-4" />

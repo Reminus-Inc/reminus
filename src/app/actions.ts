@@ -62,7 +62,7 @@ export type DocumentRequestActionState = {
 
 export async function submitInquiry(
   _: InquiryActionState,
-  formData: FormData,
+  formData: FormData
 ): Promise<InquiryActionState> {
   try {
     const validatedFields = formSchema.parse(Object.fromEntries(formData));
@@ -139,18 +139,20 @@ export async function submitInquiry(
 
 export async function requestDocument(
   _: DocumentRequestActionState,
-  formData: FormData,
+  formData: FormData
 ): Promise<DocumentRequestActionState> {
   const startTime = performance.now();
-  console.log('🔄 資料請求処理開始:', new Date().toISOString());
-  
+  console.log("🔄 資料請求処理開始:", new Date().toISOString());
+
   try {
     const validationStart = performance.now();
     const validatedFields = documentRequestSchema.parse(
-      Object.fromEntries(formData),
+      Object.fromEntries(formData)
     );
     const validationEnd = performance.now();
-    console.log(`✅ バリデーション完了: ${(validationEnd - validationStart).toFixed(2)}ms`);
+    console.log(
+      `✅ バリデーション完了: ${(validationEnd - validationStart).toFixed(2)}ms`
+    );
 
     const dbStart = performance.now();
     await prisma.documentRequest.create({
@@ -167,15 +169,18 @@ export async function requestDocument(
 
     const latestFile = "reminus_ctopartner_intro_v1.0.2.pdf";
 
-    console.log('資料請求受信完了:', {
+    console.log("資料請求受信完了:", {
       ...validatedFields,
       timestamp: new Date().toISOString(),
-      environment: process.env.APP_ENVIRONMENT || 'production'
+      environment: process.env.APP_ENVIRONMENT || "production",
     });
 
-    if (process.env.SLACK_WEBHOOK_URL && process.env.APP_ENVIRONMENT !== 'development') {
+    if (
+      process.env.SLACK_WEBHOOK_URL &&
+      process.env.APP_ENVIRONMENT !== "development"
+    ) {
       const slackStart = performance.now();
-      console.log('📨 Slack通知を送信します');
+      console.log("📨 Slack通知を送信します");
       await fetch(process.env.SLACK_WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -231,7 +236,7 @@ export async function requestDocument(
     const errorTime = performance.now();
     const totalTime = errorTime - startTime;
     console.log(`❌ 資料請求処理エラー: ${totalTime.toFixed(2)}ms`, error);
-    
+
     if (error instanceof z.ZodError) {
       return {
         message: "エラーが発生しました",
