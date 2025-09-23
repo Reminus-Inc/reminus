@@ -4,8 +4,8 @@ import { Metadata } from "next";
 import { SchedulingButton } from "./scheduling-button";
 
 export const metadata: Metadata = {
-  title: "無料相談 | Reminus",
-  description: "Reminusへの無料相談はこちらから。",
+  title: "お問い合わせ | Reminus",
+  description: "Reminusへのお問い合わせはこちらから。",
   robots: {
     index: false,
   },
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <main className="pb-24 pt-12">
-      <h1 className="mb-12 text-center text-3xl font-bold">無料相談</h1>
+      <h1 className="mb-12 text-center text-3xl font-bold">お問い合わせ</h1>
 
       <div className="mx-auto max-w-[600px] space-y-8 px-5">
         <SchedulingButton variant="outlined" density="relaxed" fullWidth />
