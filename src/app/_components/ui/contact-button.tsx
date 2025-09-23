@@ -6,12 +6,10 @@ import Link from "next/link";
 import { PrimaryButton, PrimaryButtonProps } from "./primary-button";
 
 export interface ContactButtonProps extends PrimaryButtonProps {
-  aggressive?: boolean;
   onClick?: () => void;
   children?: React.ReactNode;
 }
 export function ContactButton({
-  aggressive = false,
   onClick,
   children,
   ...props
@@ -26,17 +24,13 @@ export function ContactButton({
           onClick?.();
         }}
       >
-        {aggressive ? (
-          <span>
-            {children || (
-              <>
-                無料相談を<span className="whitespace-nowrap">予約する</span>
-              </>
-            )}
-          </span>
-        ) : (
-          <>お問い合わせ</>
-        )}
+        <span>
+          {children || (
+            <>
+              無料相談を<span className="whitespace-nowrap">予約する</span>
+            </>
+          )}
+        </span>
       </Link>
     </PrimaryButton>
   );

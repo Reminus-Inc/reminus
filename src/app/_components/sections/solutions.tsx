@@ -3,6 +3,7 @@
 import { MainHeading } from "../ui/main-heading";
 import { Settings, Users, Building2, LucideIcon } from "lucide-react";
 import { ContactButton } from "../ui/contact-button";
+import { DownloadButton } from "../ui/download-button";
 import { Heading } from "../ui/heading";
 import { Section } from "../ui/section";
 
@@ -44,7 +45,10 @@ export function Solutions() {
         <Heading tag="h3" level="h4" className="mb-6">
           お気軽にご相談ください！
         </Heading>
-        <ContactButton aggressive />
+        <div className="flex flex-col gap-4 sm:flex-row sm:justify-center sm:gap-6">
+          <DownloadButton />
+          <ContactButton />
+        </div>
       </div>
     </Section>
   );

@@ -43,7 +43,7 @@ export function NavMenu() {
         {/* CTA ボタン */}
         <div className="flex items-center space-x-4">
           <DownloadButton size="small" />
-          <ContactButton size="small" aggressive />
+          <ContactButton size="small" />
         </div>
       </div>
 
@@ -52,7 +52,7 @@ export function NavMenu() {
         {/* CTA ボタン */}
         <div className="flex items-center space-x-3">
           <DownloadButton size="small" />
-          <ContactButton size="small" aggressive />
+          <ContactButton size="small" />
         </div>
 
         {/* ハンバーガーボタン */}
@@ -115,7 +115,6 @@ export function NavMenu() {
                 onClick={() => setTimeout(() => setIsOpen(false), 300)}
               />
               <ContactButton
-                aggressive
                 color="white"
                 fullWidth
                 onClick={() => setTimeout(() => setIsOpen(false), 300)}
