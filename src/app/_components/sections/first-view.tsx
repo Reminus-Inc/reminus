@@ -29,7 +29,7 @@ export function FirstView() {
           >
             資料ダウンロード
           </DownloadButton>
-          <ContactButton aggressive fullWidth className="lg:hidden" />
+          <ContactButton fullWidth className="lg:hidden" />
         </div>
       </div>
 
