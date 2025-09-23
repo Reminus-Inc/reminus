@@ -52,6 +52,13 @@ export const HookDownloadForm = ({
     phone: "",
   });
 
+  const trackFormStartOnce = (value: string) => {
+    if (!hasStartedForm && value.length > 0) {
+      trackFormStart("download");
+      setHasStartedForm(true);
+    }
+  };
+
   useEffect(() => {
     if (state.status === "success" && state.redirect) {
       beforeThanks?.(formValues);
@@ -101,14 +108,10 @@ export const HookDownloadForm = ({
             placeholder="株式会社Reminus"
             required
             value={formValues.company}
-            onChange={(e) =>
-              setFormValues((prev) => ({ ...prev, company: e.target.value }))
-            }
-            onFocus={() => {
-              if (!hasStartedForm) {
-                trackFormStart("download");
-                setHasStartedForm(true);
-              }
+            onChange={(e) => {
+              const value = e.target.value;
+              trackFormStartOnce(value);
+              setFormValues((prev) => ({ ...prev, company: value }));
             }}
           />
           {companyError && (
@@ -126,9 +129,11 @@ export const HookDownloadForm = ({
             placeholder="山田太郎"
             required
             value={formValues.name}
-            onChange={(e) =>
-              setFormValues((prev) => ({ ...prev, name: e.target.value }))
-            }
+            onChange={(e) => {
+              const value = e.target.value;
+              trackFormStartOnce(value);
+              setFormValues((prev) => ({ ...prev, name: value }));
+            }}
             className="border-gray-200 transition-colors focus:border-gray-400"
           />
           {nameError && <p className="text-xs text-red-500">{nameError}</p>}
@@ -145,9 +150,11 @@ export const HookDownloadForm = ({
             placeholder="reminus@example.com"
             required
             value={formValues.email}
-            onChange={(e) =>
-              setFormValues((prev) => ({ ...prev, email: e.target.value }))
-            }
+            onChange={(e) => {
+              const value = e.target.value;
+              trackFormStartOnce(value);
+              setFormValues((prev) => ({ ...prev, email: value }));
+            }}
           />
           {emailError && <p className="text-xs text-red-500">{emailError}</p>}
         </div>
@@ -163,9 +170,11 @@ export const HookDownloadForm = ({
             placeholder="03-1234-5678"
             required
             value={formValues.phone}
-            onChange={(e) =>
-              setFormValues((prev) => ({ ...prev, phone: e.target.value }))
-            }
+            onChange={(e) => {
+              const value = e.target.value;
+              trackFormStartOnce(value);
+              setFormValues((prev) => ({ ...prev, phone: value }));
+            }}
           />
           {phoneError && <p className="text-xs text-red-500">{phoneError}</p>}
         </div>

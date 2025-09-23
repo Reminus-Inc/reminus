@@ -72,6 +72,13 @@ export const ContactForm = ({
     });
   };
 
+  const trackFormStartOnce = (value: string) => {
+    if (!hasStartedForm && value.length > 0) {
+      trackFormStart("contact");
+      setHasStartedForm(true);
+    }
+  };
+
   return (
     <form ref={ref} onSubmit={handleSubmit} className="w-full space-y-7">
       <div className="space-y-5">
@@ -87,11 +94,8 @@ export const ContactForm = ({
             name="company"
             placeholder="株式会社Reminus"
             required
-            onFocus={() => {
-              if (!hasStartedForm) {
-                trackFormStart("contact");
-                setHasStartedForm(true);
-              }
+            onChange={(e) => {
+              trackFormStartOnce(e.target.value);
             }}
           />
         </div>
@@ -109,6 +113,9 @@ export const ContactForm = ({
             placeholder="山田太郎"
             required
             className="border-gray-200 transition-colors focus:border-gray-400"
+            onChange={(e) => {
+              trackFormStartOnce(e.target.value);
+            }}
           />
         </div>
 
@@ -125,6 +132,9 @@ export const ContactForm = ({
             type="email"
             placeholder="reminus@example.com"
             required
+            onChange={(e) => {
+              trackFormStartOnce(e.target.value);
+            }}
           />
         </div>
 
@@ -140,6 +150,9 @@ export const ContactForm = ({
               id="content"
               name="content"
               placeholder="ご自由にご記入ください。"
+              onChange={(e) => {
+                trackFormStartOnce(e.target.value);
+              }}
             />
           </div>
         )}
