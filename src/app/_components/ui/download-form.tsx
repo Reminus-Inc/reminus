@@ -12,10 +12,6 @@ import { useRouter } from "next/navigation";
 import { useActionState, useEffect, useMemo, useState } from "react";
 import { PrimaryButton } from "./primary-button";
 
-type DocumentFormProps = {
-  documentType: DocumentType;
-};
-
 type FormValues = {
   company: string;
   name: string;
@@ -23,16 +19,22 @@ type FormValues = {
   phone: string;
 };
 
+type DocumentFormProps = {
+  documentType: DocumentType;
+  beforeThanks?: (formValues: FormValues) => void;
+};
+
 export const DownloadForm = ({
   documentType,
-}: Exclude<DocumentFormProps, "beforeThanks">) => {
-  return <HookDownloadForm documentType={documentType} />;
+  beforeThanks,
+}: DocumentFormProps) => {
+  return <HookDownloadForm documentType={documentType} beforeThanks={beforeThanks} />;
 };
 
 export const HookDownloadForm = ({
   documentType,
   beforeThanks,
-}: DocumentFormProps & { beforeThanks?: (formValues: FormValues) => void }) => {
+}: DocumentFormProps) => {
   const router = useRouter();
 
   const getRequestDocument = (
