@@ -19,7 +19,10 @@ export function DownloadButton({ onClick, ...props }: DownloadButtonProps) {
           onClick?.();
         }}
       >
-        <span className="whitespace-nowrap">資料ダウンロード</span>
+        <span className="whitespace-nowrap lg:hidden">資料を見る</span>
+        <span className="hidden whitespace-nowrap lg:inline">
+          資料ダウンロード
+        </span>
       </Link>
     </PrimaryButton>
   );

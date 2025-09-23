@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+
 import { usePathname } from "next/navigation";
 import { Header } from "./header";
 import { DownloadButton } from "../ui/download-button";
@@ -51,7 +52,7 @@ export function NavMenu() {
       <div className="hidden items-center space-x-4 md:flex lg:hidden">
         {/* CTA ボタン */}
         <div className="flex items-center space-x-3">
-          <DownloadButton size="small" />
+          <DownloadButton size="small" className="min-w-[180px]" />
           <ContactButton size="small" />
         </div>
 
@@ -109,9 +110,9 @@ export function NavMenu() {
             </ul>
 
             <div className="mt-6 space-y-4 md:hidden">
-              <DownloadButton 
-                color="white" 
-                fullWidth 
+              <DownloadButton
+                color="white"
+                fullWidth
                 onClick={() => setTimeout(() => setIsOpen(false), 300)}
               />
               <ContactButton
