@@ -2,6 +2,7 @@ import { ContactForm } from "@/app/_components/ui/contact-form";
 import { Card, CardContent } from "@/components/ui/card";
 import { Metadata } from "next";
 import { SchedulingButton } from "./scheduling-button";
+import { Heading } from "@/app/_components/ui/heading";
 
 export const metadata: Metadata = {
   title: "お問い合わせ | Reminus",
@@ -14,7 +15,9 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <main className="pb-24 pt-12">
-      <h1 className="mb-12 text-center text-3xl font-bold">お問い合わせ</h1>
+      <Heading level="h2" tag="h1" className="mb-12 text-center">
+        お問い合わせ
+      </Heading>
 
       <div className="mx-auto max-w-[600px] space-y-8 px-5">
         <SchedulingButton variant="outlined" density="relaxed" fullWidth />
