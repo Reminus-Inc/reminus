@@ -11,10 +11,10 @@ import { Heading } from "@/app/_components/ui/heading";
 import Image from "next/image";
 import { CheckCircle2, X } from "lucide-react";
 import { DOCUMENT_TYPE } from "@/app/constants";
-import { useDownDialogContext } from "@/app/_components/ui/download-dialog-context";
+import { useDownloadDialogContext } from "@/app/_components/ui/download-dialog-context";
 
 export const DownloadDialog = () => {
-  const { isDownloadDialogOpen, closeDownloadDialog } = useDownDialogContext();
+  const { isDownloadDialogOpen, closeDownloadDialog } = useDownloadDialogContext();
   const onOpenChange = (open: boolean) => {
     if (!open) {
       closeDownloadDialog();

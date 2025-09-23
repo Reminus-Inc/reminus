@@ -17,7 +17,7 @@ export type DocumentDialogContextProps = {
 export const DownloadDialogContext =
   createContext<DocumentDialogContextProps | null>(null);
 
-export const useDownDialogContext = () => {
+export const useDownloadDialogContext = () => {
   const ctx = useContext(DownloadDialogContext);
   if (ctx == null) {
     throw new Error(

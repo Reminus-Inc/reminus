@@ -2,7 +2,7 @@
 
 import { trackCTAClick } from "@/lib/analytics";
 import { PrimaryButton, PrimaryButtonProps } from "./primary-button";
-import { useDownDialogContext } from "./download-dialog-context";
+import { useDownloadDialogContext } from "./download-dialog-context";
 
 interface DownloadButtonProps extends PrimaryButtonProps {
   onClick?: () => void;
@@ -31,7 +31,7 @@ export function DownloadButton({ onClick, ...props }: DownloadButtonProps) {
 */
 
 export const DownloadButton = ({ onClick, ...props }: DownloadButtonProps) => {
-  const { openDownloadDialog } = useDownDialogContext();
+  const { openDownloadDialog } = useDownloadDialogContext();
   return (
     <PrimaryButton
       {...props}
