@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogClose, DialogContent } from "@/components/ui/dialog";
 import { DownloadForm } from "@/app/_components/ui/download-form";
 import { Heading } from "@/app/_components/ui/heading";
 import Image from "next/image";
@@ -24,13 +19,11 @@ export const DownloadDialog = () => {
   return (
     <Dialog open={isDownloadDialogOpen} onOpenChange={onOpenChange}>
       <DialogContent
-        className="h-[95dvh] max-w-[95vw] border-0 object-fill p-0 sm:h-[90dvh] sm:max-w-[90vw] lg:max-w-[80vw]"
+        className="h-[95dvh] max-w-[95vw] border-0 object-fill p-0 sm:h-[90dvh] sm:max-w-[90vw] lg:max-w-[80vw] bg-white"
         autoFocus={false}
         onOpenAutoFocus={(e) => e.preventDefault()}
       >
-        <DialogTitle className="hidden" />
-
-        <div className="flex-1 overflow-auto bg-white">
+        <div className="flex items-center">
           <div className="container mx-auto flex flex-col justify-center gap-12 px-6 py-10 lg:flex-row lg:gap-16">
             <div className="lg:w-[475px]">
               <Heading tag="h2" level="h2" className="md:text-3xl">
