@@ -24,20 +24,20 @@ export function Solutions() {
         <SolutionCard
           icon={Settings}
           title="技術戦略"
-          subtitle="経営に技術視点を補う"
-          description="経営戦略を踏まえ、過不足ない技術選定やロードマップを立案。経営の目線で技術を説明し、優先度付けを可能にします。"
+          subtitle="経営判断を最短で下す"
+          description="事業目標から逆算し最適な技術を選定し、開発計画を可視化。何をいつ作るかが明確になり、経営判断が加速します。"
         />
         <SolutionCard
           icon={Users}
           title="エンジニア採用"
-          subtitle="候補者の見極めと訴求を両立"
-          description="採用媒体の選定や求人作成から、スカウト文設計、訴求まで伴走。候補者を見極めた上で「入社したい！」を引き出します。"
+          subtitle="入社後の定着率を向上"
+          description="CTO経験者が戦略設計から面接同席まで伴走。候補者の納得感を高め、貴社にフィットする人材の定着率を最大化します。"
         />
         <SolutionCard
           icon={Building2}
-          title="開発組織"
-          subtitle="開発スピードと学習サイクルを最大化"
-          description="事業計画を踏まえて組織体制を提案。経営の学習サイクル高速化を目指し、企画から開発までの全体効率を最大化します。"
+          title="組織デザイン"
+          subtitle="属人化ゼロでリリースが安定"
+          description="組織体制と職能を設計し、マネジメント施策を仕組み化。属人化を防ぎ、継続成長できる開発チームを実現します。"
         />
       </div>
 
