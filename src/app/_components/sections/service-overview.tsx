@@ -117,9 +117,7 @@ export function ServiceOverview() {
               proposalTitle="執行伴走"
               proposal={
                 <>
-                  経営と並走し執行の設計と推進支援。
-                  <br />
-                  技術・組織・採用の実行を統括。
+                  経営と並走し、執行の設計と推進を支援。技術・組織・採用の実行を統括。
                 </>
               }
             />
@@ -227,7 +225,7 @@ const ChallengeBox = ({
   text?: React.ReactNode;
   children?: React.ReactNode;
 }) => (
-  <div className="rounded border border-gray-300 bg-white p-5 lg:h-40 xl:h-32">
+  <div className="rounded border border-gray-300 bg-white p-5 lg:h-44 xl:h-32">
     <MobileLabel type="challenge" text="課題" className="text-gray-700" />
     {text && <div className="text-base leading-7 text-gray-700">{text}</div>}
     {children}
@@ -240,7 +238,7 @@ type ProposalBoxProps = {
   children?: React.ReactNode;
 };
 const ProposalBox = ({ title, text, children }: ProposalBoxProps) => (
-  <div className="rounded border border-emerald-500 bg-white p-5 lg:h-44 xl:h-32">
+  <div className="rounded border border-emerald-500 bg-white p-5 lg:h-40 xl:h-40">
     <MobileLabel type="proposal" text="ご提案" className="text-emerald-500" />
     {title && (
       <h5 className="mb-1 text-base font-bold tracking-wide text-gray-800 lg:text-emerald-500">
