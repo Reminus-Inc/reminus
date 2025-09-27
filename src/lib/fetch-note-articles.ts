@@ -3,11 +3,11 @@ import { XMLParser } from "fast-xml-parser";
 const RSS_URL = "https://note.reminus.co.jp/rss";
 
 type NoteItemRaw = {
-    title: string;
-    "media:thumbnail": string;
-    pubDate: string;
-    link: string;
-}
+  title: string;
+  "media:thumbnail": string;
+  pubDate: string;
+  link: string;
+};
 
 type NoteArticle = {
   title: string;
