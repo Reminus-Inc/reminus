@@ -87,23 +87,23 @@ export function ServiceOverview() {
               title="創業期"
               challenge={
                 <>
-                  MVPローンチにあたり、やるべき技術的な対策が不明。
+                  MVPローンチにあたり、技術の不安がたくさんあり優先度がつけられない。
                   <br />
-                  エンジニアも集まらない。
+                  エンジニアの集め方もわからない。
                 </>
               }
-              proposalTitle="技術と採用のアドバイザリ"
-              proposal="経営〜現場の技術・採用課題への壁打ちやレビュー。"
+              proposalTitle="技術と採用の顧問"
+              proposal="経営から現場まで、技術と採用の課題をなんでも相談。優先度をつけ対策を提案。"
             />
             <PhaseColumn
               title="MVP後〜探索期"
               challenge={
                 <>
-                  技術的な見通しがないために、戦略や構想の解像度が粗い。現場が困惑し、自信を持って進めない。
+                  技術的な見通しがないために、経営が製品戦略を磨けず、現場は事業インパクトのある開発ができない。
                 </>
               }
               proposalTitle="経営に技術を持ち込む"
-              proposal="技術と組織を構想段階から統合し、戦略の意思決定を加速・高精度化。"
+              proposal="経営視点で技術を説明し、市場・製品戦略のブラッシュアップを支える。"
             />
             <PhaseColumn
               title="PMF・グロース期"
@@ -117,9 +117,7 @@ export function ServiceOverview() {
               proposalTitle="執行伴走"
               proposal={
                 <>
-                  経営と並走し執行の設計と推進支援。
-                  <br />
-                  技術・組織・採用の実行を統括。
+                  経営と並走し、執行の設計と推進を支援。技術・組織・採用の実行を統括。
                 </>
               }
             />
@@ -227,7 +225,7 @@ const ChallengeBox = ({
   text?: React.ReactNode;
   children?: React.ReactNode;
 }) => (
-  <div className="rounded border border-gray-300 bg-white p-5 lg:h-40 xl:h-32">
+  <div className="rounded border border-gray-300 bg-white p-5 lg:h-44 xl:h-32">
     <MobileLabel type="challenge" text="課題" className="text-gray-700" />
     {text && <div className="text-base leading-7 text-gray-700">{text}</div>}
     {children}
@@ -240,7 +238,7 @@ type ProposalBoxProps = {
   children?: React.ReactNode;
 };
 const ProposalBox = ({ title, text, children }: ProposalBoxProps) => (
-  <div className="rounded border border-emerald-500 bg-white p-5 lg:h-44 xl:h-32">
+  <div className="rounded border border-emerald-500 bg-white p-5 lg:h-40 xl:h-40">
     <MobileLabel type="proposal" text="ご提案" className="text-emerald-500" />
     {title && (
       <h5 className="mb-1 text-base font-bold tracking-wide text-gray-800 lg:text-emerald-500">
