@@ -93,7 +93,7 @@ export function ServiceOverview() {
                 </>
               }
               proposalTitle="技術と採用の顧問"
-              proposal="経営から現場まで、技術と採用の課題をなんでも相談。優先度をつけ対策を提案。"
+              proposal="経営から現場まで、技術と採用の課題なんでも相談。優先度と対策を提案。"
             />
             <PhaseColumn
               title="MVP後〜探索期"
