@@ -17,7 +17,7 @@ export function NavMenu() {
   const menuItems = [
     { href: isHomePage ? "#service-overview" : "/#service-overview", label: "サービス概要" },
     { href: isHomePage ? "#case-studies" : "/#case-studies", label: "事例紹介" },
-    { href: isHomePage ? "#services" : "/#services", label: "その他サービス" },
+    { href: isHomePage ? "#note-articles" : "/#note-articles", label: "公式 note" },
     { href: isHomePage ? "#management" : "/#management", label: "経営者紹介" },
   ];
 
