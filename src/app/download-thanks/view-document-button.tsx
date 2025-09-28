@@ -1,9 +1,9 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { ExternalLink } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { DOCUMENT_URL_MAP, type DocumentType } from "@/app/constants";
+
+import { PrimaryButton } from "@/app/_components/ui/primary-button";
 
 export function ViewDocumentButton() {
   const searchParams = useSearchParams();
@@ -24,12 +24,10 @@ export function ViewDocumentButton() {
   };
 
   return (
-    <Button
-      className="w-full bg-emerald-600 text-white hover:bg-emerald-700"
-      onClick={handleViewDocument}
-    >
-      <ExternalLink className="mr-2 h-4 w-4" />
-      資料ダウンロード
-    </Button>
+    <div className="w-full max-w-80">
+      <PrimaryButton fullWidth onClick={handleViewDocument}>
+        資料を見る
+      </PrimaryButton>
+    </div>
   );
 }
