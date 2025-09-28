@@ -1,12 +1,11 @@
 import { Metadata } from "next";
 import { Suspense } from "react";
 import { CheckIcon } from "lucide-react";
-import Link from "next/link";
+import { BackToTopLink } from "@/app/download-thanks/back-to-top-link";
 import { DownloadThanksClient } from "./download-thanks-client";
 import { ViewDocumentButton } from "./view-document-button";
 
 import { Heading } from "@/app/_components/ui/heading";
-
 export const metadata: Metadata = {
   title: "資料請求完了 | Reminus",
   description: "資料請求ありがとうございます。",
@@ -41,12 +40,7 @@ export default function DownloadThanksPage() {
         </div>
 
         <div className="flex justify-center">
-          <Link
-            href="/"
-            className="text-sm font-bold text-gray-500 underline sm:text-base"
-          >
-            トップへ戻る
-          </Link>
+          <BackToTopLink />
         </div>
       </div>
 
