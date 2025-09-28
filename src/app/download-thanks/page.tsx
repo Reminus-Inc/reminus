@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function DownloadThanksPage() {
   return (
-    <main className="flex h-full items-center justify-center bg-white px-6 pb-16 pt-8">
+    <main className="flex items-center justify-center bg-white px-6 pb-16 pt-8">
       <div className="space-y-10">
         <div className="flex flex-col items-center gap-5">
           <div className="flex h-[80px] w-[80px] items-center justify-center rounded-full bg-emerald-100 sm:h-[120px] sm:w-[120px]">
