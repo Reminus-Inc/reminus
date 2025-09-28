@@ -130,3 +130,7 @@ body {
     margin-right: -50vw;
   }
 }
+
+main {
+  @apply flex flex-1 flex-col;
+}

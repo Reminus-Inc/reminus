@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function DownloadPage() {
   return (
-    <main className="bg-white pb-16 pt-8">
+    <div className="bg-white pb-16 pt-8">
       <div className="container mx-auto flex flex-col justify-center gap-14 px-6 lg:flex-row lg:gap-20">
         <div className="space-y-6 lg:w-[475px]">
           <Heading level="h2" tag="h1">
@@ -77,6 +77,6 @@ export default function DownloadPage() {
           <DownloadForm documentType={DOCUMENT_TYPE.CTO_PARTNER} />
         </div>
       </div>
-    </main>
+    </div>
   );
 }

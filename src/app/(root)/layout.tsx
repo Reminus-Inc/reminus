@@ -8,7 +8,7 @@ export default async function TopLayout({
   return (
     <>
       <Header />
-      <main className="flex flex-1 flex-col">{children}</main>
+      <main>{children}</main>
     </>
   );
 }
