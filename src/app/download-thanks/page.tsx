@@ -40,7 +40,9 @@ export default function DownloadThanksPage() {
         </div>
 
         <div className="flex justify-center">
-          <BackToTopLink />
+          <Suspense fallback={null}>
+            <BackToTopLink />
+          </Suspense>
         </div>
       </div>
 
