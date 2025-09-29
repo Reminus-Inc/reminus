@@ -63,7 +63,8 @@ export type DocumentRequestActionState = {
 
 export async function submitInquiry(
   _: InquiryActionState,
-  formData: FormData
+  formData: FormData,
+  isDevMode: boolean
 ): Promise<InquiryActionState> {
   try {
     const validatedFields = formSchema.parse(Object.fromEntries(formData));
@@ -76,7 +77,7 @@ export async function submitInquiry(
     });
 
     // Slack通知を送信
-    const slackWebhookUrl = await getSlackWebhookUrl();
+    const slackWebhookUrl = await getSlackWebhookUrl(isDevMode);
     if (slackWebhookUrl != null) {
       await fetch(slackWebhookUrl, {
         method: "POST",
@@ -144,7 +145,8 @@ export async function submitInquiry(
 export async function requestDocument(
   _: DocumentRequestActionState,
   formData: FormData,
-  documentType: DocumentType
+  documentType: DocumentType,
+  isDevMode: boolean
 ): Promise<DocumentRequestActionState> {
   const startTime = performance.now();
   console.log("🔄 資料請求処理開始:", new Date().toISOString());
@@ -181,7 +183,7 @@ export async function requestDocument(
     });
 
     // Slack通知を送信
-    const slackWebhookUrl = await getSlackWebhookUrl();
+    const slackWebhookUrl = await getSlackWebhookUrl(isDevMode);
     if (slackWebhookUrl != null) {
       const slackStart = performance.now();
       console.log("📨 Slack通知を送信します");
