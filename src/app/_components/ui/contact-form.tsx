@@ -1,6 +1,6 @@
 "use client";
 
-import { submitInquiry } from "@/app/actions";
+import { submitInquiry, type InquiryActionState } from "@/app/actions";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -16,6 +16,7 @@ import {
   useState,
 } from "react";
 import { PrimaryButton, PrimaryButtonProps } from "./primary-button";
+import { getIsDevMode } from "@/lib/get-is-dev-mode";
 
 type ContactFormProps = {
   showContent?: boolean;
@@ -28,7 +29,12 @@ export const ContactForm = ({
   buttonProps,
 }: ContactFormProps) => {
   const ref = useRef<HTMLFormElement>(null);
-  const [state, formAction, pending] = useActionState(submitInquiry, {
+
+  const devMode = getIsDevMode();
+  const getSubmitInquiry = (prev: InquiryActionState, formData: FormData) =>
+    submitInquiry(prev, formData, devMode);
+
+  const [state, formAction, pending] = useActionState(getSubmitInquiry, {
     status: "idle",
     message: "",
   });

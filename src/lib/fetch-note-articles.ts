@@ -1,3 +1,4 @@
+import "server-only";
 import { XMLParser } from "fast-xml-parser";
 
 const RSS_URL = "https://note.reminus.co.jp/rss";

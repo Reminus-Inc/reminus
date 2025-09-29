@@ -2,10 +2,8 @@
 
 import { PrismaClient } from "@prisma/client";
 import { z } from "zod";
-import {
-  DOCUMENT_TYPE_MAP,
-  type DocumentType,
-} from "./constants";
+import { DOCUMENT_TYPE_MAP, type DocumentType } from "./constants";
+import { getSlackWebhookUrl } from "@/lib/get-slack-webhook-url";
 
 const prisma = new PrismaClient();
 
@@ -65,7 +63,8 @@ export type DocumentRequestActionState = {
 
 export async function submitInquiry(
   _: InquiryActionState,
-  formData: FormData
+  formData: FormData,
+  isDevMode: boolean
 ): Promise<InquiryActionState> {
   try {
     const validatedFields = formSchema.parse(Object.fromEntries(formData));
@@ -78,46 +77,49 @@ export async function submitInquiry(
     });
 
     // Slack通知を送信
-    await fetch(process.env.SLACK_WEBHOOK_URL!, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        blocks: [
-          {
-            type: "header",
-            text: {
-              type: "plain_text",
-              text: "🎉 新規お問い合わせ",
-              emoji: true,
+    const slackWebhookUrl = await getSlackWebhookUrl(isDevMode);
+    if (slackWebhookUrl != null) {
+      await fetch(slackWebhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          blocks: [
+            {
+              type: "header",
+              text: {
+                type: "plain_text",
+                text: "🎉 新規お問い合わせ",
+                emoji: true,
+              },
             },
-          },
-          {
-            type: "section",
-            fields: [
-              {
-                type: "mrkdwn",
-                text: `*会社名:*\n${validatedFields.company}`,
-              },
-              {
-                type: "mrkdwn",
-                text: `*お名前:*\n${validatedFields.name || "未入力"}`,
-              },
-              {
-                type: "mrkdwn",
-                text: `*メール:*\n${validatedFields.email}`,
-              },
-            ],
-          },
-          {
-            type: "section",
-            text: {
-              type: "mrkdwn",
-              text: `*お問い合わせ内容:*\n${validatedFields.content}`,
+            {
+              type: "section",
+              fields: [
+                {
+                  type: "mrkdwn",
+                  text: `*会社名:*\n${validatedFields.company}`,
+                },
+                {
+                  type: "mrkdwn",
+                  text: `*お名前:*\n${validatedFields.name || "未入力"}`,
+                },
+                {
+                  type: "mrkdwn",
+                  text: `*メール:*\n${validatedFields.email}`,
+                },
+              ],
             },
-          },
-        ],
-      }),
-    });
+            {
+              type: "section",
+              text: {
+                type: "mrkdwn",
+                text: `*お問い合わせ内容:*\n${validatedFields.content}`,
+              },
+            },
+          ],
+        }),
+      });
+    }
 
     return {
       message:
@@ -143,7 +145,8 @@ export async function submitInquiry(
 export async function requestDocument(
   _: DocumentRequestActionState,
   formData: FormData,
-  documentType: DocumentType
+  documentType: DocumentType,
+  isDevMode: boolean
 ): Promise<DocumentRequestActionState> {
   const startTime = performance.now();
   console.log("🔄 資料請求処理開始:", new Date().toISOString());
@@ -179,13 +182,12 @@ export async function requestDocument(
       environment: process.env.APP_ENVIRONMENT || "production",
     });
 
-    if (
-      process.env.SLACK_WEBHOOK_URL &&
-      process.env.APP_ENVIRONMENT !== "development"
-    ) {
+    // Slack通知を送信
+    const slackWebhookUrl = await getSlackWebhookUrl(isDevMode);
+    if (slackWebhookUrl != null) {
       const slackStart = performance.now();
       console.log("📨 Slack通知を送信します");
-      await fetch(process.env.SLACK_WEBHOOK_URL, {
+      await fetch(slackWebhookUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

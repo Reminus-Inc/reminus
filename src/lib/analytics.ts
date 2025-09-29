@@ -1,5 +1,7 @@
 "use client";
 
+import { getIsDevMode } from "./get-is-dev-mode";
+
 declare global {
   interface Window {
     gtag?: (
@@ -30,10 +32,13 @@ interface EventParameters {
   [key: string]: unknown;
 }
 
-export const trackEvent = (
+const trackEvent = (
   eventName: string,
   parameters: EventParameters = {},
 ) => {
+  if (getIsDevMode()) {
+    return;
+  }
   console.log("[trackEvent]", eventName, JSON.stringify(parameters));
   console.log("  gtag:", typeof window !== "undefined" && !!window.gtag);
   console.log("  twq :", typeof window !== "undefined" && !!window.twq);

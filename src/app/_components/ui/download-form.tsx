@@ -11,6 +11,7 @@ import { trackFormStart } from "@/lib/analytics";
 import { useRouter } from "next/navigation";
 import { useActionState, useEffect, useMemo, useState } from "react";
 import { PrimaryButton } from "./primary-button";
+import { getIsDevMode } from "@/lib/get-is-dev-mode";
 
 type FormValues = {
   company: string;
@@ -28,7 +29,9 @@ export const DownloadForm = ({
   documentType,
   beforeThanks,
 }: DocumentFormProps) => {
-  return <HookDownloadForm documentType={documentType} beforeThanks={beforeThanks} />;
+  return (
+    <HookDownloadForm documentType={documentType} beforeThanks={beforeThanks} />
+  );
 };
 
 export const HookDownloadForm = ({
@@ -37,10 +40,11 @@ export const HookDownloadForm = ({
 }: DocumentFormProps) => {
   const router = useRouter();
 
+  const isDevMode = getIsDevMode();
   const getRequestDocument = (
     prev: DocumentRequestActionState,
     formData: FormData
-  ) => requestDocument(prev, formData, documentType);
+  ) => requestDocument(prev, formData, documentType, isDevMode);
 
   const [state, formAction, pending] = useActionState(getRequestDocument, {
     status: "idle",

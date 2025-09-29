@@ -25,7 +25,7 @@ export function Heading({
   className = "",
   children,
 }: HeadingProps) {
-  const HeadingTag = tag ?? level ?? "h2";
+  const HeadingTag = tag ?? level ?? "div";
   return (
     <HeadingTag className={cn(headingVariants({ level }), className)}>
       {children}

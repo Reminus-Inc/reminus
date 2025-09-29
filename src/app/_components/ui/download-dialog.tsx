@@ -1,6 +1,6 @@
 "use client";
 
-import { Dialog, DialogClose, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogClose, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { DownloadForm } from "@/app/_components/ui/download-form";
 import { Heading } from "@/app/_components/ui/heading";
 import Image from "next/image";
@@ -18,6 +18,7 @@ export const DownloadDialog = () => {
 
   return (
     <Dialog open={isDownloadDialogOpen} onOpenChange={onOpenChange}>
+      <DialogTitle hidden />
       <DialogContent
         className="h-[95dvh] max-w-[95vw] border-0 object-fill p-0 sm:h-[90dvh] sm:max-w-[90vw] lg:max-w-[80vw] bg-white"
         autoFocus={false}
