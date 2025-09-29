@@ -14,10 +14,10 @@ export function FirstView() {
         <Description className="mt-4" />
         <div className="mt-8 flex justify-center lg:hidden">
           <Image
-            src="/hero.svg"
+            src="/hero.png"
             alt=""
             width={544}
-            height={446}
+            height={447}
             priority
             className="w-[90%] max-w-[544px]"
           />
@@ -34,7 +34,7 @@ export function FirstView() {
       </div>
 
       <div className="hidden pt-4 lg:block">
-        <Image src="/hero.svg" alt="" width={544} height={446} />
+        <Image src="/hero.png" alt="" width={544} height={447} />
       </div>
     </div>
   );
