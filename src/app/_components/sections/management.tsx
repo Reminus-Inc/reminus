@@ -55,7 +55,7 @@ const getChipColor = (newsType: NewsType) => {
 
 export function Management() {
   return (
-    <Section id="management">
+    <Section id="management" data-nosnippet>
       <MainHeading>経営者紹介</MainHeading>
 
       <div className="flex flex-col gap-5 md:flex-row md:gap-20">
@@ -112,7 +112,7 @@ export function Management() {
                 href="https://zenn.dev/sumiren"
                 className="inline-flex items-center rounded-full border border-gray-200 px-4 py-2 text-gray-600 transition-all hover:border-gray-300 hover:bg-gray-50"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
               >
                 <ExternalLink className="mr-2 h-4 w-4" />
                 Zenn
