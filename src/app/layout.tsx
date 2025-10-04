@@ -8,6 +8,7 @@ import { Footer } from "./_components/layout/footer";
 import { DownloadDialogProvider } from "@/app/_components/ui/download-dialog-context";
 import { DownloadDialog } from "@/app/_components/ui/download-dialog";
 
+import { DownloadDialogCloser } from "@/app/_components/layout/download-dialog-closer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -25,8 +26,9 @@ export default async function RootLayout({
     <html lang="ja" className="scroll-smooth">
       <body className={`${inter.className} flex min-h-svh flex-col`}>
         <DownloadDialogProvider>
-        {children}
+          {children}
           <DownloadDialog />
+          <DownloadDialogCloser />
         </DownloadDialogProvider>
         <Footer />
         <Toaster />
