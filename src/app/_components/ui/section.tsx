@@ -18,7 +18,9 @@ const sectionVariants = cva("px-6 container mx-auto", {
   },
 });
 
-interface SectionProps extends VariantProps<typeof sectionVariants> {
+interface SectionProps
+  extends React.HTMLAttributes<HTMLElement>,
+    VariantProps<typeof sectionVariants> {
   className?: string;
   id?: string;
   children: React.ReactNode;
@@ -28,9 +30,10 @@ export function Section({
   className = "",
   id,
   children,
+  ...props
 }: SectionProps) {
   return (
-    <section className={cn("py-20 md:py-24", className)} id={id}>
+    <section className={cn("py-20 md:py-24", className)} id={id} {...props}>
       <div className={cn(sectionVariants({ fullWidth }))}>{children}</div>
     </section>
   );

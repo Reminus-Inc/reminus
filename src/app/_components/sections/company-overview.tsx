@@ -1,6 +1,6 @@
 export const CompanyOverview = () => {
   return (
-    <div className="bg-gray-100">
+    <div className="bg-gray-100" data-nosnippet>
       <div className="container mx-auto px-6 pb-12 pt-16">
         <Table>
           <TableRow>

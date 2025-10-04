@@ -10,7 +10,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export function NoteArticles() {
   return (
-    <Section className="bg-gray-50" id="note-articles">
+    <Section className="bg-gray-50" id="note-articles" data-nosnippet>
       <MainHeading>公式 note</MainHeading>
 
       <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 md:-mt-6 lg:grid-cols-3">
@@ -50,7 +50,7 @@ async function NoteArticleList() {
           <Link
             href={article.url}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="nofollow noopener noreferrer"
             key={article.url}
             className="rounded-md p-4 duration-300 hover:bg-muted md:p-6"
           >
