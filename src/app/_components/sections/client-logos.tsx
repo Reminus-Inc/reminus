@@ -68,8 +68,8 @@ export function ClientLogos() {
         </div>
 
         <p className="flex flex-wrap justify-center gap-x-3 gap-y-1.5 text-center text-sm tracking-wide text-gray-500">
-          <span>Reminus支援実績15社</span>
-          <span>Reminus&nbsp;CTOパートナー支援実績6社</span>
+          <span>Reminus支援実績17社</span>
+          <span>Reminus&nbsp;CTOパートナー支援実績8社</span>
         </p>
       </div>
     </Section>
