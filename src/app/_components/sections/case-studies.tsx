@@ -2,55 +2,65 @@
 
 import { MainHeading } from "../ui/main-heading";
 import { Section } from "../ui/section";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { DownloadButton } from "@/app/_components/ui/download-button";
 import { ContactButton } from "@/app/_components/ui/contact-button";
 import { Carousel } from "@/components/ui/carousel";
-const caseStudies = [
+
+import { Shapes } from "lucide-react";
+
+type CaseStudyItem = {
+  category: string;
+  title: string;
+  scale: string;
+  financialBackground: string;
+  serviceTypeList: ServiceType[];
+  resultList: string[];
+};
+
+const SERVICE_TYPE = {
+  DEVELOPMENT: "技術",
+  ORGANIZATION: "組織",
+  RECRUITMENT: "採用",
+} as const;
+type ServiceType = (typeof SERVICE_TYPE)[keyof typeof SERVICE_TYPE];
+
+const caseStudyItemList: CaseStudyItem[] = [
   {
-    title: "社外CTOとして技術戦略リード・調達後の組織立ち上げ",
-    industry: "FinTech",
-    companySize: "シード",
-    description: [
-      "創業期は複雑な財務計算モデルの初期実装とアーキテクチャを担当。着実なMVP構築により、投資家からの信頼獲得に貢献。シードラウンドでの調達に成功。",
-      "調達後は社外CTOとして経営層で経営戦略に沿った技術戦略を担当。エンジニアリング施策の統括、採用設計と開発組織立ち上げを牽引。",
-      "事例記載時点でエンジニア数を2名から6名まで拡大しており、プロダクトのスケールを加速中。",
+    category: "医療\u00d7AI SaaS スタートアップ",
+    title: "MVPを事業計画通りリリース。\nスカウト返信率改善で即戦力を2名獲得。",
+    scale: "シードラウンド 資金調達 1億円",
+    financialBackground: "エクイティファイナンス",
+    serviceTypeList: [SERVICE_TYPE.DEVELOPMENT, SERVICE_TYPE.RECRUITMENT],
+    resultList: [
+      "技術的な施策に優先度をつけ最低限に絞ったことで、顧客に価値を届ける機能開発に集中でき、事業計画に沿ってMVPリリースを迎えられた",
+      "事業状況に適したポジション設計とスカウト文面の最適化で、候補者から返事が返ってくるようになり、入社意欲のあるエンジニアを2名獲得",
     ],
-    services: ["社外CTO", "技術顧問"],
   },
   {
-    title: "越境ECの全方位パフォーマンス改善で機会損失を最小化",
-    industry: "越境EC",
-    companySize: "シリーズA",
-    description: [
-      "速度低下による機会損失が事業課題となったECで、フロントエンドからインフラまでシステム全体を分析。CDNキャッシュやRemix実装、N+1とスロークエリ、Cloud Runなど全方位的に改善施策を立案。",
-      "99%ileのレイテンシを10秒以上から3秒まで短縮して機会損失を大幅に抑える成果を出す。",
-      "事業計画を踏まえた長期のパフォーマンス戦略策定も実施し、持続性のあるパフォーマンス改善を支援。",
+    category: "事業計画 SaaS スタートアップ",
+    title: "MVPを実現しシード調達に成功。\n副業エンジニア拡大後、CTO採用達成。",
+    scale: "シードラウンド 資金調達 1億円",
+    financialBackground: "エクイティファイナンス",
+    serviceTypeList: [
+      SERVICE_TYPE.DEVELOPMENT,
+      SERVICE_TYPE.ORGANIZATION,
+      SERVICE_TYPE.RECRUITMENT,
     ],
-    services: ["パフォーマンス", "オブザーバビリティ", "フロントエンド"],
+    resultList: [
+      "事業特性上、最も重要な財務モデリング機能に特化して全体設計を策定したことで、MVPを実現し、シードラウンドでの資金調達に成功",
+      "エンジニアへの訴求に軸足を置いた採用プロセスの最適化により、副業エンジニア6名まで開発組織を拡大後、CTO採用に成功",
+    ],
   },
   {
-    title: "CS特化SaaSの立ち上げを事業構想から推進",
-    industry: "事業会社",
-    companySize: "新規サービス立ち上げ",
-    description: [
-      "業界特化のナレッジベースSaaS立ち上げにおいて、技術顧問として、構想と競合調査、既存サービスとのクロスセル戦略、MVPロードマップ策定に伴走。",
-      "全体アーキテクチャとSREingも担当し、LLMとRAGを絡めた非同期ナレッジ基盤の設計やIaCによるインフラ構築、運用設計を担当。",
-      "Web側の立ち上げも一手に担い、Next.js App RouterのStreamingやParallel Routesを活用した先進的なWeb体験を実現。",
+    category: "士業特化バーティカルCRM SaaS スタートアップ",
+    title: "エンジニア2名・コードなしの状態から内製開発組織を立ち上げ。",
+    scale: "従業員10名",
+    financialBackground: "自己資本 (コンサルティング事業利益の再投資)",
+    serviceTypeList: [SERVICE_TYPE.DEVELOPMENT, SERVICE_TYPE.ORGANIZATION],
+    resultList: [
+      "システム構想に対して技術の観点からMVPの範囲と開発順序を決めて、ロードマップを描けたことで、無事に内製開発を走り出すことができた",
+      "Reminusエンジニアが2名伴走してコードを書きながら開発体制を立ち上げたことで、企画と開発を高速で回せる内製開発の仕組み化ができた",
     ],
-    services: ["技術顧問", "アーキテクト", "フロントエンド"],
-  },
-  {
-    title: "オブザーバビリティでパフォーマンス課題を特定",
-    industry: "アパレル",
-    companySize: "シリーズB",
-    description: [
-      "トラフィック増に伴うコンピューティング資源がランウェイを圧迫。原因の推測が困難という課題があり、オブザーバビリティの技術顧問として参画。",
-      "GoのWebとバッチへのOpenTelemetry計装とADOT含むインフラ構成、Honeycombの導入とイネーブルメントにより、ボトルネック特定を実現。",
-      "チームとしてシステムおよび障害対応の安定化と30%のインフラコストの削減を達成。",
-    ],
-    services: ["オブザーバビリティ", "SREing"],
   },
 ];
 
@@ -59,65 +69,18 @@ export function CaseStudies() {
     <Section id="case-studies">
       <div className="space-y-16">
         <MainHeading>事例紹介</MainHeading>
-        {/* Desktop view */}
+
         <div className="max-w-8xl mx-auto hidden grid-cols-1 gap-6 md:grid md:grid-cols-2 xl:grid-cols-3">
-          {caseStudies.map((study, index) => (
-            <div key={index}>
-              <Card className="h-full md:p-2 xl:p-0">
-                <CardHeader className="space-y-2">
-                  <CardTitle className="text-xl">{study.title}</CardTitle>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="secondary">{study.industry}</Badge>
-                    <Badge variant="outline">{study.companySize}</Badge>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <ul className="list-disc space-y-2 pl-5 text-base text-slate-600">
-                    {study.description.map((item, index) => (
-                      <li key={index}>{item}</li>
-                    ))}
-                  </ul>
-                  <div className="flex flex-wrap gap-2">
-                    {study.services.map((service) => (
-                      <Badge key={service} variant="secondary">
-                        {service}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
+          {caseStudyItemList.map((item, index) => (
+            <CaseStudyCard key={index} caseStudyItem={item} />
           ))}
         </div>
 
-        {/* Mobile carousel view */}
         <div className="bleed md:hidden">
           <Carousel
             opts={{ align: "start" }}
-            items={caseStudies.map((study, index) => (
-              <Card key={index} className="h-full">
-                <CardHeader className="space-y-2">
-                  <CardTitle className="text-xl">{study.title}</CardTitle>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="secondary">{study.industry}</Badge>
-                    <Badge variant="outline">{study.companySize}</Badge>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <ul className="list-disc space-y-2 pl-5 text-base text-slate-600">
-                    {study.description.map((item, index) => (
-                      <li key={index}>{item}</li>
-                    ))}
-                  </ul>
-                  <div className="flex flex-wrap gap-2">
-                    {study.services.map((service) => (
-                      <Badge key={service} variant="secondary">
-                        {service}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+            items={caseStudyItemList.map((item, index) => (
+              <CaseStudyCard key={index} caseStudyItem={item} />
             ))}
           />
         </div>
@@ -128,5 +91,95 @@ export function CaseStudies() {
         </div>
       </div>
     </Section>
+  );
+}
+
+function CaseStudyCard({ caseStudyItem }: { caseStudyItem: CaseStudyItem }) {
+  return (
+    <div className="rounded-md border border-solid border-gray-300 bg-white p-5 sm:p-6">
+      <p className="-ml-0.5 flex items-center gap-1.5 text-xs font-bold tracking-wide text-gray-600 sm:text-sm">
+        <Shapes
+          className="h-4 w-4 text-primary sm:h-5 sm:w-5"
+          strokeWidth={2}
+        />
+        {caseStudyItem.category}
+      </p>
+      <p className="mt-1.5 whitespace-pre-line text-base font-bold leading-6 tracking-wide text-gray-800 sm:text-lg sm:leading-7">
+        {caseStudyItem.title}
+      </p>
+      <div className="mt-1.5 sm:mt-2">
+        <Row isEven={false}>
+          <Head>会社規模</Head>
+          <Body>{caseStudyItem.scale}</Body>
+        </Row>
+        <Row isEven={true}>
+          <Head>
+            <span className="text-xs">
+              主な
+              <br className="hidden sm:inline" />
+              ファイナンス
+            </span>
+          </Head>
+          <Body>{caseStudyItem.financialBackground}</Body>
+        </Row>
+        <Row isEven={false}>
+          <Head>支援業務</Head>
+          <Body>
+            {caseStudyItem.serviceTypeList.map((item, index) => (
+              <span key={index} className="whitespace-nowrap">
+                {item}
+                {index < caseStudyItem.serviceTypeList.length - 1 && (
+                  <span className="mx-1.5 text-gray-300">/</span>
+                )}
+              </span>
+            ))}
+          </Body>
+        </Row>
+        <Row isEven={true}>
+          <Head>成果</Head>
+          <Body>
+            <ul className="flex list-disc flex-col gap-1">
+              {caseStudyItem.resultList.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </Body>
+        </Row>
+      </div>
+    </div>
+  );
+}
+
+function Row({
+  isEven,
+  children,
+}: {
+  isEven: boolean;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className={`flex w-full ${isEven ? "bg-gray-50" : ""}`}>
+      {children}
+    </div>
+  );
+}
+
+function Head({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="py-2.5 pl-4">
+      <p className="w-[72px] text-xs font-bold leading-5 tracking-wide text-gray-600 sm:w-[88px] sm:text-[13px] sm:leading-relaxed">
+        {children}
+      </p>
+    </div>
+  );
+}
+
+function Body({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="grow px-4 py-2.5">
+      <div className="text-xs leading-5 tracking-wide text-gray-600 sm:text-[13px] sm:leading-relaxed">
+        {children}
+      </div>
+    </div>
   );
 }
