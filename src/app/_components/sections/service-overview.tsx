@@ -37,7 +37,7 @@ export function ServiceOverview() {
                     <>
                       月額40万〜のサブスクリプション制で、1ヶ月ごとにON／OFF可能。
                       <br />
-                      必要なときだけ柔軟にご利用いただけます。
+                      スポットCTOを必要なときだけ柔軟にご利用いただけます。
                     </>
                   }
                 />
@@ -55,7 +55,7 @@ export function ServiceOverview() {
                 <ServiceFeature
                   icon={Shield}
                   title="解雇リスク0"
-                  description="貴社とのマッチ度に応じたCTOが支援するため、採用トラブルを未然にブロック。"
+                  description="貴社とのマッチ度に応じたCTO代行が支援するため、採用トラブルを未然にブロック。"
                 />
               </ul>
             </div>
@@ -92,7 +92,7 @@ export function ServiceOverview() {
                   エンジニアの集め方もわからない。
                 </>
               }
-              proposalTitle="技術と採用の顧問"
+              proposalTitle="技術顧問・エンジニア採用顧問"
               proposal="経営から現場まで、技術と採用の課題をなんでも相談。優先度をつけ対策を提案。"
             />
             <PhaseColumn

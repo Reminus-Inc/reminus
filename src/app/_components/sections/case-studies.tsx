@@ -32,7 +32,7 @@ const caseStudyItemList: CaseStudyItem[] = [
     financialBackground: "エクイティファイナンス",
     serviceTypeList: [SERVICE_TYPE.DEVELOPMENT, SERVICE_TYPE.RECRUITMENT],
     resultList: [
-      "技術的な施策に優先度をつけ最低限に絞ったことで、顧客に価値を届ける機能開発に集中でき、事業計画に沿ってMVPリリースを迎えられた",
+      "CTO代行が技術施策に優先度をつけ最低限に絞り、顧客に価値を届ける機能開発に集中したことで、事業計画に沿ってMVPリリースを迎えられた",
       "事業状況に適したポジション設計とスカウト文面の最適化で、候補者から返事が返ってくるようになり、入社意欲のあるエンジニアを2名獲得",
     ],
   },
@@ -48,7 +48,7 @@ const caseStudyItemList: CaseStudyItem[] = [
     ],
     resultList: [
       "事業特性上、最も重要な財務モデリング機能に特化して全体設計を策定したことで、MVPを実現し、シードラウンドでの資金調達に成功",
-      "エンジニアへの訴求に軸足を置いた採用プロセスの最適化により、副業エンジニア6名まで開発組織を拡大後、CTO採用に成功",
+      "CTO代行がエンジニアへの訴求に軸足に採用プロセスを最適し、副業エンジニア6名まで開発組織を拡大後、CTO採用に成功",
     ],
   },
   {
@@ -58,8 +58,8 @@ const caseStudyItemList: CaseStudyItem[] = [
     financialBackground: "自己資本 (コンサルティング事業利益の再投資)",
     serviceTypeList: [SERVICE_TYPE.DEVELOPMENT, SERVICE_TYPE.ORGANIZATION],
     resultList: [
-      "システム構想に対して技術の観点からMVPの範囲と開発順序を決めて、ロードマップを描けたことで、無事に内製開発を走り出すことができた",
-      "Reminusエンジニアが2名伴走してコードを書きながら開発体制を立ち上げたことで、企画と開発を高速で回せる内製開発の仕組み化ができた",
+      "CTO代行がシステム構想に対して技術の観点からMVPの範囲と開発順序を決めて、ロードマップを描いたことで、内製開発を立ち上げ",
+      "Reminusエンジニアが2名伴走してコードを書きながら開発体制を立ち上げ、企画と開発を高速で回せる内製開発の仕組み化を実現",
     ],
   },
 ];

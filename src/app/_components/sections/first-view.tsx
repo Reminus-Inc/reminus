@@ -74,7 +74,7 @@ const Description = ({ className }: { className?: string }) => {
       開発ロードマップ策定から採用まで、
       <br className="hidden sm:block" />
       <span className="whitespace-nowrap">
-        Reminusが丸ごと伴走サポートします。
+        CTO代行が丸ごと伴走サポートします。
       </span>
     </p>
   );
