@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export function FirstView() {
   return (
-    <div className="flex flex-col items-center justify-center px-6 pt-4 md:pt-10 lg:flex-row lg:pt-12">
+    <div className="flex flex-col items-center justify-center px-6 pt-4 md:pt-6 lg:flex-row lg:pt-12">
       <div className="lg:w-fit lg:flex-none lg:pl-8">
         <SubTitle />
         <Title className="mt-2" />
