@@ -37,7 +37,7 @@ export function Solutions() {
           icon={Building2}
           title="開発組織"
           subtitle="開発スピードと学習サイクルを最大化"
-          description="事業計画を踏まえて組織体制を提案。経営の学習サイクル高速化を目指し、企画から開発までの全体効率を最大化します。"
+          description="事業計画に基づいて組織体制を設計。高速な市場投入サイクルにより、経営に学習を蓄積し、PMFへの前進を実現します。"
         />
       </div>
 
