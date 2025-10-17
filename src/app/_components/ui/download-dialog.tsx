@@ -1,6 +1,11 @@
 "use client";
 
-import { Dialog, DialogClose, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { DownloadForm } from "@/app/_components/ui/download-form";
 import { Heading } from "@/app/_components/ui/heading";
 import Image from "next/image";
@@ -9,7 +14,8 @@ import { DOCUMENT_TYPE } from "@/app/constants";
 import { useDownloadDialogContext } from "@/app/_components/ui/download-dialog-context";
 
 export const DownloadDialog = () => {
-  const { isDownloadDialogOpen, closeDownloadDialog } = useDownloadDialogContext();
+  const { isDownloadDialogOpen, closeDownloadDialog } =
+    useDownloadDialogContext();
   const onOpenChange = (open: boolean) => {
     if (!open) {
       closeDownloadDialog();
@@ -20,7 +26,7 @@ export const DownloadDialog = () => {
     <Dialog open={isDownloadDialogOpen} onOpenChange={onOpenChange}>
       <DialogTitle hidden />
       <DialogContent
-        className="h-[95dvh] max-w-[95vw] border-0 object-fill p-0 sm:h-[90dvh] sm:max-w-[90vw] lg:max-w-[80vw] bg-white"
+        className="h-[95dvh] max-w-[95vw] border-0 bg-white object-fill p-0 sm:h-[90dvh] sm:max-w-[90vw] lg:max-w-[80vw]"
         autoFocus={false}
         onOpenAutoFocus={(e) => e.preventDefault()}
       >
@@ -44,11 +50,13 @@ export const DownloadDialog = () => {
                 </div>
               </div>
 
-              <div className="mt-6 space-y-3">
-                <Heading tag="h3" level="h4">
-                  この資料で分かること
-                </Heading>
-
+              <div className="mt-6 space-y-6">
+                <p className="text-sm">
+                  Reminus
+                  CTOパートナーは、スタートアップ経営に技術視点を補うCTO代行サービスです。
+                  本資料では、プランやサービス内容、導入事例に加え、事業全体を俯瞰できる「SaaS経営
+                  課題整理シート」を公開しています。
+                </p>
                 <ul className="space-y-2.5">
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" />
@@ -59,13 +67,7 @@ export const DownloadDialog = () => {
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" />
                     <span className="font-bold text-gray-700">
-                      プロダクト経営の全体像フレームワーク
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" />
-                    <span className="font-bold text-gray-700">
-                      各事業フェーズのよくある課題と解決策
+                      SaaS経営の課題整理シート
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
@@ -83,9 +85,7 @@ export const DownloadDialog = () => {
             </div>
 
             <div className="flex h-fit justify-center rounded-lg border border-gray-300 px-7 py-6 lg:max-w-[400px]">
-              <DownloadForm
-                documentType={DOCUMENT_TYPE.CTO_PARTNER}
-              />
+              <DownloadForm documentType={DOCUMENT_TYPE.CTO_PARTNER} />
             </div>
           </div>
         </div>
