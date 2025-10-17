@@ -7,18 +7,18 @@ const clientLogos = [
   {
     name: "DRESS CODE",
     logo: "/logos/dress_code.svg",
-    height: 30,
-    spHeight: 21,
-    width: 245,
-    spWidth: 172,
+    height: 28,
+    spHeight: 20,
+    width: 228,
+    spWidth: 160,
   },
   {
     name: "Zaimo",
     logo: "/logos/zaimo.svg",
-    height: 25,
-    spHeight: 18,
-    width: 120,
-    spWidth: 85,
+    height: 28,
+    spHeight: 20,
+    width: 134,
+    spWidth: 95,
   },
   {
     name: "SalesBrain",
@@ -28,13 +28,21 @@ const clientLogos = [
     width: 201,
     spWidth: 142,
   },
+  {
+    name: "カイゼンベース",
+    logo: "/logos/kaizen-base.png",
+    height: 39,
+    spHeight: 27,
+    width: 242,
+    spWidth: 167,
+  },
 ];
 
 export function ClientLogos() {
   return (
     <Section className="py-12 md:py-16">
       <div className="space-y-6 sm:space-y-8">
-        <div className="flex flex-wrap justify-center gap-x-8 gap-y-5 md:gap-x-12 md:gap-y-6">
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 md:gap-x-12 md:gap-y-6">
           {clientLogos.map((client, index) => (
             <div key={index} className="flex items-center justify-center">
               <div className="block sm:hidden">
