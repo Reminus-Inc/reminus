@@ -1,15 +1,21 @@
 "use client";
 
-import { Dialog, DialogClose, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { DownloadForm } from "@/app/_components/ui/download-form";
 import { Heading } from "@/app/_components/ui/heading";
 import Image from "next/image";
 import { CheckCircle2, X } from "lucide-react";
 import { DOCUMENT_TYPE } from "@/app/constants";
 import { useDownloadDialogContext } from "@/app/_components/ui/download-dialog-context";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 export const DownloadDialog = () => {
-  const { isDownloadDialogOpen, closeDownloadDialog } = useDownloadDialogContext();
+  const { isDownloadDialogOpen, closeDownloadDialog } =
+    useDownloadDialogContext();
   const onOpenChange = (open: boolean) => {
     if (!open) {
       closeDownloadDialog();
@@ -20,11 +26,13 @@ export const DownloadDialog = () => {
     <Dialog open={isDownloadDialogOpen} onOpenChange={onOpenChange}>
       <DialogTitle hidden />
       <DialogContent
-        className="h-[95dvh] max-w-[95vw] border-0 object-fill p-0 sm:h-[90dvh] sm:max-w-[90vw] lg:max-w-[80vw] bg-white"
+        className="h-[95dvh] max-w-[95vw] border-0 object-fill p-0 sm:h-[90dvh] sm:max-w-[90vw] lg:max-w-[80vw]"
         autoFocus={false}
         onOpenAutoFocus={(e) => e.preventDefault()}
       >
-        <div className="flex items-center">
+        <DialogTitle className="hidden" />
+
+        <div className="flex-1 overflow-auto bg-white">
           <div className="container mx-auto flex flex-col justify-center gap-12 px-6 py-10 lg:flex-row lg:gap-16">
             <div className="lg:w-[475px]">
               <Heading tag="h2" level="h2" className="md:text-3xl">
@@ -83,9 +91,7 @@ export const DownloadDialog = () => {
             </div>
 
             <div className="flex h-fit justify-center rounded-lg border border-gray-300 px-7 py-6 lg:max-w-[400px]">
-              <DownloadForm
-                documentType={DOCUMENT_TYPE.CTO_PARTNER}
-              />
+              <DownloadForm documentType={DOCUMENT_TYPE.CTO_PARTNER} />
             </div>
           </div>
         </div>
