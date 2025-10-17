@@ -186,7 +186,7 @@ export const HookDownloadForm = ({
         </div>
       </div>
 
-      <div className="mt-10 space-y-3">
+      <div className="mt-8 space-y-3">
         <PrimaryButton
           type="submit"
           disabled={pending}

@@ -35,8 +35,8 @@ export default function DownloadPage() {
             </div>
           </div>
 
-          <div className="space-y-6">
-            <p className="text-sm">
+          <div className="space-y-4">
+            <p className="text-sm leading-relaxed text-gray-600">
               Reminus
               CTOパートナーは、スタートアップ経営に技術視点を補うCTO代行サービスです。
               本資料では、プランやサービス内容、導入事例に加え、事業全体を俯瞰できる「SaaS経営
