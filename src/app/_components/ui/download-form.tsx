@@ -186,7 +186,7 @@ export const HookDownloadForm = ({
         </div>
       </div>
 
-      <div className="mt-7 space-y-3">
+      <div className="mt-10 space-y-3">
         <PrimaryButton
           type="submit"
           disabled={pending}
@@ -201,7 +201,7 @@ export const HookDownloadForm = ({
           <p className="text-center text-sm text-red-500">{otherError}</p>
         )}
 
-        <p className="text-center text-xs leading-5 text-gray-500">
+        <p className="text-center text-xs leading-5 text-gray-500 lg:text-left">
           資料請求いただくことで、当社の
           <a
             href="/privacy-policy"
