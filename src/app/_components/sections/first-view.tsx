@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export function FirstView() {
   return (
-    <div className="flex flex-col items-center justify-center px-6 pt-12 md:pt-10 lg:flex-row lg:pt-12">
+    <div className="flex flex-col items-center justify-center px-6 pt-4 md:pt-10 lg:flex-row lg:pt-12">
       <div className="lg:w-fit lg:flex-none lg:pl-8">
         <SubTitle />
         <Title className="mt-2" />
@@ -22,10 +22,10 @@ export function FirstView() {
             className="w-[90%] max-w-[544px]"
           />
         </div>
-        <div className="mx-auto mt-12 max-w-[340px] space-y-5 lg:mx-0">
+        <div className="mx-auto mt-8 max-w-[340px] space-y-5 lg:mx-0 lg:mt-12">
           <DownloadButton
             fullWidth
-            className="py-6 text-xl lg:shadow-xl lg:shadow-emerald-100/50"
+            className="lg:py-6 lg:text-xl lg:shadow-xl lg:shadow-emerald-100/50"
           >
             資料ダウンロード
           </DownloadButton>
