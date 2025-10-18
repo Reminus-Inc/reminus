@@ -26,7 +26,7 @@ export const DownloadDialog = () => {
     <Dialog open={isDownloadDialogOpen} onOpenChange={onOpenChange}>
       <DialogTitle hidden />
       <DialogContent
-        className="h-[95dvh] max-w-[95vw] border-0 object-fill p-0 sm:h-[90dvh] sm:max-w-[90vw] lg:max-w-[80vw]"
+        className="h-[95dvh] max-w-[95vw] border-0 bg-white object-fill p-0 sm:h-[90dvh] sm:max-w-[90vw] lg:max-w-[80vw]"
         autoFocus={false}
         onOpenAutoFocus={(e) => e.preventDefault()}
       >
@@ -52,11 +52,13 @@ export const DownloadDialog = () => {
                 </div>
               </div>
 
-              <div className="mt-6 space-y-3">
-                <Heading tag="h3" level="h4">
-                  この資料で分かること
-                </Heading>
-
+              <div className="mt-4 space-y-4">
+                <p className="text-sm leading-relaxed text-gray-600">
+                  Reminus
+                  CTOパートナーは、スタートアップ経営に技術視点を補うCTO代行サービスです。
+                  本資料では、プランやサービス内容、導入事例に加え、事業全体を俯瞰できる「SaaS経営
+                  課題整理シート」を公開しています。
+                </p>
                 <ul className="space-y-2.5">
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" />
@@ -67,13 +69,7 @@ export const DownloadDialog = () => {
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" />
                     <span className="font-bold text-gray-700">
-                      プロダクト経営の全体像フレームワーク
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" />
-                    <span className="font-bold text-gray-700">
-                      各事業フェーズのよくある課題と解決策
+                      SaaS経営の課題整理シート
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
