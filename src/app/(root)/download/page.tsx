@@ -39,7 +39,7 @@ export default function DownloadPage() {
             <p className="text-sm leading-relaxed text-gray-600">
               Reminus
               CTOパートナーは、スタートアップ経営に技術を補うCTO代行サービスです。
-              本資料は、プランやサービス内容、導入事例、SaaS経営全体を俯瞰できる「課題整理シート」を公開しています。
+              本資料は、プランやサービス内容、導入事例、SaaS経営を俯瞰できる「課題整理シート」を公開しています。
             </p>
             <ul className="space-y-1.5 md:space-y-2.5">
               <li className="flex items-start gap-2">
