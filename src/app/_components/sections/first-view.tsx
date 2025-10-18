@@ -19,6 +19,7 @@ export function FirstView() {
             width={544}
             height={447}
             priority
+            fetchPriority="high"
             className="w-[90%] max-w-[544px]"
           />
         </div>
