@@ -5,6 +5,14 @@ import Image from "next/image";
 
 const clientLogos = [
   {
+    name: "カイゼンベース",
+    logo: "/logos/kaizen-base.png",
+    height: 39,
+    spHeight: 27,
+    width: 242,
+    spWidth: 167,
+  },
+  {
     name: "DRESS CODE",
     logo: "/logos/dress_code.svg",
     height: 28,
@@ -28,21 +36,13 @@ const clientLogos = [
     width: 201,
     spWidth: 142,
   },
-  {
-    name: "カイゼンベース",
-    logo: "/logos/kaizen-base.png",
-    height: 39,
-    spHeight: 27,
-    width: 242,
-    spWidth: 167,
-  },
 ];
 
 export function ClientLogos() {
   return (
     <Section className="py-12 md:py-16">
       <div className="space-y-6 sm:space-y-8">
-        <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 md:gap-x-12 md:gap-y-6">
+        <div className="flex flex-wrap  items-center justify-center gap-x-6 gap-y-4 md:gap-x-12 md:gap-y-6">
           {clientLogos.map((client, index) => (
             <div key={index} className="flex items-center justify-center">
               <div className="block sm:hidden">
