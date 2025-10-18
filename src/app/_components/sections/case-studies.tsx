@@ -48,7 +48,7 @@ const caseStudyItemList: CaseStudyItem[] = [
     ],
     resultList: [
       "事業特性上、最も重要な財務モデリング機能に特化して全体設計を策定したことで、MVPを実現し、シードラウンドでの資金調達に成功",
-      "CTO代行がエンジニアへの訴求に軸足に採用プロセスを最適し、副業エンジニア6名まで開発組織を拡大後、CTO採用に成功",
+      "CTO代行がエンジニアへの訴求を軸足に採用プロセスを最適し、副業エンジニア6名まで開発組織を拡大後、CTO採用に成功",
     ],
   },
   {
@@ -58,7 +58,7 @@ const caseStudyItemList: CaseStudyItem[] = [
     financialBackground: "自己資本 (コンサルティング事業利益の再投資)",
     serviceTypeList: [SERVICE_TYPE.DEVELOPMENT, SERVICE_TYPE.ORGANIZATION],
     resultList: [
-      "CTO代行がシステム構想に対して技術の観点からMVPの範囲と開発順序を決めて、ロードマップを描いたことで、内製開発を立ち上げ",
+      "CTO代行がシステム構想に対して技術の観点からMVPの範囲を決め、開発スケジュールを描いたことで、内製開発の立ち上げに成功",
       "Reminusエンジニアが2名伴走してコードを書きながら開発体制を立ち上げ、企画と開発を高速で回せる内製開発の仕組み化を実現",
     ],
   },
