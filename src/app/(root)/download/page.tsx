@@ -15,8 +15,8 @@ export const metadata: Metadata = {
 
 export default function DownloadPage() {
   return (
-    <div className="bg-white pb-16 pt-8">
-      <div className="container mx-auto flex flex-col justify-center gap-14 px-6 lg:flex-row lg:gap-20">
+    <div className="bg-white pb-10 pt-6 md:pb-16 md:pt-8">
+      <div className="container mx-auto flex flex-col justify-center gap-8 px-6 md:gap-14 lg:flex-row lg:gap-20">
         <div className="space-y-6 lg:w-[475px]">
           <Heading level="h2" tag="h1">
             サービス紹介資料
@@ -38,32 +38,34 @@ export default function DownloadPage() {
           <div className="space-y-4">
             <p className="text-sm leading-relaxed text-gray-600">
               Reminus
-              CTOパートナーは、スタートアップ経営に技術視点を補うCTO代行サービスです。
-              本資料では、プランやサービス内容、導入事例に加え、事業全体を俯瞰できる「SaaS経営
+              CTOパートナーは、スタートアップ経営に技術を補うCTO代行サービスです。
+              本資料は、プランやサービス内容、導入事例、事業全体を俯瞰できる「SaaS経営
               課題整理シート」を公開しています。
             </p>
-            <ul className="space-y-2.5">
+            <ul className="space-y-1.5 md:space-y-2.5">
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" />
-                <span className="font-bold text-gray-700">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-600 md:h-5 md:w-5" />
+                <span className="text-sm font-bold text-gray-700 md:text-base">
                   サービスのコンセプト
                 </span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" />
-                <span className="font-bold text-gray-700">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-600 md:h-5 md:w-5" />
+                <span className="text-sm font-bold text-gray-700 md:text-base">
                   SaaS経営の課題整理シート
                 </span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" />
-                <span className="font-bold text-gray-700">
+                <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-600 md:h-5 md:w-5" />
+                <span className="text-sm font-bold text-gray-700 md:text-base">
                   プランごとの料金とサービス内容
                 </span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-600" />
-                <span className="font-bold text-gray-700">導入事例</span>
+                <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-600 md:h-5 md:w-5" />
+                <span className="text-sm font-bold text-gray-700 md:text-base">
+                  導入事例
+                </span>
               </li>
             </ul>
           </div>
