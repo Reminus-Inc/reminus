@@ -50,7 +50,7 @@ export function ClientLogos() {
   return (
     <Section className="py-12 md:py-16" fullWidth="all">
       <div className="space-y-6 sm:space-y-8">
-        <div className="flex flex-wrap  items-center justify-center gap-x-6 gap-y-6 md:gap-x-12">
+        <div className="flex flex-wrap  items-center justify-center gap-x-6 gap-y-6 md:gap-x-12 max-w-3xl mx-auto">
           {clientLogos.map((client, index) => (
             <div key={index} className="flex items-center justify-center">
               <div className="block sm:hidden">
