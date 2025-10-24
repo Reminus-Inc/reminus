@@ -11,7 +11,7 @@ export function FirstView() {
       <div className="lg:w-fit lg:flex-none lg:pl-8">
         <SubTitle />
         <Title className="mt-2" />
-        <Description className="mt-4" />
+        <Description className="mt-3 sm:mt-4" />
         <div className="mt-6 flex justify-center sm:mt-8 lg:hidden">
           <Image
             src="/hero.png"
@@ -64,7 +64,7 @@ const Title = ({ className }: { className?: string }) => {
   return (
     <h1
       className={cn(
-        "text-center text-[1.8rem] font-bold leading-[1.4] tracking-wide text-gray-900 min-[375px]:text-[1.9rem] sm:text-5xl sm:leading-[1.4] lg:text-start",
+        "text-center text-[1.8rem] font-bold leading-[1.4] tracking-wide text-gray-900 min-[375px]:text-[1.8rem] sm:text-5xl sm:leading-[1.4] lg:text-start",
         className
       )}
     >
