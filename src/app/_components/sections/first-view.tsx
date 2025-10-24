@@ -12,7 +12,7 @@ export function FirstView() {
         <SubTitle />
         <Title className="mt-2" />
         <Description className="mt-4" />
-        <div className="mt-8 flex justify-center lg:hidden">
+        <div className="mt-6 flex justify-center sm:mt-8 lg:hidden">
           <Image
             src="/hero.png"
             alt=""
@@ -23,14 +23,14 @@ export function FirstView() {
             className="w-[90%] max-w-[544px]"
           />
         </div>
-        <div className="mx-auto mt-8 max-w-[340px] space-y-5 lg:mx-0">
+        <div className="mx-auto mt-6 max-w-[340px] space-y-5 sm:mt-8 lg:mx-0">
           <DownloadButton
             fullWidth
             className="lg:shadow-xl lg:shadow-emerald-100/50"
           >
             資料ダウンロード
           </DownloadButton>
-          <ContactButton fullWidth className="lg:hidden" />
+          <ContactButton fullWidth className="hidden lg:block" />
         </div>
       </div>
 
@@ -43,9 +43,20 @@ export function FirstView() {
 
 const SubTitle = () => {
   return (
-    <p className="text-center font-bold text-gray-500 sm:text-xl lg:text-start">
-      非エンジニア経営者へ
-    </p>
+    <>
+      {/* SP表示: 吹き出しデザイン */}
+      <div className="relative mb-4 mr-36 flex justify-center sm:hidden">
+        <div className="relative ml-3 rounded-lg bg-emerald-500 px-3 py-2">
+          <p className="text-xs font-bold text-white">非エンジニア経営者の</p>
+          {/* 吹き出しの三角形部分（左寄りに配置） */}
+          <div className="absolute -bottom-2 left-8 h-0 w-0 border-l-[8px] border-r-[8px] border-t-[8px] border-l-transparent border-r-transparent border-t-emerald-500" />
+        </div>
+      </div>
+      {/* タブレット以上: 通常表示 */}
+      <p className="hidden text-center text-sm font-bold text-gray-500 sm:block sm:text-xl lg:text-start">
+        非エンジニア経営者へ
+      </p>
+    </>
   );
 };
 
@@ -57,8 +68,9 @@ const Title = ({ className }: { className?: string }) => {
         className
       )}
     >
-      <span className="block">技術責任者不在の</span>
-      <span className="block">スタートアップに</span>
+      <span className="hidden sm:block">技術責任者不在の</span>
+      <span className="hidden sm:block">スタートアップに</span>
+      <span className="block sm:hidden">スタートアップ経営に</span>
       <span className="block">CTOパートナーを。</span>
     </h1>
   );
@@ -68,7 +80,7 @@ const Description = ({ className }: { className?: string }) => {
   return (
     <p
       className={cn(
-        "text-center leading-[1.75] text-gray-600 sm:text-xl sm:leading-[1.8] lg:text-start",
+        "text-center text-sm leading-[1.75] text-gray-600 sm:text-xl sm:leading-[1.8] lg:text-start",
         className
       )}
     >
