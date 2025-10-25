@@ -1,18 +1,17 @@
 "use client";
 
 import { DownloadButton } from "../ui/download-button";
-import { ContactButton } from "../ui/contact-button";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 export function FirstView() {
   return (
-    <div className="flex flex-col items-center justify-center px-6 pt-4 md:pt-6 lg:flex-row lg:pt-4">
+    <div className="flex flex-col items-center justify-center px-6 pt-2 md:pt-6 lg:flex-row lg:pt-4">
       <div className="lg:w-fit lg:flex-none lg:pl-8">
         <SubTitle />
         <Title className="mt-2" />
-        <Description className="mt-4" />
-        <div className="mt-8 flex justify-center lg:hidden">
+        <Description className="mt-2 sm:mt-4" />
+        <div className="mt-5 flex justify-center sm:mt-8 lg:hidden">
           <Image
             src="/hero.png"
             alt=""
@@ -23,14 +22,11 @@ export function FirstView() {
             className="w-[90%] max-w-[544px]"
           />
         </div>
-        <div className="mx-auto mt-8 max-w-[340px] space-y-5 lg:mx-0">
+        <div className="mx-auto mt-7 max-w-[340px] space-y-5 sm:mt-8 lg:mx-0">
           <DownloadButton
             fullWidth
-            className="lg:shadow-xl lg:shadow-emerald-100/50"
-          >
-            資料ダウンロード
-          </DownloadButton>
-          <ContactButton fullWidth className="lg:hidden" />
+            className="shadow-xl shadow-emerald-100/50"
+          />
         </div>
       </div>
 
@@ -43,7 +39,7 @@ export function FirstView() {
 
 const SubTitle = () => {
   return (
-    <p className="text-center font-bold text-gray-500 sm:text-xl lg:text-start">
+    <p className="text-center text-sm font-bold text-gray-500 sm:text-xl lg:text-start">
       非エンジニア経営者へ
     </p>
   );
@@ -53,7 +49,7 @@ const Title = ({ className }: { className?: string }) => {
   return (
     <h1
       className={cn(
-        "text-center text-[1.8rem] font-bold leading-[1.4] tracking-wide text-gray-900 min-[375px]:text-[1.9rem] sm:text-5xl sm:leading-[1.4] lg:text-start",
+        "text-center text-2xl font-bold leading-[1.5] tracking-wider text-gray-900 sm:text-5xl sm:leading-[1.4] lg:text-start lg:tracking-wide",
         className
       )}
     >
@@ -68,7 +64,7 @@ const Description = ({ className }: { className?: string }) => {
   return (
     <p
       className={cn(
-        "text-center leading-[1.75] text-gray-600 sm:text-xl sm:leading-[1.8] lg:text-start",
+        "text-center text-sm leading-[1.8] text-gray-600 sm:text-xl sm:leading-[1.8] lg:text-start",
         className
       )}
     >
