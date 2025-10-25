@@ -15,10 +15,10 @@ const clientLogos = [
   {
     name: "千葉エコ・エネルギー",
     logo: "/logos/chiba-eco.webp",
-    height: 50,
-    spHeight: 35,
-    width: 121,
-    spWidth: 85,
+    height: 40,
+    spHeight: 28,
+    width: 97,
+    spWidth: 68,
   },
   {
     name: "DRESS CODE",
@@ -50,7 +50,7 @@ export function ClientLogos() {
   return (
     <Section className="py-12 md:py-16" fullWidth="all">
       <div className="space-y-6 sm:space-y-8">
-        <div className="flex flex-wrap  items-center justify-center gap-x-6 gap-y-6 md:gap-x-12 max-w-3xl mx-auto">
+        <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-center gap-x-6 gap-y-8 md:gap-x-16 lg:gap-x-20">
           {clientLogos.map((client, index) => (
             <div key={index} className="flex items-center justify-center">
               <div className="block sm:hidden">
