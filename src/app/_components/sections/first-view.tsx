@@ -11,7 +11,7 @@ export function FirstView() {
         <SubTitle />
         <Title className="mt-2" />
         <Description className="mt-2 sm:mt-4" />
-        <div className="mt-6 flex justify-center sm:mt-8 lg:hidden">
+        <div className="mt-5 flex justify-center sm:mt-8 lg:hidden">
           <Image
             src="/hero.png"
             alt=""
@@ -22,7 +22,7 @@ export function FirstView() {
             className="w-[90%] max-w-[544px]"
           />
         </div>
-        <div className="mx-auto mt-8 max-w-[340px] space-y-5 sm:mt-8 lg:mx-0">
+        <div className="mx-auto mt-7 max-w-[340px] space-y-5 sm:mt-8 lg:mx-0">
           <DownloadButton
             fullWidth
             className="shadow-xl shadow-emerald-100/50"
