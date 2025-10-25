@@ -12,7 +12,7 @@ import { DownloadDialogCloser } from "@/app/_components/layout/download-dialog-c
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "株式会社Reminus（レミナス）｜非エンジニア経営者のためのCTOサービス",
+  title: "株式会社Reminus（レミナス）｜非エンジニア経営者のためのCTO代行サービス",
   description:
     "技術戦略や開発チームの構築でお困りの創業者様へ。株式会社Reminus（レミナス）がCTOを代行し、事業成長を技術面から強力にサポートします。まずはお気軽にご相談ください。",
 };
