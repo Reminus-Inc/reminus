@@ -15,9 +15,9 @@ const clientLogos = [
   {
     name: "千葉エコ・エネルギー",
     logo: "/logos/chiba-eco.webp",
-    height: 50,
+    height: 43,
     spHeight: 30,
-    width: 121,
+    width: 104,
     spWidth: 72,
   },
   {
