@@ -113,13 +113,7 @@ function CaseStudyCard({ caseStudyItem }: { caseStudyItem: CaseStudyItem }) {
           <Body>{caseStudyItem.scale}</Body>
         </Row>
         <Row isEven={true}>
-          <Head>
-            <span className="text-xs">
-              主な
-              <br className="hidden sm:inline" />
-              ファイナンス
-            </span>
-          </Head>
+          <Head>財務状況</Head>
           <Body>{caseStudyItem.financialBackground}</Body>
         </Row>
         <Row isEven={false}>
@@ -167,7 +161,7 @@ function Row({
 function Head({ children }: { children: React.ReactNode }) {
   return (
     <div className="py-2.5 pl-4">
-      <p className="w-[72px] text-xs font-bold leading-5 tracking-wide text-gray-600 sm:w-[88px] sm:text-[13px] sm:leading-relaxed">
+      <p className="w-[60px] text-xs font-bold leading-5 tracking-wide text-gray-600 sm:w-[68px] sm:text-[13px] sm:leading-relaxed">
         {children}
       </p>
     </div>
