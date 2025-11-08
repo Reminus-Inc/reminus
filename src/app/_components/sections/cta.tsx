@@ -3,10 +3,14 @@
 import Image from "next/image";
 import { DownloadButton } from "../ui/download-button";
 import { Heading } from "../ui/heading";
+import { cn } from "@/lib/utils";
 
-export function Cta() {
+type CtaProps = {
+ className: string;
+};
+export function Cta({ className }: CtaProps) {
   return (
-    <section className="bg-gradient-to-b from-gray-50 from-[50%] to-white to-50% py-10">
+    <section className={cn("bg-gradient-to-b py-10 from-[50%] to-[50%]", className)}>
       <div className="container mx-auto px-4">
         <div className="rounded-lg bg-emerald-500 p-8 sm:p-10 md:p-16 lg:px-12">
           <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-12">
