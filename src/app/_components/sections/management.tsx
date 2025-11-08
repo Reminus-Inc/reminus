@@ -1,5 +1,4 @@
 import { Chip } from "@/components/ui/chip";
-import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { MainHeading } from "../ui/main-heading";
@@ -59,29 +58,37 @@ export function Management() {
       <MainHeading>経営者紹介</MainHeading>
 
       <div className="flex flex-col gap-5 md:flex-row md:gap-20">
-        <div className="flex items-center justify-center md:items-start md:justify-start">
-          <div className="aspect-square h-[160px] w-[160px] overflow-hidden rounded-full border-4 border-gray-200 bg-white shadow-sm md:h-[240px] md:w-[240px]">
+        <div className="flex items-center justify-center">
+          <div className="h-[auto] w-[90%] max-w-[400px] rounded-full border-4 border-gray-200 md:w-[400px]">
             <Image
               src="/profile.png"
               alt=""
-              width={240}
-              height={240}
+              width={400}
+              height={400}
               className="h-full w-full object-cover"
             />
           </div>
         </div>
 
         <div className="flex-1">
-          <h3 className="mb-3 text-2xl font-medium text-gray-800 md:text-3xl">
-            sumiren
+          <h3 className="mb-3 text-2xl font-bold tracking-wide text-gray-800 md:text-3xl">
+            太田 蓮{" "}
+            <span className="ml-1 text-sm tracking-normal text-gray-500">
+              代表取締役
+            </span>
           </h3>
 
-          <div className="space-y-6">
+          <div className="space-y-8">
             <div className="prose prose-gray max-w-none text-left">
-              <p className="text-sm leading-7 text-gray-600 md:text-base md:leading-7">
+              <p className="mb-3 text-sm leading-7 text-gray-600 md:text-base md:leading-7">
                 株式会社ヘンリーで医療SaaSの急成長をソフトウェアエンジニアやSREとして牽引後、株式会社immedioでCTOを務め、Sales
                 Techマルチプロダクトの経営を技術から推進する。社外CTO・技術顧問として累計5社を支援し、資金調達にも貢献した経験を持つ。2025年、株式会社Reminusを創業。
               </p>
+
+              <div className="flex items-center gap-3">
+                <SocialLink type="x" />
+                <SocialLink type="zenn" />
+              </div>
             </div>
 
             <div>
@@ -106,29 +113,29 @@ export function Management() {
                 ))}
               </ul>
             </div>
-
-            <div className="flex items-center gap-3">
-              <Link
-                href="https://zenn.dev/sumiren"
-                className="inline-flex items-center rounded-full border border-gray-200 px-4 py-2 text-gray-600 transition-all hover:border-gray-300 hover:bg-gray-50"
-                target="_blank"
-                rel="nofollow noopener noreferrer"
-              >
-                <ExternalLink className="mr-2 h-4 w-4" />
-                Zenn
-              </Link>
-              <Link
-                href="https://twitter.com/sumiren_t"
-                className="inline-flex items-center rounded-full border border-gray-200 px-7 py-2 text-gray-600 transition-all hover:border-gray-300 hover:bg-gray-50"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <ExternalLink className="mr-2 h-4 w-4" />X
-              </Link>
-            </div>
           </div>
         </div>
       </div>
     </Section>
+  );
+}
+
+type SocialLinkProps = {
+  type: "x" | "zenn";
+};
+function SocialLink({ type }: SocialLinkProps) {
+  const href =
+    type === "x" ? "https://twitter.com/sumiren_t" : "https://zenn.dev/sumiren";
+  const image = type === "x" ? "/logo-x.png" : "/logo-zenn.png";
+  const alt = type === "x" ? "X" : "Zenn";
+  return (
+    <Link
+      href={href}
+      className="relative inline-flex h-[40px] min-w-[140px] items-center rounded-full border border-gray-200 px-7 py-2 text-gray-600 transition-all hover:border-gray-300 hover:bg-gray-50"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Image src={image} alt={alt} fill className="object-contain py-2.5" />
+    </Link>
   );
 }
