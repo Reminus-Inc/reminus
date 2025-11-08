@@ -27,7 +27,7 @@ export function Header({
   };
 
   return (
-    <header className="sticky left-0 top-0 z-10 flex h-[60px] items-center bg-white sm:h-[80px] lg:relative">
+    <header className="sticky left-0 top-0 z-10 flex h-[60px] items-center bg-white sm:h-[80px]">
       <div className="mx-auto w-full max-w-[1360px] px-6">
         <div className="flex h-full items-center justify-between">
           <div className="flex items-center">
