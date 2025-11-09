@@ -12,11 +12,11 @@ type Logo = {
 };
 
 const logos: Logo[] = [
-  { name: "カイゼンベース", logo: "/logos/kaizen-base.png",  width: 242, height: 39,  spWidth: 167, spHeight: 27 },
-  { name: "千葉エコ・エネルギー", logo: "/logos/chiba-eco.webp", width: 92,  height: 38,  spWidth: 64,  spHeight: 26 },
-  { name: "DRESS CODE", logo: "/logos/dress_code.svg",       width: 228, height: 28,  spWidth: 160, spHeight: 20 },
-  { name: "Zaimo", logo: "/logos/zaimo.svg",                  width: 134, height: 28,  spWidth: 95,  spHeight: 20 },
-  { name: "SalesBrain", logo: "/logos/salesbrain.png",        width: 201, height: 34,  spWidth: 142, spHeight: 24 },
+  { name: "カイゼンベース", logo: "/logos/kaizen-base.png",  width: 242, height: 39,  spWidth: 242, spHeight: 39 },
+  { name: "千葉エコ・エネルギー", logo: "/logos/chiba-eco.webp", width: 92,  height: 38,  spWidth: 92,  spHeight: 38 },
+  { name: "DRESS CODE", logo: "/logos/dress_code.svg",       width: 228, height: 28,  spWidth: 205, spHeight: 25 },
+  { name: "Zaimo", logo: "/logos/zaimo.svg",                  width: 134, height: 28,  spWidth: 134,  spHeight: 28 },
+  { name: "SalesBrain", logo: "/logos/salesbrain.png",        width: 201, height: 34,  spWidth: 201, spHeight: 34 },
 ];
 
 export function ClientLogos() {
@@ -82,7 +82,7 @@ function LogoItem({ logo: l }: { logo: Logo }) {
 
 function LogoBelt({ keyPrefix = "" }: { keyPrefix?: string }) {
   return (
-    <div className="flex w-max items-center">
+    <div className="flex w-max items-center gap-4">
       {logos.map((l) => (
         <LogoItem
           key={keyPrefix ? `${keyPrefix}-${l.name}` : l.name}
