@@ -34,7 +34,7 @@ export function ClientLogos() {
         </div>
 
         {/* --- XL未満: シームレス無限スクロール --- */}
-        <div className="py-4 xl:hidden">
+        <div className="py-4 xl:hidden overflow-hidden">
           {/* 同一グループを2回並べ、2つめが左端にきたときにリセット */}
           <div className="flex animate-sushi w-max will-change-transform">
             {/* グループA */}
