@@ -12,15 +12,18 @@ export function FirstView() {
         <Title className="mt-2" />
         <Description className="mt-2 sm:mt-4" />
         <div className="mt-5 flex justify-center sm:mt-8 lg:hidden">
-          <Image
-            src="/hero.png"
-            alt=""
-            width={544}
-            height={447}
-            priority
-            fetchPriority="high"
-            className="w-[90%] max-w-[544px]"
-          />
+          <div className="relative w-[90%] max-w-[544px]">
+            <Image
+              src="/hero.png"
+              alt=""
+              width={544}
+              height={447}
+              priority
+              fetchPriority="high"
+              className="h-auto w-full"
+              style={{ aspectRatio: "544/447" }}
+            />
+          </div>
         </div>
         <div className="mx-auto mt-7 max-w-[340px] space-y-5 sm:mt-8 lg:mx-0">
           <DownloadButton
