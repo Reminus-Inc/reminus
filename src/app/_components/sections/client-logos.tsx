@@ -1,6 +1,7 @@
 "use client";
 import { Section } from "../ui/section";
 import Image from "next/image";
+import { AchievementBadgeList } from "../ui/achievement-badges";
 
 type Logo = {
   name: string;
@@ -23,6 +24,10 @@ export function ClientLogos() {
   return (
     <Section className="py-8 md:py-12" fullWidth="all">
       <div className="flex flex-col gap-4">
+        {/* 表彰バッジ */}
+        <div className="mb-4">
+          <AchievementBadgeList />
+        </div>
 
         {/* --- XL: 固定表示（"一番でだす"を維持） --- */}
         <div className="py-4 hidden xl:block">
@@ -43,10 +48,6 @@ export function ClientLogos() {
             <LogoBelt keyPrefix="B" />
           </div>
         </div>
-        <p className="flex flex-wrap justify-center gap-x-3 gap-y-1.5 text-center text-sm tracking-wide text-gray-500">
-          <span>Reminus支援実績17社</span>
-          <span>Reminus&nbsp;CTOパートナー支援実績8社</span>
-        </p>
       </div>
     </Section>
   );
