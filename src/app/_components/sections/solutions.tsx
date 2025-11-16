@@ -46,16 +46,6 @@ export function Solutions() {
           description="事業計画に基づいて組織体制を設計。高速な市場投入サイクルにより、経営に学習を蓄積し、PMFへの前進を実現します。"
         />
       </div>
-
-      <div className="text-center">
-        <Heading tag="h3" level="h4" className="mb-6">
-          お気軽にご相談ください！
-        </Heading>
-        <div className="flex flex-col gap-4 sm:flex-row sm:justify-center sm:gap-6">
-          <DownloadButton />
-          <ContactButton />
-        </div>
-      </div>
     </Section>
   );
 }
