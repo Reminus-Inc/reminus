@@ -2,8 +2,7 @@
 
 import { MainHeading } from "../ui/main-heading";
 import { Section } from "../ui/section";
-import { DownloadButton } from "@/app/_components/ui/download-button";
-import { ContactButton } from "@/app/_components/ui/contact-button";
+import { CustomDownloadButton } from "@/app/_components/ui/download-button";
 import { Carousel } from "@/components/ui/carousel";
 
 import { Shapes } from "lucide-react";
@@ -85,9 +84,8 @@ export function CaseStudies() {
           />
         </div>
 
-        <div className="mt-12 flex flex-col justify-center gap-4 sm:flex-row">
-          <DownloadButton />
-          <ContactButton />
+        <div className="mt-12 flex justify-center">
+          <CustomDownloadButton subtitle="成果の詳細を公開中" variant="wide" />
         </div>
       </div>
     </Section>

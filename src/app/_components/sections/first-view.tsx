@@ -1,6 +1,6 @@
 "use client";
 
-import { DownloadButton } from "../ui/download-button";
+import { CustomDownloadButton } from "../ui/download-button";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
@@ -23,10 +23,7 @@ export function FirstView() {
           />
         </div>
         <div className="mx-auto mt-7 max-w-[340px] space-y-5 sm:mt-8 lg:mx-0">
-          <DownloadButton
-            fullWidth
-            className="shadow-xl shadow-emerald-100/50"
-          />
+          <CustomDownloadButton fullWidth className="shadow-xl shadow-emerald-100/50"/>
         </div>
       </div>
 
