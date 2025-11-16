@@ -23,7 +23,7 @@ export function Solutions() {
         </span>
       </MainHeading>
 
-      <div className="mb-16 flex flex-col justify-center gap-6 lg:flex-row lg:gap-10">
+      <div className="flex flex-col justify-center gap-6 lg:flex-row lg:gap-10">
         <SolutionCard
           icon={Settings}
           title="技術戦略"
