@@ -71,24 +71,19 @@ export function Management() {
         </div>
 
         <div className="flex-1">
-          <h3 className="mb-3 text-2xl font-bold tracking-wide text-gray-800 md:text-3xl">
+          <h3 className="mb-4 text-2xl font-bold tracking-wide text-gray-800 md:text-3xl">
             太田 蓮
-            <span className="ml-1 text-sm tracking-normal text-gray-500">
+            <span className="ml-2 text-sm tracking-normal text-gray-500">
               代表取締役
             </span>
           </h3>
 
           <div className="space-y-8">
             <div className="prose prose-gray max-w-none text-left">
-              <p className="mb-3 text-sm leading-7 text-gray-600 md:text-base md:leading-7">
+              <p className="text-sm leading-7 text-gray-600 md:text-base md:leading-7">
                 株式会社ヘンリーで医療SaaSの急成長をソフトウェアエンジニアやSREとして牽引後、株式会社immedioでCTOを務め、Sales
                 Techマルチプロダクトの経営を技術から推進する。社外CTO・技術顧問として累計5社を支援し、資金調達にも貢献した経験を持つ。2025年、株式会社Reminusを創業。
               </p>
-
-              <div className="flex items-center gap-3">
-                <SocialLink type="x" />
-                <SocialLink type="zenn" />
-              </div>
             </div>
 
             <div>
