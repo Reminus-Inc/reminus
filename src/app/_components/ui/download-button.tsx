@@ -104,8 +104,8 @@ export const CustomDownloadButton = ({
         <Image
           src="/document-icon.png"
           alt="資料イメージ"
-          width={74}
-          height={47}
+          width={75}
+          height={45}
           className="object-contain"
         />
       </div>
