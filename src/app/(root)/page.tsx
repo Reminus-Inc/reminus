@@ -13,8 +13,8 @@ export default function Home() {
     <>
       <FirstView />
       <ClientLogos />
-      <Solutions />
       <ServiceOverview />
+      <Solutions />
       <Cta className=" from-gray-50 to-white" />
       <CaseStudies />
       <NoteArticles />

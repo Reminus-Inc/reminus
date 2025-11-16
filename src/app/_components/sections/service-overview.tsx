@@ -16,12 +16,76 @@ import { MainHeading } from "../ui/main-heading";
 export function ServiceOverview() {
   return (
     <Section className="bg-gray-50" id="service-overview">
+      <MainHeading><span className="text-xl md:text-4xl">Reminus CTOパートナーとは</span></MainHeading>
+
+      <div className="space-y-20">
+        <div>
+          <Heading level="h3" className="mb-10 text-center">
+            <span className="text-base md:text-xl">
+            スタートアップの技術判断・採用・開発の停滞を、<br className="hidden md:block"/>経験豊富なCTO代行がすぐ横で一緒に解決する伴走型サービスです。
+            </span>
+          </Heading>
+
+          <div className="relative mx-auto max-w-3xl">
+            <div className="rounded-lg border border-gray-200 bg-white px-6 py-10 md:px-16">
+              <ul className="space-y-7">
+                <ServiceFeature
+                  icon={Zap}
+                  title="月額サブスクで即戦力"
+                  description={
+                    <>
+                      月額40万〜のサブスクリプション制で、1ヶ月ごとにON／OFF可能。
+                      <br />
+                      スポットCTOを必要なときだけ柔軟にご利用いただけます。
+                    </>
+                  }
+                />
+                <ServiceFeature
+                  icon={CheckSquare}
+                  title="初期投資0円でコストを最小化"
+                  description={
+                    <>
+                      採用費0、エージェント手数料0。
+                      <br />
+                      平均年俸1,200万超のフルタイムCTO採用と比べ、月額40万〜で即稼働。
+                    </>
+                  }
+                />
+                <ServiceFeature
+                  icon={Shield}
+                  title="解雇リスク0"
+                  description="貴社とのマッチ度に応じたCTO代行が支援するため、採用トラブルを未然にブロック。"
+                />
+              </ul>
+            </div>
+
+            <div className="absolute bottom-0 right-0 hidden translate-x-[43%] translate-y-[5%] lg:block">
+              <Image
+                src="/rocket.svg"
+                width={168}
+                height={184}
+                alt="ロケット"
+                className="object-contain"
+              />
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </Section>
+  );
+}
+
+export const PhaseMerit = () => {
+  return (
+    <Section className="bg-gray-50" id="service-overview">
       <MainHeading>サービス概要</MainHeading>
 
       <div className="space-y-20">
         <div>
           <Heading level="h3" className="mb-10 text-center">
-            サブスクCTOで、
+            技術の見通しと採用・組織づくりを、必要な時だけCTO機能として追加できるサービスです。
             <span className="whitespace-nowrap">
               コストもリスクもスマートに。
             </span>
