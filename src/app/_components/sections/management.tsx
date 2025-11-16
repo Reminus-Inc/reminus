@@ -114,23 +114,3 @@ export function Management() {
     </Section>
   );
 }
-
-type SocialLinkProps = {
-  type: "x" | "zenn";
-};
-function SocialLink({ type }: SocialLinkProps) {
-  const href =
-    type === "x" ? "https://twitter.com/sumiren_t" : "https://zenn.dev/sumiren";
-  const image = type === "x" ? "/logo-x.png" : "/logo-zenn.png";
-  const alt = type === "x" ? "X" : "Zenn";
-  return (
-    <Link
-      href={href}
-      className="relative inline-flex h-[40px] min-w-[140px] items-center rounded-full border border-gray-200 px-7 py-2 text-gray-600 transition-all hover:border-gray-300 hover:bg-gray-50"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <Image src={image} alt={alt} fill className="object-contain py-2.5" />
-    </Link>
-  );
-}
