@@ -11,12 +11,18 @@ export function Solutions() {
   return (
     <Section className="bg-white" fullWidth="lg">
       <MainHeading subtitle="技術戦略・採用・組織設計をワンストップで統合し、非エンジニア経営者が抱える技術の不安を解消します。">
-        <span className="text-gray-900">課題を解決に導く</span>
-        <span className="whitespace-nowrap">
-          <span className="relative -bottom-1 mx-1 text-5xl font-bold text-emerald-500 sm:text-6xl">
-            3
+        <span className="relative -bottom-1 mx-1 text-5xl font-bold sm:text-6xl">
+          3
+        </span>
+        <span className="text-gray-800">
+          つの
+          <span className="relative inline-block">
+            <span className="relative z-10 text-emerald-500">
+              エンジニアリング要素
+            </span>
+            <span className="-z-1 absolute bottom-[6px] left-0 right-0 h-[14px] bg-yellow-200" />
           </span>
-          <span className="text-gray-900">つの柱</span>
+          を補完
         </span>
       </MainHeading>
 

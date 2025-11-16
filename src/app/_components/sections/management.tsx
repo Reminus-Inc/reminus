@@ -72,7 +72,7 @@ export function Management() {
 
         <div className="flex-1">
           <h3 className="mb-3 text-2xl font-bold tracking-wide text-gray-800 md:text-3xl">
-            太田 蓮{" "}
+            太田 蓮
             <span className="ml-1 text-sm tracking-normal text-gray-500">
               代表取締役
             </span>
