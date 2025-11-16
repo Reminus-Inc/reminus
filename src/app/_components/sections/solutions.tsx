@@ -2,9 +2,6 @@
 
 import { MainHeading } from "../ui/main-heading";
 import { Settings, Users, Building2, LucideIcon } from "lucide-react";
-import { ContactButton } from "../ui/contact-button";
-import { DownloadButton } from "../ui/download-button";
-import { Heading } from "../ui/heading";
 import { Section } from "../ui/section";
 
 export function Solutions() {

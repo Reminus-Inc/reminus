@@ -15,11 +15,11 @@ export default function Home() {
       <ClientLogos />
       <ServiceOverview />
       <Solutions />
-      <Cta className=" from-gray-50 to-white" />
+      <Cta className="from-white to-white" />
       <CaseStudies />
       <NoteArticles />
       <Management />
-      <Cta className=" from-white to-gray-100" />
+      <Cta className="from-white to-gray-100" />
       <CompanyOverview />
     </>
   );
