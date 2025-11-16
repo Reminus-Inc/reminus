@@ -21,7 +21,7 @@ const logos: Logo[] = [
 
 export function ClientLogos() {
   return (
-    <Section className="py-8 md:py-12" fullWidth="all">
+    <Section className="py-6 md:py-12" fullWidth="all">
       <div className="flex flex-col gap-4">
 
         {/* --- XL: 固定表示（"一番でだす"を維持） --- */}

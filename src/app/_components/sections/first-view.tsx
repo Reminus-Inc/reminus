@@ -64,7 +64,7 @@ const Description = ({ className }: { className?: string }) => {
   return (
     <p
       className={cn(
-        "text-center text-sm leading-[1.8] text-gray-600 sm:text-xl sm:leading-[1.8] lg:text-start hidden sm:block",
+        "text-center text-sm leading-[1.8] text-gray-600 sm:text-xl sm:leading-[1.8] lg:text-start",
         className
       )}
     >
