@@ -1,6 +1,7 @@
 "use client";
 
-import { DownloadButton } from "../ui/download-button";
+import { CustomDownloadButton } from "../ui/download-button";
+import { AchievementBadgeList } from "../ui/achievement-badges";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
@@ -8,7 +9,6 @@ export function FirstView() {
   return (
     <div className="flex flex-col items-center justify-center px-6 pt-2 md:pt-6 lg:flex-row lg:pt-4">
       <div className="lg:w-fit lg:flex-none lg:pl-8">
-        <SubTitle />
         <Title className="mt-2" />
         <Description className="mt-2 sm:mt-4" />
         <div className="mt-5 flex justify-center sm:mt-8 lg:hidden">
@@ -22,8 +22,9 @@ export function FirstView() {
             className="w-[90%] max-w-[544px]"
           />
         </div>
-        <div className="mx-auto mt-7 max-w-[340px] space-y-5 sm:mt-8 lg:mx-0">
-          <DownloadButton
+        {/* SPでボタンを画像に重ねるためにマイナスマージン */}
+        <div className="mx-auto -mt-16 max-w-[340px] space-y-5 sm:-mt-8 lg:mx-0 lg:mt-7">
+          <CustomDownloadButton
             fullWidth
             className="shadow-xl shadow-emerald-100/50"
           />
@@ -40,7 +41,7 @@ export function FirstView() {
 const SubTitle = () => {
   return (
     <p className="text-center text-sm font-bold text-gray-500 sm:text-xl lg:text-start">
-      非エンジニア経営者へ
+        非エンジニア経営者へ
     </p>
   );
 };
