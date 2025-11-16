@@ -2,10 +2,11 @@ import React from "react";
 import Image from "next/image";
 import {
   Zap,
-  CheckSquare,
+  Users,
   Shield,
   AlertCircle,
   CheckCircle,
+  TrendingUp,
   LucideIcon,
 } from "lucide-react";
 import { Section } from "../ui/section";
@@ -31,30 +32,36 @@ export function ServiceOverview() {
               <ul className="space-y-7">
                 <ServiceFeature
                   icon={Zap}
-                  title="月額サブスクで即戦力"
+                  title="最短で事業が進む技術判断"
                   description={
                     <>
-                      月額40万〜のサブスクリプション制で、1ヶ月ごとにON／OFF可能。
-                      <br />
-                      スポットCTOを必要なときだけ柔軟にご利用いただけます。
+                      MVP設計や技術選定など、事業に直結する技術・製品の意思決定を即断サポート。
+                      <br/>
+                      技術の不安に足を取られず、プロダクトとマーケットに集中できます。
                     </>
                   }
                 />
                 <ServiceFeature
-                  icon={CheckSquare}
-                  title="初期投資0円でコストを最小化"
+                  icon={Users}
+                  title="開発体制の判断と採用支援"
                   description={
                     <>
-                      採用費0、エージェント手数料0。
-                      <br />
-                      平均年俸1,200万超のフルタイムCTO採用と比べ、月額40万〜で即稼働。
+                      事業戦略に沿った内製・外注の判断や体制設計から、採用やパートナー選定まで。
+                      <br/>
+                      エンジニア採用の悩みも、全体設計からスカウト改善まで全方位サポート。
                     </>
                   }
                 />
                 <ServiceFeature
-                  icon={Shield}
-                  title="解雇リスク0"
-                  description="貴社とのマッチ度に応じたCTO代行が支援するため、採用トラブルを未然にブロック。"
+                  icon={TrendingUp}
+                  title="CTO  採用待ちで事業を止めない"
+                  description={
+                    <>
+                      スタートアップはラウンド内で見せた成長が次の資金調達を左右します。
+                      <br />
+                      ReminusならCTO採用をまたず、今日からアクセルを踏めます。
+                    </>
+                  }
                 />
               </ul>
             </div>
@@ -106,7 +113,7 @@ export const PhaseMerit = () => {
                   }
                 />
                 <ServiceFeature
-                  icon={CheckSquare}
+                  icon={Users}
                   title="初期投資0円でコストを最小化"
                   description={
                     <>
