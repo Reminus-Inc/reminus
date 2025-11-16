@@ -17,10 +17,10 @@ export function Solutions() {
         <span className="text-gray-800">
           つの
           <span className="relative inline-block">
-            <span className="relative z-10 text-emerald-500">
+            <span className="relative z-[2] text-emerald-500">
               エンジニアリング要素
             </span>
-            <span className="-z-1 absolute bottom-[6px] left-0 right-0 h-[14px] bg-yellow-200" />
+            <span className="z-[1] absolute bottom-[6px] left-0 right-0 h-[10px] sm:h-[14px] bg-yellow-200" />
           </span>
           を補完
         </span>
