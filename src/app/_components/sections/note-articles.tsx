@@ -11,7 +11,9 @@ import { Skeleton } from "@/components/ui/skeleton";
 export function NoteArticles() {
   return (
     <Section className="bg-gray-50" id="note-articles" data-nosnippet>
-      <MainHeading>公式 note</MainHeading>
+      <MainHeading>
+        <span className="text-3xl">スタートアップ経営者向けに、技術・採用・組織づくりのTipsを発信中。</span>
+      </MainHeading>
 
       <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 md:-mt-6 lg:grid-cols-3">
         <Suspense fallback={<NoteArticlesFallback />}>
