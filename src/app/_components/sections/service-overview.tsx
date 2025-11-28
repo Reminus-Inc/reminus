@@ -13,10 +13,11 @@ import { Section } from "../ui/section";
 import { Heading } from "../ui/heading";
 import { cn } from "@/lib/utils";
 import { MainHeading } from "../ui/main-heading";
+import {CustomDownloadButton} from "@/app/_components/ui/download-button";
 
 export function ServiceOverview() {
   return (
-    <Section className="bg-gray-50" id="service-overview">
+    <Section id="service-overview">
       <MainHeading><span className="text-xl md:text-4xl">Reminus CTOパートナーとは</span></MainHeading>
 
       <div className="space-y-20">
@@ -78,7 +79,9 @@ export function ServiceOverview() {
           </div>
         </div>
 
-
+        <div className="mt-12 flex justify-center">
+          <CustomDownloadButton subtitle="導入事例とプランを公開中" variant="wide" />
+        </div>
       </div>
     </Section>
   );

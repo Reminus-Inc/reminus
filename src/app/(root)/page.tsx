@@ -7,6 +7,7 @@ import { FirstView } from "../_components/sections/first-view";
 import { Management } from "../_components/sections/management";
 import { Solutions } from "../_components/sections/solutions";
 import { ServiceOverview } from "../_components/sections/service-overview";
+import { Challenges } from "../_components/sections/challenges";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <FirstView />
       <ClientLogos />
       <ServiceOverview />
+      <Challenges />
       <Solutions />
       <Cta className="from-white to-white" />
       <CaseStudies />
