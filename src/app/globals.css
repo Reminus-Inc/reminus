@@ -129,6 +129,15 @@ body {
     margin-left: -50vw;
     margin-right: -50vw;
   }
+
+  .bleed-none {
+    position: relative;
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 main {
