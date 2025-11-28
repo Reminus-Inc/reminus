@@ -34,7 +34,7 @@ export function NavMenu() {
             <Link
               key={item.href}
               href={item.href}
-              className="whitespace-nowrap text-sm text-gray-600 hover:text-gray-900"
+              className="whitespace-nowrap text-sm text-gray-800 hover:text-emerald-500 transition"
             >
               {item.label}
             </Link>
