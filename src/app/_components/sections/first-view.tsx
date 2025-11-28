@@ -33,10 +33,7 @@ export function FirstView() {
           />
         </div>
         <div className="relative z-[1] mx-auto -mt-4 lg:max-w-[340px] space-y-5 lg:mx-0 lg:mt-7">
-          <CustomDownloadButton
-            fullWidth
-            className="shadow-xl shadow-emerald-100/50"
-          />
+          <CustomDownloadButton className="shadow-xl shadow-emerald-100/50 lg:-ml-2" />
         </div>
       </div>
 

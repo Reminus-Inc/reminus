@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { trackCTAClick } from "@/lib/analytics";
-import {PrimaryButton, PrimaryButtonProps} from "./primary-button";
+import { PrimaryButton, PrimaryButtonProps } from "./primary-button";
 import { useDownloadDialogContext } from "./download-dialog-context";
 import * as React from "react";
-import {cn} from "@/lib/utils";
-import {Button} from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { ChevronRight } from "lucide-react";
 
 interface DownloadButtonProps extends PrimaryButtonProps {
   onClick?: () => void;
@@ -60,83 +61,63 @@ export const DownloadButton = ({
 
 interface CustomDownloadButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  fullWidth?: boolean;
-  asLink?: boolean;
   onClick?: () => void;
   subtitle?: string;
-  variant?: 'wide' | 'compact';
 }
-
-
 export const CustomDownloadButton = ({
-                                        fullWidth = false,
-                                        asLink = false,
-                                        className,
-                                        onClick,
-                                        subtitle = "非エンジニア経営者向け",
-                                        variant = 'compact',
-                                        ...props
-
-                                      }: CustomDownloadButtonProps) => {
+  className,
+  onClick,
+  subtitle = "非エンジニア経営者向け",
+  ...props
+}: CustomDownloadButtonProps) => {
   const { openDownloadDialog } = useDownloadDialogContext();
 
   const handleClick = () => {
     trackCTAClick("download");
-    if (!asLink) openDownloadDialog();
+    openDownloadDialog();
     onClick?.();
   };
 
-  // そもそもfullWidthが気持ち悪いせいでwideとかcompactとか意味不明な概念が出てきてるのだが
-  // 自分の力ではどうしようもできない。無力です。すまん
   const baseClasses = cn(
-    "rounded-full bg-primary text-primary-foreground font-bold tracking-wider",
-    "h-auto py-3 md:py-4",
-    "pl-3 pr-6 md:pl-4 md:pr-8",
-    "flex items-center justify-start gap-3",
-    "transition-all duration-300",
-    fullWidth && "w-full",
+    "rounded-full w-full min-[400px]:w-fit h-auto mx-auto",
+    "flex items-center ",
+    "text-white",
+    "pl-6 sm:pl-10 pr-3 sm:pr-6 py-2.5",
+    "bg-gradient-to-r from-emerald-500 from-60% to-emerald-600",
+    "relative overflow-hidden group",
     className
   );
 
-  const content = (
-    <div className="flex items-center w-full gap-3">
-      <div className="flex-shrink-0 pl-4">
-        <Image
-          src="/document-icon.png"
-          alt="資料イメージ"
-          width={75}
-          height={45}
-          className="object-contain"
+  return (
+    <Button className={baseClasses} onClick={handleClick} {...props}>
+      <div className="relative z-[1] inline-flex w-full items-center justify-between">
+        <div className="flex-shrink-0">
+          <Image
+            src="/document-icon.png"
+            alt="資料イメージ"
+            width={160}
+            height={89}
+            className="max-w-[80px] object-contain sm:max-w-[120px]"
+          />
+        </div>
+
+        <div className="flex flex-col justify-center gap-0 px-4 min-[400px]:px-8 sm:gap-1">
+          <span className="text-[11px] tracking-wider sm:text-sm">
+            {subtitle}
+          </span>
+          <span className="text-lg font-bold tracking-wider sm:text-2xl">
+            資料ダウンロード
+          </span>
+        </div>
+
+        <ChevronRight
+          strokeWidth={2}
+          className="!h-[22px] !w-[22px] sm:!h-[26px] sm:!w-[26px]"
         />
       </div>
 
-      <div className={cn(
-        "flex-1 h-full flex flex-col justify-center leading-tight",
-        variant === 'wide' && "px-4"
-      )}>
-        <span className="text-xs font-medium">
-          {subtitle}
-        </span>
-        <span className="text-lg md:text-xl font-bold">
-          資料ダウンロード
-        </span>
-      </div>
-    </div>
-  );
-
-  if (asLink) {
-    return (
-      <Button asChild className={baseClasses}>
-        <Link href="/download" onClick={handleClick}>
-          {content}
-        </Link>
-      </Button>
-    );
-  }
-
-  return (
-    <Button className={baseClasses} onClick={handleClick} {...props}>
-      {content}
+      {/* hover 時の背景色 */}
+      <div className="pointer-events-none absolute left-0 top-0 z-[0] h-full w-full bg-emerald-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
     </Button>
   );
 };

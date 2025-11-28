@@ -80,7 +80,7 @@ export function ServiceOverview() {
         </div>
 
         <div className="mt-12 flex justify-center">
-          <CustomDownloadButton subtitle="詳細事例とプランを公開中" variant="wide" />
+          <CustomDownloadButton subtitle="詳細事例とプランを公開中" />
         </div>
       </div>
     </Section>
@@ -183,7 +183,7 @@ export const PhaseMerit = () => {
       </div>
 
       <div className="mt-16 flex justify-center">
-        <CustomDownloadButton subtitle="プランと料金を公開中" variant="wide" />
+        <CustomDownloadButton subtitle="プランと料金を公開中" />
       </div>
     </Section>
   );

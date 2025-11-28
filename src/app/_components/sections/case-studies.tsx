@@ -98,7 +98,7 @@ export function CaseStudies() {
         </div>
 
         <div className="mt-12 flex justify-center">
-          <CustomDownloadButton subtitle="成果の詳細を公開中" variant="wide" />
+          <CustomDownloadButton subtitle="成果の詳細を公開中" />
         </div>
       </div>
     </Section>
