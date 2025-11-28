@@ -6,7 +6,7 @@ import { Cta } from "../_components/sections/cta";
 import { FirstView } from "../_components/sections/first-view";
 import { Management } from "../_components/sections/management";
 import { Solutions } from "../_components/sections/solutions";
-import { ServiceOverview } from "../_components/sections/service-overview";
+import {PhaseMerit, ServiceOverview} from "../_components/sections/service-overview";
 import { Challenges } from "../_components/sections/challenges";
 
 export default function Home() {
@@ -18,6 +18,7 @@ export default function Home() {
       <Challenges />
       <Solutions />
       <Cta className="from-white to-white" />
+      <PhaseMerit />
       <CaseStudies />
       <NoteArticles />
       <Management />

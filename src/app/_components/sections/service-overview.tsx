@@ -80,7 +80,7 @@ export function ServiceOverview() {
         </div>
 
         <div className="mt-12 flex justify-center">
-          <CustomDownloadButton subtitle="導入事例とプランを公開中" variant="wide" />
+          <CustomDownloadButton subtitle="詳細事例とプランを公開中" variant="wide" />
         </div>
       </div>
     </Section>
@@ -90,17 +90,10 @@ export function ServiceOverview() {
 export const PhaseMerit = () => {
   return (
     <Section className="bg-gray-50" id="service-overview">
-      <MainHeading>サービス概要</MainHeading>
+      <MainHeading>CTO雇用だけじゃない。<br className="lg:hidden"/>現実的で柔軟な選択肢</MainHeading>
 
       <div className="space-y-20">
         <div>
-          <Heading level="h3" className="mb-10 text-center">
-            技術の見通しと採用・組織づくりを、必要な時だけCTO機能として追加できるサービスです。
-            <span className="whitespace-nowrap">
-              コストもリスクもスマートに。
-            </span>
-          </Heading>
-
           <div className="relative mx-auto max-w-3xl">
             <div className="rounded-lg border border-gray-200 bg-white px-6 py-10 md:px-16">
               <ul className="space-y-7">
@@ -133,22 +126,12 @@ export const PhaseMerit = () => {
                 />
               </ul>
             </div>
-
-            <div className="absolute bottom-0 right-0 hidden translate-x-[43%] translate-y-[5%] lg:block">
-              <Image
-                src="/rocket.svg"
-                width={168}
-                height={184}
-                alt="ロケット"
-                className="object-contain"
-              />
-            </div>
           </div>
         </div>
 
         <div>
           <Heading level="h3" className="mb-14 text-center">
-            フェーズに合わせた支援を
+            フェーズに合わせた支援プランを
             <span className="whitespace-nowrap">ご提案します！</span>
           </Heading>
 
@@ -197,6 +180,10 @@ export const PhaseMerit = () => {
             />
           </div>
         </div>
+      </div>
+
+      <div className="mt-16 flex justify-center">
+        <CustomDownloadButton subtitle="プランと料金を公開中" variant="wide" />
       </div>
     </Section>
   );
