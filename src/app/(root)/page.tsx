@@ -17,7 +17,7 @@ export default function Home() {
       <ServiceOverview />
       <Challenges />
       <Solutions />
-      <Cta className="from-white to-white" />
+      <Cta className="from-white to-gray-50" />
       <PhaseMerit />
       <CaseStudies />
       <NoteArticles />
