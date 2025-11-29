@@ -138,6 +138,14 @@ body {
     margin-left: 0;
     margin-right: 0;
   }
+
+  .highlight-underline {
+    background: linear-gradient(
+      to bottom,
+      transparent 60%,
+      theme("colors.yellow.200") 60%
+    );
+  }
 }
 
 main {
