@@ -39,8 +39,8 @@ export function FirstView() {
         <Image
           src="/hero.png"
           alt=""
-          width={600}
-          height={539}
+          width={580}
+          height={521}
           priority
           fetchPriority="high"
           className="w-full lg:max-w-[480px] xl:max-w-[580px]"
