@@ -12,9 +12,9 @@ export function Cta({ className }: CtaProps) {
     <section
       className={cn("bg-gradient-to-b from-[50%] to-[50%] py-10", className)}
     >
-      <div className="mx-auto w-[90%] xl:w-fit">
-        <div className="rounded-2xl bg-gradient-to-br from-emerald-500 from-60% to-emerald-600 p-8 sm:p-10 lg:px-12">
-          <div className="flex flex-col gap-10 md:flex-row md:items-center md:gap-12">
+      <div className="mx-auto w-[90%] max-w-[90%] xl:w-fit">
+        <div className="rounded-2xl bg-gradient-to-br from-emerald-500 from-60% to-emerald-600 p-8 sm:p-10 lg:p-16">
+          <div className="flex flex-col gap-10 md:flex-row md:items-center md:gap-12 lg:gap-16">
             <div className="flex-shrink-0">
               <div className="flex justify-center md:block">
                 <Image
