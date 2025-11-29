@@ -31,7 +31,7 @@ export function FirstView() {
           />
         </div>
         <div className="bleed lg:bleed-none relative z-[1] -mt-4 px-4 lg:mt-8 lg:px-0">
-          <CustomDownloadButton className="shadow-xl shadow-emerald-100/50 lg:-ml-2" />
+          <CustomDownloadButton className="lg:-ml-2" />
         </div>
       </div>
 
@@ -74,7 +74,7 @@ const Description = ({ className }: { className?: string }) => {
       )}
     >
       開発ロードマップ策定から採用まで、
-      <br className="hidden sm:block" />
+      <br className="hidden lg:block" />
       <span className="whitespace-nowrap">
         CTO代行が丸ごと伴走サポートします。
       </span>
