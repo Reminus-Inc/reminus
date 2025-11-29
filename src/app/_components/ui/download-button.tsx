@@ -83,7 +83,7 @@ export const CustomDownloadButton = ({
     "flex items-center ",
     "text-white",
     "pl-6 sm:pl-10 pr-3 sm:pr-6 py-2.5",
-    "bg-gradient-to-r from-emerald-500 from-60% to-emerald-600",
+    "bg-gradient-to-r from-emerald-500 from-60% to-emerald-600/80",
     "relative overflow-hidden group",
     "shadow-xl shadow-emerald-100/50",
     className
