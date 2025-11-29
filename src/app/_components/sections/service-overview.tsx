@@ -18,6 +18,7 @@ import { SectionHeader } from "../ui/section-header";
 const features = [
   {
     image: "/illust-service-overview-1.svg",
+    imageClassName: "-mt-5",
     imageHeight: 178,
     title: "最短で事業が進む技術判断",
     points: [
@@ -53,7 +54,7 @@ export function ServiceOverview() {
     >
       <SectionHeader
         label="Reminus CTO パートナーとは？"
-        headingClassName="text-lg sm:text-2xl md:text-3xl !leading-[1.75]"
+        headingClassName="text-lg sm:text-2xl md:text-3xl !leading-[1.8]"
         tag="h2"
       >
         スタートアップの技術判断・採用・開発の停滞を、
@@ -65,44 +66,45 @@ export function ServiceOverview() {
         です。
       </SectionHeader>
 
-      <div className="mt-8 sm:mt-12">
+      <div className="mt-12">
         {features.map((feature, index) => (
           <div
             key={index}
             className={cn(
-              "flex flex-col items-center gap-6 sm:flex-row sm:gap-12 md:pl-10",
+              "flex flex-col items-center gap-8 sm:flex-row-reverse sm:gap-12 md:pl-10",
               index !== features.length - 1 &&
                 "mb-7 border-b border-gray-200 pb-7"
             )}
           >
-            <div className="shrink-0">
-              <Image
-                src={feature.image}
-                width={180}
-                height={feature.imageHeight}
-                alt={feature.title}
-              />
-            </div>
             <div className="flex-1">
               <h3 className="text-xl font-bold !leading-[1.5] tracking-wider text-gray-800 sm:text-3xl">
                 {feature.title}
               </h3>
-              <ul className="mt-3 space-y-1 pl-3">
+              <ul className="mt-3 space-y-1.5 pl-2 sm:pl-3">
                 {feature.points.map((point, i) => (
                   <li key={i} className="flex items-baseline gap-3">
                     <div className="h-2.5 w-2.5 shrink-0 rounded-full bg-emerald-200 sm:h-3 sm:w-3" />
-                    <p className="text-sm !leading-[1.8] text-gray-800 sm:text-base">
+                    <p className="text-sm !leading-[1.7] text-gray-800 sm:text-base">
                       {point}
                     </p>
                   </li>
                 ))}
               </ul>
             </div>
+            <div className="shrink-0">
+              <Image
+                src={feature.image}
+                width={180}
+                height={feature.imageHeight}
+                alt={feature.title}
+                className={feature.imageClassName}
+              />
+            </div>
           </div>
         ))}
       </div>
 
-      <div className="mt-16 flex justify-center">
+      <div className="bleed mt-16 px-4">
         <CustomDownloadButton subtitle="詳細事例とプランを公開中" />
       </div>
     </div>
