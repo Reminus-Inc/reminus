@@ -6,91 +6,117 @@ import {
   Shield,
   AlertCircle,
   CheckCircle,
-  TrendingUp,
   LucideIcon,
 } from "lucide-react";
 import { Section } from "../ui/section";
 import { Heading } from "../ui/heading";
 import { cn } from "@/lib/utils";
 import { MainHeading } from "../ui/main-heading";
-import {CustomDownloadButton} from "@/app/_components/ui/download-button";
+import { CustomDownloadButton } from "@/app/_components/ui/download-button";
+import { SectionHeader } from "../ui/section-header";
+
+const features = [
+  {
+    image: "/illust-service-overview-1.svg",
+    imageHeight: 178,
+    title: "最短で事業が進む技術判断",
+    points: [
+      "MVP設計や技術選定など、事業に直結する技術・製品の意思決定を即断サポート。",
+      "技術の不安に足を取られず、プロダクトとマーケットに集中可能。",
+    ],
+  },
+  {
+    image: "/illust-service-overview-2.svg",
+    imageHeight: 158,
+    title: "開発体制の判断と採用支援",
+    points: [
+      "事業戦略に沿った内製・外注の判断や体制設計から、採用やパートナー選定まで支援。",
+      "エンジニア採用の悩みも、全体設計からスカウト改善まで全方位サポート。",
+    ],
+  },
+  {
+    image: "/illust-service-overview-3.svg",
+    imageHeight: 163,
+    title: "CTO採用待ちで事業を止めない",
+    points: [
+      "スタートアップはラウンド内で見せた成長が次の資金調達を左右します。",
+      "ReminusならCTO採用を待たず、今日からアクセルを踏めます。",
+    ],
+  },
+];
 
 export function ServiceOverview() {
   return (
-    <Section id="service-overview">
-      <MainHeading><span className="text-xl md:text-4xl">Reminus CTOパートナーとは</span></MainHeading>
+    <div
+      id="service-overview"
+      className="mx-auto w-[82%] max-w-[1200px] py-20 md:w-[86%]"
+    >
+      <SectionHeader
+        label="Reminus CTO パートナーとは？"
+        headingClassName="text-lg sm:text-2xl md:text-3xl !leading-[1.75]"
+        tag="h2"
+      >
+        スタートアップの技術判断・採用・開発の停滞を、
+        <br className="hidden lg:inline" />
+        経験豊富なCTO代行が
+        <span className="highlight-underline text-emerald-500">
+          すぐ横で一緒に解決する伴走型サービス
+        </span>
+        です。
+      </SectionHeader>
 
-      <div className="space-y-20">
-        <div>
-          <Heading level="h3" className="mb-10 text-center">
-            <span className="text-base md:text-xl">
-            スタートアップの技術判断・採用・開発の停滞を、<br className="hidden md:block"/>経験豊富なCTO代行がすぐ横で一緒に解決する伴走型サービスです。
-            </span>
-          </Heading>
-
-          <div className="relative mx-auto max-w-3xl">
-            <div className="rounded-lg border border-gray-200 bg-white px-6 py-10 md:px-16">
-              <ul className="space-y-7">
-                <ServiceFeature
-                  icon={Zap}
-                  title="最短で事業が進む技術判断"
-                  description={
-                    <>
-                      MVP設計や技術選定など、事業に直結する技術・製品の意思決定を即断サポート。
-                      <br/>
-                      技術の不安に足を取られず、プロダクトとマーケットに集中できます。
-                    </>
-                  }
-                />
-                <ServiceFeature
-                  icon={Users}
-                  title="開発体制の判断と採用支援"
-                  description={
-                    <>
-                      事業戦略に沿った内製・外注の判断や体制設計から、採用やパートナー選定まで。
-                      <br/>
-                      エンジニア採用の悩みも、全体設計からスカウト改善まで全方位サポート。
-                    </>
-                  }
-                />
-                <ServiceFeature
-                  icon={TrendingUp}
-                  title="CTO  採用待ちで事業を止めない"
-                  description={
-                    <>
-                      スタートアップはラウンド内で見せた成長が次の資金調達を左右します。
-                      <br />
-                      ReminusならCTO採用をまたず、今日からアクセルを踏めます。
-                    </>
-                  }
-                />
-              </ul>
-            </div>
-
-            <div className="absolute bottom-0 right-0 hidden translate-x-[43%] translate-y-[5%] lg:block">
+      <div className="mt-8 sm:mt-12">
+        {features.map((feature, index) => (
+          <div
+            key={index}
+            className={cn(
+              "flex flex-col items-center gap-6 sm:flex-row sm:gap-12 md:pl-10",
+              index !== features.length - 1 &&
+                "mb-7 border-b border-gray-200 pb-7"
+            )}
+          >
+            <div className="shrink-0">
               <Image
-                src="/rocket.svg"
-                width={168}
-                height={184}
-                alt="ロケット"
-                className="object-contain"
+                src={feature.image}
+                width={180}
+                height={feature.imageHeight}
+                alt={feature.title}
               />
             </div>
+            <div className="flex-1">
+              <h3 className="text-xl font-bold !leading-[1.5] tracking-wider text-gray-800 sm:text-3xl">
+                {feature.title}
+              </h3>
+              <ul className="mt-3 space-y-1 pl-3">
+                {feature.points.map((point, i) => (
+                  <li key={i} className="flex items-baseline gap-3">
+                    <div className="h-2.5 w-2.5 shrink-0 rounded-full bg-emerald-200 sm:h-3 sm:w-3" />
+                    <p className="text-sm !leading-[1.8] text-gray-800 sm:text-base">
+                      {point}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
-
-        <div className="mt-12 flex justify-center">
-          <CustomDownloadButton subtitle="詳細事例とプランを公開中" />
-        </div>
+        ))}
       </div>
-    </Section>
+
+      <div className="mt-16 flex justify-center">
+        <CustomDownloadButton subtitle="詳細事例とプランを公開中" />
+      </div>
+    </div>
   );
 }
 
 export const PhaseMerit = () => {
   return (
     <Section className="bg-gray-50" id="service-overview">
-      <MainHeading>CTO雇用だけじゃない。<br className="lg:hidden"/>現実的で柔軟な選択肢</MainHeading>
+      <MainHeading>
+        CTO雇用だけじゃない。
+        <br className="lg:hidden" />
+        現実的で柔軟な選択肢
+      </MainHeading>
 
       <div className="space-y-20">
         <div>
@@ -187,7 +213,7 @@ export const PhaseMerit = () => {
       </div>
     </Section>
   );
-}
+};
 
 type ServiceFeatureProps = {
   icon: LucideIcon;
