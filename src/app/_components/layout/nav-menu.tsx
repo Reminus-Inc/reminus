@@ -7,7 +7,6 @@ import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { Header } from "./header";
 import { DownloadButton } from "../ui/download-button";
-import { ContactButton } from "../ui/contact-button";
 
 export function NavMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,18 +41,16 @@ export function NavMenu() {
         </nav>
 
         {/* CTA ボタン */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center">
           <DownloadButton size="small" asLink={true} />
-          <ContactButton size="small" />
         </div>
       </div>
 
       {/* タブレット・中間幅での表示 */}
       <div className="hidden items-center space-x-4 md:flex lg:hidden">
         {/* CTA ボタン */}
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center">
           <DownloadButton size="small" className="min-w-[180px]" asLink={true} />
-          <ContactButton size="small" />
         </div>
 
         {/* ハンバーガーボタン */}
@@ -109,16 +106,11 @@ export function NavMenu() {
               ))}
             </ul>
 
-            <div className="mt-6 space-y-4 md:hidden">
+            <div className="mt-6 md:hidden">
               <DownloadButton
                 color="white"
                 fullWidth
                 asLink={true}
-                onClick={() => setTimeout(() => setIsOpen(false), 300)}
-              />
-              <ContactButton
-                color="white"
-                fullWidth
                 onClick={() => setTimeout(() => setIsOpen(false), 300)}
               />
             </div>

@@ -4,6 +4,7 @@ import { Section } from "@/app/_components/ui/section";
 import { fetchNoteArticleList } from "@/lib/fetch-note-articles";
 import { ReminusLogo } from "../ui/reminus-logo";
 import { Suspense } from "react";
+import { ContactButton } from "../ui/contact-button";
 
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -34,6 +35,11 @@ export function NoteArticles() {
         <Suspense fallback={<NoteArticlesFallback />}>
           <NoteArticleList />
         </Suspense>
+      </div>
+
+      {/* 無料相談ボタン */}
+      <div className="mt-10 flex justify-center">
+        <ContactButton size="default" />
       </div>
     </Section>
   );
