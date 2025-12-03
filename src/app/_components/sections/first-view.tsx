@@ -30,7 +30,7 @@ export function FirstView() {
             className="w-[80%] max-w-[320px] sm:max-w-[380px]"
           />
         </div>
-        <div className="bleed lg:bleed-none relative z-[1] -mt-4 px-4 lg:mt-8 lg:px-0">
+        <div className="bleed lg:bleed-none relative z-[1] -mt-4 px-4 lg:mt-12 lg:px-0">
           <CustomDownloadButton className="lg:-ml-2" />
         </div>
       </div>
@@ -58,9 +58,8 @@ const Title = ({ className }: { className?: string }) => {
         className
       )}
     >
-      <span className="block">SaaSスタートアップに</span>
-      <span className="block">技術視点を補い</span>
-      <span className="block">成長を加速させる</span>
+      <span className="block">スタートアップの成長を</span>
+      <span className="block">技術判断で加速する</span>
     </h1>
   );
 };
@@ -69,14 +68,18 @@ const Description = ({ className }: { className?: string }) => {
   return (
     <p
       className={cn(
-        "text-sm leading-[1.8] tracking-wide text-gray-800 sm:text-base sm:leading-[1.8] md:text-xl md:leading-[1.8] lg:text-lg lg:leading-[1.8] xl:text-xl xl:leading-[1.8]",
+        "text-sm leading-[1.8] tracking-wide text-gray-800 sm:text-base sm:leading-[1.8] md:text-lg md:leading-[1.8] lg:text-base lg:leading-[1.8] xl:text-xl xl:leading-[1.8]",
         className
       )}
     >
-      開発ロードマップ策定から採用まで、
+      技術に詳しくない経営者の代わりに、
       <br className="hidden lg:block" />
       <span className="whitespace-nowrap">
-        CTO代行が丸ごと伴走サポートします。
+        技術選定・エンジニア採用・開発計画まで
+      </span>
+      <br className="hidden lg:block" />
+      <span className="whitespace-nowrap">
+        CTO代行が一気通貫で判断を支えます。
       </span>
     </p>
   );
