@@ -20,28 +20,28 @@ const features = [
     image: "/illust-service-overview-1.svg",
     imageClassName: "-mt-5",
     imageHeight: 178,
-    title: "最短で事業が進む技術判断",
+    title: "プロダクトを最短で進める技術判断",
     points: [
-      "MVP設計や技術選定など、事業に直結する技術・製品の意思決定を即断サポート。",
-      "技術の不安に足を取られず、プロダクトとマーケットに集中可能。",
+      "MVP設計・機能の優先度・技術選定など、プロダクトに直結する技術判断を経営とセットで即断サポート。",
+      "技術の不安で足を止めず、プロダクトづくりとマーケットに集中できる状態をつくります。",
     ],
   },
   {
     image: "/illust-service-overview-2.svg",
     imageHeight: 158,
-    title: "開発体制の判断と採用支援",
+    title: "開発が止まらない体制設計と採用支援",
     points: [
       "事業戦略に沿った内製・外注の判断や体制設計から、採用やパートナー選定まで支援。",
-      "エンジニア採用の悩みも、全体設計からスカウト改善まで全方位サポート。",
+      "求人票やスカウト文面までサポート。適切なコストと承諾率でエンジニア採用に向き合う土台を作ります。",
     ],
   },
   {
     image: "/illust-service-overview-3.svg",
     imageHeight: 163,
-    title: "CTO採用待ちで事業を止めない",
+    title: "CTO採用待ちでプロダクトの進化を止めない",
     points: [
-      "スタートアップはラウンド内で見せた成長が次の資金調達を左右します。",
-      "ReminusならCTO採用を待たず、今日からアクセルを踏めます。",
+      "次の資金調達に求められるARR（売上）から逆算し、CTO不在でも技術判断と開発体制づくりを代行。",
+      "専任CTOの採用を待たずに、今日から事業計画達成に向けてアクセルを踏める状態をつくります。",
     ],
   },
 ];
@@ -57,11 +57,10 @@ export function ServiceOverview() {
         headingClassName="text-lg sm:text-2xl md:text-3xl !leading-[1.8]"
         tag="h2"
       >
-        スタートアップの技術判断・採用・開発の停滞を、
+        技術・採用・開発体制に不安を抱えるスタートアップに、
         <br className="hidden lg:inline" />
-        経験豊富なCTO代行が
         <span className="highlight-underline text-emerald-500">
-          すぐ横で一緒に解決する伴走型サービス
+          経営直下で伴走するCTO代行サービス
         </span>
         です。
       </SectionHeader>
