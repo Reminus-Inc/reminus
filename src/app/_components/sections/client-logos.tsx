@@ -1,6 +1,8 @@
 "use client";
 import Image from "next/image";
 
+import { cn } from "@/lib/utils";
+
 type Logo = {
   name: string;
   logo: string;
@@ -20,10 +22,10 @@ const logos: Logo[] = [
 
 export function ClientLogos() {
   return (
-    <div className="pt-12 sm:pt-20">
+    <div className="pt-12 sm:pt-16">
         {/* --- XL: 固定表示（"一番でだす"を維持） --- */}
-        <div className="py-4 hidden xl:block">
-          <div className="mx-auto flex max-w-none flex-wrap items-center justify-center">
+        <div className="hidden xl:block mx-auto max-w-[1220px] lg:w-[90%]">
+          <div className="flex max-w-none flex-wrap items-center justify-between">
             {logos.map((l) => (
               <LogoItem key={l.name} logo={l} />
             ))}
@@ -31,7 +33,7 @@ export function ClientLogos() {
         </div>
 
         {/* --- XL未満: シームレス無限スクロール --- */}
-        <div className="py-4 xl:hidden overflow-hidden">
+        <div className="xl:hidden overflow-hidden">
           {/* 同一グループを2回並べ、2つめが左端にきたときにリセット */}
           <div className="flex animate-sushi w-max will-change-transform">
             {/* グループA */}
@@ -41,7 +43,7 @@ export function ClientLogos() {
           </div>
         </div>
 
-        <p className="flex flex-wrap justify-center text-[10px] text-gray-400 mt-2">
+        <p className="mt-4 flex flex-wrap justify-center text-[10px] text-gray-400 mt-2">
           <span>※一部CTOパートナー以外を含む</span>
         </p>
       </div>
@@ -49,9 +51,13 @@ export function ClientLogos() {
 }
 
 // ロゴ1つの表示コンポーネント
-function LogoItem({ logo: l }: { logo: Logo }) {
+type LogoItemProps = {
+  logo: Logo;
+  className?: string;
+};
+function LogoItem({ logo: l, className }: LogoItemProps) {
   return (
-    <div className="flex-shrink-0 flex items-center justify-center px-4 md:px-6">
+    <div className={cn("flex-shrink-0 flex items-center justify-center", className)}>
       {/* SP（〜639px） */}
       <Image
         src={l.logo}
@@ -83,6 +89,7 @@ function LogoBelt({ keyPrefix = "" }: { keyPrefix?: string }) {
         <LogoItem
           key={keyPrefix ? `${keyPrefix}-${l.name}` : l.name}
           logo={l}
+          className="px-4 md:px-6"
         />
       ))}
     </div>
