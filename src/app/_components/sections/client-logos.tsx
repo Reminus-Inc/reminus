@@ -43,7 +43,7 @@ export function ClientLogos() {
             <LogoBelt keyPrefix="B" />
           </div>
         </div>
-        <p className="flex flex-wrap justify-center text-[10px] tracking-tight text-gray-400">
+        <p className="flex flex-wrap justify-center text-[10px] text-gray-400">
           <span>※一部CTOパートナー以外を含む</span>
         </p>
       </div>

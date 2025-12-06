@@ -73,11 +73,11 @@ export function ServiceOverview() {
             className={cn(
               "flex flex-col items-center gap-8 sm:flex-row-reverse sm:gap-12 md:pl-10",
               index !== features.length - 1 &&
-                "mb-7 border-b border-gray-200 pb-7"
+                "mb-8 border-b border-gray-200/80 pb-8"
             )}
           >
             <div className="flex-1">
-              <h3 className="text-xl font-bold !leading-[1.5] tracking-wider text-gray-800 sm:text-3xl">
+              <h3 className="text-xl font-bold !leading-[1.5] tracking-wide text-gray-800 sm:text-3xl">
                 {feature.title}
               </h3>
               <ul className="mt-3 space-y-1.5 pl-2 sm:pl-3">
