@@ -16,7 +16,7 @@ export default function ContactPage() {
   return (
     <main className="pb-24 pt-12">
       <Heading level="h2" tag="h1" className="mb-12 text-center">
-        お問い合わせ
+        無料相談を予約する
       </Heading>
 
       <div className="mx-auto max-w-[600px] space-y-8 px-5">
