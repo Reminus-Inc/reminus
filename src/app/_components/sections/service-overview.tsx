@@ -54,7 +54,7 @@ export function ServiceOverview() {
     >
       <SectionHeader
         label="Reminus CTO パートナーとは？"
-        headingClassName="text-xl sm:text-2xl md:text-3xl !leading-[1.8]"
+        headingClassName="text-xl sm:text-2xl md:text-3xl xl:text-4xl !leading-[1.8]"
         tag="h2"
       >
         技術・採用・開発体制に不安を抱えるスタートアップに、
