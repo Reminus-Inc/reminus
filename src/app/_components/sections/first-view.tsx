@@ -58,8 +58,8 @@ const Title = ({ className }: { className?: string }) => {
         className
       )}
     >
-      <span className="block">スタートアップの成長を</span>
-      <span className="block">技術判断で加速する</span>
+      <span className="block">スタートアップの経営を</span>
+      <span className="block">技術判断で加速させる</span>
     </h1>
   );
 };
