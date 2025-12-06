@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -57,16 +58,19 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-        keyframes: {
-          sushi: {
-            "0%": { transform: "translateX(0)" },
-            "100%": { transform: "translateX(-50%)" },
-          },
+      fontFamily: {
+        sans: ["var(--font-inter)", "var(--font-noto-sans-jp)", "sans-serif"],
+      },
+      keyframes: {
+        sushi: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
         },
-        animation: {
-          sushi: "sushi 16s linear infinite",
-        },
-      }
+      },
+      animation: {
+        sushi: "sushi 16s linear infinite",
+      },
+    },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;
