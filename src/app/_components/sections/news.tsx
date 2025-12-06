@@ -111,7 +111,7 @@ function NewsCard({ article }: { article: Article }) {
       href={article.url}
       target="_blank"
       rel="nofollow noopener noreferrer"
-      className="group block h-full rounded-md p-3 duration-300 hover:bg-muted md:p-6"
+      className="group block h-full rounded-md p-3 duration-300 hover:bg-muted md:p-5"
     >
       <div className="relative aspect-[128/67] w-full overflow-hidden rounded-md bg-gray-100">
         {article.imageUrl ? (
