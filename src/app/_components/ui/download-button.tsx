@@ -67,7 +67,7 @@ interface CustomDownloadButtonProps
 export const CustomDownloadButton = ({
   className,
   onClick,
-  subtitle = "非エンジニア経営者向け",
+  subtitle = "Reminus CTOパートナー",
   ...props
 }: CustomDownloadButtonProps) => {
   const { openDownloadDialog } = useDownloadDialogContext();
