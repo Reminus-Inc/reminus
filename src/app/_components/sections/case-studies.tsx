@@ -45,7 +45,7 @@ const caseStudyItemList: CaseStudyItem[] = [
     category: "GovTech SaaS スタートアップ",
     title: "GovTech SaaSの製品構想を整理し、開発ロードマップ〜外注監修まで一気通貫",
     scale: "資本金 1,000万円",
-    financialBackground: "自己資本（新規事業）",
+    financialBackground: "自己資金（新規事業）",
     serviceTypeList: [
       SERVICE_TYPE.DEVELOPMENT,
       SERVICE_TYPE.PRODUCT,
@@ -63,7 +63,7 @@ const caseStudyItemList: CaseStudyItem[] = [
     category: "製造業 SaaS スタートアップ",
     title: "プロダクト構想を開発計画に落とし込み、ゼロから内製組織を立ち上げ。",
     scale: "資本金 3,000万円",
-    financialBackground: "自己資本（黒字）",
+    financialBackground: "自己資金（黒字）",
     serviceTypeList: [
       SERVICE_TYPE.DEVELOPMENT,
       SERVICE_TYPE.PRODUCT,
@@ -99,7 +99,7 @@ const caseStudyItemList: CaseStudyItem[] = [
     category: "士業特化バーティカルCRM SaaS スタートアップ",
     title: "エンジニア2名・コードなしの状態から内製開発組織を立ち上げ。",
     scale: "従業員数10名",
-    financialBackground: "自己資本 (新規事業）",
+    financialBackground: "自己資金 (新規事業）",
     serviceTypeList: [SERVICE_TYPE.DEVELOPMENT, SERVICE_TYPE.ORGANIZATION],
     supportContentList: [
       "CTO代行がシステム構想からMVP範囲を決め、スケジュールを策定",
