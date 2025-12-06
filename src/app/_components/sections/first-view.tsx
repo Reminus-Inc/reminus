@@ -35,7 +35,7 @@ export function FirstView() {
         </div>
       </div>
 
-      <div className="absolute right-0 hidden lg:block">
+      <div className="absolute right-0 hidden lg:block bottom-[-20px]">
         <Image
           src="/hero.png"
           alt=""
@@ -43,7 +43,7 @@ export function FirstView() {
           height={521}
           priority
           fetchPriority="high"
-          className="lg:max-w-[480px] xl:max-w-[580px]"
+          className="xl:w-[580px] xl:w-[640px]"
         />
       </div>
     </div>
