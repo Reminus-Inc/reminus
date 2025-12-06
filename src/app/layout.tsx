@@ -1,4 +1,4 @@
-import { Inter } from "next/font/google";
+import { Inter, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { GoogleTagManager } from "@next/third-parties/google";
@@ -9,10 +9,15 @@ import { DownloadDialogProvider } from "@/app/_components/ui/download-dialog-con
 import { DownloadDialog } from "@/app/_components/ui/download-dialog";
 
 import { DownloadDialogCloser } from "@/app/_components/layout/download-dialog-closer";
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const notoSansJP = Noto_Sans_JP({
+  subsets: ["latin"],
+  variable: "--font-noto-sans-jp",
+});
 
 export const metadata = {
-  title: "株式会社Reminus（レミナス）｜非エンジニア経営者のためのCTO代行サービス",
+  title:
+    "株式会社Reminus（レミナス）｜非エンジニア経営者のためのCTO代行サービス",
   description:
     "技術戦略や開発チームの構築でお困りの創業者様へ。株式会社Reminus（レミナス）がCTOを代行し、事業成長を技術面から強力にサポートします。まずはお気軽にご相談ください。",
 };
@@ -24,7 +29,9 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="ja" className="scroll-smooth">
-      <body className={`${inter.className} flex min-h-svh flex-col`}>
+      <body
+        className={`${inter.variable} ${notoSansJP.variable} flex min-h-svh flex-col font-sans`}
+      >
         <DownloadDialogProvider>
           {children}
           <DownloadDialog />
