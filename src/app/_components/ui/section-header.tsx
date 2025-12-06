@@ -14,6 +14,10 @@ interface SectionHeaderProps {
    */
   tag?: "h2" | "h3" | "h4" | "h5" | "h6";
   /**
+   * 見出しの配置
+   */
+  align?: "left" | "center";
+  /**
    * コンテナのクラス名 (gapなどの調整用)
    */
   className?: string;
@@ -27,14 +31,20 @@ export function SectionHeader({
   label,
   children,
   tag: Tag = "h2",
+  align = "left",
   className,
   headingClassName,
 }: SectionHeaderProps) {
   return (
     <div className={cn("flex flex-col gap-3", className)}>
       {/* 上部ラベル */}
-      <div className="flex items-center gap-2.5">
-        <div className="h-3 w-3 rounded-full bg-emerald-200" />
+      <div
+        className={cn(
+          "-ml-3 flex items-center gap-2.5 sm:-ml-5",
+          align === "center" && "justify-center"
+        )}
+      >
+        <div className="h-2 w-2 rounded-full bg-emerald-200 sm:h-3 sm:w-3" />
         <p className="text-sm tracking-wider text-gray-800 sm:text-base">
           {label}
         </p>
@@ -43,7 +53,7 @@ export function SectionHeader({
       {/* メイン見出し */}
       <Tag
         className={cn(
-          "pl-2 font-bold tracking-wider text-gray-800 sm:pl-5",
+          "font-bold tracking-wider text-gray-800",
           headingClassName
         )}
       >

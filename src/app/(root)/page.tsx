@@ -1,7 +1,7 @@
 import { CaseStudies } from "@/app/_components/sections/case-studies";
 import { ClientLogos } from "../_components/sections/client-logos";
 import { CompanyOverview } from "../_components/sections/company-overview";
-import { NoteArticles } from "../_components/sections/note-articles";
+import { News } from "../_components/sections/news";
 import { Cta } from "../_components/sections/cta";
 import { FirstView } from "../_components/sections/first-view";
 import { Management } from "../_components/sections/management";
@@ -20,7 +20,7 @@ export default function Home() {
       <Cta className="from-white to-gray-50" />
       <PhaseMerit />
       <CaseStudies />
-      <NoteArticles />
+      <News />
       <Management />
       <Cta className="from-white to-gray-100" />
       <CompanyOverview />

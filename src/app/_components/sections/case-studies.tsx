@@ -6,6 +6,7 @@ import { CustomDownloadButton } from "@/app/_components/ui/download-button";
 import { Carousel } from "@/components/ui/carousel";
 
 import { Shapes } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 type CaseStudyItem = {
   category: string;
@@ -126,7 +127,8 @@ export function CaseStudies() {
 
         <div className="bleed md:hidden">
           <Carousel
-            opts={{ align: "start" }}
+            className="mx-5"
+            itemClassName="px-2"
             items={caseStudyItemList.map((item, index) => (
               <CaseStudyCard key={index} caseStudyItem={item} />
             ))}
@@ -141,9 +143,13 @@ export function CaseStudies() {
   );
 }
 
-function CaseStudyCard({ caseStudyItem }: { caseStudyItem: CaseStudyItem }) {
+type CaseStudyCardProps = {
+  caseStudyItem: CaseStudyItem;
+  className?: string;
+}
+function CaseStudyCard({ caseStudyItem, className }: CaseStudyCardProps) {
   return (
-    <div className="rounded-md border border-solid border-gray-300 bg-white ">
+    <div className={cn("rounded-md border border-solid border-gray-300 bg-white", className)}>
       <div className="p-5 sm:p-6">
       <p className="-ml-0.5 flex items-center gap-1.5 text-lg font-bold tracking-wide text-gray-600 sm:text-sm">
         <Shapes

@@ -18,6 +18,7 @@ type CarouselProps = {
   opts?: CarouselOptions
   plugins?: CarouselPlugin
   setApi?: (api: CarouselApi) => void
+  itemClassName?: string
 }
 
 type CarouselContextProps = {
@@ -57,6 +58,7 @@ const Carousel = React.forwardRef<
       children,
       showPagination = true,
       items,
+      itemClassName,
       ...props
     },
     ref
@@ -121,9 +123,9 @@ const Carousel = React.forwardRef<
 
     // If items are provided, render them automatically
     const content = items ? (
-      <CarouselContent>
+      <CarouselContent className={className}>
         {items.map((item, index) => (
-          <CarouselItem key={index}>
+          <CarouselItem key={index} className={itemClassName}>
             {item}
           </CarouselItem>
         ))}
@@ -145,7 +147,7 @@ const Carousel = React.forwardRef<
         <div
           ref={ref}
           onKeyDownCapture={handleKeyDown}
-          className={cn("relative overflow-hidden", className)}
+          className="relative overflow-hidden"
           role="region"
           aria-roledescription="carousel"
           {...props}
@@ -168,12 +170,8 @@ const CarouselContent = React.forwardRef<
   const { carouselRef } = useCarousel()
 
   return (
-    <div ref={carouselRef} className="mx-5">
-      <div
-        ref={ref}
-        className={cn("flex", className)}
-        {...props}
-      />
+    <div ref={carouselRef} className={className}>
+      <div ref={ref} className="flex" {...props} />
     </div>
   )
 })
@@ -189,7 +187,7 @@ const CarouselItem = React.forwardRef<
       role="group"
       aria-roledescription="slide"
       className={cn(
-        "min-w-0 shrink-0 grow-0 basis-[100%] px-1.5",
+        "min-w-0 shrink-0 grow-0 basis-[100%]",
         className
       )}
       {...props}
@@ -298,7 +296,7 @@ const CarouselPagination = React.forwardRef<
             className={cn(
               "w-4 h-4 rounded-full transition-colors",
               index === current 
-                ? "bg-blue-600" 
+                ? "bg-emerald-500" 
                 : "bg-gray-300 hover:bg-gray-500"
             )}
             onClick={() => api?.scrollTo(index)}

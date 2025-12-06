@@ -54,7 +54,7 @@ const Title = ({ className }: { className?: string }) => {
   return (
     <h1
       className={cn(
-        "text-[26px] font-bold leading-[1.45] tracking-wider text-gray-800 sm:text-4xl sm:leading-[1.45] md:text-5xl md:leading-[1.45] lg:text-4xl lg:leading-[1.45] lg:tracking-wide xl:text-5xl xl:leading-[1.45]",
+        "text-[25px] font-bold leading-[1.45] tracking-wider text-gray-800 sm:text-4xl sm:leading-[1.45] md:text-5xl md:leading-[1.45] lg:text-4xl lg:leading-[1.45] lg:tracking-wide xl:text-5xl xl:leading-[1.45]",
         className
       )}
     >
