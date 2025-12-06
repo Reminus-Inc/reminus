@@ -29,11 +29,11 @@ const features = [
   {
     image: "/illust-service-overview-2.svg",
     imageHeight: 158,
-    title: "開発が止まらない体制設計と採用支援",
+    title: "開発を停滞させない体制設計と採用支援",
     points: [
       "事業戦略に沿った内製・外注の判断や体制設計から、採用やパートナー選定まで支援。",
       "求人票やスカウト文面までサポート。採用コストと承諾率を最適化しエンジニア採用に向き合う土台を作ります。",
-    ],
+    ],　
   },
   {
     image: "/illust-service-overview-3.svg",
