@@ -1,5 +1,4 @@
 "use client";
-import { Section } from "../ui/section";
 import Image from "next/image";
 
 type Logo = {
@@ -21,9 +20,7 @@ const logos: Logo[] = [
 
 export function ClientLogos() {
   return (
-    <Section className="py-6 md:py-12" fullWidth="all">
-      <div className="flex flex-col gap-2">
-
+    <div className="pt-12 sm:pt-20">
         {/* --- XL: 固定表示（"一番でだす"を維持） --- */}
         <div className="py-4 hidden xl:block">
           <div className="mx-auto flex max-w-none flex-wrap items-center justify-center">
@@ -43,11 +40,11 @@ export function ClientLogos() {
             <LogoBelt keyPrefix="B" />
           </div>
         </div>
-        <p className="flex flex-wrap justify-center text-[10px] text-gray-400">
+
+        <p className="flex flex-wrap justify-center text-[10px] text-gray-400 mt-2">
           <span>※一部CTOパートナー以外を含む</span>
         </p>
       </div>
-    </Section>
   );
 }
 

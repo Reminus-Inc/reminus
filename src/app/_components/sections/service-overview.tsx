@@ -23,7 +23,7 @@ const features = [
     title: "プロダクト開発を最短で進める技術判断",
     points: [
       "MVP設計・機能の優先度・技術選定など、プロダクト成長に直結する技術判断を経営とセットで即断サポート。",
-      "技術の不安で足を止めず、プロダクトとマーケットに集中できる状態をつくります。",
+      "技術の不安で足を止めず、プロダクトとマーケットに集中できる状態を作ります。",
     ],
   },
   {
@@ -41,7 +41,7 @@ const features = [
     title: "CTO採用待ちでプロダクトの進化を止めない",
     points: [
       "次の資金調達に求められるARR（売上）から逆算し、CTO不在でも技術判断と開発体制づくりを代行。",
-      "専任CTOの採用を待たずに、今日から事業計画達成に向けてアクセルを踏める状態をつくります。",
+      "専任CTOの採用を待たずに、今日から事業計画達成に向けてアクセルを踏める状態を作ります。",
     ],
   },
 ];
@@ -50,7 +50,7 @@ export function ServiceOverview() {
   return (
     <div
       id="service-overview"
-      className="mx-auto w-[82%] max-w-[1200px] py-20 md:w-[86%]"
+      className="mx-auto w-[82%] max-w-[1200px] py-24 md:w-[86%] sm:py-32"
     >
       <SectionHeader
         label="Reminus CTO パートナーとは？"
