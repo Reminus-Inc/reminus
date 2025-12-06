@@ -33,7 +33,7 @@ const features = [
     points: [
       "事業戦略に沿った内製・外注の判断や体制設計から、採用やパートナー選定まで支援。",
       "求人票やスカウト文面までサポート。採用コストと承諾率を最適化しエンジニア採用に向き合う土台を作ります。",
-    ],　
+    ],
   },
   {
     image: "/illust-service-overview-3.svg",
@@ -54,7 +54,7 @@ export function ServiceOverview() {
     >
       <SectionHeader
         label="Reminus CTO パートナーとは？"
-        headingClassName="text-lg sm:text-2xl md:text-3xl !leading-[1.8]"
+        headingClassName="text-xl sm:text-2xl md:text-3xl !leading-[1.8]"
         tag="h2"
       >
         技術・採用・開発体制に不安を抱えるスタートアップに、

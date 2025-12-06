@@ -53,7 +53,7 @@ export function SectionHeader({
       {/* メイン見出し */}
       <Tag
         className={cn(
-          "font-bold tracking-wider text-gray-800",
+          "font-bold tracking-wide sm:tracking-wider text-gray-800",
           align === "center" && "text-center",
           headingClassName
         )}
