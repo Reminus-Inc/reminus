@@ -16,12 +16,12 @@ type ArticleType = (typeof ARTICLE_TYPE)[keyof typeof ARTICLE_TYPE];
 
 export function News() {
   return (
-    <div id="news" className="bg-gray-50 py-32">
+    <div id="news" className="bg-gray-50 py-24 sm:py-32">
       <div className="mx-auto w-[82%] max-w-[1200px] bg-gray-50 md:w-[86%]">
         <SectionHeader
           label="News"
           align="center"
-          headingClassName="text-3xl sm:text-[40px] text-center !leading-[1.7]"
+          headingClassName="text-3xl sm:text-[40px] !leading-[1.7]"
         >
           お知らせ
         </SectionHeader>

@@ -54,6 +54,7 @@ export function SectionHeader({
       <Tag
         className={cn(
           "font-bold tracking-wider text-gray-800",
+          align === "center" && "text-center",
           headingClassName
         )}
       >

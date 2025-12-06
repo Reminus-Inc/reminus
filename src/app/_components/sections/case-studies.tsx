@@ -1,10 +1,9 @@
 "use client";
 
-import { MainHeading } from "../ui/main-heading";
-import { Section } from "../ui/section";
 import { CustomDownloadButton } from "@/app/_components/ui/download-button";
 import { Carousel } from "@/components/ui/carousel";
 
+import { SectionHeader } from "../ui/section-header";
 import { Shapes } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -106,10 +105,19 @@ const caseStudyItemList: CaseStudyItem[] = [
 
 export function CaseStudies() {
   return (
-    <Section id="case-studies">
-      <div className="space-y-16">
-        <MainHeading>事例紹介</MainHeading>
+    <div
+      id="case-studies"
+      className="mx-auto w-[82%] max-w-[1200px] py-24 sm:py-32 md:w-[86%]"
+    >
+      <SectionHeader
+        label="Case Studies"
+        align="center"
+        headingClassName="text-3xl sm:text-[40px] !leading-[1.7]"
+      >
+        事例のご紹介
+      </SectionHeader>
 
+      <div className="mt-12 sm:mt-16">
         <div className="max-w-8xl mx-auto hidden grid-cols-1 gap-6 md:grid md:grid-cols-2 xl:grid-cols-3">
           {caseStudyItemList.map((item, index) => (
             <CaseStudyCard key={index} caseStudyItem={item} />
@@ -125,12 +133,12 @@ export function CaseStudies() {
             ))}
           />
         </div>
-
-        <div className="mt-12 flex justify-center">
-          <CustomDownloadButton subtitle="成果の詳細を公開中" />
-        </div>
       </div>
-    </Section>
+
+      <div className="mt-12 sm:mt-20">
+        <CustomDownloadButton subtitle="成果の詳細を公開中" />
+      </div>
+    </div>
   );
 }
 
