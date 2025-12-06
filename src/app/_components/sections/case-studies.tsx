@@ -34,7 +34,7 @@ const caseStudyItemList: CaseStudyItem[] = [
     financialBackground: "エクイティファイナンス",
     serviceTypeList: [SERVICE_TYPE.DEVELOPMENT, SERVICE_TYPE.RECRUITMENT],
     supportContentList: [
-        "CTO代行が技術投資に優先度をつけ、工数を削減",
+      "CTO代行が技術投資に優先度をつけ、工数を削減",
       "事業状況に適した役割設計とスカウト文面の最適化",
     ],
     resultList: [
@@ -44,38 +44,29 @@ const caseStudyItemList: CaseStudyItem[] = [
   },
   {
     category: "GovTech SaaS スタートアップ",
-    title: "GovTech SaaSの製品構想を整理し、開発ロードマップ〜外注監修まで一気通貫",
+    title:
+      "GovTech SaaSの製品構想を整理し、開発ロードマップ〜外注監修まで一気通貫",
     scale: "資本金 1,000万円",
     financialBackground: "自己資金（新規事業）",
-    serviceTypeList: [
-      SERVICE_TYPE.DEVELOPMENT,
-      SERVICE_TYPE.PRODUCT,
-    ],
+    serviceTypeList: [SERVICE_TYPE.DEVELOPMENT, SERVICE_TYPE.PRODUCT],
     supportContentList: [
       "行政制度特有の業務を踏まえ、開発ロードマップと技術戦略を策定",
       "セールスの戦略とスケジュールを踏まえMVP範囲を精緻化",
-      "外注先の選定と、発注後の外注先管理をサポート"
+      "外注先の選定と、発注後の外注先管理をサポート",
     ],
-    resultList: [
-      "（現在ご支援中）"
-    ],
+    resultList: ["（現在ご支援中）"],
   },
   {
     category: "製造業 SaaS スタートアップ",
     title: "プロダクト構想を開発計画に落とし込み、ゼロから内製組織を立ち上げ。",
     scale: "資本金 3,000万円",
     financialBackground: "自己資金（黒字）",
-    serviceTypeList: [
-      SERVICE_TYPE.DEVELOPMENT,
-      SERVICE_TYPE.PRODUCT,
-    ],
+    serviceTypeList: [SERVICE_TYPE.DEVELOPMENT, SERVICE_TYPE.PRODUCT],
     supportContentList: [
       "販売戦略から逆算して、MVPの開発ロードマップと技術戦略を策定",
-      "内製リソースがゼロの状態から3名の初期チームと開発基盤を構築"
+      "内製リソースがゼロの状態から3名の初期チームと開発基盤を構築",
     ],
-    resultList: [
-      "（現在ご支援中）"
-    ],
+    resultList: ["（現在ご支援中）"],
   },
   {
     category: "経営管理 SaaS スタートアップ",
@@ -146,23 +137,28 @@ export function CaseStudies() {
 type CaseStudyCardProps = {
   caseStudyItem: CaseStudyItem;
   className?: string;
-}
+};
 function CaseStudyCard({ caseStudyItem, className }: CaseStudyCardProps) {
   return (
-    <div className={cn("rounded-md border border-solid border-gray-300 bg-white", className)}>
+    <div
+      className={cn(
+        "rounded-md border border-solid border-gray-300 bg-white",
+        className
+      )}
+    >
       <div className="p-5 sm:p-6">
-      <p className="-ml-0.5 flex items-center gap-1.5 text-lg font-bold tracking-wide text-gray-600 sm:text-sm">
-        <Shapes
-          className="h-4 w-4 text-primary sm:h-5 sm:w-5"
-          strokeWidth={2}
-        />
-        {caseStudyItem.category}
-      </p>
-      <p className="mt-1.5 whitespace-pre-line text-base font-bold leading-6 tracking-wide text-gray-800 sm:text-lg sm:leading-7">
-        {caseStudyItem.title}
-      </p>
+        <p className="-ml-0.5 flex items-center gap-1.5 text-lg font-bold tracking-wide text-gray-600 sm:text-sm">
+          <Shapes
+            className="h-4 w-4 text-primary sm:h-5 sm:w-5"
+            strokeWidth={2}
+          />
+          {caseStudyItem.category}
+        </p>
+        <p className="mt-1.5 whitespace-pre-line text-base font-bold leading-6 tracking-wide text-gray-800 sm:text-lg sm:leading-7">
+          {caseStudyItem.title}
+        </p>
       </div>
-      <div className="mt-1.5 sm:mt-2 px-4 pb-4">
+      <div className="mt-1.5 px-4 pb-4 sm:mt-2">
         <Row isEven={false}>
           <Head>会社規模</Head>
           <Body>{caseStudyItem.scale}</Body>
@@ -174,14 +170,14 @@ function CaseStudyCard({ caseStudyItem, className }: CaseStudyCardProps) {
         <Row isEven={false}>
           <Head>支援業務</Head>
           <Body>
-              {caseStudyItem.serviceTypeList.map((item, index) => (
+            {caseStudyItem.serviceTypeList.map((item, index) => (
               <span key={index} className="whitespace-nowrap">
-                  {item}
+                {item}
                 {index < caseStudyItem.serviceTypeList.length - 1 && (
                   <span className="mx-1.5 text-gray-300">/</span>
                 )}
-                </span>
-              ))}
+              </span>
+            ))}
           </Body>
         </Row>
         <Row isEven={true}>
@@ -235,7 +231,7 @@ function Head({ children }: { children: React.ReactNode }) {
 
 function Body({ children }: { children: React.ReactNode }) {
   return (
-    <div className="grow pl-6 pr-2 py-2.5">
+    <div className="grow py-2.5 pl-6 pr-2">
       <div className="text-xs leading-5 tracking-wide text-gray-600 sm:text-sm sm:leading-relaxed">
         {children}
       </div>
