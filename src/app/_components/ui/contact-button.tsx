@@ -25,11 +25,7 @@ export function ContactButton({
         }}
       >
         <span>
-          {children || (
-            <>
-              無料相談を<span className="whitespace-nowrap">予約する</span>
-            </>
-          )}
+          {children || "お問い合わせ"}
         </span>
       </Link>
     </PrimaryButton>
