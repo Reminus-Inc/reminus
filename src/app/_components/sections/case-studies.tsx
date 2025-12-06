@@ -87,7 +87,7 @@ const caseStudyItemList: CaseStudyItem[] = [
       SERVICE_TYPE.RECRUITMENT,
     ],
     supportContentList: [
-      "事業上モートとなる財務モデリングに特化して全体設計を策定",
+      "競争優位性となる財務モデリングに特化して全体設計を策定",
       "CTO代行がエンジニアに訴求できる採用プロセスを構築",
     ],
     resultList: [
