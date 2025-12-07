@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export function FirstView() {
   return (
-    <div className="relative mx-auto flex w-[80%] max-w-[1220px] flex-col items-center gap-8 pt-6 md:pt-10 lg:w-[90%] lg:flex-row lg:pt-6 xl:gap-2">
+    <div className="relative mx-auto flex w-[80%] max-w-[1200px] flex-col items-center gap-8 pt-6 md:pt-10 lg:w-[90%] lg:flex-row lg:pt-6 xl:gap-2">
       <div className="relative z-[1] w-full lg:w-fit lg:flex-none">
         <Image
           src="/crown.png"
@@ -43,7 +43,7 @@ export function FirstView() {
           height={521}
           priority
           fetchPriority="high"
-          className="xl:w-[580px] xl:w-[640px]"
+          className="lg:w-[560px] xl:w-[620px]"
         />
       </div>
     </div>
