@@ -146,7 +146,7 @@ export function NavMenu() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="block px-3 py-5 text-sm font-bold tracking-wider text-gray-800"
+                      className="block px-3 py-5 font-bold tracking-wider text-gray-800"
                       onClick={handleLinkClick}
                     >
                       {item.label}
