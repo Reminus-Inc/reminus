@@ -1,80 +1,116 @@
 "use client";
 
-import { MainHeading } from "../ui/main-heading";
 import { Settings, Users, Building2, LucideIcon } from "lucide-react";
-import { Section } from "../ui/section";
+import { SectionHeader } from "../ui/section-header";
+import { cn } from "@/lib/utils";
+
+const solutions = [
+  {
+    icon: Settings,
+    category: "技術戦略",
+    title: "経営に技術視点を補う",
+    description: [
+      "経営戦略を踏まえ、過不足ない技術選定やロードマップを立案。",
+      "経営の目線で技術を説明し、優先度付けを可能にします。",
+    ],
+  },
+  {
+    icon: Users,
+    category: "エンジニア採用",
+    title: "候補者の見極めと訴求を両立",
+    description: [
+      "採用媒体の選定や求人作成から、スカウト文設計、訴求まで伴走。",
+      "候補者を見極めた上で「入社したい！」を引き出します。",
+    ],
+  },
+  {
+    icon: Building2,
+    category: "開発組織",
+    title: "開発スピードと学習サイクルを最大化",
+    description: [
+      "事業計画に基づいて組織体制を設計。",
+      "高速な市場投入サイクルにより、経営に学習を蓄積し、PMFへの前進を実現します。",
+    ],
+  },
+];
 
 export function Solutions() {
   return (
-    <Section className="bg-white" fullWidth="lg">
-      <MainHeading subtitle="技術戦略・採用・組織設計をワンストップで統合し、非エンジニア経営者が抱える技術の不安を解消します。">
-        <span className="relative -bottom-1 mx-1 text-5xl font-bold sm:text-6xl">
-          3
+    <div className="mx-auto w-[82%] max-w-[1200px] bg-white py-24 sm:py-32 md:w-[86%]">
+      <SectionHeader
+        label="3つのエンジニアリング要素を補完"
+        headingClassName="text-xl sm:text-2xl md:text-3xl xl:text-4xl !leading-[1.8]"
+      >
+        <span className="highlight-underline text-emerald-500">
+          技術戦略・採用・組織設計をワンストップで統合
         </span>
-        <span className="text-gray-800">
-          つの
-          <span className="relative inline-block">
-            <span className="relative z-[2] text-emerald-500">
-              エンジニアリング要素
-            </span>
-            <span className="z-[1] absolute bottom-[8px] left-0 right-0 h-[10px] sm:h-[14px] bg-yellow-200" />
-          </span>
-          を補完
-        </span>
-      </MainHeading>
+        し、
+        <br className="hidden lg:inline" />
+        非エンジニア経営者が抱える技術の不安を解消します。
+      </SectionHeader>
 
-      <div className="flex flex-col justify-center gap-6 lg:flex-row lg:gap-10">
-        <SolutionCard
-          icon={Settings}
-          title="技術戦略"
-          subtitle="経営に技術視点を補う"
-          description="経営戦略を踏まえ、過不足ない技術選定やロードマップを立案。経営の目線で技術を説明し、優先度付けを可能にします。"
-        />
-        <SolutionCard
-          icon={Users}
-          title="エンジニア採用"
-          subtitle="候補者の見極めと訴求を両立"
-          description="採用媒体の選定や求人作成から、スカウト文設計、訴求まで伴走。候補者を見極めた上で「入社したい！」を引き出します。"
-        />
-        <SolutionCard
-          icon={Building2}
-          title="開発組織"
-          subtitle="開発スピードと学習サイクルを最大化"
-          description="事業計画に基づいて組織体制を設計。高速な市場投入サイクルにより、経営に学習を蓄積し、PMFへの前進を実現します。"
-        />
+      <div className="mt-16 flex flex-col">
+        {solutions.map((solution, index) => (
+          <SolutionItem
+            key={index}
+            icon={solution.icon}
+            category={solution.category}
+            title={solution.title}
+            description={solution.description}
+            isLast={index === solutions.length - 1}
+          />
+        ))}
       </div>
-    </Section>
+    </div>
   );
 }
 
-type SolutionCardProps = {
+type SolutionItemProps = {
   icon: LucideIcon;
+  category: string;
   title: string;
-  subtitle: string;
-  description: string;
+  description: string[];
+  isLast: boolean;
 };
-const SolutionCard = ({
+const SolutionItem = ({
   icon: Icon,
+  category,
   title,
-  subtitle,
   description,
-}: SolutionCardProps) => {
+  isLast,
+}: SolutionItemProps) => {
   return (
-    <div className="relative rounded-lg border-2 border-emerald-400 bg-white p-10 pt-7 lg:max-w-[390px]">
-      <div className="mb-4 flex items-center gap-4 lg:-ml-3 lg:mb-5 lg:justify-center">
-        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100">
-          <Icon className="h-6 w-6 text-emerald-500" />
+    <div
+      className={cn(
+        "flex flex-col items-center gap-6 sm:flex-row sm:gap-12 md:pl-10",
+        !isLast && "dashed-border-bottom mb-8 pb-8 md:mb-10 md:pb-10"
+      )}
+    >
+      <div className="hidden flex-shrink-0 sm:block">
+        <div className="flex h-[140px] w-[140px] items-center justify-center rounded-full bg-emerald-50">
+          <Icon className="h-16 w-16 text-emerald-500" strokeWidth={2} />
         </div>
-        <h3 className="text-[1.4rem] font-bold tracking-wider text-emerald-500">
-          {title}
-        </h3>
       </div>
 
-      <div className="space-y-1.5">
-        <h4 className="text-lg font-bold leading-7 text-gray-800">
-          {subtitle}
-        </h4>
-        <p className="leading-7 text-gray-800">{description}</p>
+      <div>
+        <span className="font-bold tracking-wider text-emerald-500">
+          {category}
+        </span>
+        <h3 className="mt-0.5 text-[22px] font-bold tracking-wide text-gray-800 sm:text-2xl md:mt-1 md:text-3xl">
+          {title}
+        </h3>
+        <div className="mt-2 space-y-1 text-gray-700 md:text-lg">
+          <ul className="mt-4 space-y-1.5 pl-2 md:pl-3">
+            {description.map((point, i) => (
+              <li key={i} className="flex items-baseline gap-3">
+                <div className="h-2.5 w-2.5 shrink-0 rounded-full bg-emerald-200 sm:h-3 sm:w-3" />
+                <p className="text-sm !leading-[1.7] text-gray-800 sm:text-base">
+                  {point}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );

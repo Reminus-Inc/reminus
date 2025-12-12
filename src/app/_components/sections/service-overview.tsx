@@ -50,7 +50,7 @@ export function ServiceOverview() {
   return (
     <div
       id="service-overview"
-      className="mx-auto w-[82%] max-w-[1200px] py-24 md:w-[86%] sm:py-32"
+      className="mx-auto w-[82%] max-w-[1200px] py-24 sm:py-32 md:w-[86%]"
     >
       <SectionHeader
         label="Reminus CTO パートナーとは？"
@@ -65,21 +65,21 @@ export function ServiceOverview() {
         です。
       </SectionHeader>
 
-      <div className="mt-12">
+      <div className="mt-16">
         {features.map((feature, index) => (
           <div
             key={index}
             className={cn(
               "flex flex-col items-center gap-8 sm:flex-row-reverse sm:gap-12 md:pl-10",
               index !== features.length - 1 &&
-                "mb-8 border-b border-gray-200/80 pb-8"
+                "mb-8 pb-8 sm:border-b sm:border-gray-200"
             )}
           >
             <div className="flex-1">
-              <h3 className="text-xl font-bold !leading-[1.5] tracking-wide text-gray-800 sm:text-3xl">
+              <h3 className="text-xl font-bold !leading-[1.6] tracking-wide text-gray-800 sm:text-2xl md:text-3xl">
                 {feature.title}
               </h3>
-              <ul className="mt-3 space-y-1.5 pl-2 sm:pl-3">
+              <ul className="mt-3 space-y-1.5 pl-2 md:pl-3">
                 {feature.points.map((point, i) => (
                   <li key={i} className="flex items-baseline gap-3">
                     <div className="h-2.5 w-2.5 shrink-0 rounded-full bg-emerald-200 sm:h-3 sm:w-3" />
