@@ -31,11 +31,7 @@ export function Header({
       <div className="mx-auto w-full max-w-[1360px] px-4 sm:px-6">
         <div className="flex h-full items-center justify-between">
           <div className="flex items-center">
-            <Link
-              href="/"
-              className="transition-opacity hover:opacity-80"
-              onClick={handleLogoClick}
-            >
+            <Link href="/" onClick={handleLogoClick}>
               <ReminusLogo
                 className="h-4 w-auto md:h-6 md:scale-90"
                 aria-label="Reminus"

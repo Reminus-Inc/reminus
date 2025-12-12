@@ -18,7 +18,7 @@ const primaryButtonVariants = cva(
         white: "",
       },
       size: {
-        small: "px-6 text-sm",
+        small: "px-6 text-xs font-medium tracking-wide",
         medium: "px-8 text-base",
         default: "px-12 text-lg",
       },
@@ -82,8 +82,8 @@ const primaryButtonVariants = cva(
         variant: "filled",
         color: "white",
         class: [
-          "bg-white text-primary",
-          "hover:bg-transparent hover:text-white hover:ring-white hover:ring-1",
+          "bg-white text-emerald-500",
+          "hover:bg-white/95 hover:text-emerald-600",
         ],
       },
       {
