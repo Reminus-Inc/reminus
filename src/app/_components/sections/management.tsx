@@ -1,8 +1,7 @@
 import { Chip } from "@/components/ui/chip";
 import Image from "next/image";
 import Link from "next/link";
-import { MainHeading } from "../ui/main-heading";
-import { Section } from "../ui/section";
+import { SectionHeader } from "../ui/section-header";
 
 const NEWS_TYPE = {
   SPEAKING: "登壇",
@@ -54,63 +53,73 @@ const getChipColor = (newsType: NewsType) => {
 
 export function Management() {
   return (
-    <Section id="management" data-nosnippet>
-      <MainHeading>経営者紹介</MainHeading>
+    <div id="management" className="bg-gray-50 py-24 sm:py-32" data-nosnippet>
+      <div className="mx-auto w-[82%] max-w-[1200px] md:w-[86%]">
+        <SectionHeader
+          label="Management"
+          align="center"
+          headingClassName="text-3xl sm:text-[40px] !leading-[1.7]"
+        >
+          経営者紹介
+        </SectionHeader>
 
-      <div className="flex flex-col gap-5 md:flex-row md:gap-20">
-        <div className="flex items-center justify-center">
-          <div className="h-[auto] w-[90%] max-w-[400px] rounded-full border-4 border-gray-200 md:w-[400px]">
-            <Image
-              src="/profile.png"
-              alt=""
-              width={400}
-              height={400}
-              className="h-full w-full object-cover"
-            />
-          </div>
-        </div>
-
-        <div className="flex-1">
-          <h3 className="mb-4 text-2xl font-bold tracking-wide text-gray-800 md:text-3xl">
-            太田 蓮
-            <span className="ml-2 text-sm tracking-normal text-gray-500">
-              代表取締役
-            </span>
-          </h3>
-
-          <div className="space-y-8">
-            <div className="prose prose-gray max-w-none text-left">
-              <p className="text-sm leading-7 text-gray-600 md:text-base md:leading-7">
-                株式会社ヘンリーで医療SaaSの急成長をソフトウェアエンジニアやSREとして牽引後、株式会社immedioでCTOを務め、Sales
-                Techマルチプロダクトの経営を技術から推進する。社外CTO・技術顧問として累計5社を支援し、資金調達にも貢献した経験を持つ。2025年、株式会社Reminusを創業。
-              </p>
+        <div className="mt-16 flex flex-col gap-8 md:flex-row md:gap-20">
+          <div className="flex items-center justify-center md:items-start">
+            <div className="h-[auto] w-[80%] max-w-[400px] rounded-full md:w-[360px]">
+              <Image
+                src="/profile.png"
+                alt=""
+                width={400}
+                height={400}
+                className="h-full w-full object-cover"
+              />
             </div>
+          </div>
 
-            <div>
-              <h4 className="mb-3 text-lg tracking-wide text-gray-800">
-                コンテンツ発信
-              </h4>
-              <ul className="list-none space-y-2.5 text-sm leading-relaxed text-gray-600 md:text-base md:leading-relaxed">
-                {news.map((news) => (
-                  <li key={news.title} className="flex items-baseline gap-2">
-                    <Chip color={getChipColor(news.type)}>{news.type}</Chip>
-                    <p className="flex-1">
-                      <Link
-                        href={news.link}
-                        className="text-blue-600 underline decoration-blue-300 decoration-[0.5px] underline-offset-4 transition-all hover:text-blue-800 hover:decoration-blue-500 hover:decoration-[1px]"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {news.title}
-                      </Link>
-                    </p>
-                  </li>
-                ))}
-              </ul>
+          <div className="flex-1">
+            <h3 className="mb-4">
+              <span className="text-2xl font-bold tracking-wider text-gray-800 md:text-3xl">
+                太田 蓮
+              </span>
+              <span className="ml-2 text-sm tracking-wide text-gray-700">
+                代表取締役
+              </span>
+            </h3>
+
+            <div className="space-y-8">
+              <div className="max-w-none text-left">
+                <p className="text-sm !leading-[1.9] tracking-wide text-gray-800 md:text-base">
+                  株式会社ヘンリーで医療SaaSの急成長をソフトウェアエンジニアやSREとして牽引後、株式会社immedioでCTOを務め、Sales
+                  Techマルチプロダクトの経営を技術から推進する。社外CTO・技術顧問として累計5社を支援し、資金調達にも貢献した経験を持つ。2025年、株式会社Reminusを創業。
+                </p>
+              </div>
+
+              <div>
+                <h4 className="mb-3 text-lg tracking-wide text-gray-800">
+                  コンテンツ発信
+                </h4>
+                <ul className="list-none space-y-2.5 text-sm leading-relaxed text-gray-600 md:text-base md:leading-relaxed">
+                  {news.map((news) => (
+                    <li key={news.title} className="flex items-baseline gap-2">
+                      <Chip color={getChipColor(news.type)}>{news.type}</Chip>
+                      <p className="flex-1">
+                        <Link
+                          href={news.link}
+                          className="text-blue-600 decoration-blue-300 decoration-[0.5px] underline-offset-4 transition-all hover:underline hover:decoration-blue-600 hover:decoration-[1px]"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {news.title}
+                        </Link>
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </Section>
+    </div>
   );
 }
