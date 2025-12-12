@@ -41,6 +41,10 @@ export function NavMenu() {
       label: "サービス概要",
     },
     {
+      href: isHomePage ? "#why-reminus" : "/#why-reminus",
+      label: "選ばれる理由",
+    },
+    {
       href: isHomePage ? "#case-studies" : "/#case-studies",
       label: "事例紹介",
     },
@@ -141,19 +145,19 @@ export function NavMenu() {
             </div>
 
             <nav className="flex-1 overflow-y-auto">
-              <ul className="px-4">
+              <ul className="mt-2 px-4">
                 {menuItems.map((item, index) => (
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="block px-3 py-5 font-bold tracking-wider text-gray-800"
+                      className="block px-4 py-5 font-bold tracking-wider text-gray-800"
                       onClick={handleLinkClick}
                     >
                       {item.label}
                     </Link>
 
                     {index < menuItems.length - 1 && (
-                      <div className="h-px bg-gray-100" />
+                      <div className="h-px bg-gray-200/60" />
                     )}
                   </li>
                 ))}
