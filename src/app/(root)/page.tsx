@@ -20,8 +20,8 @@ export default function Home() {
       <Cta className="from-white to-gray-50" />
       <PhaseMerit />
       <CaseStudies />
-      <News />
       <Management />
+      <News />
       <Cta className="from-white to-gray-100" />
       <CompanyOverview />
     </>

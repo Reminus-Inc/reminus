@@ -16,8 +16,8 @@ type ArticleType = (typeof ARTICLE_TYPE)[keyof typeof ARTICLE_TYPE];
 
 export function News() {
   return (
-    <div id="news" className="bg-gray-50 py-24 sm:py-32">
-      <div className="mx-auto w-[82%] max-w-[1200px] bg-gray-50 md:w-[86%]">
+    <div id="news" className="py-24 sm:py-32">
+      <div className="mx-auto w-[82%] max-w-[1200px] md:w-[86%]">
         <SectionHeader
           label="News"
           align="center"
