@@ -33,8 +33,7 @@ export const DownloadButton = ({
             onClick?.();
           }}
         >
-          <span className="whitespace-nowrap lg:hidden">資料を見る</span>
-          <span className="hidden whitespace-nowrap lg:inline">
+          <span className="whitespace-nowrap">
             資料ダウンロード
           </span>
         </Link>
@@ -51,8 +50,7 @@ export const DownloadButton = ({
         onClick?.();
       }}
     >
-      <span className="whitespace-nowrap lg:hidden">資料を見る</span>
-      <span className="hidden whitespace-nowrap lg:inline">
+      <span className="whitespace-nowrap">
         資料ダウンロード
       </span>
     </PrimaryButton>
