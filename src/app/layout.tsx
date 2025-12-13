@@ -28,7 +28,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ja" className="scroll-smooth">
+    <html lang="ja">
       <body
         className={`${inter.variable} ${notoSansJP.variable} flex min-h-svh flex-col font-sans`}
       >

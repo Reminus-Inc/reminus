@@ -51,8 +51,21 @@ export function NavMenu() {
     { href: isHomePage ? "#management" : "/#management", label: "経営者紹介" },
   ];
 
-  const handleLinkClick = () => {
+  const handleLinkClick = (
+    e?: React.MouseEvent<HTMLAnchorElement>,
+    href?: string
+  ) => {
     setIsOpen(false);
+
+    if (e && href?.startsWith("#")) {
+      e.preventDefault();
+      const id = href.substring(1);
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, "", href);
+      }
+    }
   };
 
   const menuVariants = {
@@ -83,6 +96,7 @@ export function NavMenu() {
             <Link
               key={item.href}
               href={item.href}
+              onClick={(e) => handleLinkClick(e, item.href)}
               className="group relative whitespace-nowrap text-sm tracking-wider text-foreground transition-colors hover:text-primary"
             >
               {item.label}
@@ -151,7 +165,7 @@ export function NavMenu() {
                     <Link
                       href={item.href}
                       className="block px-4 py-5 font-bold tracking-wider text-gray-800"
-                      onClick={handleLinkClick}
+                      onClick={(e) => handleLinkClick(e, item.href)}
                     >
                       {item.label}
                     </Link>
