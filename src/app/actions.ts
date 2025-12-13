@@ -2,7 +2,11 @@
 
 import { PrismaClient } from "@prisma/client";
 import { z } from "zod";
-import { DOCUMENT_TYPE_MAP, type DocumentType } from "./constants";
+import {
+  DOCUMENT_TYPE_MAP,
+  SLACK_NOTIFICATION_TYPE,
+  type DocumentType,
+} from "./constants";
 import { getSlackWebhookUrl } from "@/lib/get-slack-webhook-url";
 
 const prisma = new PrismaClient();
@@ -77,7 +81,10 @@ export async function submitInquiry(
     });
 
     // Slack通知を送信
-    const slackWebhookUrl = await getSlackWebhookUrl(isDevMode);
+    const slackWebhookUrl = await getSlackWebhookUrl(
+      isDevMode,
+      SLACK_NOTIFICATION_TYPE.CONTACT
+    );
     if (slackWebhookUrl != null) {
       await fetch(slackWebhookUrl, {
         method: "POST",
@@ -183,7 +190,10 @@ export async function requestDocument(
     });
 
     // Slack通知を送信
-    const slackWebhookUrl = await getSlackWebhookUrl(isDevMode);
+    const slackWebhookUrl = await getSlackWebhookUrl(
+      isDevMode,
+      SLACK_NOTIFICATION_TYPE.DOWNLOAD
+    );
     if (slackWebhookUrl != null) {
       const slackStart = performance.now();
       console.log("📨 Slack通知を送信します");

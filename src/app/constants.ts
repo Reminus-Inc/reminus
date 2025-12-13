@@ -13,3 +13,11 @@ export const DOCUMENT_URL_MAP = {
   [DOCUMENT_TYPE.CTO_UNIT]:
     "https://box.reminus.co.jp/p/reminus/reminus-ctounit-intro",
 } as const;
+
+export const SLACK_NOTIFICATION_TYPE = {
+  CONTACT: "contact",
+  DOWNLOAD: "download",
+} as const;
+
+export type SlackNotificationType =
+  (typeof SLACK_NOTIFICATION_TYPE)[keyof typeof SLACK_NOTIFICATION_TYPE];
