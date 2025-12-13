@@ -92,12 +92,12 @@ export const CustomDownloadButton = ({
   return (
     <Button className={baseClasses} onClick={handleClick} {...props}>
       <div className="relative z-[1] inline-flex w-full items-center justify-between">
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 border-[3px] border-solid border-slate-200">
           <Image
             src="/document-icon.png"
             alt="資料イメージ"
-            width={160}
-            height={89}
+            width={480}
+            height={270}
             className="max-w-[80px] object-contain sm:max-w-[120px]"
           />
         </div>
