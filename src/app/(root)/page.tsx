@@ -24,8 +24,8 @@ export default function Home() {
       <PhaseMerit />
       <CaseStudies />
       <Management />
+      <Cta className="from-gray-50 to-white" />
       <News />
-      <Cta className="from-white to-gray-100" />
       <CompanyOverview />
     </>
   );

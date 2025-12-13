@@ -2,7 +2,7 @@
 
 export const Footer = () => {
   return (
-    <footer className="bg-gray-100 py-4">
+    <footer className="bg-gray-50 py-4">
       <div className="container mx-auto px-6">
         <p className="text-center text-gray-600">
           <small>

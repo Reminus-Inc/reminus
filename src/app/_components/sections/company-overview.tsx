@@ -1,7 +1,7 @@
 export const CompanyOverview = () => {
   return (
-    <div className="bg-gray-100" data-nosnippet>
-      <div className="container mx-auto px-6 pb-12 pt-16">
+    <div className="bg-gray-50" data-nosnippet>
+      <div className="mx-auto w-[82%] max-w-[1200px] pb-8 pt-24 sm:pb-10 sm:pt-32 md:w-[86%]">
         <Table>
           <TableRow>
             <TableLabel>会社名</TableLabel>
@@ -35,7 +35,7 @@ export const CompanyOverview = () => {
 
 const Table = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="mx-auto table text-sm tracking-wider text-gray-600">
+    <div className="mx-auto table text-sm tracking-wider text-gray-800">
       {children}
     </div>
   );
