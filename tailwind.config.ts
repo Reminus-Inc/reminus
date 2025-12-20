@@ -61,15 +61,6 @@ export default {
       fontFamily: {
         sans: ["var(--font-inter)", "var(--font-noto-sans-jp)", "sans-serif"],
       },
-      keyframes: {
-        sushi: {
-          "0%": { transform: "translateX(0)" },
-          "100%": { transform: "translateX(-50%)" },
-        },
-      },
-      animation: {
-        sushi: "sushi 16s linear infinite",
-      },
     },
   },
   plugins: [tailwindcssAnimate],

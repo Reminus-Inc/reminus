@@ -13,37 +13,36 @@ type Logo = {
 };
 
 const logos: Logo[] = [
-  { name: "カイゼンベース", logo: "/logos/kaizen-base.png",  width: 242, height: 39,  spWidth: 242, spHeight: 39 },
-  { name: "千葉エコ・エネルギー", logo: "/logos/chiba-eco.webp", width: 92,  height: 38,  spWidth: 92,  spHeight: 38 },
-  { name: "DRESS CODE", logo: "/logos/dress_code.svg",       width: 228, height: 28,  spWidth: 205, spHeight: 25 },
-  { name: "Zaimo", logo: "/logos/zaimo.svg",                  width: 134, height: 28,  spWidth: 134,  spHeight: 28 },
-  { name: "SalesBrain", logo: "/logos/salesbrain.png",        width: 201, height: 34,  spWidth: 201, spHeight: 34 },
+  { name: "カイゼンベース", logo: "/logos/kaizen-base.png",  width: 200, height: 39,  spWidth: 120, spHeight: 20 },
+  { name: "千葉エコ・エネルギー", logo: "/logos/chiba-eco.webp", width: 92,  height: 38,  spWidth: 80,  spHeight: 25 },
+  { name: "1backoffice", logo: "/logos/1backoffice.png", width: 160,  height: 38,  spWidth: 90,  spHeight: 21 },
+  { name: "DRESS CODE", logo: "/logos/dress_code.svg",       width: 160, height: 28,  spWidth: 100, spHeight: 18 },
+  { name: "Zaimo", logo: "/logos/zaimo.svg",                  width: 120, height: 28,  spWidth: 80,  spHeight: 12 },
+  { name: "SalesBrain", logo: "/logos/salesbrain.png",        width: 160, height: 34,  spWidth: 100, spHeight: 21 },
 ];
 
 export function ClientLogos() {
   return (
     <div className="pt-12 sm:pt-16">
-        {/* --- XL: 固定表示（"一番でだす"を維持） --- */}
-        <div className="hidden xl:block mx-auto max-w-[1220px] lg:w-[90%]">
-          <div className="flex max-w-none flex-wrap items-center justify-between">
+        {/* --- LG以上: 1行表示（ファーストビューが左右レイアウトの時） --- */}
+        <div className="hidden lg:block mx-auto max-w-[1220px] lg:w-[90%]">
+          <div className="flex max-w-none flex-nowrap items-center justify-between gap-x-4">
             {logos.map((l) => (
               <LogoItem key={l.name} logo={l} />
             ))}
           </div>
         </div>
 
-        {/* --- XL未満: シームレス無限スクロール --- */}
-        <div className="xl:hidden overflow-hidden">
-          {/* 同一グループを2回並べ、2つめが左端にきたときにリセット */}
-          <div className="flex animate-sushi w-max will-change-transform">
-            {/* グループA */}
-            <LogoBelt keyPrefix="A" />
-            {/* グループB（Aの完全コピー） */}
-            <LogoBelt keyPrefix="B" />
+        {/* --- LG未満: 3×2グリッド表示 --- */}
+        <div className="lg:hidden px-4">
+          <div className="grid grid-cols-3 gap-x-4 gap-y-8 justify-items-center">
+            {logos.map((l) => (
+              <LogoItem key={l.name} logo={l} />
+            ))}
           </div>
         </div>
 
-        <p className="mt-4 flex flex-wrap justify-center text-[10px] text-gray-400 mt-2">
+        <p className="mt-4 flex flex-wrap justify-center text-[10px] text-gray-400">
           <span>※一部CTOパートナー以外を含む</span>
         </p>
       </div>
@@ -64,8 +63,8 @@ function LogoItem({ logo: l, className }: LogoItemProps) {
         alt={`${l.name} logo`}
         width={l.spWidth}
         height={l.spHeight}
-        className="block sm:hidden object-contain"
-        style={{ width: `${l.spWidth}px`, height: `${l.spHeight}px`, objectFit: "contain" }}
+        className="block sm:hidden object-contain w-full h-auto"
+        style={{ maxWidth: `${l.spWidth}px`, maxHeight: `${l.spHeight}px` }}
         priority={false}
       />
       {/* sm以上（640px〜） */}
@@ -84,7 +83,7 @@ function LogoItem({ logo: l, className }: LogoItemProps) {
 
 function LogoBelt({ keyPrefix = "" }: { keyPrefix?: string }) {
   return (
-    <div className="flex w-max items-center gap-4">
+    <div className="flex w-max items-center gap-0">
       {logos.map((l) => (
         <LogoItem
           key={keyPrefix ? `${keyPrefix}-${l.name}` : l.name}
