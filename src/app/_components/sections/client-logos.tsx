@@ -15,8 +15,8 @@ type Logo = {
 const logos: Logo[] = [
   { name: "カイゼンベース", logo: "/logos/kaizen-base.png",  width: 200, height: 39,  spWidth: 120, spHeight: 20 },
   { name: "千葉エコ・エネルギー", logo: "/logos/chiba-eco.webp", width: 92,  height: 38,  spWidth: 80,  spHeight: 25 },
-  { name: "1backoffice", logo: "/logos/1backoffice.png", width: 160,  height: 38,  spWidth: 90,  spHeight: 21 },
-  { name: "DRESS CODE", logo: "/logos/dress_code.svg",       width: 160, height: 28,  spWidth: 100, spHeight: 18 },
+  { name: "1backoffice", logo: "/logos/1backoffice.png", width: 160,  height: 38,  spWidth: 100,  spHeight: 23 },
+  { name: "DRESS CODE", logo: "/logos/dress_code.svg",       width: 160, height: 28,  spWidth: 120, spHeight: 18 },
   { name: "Zaimo", logo: "/logos/zaimo.svg",                  width: 120, height: 28,  spWidth: 80,  spHeight: 12 },
   { name: "SalesBrain", logo: "/logos/salesbrain.png",        width: 160, height: 34,  spWidth: 100, spHeight: 21 },
 ];
@@ -35,7 +35,7 @@ export function ClientLogos() {
 
         {/* --- LG未満: 3×2グリッド表示 --- */}
         <div className="lg:hidden px-4">
-          <div className="grid grid-cols-3 gap-x-4 gap-y-8 justify-items-center">
+          <div className="grid grid-cols-3 gap-x-1 gap-y-8 justify-items-center">
             {logos.map((l) => (
               <LogoItem key={l.name} logo={l} />
             ))}
