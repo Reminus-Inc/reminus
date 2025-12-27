@@ -185,13 +185,13 @@ function CaseStudyCard({ caseStudyItem, className }: CaseStudyCardProps) {
         className
       )}
     >
-      <div className="bg-gradient-to-r from-emerald-500 to-emerald-500/80 px-6 py-4">
+      <div className="bg-gradient-to-r from-emerald-500 to-emerald-500/80 px-4 py-4 sm:px-6">
         <p className="whitespace-pre-wrap text-lg font-bold !leading-[1.65] tracking-wide text-white sm:text-[22px]">
           {caseStudyItem.title}
         </p>
       </div>
 
-      <div className="mt-5 px-8">
+      <div className="mt-5 px-6 sm:px-8">
         {hasLogo ? (
           <div className="flex flex-col gap-2">
             <p className="text-xs tracking-wide text-gray-600" data-nosnippet>
@@ -221,7 +221,7 @@ function CaseStudyCard({ caseStudyItem, className }: CaseStudyCardProps) {
         )}
       </div>
 
-      <div className="mt-4 overflow-hidden px-6 pb-5">
+      <div className="mt-4 overflow-hidden px-4 pb-5 sm:px-6">
         <Row isEven={false}>
           <Head>会社規模</Head>
           <Body>{caseStudyItem.scale}</Body>
