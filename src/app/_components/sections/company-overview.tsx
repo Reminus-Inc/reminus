@@ -1,7 +1,7 @@
 export const CompanyOverview = () => {
   return (
     <div className="bg-gray-50" data-nosnippet>
-      <div className="mx-auto w-[82%] max-w-[1200px] pb-8 pt-24 sm:pb-10 sm:pt-32 md:w-[86%]">
+      <div className="mx-auto w-[82%] max-w-[1200px] pb-10 pt-24 md:w-[86%]">
         <Table>
           <TableRow>
             <TableLabel>会社名</TableLabel>
