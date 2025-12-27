@@ -22,6 +22,17 @@ declare global {
         [key: string]: unknown;
       },
     ) => void;
+    fbq?: (
+      command: string,
+      event: string,
+      parameters?: {
+        content_name?: string;
+        content_category?: string;
+        value?: number;
+        currency?: string;
+        [key: string]: unknown;
+      },
+    ) => void;
   }
 }
 
@@ -42,6 +53,7 @@ const trackEvent = (
   console.log("[trackEvent]", eventName, JSON.stringify(parameters));
   console.log("  gtag:", typeof window !== "undefined" && !!window.gtag);
   console.log("  twq :", typeof window !== "undefined" && !!window.twq);
+  console.log("  fbq :", typeof window !== "undefined" && !!window.fbq);
 
   // --- GA4 ---
   if (typeof window !== "undefined") {
@@ -99,6 +111,23 @@ const trackEvent = (
           event_name: eventName,
           ...parameters,
         });
+    }
+  }
+
+  // --- Meta Pixel (Facebook) tracking ---
+  if (typeof window !== "undefined" && window.fbq && (parameters.interaction_type !== "contact" && parameters.interaction_type !== "spir")) {
+    switch (eventName) {
+      case "form_start":
+        window.fbq("track", "InitiateCheckout", {
+          content_name: parameters.interaction_type,
+        });
+        break;
+
+      case "generate_lead":
+        window.fbq("track", "Lead", {
+          content_name: parameters.interaction_type,
+        });
+        break;
     }
   }
 };
