@@ -11,7 +11,7 @@ export const Footer = () => {
         </p>
         <p className="text-center text-sm text-gray-600">
           <small>
-            Illustrations by 
+            Illustrations by&nbsp;
             <a
               href="https://storyset.com"
               target="_blank"
