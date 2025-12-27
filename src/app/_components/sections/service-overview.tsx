@@ -104,7 +104,7 @@ export function ServiceOverview() {
       </div>
 
       <div className="bleed mt-16 px-4">
-        <CustomDownloadButton subtitle="詳細事例とプランを公開中" />
+        <CustomDownloadButton subtitle="詳細事例とプランを公開中" asLink={true} />
       </div>
     </div>
   );
@@ -210,7 +210,7 @@ export const PhaseMerit = () => {
       </div>
 
       <div className="mt-16 flex justify-center">
-        <CustomDownloadButton subtitle="プランと料金を公開中" />
+        <CustomDownloadButton subtitle="プランと料金を公開中" asLink={true} />
       </div>
     </Section>
   );

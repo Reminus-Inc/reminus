@@ -313,7 +313,7 @@ export function ServiceOfferings() {
       </div>
 
       <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-        <DownloadButton />
+        <DownloadButton asLink={true} />
         <ContactButton />
       </div>
     </Section>
