@@ -2,8 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
 body {
   overscroll-behavior: none;
+  overflow-x: hidden;
 }
 
 @layer base {
@@ -147,7 +149,7 @@ body {
   }
 
   .dashed-border-bottom {
-    @apply bg-[image:linear-gradient(to_right,theme(colors.gray.300)_3px,transparent_3px)] bg-[length:6px_1px] bg-repeat-x bg-bottom;
+    @apply bg-[image:linear-gradient(to_right,theme(colors.gray.300)_3px,transparent_3px)] bg-[length:6px_1px] bg-bottom bg-repeat-x;
   }
 }
 

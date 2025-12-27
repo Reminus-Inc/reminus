@@ -150,7 +150,7 @@ const Carousel = React.forwardRef<
         <div
           ref={ref}
           onKeyDownCapture={handleKeyDown}
-          className="relative overflow-hidden"
+          className="relative"
           role="region"
           aria-roledescription="carousel"
           {...props}
@@ -274,7 +274,7 @@ const CarouselPagination = React.forwardRef<
   return (
     <div
       ref={ref}
-      className={cn("mt-6 flex items-center justify-center gap-4", className)}
+      className={cn("mt-10 flex items-center justify-center gap-4", className)}
       {...props}
     >
       {showArrows && (
