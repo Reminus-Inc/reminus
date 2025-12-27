@@ -18,8 +18,8 @@ export default function DownloadPage() {
     <div className="bg-white pb-10 pt-2 md:pb-16 md:pt-8">
       <div className="container mx-auto flex flex-col justify-center gap-8 px-6 md:gap-14 lg:flex-row lg:gap-20">
         <div className="space-y-6 lg:w-[475px]">
-          <Heading level="h2" tag="h1">
-            サービス紹介資料
+          <Heading level="h3" tag="h1">
+            3分でわかる<br className="md:hidden" />Reminus CTOパートナー
           </Heading>
 
           <div className="rounded bg-gray-50 p-4">
@@ -37,27 +37,26 @@ export default function DownloadPage() {
 
           <div className="space-y-4">
             <p className="text-sm leading-relaxed text-gray-600">
-              Reminus
-              CTOパートナーは、スタートアップ経営に技術を補うCTO代行サービスです。
-              本資料は、プランやサービス内容、導入事例、SaaS経営を俯瞰できる「課題整理シート」を公開しています。
+              Reminus CTOパートナーのサービス概要資料をご希望のお客様は、こちらのフォームにご入力ください。
+              すぐに資料をご覧いただけます。
             </p>
             <ul className="space-y-1.5 md:space-y-2.5">
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-600 md:h-5 md:w-5" />
                 <span className="text-sm font-bold text-gray-700 md:text-base">
-                  サービスのコンセプト
+                  サービスの背景
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-600 md:h-5 md:w-5" />
                 <span className="text-sm font-bold text-gray-700 md:text-base">
-                  SaaS経営の課題整理シート
+                  提供内容
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-600 md:h-5 md:w-5" />
                 <span className="text-sm font-bold text-gray-700 md:text-base">
-                  プランごとの料金とサービス内容
+                 プランと料金
                 </span>
               </li>
               <li className="flex items-start gap-2">
