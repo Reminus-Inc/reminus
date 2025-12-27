@@ -165,7 +165,7 @@ export function CaseStudies() {
       </div>
 
       <div className="mt-12 sm:mt-20">
-        <CustomDownloadButton subtitle="成果の詳細を公開中" />
+        <CustomDownloadButton subtitle="成果の詳細を公開中" asLink={true} />
       </div>
     </div>
   );
