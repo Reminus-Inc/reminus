@@ -22,20 +22,30 @@ export const DownloadButton = ({
 }: DownloadButtonProps) => {
   const { openDownloadDialog } = useDownloadDialogContext();
 
+  const handleClick = (e?: React.MouseEvent) => {
+    trackCTAClick("download");
+    if (!asLink) {
+      e?.preventDefault();
+      openDownloadDialog();
+    }
+    onClick?.();
+  };
+
+  const content = (
+    <span className="whitespace-nowrap">
+      資料ダウンロード
+    </span>
+  );
+
   if (asLink) {
     return (
       <PrimaryButton asChild {...props}>
         <Link
           href="/download"
           className="flex items-center gap-3"
-          onClick={() => {
-            trackCTAClick("download");
-            onClick?.();
-          }}
+          onClick={handleClick}
         >
-          <span className="whitespace-nowrap">
-            資料ダウンロード
-          </span>
+          {content}
         </Link>
       </PrimaryButton>
     );
@@ -44,15 +54,9 @@ export const DownloadButton = ({
   return (
     <PrimaryButton
       {...props}
-      onClick={() => {
-        trackCTAClick("download");
-        openDownloadDialog();
-        onClick?.();
-      }}
+      onClick={handleClick}
     >
-      <span className="whitespace-nowrap">
-        資料ダウンロード
-      </span>
+      {content}
     </PrimaryButton>
   );
 };
@@ -61,18 +65,23 @@ interface CustomDownloadButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   onClick?: () => void;
   subtitle?: string;
+  asLink?: boolean;
 }
 export const CustomDownloadButton = ({
   className,
   onClick,
   subtitle = "Reminus CTOパートナー",
+  asLink = false,
   ...props
 }: CustomDownloadButtonProps) => {
   const { openDownloadDialog } = useDownloadDialogContext();
 
-  const handleClick = () => {
+  const handleClick = (e?: React.MouseEvent) => {
     trackCTAClick("download");
-    openDownloadDialog();
+    if (!asLink) {
+      e?.preventDefault();
+      openDownloadDialog();
+    }
     onClick?.();
   };
 
@@ -87,8 +96,8 @@ export const CustomDownloadButton = ({
     className
   );
 
-  return (
-    <Button className={baseClasses} onClick={handleClick} {...props}>
+  const content = (
+    <>
       <div className="relative z-[1] inline-flex w-full items-center justify-between">
         <div className="flex-shrink-0 border-[3px] border-solid border-slate-200">
           <Image
@@ -117,6 +126,20 @@ export const CustomDownloadButton = ({
 
       {/* hover 時の背景色 */}
       <div className="pointer-events-none absolute left-0 top-0 z-[0] h-full w-full bg-emerald-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+    </>
+  );
+
+  if (asLink) {
+    return (
+      <Link href="/download" onClick={handleClick} className={baseClasses}>
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <Button className={baseClasses} onClick={handleClick} {...props}>
+      {content}
     </Button>
   );
 };
