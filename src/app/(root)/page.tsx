@@ -5,12 +5,11 @@ import { News } from "../_components/sections/news";
 import { Cta } from "../_components/sections/cta";
 import { FirstView } from "../_components/sections/first-view";
 import { Management } from "../_components/sections/management";
-import { Solutions } from "../_components/sections/solutions";
 import {
-  PhaseMerit,
   ServiceOverview,
 } from "../_components/sections/service-overview";
 import { WhyReminus } from "../_components/sections/why-reminus";
+import { ServiceMenu } from "../_components/sections/service-menu";
 
 export default function Home() {
   return (
@@ -19,9 +18,8 @@ export default function Home() {
       <ClientLogos />
       <ServiceOverview />
       <WhyReminus />
-      <Solutions />
+      <ServiceMenu />
       <Cta className="from-white to-gray-50" />
-      <PhaseMerit />
       <CaseStudies />
       <Management />
       <Cta className="from-gray-50 to-white" />
