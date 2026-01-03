@@ -14,7 +14,7 @@ export const createHubSpotContact = async (
 ): Promise<void> => {
   if (
     process.env.APP_ENVIRONMENT === "development" ||
-    isDevMode ||
+    // isDevMode ||
     !process.env.HUBSPOT_ACCESS_TOKEN
   ) {
     console.log("HubSpot contact creation skipped:", {
