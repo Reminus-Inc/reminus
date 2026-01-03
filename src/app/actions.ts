@@ -8,6 +8,7 @@ import {
   type DocumentType,
 } from "./constants";
 import { getSlackWebhookUrl } from "@/lib/get-slack-webhook-url";
+import { createHubSpotContact } from "@/lib/hubspot";
 
 const prisma = new PrismaClient();
 
@@ -79,6 +80,15 @@ export async function submitInquiry(
         content: validatedFields.content || "",
       },
     });
+
+    await createHubSpotContact(
+      {
+        company: validatedFields.company,
+        name: validatedFields.name,
+        email: validatedFields.email,
+      },
+      isDevMode
+    );
 
     // Slack通知を送信
     const slackWebhookUrl = await getSlackWebhookUrl(
@@ -174,6 +184,18 @@ export async function requestDocument(
     });
     const dbEnd = performance.now();
     console.log(`💾 DB保存完了: ${(dbEnd - dbStart).toFixed(2)}ms`);
+
+    // HubSpotに連絡先を登録
+    await createHubSpotContact(
+      {
+        company: validatedFields.company,
+        name: validatedFields.name,
+        email: validatedFields.email,
+        phone: validatedFields.phone,
+        isDownloadRequest: true,
+      },
+      isDevMode
+    );
 
     const params = new URLSearchParams({
       email: validatedFields.email,
