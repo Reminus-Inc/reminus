@@ -5,9 +5,7 @@ import { News } from "../_components/sections/news";
 import { Cta } from "../_components/sections/cta";
 import { FirstView } from "../_components/sections/first-view";
 import { Management } from "../_components/sections/management";
-import {
-  ServiceOverview,
-} from "../_components/sections/service-overview";
+import { ServiceOverview } from "../_components/sections/service-overview";
 import { WhyReminus } from "../_components/sections/why-reminus";
 import { ServiceMenu } from "../_components/sections/service-menu";
 
@@ -17,11 +15,11 @@ export default function Home() {
       <FirstView />
       <ClientLogos />
       <ServiceOverview />
+      <ServiceMenu className="bg-gray-50" />
       <WhyReminus />
-      <ServiceMenu />
-      <Cta className="from-white to-gray-50" />
+      <Cta className="from-white to-white" />
       <CaseStudies />
-      <Management />
+      <Management className="bg-gray-50" />
       <Cta className="from-gray-50 to-white" />
       <News />
       <CompanyOverview />
