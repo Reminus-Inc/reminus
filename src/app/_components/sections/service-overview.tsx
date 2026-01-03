@@ -46,70 +46,69 @@ const features = [
   },
 ];
 
-export function ServiceOverview() {
+export function ServiceOverview({ className }: { className?: string }) {
   return (
-    <div
-      id="service-overview"
-      className="mx-auto w-[82%] max-w-[1200px] py-24 sm:py-32 md:w-[86%]"
-    >
-      <SectionHeader
-        label="Reminus CTO パートナーとは？"
-        headingClassName="text-xl sm:text-2xl md:text-3xl xl:text-4xl !leading-[1.8]"
-        tag="h2"
-      >
-        技術・採用・開発体制に不安を抱えるスタートアップに、
-        <br className="hidden lg:inline" />
-        <span className="highlight-underline text-emerald-500">
-          経営直下で伴走するCTO代行サービス
-        </span>
-        です。
-      </SectionHeader>
+    <section id="service-overview" className={cn("py-24 sm:py-32", className)}>
+      <div className="mx-auto w-[82%] max-w-[1200px] md:w-[86%]">
+        <SectionHeader
+          label="Reminus CTO パートナーとは？"
+          headingClassName="text-xl sm:text-2xl md:text-3xl xl:text-4xl !leading-[1.8]"
+          tag="h2"
+        >
+          技術・採用・開発体制に不安を抱えるスタートアップに、
+          <br className="hidden lg:inline" />
+          <span className="highlight-underline text-emerald-500">
+            経営直下で伴走するCTO代行サービス
+          </span>
+          です。
+        </SectionHeader>
 
-      <div className="mt-16">
-        {features.map((feature, index) => (
-          <div
-            key={index}
-            className={cn(
-              "flex flex-col items-center gap-8 sm:flex-row-reverse sm:gap-12 md:pl-10",
-              index !== features.length - 1 &&
-                "mb-8 pb-8 sm:border-b sm:border-gray-200"
-            )}
-          >
-            <div className="flex-1">
-              <h3 className="text-xl font-bold !leading-[1.6] tracking-wide text-gray-800 sm:text-2xl md:text-3xl">
-                {feature.title}
-              </h3>
-              <ul className="mt-3 space-y-1.5 pl-2 md:pl-3">
-                {feature.points.map((point, i) => (
-                  <li key={i} className="flex items-baseline gap-3">
-                    <div className="h-2.5 w-2.5 shrink-0 rounded-full bg-emerald-200 sm:h-3 sm:w-3" />
-                    <p className="text-sm !leading-[1.7] text-gray-800 sm:text-base">
-                      {point}
-                    </p>
-                  </li>
-                ))}
-              </ul>
+        <div className="mt-16">
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              className={cn(
+                "flex flex-col items-center gap-8 sm:flex-row-reverse sm:gap-12 md:pl-10",
+                index !== features.length - 1 &&
+                  "mb-8 pb-8 sm:border-b sm:border-gray-200"
+              )}
+            >
+              <div className="flex-1">
+                <h3 className="text-xl font-bold !leading-[1.6] tracking-wide text-gray-800 sm:text-2xl md:text-3xl">
+                  {feature.title}
+                </h3>
+                <ul className="mt-3 space-y-1.5 pl-2 md:pl-3">
+                  {feature.points.map((point, i) => (
+                    <li key={i} className="flex items-baseline gap-3">
+                      <div className="h-2.5 w-2.5 shrink-0 rounded-full bg-emerald-200 sm:h-3 sm:w-3" />
+                      <p className="text-sm !leading-[1.7] text-gray-800 sm:text-base">
+                        {point}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="shrink-0">
+                <Image
+                  src={feature.image}
+                  width={180}
+                  height={feature.imageHeight}
+                  alt={feature.title}
+                  className={feature.imageClassName}
+                />
+              </div>
             </div>
-            <div className="shrink-0">
-              <Image
-                src={feature.image}
-                width={180}
-                height={feature.imageHeight}
-                alt={feature.title}
-                className={feature.imageClassName}
-              />
-            </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      <div className="bleed mt-16 px-4">
-        <CustomDownloadButton
-          subtitle="詳細事例とプランを公開中"
-          asLink={true}
-        />
+        <div className="bleed mt-16 px-4">
+          <CustomDownloadButton
+            subtitle="詳細事例とプランを公開中"
+            asLink={true}
+          />
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 

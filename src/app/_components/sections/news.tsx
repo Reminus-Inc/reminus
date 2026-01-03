@@ -14,9 +14,9 @@ const ARTICLE_TYPE = {
 } as const;
 type ArticleType = (typeof ARTICLE_TYPE)[keyof typeof ARTICLE_TYPE];
 
-export function News() {
+export function News({ className }: { className?: string }) {
   return (
-    <div id="news" className="py-24 sm:py-32">
+    <section id="news" className={cn("py-24 sm:py-32", className)}>
       <div className="mx-auto w-[82%] max-w-[1200px] md:w-[86%]">
         <SectionHeader
           label="News"
@@ -32,7 +32,7 @@ export function News() {
           </Suspense>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { SectionHeader } from "../ui/section-header";
+import { cn } from "@/lib/utils";
 
 const MEMBERS_DATA = [
   {
@@ -34,9 +35,9 @@ const MEMBERS_DATA = [
   },
 ];
 
-export function WhyReminus() {
+export function WhyReminus({ className }: { className?: string }) {   
   return (
-    <div id="why-reminus" className="bg-gray-50 py-24 sm:py-32">
+    <section id="why-reminus" className={cn("py-24 sm:py-32", className)}>
       <div className="mx-auto w-[82%] max-w-[1200px] md:w-[86%]">
         <SectionHeader
           label="選ばれる理由"
@@ -59,7 +60,7 @@ export function WhyReminus() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

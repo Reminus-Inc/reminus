@@ -2,6 +2,7 @@ import { Chip } from "@/components/ui/chip";
 import Image from "next/image";
 import Link from "next/link";
 import { SectionHeader } from "../ui/section-header";
+import { cn } from "@/lib/utils";
 
 const NEWS_TYPE = {
   SPEAKING: "登壇",
@@ -51,9 +52,13 @@ const getChipColor = (newsType: NewsType) => {
   }
 };
 
-export function Management() {
+export function Management({ className }: { className?: string }) {
   return (
-    <div id="management" className="bg-gray-50 py-24 sm:py-32" data-nosnippet>
+    <section
+      id="management"
+      className={cn("py-24 sm:py-32", className)}
+      data-nosnippet
+    >
       <div className="mx-auto w-[82%] max-w-[1200px] md:w-[86%]">
         <SectionHeader
           label="Management"
@@ -120,6 +125,6 @@ export function Management() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

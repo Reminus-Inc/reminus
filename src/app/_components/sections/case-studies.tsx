@@ -138,36 +138,35 @@ const caseStudyItemList: CaseStudyItem[] = [
   },
 ];
 
-export function CaseStudies() {
+export function CaseStudies({ className }: { className?: string }) {
   return (
-    <div
-      id="case-studies"
-      className="mx-auto w-[82%] max-w-[1200px] py-24 sm:py-32 md:w-[86%]"
-    >
-      <SectionHeader
-        label="Case Studies"
-        align="center"
-        headingClassName="text-3xl sm:text-[40px] !leading-[1.7]"
-      >
-        事例のご紹介
-      </SectionHeader>
+    <section id="case-studies" className={cn("py-24 sm:py-32", className)}>
+      <div className="mx-auto w-[82%] max-w-[1200px] md:w-[86%]">
+        <SectionHeader
+          label="Case Studies"
+          align="center"
+          headingClassName="text-3xl sm:text-[40px] !leading-[1.7]"
+        >
+          事例のご紹介
+        </SectionHeader>
 
-      <div className="mt-12 sm:mt-16">
-        <div className="bleed md:bleed-none">
-          <Carousel
-            className="mx-6 sm:mx-12 lg:mx-0"
-            itemClassName="px-1.5 sm:px-3 xl:px-4 lg:basis-[50%]"
-            items={caseStudyItemList.map((item, index) => (
-              <CaseStudyCard key={index} caseStudyItem={item} />
-            ))}
-          />
+        <div className="mt-12 sm:mt-16">
+          <div className="bleed md:bleed-none">
+            <Carousel
+              className="mx-6 sm:mx-12 lg:mx-0"
+              itemClassName="px-1.5 sm:px-3 xl:px-4 lg:basis-[50%]"
+              items={caseStudyItemList.map((item, index) => (
+                <CaseStudyCard key={index} caseStudyItem={item} />
+              ))}
+            />
+          </div>
+        </div>
+
+        <div className="bleed mt-16 px-4">
+          <CustomDownloadButton subtitle="成果の詳細を公開中" asLink />
         </div>
       </div>
-
-      <div className="bleed mt-16 px-4">
-        <CustomDownloadButton subtitle="成果の詳細を公開中" asLink />
-      </div>
-    </div>
+    </section>
   );
 }
 
