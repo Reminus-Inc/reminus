@@ -12,6 +12,66 @@ import { createHubSpotContact } from "@/lib/hubspot";
 
 const prisma = new PrismaClient();
 
+// 共通のリード受付処理
+async function acceptLead({
+  leadData,
+  slackNotificationType,
+  slackBlocks,
+  dbSaveFunction,
+  isDevMode,
+}: {
+  leadData: {
+    company: string;
+    name: string;
+    email: string;
+    phone?: string;
+    isDownloadRequest?: boolean;
+  };
+  slackNotificationType: typeof SLACK_NOTIFICATION_TYPE[keyof typeof SLACK_NOTIFICATION_TYPE];
+  slackBlocks: any[];
+  dbSaveFunction: () => Promise<any>;
+  isDevMode: boolean;
+}) {
+  // Slack通知を送信（最優先）
+  const slackWebhookUrl = await getSlackWebhookUrl(
+    isDevMode,
+    slackNotificationType
+  );
+
+  let slackPromise: Promise<any> = Promise.resolve(null);
+  if (slackWebhookUrl != null) {
+    console.log("📨 Slack通知を送信します");
+    slackPromise = fetch(slackWebhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ blocks: slackBlocks }),
+    }).catch((error) => {
+      console.error("Slack通知エラー:", error);
+      return null;
+    });
+  }
+
+  // HubSpot連絡先作成
+  const hubspotPromise = createHubSpotContact(leadData, isDevMode).catch(
+    (error) => {
+      console.error("HubSpot通知エラー:", error);
+      return null;
+    }
+  );
+
+  // DB保存を開始（バックグラウンドで実行）
+  dbSaveFunction()
+    .then(() => {
+      console.log("DB保存完了（バックグラウンド）");
+    })
+    .catch((error) => {
+      console.error("DB保存エラー（バックグラウンド）:", error);
+    });
+
+  // HubSpotかSlackのどちらかが完了したらレスポンスを返す
+  await Promise.race([hubspotPromise, slackPromise]);
+}
+
 const formSchema = z.object({
   company: z
     .string()
@@ -74,69 +134,55 @@ export async function submitInquiry(
   try {
     const validatedFields = formSchema.parse(Object.fromEntries(formData));
 
-    await prisma.inquiry.create({
-      data: {
-        ...validatedFields,
-        content: validatedFields.content || "",
-      },
-    });
-
-    await createHubSpotContact(
-      {
+    await acceptLead({
+      leadData: {
         company: validatedFields.company,
         name: validatedFields.name,
         email: validatedFields.email,
       },
-      isDevMode
-    );
-
-    // Slack通知を送信
-    const slackWebhookUrl = await getSlackWebhookUrl(
-      isDevMode,
-      SLACK_NOTIFICATION_TYPE.CONTACT
-    );
-    if (slackWebhookUrl != null) {
-      await fetch(slackWebhookUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          blocks: [
+      slackNotificationType: SLACK_NOTIFICATION_TYPE.CONTACT,
+      slackBlocks: [
+        {
+          type: "header",
+          text: {
+            type: "plain_text",
+            text: "🎉 新規お問い合わせ",
+            emoji: true,
+          },
+        },
+        {
+          type: "section",
+          fields: [
             {
-              type: "header",
-              text: {
-                type: "plain_text",
-                text: "🎉 新規お問い合わせ",
-                emoji: true,
-              },
+              type: "mrkdwn",
+              text: `*会社名:*\n${validatedFields.company}`,
             },
             {
-              type: "section",
-              fields: [
-                {
-                  type: "mrkdwn",
-                  text: `*会社名:*\n${validatedFields.company}`,
-                },
-                {
-                  type: "mrkdwn",
-                  text: `*お名前:*\n${validatedFields.name || "未入力"}`,
-                },
-                {
-                  type: "mrkdwn",
-                  text: `*メール:*\n${validatedFields.email}`,
-                },
-              ],
+              type: "mrkdwn",
+              text: `*お名前:*\n${validatedFields.name || "未入力"}`,
             },
             {
-              type: "section",
-              text: {
-                type: "mrkdwn",
-                text: `*お問い合わせ内容:*\n${validatedFields.content}`,
-              },
+              type: "mrkdwn",
+              text: `*メール:*\n${validatedFields.email}`,
             },
           ],
-        }),
-      });
-    }
+        },
+        {
+          type: "section",
+          text: {
+            type: "mrkdwn",
+            text: `*お問い合わせ内容:*\n${validatedFields.content}`,
+          },
+        },
+      ],
+      dbSaveFunction: () => prisma.inquiry.create({
+        data: {
+          ...validatedFields,
+          content: validatedFields.content || "",
+        },
+      }),
+      isDevMode,
+    });
 
     return {
       message:
@@ -178,25 +224,6 @@ export async function requestDocument(
       `✅ バリデーション完了: ${(validationEnd - validationStart).toFixed(2)}ms`
     );
 
-    const dbStart = performance.now();
-    await prisma.documentRequest.create({
-      data: validatedFields,
-    });
-    const dbEnd = performance.now();
-    console.log(`💾 DB保存完了: ${(dbEnd - dbStart).toFixed(2)}ms`);
-
-    // HubSpotに連絡先を登録
-    await createHubSpotContact(
-      {
-        company: validatedFields.company,
-        name: validatedFields.name,
-        email: validatedFields.email,
-        phone: validatedFields.phone,
-        isDownloadRequest: true,
-      },
-      isDevMode
-    );
-
     const params = new URLSearchParams({
       email: validatedFields.email,
       name: validatedFields.name,
@@ -204,65 +231,55 @@ export async function requestDocument(
       documentType: documentType,
     });
 
-    console.log("資料請求受信完了:", {
-      ...validatedFields,
-      documentType: DOCUMENT_TYPE_MAP[documentType],
-      timestamp: new Date().toISOString(),
-      environment: process.env.APP_ENVIRONMENT || "production",
-    });
-
-    // Slack通知を送信
-    const slackWebhookUrl = await getSlackWebhookUrl(
-      isDevMode,
-      SLACK_NOTIFICATION_TYPE.DOWNLOAD
-    );
-    if (slackWebhookUrl != null) {
-      const slackStart = performance.now();
-      console.log("📨 Slack通知を送信します");
-      await fetch(slackWebhookUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          blocks: [
+    await acceptLead({
+      leadData: {
+        company: validatedFields.company,
+        name: validatedFields.name,
+        email: validatedFields.email,
+        phone: validatedFields.phone,
+        isDownloadRequest: true,
+      },
+      slackNotificationType: SLACK_NOTIFICATION_TYPE.DOWNLOAD,
+      slackBlocks: [
+        {
+          type: "header",
+          text: {
+            type: "plain_text",
+            text: `📄 ${DOCUMENT_TYPE_MAP[documentType]}の資料請求がありました`,
+            emoji: true,
+          },
+        },
+        {
+          type: "section",
+          fields: [
             {
-              type: "header",
-              text: {
-                type: "plain_text",
-                text: `📄 ${DOCUMENT_TYPE_MAP[documentType]}の資料請求がありました`,
-                emoji: true,
-              },
+              type: "mrkdwn",
+              text: `*会社名:*\n${validatedFields.company}`,
             },
             {
-              type: "section",
-              fields: [
-                {
-                  type: "mrkdwn",
-                  text: `*会社名:*\n${validatedFields.company}`,
-                },
-                {
-                  type: "mrkdwn",
-                  text: `*お名前:*\n${validatedFields.name}`,
-                },
-                {
-                  type: "mrkdwn",
-                  text: `*メール:*\n${validatedFields.email}`,
-                },
-                {
-                  type: "mrkdwn",
-                  text: `*電話番号:*\n${validatedFields.phone}`,
-                },
-              ],
+              type: "mrkdwn",
+              text: `*お名前:*\n${validatedFields.name}`,
+            },
+            {
+              type: "mrkdwn",
+              text: `*メール:*\n${validatedFields.email}`,
+            },
+            {
+              type: "mrkdwn",
+              text: `*電話番号:*\n${validatedFields.phone}`,
             },
           ],
-        }),
-      });
-      const slackEnd = performance.now();
-      console.log(`📨 Slack通知完了: ${(slackEnd - slackStart).toFixed(2)}ms`);
-    }
+        },
+      ],
+      dbSaveFunction: () => prisma.documentRequest.create({
+        data: validatedFields,
+      }),
+      isDevMode,
+    });
 
     const endTime = performance.now();
     const totalTime = endTime - startTime;
-    console.log(`🎉 資料請求処理完了: 合計${totalTime.toFixed(2)}ms`);
+    console.log(`🎉 資料請求処理完了: 合計${totalTime.toFixed(2)}ms（通知待ち）`);
 
     return {
       message: "資料請求ありがとうございます。",
