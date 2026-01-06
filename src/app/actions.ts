@@ -8,7 +8,7 @@ import {
   type DocumentType,
 } from "./constants";
 import { getSlackWebhookUrl } from "@/lib/get-slack-webhook-url";
-import { createHubSpotContact } from "@/lib/hubspot";
+import { submitToHubSpotForm } from "@/lib/hubspot";
 
 const prisma = new PrismaClient();
 
@@ -19,18 +19,23 @@ async function acceptLead({
   slackBlocks,
   dbSaveFunction,
   isDevMode,
+  formType = "contact",
 }: {
   leadData: {
     company: string;
-    name: string;
+    lastname?: string;
+    firstname?: string;
+    name?: string;
     email: string;
     phone?: string;
+    content?: string;
     isDownloadRequest?: boolean;
   };
   slackNotificationType: typeof SLACK_NOTIFICATION_TYPE[keyof typeof SLACK_NOTIFICATION_TYPE];
   slackBlocks: any[];
   dbSaveFunction: () => Promise<any>;
   isDevMode: boolean;
+  formType?: "contact" | "download";
 }) {
   // Slack通知を送信（最優先）
   const slackWebhookUrl = await getSlackWebhookUrl(
@@ -51,8 +56,8 @@ async function acceptLead({
     });
   }
 
-  // HubSpot連絡先作成
-  const hubspotPromise = createHubSpotContact(leadData, isDevMode).catch(
+  // HubSpotフォーム送信
+  const hubspotPromise = submitToHubSpotForm(leadData, isDevMode, formType).catch(
     (error) => {
       console.error("HubSpot通知エラー:", error);
       return null;
@@ -77,10 +82,14 @@ const formSchema = z.object({
     .string()
     .min(1, { message: "会社名を入力してください" })
     .max(100, { message: "会社名は100文字以内で入力してください" }),
-  name: z
+  lastname: z
     .string()
-    .min(1, { message: "お名前またはSNSのIDを入力してください" })
-    .max(50, { message: "お名前は50文字以内で入力してください" }),
+    .min(1, { message: "姓を入力してください" })
+    .max(50, { message: "姓は50文字以内で入力してください" }),
+  firstname: z
+    .string()
+    .min(1, { message: "名を入力してください" })
+    .max(50, { message: "名は50文字以内で入力してください" }),
   email: z
     .string()
     .email({ message: "有効なメールアドレスを入力してください" })
@@ -96,10 +105,14 @@ const documentRequestSchema = z.object({
     .string()
     .min(1, { message: "会社名を入力してください" })
     .max(100, { message: "会社名は100文字以内で入力してください" }),
-  name: z
+  lastname: z
     .string()
-    .min(1, { message: "お名前を入力してください" })
-    .max(50, { message: "お名前は50文字以内で入力してください" }),
+    .min(1, { message: "姓を入力してください" })
+    .max(50, { message: "姓は50文字以内で入力してください" }),
+  firstname: z
+    .string()
+    .min(1, { message: "名を入力してください" })
+    .max(50, { message: "名は50文字以内で入力してください" }),
   email: z
     .string()
     .email({ message: "有効なメールアドレスを入力してください" })
@@ -137,8 +150,10 @@ export async function submitInquiry(
     await acceptLead({
       leadData: {
         company: validatedFields.company,
-        name: validatedFields.name,
+        lastname: validatedFields.lastname,
+        firstname: validatedFields.firstname,
         email: validatedFields.email,
+        content: validatedFields.content,
       },
       slackNotificationType: SLACK_NOTIFICATION_TYPE.CONTACT,
       slackBlocks: [
@@ -159,7 +174,7 @@ export async function submitInquiry(
             },
             {
               type: "mrkdwn",
-              text: `*お名前:*\n${validatedFields.name || "未入力"}`,
+              text: `*お名前:*\n${validatedFields.lastname} ${validatedFields.firstname}`,
             },
             {
               type: "mrkdwn",
@@ -177,7 +192,9 @@ export async function submitInquiry(
       ],
       dbSaveFunction: () => prisma.inquiry.create({
         data: {
-          ...validatedFields,
+          company: validatedFields.company,
+          name: `${validatedFields.lastname} ${validatedFields.firstname}`,
+          email: validatedFields.email,
           content: validatedFields.content || "",
         },
       }),
@@ -226,7 +243,7 @@ export async function requestDocument(
 
     const params = new URLSearchParams({
       email: validatedFields.email,
-      name: validatedFields.name,
+      name: `${validatedFields.lastname} ${validatedFields.firstname}`,
       company: validatedFields.company,
       documentType: documentType,
     });
@@ -234,12 +251,14 @@ export async function requestDocument(
     await acceptLead({
       leadData: {
         company: validatedFields.company,
-        name: validatedFields.name,
+        lastname: validatedFields.lastname,
+        firstname: validatedFields.firstname,
         email: validatedFields.email,
         phone: validatedFields.phone,
         isDownloadRequest: true,
       },
       slackNotificationType: SLACK_NOTIFICATION_TYPE.DOWNLOAD,
+      formType: "download",
       slackBlocks: [
         {
           type: "header",
@@ -258,7 +277,7 @@ export async function requestDocument(
             },
             {
               type: "mrkdwn",
-              text: `*お名前:*\n${validatedFields.name}`,
+              text: `*お名前:*\n${validatedFields.lastname} ${validatedFields.firstname}`,
             },
             {
               type: "mrkdwn",
@@ -272,7 +291,12 @@ export async function requestDocument(
         },
       ],
       dbSaveFunction: () => prisma.documentRequest.create({
-        data: validatedFields,
+        data: {
+          company: validatedFields.company,
+          name: `${validatedFields.lastname} ${validatedFields.firstname}`,
+          email: validatedFields.email,
+          phone: validatedFields.phone,
+        },
       }),
       isDevMode,
     });

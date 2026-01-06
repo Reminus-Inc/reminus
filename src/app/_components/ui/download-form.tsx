@@ -15,7 +15,8 @@ import { getIsDevMode } from "@/lib/get-is-dev-mode";
 
 type FormValues = {
   company: string;
-  name: string;
+  lastname: string;
+  firstname: string;
   email: string;
   phone: string;
 };
@@ -53,7 +54,8 @@ export const HookDownloadForm = ({
   const [hasStartedForm, setHasStartedForm] = useState(false);
   const [formValues, setFormValues] = useState({
     company: "",
-    name: "",
+    lastname: "",
+    firstname: "",
     email: "",
     phone: "",
   });
@@ -76,8 +78,12 @@ export const HookDownloadForm = ({
     () => state.errors?.find((error) => error.includes("会社名")),
     [state.errors]
   );
-  const nameError = useMemo(
-    () => state.errors?.find((error) => error.includes("お名前")),
+  const lastnameError = useMemo(
+    () => state.errors?.find((error) => error.includes("姓")),
+    [state.errors]
+  );
+  const firstnameError = useMemo(
+    () => state.errors?.find((error) => error.includes("名")),
     [state.errors]
   );
   const emailError = useMemo(
@@ -91,7 +97,8 @@ export const HookDownloadForm = ({
   const otherError: string | undefined = useMemo(() => {
     if (
       !companyError &&
-      !nameError &&
+      !lastnameError &&
+      !firstnameError &&
       !emailError &&
       !phoneError &&
       state.errors != null &&
@@ -99,7 +106,7 @@ export const HookDownloadForm = ({
     ) {
       return state.errors[0];
     }
-  }, [state.errors, companyError, nameError, emailError, phoneError]);
+  }, [state.errors, companyError, lastnameError, firstnameError, emailError, phoneError]);
 
   return (
     <form action={formAction} className="w-full">
@@ -113,6 +120,7 @@ export const HookDownloadForm = ({
             name="company"
             placeholder="株式会社Reminus"
             required
+            autoComplete="organization"
             value={formValues.company}
             onChange={(e) => {
               const value = e.target.value;
@@ -125,24 +133,47 @@ export const HookDownloadForm = ({
           )}
         </div>
 
-        <div className="space-y-1">
-          <Label htmlFor="name" className="text-sm text-gray-800">
-            お名前
-          </Label>
-          <Input
-            id="name"
-            name="name"
-            placeholder="山田太郎"
-            required
-            value={formValues.name}
-            onChange={(e) => {
-              const value = e.target.value;
-              trackFormStartOnce(value);
-              setFormValues((prev) => ({ ...prev, name: value }));
-            }}
-            className="border-gray-200 transition-colors focus:border-gray-400"
-          />
-          {nameError && <p className="text-xs text-red-500">{nameError}</p>}
+        <div className="flex gap-4">
+          <div className="flex-1 space-y-1">
+            <Label htmlFor="lastname" className="text-sm text-gray-800">
+              姓
+            </Label>
+            <Input
+              id="lastname"
+              name="lastname"
+              placeholder="山田"
+              required
+              autoComplete="family-name"
+              value={formValues.lastname}
+              onChange={(e) => {
+                const value = e.target.value;
+                trackFormStartOnce(value);
+                setFormValues((prev) => ({ ...prev, lastname: value }));
+              }}
+              className="border-gray-200 transition-colors focus:border-gray-400"
+            />
+            {lastnameError && <p className="text-xs text-red-500">{lastnameError}</p>}
+          </div>
+          <div className="flex-1 space-y-1">
+            <Label htmlFor="firstname" className="text-sm text-gray-800">
+              名
+            </Label>
+            <Input
+              id="firstname"
+              name="firstname"
+              placeholder="太郎"
+              required
+              autoComplete="given-name"
+              value={formValues.firstname}
+              onChange={(e) => {
+                const value = e.target.value;
+                trackFormStartOnce(value);
+                setFormValues((prev) => ({ ...prev, firstname: value }));
+              }}
+              className="border-gray-200 transition-colors focus:border-gray-400"
+            />
+            {firstnameError && <p className="text-xs text-red-500">{firstnameError}</p>}
+          </div>
         </div>
 
         <div className="space-y-1">
@@ -155,6 +186,7 @@ export const HookDownloadForm = ({
             type="email"
             placeholder="reminus@example.com"
             required
+            autoComplete="email"
             value={formValues.email}
             onChange={(e) => {
               const value = e.target.value;
@@ -175,6 +207,7 @@ export const HookDownloadForm = ({
             type="tel"
             placeholder="03-1234-5678"
             required
+            autoComplete="tel"
             value={formValues.phone}
             onChange={(e) => {
               const value = e.target.value;

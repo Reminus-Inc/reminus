@@ -52,7 +52,8 @@ export const ContactForm = ({
       const formData = new FormData(ref.current!);
       const conversionData = {
         email: formData.get("email") as string,
-        name: formData.get("name") as string,
+        firstname: formData.get("firstname") as string,
+        lastname: formData.get("lastname") as string,
         company: formData.get("company") as string,
       };
 
@@ -100,29 +101,52 @@ export const ContactForm = ({
             name="company"
             placeholder="株式会社Reminus"
             required
+            autoComplete="organization"
             onChange={(e) => {
               trackFormStartOnce(e.target.value);
             }}
           />
         </div>
 
-        <div className="space-y-2">
-          <div className="flex items-center gap-2">
-            <Label htmlFor="name" className="text-sm text-gray-800">
-              お名前
-            </Label>
-            {showChip && <Chip color="red">必須</Chip>}
+        <div className="flex gap-4">
+          <div className="flex-1 space-y-2">
+            <div className="flex items-center gap-2">
+              <Label htmlFor="lastname" className="text-sm text-gray-800">
+                姓
+              </Label>
+              {showChip && <Chip color="red">必須</Chip>}
+            </div>
+            <Input
+              id="lastname"
+              name="lastname"
+              placeholder="山田"
+              required
+              autoComplete="family-name"
+              className="border-gray-200 transition-colors focus:border-gray-400"
+              onChange={(e) => {
+                trackFormStartOnce(e.target.value);
+              }}
+            />
           </div>
-          <Input
-            id="name"
-            name="name"
-            placeholder="山田太郎"
-            required
-            className="border-gray-200 transition-colors focus:border-gray-400"
-            onChange={(e) => {
-              trackFormStartOnce(e.target.value);
-            }}
-          />
+          <div className="flex-1 space-y-2">
+            <div className="flex items-center gap-2">
+              <Label htmlFor="firstname" className="text-sm text-gray-800">
+                名
+              </Label>
+              {showChip && <Chip color="red">必須</Chip>}
+            </div>
+            <Input
+              id="firstname"
+              name="firstname"
+              placeholder="太郎"
+              required
+              autoComplete="given-name"
+              className="border-gray-200 transition-colors focus:border-gray-400"
+              onChange={(e) => {
+                trackFormStartOnce(e.target.value);
+              }}
+            />
+          </div>
         </div>
 
         <div className="space-y-2">
@@ -138,11 +162,13 @@ export const ContactForm = ({
             type="email"
             placeholder="reminus@example.com"
             required
+            autoComplete="email"
             onChange={(e) => {
               trackFormStartOnce(e.target.value);
             }}
           />
         </div>
+
 
         {showContent && (
           <div className="space-y-2">

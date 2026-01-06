@@ -21,7 +21,7 @@ export function SecondDownloadForm() {
         window.immedio?.submitFormData({
           additionalData: {
             email: formValues.email,
-            person_name: formValues.name,
+            person_name: `${formValues.lastname} ${formValues.firstname}`,
             phone_number: formValues.phone,
             company_name: formValues.company,
           },
