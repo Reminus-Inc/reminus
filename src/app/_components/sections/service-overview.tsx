@@ -63,39 +63,31 @@ export function ServiceOverview({ className }: { className?: string }) {
           です。
         </SectionHeader>
 
-        <div className="mt-16">
+        <div className="mt-16 flex flex-col gap-16 lg:gap-8 xl:gap-0">
           {features.map((feature, index) => (
             <div
               key={index}
               className={cn(
-                "flex flex-col items-center gap-8 sm:flex-row-reverse sm:gap-12 md:pl-10",
-                index !== features.length - 1 &&
-                  "mb-8 pb-8 sm:border-b sm:border-gray-200"
+                "flex flex-col-reverse items-center gap-6 sm:gap-10 md:gap-20",
+                index % 2 === 1 ? "sm:flex-row-reverse" : "sm:flex-row"
               )}
             >
-              <div className="flex-1">
-                <h3 className="text-xl font-bold !leading-[1.6] tracking-wide text-gray-800 sm:text-2xl md:text-3xl">
-                  {feature.title}
-                </h3>
-                <ul className="mt-3 space-y-1.5 pl-2 md:pl-3">
-                  {feature.points.map((point, i) => (
-                    <li key={i} className="flex items-baseline gap-3">
-                      <div className="h-2.5 w-2.5 shrink-0 rounded-full bg-emerald-200 sm:h-3 sm:w-3" />
-                      <p className="text-sm !leading-[1.7] text-gray-800 sm:text-base">
-                        {point}
-                      </p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="shrink-0">
+              <div className="max-w-[180px] shrink-0 md:max-w-[240px] lg:max-w-[320px]">
                 <Image
                   src={feature.image}
-                  width={180}
+                  width={320}
                   height={feature.imageHeight}
                   alt={feature.title}
                   className={feature.imageClassName}
                 />
+              </div>
+              <div className="flex flex-col gap-4 lg:gap-5">
+                <p className="text-xl font-bold !leading-[1.6] tracking-wide text-gray-800 sm:text-2xl md:text-3xl lg:text-4xl">
+                  {feature.title}
+                </p>
+                <p className="whitespace-pre-line text-sm !leading-[1.9] tracking-wide text-gray-800 sm:text-base md:text-lg lg:max-w-[600px]">
+                  {feature.points.join("")}
+                </p>
               </div>
             </div>
           ))}
