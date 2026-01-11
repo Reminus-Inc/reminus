@@ -2,6 +2,7 @@ import { SectionHeader } from "../ui/section-header";
 import { cn } from "@/lib/utils";
 import { Fragment } from "react";
 
+import Image from "next/image";
 const menuData = [
   {
     category: "技術戦略",
@@ -137,6 +138,34 @@ export function ServiceMenu({ className }: { className?: string }) {
               </Fragment>
             );
           })}
+        </div>
+
+        <div className="mt-24">
+          <h3 className="text-xl font-bold tracking-widest sm:text-2xl md:text-3xl">
+            具体的な進め方
+          </h3>
+          <p className="mt-4 text-sm !leading-[190%] text-gray-800 sm:text-base md:mt-6 md:text-lg">
+            週次の定例ミーティングを中心として予実を管理し、週単位で回していきます。
+            <br />
+            週中も、適宜チャットツールでコミュニケーションを取りながら、各自作業を進めます。
+          </p>
+
+          <div className="mt-8 md:mt-10">
+            <Image
+              src="/service-menu-flow-pc.svg"
+              alt=""
+              width={1240}
+              height={440}
+              className="hidden sm:block"
+            />
+            <Image
+              src="/service-menu-flow-sp.svg"
+              alt=""
+              width={700}
+              height={1040}
+              className="block sm:hidden"
+            />
+          </div>
         </div>
       </div>
     </section>
