@@ -38,9 +38,7 @@ export default function DownloadThanksPage() {
           メールにて資料のダウンロードリンクをお送りしました。
         </p>
         <div className="flex flex-col items-center gap-4 mt-24">
-          <Suspense fallback={null}>
-            <ViewDocumentButton />
-          </Suspense>
+        <ViewDocumentButton />
 
         </div>
 
