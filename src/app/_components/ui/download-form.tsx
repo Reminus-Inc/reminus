@@ -87,7 +87,7 @@ export const HookDownloadForm = ({
     [state.errors]
   );
   const emailError = useMemo(
-    () => state.errors?.find((error) => error.includes("メールアドレス")),
+    () => state.errors?.find((error) => error.includes("メールアドレス") || error.includes("個人の方")),
     [state.errors]
   );
   const phoneError = useMemo(
