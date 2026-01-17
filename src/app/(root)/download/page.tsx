@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function DownloadPage() {
   return (
-    <div className="bg-white pb-10 pt-2 md:pb-16 md:pt-8">
+    <div className="bg-white pb-10 pt-2 md:pb-16 md:pt-8 min-h-[calc(100svh-70px)]">
       <div className="container mx-auto flex flex-col justify-center gap-8 px-6 md:gap-14 lg:flex-row lg:gap-20">
         <div className="space-y-6 lg:w-[475px]">
           <Heading level="h3" tag="h1">
