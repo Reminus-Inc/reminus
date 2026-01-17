@@ -13,8 +13,6 @@ export function FirstView() {
           alt=""
           width={405}
           height={75}
-          priority
-          fetchPriority="high"
           className="-ml-1 max-w-[200px] sm:max-w-[280px] md:max-w-[320px] lg:max-w-[280px] xl:max-w-[405px]"
         />
         <Title className="mt-2" />
@@ -27,6 +25,7 @@ export function FirstView() {
             height={539}
             priority
             fetchPriority="high"
+            loading="eager"
             className="w-[80%] max-w-[320px] sm:max-w-[380px]"
           />
         </div>
