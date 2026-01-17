@@ -7,8 +7,9 @@ import { XPixelPageView } from "./_components/layout/x-pixel-pageview";
 import { Footer } from "./_components/layout/footer";
 import { DownloadDialogProvider } from "@/app/_components/ui/download-dialog-context";
 import { DownloadDialog } from "@/app/_components/ui/download-dialog";
-
 import { DownloadDialogCloser } from "@/app/_components/layout/download-dialog-closer";
+import { SpeedInsights } from "@vercel/speed-insights/next"
+
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
@@ -59,6 +60,7 @@ export default async function RootLayout({
             `,
           }}
         />
+        <SpeedInsights />
       </body>
     </html>
   );
