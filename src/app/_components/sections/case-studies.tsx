@@ -1,5 +1,3 @@
-"use client";
-
 import { CustomDownloadButton } from "@/app/_components/ui/download-button";
 import { Carousel } from "@/components/ui/carousel";
 
