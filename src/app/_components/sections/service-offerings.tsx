@@ -1,7 +1,3 @@
-"use client";
-
-import { MainHeading } from "../ui/main-heading";
-import { Section } from "../ui/section";
 import { ArrowRight, Check, X } from "lucide-react";
 import {
   BarChart,
@@ -18,10 +14,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { DownloadButton } from "@/app/_components/ui/download-button";
-import { ContactButton } from "@/app/_components/ui/contact-button";
 import { ReactNode } from "react";
-import { Carousel } from "@/components/ui/carousel";
 import React from "react";
 
 export type Service = {
@@ -277,45 +270,45 @@ const services: Service[] = [
   },
 ];
 
-
-export function ServiceOfferings() {
-  const handleServiceListClick = () => {
-    if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("event", "service_list_click", {
-        event_category: "engagement",
-        event_label: "service_list",
-      });
-    }
-  };
-
-  return (
-    <Section className="bg-gray-50" id="services">
-      <MainHeading>その他の提供サービス</MainHeading>
-      {/* Desktop view */}
-      <div
-        className="mb-16 hidden gap-6 md:grid md:grid-cols-2 lg:grid-cols-3"
-        onClick={handleServiceListClick}
-      >
-        {services.map((service, i) => (
-          <div key={i} className="h-full">
-            <ServiceCard service={service} />
-          </div>
-        ))}
-      </div>
-
-      <div className="bleed mb-16 md:hidden" onClick={handleServiceListClick}>
-        <Carousel
-          opts={{ align: "start" }}
-          items={services.map((service, i) => (
-            <ServiceCard key={i} service={service} />
-          ))}
-        />
-      </div>
-
-      <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-        <DownloadButton asLink={true} />
-        <ContactButton />
-      </div>
-    </Section>
-  );
-}
+//
+// export function ServiceOfferings() {
+//   const handleServiceListClick = () => {
+//     if (typeof window !== "undefined" && window.gtag) {
+//       window.gtag("event", "service_list_click", {
+//         event_category: "engagement",
+//         event_label: "service_list",
+//       });
+//     }
+//   };
+//
+//   return (
+//     <Section className="bg-gray-50" id="services">
+//       <MainHeading>その他の提供サービス</MainHeading>
+//       {/* Desktop view */}
+//       <div
+//         className="mb-16 hidden gap-6 md:grid md:grid-cols-2 lg:grid-cols-3"
+//         onClick={handleServiceListClick}
+//       >
+//         {services.map((service, i) => (
+//           <div key={i} className="h-full">
+//             <ServiceCard service={service} />
+//           </div>
+//         ))}
+//       </div>
+//
+//       <div className="bleed mb-16 md:hidden" onClick={handleServiceListClick}>
+//         <Carousel
+//           opts={{ align: "start" }}
+//           items={services.map((service, i) => (
+//             <ServiceCard key={i} service={service} />
+//           ))}
+//         />
+//       </div>
+//
+//       <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+//         <DownloadButton asLink={true} />
+//         <ContactButton />
+//       </div>
+//     </Section>
+//   );
+// }

@@ -1,5 +1,3 @@
-"use client";
-
 import { CustomDownloadButton } from "../ui/download-button";
 import { cn } from "@/lib/utils";
 import Image from "next/image";

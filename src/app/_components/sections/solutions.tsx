@@ -1,5 +1,3 @@
-"use client";
-
 import { Settings, Users, Building2, LucideIcon } from "lucide-react";
 import { SectionHeader } from "../ui/section-header";
 import { cn } from "@/lib/utils";
