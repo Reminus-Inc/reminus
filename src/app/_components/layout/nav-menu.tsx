@@ -41,8 +41,8 @@ export function NavMenu() {
       label: "サービス概要",
     },
     {
-      href: isHomePage ? "#why-reminus" : "/#why-reminus",
-      label: "選ばれる理由",
+      href: isHomePage ? "#service-menu" : "/#service-menu",
+      label: "提供メニュー",
     },
     {
       href: isHomePage ? "#case-studies" : "/#case-studies",
