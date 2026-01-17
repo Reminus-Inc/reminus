@@ -159,7 +159,7 @@ export function ServiceMenu({ className }: { className?: string }) {
               className="hidden sm:block"
             />
             <Image
-              src="/service-menu-flow-sp.svg"
+              src="/service-menu-flow-sp.png"
               alt=""
               width={390}
               height={586}
