@@ -18,12 +18,12 @@ export function FirstView() {
         <div className="mt-2 flex justify-center sm:mt-4 lg:hidden">
           <Image
             src="/hero.png"
-            alt="CTO代行サービス"
+            alt=""
             width={600}
             height={539}
             priority
             fetchPriority="high"
-            sizes="(max-width: 639px) min(80vw, 320px), min(80vw, 380px)"
+            loading="eager"
             className="w-[80%] max-w-[320px] sm:max-w-[380px]"
           />
         </div>
@@ -35,10 +35,11 @@ export function FirstView() {
       <div className="absolute right-0 hidden lg:block bottom-[-20px]">
         <Image
           src="/hero.png"
-          alt="CTO代行サービス"
+          alt=""
           width={580}
           height={521}
-          sizes="(min-width: 1280px) 620px, 560px"
+          priority
+          fetchPriority="high"
           className="lg:w-[560px] xl:w-[620px]"
         />
       </div>
