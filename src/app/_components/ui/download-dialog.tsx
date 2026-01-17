@@ -46,7 +46,6 @@ export const DownloadDialog = () => {
                     alt="Reminus CTO パートナー概要資料"
                     width={1326}
                     height={842}
-                    priority
                     className="block h-auto w-full"
                   />
                 </div>
