@@ -18,10 +18,10 @@ type NoteArticle = {
 };
 
 export const fetchNoteArticleList = async (): Promise<NoteArticle[]> => {
+  'use cache'
+
   try {
-    const res = await fetch(RSS_URL, {
-      next: { revalidate: 1800 },
-    });
+    const res = await fetch(RSS_URL);
     if (!res.ok) {
       return [];
     }
