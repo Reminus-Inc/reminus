@@ -45,7 +45,7 @@ export default async function RootLayout({
         {/* Twitter/X Pixel - 初期化してから読み込み */}
         <Script
           id="x-pixel-init"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               !function(e,t,n,s,u,a){
