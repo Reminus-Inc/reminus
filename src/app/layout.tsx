@@ -5,6 +5,9 @@ import { GoogleTagManager } from "@next/third-parties/google";
 import Script from "next/script";
 import { XPixelPageView } from "./_components/layout/x-pixel-pageview";
 import { Footer } from "./_components/layout/footer";
+import { DownloadDialogProvider } from "@/app/_components/ui/download-dialog-context";
+import { DownloadDialog } from "@/app/_components/ui/download-dialog";
+import { DownloadDialogCloser } from "@/app/_components/layout/download-dialog-closer";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -30,11 +33,11 @@ export default async function RootLayout({
       <body
         className={`${inter.variable} ${notoSansJP.variable} flex min-h-svh flex-col font-sans`}
       >
-        {/*<DownloadDialogProvider>*/}
+        <DownloadDialogProvider>
           {children}
-        {/*  <DownloadDialog />*/}
-        {/*  <DownloadDialogCloser />*/}
-        {/*</DownloadDialogProvider>*/}
+          <DownloadDialog />
+          <DownloadDialogCloser />
+        </DownloadDialogProvider>
         <Footer />
         <Toaster />
         {/* XPixelPageView はベタ打ちPixel IDでも動作するように更新 */}
