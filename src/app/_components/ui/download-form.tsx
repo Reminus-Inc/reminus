@@ -52,6 +52,7 @@ export const HookDownloadForm = ({
     message: "",
   });
   const [hasStartedForm, setHasStartedForm] = useState(false);
+  const [triedServerAction, setTriedServerAction] = useState(false);
   const [formValues, setFormValues] = useState({
     company: "",
     lastname: "",
@@ -67,12 +68,19 @@ export const HookDownloadForm = ({
     }
   };
 
+  const handleFormAction = (formData: FormData) => {
+    setTriedServerAction(true);
+    return formAction(formData);
+  };
+
   useEffect(() => {
-    if (state.status === "success" && state.redirect) {
+    // thanksで戻るボタンおしたときにstateが残っててまたredirectするバグがあるのでtriedServerActionのuseStateが必要
+    if (triedServerAction && state.status === "success" && state.redirect) {
       beforeThanks?.(formValues);
       router.push(state.redirect);
+      setTriedServerAction(false);
     }
-  }, [state.status, state.redirect, router, beforeThanks, formValues]);
+  }, [triedServerAction, state.status, state.redirect, router, beforeThanks, formValues]);
 
   const companyError = useMemo(
     () => state.errors?.find((error) => error.includes("会社名")),
@@ -109,7 +117,7 @@ export const HookDownloadForm = ({
   }, [state.errors, companyError, lastnameError, firstnameError, emailError, phoneError]);
 
   return (
-    <form action={formAction} className="w-full">
+    <form action={handleFormAction} className="w-full">
       <div className="space-y-4">
         <div className="space-y-1">
           <Label htmlFor="company" className="text-sm text-gray-800">
