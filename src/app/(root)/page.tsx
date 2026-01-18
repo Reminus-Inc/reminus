@@ -8,6 +8,7 @@ import { Management } from "../_components/sections/management";
 import { ServiceOverview } from "../_components/sections/service-overview";
 import { WhyReminus } from "../_components/sections/why-reminus";
 import { ServiceMenu } from "../_components/sections/service-menu";
+import { DownloadRequest } from "../_components/sections/download-request";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <Management className="bg-gray-50" />
       <Cta className="from-gray-50 to-white" />
       <News />
+      <DownloadRequest />
       <CompanyOverview />
     </>
   );
