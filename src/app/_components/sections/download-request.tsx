@@ -1,25 +1,27 @@
 import { DownloadForm } from "../ui/download-form";
 import { DOCUMENT_TYPE } from "@/app/constants";
-import { SectionHeader } from "../ui/section-header";
 
 export const DownloadRequest = () => {
   return (
-    <section id="download-request" className="pt-24 sm:pt-32 bg-gray-50">
-      <div className="mx-auto w-[82%] max-w-[1200px] md:w-[86%]">
-        <SectionHeader
-          label="Download"
-          align="center"
-          headingClassName="text-3xl sm:text-[40px] !leading-[1.7]"
-        >
-          資料ダウンロード
-        </SectionHeader>
+    <section
+      id="download-request"
+      className="rounded-tr-[100px_75px] bg-gradient-to-br from-emerald-500 from-30% to-emerald-600 py-24 sm:py-32 md:rounded-tr-[200px_150px]"
+    >
+      <div className="mx-auto w-[88%] max-w-[1200px]">
+        <h2 className="text-center text-white">
+          <span className="block text-base !leading-[1.7] tracking-widest sm:text-lg md:text-xl">
+            3分でわかるReminus CTOパートナー
+          </span>
+          <span className="mt-2 block text-3xl font-bold !leading-[1.7] tracking-wider sm:text-4xl md:text-5xl">
+            資料ダウンロード
+          </span>
+        </h2>
 
-        <p className="mt-8 text-center text-sm leading-relaxed text-gray-800 md:text-base">
-         フォーム送信後、<br className="sm:hidden"/> すぐに資料をご覧いただけます。
-        </p>
-
-        <div className="mx-auto mt-12 max-w-[400px]">
-          <div className="rounded-lg border border-gray-300 bg-white px-7 py-6">
+        <div className="mx-auto mt-12 flex max-w-[720px] justify-center rounded-3xl bg-white px-6 py-12 sm:py-20">
+          <div className="max-w-[400px]">
+            <p className="mb-8 text-sm !leading-[1.7] text-gray-700 sm:mb-10 md:text-base">
+              フォーム送信後、 すぐに資料をご覧いただけます。
+            </p>
             <DownloadForm documentType={DOCUMENT_TYPE.CTO_PARTNER} />
           </div>
         </div>
