@@ -73,12 +73,6 @@ export const DownloadDialog = () => {
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-600 md:h-5 md:w-5" />
                     <span className="text-sm font-bold text-gray-700 md:text-base">
-                      プランごとの料金とサービス内容
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-600 md:h-5 md:w-5" />
-                    <span className="text-sm font-bold text-gray-700 md:text-base">
                       導入事例
                     </span>
                   </li>

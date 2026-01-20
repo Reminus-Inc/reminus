@@ -204,7 +204,7 @@ export const PhaseMerit = () => {
       </div>
 
       <div className="bleed mt-16 px-4">
-        <CustomDownloadButton subtitle="プランと料金を公開中" asLink />
+        <CustomDownloadButton subtitle="プランと事例を公開中" asLink />
       </div>
     </Section>
   );
