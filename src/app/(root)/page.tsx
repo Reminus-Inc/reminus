@@ -12,7 +12,7 @@ import { DownloadRequest } from "../_components/sections/download-request";
 
 export default function Home() {
   return (
-    <div>
+    <>
       <FirstView />
       <ClientLogos />
       <div className="content-auto">
@@ -27,6 +27,6 @@ export default function Home() {
         <DownloadRequest />
         <CompanyOverview />
       </div>
-  </div>
+  </>
   );
 }

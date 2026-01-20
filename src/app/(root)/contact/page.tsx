@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="pb-24 pt-12">
+    <main className="pb-24 pt-12 font-sans">
       <Heading level="h2" tag="h1" className="mb-12 text-center">
         無料相談を予約する
       </Heading>
