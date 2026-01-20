@@ -20,6 +20,7 @@ async function acceptLead({
   dbSaveFunction,
   isDevMode,
   formType = "contact",
+  trackingContext,
 }: {
   leadData: {
     company: string;
@@ -36,7 +37,18 @@ async function acceptLead({
   dbSaveFunction: () => Promise<any>;
   isDevMode: boolean;
   formType?: "contact" | "download";
+  trackingContext?: {
+    hutk?: string;
+    pageUri?: string;
+    pageName?: string;
+  };
 }) {
+  console.log("📋 acceptLead 開始:", {
+    leadData,
+    formType,
+    trackingContext,
+    isDevMode
+  });
   // Slack通知を送信（最優先）
   const slackWebhookUrl = await getSlackWebhookUrl(
     isDevMode,
@@ -57,7 +69,7 @@ async function acceptLead({
   }
 
   // HubSpotフォーム送信
-  const hubspotPromise = submitToHubSpotForm(leadData, isDevMode, formType).catch(
+  const hubspotPromise = submitToHubSpotForm(leadData, isDevMode, formType, trackingContext).catch(
     (error) => {
       console.error("HubSpot通知エラー:", error);
       return null;
@@ -428,8 +440,19 @@ export async function submitInquiry(
   formData: FormData,
   isDevMode: boolean
 ): Promise<InquiryActionState> {
+  console.log("📝 submitInquiry 開始");
+
   try {
     const validatedFields = formSchema.parse(Object.fromEntries(formData));
+
+    // HubSpotトラッキング情報を取得
+    const trackingContext = {
+      hutk: formData.get('hutk') as string,
+      pageUri: formData.get('pageUri') as string,
+      pageName: formData.get('pageName') as string,
+    };
+
+    console.log("📝 submitInquiry - トラッキング情報:", trackingContext);
 
     await acceptLead({
       leadData: {
@@ -440,6 +463,7 @@ export async function submitInquiry(
         content: validatedFields.content,
       },
       slackNotificationType: SLACK_NOTIFICATION_TYPE.CONTACT,
+      trackingContext,
       slackBlocks: [
         {
           type: "header",
@@ -525,6 +549,13 @@ export async function requestDocument(
       `✅ バリデーション完了: ${(validationEnd - validationStart).toFixed(2)}ms`
     );
 
+    // HubSpotトラッキング情報を取得
+    const trackingContext = {
+      hutk: formData.get('hutk') as string,
+      pageUri: formData.get('pageUri') as string,
+      pageName: formData.get('pageName') as string,
+    };
+
     const params = new URLSearchParams({
       email: validatedFields.email,
       name: `${validatedFields.lastname} ${validatedFields.firstname}`,
@@ -543,6 +574,7 @@ export async function requestDocument(
       },
       slackNotificationType: SLACK_NOTIFICATION_TYPE.DOWNLOAD,
       formType: "download",
+      trackingContext,
       slackBlocks: [
         {
           type: "header",

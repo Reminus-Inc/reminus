@@ -17,6 +17,7 @@ import {
 } from "react";
 import { PrimaryButton, PrimaryButtonProps } from "./primary-button";
 import { getIsDevMode } from "@/lib/get-is-dev-mode";
+import { getHubSpotContext } from "@/lib/hubspot-tracking";
 
 type ContactFormProps = {
   showContent?: boolean;
@@ -74,6 +75,13 @@ export const ContactForm = ({
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
+
+    // HubSpotトラッキング情報を追加
+    const hubspotContext = getHubSpotContext();
+    formData.append('hutk', hubspotContext.hutk);
+    formData.append('pageUri', hubspotContext.pageUri);
+    formData.append('pageName', hubspotContext.pageName);
+
     startTransition(() => {
       formAction(formData);
     });

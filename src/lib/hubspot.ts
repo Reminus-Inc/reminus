@@ -14,7 +14,12 @@ type HubSpotContactData = {
 export const submitToHubSpotForm = async (
   data: HubSpotContactData,
   isDevMode: boolean = false,
-  formType: "contact" | "download" = "contact"
+  formType: "contact" | "download" = "contact",
+  trackingContext?: {
+    hutk?: string;
+    pageUri?: string;
+    pageName?: string;
+  }
 ): Promise<void> => {
   if (
     // process.env.APP_ENVIRONMENT === "development" ||
@@ -108,8 +113,10 @@ export const submitToHubSpotForm = async (
         body: JSON.stringify({
           fields,
           context: {
-            // ページのURLを送信（オプション）
-            pageUri: "https://www.reminus.co.jp",
+            // トラッキング情報を送信
+            ...(trackingContext?.hutk && { hutk: trackingContext.hutk }),
+            ...(trackingContext?.pageUri && { pageUri: trackingContext.pageUri }),
+            ...(trackingContext?.pageName && { pageName: trackingContext.pageName }),
           },
         }),
       }
@@ -130,9 +137,14 @@ export const submitToHubSpotForm = async (
 // この関数は現在使用していませんが、下位互換性のために残しています
 export const createHubSpotContact = async (
   data: HubSpotContactData,
-  isDevMode: boolean = false
+  isDevMode: boolean = false,
+  trackingContext?: {
+    hutk?: string;
+    pageUri?: string;
+    pageName?: string;
+  }
 ): Promise<void> => {
   // Form APIを使用するようにリダイレクト
   const formType = data.isDownloadRequest ? "download" : "contact";
-  return submitToHubSpotForm(data, isDevMode, formType);
+  return submitToHubSpotForm(data, isDevMode, formType, trackingContext);
 };

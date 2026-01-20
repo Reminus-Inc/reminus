@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 import { useActionState, useEffect, useMemo, useState } from "react";
 import { PrimaryButton } from "./primary-button";
 import { getIsDevMode } from "@/lib/get-is-dev-mode";
+import { getHubSpotContext } from "@/lib/hubspot-tracking";
 
 type FormValues = {
   company: string;
@@ -70,6 +71,13 @@ export const HookDownloadForm = ({
 
   const handleFormAction = (formData: FormData) => {
     setTriedServerAction(true);
+
+    // HubSpotトラッキング情報を追加
+    const hubspotContext = getHubSpotContext();
+    formData.append('hutk', hubspotContext.hutk);
+    formData.append('pageUri', hubspotContext.pageUri);
+    formData.append('pageName', hubspotContext.pageName);
+
     return formAction(formData);
   };
 
