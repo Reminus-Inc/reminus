@@ -12,19 +12,21 @@ import { DownloadRequest } from "../_components/sections/download-request";
 
 export default function Home() {
   return (
-    <>
+    <div>
       <FirstView />
       <ClientLogos />
-      <ServiceOverview />
-      <ServiceMenu className="bg-gray-50" />
-      <Cta className="from-gray-50 to-gray-50" />
-      <WhyReminus className="bg-gray-50" />
-      <CaseStudies />
-      <Management className="bg-gray-50" />
-      <Cta className="from-gray-50 to-white" />
-      <News />
-      <DownloadRequest />
-      <CompanyOverview />
-    </>
+      <div className="content-auto">
+        <ServiceOverview />
+        <ServiceMenu className="bg-gray-50" />
+        <Cta className="from-gray-50 to-gray-50" />
+        <WhyReminus className="bg-gray-50" />
+        <CaseStudies />
+        <Management className="bg-gray-50" />
+        <Cta className="from-gray-50 to-white" />
+        <News/>
+        <DownloadRequest />
+        <CompanyOverview />
+      </div>
+  </div>
   );
 }

@@ -1,6 +1,6 @@
 export const CompanyOverview = () => {
   return (
-    <div className="bg-gray-50 pb-8 pt-24" data-nosnippet>
+    <div className="bg-gray-50 pb-8 pt-24 font-sans content-auto" data-nosnippet>
       <div className="mx-auto w-[90%] max-w-[1200px]">
         <h2 className="text-center text-xl font-bold tracking-widest text-gray-800 md:text-2xl">
           会社概要

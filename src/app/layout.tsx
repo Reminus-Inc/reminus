@@ -32,7 +32,7 @@ export default async function RootLayout({
   return (
     <html lang="ja">
       <body
-        className={`${inter.variable} ${notoSansJP.variable} flex min-h-svh flex-col font-sans`}
+        className={`${inter.variable} ${notoSansJP.variable} flex min-h-svh flex-col`}
       >
         <DownloadDialogProvider>
           {children}

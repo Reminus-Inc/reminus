@@ -5,7 +5,7 @@ export const DownloadRequest = () => {
   return (
     <section
       id="download-request"
-      className="rounded-tr-[100px_75px] bg-gradient-to-br from-emerald-500 from-30% to-emerald-600 py-24 sm:py-32 md:rounded-tr-[200px_150px]"
+      className="rounded-tr-[100px_75px] bg-gradient-to-br from-emerald-500 from-30% to-emerald-600 py-24 sm:py-32 md:rounded-tr-[200px_150px] font-sans content-auto"
     >
       <div className="mx-auto w-[88%] max-w-[1200px]">
         <h2 className="text-center text-white">
