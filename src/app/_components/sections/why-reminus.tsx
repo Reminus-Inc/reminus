@@ -35,9 +35,9 @@ const MEMBERS_DATA = [
   },
 ];
 
-export function WhyReminus({ className }: { className?: string }) {   
+export function WhyReminus({ className }: { className?: string }) {
   return (
-    <section id="why-reminus" className={cn("py-24 sm:py-32", className)}>
+    <section id="why-reminus" className={cn("py-24 sm:py-32 font-sans content-auto", className)}>
       <div className="mx-auto w-[82%] max-w-[1200px] md:w-[86%]">
         <SectionHeader
           label="選ばれる理由"

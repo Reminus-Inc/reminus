@@ -113,6 +113,11 @@ body {
   .dashed-border-bottom {
     @apply bg-[image:linear-gradient(to_right,theme(colors.gray.300)_3px,transparent_3px)] bg-[length:6px_1px] bg-bottom bg-repeat-x;
   }
+
+  .content-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 500px;
+  }
 }
 
 main {

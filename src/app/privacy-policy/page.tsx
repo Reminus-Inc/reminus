@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white via-neutral-50 to-neutral-100">
+    <main className="min-h-screen bg-gradient-to-b from-white via-neutral-50 to-neutral-100 font-sans">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl pt-16 pb-36">
         <div className="space-y-12">
           <header className="text-center">

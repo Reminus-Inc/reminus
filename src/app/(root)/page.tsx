@@ -15,16 +15,18 @@ export default function Home() {
     <>
       <FirstView />
       <ClientLogos />
-      <ServiceOverview />
-      <ServiceMenu className="bg-gray-50" />
-      <Cta className="from-gray-50 to-gray-50" />
-      <WhyReminus className="bg-gray-50" />
-      <CaseStudies />
-      <Management className="bg-gray-50" />
-      <Cta className="from-gray-50 to-white" />
-      <News />
-      <DownloadRequest />
-      <CompanyOverview />
-    </>
+      <div className="content-auto">
+        <ServiceOverview />
+        <ServiceMenu className="bg-gray-50" />
+        <Cta className="from-gray-50 to-gray-50" />
+        <WhyReminus className="bg-gray-50" />
+        <CaseStudies />
+        <Management className="bg-gray-50" />
+        <Cta className="from-gray-50 to-white" />
+        <News/>
+        <DownloadRequest />
+        <CompanyOverview />
+      </div>
+  </>
   );
 }

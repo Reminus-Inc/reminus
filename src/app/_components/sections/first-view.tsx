@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export function FirstView() {
   return (
-    <div className="relative mx-auto flex w-[80%] max-w-[1200px] flex-col items-center gap-8 pt-6 md:pt-10 lg:w-[90%] lg:flex-row lg:pt-6 xl:gap-2">
+    <div className="relative mx-auto flex w-[80%] max-w-[1200px] flex-col items-center gap-8 pt-6 md:pt-10 lg:w-[90%] lg:flex-row lg:pt-6 xl:gap-2 font-sans">
       <div className="relative z-[1] w-full lg:w-fit lg:flex-none">
         <Image
           src="/crown.png"
