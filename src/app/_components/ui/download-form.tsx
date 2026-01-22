@@ -25,20 +25,23 @@ type FormValues = {
 type DocumentFormProps = {
   documentType: DocumentType;
   beforeThanks?: (formValues: FormValues) => void;
+  formId: string;
 };
 
 export const DownloadForm = ({
   documentType,
   beforeThanks,
+  formId,
 }: DocumentFormProps) => {
   return (
-    <HookDownloadForm documentType={documentType} beforeThanks={beforeThanks} />
+    <HookDownloadForm documentType={documentType} beforeThanks={beforeThanks} formId={formId} />
   );
 };
 
 export const HookDownloadForm = ({
   documentType,
   beforeThanks,
+  formId,
 }: DocumentFormProps) => {
   const router = useRouter();
 
@@ -125,7 +128,7 @@ export const HookDownloadForm = ({
   }, [state.errors, companyError, lastnameError, firstnameError, emailError, phoneError]);
 
   return (
-    <form action={handleFormAction} className="w-full">
+    <form id={formId} action={handleFormAction} className="w-full">
       <div className="space-y-4">
         <div className="space-y-1">
           <Label htmlFor="company" className="text-sm text-gray-800">

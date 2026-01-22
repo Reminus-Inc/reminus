@@ -22,7 +22,7 @@ export const DownloadRequest = () => {
             <p className="mb-8 text-sm !leading-[1.7] text-gray-700 sm:mb-10 md:text-base">
               フォーム送信後、 すぐに資料をご覧いただけます。
             </p>
-            <DownloadForm documentType={DOCUMENT_TYPE.CTO_PARTNER} />
+            <DownloadForm documentType={DOCUMENT_TYPE.CTO_PARTNER} formId="top-download-form" />
           </div>
         </div>
       </div>

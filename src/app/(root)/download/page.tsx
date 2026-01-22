@@ -64,7 +64,7 @@ export default function DownloadPage() {
         </div>
 
         <div className="flex h-fit justify-center rounded-lg border border-gray-300 px-7 py-6 lg:max-w-[400px]">
-          <DownloadForm documentType={DOCUMENT_TYPE.CTO_PARTNER} />
+          <DownloadForm documentType={DOCUMENT_TYPE.CTO_PARTNER} formId="download-page-form" />
         </div>
       </div>
     </div>
