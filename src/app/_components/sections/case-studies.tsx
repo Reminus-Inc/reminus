@@ -138,7 +138,7 @@ const caseStudyItemList: CaseStudyItem[] = [
 
 export function CaseStudies({ className }: { className?: string }) {
   return (
-    <section id="case-studies" className={cn("py-24 sm:py-32 font-sans", className)}>
+    <section id="case-studies" className={cn("py-24 sm:py-32 font-sans content-auto", className)}>
       <div className="mx-auto w-[82%] max-w-[1200px] md:w-[86%]">
         <SectionHeader
           label="Case Studies"
