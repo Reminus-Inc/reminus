@@ -1,4 +1,5 @@
 import "server-only";
+import { UTM_KEYS, type UTMParameters } from "@/lib/utm-constants";
 
 type HubSpotContactData = {
   company: string;
@@ -19,7 +20,8 @@ export const submitToHubSpotForm = async (
     hutk?: string;
     pageUri?: string;
     pageName?: string;
-  }
+  },
+  utmParams?: UTMParameters
 ): Promise<void> => {
   if (
     // process.env.APP_ENVIRONMENT === "development" ||
@@ -103,6 +105,19 @@ export const submitToHubSpotForm = async (
       });
     }
 
+    // UTMパラメータを追加
+    if (utmParams) {
+      for (const key of UTM_KEYS) {
+        const value = utmParams[key];
+        if (value) {
+          fields.push({
+            name: key,
+            value: value,
+          });
+        }
+      }
+    }
+
     const response = await fetch(
       `https://api.hsforms.com/submissions/v3/integration/submit/${process.env.HUBSPOT_PORTAL_ID}/${process.env.HUBSPOT_FORM_GUID}`,
       {
@@ -128,6 +143,7 @@ export const submitToHubSpotForm = async (
     }
 
     console.log("HubSpot form submitted successfully:", data.email);
+    console.log("送信されたUTMパラメータ:", utmParams);
   } catch (error) {
     console.error("Failed to submit HubSpot form:", error);
     // HubSpotエラーはユーザーに影響を与えないようにする
@@ -142,9 +158,10 @@ export const createHubSpotContact = async (
     hutk?: string;
     pageUri?: string;
     pageName?: string;
-  }
+  },
+  utmParams?: UTMParameters
 ): Promise<void> => {
   // Form APIを使用するようにリダイレクト
   const formType = data.isDownloadRequest ? "download" : "contact";
-  return submitToHubSpotForm(data, isDevMode, formType, trackingContext);
+  return submitToHubSpotForm(data, isDevMode, formType, trackingContext, utmParams);
 };

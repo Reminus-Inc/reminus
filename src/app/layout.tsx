@@ -2,13 +2,12 @@ import { Inter, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { GoogleTagManager } from "@next/third-parties/google";
-import Script from "next/script";
-import { XPixelPageView } from "./_components/layout/x-pixel-pageview";
 import { Footer } from "./_components/layout/footer";
 import { DownloadDialogProvider } from "@/app/_components/ui/download-dialog-context";
 import { DownloadDialog } from "@/app/_components/ui/download-dialog";
 import { DownloadDialogCloser } from "@/app/_components/layout/download-dialog-closer";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { PersistUtm } from "./_components/PersistUtm"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const notoSansJP = Noto_Sans_JP({
@@ -41,6 +40,7 @@ export default async function RootLayout({
         </DownloadDialogProvider>
         <Footer />
         <Toaster />
+        <PersistUtm />
         {!!process.env.GTM_ID && (
           <GoogleTagManager gtmId={process.env.GTM_ID} />
         )}

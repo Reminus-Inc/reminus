@@ -9,8 +9,25 @@ import {
 } from "./constants";
 import { getSlackWebhookUrl } from "@/lib/get-slack-webhook-url";
 import { submitToHubSpotForm } from "@/lib/hubspot";
+import { cookies } from "next/headers";
+import { UTM_KEYS, type UTMParameters } from "@/lib/utm-constants";
 
 const prisma = new PrismaClient();
+
+// CookieからUTMパラメータを取得
+async function getUTMFromCookies(): Promise<UTMParameters> {
+  const cookieStore = await cookies();
+  const utmParams: UTMParameters = {};
+
+  for (const key of UTM_KEYS) {
+    const value = cookieStore.get(key)?.value;
+    if (value) {
+      utmParams[key] = value;
+    }
+  }
+
+  return utmParams;
+}
 
 // 共通のリード受付処理
 async function acceptLead({
@@ -49,6 +66,10 @@ async function acceptLead({
     trackingContext,
     isDevMode
   });
+
+  const utmParams = await getUTMFromCookies();
+  console.log("📊 UTMパラメータ:", utmParams);
+
   // Slack通知を送信（最優先）
   const slackWebhookUrl = await getSlackWebhookUrl(
     isDevMode,
@@ -69,7 +90,7 @@ async function acceptLead({
   }
 
   // HubSpotフォーム送信
-  const hubspotPromise = submitToHubSpotForm(leadData, isDevMode, formType, trackingContext).catch(
+  const hubspotPromise = submitToHubSpotForm(leadData, isDevMode, formType, trackingContext, utmParams).catch(
     (error) => {
       console.error("HubSpot通知エラー:", error);
       return null;
