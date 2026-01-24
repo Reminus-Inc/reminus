@@ -30,6 +30,9 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="ja">
+      {!!process.env.GTM_ID && (
+        <GoogleTagManager gtmId={process.env.GTM_ID}  />
+      )}
       <body
         className={`${inter.variable} ${notoSansJP.variable} flex min-h-svh flex-col`}
       >
@@ -41,9 +44,6 @@ export default async function RootLayout({
         <Footer />
         <Toaster />
         <PersistUtm />
-        {!!process.env.GTM_ID && (
-          <GoogleTagManager gtmId={process.env.GTM_ID}  />
-        )}
       </body>
     </html>
   );
