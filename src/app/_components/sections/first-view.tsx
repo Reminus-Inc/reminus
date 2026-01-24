@@ -19,11 +19,12 @@ export function FirstView() {
           <Image
             src="/hero.png"
             alt=""
-            width={600}
-            height={539}
+            width={380}
+            height={341}
             priority
             fetchPriority="high"
-            sizes="(max-width: 640px) 256px, (max-width: 768px) 304px, (max-width: 1024px) 380px, (max-width: 1280px) 560px, 620px"
+            quality={60}
+            sizes="(min-width: 640px) 380px, 320px"
             className="w-[80%] max-w-[320px] sm:max-w-[380px]"
           />
         </div>
@@ -38,7 +39,7 @@ export function FirstView() {
           alt=""
           width={580}
           height={521}
-          sizes="(max-width: 640px) 256px, (max-width: 768px) 304px, (max-width: 1024px) 380px, (max-width: 1280px) 560px, 620px"
+          sizes="(min-width: 640px) 380px, 320px"
           className="lg:w-[560px] xl:w-[620px]"
         />
       </div>
