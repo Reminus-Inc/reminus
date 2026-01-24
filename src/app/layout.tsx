@@ -42,9 +42,8 @@ export default async function RootLayout({
         <Toaster />
         <PersistUtm />
         {!!process.env.GTM_ID && (
-          <GoogleTagManager gtmId={process.env.GTM_ID} />
+          <GoogleTagManager gtmId={process.env.GTM_ID}  />
         )}
-        <SpeedInsights />
       </body>
     </html>
   );
