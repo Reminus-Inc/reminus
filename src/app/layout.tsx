@@ -1,4 +1,4 @@
-import { Inter } from "next/font/google";
+import { Inter, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { GoogleTagManager } from "@next/third-parties/google";
@@ -10,6 +10,11 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import { PersistUtm } from "./_components/PersistUtm"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const notoSansJP = Noto_Sans_JP({
+  subsets: ["latin"],
+  variable: "--font-noto-sans-jp",
+  preload: false,
+});
 
 export const metadata = {
   title:
@@ -26,7 +31,7 @@ export default async function RootLayout({
   return (
     <html lang="ja">
       <body
-        className={`${inter.variable} flex min-h-svh flex-col`}
+        className={`${inter.variable} ${notoSansJP.variable} flex min-h-svh flex-col`}
       >
         <DownloadDialogProvider>
           {children}
