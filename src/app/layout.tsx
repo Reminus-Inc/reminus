@@ -6,7 +6,6 @@ import { Footer } from "./_components/layout/footer";
 import { DownloadDialogProvider } from "@/app/_components/ui/download-dialog-context";
 import { DownloadDialog } from "@/app/_components/ui/download-dialog";
 import { DownloadDialogCloser } from "@/app/_components/layout/download-dialog-closer";
-import { SpeedInsights } from "@vercel/speed-insights/next"
 import { PersistUtm } from "./_components/PersistUtm"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
