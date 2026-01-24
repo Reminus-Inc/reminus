@@ -23,7 +23,6 @@ export function FirstView() {
             height={341}
             priority
             fetchPriority="high"
-            quality={60}
             sizes="(min-width: 640px) 380px, 320px"
             className="w-[80%] max-w-[320px] sm:max-w-[380px]"
           />
