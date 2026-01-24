@@ -17,14 +17,14 @@ export function FirstView() {
         <Description className="mt-4" />
         <div className="mt-2 flex justify-center sm:mt-4 lg:hidden">
           <Image
-            src="/hero.png"
+            src="/hero.svg"
             alt=""
-            width={600}
-            height={539}
-            priority
+            width={544}
+            height={447}
+            preload={true}
             fetchPriority="high"
             loading="eager"
-            className="w-[80%] max-w-[320px] sm:max-w-[380px]"
+            className="w-[80%] max-w-[320px] sm:max-w-[380px] pt-[19px]"
           />
         </div>
         <div className="bleed lg:bleed-none relative z-[1] -mt-4 px-4 lg:mt-12 lg:px-0">
@@ -32,15 +32,13 @@ export function FirstView() {
         </div>
       </div>
 
-      <div className="absolute right-0 hidden lg:block bottom-[-20px]">
+      <div className="absolute right-0 hidden lg:block bottom-[-21px]">
         <Image
-          src="/hero.png"
+          src="/hero.svg"
           alt=""
-          width={580}
-          height={521}
-          priority
-          fetchPriority="high"
-          className="lg:w-[560px] xl:w-[620px]"
+          width={544}
+          height={447}
+          className="lg:w-[560px] xl:w-[620px] mt-40"
         />
       </div>
     </div>
