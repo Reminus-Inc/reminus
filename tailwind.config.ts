@@ -58,20 +58,7 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: [
-          "var(--font-inter)",
-          '"Helvetica Neue"',
-          "Arial",
-          '"BIZ UDPGothic"',
-          '"Meiryo UI"',
-          '"Hiragino Kaku Gothic ProN"',
-          '"Hiragino Sans"',
-          '"Yu Gothic Medium"',
-          '"YuGothicM"',
-
-          "Meiryo",
-          "sans-serif",
-        ],
+        sans: ["var(--font-inter)", "var(--font-noto-sans-jp)", "sans-serif"],
       },
     },
   },
