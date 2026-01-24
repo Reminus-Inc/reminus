@@ -62,8 +62,8 @@ function LogoItem({ logo: l, className }: LogoItemProps) {
         alt={`${l.name} logo`}
         width={l.spWidth}
         height={l.spHeight}
-        className="block sm:hidden object-contain w-full h-auto"
-        style={{ maxWidth: `${l.spWidth}px`, maxHeight: `${l.spHeight}px` }}
+        className="block sm:hidden object-contain"
+        style={{ width: `${l.spWidth}px`, height: `${l.spHeight}px`, objectFit: "contain" }}
         priority={false}
       />
       {/* sm以上（640px〜） */}
