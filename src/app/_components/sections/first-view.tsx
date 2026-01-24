@@ -21,7 +21,8 @@ export function FirstView() {
             alt=""
             width={380}
             height={341}
-            priority
+            preload={true}
+            fetchPriority="high"
             className="w-[80%] max-w-[320px] sm:max-w-[380px]"
           />
         </div>
