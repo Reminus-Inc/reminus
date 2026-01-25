@@ -52,8 +52,8 @@ const Title = ({ className }: { className?: string }) => {
         className
       )}
     >
-      <span className="block">スタートアップの経営を</span>
-      <span className="block">技術判断で加速させる</span>
+      <span className="block">即日参画できるCTO代行が</span>
+      <span className="block">SaaS開発を伴走支援</span>
     </h1>
   );
 };
@@ -73,7 +73,7 @@ const Description = ({ className }: { className?: string }) => {
       </span>
       <br className="hidden lg:block" />
       <span className="whitespace-nowrap">
-        CTO代行が一気通貫で判断を支えます。
+        CTO代行が一気通貫で支えます。
       </span>
     </p>
   );
