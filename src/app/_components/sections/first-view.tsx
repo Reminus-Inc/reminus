@@ -52,7 +52,7 @@ const Title = ({ className }: { className?: string }) => {
         className
       )}
     >
-      <span className="block">即日参画できるCTO代行が</span>
+      <span className="block">即日参画のCTO代行が</span>
       <span className="block">SaaS開発を伴走支援</span>
     </h1>
   );
