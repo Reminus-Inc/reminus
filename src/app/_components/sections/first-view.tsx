@@ -52,8 +52,8 @@ const Title = ({ className }: { className?: string }) => {
         className
       )}
     >
-      <span className="block">即日参画のCTO代行が</span>
-      <span className="block">SaaS開発を伴走支援</span>
+      <span className="block">CTO代行が即日参画。</span>
+      <span className="block">SaaS事業を最短で成長</span>
     </h1>
   );
 };
