@@ -388,6 +388,39 @@ const disposableEmailDomains = [
   'nyasan.com', 'sendnow.win', 'eripo.net', 'goatmail.uk', 'catgroup.uk',
   'shchiba.uk', 'bangban.uk', 'onlyapp.net', 'haren.uk', 'tatsu.uk',
   'proton.me', 'protonmail.com', 'mxscout.com', 'm.kuku.lu',
+  // Hide My Email系サービス（絶対NG）
+  // Apple Hide My Email
+  'privaterelay.appleid.com',
+  // DuckDuckGo Email Protection
+  'duck.com',
+  // Mozilla Firefox Relay
+  'relay.firefox.com',
+  'mozmail.com',
+  // Proton Pass hide-my-email
+  'passmail.net',
+  // SimpleLogin (Proton傘下)
+  'simplelogin.com',
+  'simplelogin.fr',
+  'slmail.me',
+  'slmails.com',
+  'aleeas.com',
+  '8alias.com',
+  '8shield.net',
+  'dralias.com',
+  'silomails.com',
+  // Addy.io (旧 AnonAddy)
+  'anonaddy.com',
+  'addy.io',
+  // その他のHide My Email系サービス
+  'blur.com',
+  'emailnator.com',
+  'forwardemail.net',
+  'simpleaddress.net',
+  'mailmask.me',
+  'scr.im',
+  'spamex.com',
+  'sneakemail.com',
+  'getdefend.com',
 ];
 
 const documentRequestSchema = z.object({
