@@ -11,15 +11,20 @@ const DEFAULT_LABEL = "直接日程調整する";
 
 type SchedulingButtonProps = PrimaryButtonProps & {
   label?: string;
+  href?: string;
 };
+
+const DEFAULT_HREF = "https://meetings.immedio.io/date_select?uk=8ze2jVpsiNsxvR2jIEnM#calendar";
+
 export const SchedulingButton = ({
   label = DEFAULT_LABEL,
+  href = DEFAULT_HREF,
   ...props
 }: SchedulingButtonProps) => {
   return (
     <PrimaryButton asChild {...props}>
       <Link
-        href="https://meetings.immedio.io/date_select?uk=8ze2jVpsiNsxvR2jIEnM#calendar"
+        href={href}
         target="_blank"
         rel="noopener noreferrer"
         onClick={() => {

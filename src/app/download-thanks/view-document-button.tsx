@@ -16,13 +16,25 @@ function ViewDocumentButtonContent() {
   );
 }
 
-function ViewDocumentLinkInner({ children, ...props }: any) {
+interface ViewDocumentLinkProps {
+  children: React.ReactNode;
+  documentType?: DocumentType;
+
+  [key: string]: any;
+}
+
+function ViewDocumentLinkInner({
+  children,
+  documentType: propDocumentType,
+  ...props
+}: ViewDocumentLinkProps) {
   const searchParams = useSearchParams();
 
   const email = searchParams.get("email") || "";
   const name = searchParams.get("name") || "";
   const company = searchParams.get("company") || "";
-  const documentType = searchParams.get("documentType") as DocumentType;
+  const documentType =
+    propDocumentType || (searchParams.get("documentType") as DocumentType);
 
   const params = new URLSearchParams({
     email: email,
@@ -46,11 +58,13 @@ function ViewDocumentLink({ children, ...props }: any) {
   );
 }
 
-export function ViewDocumentButton() {
+export function ViewDocumentButton({
+  documentType,
+}: { documentType?: DocumentType } = {}) {
   return (
     <div className="w-full max-w-80">
       <PrimaryButton fullWidth asChild>
-        <ViewDocumentLink>
+        <ViewDocumentLink documentType={documentType}>
           <ViewDocumentButtonContent />
         </ViewDocumentLink>
       </PrimaryButton>
