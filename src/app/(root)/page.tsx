@@ -17,12 +17,12 @@ export default function Home() {
       <ClientLogos />
       <div className="content-auto">
         <ServiceOverview />
-        <ServiceMenu className="bg-gray-50" />
-        <Cta className="from-gray-50 to-gray-50" />
+        <CaseStudies className="bg-gray-50"  />
+        <ServiceMenu />
+        <Cta className="from-white to-gray-50" />
         <WhyReminus className="bg-gray-50" />
-        <CaseStudies />
-        <Management className="bg-gray-50" />
-        <Cta className="from-gray-50 to-white" />
+        <Management />
+        <Cta className="from-white to-white" />
         <News/>
         <DownloadRequest />
         <CompanyOverview />
