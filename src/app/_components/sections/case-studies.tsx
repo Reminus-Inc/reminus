@@ -167,7 +167,7 @@ export function CaseStudies({ className }: { className?: string }) {
         </div>
 
         <div className="bleed mt-16 px-4">
-          <CustomDownloadButton subtitle="成果の詳細を公開中" asLink />
+          <CustomDownloadButton title="資料ダウンロード" subtitle="成果の詳細を公開中" asLink />
         </div>
       </div>
     </section>
