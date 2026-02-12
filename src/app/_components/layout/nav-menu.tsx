@@ -41,12 +41,12 @@ export function NavMenu() {
       label: "サービス概要",
     },
     {
-      href: isHomePage ? "#case-studies" : "/#case-studies",
-      label: "事例紹介",
-    },
-    {
       href: isHomePage ? "#service-menu" : "/#service-menu",
       label: "提供メニュー",
+    },
+    {
+      href: isHomePage ? "#case-studies" : "/#case-studies",
+      label: "事例紹介",
     },
     { href: isHomePage ? "#management" : "/#management", label: "経営者紹介" },
   ];
