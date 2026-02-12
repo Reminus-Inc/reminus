@@ -167,7 +167,11 @@ export function CaseStudies({ className }: { className?: string }) {
         </div>
 
         <div className="bleed mt-16 px-4">
-          <CustomDownloadButton title="資料ダウンロード" subtitle="成果の詳細を公開中" asLink />
+          <CustomDownloadButton
+            title="資料ダウンロード"
+            subtitle="成果の詳細を公開中"
+            asLink
+          />
         </div>
       </div>
     </section>
@@ -183,13 +187,13 @@ function CaseStudyCard({ caseStudyItem, className }: CaseStudyCardProps) {
 
   return (
     <div className={cn("flex h-full flex-col bg-white", className)}>
-      <div className="rounded-t-md bg-gradient-to-r from-emerald-500 to-emerald-500/80 px-4 py-4 sm:px-6">
+      <div className="rounded-t-lg bg-gradient-to-r from-emerald-500 to-emerald-500/80 px-4 py-4 sm:px-6">
         <p className="whitespace-pre-wrap text-lg font-bold !leading-[1.65] tracking-wide text-white sm:text-[22px]">
           {caseStudyItem.title}
         </p>
       </div>
 
-      <div className="flex-grow rounded-b-md border border-solid border-gray-300">
+      <div className="flex-grow rounded-b-lg border-b border-l border-r border-solid border-gray-300">
         <div className="mt-5 px-5 sm:px-8">
           {hasLogo ? (
             <div className="flex flex-col gap-2">
