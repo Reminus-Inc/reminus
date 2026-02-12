@@ -110,12 +110,12 @@ export const CustomDownloadButton = ({
               {subtitle != null ? (
                 subtitle
               ) : (
-                <span className="">
+                <>
                   <span className="relative -bottom-[1px] mr-[2px] text-xl font-bold !leading-[1] sm:text-2xl">
                     3
                   </span>
                   分でわかる! CTOパートナー
-                </span>
+                </>
               )}
             </span>
             <span className="text-lg font-bold tracking-wider sm:text-2xl">
