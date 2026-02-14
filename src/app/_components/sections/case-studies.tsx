@@ -187,7 +187,7 @@ function CaseStudyCard({ caseStudyItem, className }: CaseStudyCardProps) {
 
   return (
     <div className={cn("flex h-full flex-col bg-white", className)}>
-      <div className="rounded-t-lg bg-gradient-to-r from-emerald-500 to-emerald-500/80 px-4 py-4 sm:px-6">
+      <div className="rounded-t-lg bg-gradient-to-r from-emerald-500 from-60% to-emerald-500/85 px-4 py-4 sm:px-6">
         <p className="whitespace-pre-wrap text-lg font-bold !leading-[1.65] tracking-wide text-white sm:text-[22px]">
           {caseStudyItem.title}
         </p>
