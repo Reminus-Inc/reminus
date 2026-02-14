@@ -79,18 +79,3 @@ function LogoItem({ logo: l, className }: LogoItemProps) {
     </div>
   );
 }
-
-function LogoBelt({ keyPrefix = "" }: { keyPrefix?: string }) {
-  return (
-    <div className="flex w-max items-center gap-0">
-      {logos.map((l) => (
-        <LogoItem
-          key={keyPrefix ? `${keyPrefix}-${l.name}` : l.name}
-          logo={l}
-          className="px-4 md:px-6"
-        />
-      ))}
-    </div>
-  );
-}
-
