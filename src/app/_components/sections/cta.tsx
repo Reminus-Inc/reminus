@@ -42,7 +42,6 @@ export function Cta({ className }: CtaProps) {
                 variant="filled"
                 color="white"
                 className="mt-10 md:max-w-[300px]"
-                asLink={true}
               />
             </div>
           </div>

@@ -170,7 +170,6 @@ export function CaseStudies({ className }: { className?: string }) {
           <CustomDownloadButton
             title="資料ダウンロード"
             subtitle="成果の詳細を公開中"
-            asLink
           />
         </div>
       </div>

@@ -3,53 +3,35 @@
 import Link from "next/link";
 import { trackCTAClick } from "@/lib/analytics";
 import { PrimaryButton, PrimaryButtonProps } from "./primary-button";
-import { useDownloadDialogContext } from "./download-dialog-context";
 import * as React from "react";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
 
 interface DownloadButtonProps extends PrimaryButtonProps {
   onClick?: () => void;
-  asLink?: boolean;
 }
 
 export const DownloadButton = ({
   onClick,
-  asLink = false,
   ...props
 }: DownloadButtonProps) => {
-  const { openDownloadDialog } = useDownloadDialogContext();
-
-  const handleClick = (e?: React.MouseEvent) => {
+  const handleClick = () => {
     trackCTAClick("download");
-    if (!asLink) {
-      e?.preventDefault();
-      openDownloadDialog();
-    }
     onClick?.();
   };
 
   const content = <span className="whitespace-nowrap">資料ダウンロード</span>;
 
-  if (asLink) {
-    return (
-      <PrimaryButton asChild {...props}>
-        <Link
-          href="/download"
-          className="flex items-center gap-3"
-          onClick={handleClick}
-        >
-          {content}
-        </Link>
-      </PrimaryButton>
-    );
-  }
-
   return (
-    <PrimaryButton {...props} onClick={handleClick}>
-      {content}
+    <PrimaryButton asChild {...props}>
+      <Link
+        href="/download"
+        className="flex items-center gap-3"
+        onClick={handleClick}
+      >
+        {content}
+      </Link>
     </PrimaryButton>
   );
 };
@@ -59,24 +41,16 @@ interface CustomDownloadButtonProps
   onClick?: () => void;
   title?: string;
   subtitle?: string;
-  asLink?: boolean;
 }
 export const CustomDownloadButton = ({
   className,
   onClick,
   title,
   subtitle,
-  asLink = false,
-  ...props
 }: CustomDownloadButtonProps) => {
-  const { openDownloadDialog } = useDownloadDialogContext();
 
-  const handleClick = (e?: React.MouseEvent) => {
+  const handleClick = () => {
     trackCTAClick("download");
-    if (!asLink) {
-      e?.preventDefault();
-      openDownloadDialog();
-    }
     onClick?.();
   };
 
@@ -144,17 +118,9 @@ export const CustomDownloadButton = ({
     </>
   );
 
-  if (asLink) {
-    return (
-      <Link href="/download" onClick={handleClick} className={baseClasses}>
-        {content}
-      </Link>
-    );
-  }
-
   return (
-    <Button className={baseClasses} onClick={handleClick} {...props}>
+    <Link href="/download" onClick={handleClick} className={baseClasses}>
       {content}
-    </Button>
+    </Link>
   );
 };

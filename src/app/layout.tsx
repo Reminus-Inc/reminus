@@ -3,9 +3,6 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Footer } from "./_components/layout/footer";
-import { DownloadDialogProvider } from "@/app/_components/ui/download-dialog-context";
-import { DownloadDialog } from "@/app/_components/ui/download-dialog";
-import { DownloadDialogCloser } from "@/app/_components/layout/download-dialog-closer";
 import { PersistUtm } from "./_components/PersistUtm"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -36,11 +33,7 @@ export default async function RootLayout({
       <body
         className={`${inter.variable} ${notoSansJP.variable} flex min-h-svh flex-col`}
       >
-        <DownloadDialogProvider>
-          {children}
-          <DownloadDialog />
-          <DownloadDialogCloser />
-        </DownloadDialogProvider>
+        {children}
         <Footer />
         <Toaster />
         <PersistUtm />

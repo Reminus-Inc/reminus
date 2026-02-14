@@ -100,7 +100,6 @@ export function ServiceOverview({ className }: { className?: string }) {
           <CustomDownloadButton
             title="資料ダウンロード"
             subtitle="詳細事例とプランを公開中"
-            asLink={true}
           />
         </div>
       </div>

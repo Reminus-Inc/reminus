@@ -107,7 +107,7 @@ export function NavMenu() {
 
         {/* CTA ボタン */}
         <div className="flex items-center space-x-4">
-          <DownloadButton size="small" asLink={true} />
+          <DownloadButton size="small" />
           <ContactButton size="small" />
         </div>
       </div>
@@ -119,7 +119,6 @@ export function NavMenu() {
           <DownloadButton
             size="small"
             className="min-w-[140px]"
-            asLink={true}
           />
           <ContactButton size="small" />
         </div>
@@ -180,7 +179,6 @@ export function NavMenu() {
 
             <div className="flex items-center justify-center gap-4 p-6 sm:gap-8 sm:p-10">
               <DownloadButton
-                asLink={true}
                 size="small"
                 fullWidth
                 onClick={() => setTimeout(() => setIsOpen(false), 300)}
