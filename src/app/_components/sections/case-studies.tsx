@@ -140,7 +140,10 @@ export function CaseStudies({ className }: { className?: string }) {
   return (
     <section
       id="case-studies"
-      className={cn("overflow-x-hidden py-24 sm:py-32", className)}
+      className={cn(
+        "content-auto overflow-x-hidden py-24 font-sans sm:py-32",
+        className
+      )}
     >
       <div className="mx-auto w-[82%] max-w-[1200px] md:w-[86%]">
         <SectionHeader
@@ -164,7 +167,11 @@ export function CaseStudies({ className }: { className?: string }) {
         </div>
 
         <div className="bleed mt-16 px-4">
-          <CustomDownloadButton subtitle="成果の詳細を公開中" asLink />
+          <CustomDownloadButton
+            title="資料ダウンロード"
+            subtitle="成果の詳細を公開中"
+            asLink
+          />
         </div>
       </div>
     </section>
@@ -179,94 +186,91 @@ function CaseStudyCard({ caseStudyItem, className }: CaseStudyCardProps) {
   const hasLogo = "logoPath" in caseStudyItem;
 
   return (
-    <div
-      className={cn(
-        "h-full overflow-hidden rounded-md border border-solid border-gray-300 bg-white",
-        className
-      )}
-    >
-      <div className="bg-gradient-to-r from-emerald-500 to-emerald-500/80 px-4 py-4 sm:px-6">
+    <div className={cn("flex h-full flex-col bg-white", className)}>
+      <div className="rounded-t-lg bg-gradient-to-r from-emerald-500 from-60% to-emerald-500/85 px-4 py-4 sm:px-6">
         <p className="whitespace-pre-wrap text-lg font-bold !leading-[1.65] tracking-wide text-white sm:text-[22px]">
           {caseStudyItem.title}
         </p>
       </div>
 
-      <div className="mt-5 px-5 sm:px-8">
-        {hasLogo ? (
-          <div className="flex flex-col gap-2">
-            <p className="text-xs tracking-wide text-gray-600" data-nosnippet>
-              {caseStudyItem.companyName}
-            </p>
-            <div>
-              <Image
-                src={caseStudyItem.logoPath}
-                alt={caseStudyItem.companyName}
-                width={120}
-                height={40}
-                className="h-auto max-h-[40px] w-auto object-contain"
+      <div className="flex-grow rounded-b-lg border-b border-l border-r border-solid border-gray-300">
+        <div className="mt-5 px-5 sm:px-8">
+          {hasLogo ? (
+            <div className="flex flex-col gap-2">
+              <p className="text-xs tracking-wide text-gray-600" data-nosnippet>
+                {caseStudyItem.companyName}
+              </p>
+              <div>
+                <Image
+                  src={caseStudyItem.logoPath}
+                  alt={caseStudyItem.companyName}
+                  width={120}
+                  height={40}
+                  className="h-auto max-h-[40px] w-auto object-contain"
+                />
+              </div>
+            </div>
+          ) : (
+            // ロゴなし
+            <div className="flex items-center gap-3">
+              <caseStudyItem.icon
+                className="h-7 w-7 text-gray-600"
+                strokeWidth={2}
               />
+              <p className="text-lg font-bold tracking-wide text-gray-800">
+                {caseStudyItem.category}
+              </p>
             </div>
-          </div>
-        ) : (
-          // ロゴなし
-          <div className="flex items-center gap-3">
-            <caseStudyItem.icon
-              className="h-7 w-7 text-gray-600"
-              strokeWidth={2}
-            />
-            <p className="text-lg font-bold tracking-wide text-gray-800">
-              {caseStudyItem.category}
-            </p>
-          </div>
-        )}
-      </div>
+          )}
+        </div>
 
-      <div className="mt-4 overflow-hidden px-3 pb-5 sm:px-6">
-        <Row isEven={false}>
-          <Head>会社規模</Head>
-          <Body>{caseStudyItem.scale}</Body>
-        </Row>
-        <Row isEven={true}>
-          <Head>財務状況</Head>
-          <Body>{caseStudyItem.financialBackground}</Body>
-        </Row>
-        <Row isEven={false}>
-          <Head>支援業務</Head>
-          <Body>
-            <div className="flex flex-wrap gap-2">
-              {caseStudyItem.serviceTypeList.map((item, index) => (
-                <div
-                  key={index}
-                  className="rounded border border-gray-200 px-3 py-0.5"
-                >
-                  <p className="text-[11px] font-medium leading-5 text-gray-800">
-                    {item}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </Body>
-        </Row>
-        <Row isEven={true}>
-          <Head>支援内容</Head>
-          <Body>
-            <ul className="flex list-disc flex-col gap-1">
-              {caseStudyItem.supportContentList.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </Body>
-        </Row>
-        <Row isEven={false}>
-          <Head>成果</Head>
-          <Body>
-            <ul className="flex list-disc flex-col gap-1">
-              {caseStudyItem.resultList.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </Body>
-        </Row>
+        <div className="mt-4 overflow-hidden px-3 pb-5 sm:px-6">
+          <Row isEven={false}>
+            <Head>会社規模</Head>
+            <Body>{caseStudyItem.scale}</Body>
+          </Row>
+          <Row isEven={true}>
+            <Head>財務状況</Head>
+            <Body>{caseStudyItem.financialBackground}</Body>
+          </Row>
+          <Row isEven={false}>
+            <Head>支援業務</Head>
+            <Body>
+              <div className="flex flex-wrap gap-2">
+                {caseStudyItem.serviceTypeList.map((item, index) => (
+                  <div
+                    key={index}
+                    className="rounded border border-gray-200 px-3 py-0.5"
+                  >
+                    <p className="text-[11px] font-medium leading-5 text-gray-800">
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </Body>
+          </Row>
+          <Row isEven={true}>
+            <Head>支援内容</Head>
+            <Body>
+              <ul className="flex list-disc flex-col gap-1">
+                {caseStudyItem.supportContentList.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </Body>
+          </Row>
+          <Row isEven={false}>
+            <Head>成果</Head>
+            <Body>
+              <ul className="flex list-disc flex-col gap-1">
+                {caseStudyItem.resultList.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </Body>
+          </Row>
+        </div>
       </div>
     </div>
   );

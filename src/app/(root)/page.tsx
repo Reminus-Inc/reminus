@@ -18,11 +18,11 @@ export default function Home() {
       <div className="content-auto">
         <ServiceOverview />
         <ServiceMenu className="bg-gray-50" />
-        <Cta className="from-gray-50 to-gray-50" />
-        <WhyReminus className="bg-gray-50" />
-        <CaseStudies />
-        <Management className="bg-gray-50" />
-        <Cta className="from-gray-50 to-white" />
+        <Cta className="from-gray-50 to-gray-white" />
+        <WhyReminus className="bg-white" />
+        <CaseStudies className="bg-gray-50"  />
+        <Management />
+        <Cta className="from-white to-white" />
         <News/>
         <DownloadRequest />
         <CompanyOverview />
