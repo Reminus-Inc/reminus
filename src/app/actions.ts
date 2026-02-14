@@ -127,6 +127,13 @@ const formSchema = z.object({
     .string()
     .email({ message: "有効なメールアドレスを入力してください" })
     .max(255, { message: "メールアドレスは255文字以内で入力してください" }),
+  phone: z
+    .string()
+    .min(1, { message: "電話番号を入力してください" })
+    .max(20, { message: "電話番号は20文字以内で入力してください" })
+    .regex(/^[0-9\-]+$/, {
+      message: "電話番号は数字とハイフンのみ使用できます",
+    }),
   content: z
     .string()
     .max(5000, { message: "お問い合わせ内容は5000文字以内で入力してください" })
@@ -514,6 +521,7 @@ export async function submitInquiry(
         lastname: validatedFields.lastname,
         firstname: validatedFields.firstname,
         email: validatedFields.email,
+        phone: validatedFields.phone,
         content: validatedFields.content,
       },
       slackNotificationType: SLACK_NOTIFICATION_TYPE.CONTACT,
@@ -541,6 +549,10 @@ export async function submitInquiry(
             {
               type: "mrkdwn",
               text: `*メール:*\n${validatedFields.email}`,
+            },
+            {
+              type: "mrkdwn",
+              text: `*電話番号:*\n${validatedFields.phone}`,
             },
           ],
         },

@@ -177,6 +177,25 @@ export const ContactForm = ({
           />
         </div>
 
+        <div className="space-y-2">
+          <div className="flex items-center gap-2">
+            <Label htmlFor="phone" className="text-sm text-gray-800">
+              電話番号
+            </Label>
+            {showChip && <Chip color="red">必須</Chip>}
+          </div>
+          <Input
+            id="phone"
+            name="phone"
+            type="tel"
+            placeholder="03-1234-5678"
+            required
+            autoComplete="tel"
+            onChange={(e) => {
+              trackFormStartOnce(e.target.value);
+            }}
+          />
+        </div>
 
         {showContent && (
           <div className="space-y-2">
