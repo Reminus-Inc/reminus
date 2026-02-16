@@ -36,7 +36,7 @@ async function acceptLead({
   slackBlocks,
   dbSaveFunction,
   isDevMode,
-  formType = "contact",
+  formType,
   trackingContext,
 }: {
   leadData: {
@@ -53,7 +53,7 @@ async function acceptLead({
   slackBlocks: any[];
   dbSaveFunction: () => Promise<any>;
   isDevMode: boolean;
-  formType?: "contact" | "download";
+  formType: "contact" | "download";
   trackingContext?: {
     hutk?: string;
     pageUri?: string;
@@ -525,6 +525,7 @@ export async function submitInquiry(
         content: validatedFields.content,
       },
       slackNotificationType: SLACK_NOTIFICATION_TYPE.CONTACT,
+      formType: "contact",
       trackingContext,
       slackBlocks: [
         {

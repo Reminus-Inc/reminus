@@ -23,16 +23,21 @@ export const submitToHubSpotForm = async (
   },
   utmParams?: UTMParameters
 ): Promise<void> => {
+  const formGuid = formType === "contact" 
+    ? process.env.HUBSPOT_CONTACT_GUID 
+    : process.env.HUBSPOT_FORM_GUID;
+
   if (
     // process.env.APP_ENVIRONMENT === "development" ||
     !process.env.HUBSPOT_PORTAL_ID ||
-    !process.env.HUBSPOT_FORM_GUID
+    !formGuid
   ) {
     console.log("HubSpot form submission skipped:", {
       isDevMode,
       environment: process.env.APP_ENVIRONMENT,
       hasPortalId: !!process.env.HUBSPOT_PORTAL_ID,
-      hasFormGuid: !!process.env.HUBSPOT_FORM_GUID,
+      hasFormGuid: !!formGuid,
+      formType,
     });
     return;
   }
@@ -119,7 +124,7 @@ export const submitToHubSpotForm = async (
     }
 
     const response = await fetch(
-      `https://api.hsforms.com/submissions/v3/integration/submit/${process.env.HUBSPOT_PORTAL_ID}/${process.env.HUBSPOT_FORM_GUID}`,
+      `https://api.hsforms.com/submissions/v3/integration/submit/${process.env.HUBSPOT_PORTAL_ID}/${formGuid}`,
       {
         method: "POST",
         headers: {
