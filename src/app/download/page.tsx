@@ -50,35 +50,6 @@ export default function DownloadPage() {
               </p>
               <p>すぐに資料をご覧いただけます。</p>
             </div>
-
-            {/* 
-            <div className="space-y-4">
-              <p className="text-sm leading-relaxed text-gray-600">
-                Reminus
-                CTOパートナーのサービス概要資料をご希望のお客様は、こちらのフォームにご入力ください。
-                すぐに資料をご覧いただけます。
-              </p>
-              <ul className="space-y-1.5 md:space-y-2.5">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-600 md:h-5 md:w-5" />
-                  <span className="text-sm font-bold text-gray-700 md:text-base">
-                    サービスの背景
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-600 md:h-5 md:w-5" />
-                  <span className="text-sm font-bold text-gray-700 md:text-base">
-                    提供内容
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-600 md:h-5 md:w-5" />
-                  <span className="text-sm font-bold text-gray-700 md:text-base">
-                    導入事例
-                  </span>
-                </li>
-              </ul>
-            </div> */}
           </div>
 
           <div className="flex h-fit justify-center rounded-lg border border-gray-200 px-7 py-6 lg:max-w-[400px]">

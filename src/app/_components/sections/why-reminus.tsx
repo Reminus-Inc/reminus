@@ -46,6 +46,16 @@ const MEMBER_DATA = [
   },
   {
     label: "Case 3",
+    title: "技術×事業に特化したプリンシパルエンジニア",
+    career: ["上場企業エンジニア", "有名スタートアップ シニアエンジニア"],
+    strengths: [
+      "事業に最適化した設計を高速で行う技術力",
+      "技術の優先度とリソース配分の判断力",
+      "PoCや問題解決を捌き続けてきた瞬発力",
+    ],
+  },
+  {
+    label: "Case 4",
     title: "ビジネス特化の戦略型CTO",
     career: ["システム開発会社 副部長", "シリーズA SaaS CTO"],
     strengths: [
@@ -77,18 +87,18 @@ export function WhyReminus({ className }: { className?: string }) {
         <p className="mt-6 text-sm !leading-[1.9] tracking-wide text-gray-800 sm:text-base md:text-lg">
           複雑化する技術課題に対応するため、Reminusには様々な専門領域と強みを持つメンバーが参画しています。
           <br />
-          貴社の課題解決に最適なメンバーが、チームの一員として伴走します。
+          以下にご紹介するのはその一例です。貴社の課題解決に最適なメンバーが、チームの一員として伴走します。
         </p>
 
-        <div className="mt-16">
-          <div className="bleed flex flex-wrap justify-center gap-6 px-6">
-            <div className="flex flex-wrap justify-center gap-6">
+        <div className="bleed mt-16 px-6">
+          <div className="relative flex flex-wrap justify-center gap-5">
+            <div className="flex flex-wrap justify-center gap-5">
               <MemberCard {...MEMBER_DATA[0]} />
               <MemberCard {...MEMBER_DATA[1]} />
             </div>
-            <div className="flex flex-wrap justify-center gap-6">
+            <div className="flex flex-wrap justify-center gap-5">
               <MemberCard {...MEMBER_DATA[2]} />
-              <Dot />
+              <MemberCard {...MEMBER_DATA[3]} />
             </div>
           </div>
 
@@ -114,7 +124,7 @@ type MemberCardProps = {
 
 const MemberCard = ({ label, title, career, strengths }: MemberCardProps) => {
   return (
-    <div className="rounded-2xl border border-solid border-gray-200 bg-white p-4 pb-6 sm:p-6">
+    <div className="w-full max-w-[326px] rounded-2xl border border-solid border-gray-200 bg-white p-4 pb-6 sm:w-auto">
       <div className="flex justify-center">
         <Image src="/member-icon.svg" width={90} height={90} alt="" />
       </div>
@@ -127,14 +137,14 @@ const MemberCard = ({ label, title, career, strengths }: MemberCardProps) => {
       </h3>
 
       <div className="mt-3 space-y-1.5">
-        <span className="inline-block rounded-sm bg-emerald-500 px-2 py-0.5 text-xs !leading-[1.6] tracking-widest text-white sm:text-[13px]">
+        <span className="inline-block rounded-sm bg-emerald-500 px-2 py-0.5 text-xs !leading-[1.6] tracking-widest text-white sm:text-[12px]">
           経歴
         </span>
         <ul className="relative space-y-1 pl-1 before:absolute before:left-[7px] before:top-[0.5em] before:h-[calc(100%-1em)] before:w-[1] before:bg-emerald-200 before:content-[''] sm:before:left-[8px]">
           {career.map((item, i) => (
             <li
               key={i}
-              className="flex items-baseline text-xs !leading-[1.5] tracking-wide text-gray-800 before:mr-2 before:inline-block before:h-[7px] before:w-[7px] before:rounded-full before:bg-emerald-200 before:content-[''] sm:text-sm sm:before:h-[9px] sm:before:w-[9px]"
+              className="flex items-baseline text-xs !leading-[1.5] tracking-wide text-gray-800 before:mr-2 before:inline-block before:h-[7px] before:w-[7px] before:rounded-full before:bg-emerald-200 before:content-[''] sm:text-[13px] sm:before:h-[9px] sm:before:w-[9px]"
             >
               {item}
             </li>
@@ -143,14 +153,14 @@ const MemberCard = ({ label, title, career, strengths }: MemberCardProps) => {
       </div>
 
       <div className="mt-3 space-y-1.5">
-        <span className="inline-block rounded-sm bg-emerald-500 px-2 py-0.5 text-xs !leading-[1.6] tracking-widest text-white sm:text-[13px]">
+        <span className="inline-block rounded-sm bg-emerald-500 px-2 py-0.5 text-xs !leading-[1.6] tracking-widest text-white sm:text-[12px]">
           強み
         </span>
         <ul className="space-y-1 pl-1">
           {strengths.map((item, i) => (
             <li
               key={i}
-              className="flex items-baseline text-xs !leading-[1.5] tracking-wide text-gray-800 before:mr-2 before:inline-block before:h-[7px] before:w-[7px] before:rounded-full before:bg-emerald-200 before:content-[''] sm:text-sm sm:before:h-[9px] sm:before:w-[9px]"
+              className="flex items-baseline text-xs !leading-[1.5] tracking-wide text-gray-800 before:mr-2 before:inline-block before:h-[7px] before:w-[7px] before:rounded-full before:bg-emerald-200 before:content-[''] sm:text-[13px] sm:before:h-[9px] sm:before:w-[9px]"
             >
               {item}
             </li>
@@ -160,22 +170,6 @@ const MemberCard = ({ label, title, career, strengths }: MemberCardProps) => {
     </div>
   );
 };
-
-function Dot() {
-  return (
-    <div className="flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row sm:justify-start">
-      {[0, 1, 2].map((i) => (
-        <span
-          key={i}
-          className={cn(
-            "h-[6px] w-[6px] rounded-full bg-gray-400 sm:h-[8px] sm:w-[8px]"
-          )}
-          aria-hidden
-        />
-      ))}
-    </div>
-  );
-}
 
 type GraphCardProps = {
   title: string;
