@@ -1,7 +1,7 @@
 import { DownloadForm } from "@/app/_components/ui/download-form";
-import Image from "next/image";
 import { DOCUMENT_TYPE } from "@/app/constants";
 import { Metadata } from "next";
+import { DownloadPreview } from "@/app/_components/ui/download-preview";
 
 export const metadata: Metadata = {
   title: "資料ダウンロード | Reminus",
@@ -21,17 +21,8 @@ export default function DownloadPage() {
               Reminus CTOパートナー サービス概要
             </h1>
 
-            <div className="mt-6 rounded bg-gray-50 p-4">
-              <div className="mx-auto aspect-[1326/842] max-w-[720px] rounded-sm sm:max-w-[442px]">
-                <Image
-                  src="/document-example.png"
-                  alt="Reminus CTO パートナー概要資料"
-                  width={1326}
-                  height={842}
-                  priority
-                  className="block h-auto w-full"
-                />
-              </div>
+            <div className="mt-4 lg:mt-6">
+              <DownloadPreview />
             </div>
 
             <p className="mt-6 text-lg font-bold !leading-[1.6] tracking-wide text-gray-800 sm:text-xl">
