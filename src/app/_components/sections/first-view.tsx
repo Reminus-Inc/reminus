@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export function FirstView() {
   return (
-    <div className="relative mx-auto flex w-[80%] max-w-[1200px] flex-col items-center gap-8 pt-6 md:pt-10 lg:w-[90%] lg:flex-row lg:pt-6 xl:gap-2 font-sans">
+    <div className="relative mx-auto flex w-[80%] max-w-[1200px] flex-col items-center gap-8 pt-6 font-sans md:pt-10 lg:w-[90%] lg:flex-row lg:pt-6 xl:gap-2">
       <div className="relative z-[1] w-full lg:w-fit lg:flex-none">
         <Image
           src="/crown.png"
@@ -13,7 +13,10 @@ export function FirstView() {
           height={75}
           className="-ml-1 max-w-[200px] sm:max-w-[280px] md:max-w-[320px] lg:max-w-[280px] xl:max-w-[405px]"
         />
-        <Title className="mt-2" />
+        <span className="relative mt-6 inline-block rounded-sm bg-emerald-500 px-4 py-[5px] text-xs font-medium !leading-[1] tracking-wider text-white after:absolute after:left-1/2 after:top-full after:ml-1.5 after:skew-x-[45deg] after:border-[5px] after:border-transparent after:border-t-emerald-500 after:content-[''] sm:py-[7px] sm:text-lg sm:after:border-[6px]">
+          SaaSスタートアップの経営者様へ
+        </span>
+        <Title className="mt-2 md:mt-2.5" />
         <Description className="mt-4" />
         <div className="mt-2 flex justify-center sm:mt-4 lg:hidden">
           <Image
@@ -26,12 +29,16 @@ export function FirstView() {
             className="w-[80%] max-w-[320px] sm:max-w-[380px]"
           />
         </div>
-        <div className="bleed lg:bleed-none relative z-[1] -mt-4 px-4 lg:mt-12 lg:px-0">
-          <CustomDownloadButton subtitle="Reminus CTOパートナー" title="資料ダウンロード" className="lg:-ml-2" />
+        <div className="bleed lg:bleed-none relative z-[1] -mt-4 px-4 lg:mt-8 lg:px-0">
+          <CustomDownloadButton
+            subtitle="Reminus CTOパートナー"
+            title="資料ダウンロード"
+            className="lg:-ml-2"
+          />
         </div>
       </div>
 
-      <div className="absolute right-0 hidden lg:block bottom-[-20px]">
+      <div className="absolute bottom-0 right-0 hidden lg:block">
         <Image
           src="/hero.png"
           alt="CTO代行サービスイラスト"
@@ -48,7 +55,7 @@ const Title = ({ className }: { className?: string }) => {
   return (
     <h1
       className={cn(
-        "text-[25px] font-bold !leading-[1.45] tracking-wider text-gray-800 sm:text-4xl md:text-5xl lg:text-5xl lg:tracking-wide xl:text-[56px]",
+        "text-[25px] font-bold !leading-[1.45] tracking-wider text-gray-800 sm:text-4xl md:text-5xl md:!leading-[1.37] lg:text-5xl lg:tracking-wide xl:text-[56px]",
         className
       )}
     >
@@ -72,9 +79,7 @@ const Description = ({ className }: { className?: string }) => {
         技術選定・エンジニア採用・開発計画まで
       </span>
       <br className="hidden lg:block" />
-      <span className="whitespace-nowrap">
-        CTO代行が一気通貫で支えます。
-      </span>
+      <span className="whitespace-nowrap">CTO代行が一気通貫で支えます。</span>
     </p>
   );
 };
