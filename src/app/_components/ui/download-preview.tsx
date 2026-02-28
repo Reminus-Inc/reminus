@@ -25,7 +25,7 @@ export const DownloadPreview = () => {
 
   return (
     <div className="w-full max-w-[560px]">
-      <div className="border-[2px] border-solid border-emerald-500">
+      <div className="border-[4px] border-solid border-gray-300">
         <Image
           src={activeImage.src}
           alt={activeImage.alt}
@@ -46,7 +46,7 @@ export const DownloadPreview = () => {
               onClick={() => setActiveIndex(index)}
               className={cn(
                 "relative flex-1 overflow-hidden border-2 border-gray-200 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-blue-500",
-                isActive ? "border-gray-400" : ""
+                isActive ? "border-gray-400/60" : ""
               )}
               aria-label={`資料プレビュー ${index + 1}`}
             >
