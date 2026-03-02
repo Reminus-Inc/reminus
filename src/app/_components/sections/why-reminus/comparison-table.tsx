@@ -56,13 +56,13 @@ export function ComparisonTable({ data }: { data: ComparisonRow[] }) {
                 className="relative w-[148px] bg-emerald-50/80 md:w-[220px]"
               />
             </div>
-            <div className="w-[4px] shrink-0 self-stretch bg-white" />
+            <div className="w-[3px] shrink-0 self-stretch bg-white md:w-[4px]" />
             <Column
               header="技術顧問会社"
               cells={data.map((r) => r.advisor)}
               className="w-[120px] md:w-[180px]"
             />
-            <div className="w-[4px] shrink-0 self-stretch bg-white" />
+            <div className="w-[3px] shrink-0 self-stretch bg-white md:w-[4px]" />
             <Column
               header="フリーランス"
               cells={data.map((r) => r.freelance)}
@@ -113,7 +113,10 @@ function CommonCell({
 function TitleCell({ title, isLast }: { title: string; isLast: boolean }) {
   return (
     <CommonCell
-      className={cn("bg-gray-200", isLast ? "" : "border-b-[4px] border-white")}
+      className={cn(
+        "bg-gray-200",
+        isLast ? "" : "border-b-[3px] border-white md:border-b-[4px]"
+      )}
     >
       <span className="text-xs font-bold !leading-[1.5] tracking-wider text-gray-800 md:text-base">
         {title}
@@ -145,7 +148,11 @@ function HeaderCell({ title }: { title?: string }) {
 
 function DataCell({ data, isLast }: { data: CellData; isLast: boolean }) {
   return (
-    <CommonCell className={cn(isLast ? "" : "border-b-[4px] border-white")}>
+    <CommonCell
+      className={cn(
+        isLast ? "" : "border-b-[3px] border-white md:border-b-[4px]"
+      )}
+    >
       {data.description != null ? (
         <div className="flex flex-col items-center gap-1 md:gap-0.5">
           <MarkIcon mark={data.mark} />
