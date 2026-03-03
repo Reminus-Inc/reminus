@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export function FirstView() {
   return (
-    <div className="relative mx-auto flex w-[80%] max-w-[1200px] flex-col items-center gap-8 pt-6 font-sans md:pt-10 lg:w-[90%] lg:flex-row lg:pt-6 xl:gap-2">
+    <div className="relative mx-auto flex w-[80%] max-w-[1200px] flex-col items-center gap-8 pt-1 font-sans sm:pt-4 md:pt-6 lg:w-[90%] lg:flex-row xl:gap-2">
       <div className="relative z-[1] w-full lg:w-fit lg:flex-none">
         <Image
           src="/crown.png"
@@ -13,12 +13,12 @@ export function FirstView() {
           height={75}
           className="-ml-1 max-w-[200px] sm:max-w-[280px] md:max-w-[320px] lg:max-w-[280px] xl:max-w-[405px]"
         />
-        <span className="relative mt-6 inline-block rounded-sm bg-emerald-500 px-4 py-[5px] text-xs font-medium !leading-[1] tracking-wider text-white after:absolute after:left-1/2 after:top-full after:ml-1.5 after:skew-x-[45deg] after:border-[5px] after:border-transparent after:border-t-emerald-500 after:content-[''] sm:py-[7px] sm:text-lg sm:after:border-[6px]">
+        <span className="relative mt-4 inline-block rounded-sm bg-emerald-500 px-4 py-[5px] text-xs font-medium !leading-[1] tracking-wider text-white after:absolute after:left-1/2 after:top-full after:ml-1.5 after:skew-x-[45deg] after:border-[5px] after:border-transparent after:border-t-emerald-500 after:content-[''] sm:mt-6 sm:py-[7px] sm:text-lg sm:after:border-[6px]">
           SaaSスタートアップの経営者様へ
         </span>
         <Title className="mt-2 md:mt-2.5" />
-        <Description className="mt-4" />
-        <div className="mt-2 flex justify-center sm:mt-4 lg:hidden">
+        <Description className="mt-3 sm:mt-4" />
+        <div className="mt-0.5 flex justify-center sm:mt-2 md:mt-4 lg:hidden">
           <Image
             src="/hero.png"
             alt="CTO代行サービスイラスト"
