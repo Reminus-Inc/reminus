@@ -73,8 +73,10 @@ const Description = ({ className }: { className?: string }) => {
         className
       )}
     >
-      技術に明るくない経営者の右腕として、
-      <br className="hidden lg:block" />
+      <span className="hidden sm:inline">
+        技術に明るくない経営者の右腕として、
+        <br className="hidden lg:block" />
+      </span>
       <span className="whitespace-nowrap">
         技術選定・エンジニア採用・開発計画まで
       </span>
