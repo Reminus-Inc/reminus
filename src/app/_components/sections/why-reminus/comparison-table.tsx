@@ -37,7 +37,7 @@ export function ComparisonTable({ data }: { data: ComparisonRow[] }) {
       <div className="overflow-x-auto py-1">
         <div className="flex items-center">
           {/* 1 列目 */}
-          <div className="sticky left-0 z-10 flex w-[88px] shrink-0 flex-col bg-gray-50 py-1 md:w-[140px]">
+          <div className="sticky left-0 z-10 flex w-[88px] shrink-0 flex-col bg-white py-1 md:w-[140px]">
             <TitleEmptyCell />
             {data.map((row, i) => (
               <TitleCell
@@ -126,7 +126,7 @@ function TitleCell({ title, isLast }: { title: string; isLast: boolean }) {
 }
 
 function TitleEmptyCell() {
-  return <CommonCell className="bg-gray-50" />;
+  return <CommonCell />;
 }
 
 function HeaderCell({ title }: { title?: string }) {
