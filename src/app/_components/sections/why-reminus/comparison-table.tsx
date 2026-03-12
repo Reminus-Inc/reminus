@@ -34,7 +34,7 @@ const MARK_ICON = {
 export function ComparisonTable({ data }: { data: ComparisonRow[] }) {
   return (
     <div className="bleed flex justify-center pl-6">
-      <div className="overflow-x-auto py-1">
+      <div className="overflow-x-auto pb-2">
         <div className="flex items-center">
           {/* 1 列目 */}
           <div className="sticky left-0 z-10 flex w-[88px] shrink-0 flex-col bg-white py-1 md:w-[140px]">
