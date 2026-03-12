@@ -3,27 +3,7 @@ import { SectionHeader } from "../../ui/section-header";
 import { cn } from "@/lib/utils";
 import { ComparisonTable, MARK_TYPE } from "./comparison-table";
 import type { ComparisonRow } from "./comparison-table";
-
-const GRAPH_DATA = [
-  {
-    title: "経営層から技術特化の者まで、\n多様なメンバーが揃う。",
-    image: "/member-1.svg",
-    width: 376,
-    height: 285,
-  },
-  {
-    title: "混沌のシード〜アーリーを\n牽引してきた精鋭揃い。",
-    image: "/member-4.svg",
-    width: 411,
-    height: 287,
-  },
-  {
-    title: "YoY300%の成長速度を\nくぐり抜けてきたメンバー多数。",
-    image: "/member-5.svg",
-    width: 337,
-    height: 273,
-  },
-];
+import { MemberCards } from "./member-cards";
 
 const MEMBER_DATA = [
   {
@@ -65,6 +45,27 @@ const MEMBER_DATA = [
       "営業やマーケ、CSまで設計できる事業運用力",
       "開発組織のスピードを最大化する組織運営力",
     ],
+  },
+];
+
+const GRAPH_DATA = [
+  {
+    title: "経営層から技術特化の者まで、\n多様なメンバーが揃う。",
+    image: "/member-1.svg",
+    width: 376,
+    height: 285,
+  },
+  {
+    title: "混沌のシード〜アーリーを\n牽引してきた精鋭揃い。",
+    image: "/member-4.svg",
+    width: 411,
+    height: 287,
+  },
+  {
+    title: "YoY300%の成長速度を\nくぐり抜けてきたメンバー多数。",
+    image: "/member-5.svg",
+    width: 337,
+    height: 273,
   },
 ];
 
@@ -120,16 +121,7 @@ export function WhyReminus({ className }: { className?: string }) {
         </p>
 
         <div className="bleed mt-16 px-6">
-          <div className="relative flex flex-wrap justify-center gap-5">
-            <div className="flex flex-wrap justify-center gap-5">
-              <MemberCard {...MEMBER_DATA[0]} />
-              <MemberCard {...MEMBER_DATA[1]} />
-            </div>
-            <div className="flex flex-wrap justify-center gap-5">
-              <MemberCard {...MEMBER_DATA[2]} />
-              <MemberCard {...MEMBER_DATA[3]} />
-            </div>
-          </div>
+          <MemberCards members={MEMBER_DATA} />
 
           <div className="mt-16 flex w-full flex-col items-center">
             <div className="space-y-12 sm:space-y-16 md:flex md:flex-wrap md:justify-center md:gap-x-12 md:gap-y-14 md:space-y-0 lg:gap-x-12 xl:gap-x-8">
@@ -147,62 +139,6 @@ export function WhyReminus({ className }: { className?: string }) {
     </section>
   );
 }
-
-type MemberCardProps = {
-  label: string;
-  title: string;
-  career: string[];
-  strengths: string[];
-};
-
-const MemberCard = ({ label, title, career, strengths }: MemberCardProps) => {
-  return (
-    <div className="w-full max-w-[326px] rounded-2xl border border-solid border-gray-200 bg-white p-4 pb-6 sm:w-auto">
-      <div className="flex justify-center">
-        <Image src="/member-icon.svg" width={90} height={90} alt="" />
-      </div>
-
-      <span className="relative mt-2 inline-block rounded-[2px] bg-gray-400 px-2 text-[11px] tracking-wider text-white after:absolute after:left-1/2 after:top-full after:-ml-1 after:skew-x-[20deg] after:border-[4px] after:border-transparent after:border-t-gray-400 after:content-['']">
-        {label}
-      </span>
-      <h3 className="mt-1 text-base font-bold !leading-[1.5] tracking-wider text-gray-800 sm:text-lg">
-        {title}
-      </h3>
-
-      <div className="mt-3 space-y-1.5">
-        <span className="inline-block rounded-sm bg-emerald-500 px-2 py-0.5 text-xs !leading-[1.6] tracking-widest text-white sm:text-[12px]">
-          経歴
-        </span>
-        <ul className="relative space-y-1 pl-1 before:absolute before:left-[7px] before:top-[0.5em] before:h-[calc(100%-1em)] before:w-[1] before:bg-emerald-200 before:content-[''] sm:before:left-[8px]">
-          {career.map((item, i) => (
-            <li
-              key={i}
-              className="flex items-baseline text-xs !leading-[1.5] tracking-wide text-gray-800 before:mr-2 before:inline-block before:h-[7px] before:w-[7px] before:rounded-full before:bg-emerald-200 before:content-[''] sm:text-[13px] sm:before:h-[9px] sm:before:w-[9px]"
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="mt-3 space-y-1.5">
-        <span className="inline-block rounded-sm bg-emerald-500 px-2 py-0.5 text-xs !leading-[1.6] tracking-widest text-white sm:text-[12px]">
-          強み
-        </span>
-        <ul className="space-y-1 pl-1">
-          {strengths.map((item, i) => (
-            <li
-              key={i}
-              className="flex items-baseline text-xs !leading-[1.5] tracking-wide text-gray-800 before:mr-2 before:inline-block before:h-[7px] before:w-[7px] before:rounded-full before:bg-emerald-200 before:content-[''] sm:text-[13px] sm:before:h-[9px] sm:before:w-[9px]"
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
-};
 
 type GraphCardProps = {
   title: string;

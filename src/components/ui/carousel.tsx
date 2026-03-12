@@ -274,7 +274,7 @@ const CarouselPagination = React.forwardRef<
   return (
     <div
       ref={ref}
-      className={cn("mt-10 flex items-center justify-center gap-4", className)}
+      className={cn("mt-6 sm:mt-10 flex items-center justify-center gap-4", className)}
       {...props}
     >
       {showArrows && (
