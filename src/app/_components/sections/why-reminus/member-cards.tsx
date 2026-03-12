@@ -25,13 +25,13 @@ export const MemberCards = ({ members }: MemberCardsProps) => {
         />
       </div>
 
-      <div className="relative hidden flex-wrap justify-center gap-5 sm:flex">
-        <div className="flex flex-wrap justify-center gap-5">
+      <div className="relative hidden flex-wrap justify-center gap-6 sm:flex">
+        <div className="flex flex-wrap justify-center gap-6">
           {members.slice(0, 2).map((member, i) => (
             <MemberCard key={i} {...member} />
           ))}
         </div>
-        <div className="flex flex-wrap justify-center gap-5">
+        <div className="flex flex-wrap justify-center gap-6">
           {members.slice(2, 4).map((member, i) => (
             <MemberCard key={i} {...member} />
           ))}
@@ -43,7 +43,7 @@ export const MemberCards = ({ members }: MemberCardsProps) => {
 
 const MemberCard = ({ label, title, career, strengths }: MemberCardData) => {
   return (
-    <div className="mx-auto flex h-full sm:h-auto w-full sm:max-w-[326px] flex-col rounded-2xl border border-solid border-gray-200 bg-white p-4 pb-5 sm:w-auto sm:pb-6">
+    <div className="mx-auto flex h-full w-full flex-col rounded-2xl border border-solid border-gray-200 bg-gray-50/30 p-4 pb-5 sm:h-auto sm:w-auto sm:max-w-[326px] sm:pb-6">
       <div>
         <div className="flex justify-center">
           <Image src="/member-icon.svg" width={90} height={90} alt="" />
