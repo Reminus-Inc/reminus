@@ -13,7 +13,6 @@ export function FirstView() {
           height={75}
           className="-ml-1 max-w-[200px] sm:max-w-[280px] md:max-w-[320px] lg:max-w-[280px] xl:max-w-[405px]"
         />
-        <Obi className="mt-6" />
         <Title className="mt-2 md:mt-2.5" />
         <Description className="mt-4" />
         <div className="mt-0.5 flex justify-center sm:mt-2 md:mt-4 lg:hidden">
@@ -27,7 +26,7 @@ export function FirstView() {
             className="w-[80%] max-w-[320px] sm:max-w-[380px]"
           />
         </div>
-        <div className="bleed lg:bleed-none relative z-[1] -mt-4 px-4 lg:mt-8 lg:px-0">
+        <div className="bleed lg:bleed-none relative z-[1] -mt-4 px-4 lg:mt-12 lg:px-0">
           <CustomDownloadButton
             subtitle="Reminus CTOパートナー"
             title="資料ダウンロード"
@@ -36,7 +35,7 @@ export function FirstView() {
         </div>
       </div>
 
-      <div className="absolute bottom-0 right-0 hidden lg:block">
+      <div className="absolute bottom-[-20px] right-0 hidden lg:block">
         <Image
           src="/hero.png"
           alt="CTO代行サービスイラスト"
@@ -48,14 +47,6 @@ export function FirstView() {
     </div>
   );
 }
-
-const Obi = ({ className }: { className?: string }) => {
-  return (
-    <span className={cn("relative inline-block rounded-sm bg-emerald-500 px-4 py-[5px] text-xs font-medium !leading-[1] tracking-wider text-white after:absolute after:left-1/2 after:top-full after:ml-1.5 after:skew-x-[45deg] after:border-[5px] after:border-transparent after:border-t-emerald-500 after:content-[''] sm:py-[7px] sm:text-lg sm:after:border-[6px]", className)}>
-      SaaSスタートアップの経営者様へ
-    </span>
-  );
-};
 
 const Title = ({ className }: { className?: string }) => {
   return (
