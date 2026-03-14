@@ -9,7 +9,8 @@ type CaseStudyItemBase = {
   title: string;
   scale: string;
   financialBackground?: string;
-  supportContentList: string[];
+  challengeList?: string[];
+  supportContentList?: string[];
   resultList: string[];
 };
 type CaseStudyItemWithLogo = CaseStudyItemBase & {
@@ -23,69 +24,76 @@ type CaseStudyItem = CaseStudyItemWithLogo | CaseStudyItemWithoutLogo;
 
 const caseStudyItemList: CaseStudyItem[] = [
   {
-    companyName: "千葉エコ・エネルギー株式会社",
-    title:
-      "農地法SaaSの製品構想を整理し、開発ロードマップ策定〜外注監修まで一気通貫",
-    logoPath: "/logos/chiba-eco.webp",
-    scale: "売上高数億円",
-    supportContentList: [
-      "農地法特有の業務手続きを踏まえ、開発ロードマップと技術戦略を策定",
-      "セールスの戦略とスケジュールを踏まえてMVP範囲を精緻化",
-      "外注先の選定と、発注後は外注管理サポート",
-    ],
-    resultList: ["（現在ご支援中）"],
-  },
-  {
     companyName: "1backoffice合同会社",
     title:
       "バックオフィスDXプロダクトの開発プロセス設計と初期エンジニア採用を一体で支援",
     logoPath: "/logos/1backoffice.png",
     scale: "創業2年",
     financialBackground: "自己資金",
-    supportContentList: [
-      "仕様が明確なバックオフィス業務の特性を活かし、AIをフル活用した開発プロセスを設計",
-      "自社に最適化されたエンジニア求人を定義し、採用方針を整理",
-    ],
-    resultList: ["（現在ご支援中）"],
-  },
-  {
-    category: "社名非公開（医療AI SaaS）",
-    title: "MVPを事業計画通りリリース。\nスカウト返信率改善で即戦力を2名獲得。",
-
-    scale: "シード1億円調達",
-    supportContentList: [
-      "CTO代行が技術投資に優先度をつけ、工数を削減",
-      "事業状況に適した役割設計とスカウト文面の最適化",
+    challengeList: [
+      "バックオフィスSaaSは機能数が多いため開発生産性の見通しが重要",
+      "開発プロセスが未整備で、自社に最適な1人目エンジニアの要件が曖昧",
     ],
     resultList: [
-      "顧客への機能開発に集中し、事業計画に沿ってMVPリリース",
-      "候補者から返信率が向上し、入社意欲のあるエンジニアを2名獲得",
+      "エンジニアが最も効率よくAIと分担・協働できる仕組みを構築",
+      "開発プロセスに最適化したエンジニア要件を定義し、採用活動を推進"
+    ],
+  },
+  {
+    companyName: "千葉エコ・エネルギー株式会社",
+    title:
+      "農地法SaaSの製品構想を整理し、開発ロードマップ策定〜外注監修まで一気通貫",
+    logoPath: "/logos/chiba-eco.webp",
+    scale: "売上高数億円",
+    challengeList: [
+      "システム開発のノウハウ・リソースがない",
+      "外注先選定・管理のポイントがわからない",
+    ],
+    resultList: [
+      "農地法特有の業務手続きを踏まえ、開発ロードマップと技術戦略を策定",
+      "セールスの戦略とスケジュールを踏まえてMVP範囲を精緻化",
+      "外注先の選定と、発注後は外注管理サポート",
     ],
   },
   {
     category: "製造業 SaaS スタートアップ",
     title:
       "プロダクト構想を開発計画に落とし込み、ゼロから内製組織を立ち上げ。",
-
     scale: "資本金3,000万円",
     financialBackground: "自己資金",
-    supportContentList: [
-      "販売戦略から逆算して、MVPの開発ロードマップと技術戦略を策定",
-      "内製リソースがゼロの状態から3名の初期チームと開発基盤を構築",
+    challengeList: [
+      "製造業の業務知見はあるが、SaaS化にあたって技術の実現可否を判断できる人材がいない",
+      "エンジニアがゼロで、開発体制の作り方も開発の進め方もわからない"
     ],
-    resultList: ["（現在ご支援中）"],
+    resultList: [
+      "プロダクト・業界特有の技術リスクを洗い出し、MVPロードマップと技術戦略を策定",
+      "技術基盤を構築し、業務委託エンジニアを1名採用。開発を予定どおり推進",],
   },
+  {
+    category: "社名非公開（医療AI SaaS）",
+    title: "MVPを事業計画通りリリース。\nスカウト返信率改善で即戦力を2名獲得。",
+    scale: "シード1億円調達",
+    challengeList: [
+      "CTO不在で技術投資の優先順位がつけられず、開発工数が分散",
+      "即戦力エンジニアを採用したいが、スカウトの返信率が低い"
+    ],
+    resultList: [
+      "CTO代行が技術投資に優先度をつけ工数を削減し、事業計画どおりMVPをリリース",
+      "スカウト文面と役割設計を最適化し、入社意欲のあるエンジニアを2名獲得"
+    ],
+  },
+
   {
     category: "経営管理 SaaS スタートアップ",
     title: "MVPを実現しシード調達に成功。チーム拡大後、CTO採用達成。",
 
     scale: "シード1億円調達",
-    supportContentList: [
-      "競争優位性となる財務モデリングに特化して全体設計を策定",
-      "CTO代行がエンジニアに訴求できる採用プロセスを構築",
+    challengeList: [
+      "財務モデリングが技術的に複雑で設計・開発が困難",
+      "エンジニア採用のノウハウがなく、外注の内製化が難しい",
     ],
     resultList: [
-      "MVPを実現し、シードラウンドでの資金調達に成功",
+      "設計支援によりMVPを実現し、シードラウンドでの資金調達に成功",
       "副業エンジニア6名まで開発組織を拡大後、CTO採用に成功",
     ],
   },
@@ -95,13 +103,13 @@ const caseStudyItemList: CaseStudyItem[] = [
 
     scale: "従業員数10名",
     financialBackground: "自己資金",
-    supportContentList: [
-      "CTO代行がシステム構想からMVP範囲を決め、スケジュールを策定",
-      "Reminusエンジニアが2名コードを書きながら開発体制を立ち上げ",
+    challengeList: [
+      "エンジニアはいるが、内製開発をどう進めればいいかわからない",
+      "仕様を正確かつ効率的にエンジニアに伝える方法が分からない",
     ],
     resultList: [
-      "1.5ヶ月で内製開発を立ち上げ",
-      "企画と開発を高速で回せる開発プロセスの仕組み化を実現",
+      "1.5ヶ月で技術基盤と内製チームを立ち上げ、開発を開始",
+      "企画と開発を高速で回せる開発プロセスを仕組み化",
     ],
   },
 ];
@@ -199,19 +207,33 @@ function CaseStudyCard({ caseStudyItem, className }: CaseStudyCardProps) {
         </div>
 
         <div className="mt-4 space-y-3 px-5 pb-5 sm:px-8">
+          {caseStudyItem.challengeList && (
+            <div>
+              <p className="text-xs font-bold tracking-wide text-gray-700 sm:text-sm">
+                抱えていた課題
+              </p>
+              <ul className="mt-1.5 list-disc space-y-1 pl-4 text-xs leading-5 tracking-wide text-gray-800 sm:text-sm sm:leading-relaxed">
+                {caseStudyItem.challengeList.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {caseStudyItem.supportContentList && (
+            <div>
+              <p className="text-xs font-bold tracking-wide text-gray-700 sm:text-sm">
+                支援内容
+              </p>
+              <ul className="mt-1.5 list-disc space-y-1 pl-4 text-xs leading-5 tracking-wide text-gray-800 sm:text-sm sm:leading-relaxed">
+                {caseStudyItem.supportContentList.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          )}
           <div>
             <p className="text-xs font-bold tracking-wide text-gray-700 sm:text-sm">
-              支援内容
-            </p>
-            <ul className="mt-1.5 list-disc space-y-1 pl-4 text-xs leading-5 tracking-wide text-gray-800 sm:text-sm sm:leading-relaxed">
-              {caseStudyItem.supportContentList.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <p className="text-xs font-bold tracking-wide text-gray-700 sm:text-sm">
-              成果
+              導入効果
             </p>
             <ul className="mt-1.5 list-disc space-y-1 pl-4 text-xs leading-5 tracking-wide text-gray-800 sm:text-sm sm:leading-relaxed">
               {caseStudyItem.resultList.map((item, index) => (
