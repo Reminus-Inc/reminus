@@ -5,6 +5,7 @@ import {
   MARK_TYPE,
   type ComparisonRow,
 } from "./why-reminus/comparison-table";
+import { CustomDownloadButton } from "../ui/download-button";
 
 const COMPARISON_DATA: ComparisonRow[] = [
   {
@@ -51,8 +52,12 @@ export function Comparison({ className }: { className?: string }) {
           &nbsp;なら、<br  /> ReminusのCTO代行を！
         </SectionHeader>
 
-        <div className=" mt-16 px-6">
+        <div className="mt-16">
           <ComparisonTable data={COMPARISON_DATA} />
+        </div>
+
+        <div className="bleed mt-16 px-4 md:mt-20">
+          <CustomDownloadButton title="資料ダウンロード" />
         </div>
       </div>
     </section>

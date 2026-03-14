@@ -1,4 +1,3 @@
-import { CustomDownloadButton } from "@/app/_components/ui/download-button";
 import { Carousel } from "@/components/ui/carousel";
 
 import { SectionHeader } from "../ui/section-header";
@@ -36,7 +35,7 @@ const caseStudyItemList: CaseStudyItem[] = [
     ],
     resultList: [
       "エンジニアが最も効率よくAIと分担・協働できる仕組みを構築",
-      "開発プロセスに最適化したエンジニア要件を定義し、採用活動を推進"
+      "開発プロセスに最適化したエンジニア要件を定義し、採用活動を推進",
     ],
   },
   {
@@ -57,17 +56,17 @@ const caseStudyItemList: CaseStudyItem[] = [
   },
   {
     category: "製造業 SaaS スタートアップ",
-    title:
-      "プロダクト構想を開発計画に落とし込み、ゼロから内製組織を立ち上げ。",
+    title: "プロダクト構想を開発計画に落とし込み、ゼロから内製組織を立ち上げ。",
     scale: "資本金3,000万円",
     financialBackground: "自己資金",
     challengeList: [
       "製造業の業務知見はあるが、SaaS化にあたって技術の実現可否を判断できる人材がいない",
-      "エンジニアがゼロで、開発体制の作り方も開発の進め方もわからない"
+      "エンジニアがゼロで、開発体制の作り方も開発の進め方もわからない",
     ],
     resultList: [
       "プロダクト・業界特有の技術リスクを洗い出し、MVPロードマップと技術戦略を策定",
-      "技術基盤を構築し、業務委託エンジニアを1名採用。開発を予定どおり推進",],
+      "技術基盤を構築し、業務委託エンジニアを1名採用。開発を予定どおり推進",
+    ],
   },
   {
     category: "社名非公開（医療AI SaaS）",
@@ -75,11 +74,11 @@ const caseStudyItemList: CaseStudyItem[] = [
     scale: "シード1億円調達",
     challengeList: [
       "CTO不在で技術投資の優先順位がつけられず、開発工数が分散",
-      "即戦力エンジニアを採用したいが、スカウトの返信率が低い"
+      "即戦力エンジニアを採用したいが、スカウトの返信率が低い",
     ],
     resultList: [
       "CTO代行が技術投資に優先度をつけ工数を削減し、事業計画どおりMVPをリリース",
-      "スカウト文面と役割設計を最適化し、入社意欲のあるエンジニアを2名獲得"
+      "スカウト文面と役割設計を最適化し、入社意欲のあるエンジニアを2名獲得",
     ],
   },
 
@@ -142,13 +141,6 @@ export function CaseStudies({ className }: { className?: string }) {
               ))}
             />
           </div>
-        </div>
-
-        <div className="bleed mt-16 px-4">
-          <CustomDownloadButton
-            title="資料ダウンロード"
-            subtitle="成果の詳細を公開中"
-          />
         </div>
       </div>
     </section>
@@ -246,4 +238,3 @@ function CaseStudyCard({ caseStudyItem, className }: CaseStudyCardProps) {
     </div>
   );
 }
-
