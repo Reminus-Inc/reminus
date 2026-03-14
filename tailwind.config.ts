@@ -60,6 +60,9 @@ export default {
       fontFamily: {
         sans: ["var(--font-inter)", "var(--font-noto-sans-jp)", "sans-serif"],
       },
+      spacing: {
+        "18": "4.5rem",
+      },
     },
   },
   plugins: [tailwindcssAnimate],
