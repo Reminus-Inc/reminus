@@ -2,21 +2,13 @@ import { CustomDownloadButton } from "@/app/_components/ui/download-button";
 import { Carousel } from "@/components/ui/carousel";
 
 import { SectionHeader } from "../ui/section-header";
-import {
-  Hospital,
-  Box,
-  ChartBarBig,
-  Users,
-  type LucideIcon,
-} from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 type CaseStudyItemBase = {
   title: string;
   scale: string;
-  financialBackground: string;
-  serviceTypeList: ServiceType[];
+  financialBackground?: string;
   supportContentList: string[];
   resultList: string[];
 };
@@ -26,17 +18,8 @@ type CaseStudyItemWithLogo = CaseStudyItemBase & {
 };
 type CaseStudyItemWithoutLogo = CaseStudyItemBase & {
   category: string;
-  icon: LucideIcon;
 };
 type CaseStudyItem = CaseStudyItemWithLogo | CaseStudyItemWithoutLogo;
-
-const SERVICE_TYPE = {
-  DEVELOPMENT: "技術",
-  PRODUCT: "プロダクト",
-  ORGANIZATION: "組織",
-  RECRUITMENT: "採用",
-} as const;
-type ServiceType = (typeof SERVICE_TYPE)[keyof typeof SERVICE_TYPE];
 
 const caseStudyItemList: CaseStudyItem[] = [
   {
@@ -45,12 +28,10 @@ const caseStudyItemList: CaseStudyItem[] = [
       "農地法SaaSの製品構想を整理し、開発ロードマップ策定〜外注監修まで一気通貫",
     logoPath: "/logos/chiba-eco.webp",
     scale: "売上高数億円",
-    financialBackground: "非公開",
-    serviceTypeList: [SERVICE_TYPE.PRODUCT, SERVICE_TYPE.DEVELOPMENT],
     supportContentList: [
       "農地法特有の業務手続きを踏まえ、開発ロードマップと技術戦略を策定",
       "セールスの戦略とスケジュールを踏まえてMVP範囲を精緻化",
-      "外注先の選定と、発注後の外注先管理をサポート",
+      "外注先の選定と、発注後は外注管理サポート",
     ],
     resultList: ["（現在ご支援中）"],
   },
@@ -61,20 +42,17 @@ const caseStudyItemList: CaseStudyItem[] = [
     logoPath: "/logos/1backoffice.png",
     scale: "創業2年",
     financialBackground: "自己資金",
-    serviceTypeList: [SERVICE_TYPE.ORGANIZATION, SERVICE_TYPE.RECRUITMENT],
     supportContentList: [
-      "製品仕様が明確という特徴を活かし、開発速度を最大化する開発プロセスを設計",
-      "開発プロセスに最適化されたエンジニア求人を定義し、採用方針を整理",
+      "仕様が明確なバックオフィス業務の特性を活かし、AIをフル活用した開発プロセスを設計",
+      "自社に最適化されたエンジニア求人を定義し、採用方針を整理",
     ],
     resultList: ["（現在ご支援中）"],
   },
   {
-    category: "医療\u00d7AI SaaS スタートアップ",
+    category: "社名非公開（医療AI SaaS）",
     title: "MVPを事業計画通りリリース。\nスカウト返信率改善で即戦力を2名獲得。",
-    icon: Hospital,
-    scale: "シードラウンド 1億円調達",
-    financialBackground: "エクイティファイナンス",
-    serviceTypeList: [SERVICE_TYPE.DEVELOPMENT, SERVICE_TYPE.RECRUITMENT],
+
+    scale: "シード1億円調達",
     supportContentList: [
       "CTO代行が技術投資に優先度をつけ、工数を削減",
       "事業状況に適した役割設計とスカウト文面の最適化",
@@ -87,11 +65,10 @@ const caseStudyItemList: CaseStudyItem[] = [
   {
     category: "製造業 SaaS スタートアップ",
     title:
-      "プロダクト構想を開発計画に落とし込み、\nゼロから内製組織を立ち上げ。",
-    icon: Box,
-    scale: "資本金 3,000万円",
-    financialBackground: "自己資金（黒字）",
-    serviceTypeList: [SERVICE_TYPE.DEVELOPMENT, SERVICE_TYPE.PRODUCT],
+      "プロダクト構想を開発計画に落とし込み、ゼロから内製組織を立ち上げ。",
+
+    scale: "資本金3,000万円",
+    financialBackground: "自己資金",
     supportContentList: [
       "販売戦略から逆算して、MVPの開発ロードマップと技術戦略を策定",
       "内製リソースがゼロの状態から3名の初期チームと開発基盤を構築",
@@ -100,15 +77,9 @@ const caseStudyItemList: CaseStudyItem[] = [
   },
   {
     category: "経営管理 SaaS スタートアップ",
-    title: "MVPを実現しシード調達に成功。\n副業エンジニア拡大後、CTO採用達成。",
-    icon: ChartBarBig,
-    scale: "シードラウンド 1億円調達",
-    financialBackground: "エクイティファイナンス",
-    serviceTypeList: [
-      SERVICE_TYPE.DEVELOPMENT,
-      SERVICE_TYPE.ORGANIZATION,
-      SERVICE_TYPE.RECRUITMENT,
-    ],
+    title: "MVPを実現しシード調達に成功。チーム拡大後、CTO採用達成。",
+
+    scale: "シード1億円調達",
     supportContentList: [
       "競争優位性となる財務モデリングに特化して全体設計を策定",
       "CTO代行がエンジニアに訴求できる採用プロセスを構築",
@@ -121,10 +92,9 @@ const caseStudyItemList: CaseStudyItem[] = [
   {
     category: "士業特化バーティカルCRM SaaS スタートアップ",
     title: "エンジニア2名・コードなしの状態から内製開発組織を立ち上げ。",
-    icon: Users,
+
     scale: "従業員数10名",
-    financialBackground: "自己資金（新規事業）",
-    serviceTypeList: [SERVICE_TYPE.DEVELOPMENT, SERVICE_TYPE.ORGANIZATION],
+    financialBackground: "自己資金",
     supportContentList: [
       "CTO代行がシステム構想からMVP範囲を決め、スケジュールを策定",
       "Reminusエンジニアが2名コードを書きながら開発体制を立ち上げ",
@@ -187,7 +157,7 @@ function CaseStudyCard({ caseStudyItem, className }: CaseStudyCardProps) {
   return (
     <div className={cn("flex h-full flex-col bg-white", className)}>
       <div className="rounded-t-lg bg-gradient-to-r from-emerald-500 from-60% to-emerald-500/85 px-4 py-4 sm:px-6">
-        <p className="whitespace-pre-wrap text-lg font-bold !leading-[1.65] tracking-wide text-white sm:text-[22px]">
+        <p className="whitespace-pre-wrap text-base font-bold !leading-[1.65] tracking-wide text-white sm:text-[22px]">
           {caseStudyItem.title}
         </p>
       </div>
@@ -211,100 +181,47 @@ function CaseStudyCard({ caseStudyItem, className }: CaseStudyCardProps) {
             </div>
           ) : (
             // ロゴなし
-            <div className="flex items-center gap-3">
-              <caseStudyItem.icon
-                className="h-7 w-7 text-gray-600"
-                strokeWidth={2}
-              />
-              <p className="text-lg font-bold tracking-wide text-gray-800">
-                {caseStudyItem.category}
-              </p>
-            </div>
+            <p className="text-lg font-bold tracking-wide text-gray-800">
+              {caseStudyItem.category}
+            </p>
           )}
         </div>
 
-        <div className="mt-4 overflow-hidden px-3 pb-5 sm:px-6">
-          <Row isEven={false}>
-            <Head>会社規模</Head>
-            <Body>{caseStudyItem.scale}</Body>
-          </Row>
-          <Row isEven={true}>
-            <Head>財務状況</Head>
-            <Body>{caseStudyItem.financialBackground}</Body>
-          </Row>
-          <Row isEven={false}>
-            <Head>支援業務</Head>
-            <Body>
-              <div className="flex flex-wrap gap-2">
-                {caseStudyItem.serviceTypeList.map((item, index) => (
-                  <div
-                    key={index}
-                    className="rounded border border-gray-200 px-3 py-0.5"
-                  >
-                    <p className="text-[11px] font-medium leading-5 text-gray-800">
-                      {item}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </Body>
-          </Row>
-          <Row isEven={true}>
-            <Head>支援内容</Head>
-            <Body>
-              <ul className="flex list-disc flex-col gap-1">
-                {caseStudyItem.supportContentList.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-            </Body>
-          </Row>
-          <Row isEven={false}>
-            <Head>成果</Head>
-            <Body>
-              <ul className="flex list-disc flex-col gap-1">
-                {caseStudyItem.resultList.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-            </Body>
-          </Row>
+        <div className="mt-4 flex flex-wrap gap-1.5 px-5 sm:px-8">
+          <span className="rounded-full bg-gray-100 px-3 py-1 text-xs tracking-wide text-gray-600">
+            #{caseStudyItem.scale}
+          </span>
+          {caseStudyItem.financialBackground && (
+            <span className="rounded-full bg-gray-100 px-3 py-1 text-xs tracking-wide text-gray-600">
+              #{caseStudyItem.financialBackground}
+            </span>
+          )}
+        </div>
+
+        <div className="mt-4 space-y-3 px-5 pb-5 sm:px-8">
+          <div>
+            <p className="text-xs font-bold tracking-wide text-gray-700 sm:text-sm">
+              支援内容
+            </p>
+            <ul className="mt-1.5 list-disc space-y-1 pl-4 text-xs leading-5 tracking-wide text-gray-800 sm:text-sm sm:leading-relaxed">
+              {caseStudyItem.supportContentList.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="text-xs font-bold tracking-wide text-gray-700 sm:text-sm">
+              成果
+            </p>
+            <ul className="mt-1.5 list-disc space-y-1 pl-4 text-xs leading-5 tracking-wide text-gray-800 sm:text-sm sm:leading-relaxed">
+              {caseStudyItem.resultList.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   );
 }
 
-function Row({
-  isEven,
-  children,
-}: {
-  isEven: boolean;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className={`flex w-full ${isEven ? "bg-gray-50" : ""}`}>
-      {children}
-    </div>
-  );
-}
-
-function Head({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="py-2.5 pl-3 sm:pl-5">
-      <p className="w-[60px] text-xs leading-5 tracking-wide text-gray-800 sm:w-[68px] sm:text-sm sm:leading-relaxed">
-        {children}
-      </p>
-    </div>
-  );
-}
-
-function Body({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="grow py-2.5 pl-6 pr-2">
-      <div className="text-xs leading-5 tracking-wide text-gray-800 sm:text-sm sm:leading-relaxed">
-        {children}
-      </div>
-    </div>
-  );
-}
