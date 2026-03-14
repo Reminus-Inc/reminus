@@ -11,11 +11,11 @@ export function FirstView() {
           alt=""
           width={405}
           height={75}
-          className="-ml-1 max-w-[236px] sm:max-w-[320px] md:max-w-[360px] xl:max-w-[405px]"
+          className="-ml-1 max-w-[224px] min-[375px]:max-w-[244px] sm:max-w-[320px] md:max-w-[360px] xl:max-w-[405px]"
         />
         <Title className="mt-2.5" />
         <Description className="mt-4" />
-        <div className="mt-0.5 flex justify-center sm:mt-2 md:mt-4 lg:hidden">
+        <div className="mt-2 flex justify-center sm:mt-2 md:mt-4 lg:hidden">
           <Image
             src="/hero.png"
             alt="CTO代行サービスイラスト"
