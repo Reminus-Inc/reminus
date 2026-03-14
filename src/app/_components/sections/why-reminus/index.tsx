@@ -66,6 +66,7 @@ const GRAPH_DATA = [
     image: "/member-5.svg",
     width: 337,
     height: 273,
+    className: "relative left-[10%] md:left-0",
   },
 ];
 
@@ -124,7 +125,7 @@ export function WhyReminus({ className }: { className?: string }) {
           <MemberCards members={MEMBER_DATA} />
 
           <div className="mt-18 flex w-full flex-col items-center">
-            <div className="space-y-12 sm:space-y-16 md:flex md:flex-wrap md:justify-center md:gap-x-12 md:gap-y-14 md:space-y-0 lg:gap-x-12 xl:gap-x-8">
+            <div className="space-y-14 sm:space-y-16 md:flex md:flex-wrap md:justify-center md:gap-x-12 md:gap-y-14 md:space-y-0 lg:gap-x-12 xl:gap-x-12">
               {GRAPH_DATA.map((member, i) => (
                 <GraphCard key={i} {...member} />
               ))}
@@ -145,18 +146,31 @@ type GraphCardProps = {
   image: string;
   width: number;
   height: number;
+  className?: string;
 };
 
-function GraphCard({ title, image, width }: GraphCardProps) {
+function GraphCard({ title, image, width, className }: GraphCardProps) {
   return (
     <div className="md:w-[calc(50%-48px)] lg:w-auto">
-      <h3 className="whitespace-pre-wrap text-lg font-bold !leading-[1.7] tracking-wider text-gray-800 lg:text-[22px]">
+      <h3 className="whitespace-pre-wrap text-center text-lg font-bold !leading-[1.7] tracking-wider text-gray-800 sm:text-xl md:text-left lg:text-[22px]">
         {title}
       </h3>
 
       <div className="mt-6">
+        {/* 〜 md */}
+        <div className={cn(className, "block lg:hidden")}>
+          <Image
+            src={image}
+            width={411}
+            height={287}
+            alt=""
+            className="block lg:hidden"
+          />
+        </div>
+
+        {/* lg 〜 */}
         <div
-          className="hidden overflow-hidden lg:block"
+          className={cn(className, "hidden overflow-hidden lg:block")}
           style={{ width: width }}
         >
           <Image
@@ -164,16 +178,7 @@ function GraphCard({ title, image, width }: GraphCardProps) {
             width={411}
             height={287}
             alt=""
-            className="hidden w-[411px] max-w-[411px] lg:block"
-          />
-        </div>
-        <div className="block lg:hidden">
-          <Image
-            src={image}
-            width={411}
-            height={287}
-            alt=""
-            className="block lg:hidden"
+            className="w-[411px] max-w-[411px]"
           />
         </div>
       </div>
