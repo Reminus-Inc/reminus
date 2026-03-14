@@ -1,8 +1,7 @@
 import Image from "next/image";
 import { SectionHeader } from "../../ui/section-header";
 import { cn } from "@/lib/utils";
-import { ComparisonTable, MARK_TYPE } from "./comparison-table";
-import type { ComparisonRow } from "./comparison-table";
+
 import { MemberCards } from "./member-cards";
 
 const MEMBER_DATA = [
@@ -70,32 +69,6 @@ const GRAPH_DATA = [
   },
 ];
 
-const COMPARISON_DATA: ComparisonRow[] = [
-  {
-    title: "ノウハウ",
-    reminus: { mark: MARK_TYPE.CIRCLE, description: "SaaS特化" },
-    advisor: { mark: MARK_TYPE.CIRCLE, description: "幅広い実績" },
-    freelance: { mark: MARK_TYPE.TRIANGLE, description: "属人的" },
-  },
-  {
-    title: "スピード",
-    reminus: { mark: MARK_TYPE.DOUBLE_CIRCLE },
-    advisor: { mark: MARK_TYPE.CIRCLE },
-    freelance: { mark: MARK_TYPE.CIRCLE },
-  },
-  {
-    title: "コスト",
-    reminus: { mark: MARK_TYPE.CIRCLE },
-    advisor: { mark: MARK_TYPE.DOUBLE_CIRCLE },
-    freelance: { mark: MARK_TYPE.DOUBLE_CIRCLE },
-  },
-  {
-    title: "事業推進力",
-    reminus: { mark: MARK_TYPE.CIRCLE, description: "経営目線" },
-    advisor: { mark: MARK_TYPE.TRIANGLE, description: "技術中心" },
-    freelance: { mark: MARK_TYPE.TRIANGLE_TO_CIRCLE, description: "属人的" },
-  },
-];
 
 export function WhyReminus({ className }: { className?: string }) {
   return (
@@ -132,9 +105,6 @@ export function WhyReminus({ className }: { className?: string }) {
             </div>
           </div>
 
-          <div className="mt-16 md:mt-20">
-            <ComparisonTable data={COMPARISON_DATA} />
-          </div>
         </div>
       </div>
     </section>

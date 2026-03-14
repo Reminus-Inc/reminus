@@ -7,6 +7,7 @@ import { FirstView } from "../_components/sections/first-view";
 import { Management } from "../_components/sections/management";
 import { ServiceOverview } from "../_components/sections/service-overview";
 import { WhyReminus } from "../_components/sections/why-reminus";
+import { Comparison } from "../_components/sections/comparison";
 import { ServiceMenu } from "../_components/sections/service-menu";
 import { DownloadRequest } from "../_components/sections/download-request";
 
@@ -21,6 +22,7 @@ export default function Home() {
         <Cta className="from-gray-50 to-white" />
         <WhyReminus className="bg-white" />
         <CaseStudies className="bg-gray-50" />
+        <Comparison />
         <Management />
         <Cta className="from-white to-white" />
         <News/>

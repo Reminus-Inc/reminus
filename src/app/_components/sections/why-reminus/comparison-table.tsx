@@ -33,11 +33,11 @@ const MARK_ICON = {
 
 export function ComparisonTable({ data }: { data: ComparisonRow[] }) {
   return (
-    <div className="bleed flex justify-center pl-6">
+    <div className="bleed flex justify-center pl-6 lg:px-0">
       <div className="overflow-x-auto pb-2">
         <div className="flex items-center">
           {/* 1 列目 */}
-          <div className="sticky left-0 z-10 flex w-[88px] shrink-0 flex-col bg-white py-1 md:w-[140px]">
+          <div className="sticky left-0 z-10 flex w-[88px] shrink-0 flex-col bg-inherit py-1 md:w-[140px] lg:w-[180px]">
             <TitleEmptyCell />
             {data.map((row, i) => (
               <TitleCell
@@ -53,20 +53,20 @@ export function ComparisonTable({ data }: { data: ComparisonRow[] }) {
             <div className="relative -my-1 p-1 before:absolute before:left-0 before:top-0 before:h-full before:w-full before:border-[4px] before:border-emerald-500 before:content-['']">
               <Column
                 cells={data.map((r) => r.reminus)}
-                className="relative w-[148px] bg-emerald-50/80 md:w-[220px]"
+                className="relative w-[148px] bg-emerald-50/80 md:w-[220px] lg:w-[280px]"
               />
             </div>
             <div className="w-[3px] shrink-0 self-stretch bg-white md:w-[4px]" />
             <Column
               header="技術顧問会社"
               cells={data.map((r) => r.advisor)}
-              className="w-[120px] md:w-[180px]"
+              className="w-[120px] md:w-[180px] lg:w-[240px]"
             />
             <div className="w-[3px] shrink-0 self-stretch bg-white md:w-[4px]" />
             <Column
               header="フリーランス"
               cells={data.map((r) => r.freelance)}
-              className="mr-6 w-[112px] self-stretch md:w-[180px]"
+              className="mr-6 w-[112px] self-stretch md:w-[180px] lg:mr-0 lg:w-[240px]"
             />
           </div>
         </div>
@@ -101,7 +101,7 @@ function CommonCell({
   return (
     <div
       className={cn(
-        "flex h-[60px] items-center justify-center px-2 md:h-[72px]",
+        "flex h-[60px] items-center justify-center px-2 md:h-[72px] lg:h-[88px]",
         className
       )}
     >
@@ -118,7 +118,7 @@ function TitleCell({ title, isLast }: { title: string; isLast: boolean }) {
         isLast ? "" : "border-b-[3px] border-white md:border-b-[4px]"
       )}
     >
-      <span className="text-xs font-bold !leading-[1.5] tracking-wider text-gray-800 md:text-base">
+      <span className="text-xs font-bold !leading-[1.5] tracking-wider text-gray-800 md:text-base lg:text-lg">
         {title}
       </span>
     </CommonCell>
@@ -136,9 +136,9 @@ function HeaderCell({ title }: { title?: string }) {
     >
       <div className="flex items-baseline gap-1">
         {title == null && (
-          <ReminusLogo className="h-auto w-[60px] text-white md:w-[90px]" />
+          <ReminusLogo className="h-auto w-[60px] text-white md:w-[90px] lg:w-[110px]" />
         )}
-        <span className="text-xs font-bold !leading-[1.5] tracking-wider text-white md:text-base">
+        <span className="text-xs font-bold !leading-[1.5] tracking-wider text-white md:text-base lg:text-lg">
           {title ? title : "CTO代行"}
         </span>
       </div>
@@ -156,7 +156,7 @@ function DataCell({ data, isLast }: { data: CellData; isLast: boolean }) {
       {data.description != null ? (
         <div className="flex flex-col items-center gap-1 md:gap-0.5">
           <MarkIcon mark={data.mark} />
-          <p className="text-xs font-bold !leading-[1.5] tracking-wider text-gray-800 md:text-sm">
+          <p className="text-xs font-bold !leading-[1.5] tracking-wider text-gray-800 md:text-sm lg:text-base">
             {data.description}
           </p>
         </div>
@@ -175,15 +175,15 @@ function MarkIcon({ mark }: { mark: MarkType }) {
           src="/icon/triangle.svg"
           width={20}
           height={20}
-          className="h-auto w-[16px] md:w-[20px]"
+          className="h-auto w-[16px] md:w-[20px] lg:w-[28px]"
           alt=""
         />
-        <span className="text-xs font-bold text-gray-800">〜</span>
+        <span className="text-xs font-bold text-gray-800 lg:text-sm">〜</span>
         <Image
           src="/icon/circle.svg"
           width={20}
           height={20}
-          className="h-auto w-[16px] md:w-[20px]"
+          className="h-auto w-[16px] md:w-[20px] lg:w-[28px]"
           alt=""
         />
       </span>
@@ -194,7 +194,7 @@ function MarkIcon({ mark }: { mark: MarkType }) {
       src={MARK_ICON[mark]}
       width={20}
       height={20}
-      className="h-auto w-[16px] md:w-[20px]"
+      className="h-auto w-[16px] md:w-[20px] lg:w-[28px]"
       alt=""
     />
   );
