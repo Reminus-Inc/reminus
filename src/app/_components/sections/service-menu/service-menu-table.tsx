@@ -13,12 +13,12 @@ export function ServiceMenuTable({ data }: { data: MenuItem[] }) {
         <div className="bg-gray-50 md:mx-auto md:w-full md:max-w-[1000px]">
           {/* ヘッダー行 */}
           <div className="flex">
-            <div className="sticky left-0 z-10 w-[100px] shrink-0 bg-gray-50 md:static md:w-[180px]" />
-            <HeaderCell className="min-w-[230px] flex-1 rounded-tl-lg">
+            <div className="sticky left-0 z-10 w-[80px] shrink-0 bg-gray-50 sm:w-[100px] md:static md:w-[180px]" />
+            <HeaderCell className="min-w-[240px] flex-1 rounded-tl-lg">
               戦略
             </HeaderCell>
             <div className="w-[2px] shrink-0 self-stretch" />
-            <HeaderCell className="min-w-[230px] flex-1 rounded-tr-lg">
+            <HeaderCell className="min-w-[240px] flex-1 rounded-tr-lg">
               実行・管理
             </HeaderCell>
             <div className="w-6 shrink-0 md:hidden" />
@@ -31,7 +31,7 @@ export function ServiceMenuTable({ data }: { data: MenuItem[] }) {
               <div key={index} className="flex">
                 <CategoryCell
                   className={cn(
-                    "sticky left-0 z-10 w-[100px] shrink-0 md:static md:w-[180px]",
+                    "sticky left-0 z-10 w-[80px] shrink-0 sm:w-[100px] md:static md:w-[180px]",
                     isFirst && "rounded-tl-lg",
                     isLast ? "rounded-bl-lg" : "border-b-[2px] border-white"
                   )}
@@ -40,7 +40,7 @@ export function ServiceMenuTable({ data }: { data: MenuItem[] }) {
                 </CategoryCell>
                 <ContentCell
                   className={cn(
-                    "min-w-[230px] flex-1",
+                    "min-w-[240px] flex-1",
                     !isLast && "border-b-[2px] border-white"
                   )}
                 >
@@ -49,7 +49,7 @@ export function ServiceMenuTable({ data }: { data: MenuItem[] }) {
                 <div className="w-[2px] shrink-0 self-stretch" />
                 <ContentCell
                   className={cn(
-                    "min-w-[230px] flex-1",
+                    "min-w-[240px] flex-1",
                     isLast && "rounded-br-lg",
                     !isLast && "border-b-[2px] border-white"
                   )}
@@ -80,7 +80,7 @@ function CategoryCell({
         className
       )}
     >
-      <h3 className="whitespace-pre-line text-center text-sm !leading-[1.6] tracking-widest text-white md:text-xl lg:text-2xl">
+      <h3 className="whitespace-pre-line text-center text-xs font-medium !leading-[1.6] tracking-wider text-white sm:text-sm md:text-xl lg:text-2xl">
         {children}
       </h3>
     </div>
@@ -97,11 +97,11 @@ function HeaderCell({
   return (
     <div
       className={cn(
-        "flex items-center justify-center bg-gray-600 p-3 md:px-10 md:py-5",
+        "flex items-center justify-center bg-gray-600 p-3 sm:p-4 sm:py-5 md:px-10 md:py-5",
         className
       )}
     >
-      <p className="text-center text-sm !leading-[1.6] tracking-widest text-white md:text-xl lg:text-2xl">
+      <p className="text-center text-xs font-medium !leading-[1.6] tracking-wider text-white sm:text-sm md:text-xl lg:text-2xl">
         {children}
       </p>
     </div>
@@ -116,7 +116,12 @@ function ContentCell({
   className?: string;
 }) {
   return (
-    <div className={cn("bg-gray-100 px-4 py-5 md:px-10 md:py-8", className)}>
+    <div
+      className={cn(
+        "bg-gray-100 px-3.5 py-4 sm:px-4 sm:py-5 md:px-10 md:py-8",
+        className
+      )}
+    >
       {children}
     </div>
   );
