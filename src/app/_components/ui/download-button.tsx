@@ -81,7 +81,7 @@ export const CustomDownloadButton = ({
                 subtitle
               ) : (
                 <>
-                  <span className="relative -bottom-[1px] mr-[2px] text-xl font-bold !leading-[1] sm:text-2xl">
+                  <span className="relative -bottom-[1px] mr-[2px] text-lg font-bold !leading-[1] sm:text-xl md:text-2xl">
                     3
                   </span>
                   分でわかる! CTOパートナー
