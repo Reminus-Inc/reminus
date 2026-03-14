@@ -12,10 +12,7 @@ interface DownloadButtonProps extends PrimaryButtonProps {
   onClick?: () => void;
 }
 
-export const DownloadButton = ({
-  onClick,
-  ...props
-}: DownloadButtonProps) => {
+export const DownloadButton = ({ onClick, ...props }: DownloadButtonProps) => {
   const handleClick = () => {
     trackCTAClick("download");
     onClick?.();
@@ -48,7 +45,6 @@ export const CustomDownloadButton = ({
   title,
   subtitle,
 }: CustomDownloadButtonProps) => {
-
   const handleClick = () => {
     trackCTAClick("download");
     onClick?.();
@@ -75,12 +71,12 @@ export const CustomDownloadButton = ({
               alt="資料イメージ"
               width={480}
               height={270}
-              className="max-w-[80px] object-contain sm:max-w-[120px]"
+              className="max-w-[64px] object-contain min-[375px]:max-w-[80px] sm:max-w-[120px]"
             />
           </div>
 
           <div className="flex flex-col justify-center gap-0.5 sm:gap-1.5">
-            <span className="text-[11px] tracking-wider sm:text-sm">
+            <span className="text-[10px] tracking-wider min-[375px]:text-[11px] sm:text-sm">
               {subtitle != null ? (
                 subtitle
               ) : (
@@ -92,7 +88,7 @@ export const CustomDownloadButton = ({
                 </>
               )}
             </span>
-            <span className="text-lg font-bold tracking-wider sm:text-2xl">
+            <span className="text-[15px] font-bold tracking-wider min-[375px]:text-lg sm:text-2xl">
               {title != null ? (
                 title
               ) : (

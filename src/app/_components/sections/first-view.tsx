@@ -4,16 +4,16 @@ import Image from "next/image";
 
 export function FirstView() {
   return (
-    <div className="relative mx-auto flex w-[80%] max-w-[1200px] flex-col items-center gap-8 pt-2 font-sans sm:pt-4 md:pt-6 lg:w-[90%] lg:flex-row xl:gap-2">
+    <div className="relative mx-auto flex w-[84%] max-w-[1200px] flex-col items-center gap-8 pt-4 font-sans sm:pt-4 md:pt-6 lg:w-[90%] lg:flex-row xl:gap-2">
       <div className="relative z-[1] w-full lg:w-fit lg:flex-none">
         <Image
           src="/crown.png"
           alt=""
           width={405}
           height={75}
-          className="-ml-1 max-w-[200px] sm:max-w-[280px] md:max-w-[320px] lg:max-w-[280px] xl:max-w-[405px]"
+          className="-ml-1 max-w-[236px] sm:max-w-[320px] md:max-w-[360px] xl:max-w-[405px]"
         />
-        <Title className="mt-2 md:mt-2.5" />
+        <Title className="mt-2.5" />
         <Description className="mt-4" />
         <div className="mt-0.5 flex justify-center sm:mt-2 md:mt-4 lg:hidden">
           <Image
@@ -52,7 +52,7 @@ const Title = ({ className }: { className?: string }) => {
   return (
     <h1
       className={cn(
-        "text-[25px] font-bold !leading-[1.45] tracking-wider text-gray-800 sm:text-4xl md:text-5xl md:!leading-[1.37] lg:text-5xl lg:tracking-wide xl:text-[56px]",
+        "text-2xl font-bold !leading-[1.5] tracking-wider text-gray-800 min-[375px]:text-[28px] sm:text-4xl md:text-5xl md:!leading-[1.4] lg:text-5xl lg:tracking-wide xl:text-[56px]",
         className
       )}
     >
@@ -66,7 +66,7 @@ const Description = ({ className }: { className?: string }) => {
   return (
     <p
       className={cn(
-        "text-sm !leading-[1.8] tracking-wide text-gray-800 sm:text-base md:text-lg lg:text-base xl:text-lg",
+        "text-sm !leading-[1.8] tracking-wide text-gray-800 min-[375px]:text-base md:text-lg lg:text-base xl:text-lg",
         className
       )}
     >
