@@ -27,21 +27,14 @@ export function CtoRecruitCta({ className }: { className?: string }) {
               </p>
             </div>
 
-            <div className="flex flex-col items-center gap-2.5">
-              <ContactButton
-                href="/cto-recruit/contact"
-                variant="filled"
-                color="white"
-                className="max-w-[300px] text-sm"
-              >
-                無料相談を予約する
-              </ContactButton>
-              <p className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[10px] tracking-wide text-white/60 sm:text-xs">
-                <span>✓ 30分のオンライン相談</span>
-                <span>✓ 完全無料</span>
-                <span>✓ 無理な営業なし</span>
-              </p>
-            </div>
+            <ContactButton
+              href="/cto-recruit/contact"
+              variant="filled"
+              color="white"
+              className="max-w-[300px] text-sm"
+            >
+              無料相談を予約する
+            </ContactButton>
           </div>
         </div>
       </div>

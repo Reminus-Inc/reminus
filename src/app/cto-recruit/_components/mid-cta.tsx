@@ -20,14 +20,9 @@ export function MidCta({ className }: { className?: string }) {
             30分の無料相談で、最適な採用戦略をご提案します。
           </p>
         </div>
-        <div className="flex flex-col items-center gap-2 sm:items-end">
-          <ContactButton href="/cto-recruit/contact" className="w-full max-w-[280px] shrink-0 text-sm sm:w-auto">
-            無料相談を予約する
-          </ContactButton>
-          <p className="text-[10px] tracking-wide text-gray-400 sm:text-xs">
-            ✓ 無理な営業は一切行いません
-          </p>
-        </div>
+        <ContactButton href="/cto-recruit/contact" className="w-full max-w-[280px] shrink-0 text-sm sm:w-auto">
+          無料相談を予約する
+        </ContactButton>
       </div>
     </section>
   );
