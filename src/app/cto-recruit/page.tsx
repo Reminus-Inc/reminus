@@ -8,7 +8,7 @@ import { CtoRecruitCta } from "./_components/cta";
 import { MidCta } from "./_components/mid-cta";
 import { GettingStarted } from "./_components/getting-started";
 import { Faq } from "./_components/faq";
-import { ClientLogos } from "../_components/sections/client-logos";
+import { CtoRecruitClientLogos } from "./_components/client-logos";
 import { Management } from "../_components/sections/management";
 import { CompanyOverview } from "../_components/sections/company-overview";
 
@@ -41,7 +41,7 @@ export default function CtoRecruitPage() {
   return (
     <>
       <CtoRecruitFirstView />
-      <ClientLogos />
+      <CtoRecruitClientLogos />
       <div className="content-auto">
         <PainPoints className="bg-white" />
         <ServiceFlow className="bg-gray-50" />

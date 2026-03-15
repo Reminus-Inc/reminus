@@ -48,9 +48,8 @@ const Title = ({ className }: { className?: string }) => {
         className,
       )}
     >
+      <span className="block">CTO採用を、</span>
       <span className="block">
-        CTO採用を、
-        <br className="block sm:hidden" />
         <span className="text-emerald-600">CTOの知見</span>で加速。
       </span>
     </h1>
