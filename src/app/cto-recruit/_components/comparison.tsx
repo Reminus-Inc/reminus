@@ -147,6 +147,11 @@ export function Comparison({ className }: { className?: string }) {
             </div>
           ))}
         </div>
+
+        {/* TrackRecordへの接続コピー */}
+        <p className="mt-10 text-center text-sm !leading-[1.9] tracking-wide text-gray-500 sm:mt-14 sm:text-base">
+          この対応力は、CTO代行として培ってきた実績に裏付けられています。
+        </p>
       </div>
     </section>
   );
