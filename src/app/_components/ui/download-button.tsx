@@ -10,9 +10,10 @@ import { ChevronRight } from "lucide-react";
 
 interface DownloadButtonProps extends PrimaryButtonProps {
   onClick?: () => void;
+  href?: string;
 }
 
-export const DownloadButton = ({ onClick, ...props }: DownloadButtonProps) => {
+export const DownloadButton = ({ onClick, href = "/download", ...props }: DownloadButtonProps) => {
   const handleClick = () => {
     trackCTAClick("download");
     onClick?.();
@@ -23,7 +24,7 @@ export const DownloadButton = ({ onClick, ...props }: DownloadButtonProps) => {
   return (
     <PrimaryButton asChild {...props}>
       <Link
-        href="/download"
+        href={href}
         className="flex items-center gap-3"
         onClick={handleClick}
       >

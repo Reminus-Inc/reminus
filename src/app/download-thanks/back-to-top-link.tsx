@@ -8,7 +8,11 @@ import { DOCUMENT_TYPE, type DocumentType } from "@/app/constants";
 function BackToTopLinkClient({ children, ...props }: any) {
   const searchParams = useSearchParams();
   const documentType = searchParams.get("documentType") as DocumentType;
-  const href = documentType === DOCUMENT_TYPE.CTO_UNIT ? "/cto-team" : "/";
+  const href = documentType === DOCUMENT_TYPE.CTO_RECRUIT
+    ? "/cto-recruit"
+    : documentType === DOCUMENT_TYPE.CTO_UNIT
+      ? "/cto-team"
+      : "/";
 
   return (
     <Link href={href} {...props}>

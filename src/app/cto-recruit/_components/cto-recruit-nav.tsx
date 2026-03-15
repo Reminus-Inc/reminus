@@ -84,7 +84,7 @@ export function CtoRecruitNav() {
         </nav>
 
         <div className="flex items-center space-x-4">
-          <DownloadButton size="small" />
+          <DownloadButton size="small" href="/cto-recruit/download" />
           <ContactButton size="small" href="/cto-recruit/contact" />
         </div>
       </div>
@@ -92,7 +92,7 @@ export function CtoRecruitNav() {
       {/* タブレット・中間幅での表示 */}
       <div className="hidden items-center space-x-4 md:flex lg:hidden">
         <div className="flex items-center space-x-3">
-          <DownloadButton size="small" className="min-w-[140px]" />
+          <DownloadButton size="small" className="min-w-[140px]" href="/cto-recruit/download" />
           <ContactButton size="small" href="/cto-recruit/contact" />
         </div>
         <MenuToggle isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
@@ -151,6 +151,7 @@ export function CtoRecruitNav() {
               <DownloadButton
                 size="small"
                 fullWidth
+                href="/cto-recruit/download"
                 onClick={() => setTimeout(() => setIsOpen(false), 300)}
               />
               <ContactButton
