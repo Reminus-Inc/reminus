@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { ContactButton } from "@/app/_components/ui/contact-button";
+import { DownloadButton } from "@/app/_components/ui/download-button";
 
 const phases = [
   {
@@ -144,11 +145,15 @@ export function CtoRecruitFirstView() {
         ))}
       </div>
 
-      {/* CTA */}
-      <div className="mt-6 flex flex-col items-center sm:mt-8 md:mt-10">
+      {/* CTA - 2段階CV: 資料DL（ライト）+ 無料相談（ヘビー） */}
+      <div className="mt-6 flex flex-col items-center gap-3 sm:mt-8 sm:flex-row sm:justify-center sm:gap-4 md:mt-10">
+        <DownloadButton
+          href="/cto-recruit/download"
+          className="w-full max-w-[400px] sm:w-auto"
+        />
         <ContactButton
           href="/cto-recruit/contact"
-          className="w-full max-w-[400px]"
+          className="w-full max-w-[400px] sm:w-auto"
         >
           まずは無料で相談する
         </ContactButton>
