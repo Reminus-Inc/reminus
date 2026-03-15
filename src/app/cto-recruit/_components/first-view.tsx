@@ -47,15 +47,15 @@ export function CtoRecruitFirstView() {
 
       {/* メインコピー */}
       <h1 className="mt-3 text-center text-[22px] font-bold !leading-[1.5] tracking-wide text-gray-800 min-[375px]:text-2xl sm:mt-4 sm:text-3xl md:text-4xl lg:text-[42px] xl:text-5xl">
-        CTO採用のすべてを、
-        <br />
-        <span className="text-emerald-600">CTOの知見</span>
-        で伴走。
+        <span className="text-emerald-600">CTOの目</span>
+        で、CTOを採る。
       </h1>
 
       {/* サブコピー */}
       <p className="mt-2 text-center text-xs !leading-[1.8] tracking-wide text-gray-600 min-[375px]:text-sm sm:mt-3 sm:text-base md:text-lg">
-        媒体選定からスカウト・面接設計・オファーまで、一気通貫で支援します。
+        採用企画からスカウト・面接・オファーまで、
+        <br className="sm:hidden" />
+        CTO経験者が全工程に伴走します。
       </p>
 
       {/* フェーズフロー - PC: ServiceFlowカード型 */}

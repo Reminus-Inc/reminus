@@ -4,27 +4,27 @@ import { SectionHeader } from "@/app/_components/ui/section-header";
 const painPoints = [
   {
     icon: "🔍",
-    title: "CTOが採用できる媒体がわからない",
+    title: "技術力を正しく見極められない",
     description:
-      "エンジニア採用の媒体は多いものの、CTOクラスの人材が見つかる媒体は限られています。最適な媒体選定には専門的な知見が必要です。",
-  },
-  {
-    icon: "💰",
-    title: "給与相場や求人設計が難しい",
-    description:
-      "CTOの給与相場は幅広く、求人に記載する業務内容も一般的なエンジニアとは全く異なります。魅力的な求人を設計するには、CTO職の深い理解が必要です。",
+      "経歴は立派でも、自社の技術課題を解決できるかは別問題。人事だけではエンジニアの実力を評価できず、RPOに頼んでも技術判断は対象外です。",
   },
   {
     icon: "✉️",
-    title: "スカウトの返信率が低い",
+    title: "CTO層にスカウトが届かない",
     description:
-      "CTOクラスの人材は常に引く手数多。テンプレートのスカウトでは見向きもされません。相手に刺さるメッセージには、技術と経営の両面の理解が欠かせません。",
+      "CTO・VPoEクラスは転職サイトにほとんど登録していません。テンプレートの大量送信では見向きもされず、技術を深く理解したパーソナライズが不可欠です。",
+  },
+  {
+    icon: "🤝",
+    title: "面談まで進むが、辞退される",
+    description:
+      "候補者は複数社を同時に検討しています。技術者目線で自社の魅力を語れなければ、優秀な人材ほど他社を選びます。",
   },
   {
     icon: "🎯",
-    title: "面接で見極められない",
+    title: "採用後にミスマッチが発覚する",
     description:
-      "技術力だけでなく、事業理解・組織構築力・経営目線を持つかどうかの見極めは非常に難しい。CTOとしての実務経験がなければ、適切な評価は困難です。",
+      "「前職CTO」の肩書きだけで採用し、入社後に期待と実力のギャップが発覚するケースは少なくありません。技術的な第三者の目がなければ防げない問題です。",
   },
 ];
 
@@ -40,12 +40,12 @@ export function PainPoints({ className }: { className?: string }) {
           headingClassName="text-xl sm:text-2xl md:text-3xl xl:text-4xl !leading-[1.8]"
           align="center"
         >
-          CTOやエンジニアマネージャーの採用には、
+          CTO採用が難しいのは、
           <br className="hidden lg:inline" />
           <span className="highlight-underline text-emerald-500">
-            様々な専門知見
+            技術がわかる人
           </span>
-          が求められます。
+          がいないから。
         </SectionHeader>
 
         <div className="mt-8 grid grid-cols-1 gap-3 sm:mt-16 sm:gap-6 md:grid-cols-2 md:gap-8">
