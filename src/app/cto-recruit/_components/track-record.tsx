@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { SectionHeader } from "@/app/_components/ui/section-header";
 
 const stats = [
   {
@@ -27,10 +28,23 @@ export function TrackRecord({ className }: { className?: string }) {
   return (
     <section
       id="track-record"
-      className={cn("content-auto py-16 font-sans sm:py-20", className)}
+      className={cn("content-auto py-16 font-sans sm:py-24 md:py-32", className)}
     >
       <div className="mx-auto w-[82%] max-w-[1200px] md:w-[86%]">
-        <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4 lg:gap-8">
+        <SectionHeader
+          label="実績"
+          headingClassName="text-xl sm:text-2xl md:text-3xl xl:text-4xl !leading-[1.8]"
+          align="center"
+        >
+          CTO代行の実績が、
+          <br className="hidden sm:inline" />
+          <span className="highlight-underline text-emerald-500">
+            採用支援の品質
+          </span>
+          を裏付ける。
+        </SectionHeader>
+
+        <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-12 sm:gap-6 lg:grid-cols-4 lg:gap-8">
           {stats.map((stat, index) => (
             <div
               key={index}
