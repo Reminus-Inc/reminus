@@ -55,8 +55,8 @@ export default function CtoRecruitPage() {
         {/* <CtoRecruitCaseStudies className="bg-gray-50" /> */}
         <TrackRecord className="bg-white" />
         <GettingStarted className="bg-white" />
-        <CtoRecruitCta className="from-white to-gray-50" />
         <Faq className="bg-gray-50" />
+        <CtoRecruitCta className="from-gray-50 to-gray-50" />
         <Management className="bg-white" />
         <CompanyOverview />
       </div>
