@@ -23,11 +23,13 @@ type ContactFormProps = {
   showContent?: boolean;
   showChip?: boolean;
   buttonProps?: PrimaryButtonProps;
+  service?: string;
 };
 export const ContactForm = ({
   showContent = true,
   showChip = true,
   buttonProps,
+  service,
 }: ContactFormProps) => {
   const ref = useRef<HTMLFormElement>(null);
 
@@ -96,6 +98,7 @@ export const ContactForm = ({
 
   return (
     <form id="contact-form" ref={ref} onSubmit={handleSubmit} className="w-full space-y-7">
+      {service && <input type="hidden" name="service" value={service} />}
       <div className="space-y-5">
         <div className="space-y-2">
           <div className="flex items-center gap-2">

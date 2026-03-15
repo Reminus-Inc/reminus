@@ -86,7 +86,7 @@ export function CtoRecruitNav() {
 
         <div className="flex items-center space-x-4">
           <DownloadButton size="small" />
-          <ContactButton size="small" />
+          <ContactButton size="small" href="/cto-recruit/contact" />
         </div>
       </div>
 
@@ -94,7 +94,7 @@ export function CtoRecruitNav() {
       <div className="hidden items-center space-x-4 md:flex lg:hidden">
         <div className="flex items-center space-x-3">
           <DownloadButton size="small" className="min-w-[140px]" />
-          <ContactButton size="small" />
+          <ContactButton size="small" href="/cto-recruit/contact" />
         </div>
         <MenuToggle isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
       </div>
@@ -157,6 +157,7 @@ export function CtoRecruitNav() {
               <ContactButton
                 size="small"
                 fullWidth
+                href="/cto-recruit/contact"
                 onClick={() => setTimeout(() => setIsOpen(false), 300)}
               />
             </div>

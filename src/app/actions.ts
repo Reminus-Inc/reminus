@@ -38,6 +38,7 @@ async function acceptLead({
   isDevMode,
   formType,
   trackingContext,
+  service,
 }: {
   leadData: {
     company: string;
@@ -59,6 +60,7 @@ async function acceptLead({
     pageUri?: string;
     pageName?: string;
   };
+  service?: string;
 }) {
   console.log("📋 acceptLead 開始:", {
     leadData,
@@ -90,7 +92,7 @@ async function acceptLead({
   }
 
   // HubSpotフォーム送信
-  const hubspotPromise = submitToHubSpotForm(leadData, isDevMode, formType, trackingContext, utmParams).catch(
+  const hubspotPromise = submitToHubSpotForm(leadData, isDevMode, formType, trackingContext, utmParams, service).catch(
     (error) => {
       console.error("HubSpot通知エラー:", error);
       return null;
@@ -513,7 +515,11 @@ export async function submitInquiry(
       pageName: formData.get('pageName') as string,
     };
 
-    console.log("📝 submitInquiry - トラッキング情報:", trackingContext);
+    // サービス種別を取得（CTO採用LPからの問い合わせかどうか）
+    const service = formData.get('service') as string | null;
+    const serviceSuffix = service ? `【${service}】` : "";
+
+    console.log("📝 submitInquiry - トラッキング情報:", trackingContext, "サービス:", service);
 
     await acceptLead({
       leadData: {
@@ -527,12 +533,13 @@ export async function submitInquiry(
       slackNotificationType: SLACK_NOTIFICATION_TYPE.CONTACT,
       formType: "contact",
       trackingContext,
+      service: service || undefined,
       slackBlocks: [
         {
           type: "header",
           text: {
             type: "plain_text",
-            text: "🎉 新規お問い合わせ",
+            text: `🎉 新規お問い合わせ${serviceSuffix}`,
             emoji: true,
           },
         },

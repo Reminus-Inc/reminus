@@ -21,7 +21,7 @@ export function CtoRecruitFirstView() {
           />
         </div>
         <div className="bleed lg:bleed-none relative z-[1] -mt-4 px-4 lg:mt-12 lg:px-0">
-          <ContactButton className="w-full max-w-[400px] lg:-ml-2">
+          <ContactButton href="/cto-recruit/contact" className="w-full max-w-[400px] lg:-ml-2">
             まずは無料で相談する
           </ContactButton>
         </div>

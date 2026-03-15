@@ -8,7 +8,7 @@ export default async function CtoRecruitLayout({
 }) {
   return (
     <>
-      <Header showNavMenu={false} rightContent={<CtoRecruitNav />} />
+      <Header showNavMenu={false} rightContent={<CtoRecruitNav />} logoHref="/cto-recruit" />
       <main>{children}</main>
     </>
   );

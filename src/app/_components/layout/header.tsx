@@ -8,16 +8,18 @@ interface HeaderProps {
   showNavMenu?: boolean;
   rightContent?: React.ReactNode;
   onLogoClick?: () => void;
+  logoHref?: string;
 }
 
 export function Header({
   showNavMenu = true,
   rightContent,
   onLogoClick,
+  logoHref = "/",
 }: HeaderProps) {
   const handleLogoClick = (e: React.MouseEvent) => {
-    // 同じページの場合はトップにスクロール
-    if (window.location.pathname === "/") {
+    // ロゴのhrefと現在のパスが一致する場合はトップにスクロール
+    if (window.location.pathname === logoHref || window.location.pathname === "/") {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
       // URLからハッシュフラグメントを除去
@@ -31,7 +33,7 @@ export function Header({
       <div className="mx-auto w-full max-w-[1360px] px-4 sm:px-6">
         <div className="flex h-full items-center justify-between">
           <div className="flex items-center">
-            <Link href="/" onClick={handleLogoClick}>
+            <Link href={logoHref} onClick={handleLogoClick}>
               <ReminusLogo
                 className="h-4 w-auto md:h-6 md:scale-90"
                 aria-label="Reminus"

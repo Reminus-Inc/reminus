@@ -21,7 +21,8 @@ export const submitToHubSpotForm = async (
     pageUri?: string;
     pageName?: string;
   },
-  utmParams?: UTMParameters
+  utmParams?: UTMParameters,
+  service?: string
 ): Promise<void> => {
   const formGuid = formType === "contact" 
     ? process.env.HUBSPOT_CONTACT_GUID 
@@ -96,10 +97,12 @@ export const submitToHubSpotForm = async (
       });
     }
 
-    // CV種類を追加
+    // CV種類を追加（サービス名があれば付与）
+    const cvBase = formType === "contact" ? "お問い合わせ" : "資料請求";
+    const cvValue = service ? `${cvBase}（${service}）` : cvBase;
     fields.push({
       name: "cvshurui",
-      value: formType === "contact" ? "お問い合わせ" : "資料請求",
+      value: cvValue,
     });
 
     // お問い合わせ内容を追加（問い合わせフォームの場合のみ）

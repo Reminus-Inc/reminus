@@ -28,6 +28,7 @@ export function CtoRecruitCta({ className }: { className?: string }) {
             </div>
 
             <ContactButton
+              href="/cto-recruit/contact"
               variant="filled"
               color="white"
               className="max-w-[300px] text-sm"
