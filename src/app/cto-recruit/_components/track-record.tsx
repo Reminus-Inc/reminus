@@ -30,11 +30,11 @@ export function TrackRecord({ className }: { className?: string }) {
       className={cn("content-auto py-16 font-sans sm:py-20", className)}
     >
       <div className="mx-auto w-[82%] max-w-[1200px] md:w-[86%]">
-        <div className="grid grid-cols-2 gap-6 lg:grid-cols-4 lg:gap-8">
+        <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4 lg:gap-8">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="flex flex-col items-center gap-2 rounded-2xl border border-solid border-emerald-100 bg-emerald-50/50 px-4 py-8 sm:py-10"
+              className="flex flex-col items-center gap-1.5 rounded-2xl border border-solid border-emerald-100 bg-emerald-50/50 px-3 py-6 sm:gap-2 sm:px-4 sm:py-10"
             >
               <div className="flex items-baseline gap-0.5">
                 <span className="text-4xl font-bold tracking-tight text-emerald-600 sm:text-5xl">

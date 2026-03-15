@@ -112,28 +112,28 @@ export function CtoRecruitFirstView() {
         </div>
       </div>
 
-      {/* フェーズフロー - SP/タブレット: 2x2グリッド（太田承認済み） */}
-      <div className="mt-5 grid grid-cols-2 gap-2 sm:mt-6 sm:gap-3 md:hidden">
+      {/* フェーズフロー - SP/タブレット: 2x2グリッド */}
+      <div className="mt-5 grid grid-cols-2 gap-2.5 sm:mt-6 sm:gap-3 md:hidden">
         {phases.map((phase, index) => (
           <div
             key={index}
-            className="overflow-hidden rounded-lg border border-solid border-emerald-100 bg-white"
+            className="overflow-hidden rounded-xl border border-solid border-gray-200 bg-white shadow-sm"
           >
-            <div className={cn("px-3 py-1.5 sm:py-2", phase.color)}>
-              <p className="text-center text-xs font-bold tracking-wider text-white sm:text-sm">
+            <div className={cn("px-3 py-2 sm:py-2.5", phase.color)}>
+              <p className="text-center text-[11px] font-bold tracking-widest text-white sm:text-xs">
                 {phase.name}
               </p>
             </div>
-            <div className="px-2.5 py-2 sm:px-3 sm:py-2.5">
+            <div className="space-y-1 px-3 py-2.5 sm:px-3.5 sm:py-3">
               {phase.items.map((item, itemIndex) => (
                 <div
                   key={itemIndex}
-                  className="flex items-center gap-1 text-[11px] !leading-[1.7] tracking-wide text-gray-600 sm:text-xs"
+                  className="flex items-center gap-1.5 text-[11px] !leading-[1.8] tracking-wide text-gray-700 sm:text-xs"
                 >
-                  <span className="text-emerald-400">・</span>
+                  <span className="text-emerald-500">・</span>
                   <span>{item.label}</span>
                   {item.isPro && (
-                    <span className="ml-auto rounded bg-blue-100 px-1 py-0.5 text-[9px] font-bold text-blue-600">
+                    <span className="ml-auto shrink-0 rounded bg-blue-50 px-1.5 py-0.5 text-[9px] font-bold text-blue-500">
                       Pro
                     </span>
                   )}

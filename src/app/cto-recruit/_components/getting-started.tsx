@@ -29,7 +29,7 @@ export function GettingStarted({ className }: { className?: string }) {
   return (
     <section
       id="getting-started"
-      className={cn("content-auto py-24 font-sans sm:py-32", className)}
+      className={cn("content-auto py-16 font-sans sm:py-24 md:py-32", className)}
     >
       <div className="mx-auto w-[82%] max-w-[1200px] md:w-[86%]">
         <SectionHeader
@@ -43,7 +43,7 @@ export function GettingStarted({ className }: { className?: string }) {
           で採用活動をスタートできます。
         </SectionHeader>
 
-        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-0">
+        <div className="mt-10 grid grid-cols-1 gap-6 sm:mt-16 md:grid-cols-3 md:gap-0">
           {steps.map((step, index) => (
             <div key={index} className="relative flex flex-col items-center">
               {/* 矢印（PC） */}

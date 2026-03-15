@@ -26,7 +26,7 @@ export function WhyReminus({ className }: { className?: string }) {
   return (
     <section
       id="why-reminus"
-      className={cn("content-auto py-24 font-sans sm:py-32", className)}
+      className={cn("content-auto py-16 font-sans sm:py-24 md:py-32", className)}
     >
       <div className="mx-auto w-[82%] max-w-[1200px] md:w-[86%]">
         <SectionHeader
@@ -42,7 +42,7 @@ export function WhyReminus({ className }: { className?: string }) {
           CTO採用支援。
         </SectionHeader>
 
-        <div className="mt-16 flex flex-col gap-10 lg:gap-12">
+        <div className="mt-10 flex flex-col gap-6 sm:mt-16 sm:gap-10 lg:gap-12">
           {reasons.map((reason, index) => (
             <div
               key={index}

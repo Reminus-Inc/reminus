@@ -32,7 +32,7 @@ export function PainPoints({ className }: { className?: string }) {
   return (
     <section
       id="pain-points"
-      className={cn("content-auto py-24 font-sans sm:py-32", className)}
+      className={cn("content-auto py-16 font-sans sm:py-24 md:py-32", className)}
     >
       <div className="mx-auto w-[82%] max-w-[1200px] md:w-[86%]">
         <SectionHeader
@@ -48,7 +48,7 @@ export function PainPoints({ className }: { className?: string }) {
           が求められます。
         </SectionHeader>
 
-        <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 sm:gap-6 md:grid-cols-2 md:gap-8">
+        <div className="mt-8 grid grid-cols-1 gap-3 sm:mt-16 sm:gap-6 md:grid-cols-2 md:gap-8">
           {painPoints.map((point, index) => (
             <div
               key={index}
