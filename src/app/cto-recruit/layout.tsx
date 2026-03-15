@@ -1,4 +1,5 @@
 import { Header } from "../_components/layout/header";
+import { CtoRecruitNav } from "./_components/cto-recruit-nav";
 
 export default async function CtoRecruitLayout({
   children,
@@ -7,7 +8,7 @@ export default async function CtoRecruitLayout({
 }) {
   return (
     <>
-      <Header />
+      <Header showNavMenu={false} rightContent={<CtoRecruitNav />} />
       <main>{children}</main>
     </>
   );

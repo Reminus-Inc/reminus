@@ -20,6 +20,21 @@ export const metadata: Metadata = {
     index: false,
     follow: false,
   },
+  openGraph: {
+    title: "CTO採用支援 | 株式会社Reminus（レミナス）",
+    description:
+      "CTO代行で培った知見を活かし、CTO・エンジニアマネージャーの採用を支援。媒体選定からオファーまで一気通貫でサポート。",
+    url: "https://www.reminus.co.jp/cto-recruit",
+    siteName: "株式会社Reminus",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CTO採用支援 | 株式会社Reminus（レミナス）",
+    description:
+      "CTO代行で培った知見を活かし、CTO・エンジニアマネージャーの採用を支援。",
+  },
 };
 
 export default function CtoRecruitPage() {
