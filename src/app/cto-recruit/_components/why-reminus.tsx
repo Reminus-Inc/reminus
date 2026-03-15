@@ -3,31 +3,31 @@ import { SectionHeader } from "@/app/_components/ui/section-header";
 
 const solutions = [
   {
-    pain: "CTOが採用できる媒体がわからない",
-    title: "CTO代行の実績から、\n有効媒体を熟知",
+    pain: "技術力を正しく見極められない",
+    title: "CTO経験者が、\n候補者の技術力を直接評価",
     description:
-      "累計6社以上のCTO代行を通じ、CTOクラスが実際に反応する媒体や、経営層にリーチできるチャネルを把握しています。自らCTOとして転職市場を経験しているからこそ、最短で母集団を形成できます。",
+      "一般的なRPOの担当者は非エンジニアであり、技術の見極めは対象外です。Reminusでは、CTO代行として累計6社以上の実績を持つメンバーが、候補者のGitHub・技術スタック・アーキテクチャ設計力を直接評価。「経歴は立派だが自社に合うか」を技術者の目で判断します。",
     icon: "🔍",
   },
   {
-    pain: "給与相場や求人設計が難しい",
-    title: "CTOの仕事を知るからこそ、\n刺さる求人を設計",
+    pain: "CTO層にスカウトが届かない",
+    title: "技術を深く理解した\nパーソナライズスカウト",
     description:
-      "CTOが日々どんな意思決定をし、何にやりがいを感じるかを実体験で理解しています。給与相場だけでなく、候補者が「この会社で働きたい」と思う求人票の設計を、CTO目線で支援します。",
-    icon: "💰",
-  },
-  {
-    pain: "スカウトの返信率が低い",
-    title: "技術と経営の両方がわかるから、\n候補者に刺さる",
-    description:
-      "テンプレートでは響かないCTOクラスに対し、技術スタック・事業フェーズ・経営課題を踏まえたパーソナライズドスカウトを作成。「技術がわかる人が書いている」と伝わるメッセージで、返信率を引き上げます。",
+      "CTO・VPoE層は転職潜在層が多く、テンプレートの大量送信では反応しません。Reminusは候補者の技術経歴・登壇実績・OSS活動まで読み込み、「技術がわかる人が書いている」と伝わるスカウトを一通ずつ作成。CTO層からの返信率を引き上げます。",
     icon: "✉️",
   },
   {
-    pain: "面接で見極められない",
-    title: "CTO経験者が、\n面接・オファーまで伴走",
+    pain: "面談まで進むが、辞退される",
+    title: "面談・面接に同席し、\n技術者目線でアトラクト",
     description:
-      "書類選考・面接設計・面接同席・オファー条件設計まで、採用プロセスの下流工程こそReminusの真価。技術力だけでなく組織構築力・経営目線を正しく評価し、入社後のミスマッチを防ぎます。",
+      "優秀な候補者ほど複数社を比較検討しています。RPOでは対象外の面談同席・面接設計にReminusは踏み込み、自社の技術課題やビジョンを候補者に響く言葉で伝えます。面接録画フィードバックで選考プロセス自体の改善もサポートします。",
+    icon: "🤝",
+  },
+  {
+    pain: "採用後にミスマッチが発覚する",
+    title: "第三者のCTOの目で、\nミスマッチを未然に防ぐ",
+    description:
+      "「前職CTO」の肩書きだけで採用し、入社後にギャップが発覚するケースは少なくありません。Reminusは書類選考からオファーレター設計まで、技術的な第三者として採用判断に関与。さらにノウハウは積極的に公開し、貴社の採用力を内製化します。",
     icon: "🎯",
   },
 ];
@@ -44,11 +44,11 @@ export function WhyReminus({ className }: { className?: string }) {
           headingClassName="text-xl sm:text-2xl md:text-3xl xl:text-4xl !leading-[1.8]"
           align="center"
         >
-          CTO採用の
-          <span className="highlight-underline text-emerald-500">壁</span>
-          を、
+          技術がわかるから、
           <br className="hidden sm:inline" />
-          CTO代行の知見で突破する。
+          採用の
+          <span className="highlight-underline text-emerald-500">全工程</span>
+          で力を発揮できる。
         </SectionHeader>
 
         <div className="mt-10 flex flex-col gap-6 sm:mt-16 sm:gap-8 lg:gap-10">

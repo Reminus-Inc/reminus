@@ -4,28 +4,33 @@ import { SectionHeader } from "@/app/_components/ui/section-header";
 const comparisonItems = [
   {
     category: "支援範囲",
-    rpo: "母集団形成・求人設計が中心",
-    reminus: "母集団形成〜面接同席・オファー設計まで一気通貫",
+    rpo: "母集団形成（スカウト送信・日程調整）が中心。面接・オファーは対象外",
+    reminus: "採用企画〜スカウト〜面接同席〜オファー設計まで全工程を伴走",
   },
   {
-    category: "技術理解",
-    rpo: "人事・採用観点での評価が中心",
-    reminus: "CTO経験に基づく技術・アーキテクチャの深い理解",
+    category: "担当者の技術力",
+    rpo: "非エンジニアの採用担当者が対応。技術判断は顧客側に依存",
+    reminus: "CTO・EM経験者が直接担当。技術スタックやアーキテクチャを理解",
   },
   {
-    category: "候補者の見極め",
-    rpo: "経歴・スキルシートベースの書類スクリーニング",
-    reminus: "技術力 × 事業理解 × 組織構築力を総合評価",
+    category: "スカウト",
+    rpo: "テンプレートベースの大量送信。CTO層の返信率は低い",
+    reminus: "候補者のGitHub・登壇実績まで読み込んだパーソナライズ作成",
   },
   {
-    category: "スカウト品質",
-    rpo: "テンプレートベースの大量送信型",
-    reminus: "技術スタック・事業課題を踏まえたパーソナライズ",
+    category: "面接・見極め",
+    rpo: "日程調整・フィードバック共有のみ。技術的な見極めは対象外",
+    reminus: "面接設計・面談同席・録画FB・書類スクリーニングまでカバー",
   },
   {
-    category: "面接支援",
-    rpo: "面接日程調整・フィードバック共有",
-    reminus: "面接設計・同席・録画フィードバック・見極め支援",
+    category: "オファー支援",
+    rpo: "対象外（条件交渉・レター設計は顧客側で実施）",
+    reminus: "CTO給与相場を踏まえた条件設計・オファーレターレビュー",
+  },
+  {
+    category: "ノウハウの蓄積",
+    rpo: "業務はブラックボックス化しやすい。契約終了後にノウハウが残りにくい",
+    reminus: "ノウハウを積極的に公開。採用力を貴社に内製化するパートナー",
   },
 ];
 
@@ -50,9 +55,9 @@ export function Comparison({ className }: { className?: string }) {
         </SectionHeader>
 
         <p className="mt-4 text-center text-sm !leading-[1.9] tracking-wide text-gray-600 sm:mt-6 sm:text-base">
-          一般的なエンジニアRPO（採用代行）は上流の母集団形成が中心。
+          エンジニアRPOの主業務はスカウト送信・日程調整などの上流BPO。
           <br className="hidden sm:inline" />
-          Reminusは技術を理解するCTO代行会社だからこそ、面接・オファーまで踏み込めます。
+          Reminusは技術力を持つCTO代行会社だからこそ、面接・見極め・オファーまで踏み込めます。
         </p>
 
         {/* PC: テーブル */}
