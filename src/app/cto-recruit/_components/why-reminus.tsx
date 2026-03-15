@@ -1,24 +1,34 @@
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/app/_components/ui/section-header";
 
-const reasons = [
+const solutions = [
   {
-    number: "01",
-    title: "CTO代行で培った\n「CTOの仕事」への深い理解",
+    pain: "CTOが採用できる媒体がわからない",
+    title: "CTO代行の実績から、\n有効媒体を熟知",
     description:
-      "Reminusは累計6社以上でCTO代行を提供。CTOが日々どんな意思決定をし、どんなスキルが求められるかを熟知しています。この知見があるからこそ、貴社に最適なCTO像を精緻に定義し、候補者を正しく見極められます。",
+      "累計6社以上のCTO代行を通じ、CTOクラスが実際に反応する媒体や、経営層にリーチできるチャネルを把握しています。自らCTOとして転職市場を経験しているからこそ、最短で母集団を形成できます。",
+    icon: "🔍",
   },
   {
-    number: "02",
-    title: "スタートアップ × SaaS\nに特化した採用知見",
+    pain: "給与相場や求人設計が難しい",
+    title: "CTOの仕事を知るからこそ、\n刺さる求人を設計",
     description:
-      "平均取引期間9ヶ月以上、6ヶ月以上の取引率85%。SaaSスタートアップのフェーズごとに求められるCTO像の違いを理解し、事業フェーズに合った採用戦略を設計します。",
+      "CTOが日々どんな意思決定をし、何にやりがいを感じるかを実体験で理解しています。給与相場だけでなく、候補者が「この会社で働きたい」と思う求人票の設計を、CTO目線で支援します。",
+    icon: "💰",
   },
   {
-    number: "03",
-    title: "企画から実行まで\n一気通貫の伴走支援",
+    pain: "スカウトの返信率が低い",
+    title: "技術と経営の両方がわかるから、\n候補者に刺さる",
     description:
-      "媒体選定・求人設計などの企画面から、スカウト代行・面接同席・オファー設計などの実行面まで、採用プロセスの全工程を支援。採用担当を新たに雇う必要なく、CTO採用を推進できます。",
+      "テンプレートでは響かないCTOクラスに対し、技術スタック・事業フェーズ・経営課題を踏まえたパーソナライズドスカウトを作成。「技術がわかる人が書いている」と伝わるメッセージで、返信率を引き上げます。",
+    icon: "✉️",
+  },
+  {
+    pain: "面接で見極められない",
+    title: "CTO経験者が、\n面接・オファーまで伴走",
+    description:
+      "書類選考・面接設計・面接同席・オファー条件設計まで、採用プロセスの下流工程こそReminusの真価。技術力だけでなく組織構築力・経営目線を正しく評価し、入社後のミスマッチを防ぎます。",
+    icon: "🎯",
   },
 ];
 
@@ -34,32 +44,58 @@ export function WhyReminus({ className }: { className?: string }) {
           headingClassName="text-xl sm:text-2xl md:text-3xl xl:text-4xl !leading-[1.8]"
           align="center"
         >
-          <span className="highlight-underline text-emerald-500">
-            CTO代行会社だからこそ
-          </span>
-          できる、
+          CTO採用の
+          <span className="highlight-underline text-emerald-500">壁</span>
+          を、
           <br className="hidden sm:inline" />
-          CTO採用支援。
+          CTO代行の知見で突破する。
         </SectionHeader>
 
-        <div className="mt-10 flex flex-col gap-6 sm:mt-16 sm:gap-10 lg:gap-12">
-          {reasons.map((reason, index) => (
+        <div className="mt-10 flex flex-col gap-6 sm:mt-16 sm:gap-8 lg:gap-10">
+          {solutions.map((solution, index) => (
             <div
               key={index}
-              className="flex flex-col gap-4 rounded-2xl border border-solid border-gray-200 bg-white p-6 shadow-sm sm:flex-row sm:gap-8 sm:p-8"
+              className="overflow-hidden rounded-2xl border border-solid border-gray-200 bg-white shadow-sm"
             >
-              <div className="flex-shrink-0">
-                <span className="text-4xl font-bold tracking-wider text-emerald-200 sm:text-5xl">
-                  {reason.number}
+              {/* 課題ラベル */}
+              <div className="flex items-center gap-2 border-b border-solid border-gray-100 bg-gray-50 px-5 py-3 sm:px-8 sm:py-4">
+                <span className="text-base sm:text-lg">{solution.icon}</span>
+                <span className="text-xs font-bold tracking-wider text-gray-500 sm:text-sm">
+                  課題:
+                </span>
+                <span className="text-xs font-bold tracking-wide text-gray-700 sm:text-sm">
+                  {solution.pain}
                 </span>
               </div>
-              <div>
-                <h3 className="whitespace-pre-line text-lg font-bold !leading-[1.6] tracking-wide text-gray-800 sm:text-xl md:text-2xl">
-                  {reason.title}
-                </h3>
-                <p className="mt-3 text-sm !leading-[1.9] tracking-wide text-gray-600 sm:text-base">
-                  {reason.description}
-                </p>
+              {/* ソリューション */}
+              <div className="flex flex-col gap-3 p-5 sm:flex-row sm:gap-8 sm:p-8">
+                <div className="flex items-center gap-2 sm:flex-shrink-0 sm:flex-col sm:items-start sm:gap-1">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-50 sm:h-10 sm:w-10">
+                    <svg
+                      className="h-4 w-4 text-emerald-500 sm:h-5 sm:w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2.5}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="text-xs font-bold tracking-wider text-emerald-600 sm:hidden">
+                    Reminusなら
+                  </span>
+                </div>
+                <div>
+                  <div className="mb-1 hidden text-xs font-bold tracking-wider text-emerald-600 sm:block">
+                    Reminusなら
+                  </div>
+                  <h3 className="whitespace-pre-line text-base font-bold !leading-[1.6] tracking-wide text-gray-800 sm:text-lg md:text-xl">
+                    {solution.title}
+                  </h3>
+                  <p className="mt-2 text-sm !leading-[1.9] tracking-wide text-gray-600 sm:text-base">
+                    {solution.description}
+                  </p>
+                </div>
               </div>
             </div>
           ))}

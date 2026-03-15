@@ -4,6 +4,7 @@ import { PainPoints } from "./_components/pain-points";
 // ServiceFlowはFVに統合したため非表示
 // import { ServiceFlow } from "./_components/service-flow";
 import { WhyReminus } from "./_components/why-reminus";
+import { Comparison } from "./_components/comparison";
 import { TrackRecord } from "./_components/track-record";
 import { CtoRecruitCta } from "./_components/cta";
 import { MidCta } from "./_components/mid-cta";
@@ -49,6 +50,7 @@ export default function CtoRecruitPage() {
         {/* ServiceFlowはFVに統合 */}
         <MidCta className="bg-gray-50" />
         <WhyReminus className="bg-white" />
+        <Comparison className="bg-gray-50" />
         {/* 導入事例: クライアント許可取得後に再表示 */}
         {/* <CtoRecruitCaseStudies className="bg-gray-50" /> */}
         <TrackRecord className="bg-white" />
