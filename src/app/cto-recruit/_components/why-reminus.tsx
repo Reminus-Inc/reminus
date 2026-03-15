@@ -51,7 +51,7 @@ export function WhyReminus({ className }: { className?: string }) {
           で力を発揮できる。
         </SectionHeader>
 
-        <div className="mt-10 flex flex-col gap-6 sm:mt-16 sm:gap-8 lg:gap-10">
+        <div className="mt-8 flex flex-col gap-4 sm:mt-16 sm:gap-8 lg:gap-10">
           {solutions.map((solution, index) => (
             <div
               key={index}

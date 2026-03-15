@@ -43,7 +43,7 @@ export function GettingStarted({ className }: { className?: string }) {
           で採用活動をスタートできます。
         </SectionHeader>
 
-        <div className="mt-10 grid grid-cols-1 gap-6 sm:mt-16 md:grid-cols-3 md:gap-0">
+        <div className="mt-8 grid grid-cols-1 gap-5 sm:mt-16 sm:gap-6 md:grid-cols-3 md:gap-0">
           {steps.map((step, index) => (
             <div key={index} className="relative flex flex-col items-center">
               {/* 矢印（PC） */}
@@ -54,24 +54,24 @@ export function GettingStarted({ className }: { className?: string }) {
               )}
               {/* 矢印（SP） */}
               {index < steps.length - 1 && (
-                <div className="absolute -bottom-4 left-1/2 z-10 -translate-x-1/2 text-xl text-emerald-300 md:hidden">
+                <div className="absolute -bottom-3.5 left-1/2 z-10 -translate-x-1/2 text-lg text-emerald-300 md:hidden">
                   ↓
                 </div>
               )}
 
-              <div className="flex w-full flex-col items-center rounded-2xl border border-solid border-gray-200 bg-white px-6 py-8 shadow-sm md:mx-3">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-50">
-                  <span className="text-xl font-bold text-emerald-600">
+              <div className="flex w-full flex-col items-center rounded-2xl border border-solid border-gray-200 bg-white px-5 py-5 shadow-sm sm:px-6 sm:py-8 md:mx-3">
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-emerald-50 sm:h-14 sm:w-14">
+                  <span className="text-lg font-bold text-emerald-600 sm:text-xl">
                     {step.number}
                   </span>
                 </div>
-                <h3 className="mt-4 text-lg font-bold tracking-wide text-gray-800 sm:text-xl">
+                <h3 className="mt-3 text-base font-bold tracking-wide text-gray-800 sm:mt-4 sm:text-xl">
                   {step.title}
                 </h3>
-                <p className="mt-1 text-xs font-medium tracking-wide text-emerald-600">
+                <p className="mt-0.5 text-xs font-medium tracking-wide text-emerald-600 sm:mt-1">
                   {step.duration}
                 </p>
-                <p className="mt-3 text-center text-sm !leading-[1.9] tracking-wide text-gray-600">
+                <p className="mt-2 text-center text-[13px] !leading-[1.9] tracking-wide text-gray-600 sm:mt-3 sm:text-sm">
                   {step.description}
                 </p>
               </div>

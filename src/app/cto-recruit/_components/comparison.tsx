@@ -55,9 +55,13 @@ export function Comparison({ className }: { className?: string }) {
         </SectionHeader>
 
         <p className="mt-4 text-center text-sm !leading-[1.9] tracking-wide text-gray-600 sm:mt-6 sm:text-base">
-          エンジニアRPOの主業務はスカウト送信・日程調整などの上流BPO。
+          エンジニアRPOの主業務は
+          <br className="sm:hidden" />
+          スカウト送信・日程調整などの上流BPO。
           <br className="hidden sm:inline" />
-          Reminusは技術力を持つCTO代行会社だからこそ、面接・見極め・オファーまで踏み込めます。
+          Reminusは技術力を持つCTO代行会社だからこそ、
+          <br className="sm:hidden" />
+          面接・見極め・オファーまで踏み込めます。
         </p>
 
         {/* PC: テーブル */}
@@ -99,35 +103,46 @@ export function Comparison({ className }: { className?: string }) {
           </table>
         </div>
 
-        {/* SP: カード型 */}
-        <div className="mt-8 flex flex-col gap-3 md:hidden">
+        {/* SP: カード型（RPO vs Reminus を明確に区別） */}
+        <div className="mt-8 flex flex-col gap-4 md:hidden">
           {comparisonItems.map((item, index) => (
             <div
               key={index}
               className="overflow-hidden rounded-xl border border-solid border-gray-200 shadow-sm"
             >
+              {/* カテゴリヘッダー */}
               <div className="bg-gray-50 px-4 py-2.5">
                 <span className="text-xs font-bold tracking-wider text-gray-600">
                   {item.category}
                 </span>
               </div>
-              <div className="flex flex-col gap-2.5 px-4 py-3">
-                <div className="flex items-start gap-2">
-                  <span className="mt-0.5 flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full bg-gray-200">
-                    <span className="text-[8px] text-gray-500">▲</span>
+              {/* RPO */}
+              <div className="border-b border-solid border-gray-100 px-4 py-3">
+                <div className="mb-1 flex items-center gap-1.5">
+                  <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-gray-200">
+                    <span className="text-[10px] text-gray-500">△</span>
                   </span>
-                  <span className="text-xs !leading-[1.8] tracking-wide text-gray-500">
-                    {item.rpo}
-                  </span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="mt-0.5 flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full bg-emerald-100">
-                    <span className="text-[8px] text-emerald-600">◎</span>
-                  </span>
-                  <span className="text-xs font-medium !leading-[1.8] tracking-wide text-gray-800">
-                    {item.reminus}
+                  <span className="text-[11px] font-bold tracking-wider text-gray-400">
+                    一般的なRPO
                   </span>
                 </div>
+                <p className="pl-[26px] text-[13px] !leading-[1.8] tracking-wide text-gray-500">
+                  {item.rpo}
+                </p>
+              </div>
+              {/* Reminus */}
+              <div className="bg-emerald-50/40 px-4 py-3">
+                <div className="mb-1 flex items-center gap-1.5">
+                  <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-emerald-100">
+                    <span className="text-[10px] text-emerald-600">◎</span>
+                  </span>
+                  <span className="text-[11px] font-bold tracking-wider text-emerald-600">
+                    Reminus
+                  </span>
+                </div>
+                <p className="pl-[26px] text-[13px] font-medium !leading-[1.8] tracking-wide text-gray-800">
+                  {item.reminus}
+                </p>
               </div>
             </div>
           ))}
