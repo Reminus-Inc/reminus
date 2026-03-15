@@ -9,6 +9,7 @@ import { MidCta } from "./_components/mid-cta";
 import { GettingStarted } from "./_components/getting-started";
 import { Faq } from "./_components/faq";
 import { CtoRecruitClientLogos } from "./_components/client-logos";
+import { CtoRecruitCaseStudies } from "./_components/case-studies";
 import { Management } from "../_components/sections/management";
 import { CompanyOverview } from "../_components/sections/company-overview";
 
@@ -47,7 +48,8 @@ export default function CtoRecruitPage() {
         <ServiceFlow className="bg-gray-50" />
         <MidCta className="bg-gray-50" />
         <WhyReminus className="bg-white" />
-        <TrackRecord className="bg-gray-50" />
+        <CtoRecruitCaseStudies className="bg-gray-50" />
+        <TrackRecord className="bg-white" />
         <GettingStarted className="bg-white" />
         <CtoRecruitCta className="from-white to-gray-50" />
         <Faq className="bg-gray-50" />
