@@ -9,7 +9,6 @@ import { cn } from "@/lib/utils";
 
 const menuItems = [
   { href: "#pain-points", label: "CTO採用の壁" },
-  { href: "#service-flow", label: "支援メニュー" },
   { href: "#why-reminus", label: "選ばれる理由" },
   { href: "#faq", label: "FAQ" },
   { href: "#management", label: "経営者紹介" },

@@ -1,7 +1,8 @@
 import { Metadata } from "next";
 import { CtoRecruitFirstView } from "./_components/first-view";
 import { PainPoints } from "./_components/pain-points";
-import { ServiceFlow } from "./_components/service-flow";
+// ServiceFlowはFVに統合したため非表示
+// import { ServiceFlow } from "./_components/service-flow";
 import { WhyReminus } from "./_components/why-reminus";
 import { TrackRecord } from "./_components/track-record";
 import { CtoRecruitCta } from "./_components/cta";
@@ -45,7 +46,7 @@ export default function CtoRecruitPage() {
       <CtoRecruitClientLogos />
       <div className="content-auto">
         <PainPoints className="bg-white" />
-        <ServiceFlow className="bg-gray-50" />
+        {/* ServiceFlowはFVに統合 */}
         <MidCta className="bg-gray-50" />
         <WhyReminus className="bg-white" />
         {/* 導入事例: クライアント許可取得後に再表示 */}
