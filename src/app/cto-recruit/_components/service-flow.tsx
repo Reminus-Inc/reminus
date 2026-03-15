@@ -51,12 +51,12 @@ export function ServiceFlow({ className }: { className?: string }) {
           headingClassName="text-xl sm:text-2xl md:text-3xl xl:text-4xl !leading-[1.8]"
           align="center"
         >
+          その課題、
+          <br className="sm:hidden" />
           <span className="highlight-underline text-emerald-500">
-            「CTO代行」を提供するReminus
+            Reminus
           </span>
-          が
-          <br className="hidden sm:inline" />
-          CTO採用を一気通貫で支援します。
+          が解決します。
         </SectionHeader>
 
         {/* フロー図 */}
