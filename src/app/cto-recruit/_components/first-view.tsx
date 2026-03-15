@@ -145,13 +145,18 @@ export function CtoRecruitFirstView() {
       </div>
 
       {/* CTA */}
-      <div className="mt-6 flex justify-center sm:mt-8 md:mt-10">
+      <div className="mt-6 flex flex-col items-center sm:mt-8 md:mt-10">
         <ContactButton
           href="/cto-recruit/contact"
           className="w-full max-w-[400px]"
         >
           まずは無料で相談する
         </ContactButton>
+        <p className="mt-2.5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[10px] tracking-wide text-gray-400 sm:mt-3 sm:gap-x-4 sm:text-xs">
+          <span>✓ 30分のオンライン相談</span>
+          <span>✓ 完全無料</span>
+          <span>✓ 無理な営業なし</span>
+        </p>
       </div>
     </div>
   );
