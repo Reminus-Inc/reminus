@@ -40,7 +40,7 @@ const phases = [
 
 export function CtoRecruitFirstView() {
   return (
-    <div className="mx-auto w-[88%] max-w-[1200px] pb-10 pt-6 font-sans sm:pb-14 sm:pt-8 md:w-[86%] md:pb-20 md:pt-12">
+    <div className="mx-auto w-[88%] max-w-[1200px] pb-10 pt-6 font-sans sm:pb-14 sm:pt-8 md:w-[86%] md:pb-14 md:pt-12">
       {/* ラベル */}
       <p className="text-center text-xs font-bold tracking-wider text-emerald-600 sm:text-sm">
         累計6社以上のCTO代行実績から生まれた採用支援
