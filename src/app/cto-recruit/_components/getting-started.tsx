@@ -63,7 +63,7 @@ export function GettingStarted({ className }: { className?: string }) {
                 </div>
               )}
 
-              <div className="flex w-full flex-col items-center rounded-2xl border border-solid border-gray-200 bg-white px-4 py-5 shadow-sm sm:px-6 sm:py-8 md:mx-2">
+              <div className="flex h-full w-full flex-col items-center rounded-2xl border border-solid border-gray-200 bg-white px-4 py-5 shadow-sm sm:px-6 sm:py-8 md:mx-2">
                 <div className="flex h-11 w-11 items-center justify-center rounded-full bg-emerald-50 sm:h-14 sm:w-14">
                   <span className="text-lg font-bold text-emerald-600 sm:text-xl">
                     {step.number}
