@@ -57,8 +57,8 @@ export default function CtoRecruitPage() {
         <GettingStarted className="bg-white" />
         <Faq className="bg-gray-50" />
         <CtoRecruitCta className="from-gray-50 to-gray-50" />
-        <Management className="bg-white" />
-        <CompanyOverview />
+        <Management className="bg-white sm:pb-12" />
+        <CompanyOverview className="pt-12" />
       </div>
     </>
   );
