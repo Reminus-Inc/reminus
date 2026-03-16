@@ -4,23 +4,23 @@ import { SectionHeader } from "@/app/_components/ui/section-header";
 const comparisonItems = [
   {
     category: "支援範囲",
-    rpo: "母集団形成（スカウト送信・日程調整）が中心。面接・オファーは対象外",
+    rpo: "候補者獲得（スカウト送信・日程調整）が中心。面接・オファーは対象外",
     reminus: "採用企画〜スカウト〜面接同席〜オファー設計まで全工程を伴走",
   },
   {
     category: "担当者の技術力",
     rpo: "非エンジニアの採用担当者が対応。技術判断は顧客側に依存",
-    reminus: "CTO・EM経験者が直接担当。技術スタックやアーキテクチャを理解",
+    reminus: "CTO・EM経験者が直接担当。使用技術やシステム設計を理解",
   },
   {
     category: "スカウト",
     rpo: "テンプレートの大量送信が中心。ターゲットとのズレが起きやすい",
-    reminus: "候補者のGitHub・登壇実績まで読み込んだパーソナライズ作成",
+    reminus: "候補者のGitHub・登壇実績まで読み込んだ一人ひとりに合わせた文面を作成",
   },
   {
     category: "面接・見極め",
     rpo: "日程調整・フィードバック共有のみ。技術的な見極めは対象外",
-    reminus: "面接設計・面談同席・録画FB・書類スクリーニングまでカバー",
+    reminus: "面接設計・面談同席・録画フィードバック・書類選考までカバー",
   },
   {
     category: "オファー支援",
@@ -57,7 +57,7 @@ export function Comparison({ className }: { className?: string }) {
         <p className="mt-4 text-center text-sm !leading-[1.9] tracking-wide text-gray-600 sm:mt-6 sm:text-base">
           エンジニアRPOの主業務は
           <br className="sm:hidden" />
-          スカウト送信・日程調整などの上流BPO。
+          スカウト送信・日程調整などの事務的な採用業務。
           <br className="hidden sm:inline" />
           Reminusは技術力を持つCTO代行会社だからこそ、
           <br className="sm:hidden" />
