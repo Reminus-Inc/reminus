@@ -4,10 +4,10 @@ import { DownloadButton } from "@/app/_components/ui/download-button";
 
 const phases = [
   {
-    name: "母集団形成",
+    name: "候補者獲得",
     color: "bg-blue-500",
     items: [
-      { label: "媒体選定", isPro: false },
+      { label: "媒体選定", isPro: false }
       { label: "求人設計", isPro: false },
       { label: "スカウト代行", isPro: true },
     ],
@@ -16,7 +16,7 @@ const phases = [
     name: "面談",
     color: "bg-blue-500",
     items: [
-      { label: "書類スクリーニング", isPro: true },
+      { label: "書類選考", isPro: true },
       { label: "面談同席", isPro: true },
     ],
   },
@@ -24,7 +24,7 @@ const phases = [
     name: "面接",
     color: "bg-blue-500",
     items: [
-      { label: "面接録画FB", isPro: false },
+      { label: "面接録画フィードバック", isPro: false },
       { label: "面接同席", isPro: true },
     ],
   },
