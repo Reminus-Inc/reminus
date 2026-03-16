@@ -4,33 +4,33 @@ import { SectionHeader } from "@/app/_components/ui/section-header";
 const comparisonItems = [
   {
     category: "支援範囲",
-    rpo: "候補者獲得（スカウト送信・日程調整）が中心。面接・オファーは対象外",
-    reminus: "採用企画〜スカウト〜面接同席〜オファー設計まで全工程を伴走",
+    rpo: "スカウト・日程調整が中心",
+    reminus: "全工程を一貫して伴走",
   },
   {
     category: "担当者の技術力",
-    rpo: "非エンジニアの採用担当者が対応。技術判断は顧客側に依存",
-    reminus: "CTO・EM経験者が直接担当。使用技術やシステム設計を理解",
+    rpo: "非エンジニアが対応",
+    reminus: "CTO経験者が直接担当",
   },
   {
     category: "スカウト",
-    rpo: "テンプレートの大量送信が中心。ターゲットとのズレが起きやすい",
-    reminus: "候補者のGitHub・登壇実績まで読み込んだ一人ひとりに合わせた文面を作成",
+    rpo: "テンプレート大量送信",
+    reminus: "候補者ごとにカスタマイズ",
   },
   {
     category: "面接・見極め",
-    rpo: "日程調整・フィードバック共有のみ。技術的な見極めは対象外",
-    reminus: "面接設計・面談同席・録画フィードバック・書類選考までカバー",
+    rpo: "日程調整・FB共有のみ",
+    reminus: "設計・同席・録画FBまで",
   },
   {
     category: "オファー支援",
-    rpo: "対象外（条件交渉・レター設計は顧客側で実施）",
-    reminus: "CTO給与相場を踏まえた条件設計・オファーレターレビュー",
+    rpo: "対象外",
+    reminus: "条件設計・レターレビュー",
   },
   {
     category: "ノウハウの蓄積",
-    rpo: "業務はブラックボックス化しやすい。契約終了後にノウハウが残りにくい",
-    reminus: "ノウハウを積極的に公開。採用力を貴社に内製化するパートナー",
+    rpo: "ブラックボックス化",
+    reminus: "積極公開・内製化支援",
   },
 ];
 
@@ -55,13 +55,9 @@ export function Comparison({ className }: { className?: string }) {
         </SectionHeader>
 
         <p className="mt-4 text-center text-sm !leading-[1.9] tracking-wide text-gray-600 sm:mt-6 sm:text-base">
-          エンジニアRPOの主業務は
-          <br className="sm:hidden" />
-          スカウト送信・日程調整などの事務的な採用業務。
+          RPOの主業務は事務的な採用代行。
           <br className="hidden sm:inline" />
-          Reminusは技術力を持つCTO代行会社だからこそ、
-          <br className="sm:hidden" />
-          面接・見極め・オファーまで踏み込めます。
+          Reminusは面接・見極め・オファーまで踏み込めます。
         </p>
 
         {/* PC: テーブル */}
@@ -92,9 +88,11 @@ export function Comparison({ className }: { className?: string }) {
                     {item.category}
                   </td>
                   <td className="border-l border-solid border-gray-100 px-6 py-5 text-sm !leading-[1.8] tracking-wide text-gray-500">
+                    <span className="mr-2 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-gray-200 align-middle text-[10px] text-gray-500">△</span>
                     {item.rpo}
                   </td>
                   <td className="border-l border-solid border-gray-100 bg-emerald-50/30 px-6 py-5 text-sm font-medium !leading-[1.8] tracking-wide text-gray-800">
+                    <span className="mr-2 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-emerald-100 align-middle text-[10px] text-emerald-600">◎</span>
                     {item.reminus}
                   </td>
                 </tr>
@@ -110,7 +108,7 @@ export function Comparison({ className }: { className?: string }) {
               key={index}
               className="overflow-hidden rounded-xl border border-solid border-gray-200 shadow-sm"
             >
-              {/* カテゴリヘッダー */}
+              {/* カテゴリーヘッダー */}
               <div className="bg-gray-50 px-4 py-2.5">
                 <span className="text-xs font-bold tracking-wider text-gray-600">
                   {item.category}
