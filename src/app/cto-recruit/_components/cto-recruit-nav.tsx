@@ -8,7 +8,7 @@ import { ContactButton } from "@/app/_components/ui/contact-button";
 import { cn } from "@/lib/utils";
 
 const menuItems = [
-  { href: "#pain-points", label: "CTO採用の壁" },
+  { href: "#pain-points", label: "採用の最難関" },
   { href: "#why-reminus", label: "選ばれる理由" },
   { href: "#faq", label: "FAQ" },
   { href: "#management", label: "経営者紹介" },
