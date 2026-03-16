@@ -29,7 +29,7 @@ export function GettingStarted({ className }: { className?: string }) {
   return (
     <section
       id="getting-started"
-      className={cn("content-auto py-16 font-sans sm:py-24 md:py-32", className)}
+      className={cn("content-auto py-16 font-sans sm:py-24 md:py-24", className)}
     >
       <div className="mx-auto w-[82%] max-w-[1200px] md:w-[86%]">
         <SectionHeader
