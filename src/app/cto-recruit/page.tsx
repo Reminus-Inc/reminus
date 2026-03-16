@@ -49,7 +49,7 @@ export default function CtoRecruitPage() {
         <PainPoints className="bg-white" />
         {/* ServiceFlowはFVに統合 */}
         <MidCta className="bg-gray-50" />
-        <WhyReminus className="bg-white" />
+        <WhyReminus className="bg-emerald-50/40" />
         <Comparison className="bg-gray-50" />
         {/* 導入事例: クライアント許可取得後に再表示 */}
         {/* <CtoRecruitCaseStudies className="bg-gray-50" /> */}
