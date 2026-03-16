@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { ContactButton } from "@/app/_components/ui/contact-button";
+import { DownloadButton } from "@/app/_components/ui/download-button";
 
 export function CtoRecruitCta({ className }: { className?: string }) {
   return (
@@ -27,14 +28,22 @@ export function CtoRecruitCta({ className }: { className?: string }) {
               </p>
             </div>
 
-            <ContactButton
-              href="/cto-recruit/contact"
-              variant="filled"
-              color="white"
-              className="max-w-[300px] text-sm"
-            >
-              無料相談を予約する
-            </ContactButton>
+            <div className="flex w-full flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-4">
+              <DownloadButton
+                href="/cto-recruit/download"
+                variant="filled"
+                color="white"
+                className="w-full max-w-[280px] shrink-0 text-sm sm:w-auto"
+              />
+              <ContactButton
+                href="/cto-recruit/contact"
+                variant="outlined"
+                color="white"
+                className="w-full max-w-[280px] shrink-0 text-sm sm:w-auto"
+              >
+                無料相談を予約する
+              </ContactButton>
+            </div>
           </div>
         </div>
       </div>
