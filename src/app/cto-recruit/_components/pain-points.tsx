@@ -6,25 +6,25 @@ const painPoints = [
     icon: "🔍",
     title: "技術力を正しく見極められない",
     description:
-      "経歴は立派でも、自社の技術課題を解決できるかは別問題。人事だけではエンジニアの実力を評価できず、RPOに頼んでも技術判断は対象外です。",
+      "人事だけではエンジニアの実力を評価できず、RPOに頼んでも技術判断は対象外です。",
   },
   {
     icon: "✉️",
     title: "CTO層にスカウトが届かない",
     description:
-      "CTO・VPoEクラスは転職サイトにほとんど登録していません。テンプレートの大量送信では見向きもされず、技術を深く理解したパーソナライズが不可欠です。",
+      "CTO・VPoE層は転職潜在層が多く、テンプレートの大量送信では見向きもされません。",
   },
   {
     icon: "🤝",
     title: "面談まで進むが、辞退される",
     description:
-      "候補者は複数社を同時に検討しています。技術者目線で自社の魅力を語れなければ、優秀な人材ほど他社を選びます。",
+      "技術者目線で自社の魅力を語れなければ、優秀な人材ほど他社を選びます。",
   },
   {
     icon: "🎯",
     title: "採用後にミスマッチが発覚する",
     description:
-      "「前職CTO」の肩書きだけで採用し、入社後に期待と実力のギャップが発覚するケースは少なくありません。技術的な第三者の目がなければ防げない問題です。",
+      "肩書きだけで採用し入社後にギャップが発覚するケースは少なくありません。技術的な第三者の目が不可欠です。",
   },
 ];
 
@@ -32,7 +32,7 @@ export function PainPoints({ className }: { className?: string }) {
   return (
     <section
       id="pain-points"
-      className={cn("content-auto py-16 font-sans sm:py-24 md:py-32", className)}
+      className={cn("content-auto py-16 font-sans sm:py-24 md:py-24", className)}
     >
       <div className="mx-auto w-[82%] max-w-[1200px] md:w-[86%]">
         <SectionHeader
