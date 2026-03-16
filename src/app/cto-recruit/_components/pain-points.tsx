@@ -1,30 +1,56 @@
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/app/_components/ui/section-header";
 
+function PainIcon({ path, className }: { path: string; className?: string }) {
+  return (
+    <svg
+      className={cn("h-6 w-6 sm:h-7 sm:w-7", className)}
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={1.5}
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d={path} />
+    </svg>
+  );
+}
+
 const painPoints = [
   {
-    icon: "🔍",
+    iconPath:
+      "M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z",
     title: "技術力を正しく見極められない",
     description:
       "人事だけでは技術的な会話ができず、採用代行に任せても技術判断は対象外です。",
+    iconBg: "bg-blue-50",
+    iconColor: "text-blue-500",
   },
   {
-    icon: "✉️",
+    iconPath:
+      "M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75",
     title: "CTO層にスカウトが届かない",
     description:
       "CTO・VPoE層はすぐに転職を考えていない方が多く、テンプレートのスカウトには反応すらありません。",
+    iconBg: "bg-amber-50",
+    iconColor: "text-amber-500",
   },
   {
-    icon: "🤝",
+    iconPath:
+      "M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z",
     title: "面談まで進むが、辞退される",
     description:
       "技術で惹きつけられなければ、優秀な候補者ほど他社を選びます。",
+    iconBg: "bg-rose-50",
+    iconColor: "text-rose-400",
   },
   {
-    icon: "🎯",
+    iconPath:
+      "M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z",
     title: "採用後にミスマッチが発覚する",
     description:
       "肩書きだけで採用し入社後にギャップが発覚するケースは少なくありません。技術的な第三者の目が不可欠です。",
+    iconBg: "bg-purple-50",
+    iconColor: "text-purple-400",
   },
 ];
 
@@ -54,8 +80,15 @@ export function PainPoints({ className }: { className?: string }) {
               key={index}
               className="rounded-2xl border border-solid border-gray-200 bg-white p-5 shadow-sm sm:p-8"
             >
-              <div className="flex items-start gap-3 sm:gap-4">
-                <span className="text-2xl">{point.icon}</span>
+              <div className="flex items-start gap-4 sm:gap-5">
+                <div
+                  className={cn(
+                    "flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl sm:h-14 sm:w-14",
+                    point.iconBg,
+                  )}
+                >
+                  <PainIcon path={point.iconPath} className={point.iconColor} />
+                </div>
                 <div>
                   <h3 className="text-lg font-bold !leading-[1.6] tracking-wide text-gray-800 sm:text-xl">
                     {point.title}
