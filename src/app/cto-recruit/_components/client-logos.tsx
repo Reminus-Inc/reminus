@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function CtoRecruitClientLogos() {
   return (
-    <div className="pt-8 sm:pt-16">
+    <div className="pt-4 sm:pt-8 pb-2 sm:pb-4">
       <div className="mx-auto flex items-center justify-center gap-8 px-6 sm:gap-12 md:gap-16 lg:gap-20 lg:px-12">
         <div className="flex h-10 items-center sm:h-12">
           <Image
