@@ -47,11 +47,11 @@ export function Comparison({ className }: { className?: string }) {
           align="center"
         >
           <span className="highlight-underline text-emerald-500">
-            下流工程まで伴走
+            RPOが踏み込めない領域
           </span>
-          できるのが、
+          こそ、
           <br className="hidden sm:inline" />
-          Reminusの強み。
+          Reminusの本領。
         </SectionHeader>
 
         <p className="mt-4 text-center text-sm !leading-[1.9] tracking-wide text-gray-600 sm:mt-6 sm:text-base">
