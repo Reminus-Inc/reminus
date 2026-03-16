@@ -54,9 +54,9 @@ export function CtoRecruitFirstView() {
 
       {/* サブコピー */}
       <p className="mt-2 text-center text-xs !leading-[1.8] tracking-wide text-gray-600 min-[375px]:text-sm sm:mt-3 sm:text-base md:text-lg">
-        採用企画からスカウト・面接・オファーまで、
+        技術がわかるから、スカウトから
         <br className="sm:hidden" />
-        CTO経験者が全工程に伴走します。
+        面接・オファーまで全工程に入れます。
       </p>
 
       {/* フェーズフロー - PC: ServiceFlowカード型 */}
