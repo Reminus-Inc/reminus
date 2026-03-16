@@ -3,40 +3,32 @@ import { SectionHeader } from "@/app/_components/ui/section-header";
 
 const solutions = [
   {
-    pain: "技術力を正しく見極められない",
-    title: "CTO経験者が、\n候補者の技術力を直接評価",
-    description:
-      "GitHub・使用技術・設計力をCTO経験者が直接評価します。",
+    pain: "CTOが採用できる媒体がわからない",
+    solution: "実績に基づく有効媒体を選定",
     number: "01",
     iconPath:
       "M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z",
   },
   {
-    pain: "CTO層にスカウトが届かない",
-    title: "技術を深く理解した\n一人ひとりに合わせたスカウト",
-    description:
-      "技術経歴を深く読み込み、一通ずつカスタマイズしたスカウトで返信率を向上させます。",
+    pain: "給与相場や求人設計が難しい",
+    solution: "CTO目線で刺さる求人を設計",
     number: "02",
     iconPath:
-      "M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75",
+      "M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z",
   },
   {
-    pain: "面談まで進むが、辞退される",
-    title: "面談・面接に同席し、\n技術者目線で魅力を伝える",
-    description:
-      "面談同席・面接設計に踏み込み、技術的な魅力を候補者に響く言葉で伝えます。",
+    pain: "スカウトの返信率が低い",
+    solution: "技術×経営でパーソナライズスカウト",
     number: "03",
     iconPath:
-      "M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z",
+      "M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z",
   },
   {
-    pain: "採用後にミスマッチが発覚する",
-    title: "第三者のCTOの目で、\nミスマッチを未然に防ぐ",
-    description:
-      "書類選考からオファー設計まで技術的第三者として関与。ノウハウも積極的に公開します。",
+    pain: "面接で見極められない",
+    solution: "面接・オファーまでCTO経験者が伴走",
     number: "04",
     iconPath:
-      "M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z",
+      "M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z",
   },
 ];
 
@@ -75,18 +67,18 @@ export function WhyReminus({ className }: { className?: string }) {
           headingClassName="text-xl sm:text-2xl md:text-3xl xl:text-4xl !leading-[1.8]"
           align="center"
         >
-          技術がわかるから、
+          CTO採用の
+          <span className="highlight-underline text-emerald-500">壁</span>
+          を、
           <br className="hidden sm:inline" />
-          採用の
-          <span className="highlight-underline text-emerald-500">全工程</span>
-          で力を発揮できる。
+          CTO代行の知見で突破する。
         </SectionHeader>
 
-        <div className="relative mt-8 sm:mt-16">
+        <div className="relative mt-10 sm:mt-16">
           {/* PC: ステップ間の接続線 */}
-          <div className="absolute left-7 top-10 hidden h-[calc(100%-80px)] w-px bg-gradient-to-b from-emerald-200 via-emerald-300 to-emerald-200 lg:block" />
+          <div className="absolute left-7 top-8 hidden h-[calc(100%-64px)] w-px bg-gradient-to-b from-emerald-200 via-emerald-300 to-emerald-200 lg:block" />
 
-          <div className="flex flex-col gap-4 sm:gap-8 lg:gap-10">
+          <div className="flex flex-col gap-4 sm:gap-5 lg:gap-5">
             {solutions.map((solution, index) => (
               <div key={index} className="flex gap-6 lg:gap-8">
                 {/* PC: ステップインジケーター */}
@@ -102,29 +94,32 @@ export function WhyReminus({ className }: { className?: string }) {
                   </span>
                 </div>
 
-                {/* カード本体 */}
+                {/* カード本体 — Pain→Solution 横並び図解（description削除） */}
                 <div className="flex-1 overflow-hidden rounded-2xl border border-solid border-gray-200 bg-white shadow-sm">
-                  {/* 課題ラベル */}
-                  <div className="flex items-center gap-2 border-b border-solid border-gray-100 bg-gray-50 px-5 py-3 sm:px-8 sm:py-4">
-                    <div className="flex h-6 w-6 items-center justify-center rounded-md bg-emerald-100 lg:hidden">
-                      <SolutionIcon
-                        path={solution.iconPath}
-                        className="h-3.5 w-3.5 text-emerald-600"
-                      />
+                  <div className="flex flex-col sm:flex-row sm:items-stretch">
+                    {/* 課題エリア */}
+                    <div className="flex items-center gap-3 border-b border-solid border-gray-100 bg-gray-50 px-5 py-3.5 sm:w-[46%] sm:border-b-0 sm:border-r sm:px-6 sm:py-4">
+                      <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-gray-200/70 lg:hidden">
+                        <SolutionIcon
+                          path={solution.iconPath}
+                          className="h-3.5 w-3.5 text-gray-500"
+                        />
+                      </div>
+                      <div>
+                        <span className="text-[10px] font-bold tracking-widest text-gray-400 sm:text-xs">
+                          課題
+                        </span>
+                        <p className="text-xs font-bold !leading-snug tracking-wide text-gray-600 sm:mt-0.5 sm:text-sm">
+                          {solution.pain}
+                        </p>
+                      </div>
                     </div>
-                    <span className="text-xs font-bold tracking-wider text-gray-500 sm:text-sm">
-                      課題:
-                    </span>
-                    <span className="text-xs font-bold tracking-wide text-gray-700 sm:text-sm">
-                      {solution.pain}
-                    </span>
-                  </div>
-                  {/* ソリューション */}
-                  <div className="flex flex-col gap-3 p-5 sm:flex-row sm:gap-8 sm:p-8">
-                    <div className="flex items-center gap-2 sm:flex-shrink-0 sm:flex-col sm:items-start sm:gap-1">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-50 sm:h-10 sm:w-10">
+
+                    {/* ソリューションエリア */}
+                    <div className="flex flex-1 items-center gap-3 px-5 py-3.5 sm:px-6 sm:py-4">
+                      <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-emerald-100 sm:h-9 sm:w-9">
                         <svg
-                          className="h-4 w-4 text-emerald-500 sm:h-5 sm:w-5"
+                          className="h-4 w-4 text-emerald-600 sm:h-5 sm:w-5"
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -137,20 +132,14 @@ export function WhyReminus({ className }: { className?: string }) {
                           />
                         </svg>
                       </div>
-                      <span className="text-xs font-bold tracking-wider text-emerald-600 sm:hidden">
-                        Reminusなら
-                      </span>
-                    </div>
-                    <div>
-                      <div className="mb-1 hidden text-xs font-bold tracking-wider text-emerald-600 sm:block">
-                        Reminusなら
+                      <div>
+                        <span className="text-[10px] font-bold tracking-widest text-emerald-600 sm:text-xs">
+                          Reminusなら
+                        </span>
+                        <h3 className="text-sm font-bold !leading-snug tracking-wide text-gray-800 sm:mt-0.5 sm:text-base md:text-lg">
+                          {solution.solution}
+                        </h3>
                       </div>
-                      <h3 className="whitespace-pre-line text-base font-bold !leading-[1.6] tracking-wide text-gray-800 sm:text-lg md:text-xl">
-                        {solution.title}
-                      </h3>
-                      <p className="mt-2 text-sm !leading-[1.9] tracking-wide text-gray-600 sm:text-base">
-                        {solution.description}
-                      </p>
                     </div>
                   </div>
                 </div>
