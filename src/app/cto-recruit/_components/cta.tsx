@@ -15,14 +15,14 @@ export function CtoRecruitCta({ className }: { className?: string }) {
           <div className="flex flex-col items-center gap-8 text-center">
             <div>
               <p className="text-2xl font-bold !leading-[1.5] tracking-wider text-white md:text-3xl xl:text-4xl">
-                CTO採用、<br className="block sm:hidden" />
-                一人で悩んでいませんか？
+                技術がわかるパートナーに、<br className="block sm:hidden" />
+                CTO採用を相談しませんか？
               </p>
 
               <p className="mt-4 text-sm !leading-[1.75] tracking-wide text-white/90 md:text-base">
-                CTOの仕事を知り尽くしたReminusが、
+                CTO代行で培った技術と採用の知見で、
                 <br className="hidden sm:inline" />
-                貴社のCTO採用を成功に導きます。
+                貴社に最適な採用戦略をご提案します。
                 <br />
                 まずはお気軽にご相談ください。
               </p>
