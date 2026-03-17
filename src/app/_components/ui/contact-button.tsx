@@ -14,10 +14,11 @@ export function ContactButton({
   onClick,
   children,
   href = "/contact",
+  variant = "outlined",
   ...props
 }: ContactButtonProps) {
   return (
-    <PrimaryButton variant="outlined" asChild {...props}>
+    <PrimaryButton variant={variant} asChild {...props}>
       <Link
         href={href}
         className={`flex items-center gap-3`}
