@@ -61,15 +61,23 @@ export function Comparison({ className }: { className?: string }) {
         </p>
 
         {/* PC: テーブル */}
-        <div className="mt-10 hidden overflow-hidden rounded-2xl border border-solid border-gray-200 shadow-sm sm:mt-14 md:block">
-          <table className="w-full">
+        <div className="relative mt-10 hidden overflow-hidden rounded-2xl border border-solid border-gray-200 shadow-sm sm:mt-14 md:block">
+          {/* Reminusカラムハイライト */}
+          <div
+            className="pointer-events-none absolute bottom-0 right-0 top-0 z-10 w-[39%] rounded-r-2xl"
+            style={{
+              boxShadow:
+                "inset 0 0 40px rgba(16, 185, 129, 0.10), -4px 0 24px rgba(16, 185, 129, 0.08)",
+            }}
+          />
+          <table className="relative w-full">
             <thead>
               <tr>
                 <th className="w-[22%] border-b border-solid border-gray-200 bg-gray-50 px-6 py-4 text-left text-sm font-bold tracking-wider text-gray-500" />
                 <th className="w-[39%] border-b border-l border-solid border-gray-200 bg-gray-50 px-6 py-4 text-center text-sm font-bold tracking-wider text-gray-500">
                   一般的なエンジニアRPO
                 </th>
-                <th className="w-[39%] border-b border-l border-solid border-gray-200 bg-emerald-50 px-6 py-4 text-center text-sm font-bold tracking-wider text-emerald-700">
+                <th className="w-[39%] border-b border-l-2 border-solid border-emerald-300 bg-emerald-100 px-6 py-4 text-center text-sm font-bold tracking-wider text-emerald-700">
                   Reminus CTO採用
                 </th>
               </tr>
@@ -91,8 +99,8 @@ export function Comparison({ className }: { className?: string }) {
                     <span className="mr-2 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-gray-200 align-middle text-[10px] text-gray-500">△</span>
                     {item.rpo}
                   </td>
-                  <td className="border-l border-solid border-gray-100 bg-emerald-50/30 px-6 py-5 text-sm font-medium !leading-[1.8] tracking-wide text-gray-800">
-                    <span className="mr-2 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-emerald-100 align-middle text-[10px] text-emerald-600">◎</span>
+                  <td className="border-l border-l-2 border-solid border-emerald-300 bg-emerald-50 px-6 py-5 text-sm font-medium !leading-[1.8] tracking-wide text-gray-800">
+                    <span className="mr-2 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-emerald-100 align-middle text-[10px] text-white">◎</span>
                     {item.reminus}
                   </td>
                 </tr>
@@ -129,9 +137,9 @@ export function Comparison({ className }: { className?: string }) {
                 </p>
               </div>
               {/* Reminus */}
-              <div className="bg-emerald-50/40 px-4 py-3">
+              <div className="bg-emerald-50/40 px-4 py-3 ring-1 ring-emerald-200/60 rounded-lg">
                 <div className="mb-1 flex items-center gap-1.5">
-                  <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-emerald-100">
+                  <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-emerald-500">
                     <span className="text-[10px] text-emerald-600">◎</span>
                   </span>
                   <span className="text-[11px] font-bold tracking-wider text-emerald-600">
