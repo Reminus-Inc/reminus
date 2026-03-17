@@ -7,7 +7,6 @@ const phases = [
     name: "候補者獲得",
     color: "bg-blue-500",
     items: [
-      { label: "媒体選定", isPro: false },
       { label: "求人設計", isPro: false },
       { label: "スカウト代行", isPro: true },
     ],
@@ -24,7 +23,7 @@ const phases = [
     name: "面接",
     color: "bg-blue-500",
     items: [
-      { label: "面接録画フィードバック", isPro: false },
+      { label: "録画FB", isPro: false },
       { label: "面接同席", isPro: true },
     ],
   },
@@ -33,7 +32,7 @@ const phases = [
     color: "bg-blue-500",
     items: [
       { label: "レターレビュー", isPro: false },
-      { label: "条件設計支援", isPro: false },
+      { label: "条件設計", isPro: false },
     ],
   },
 ];
