@@ -1,6 +1,43 @@
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/app/_components/ui/section-header";
 
+/* 24px SVG インジケーター — 案A: テキストより視覚記号を主役に */
+function ComparisonDash() {
+  return (
+    <span className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full border border-gray-200 bg-gray-100">
+      <svg viewBox="0 0 24 24" className="h-3 w-3">
+        <line
+          x1="6"
+          y1="12"
+          x2="18"
+          y2="12"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          className="text-gray-400"
+        />
+      </svg>
+    </span>
+  );
+}
+
+function ComparisonCheck() {
+  return (
+    <span className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-emerald-500">
+      <svg viewBox="0 0 24 24" className="h-3 w-3">
+        <polyline
+          points="6,12 10,16 18,8"
+          fill="none"
+          stroke="white"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </span>
+  );
+}
+
 const comparisonItems = [
   {
     category: "支援範囲",
@@ -95,13 +132,21 @@ export function Comparison({ className }: { className?: string }) {
                   <td className="bg-gray-50 px-6 py-5 text-sm font-bold tracking-wider text-gray-700">
                     {item.category}
                   </td>
-                  <td className="border-l border-solid border-gray-100 px-6 py-5 text-sm !leading-[1.8] tracking-wide text-gray-500">
-                    <span className="mr-2 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-gray-200 align-middle text-[10px] text-gray-500">△</span>
-                    {item.rpo}
+                  <td className="border-l border-solid border-gray-100 px-5 py-4 text-sm">
+                    <div className="flex items-start gap-3">
+                      <ComparisonDash />
+                      <span className="text-sm !leading-[1.7] tracking-wide text-gray-400">
+                        {item.rpo}
+                      </span>
+                    </div>
                   </td>
-                  <td className="border-l border-l-2 border-solid border-emerald-300 bg-emerald-50 px-6 py-5 text-sm font-medium !leading-[1.8] tracking-wide text-gray-800">
-                    <span className="mr-2 inline-flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-emerald-100 align-middle text-[10px] text-white">◎</span>
-                    {item.reminus}
+                  <td className="border-l-2 border-solid border-emerald-300 bg-emerald-50 px-5 py-4 text-sm">
+                    <div className="flex items-start gap-3">
+                      <ComparisonCheck />
+                      <span className="text-sm font-medium !leading-[1.7] tracking-wide text-gray-700">
+                        {item.reminus}
+                      </span>
+                    </div>
                   </td>
                 </tr>
               ))}
@@ -122,31 +167,29 @@ export function Comparison({ className }: { className?: string }) {
                   {item.category}
                 </span>
               </div>
+
               {/* RPO */}
               <div className="border-b border-solid border-gray-100 px-4 py-3">
-                <div className="mb-1 flex items-center gap-1.5">
-                  <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-gray-200">
-                    <span className="text-[10px] text-gray-500">△</span>
-                  </span>
+                <div className="mb-1 flex items-center gap-2">
+                  <ComparisonDash />
                   <span className="text-[11px] font-bold tracking-wider text-gray-400">
                     一般的なRPO
                   </span>
                 </div>
-                <p className="pl-[26px] text-[13px] !leading-[1.8] tracking-wide text-gray-500">
+                <p className="pl-[34px] text-[13px] !leading-[1.8] tracking-wide text-gray-500">
                   {item.rpo}
                 </p>
               </div>
+
               {/* Reminus */}
-              <div className="bg-emerald-50/40 px-4 py-3 ring-1 ring-emerald-200/60 rounded-lg">
-                <div className="mb-1 flex items-center gap-1.5">
-                  <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-emerald-500">
-                    <span className="text-[10px] text-emerald-600">◎</span>
-                  </span>
+              <div className="rounded-lg bg-emerald-50/40 px-4 py-3 ring-1 ring-emerald-200/60">
+                <div className="mb-1 flex items-center gap-2">
+                  <ComparisonCheck />
                   <span className="text-[11px] font-bold tracking-wider text-emerald-600">
                     Reminus
                   </span>
                 </div>
-                <p className="pl-[26px] text-[13px] font-medium !leading-[1.8] tracking-wide text-gray-800">
+                <p className="pl-[34px] text-[13px] font-medium !leading-[1.8] tracking-wide text-gray-800">
                   {item.reminus}
                 </p>
               </div>
