@@ -1,6 +1,87 @@
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/app/_components/ui/section-header";
 
+/* ---- 案C: カテゴリ列 SVG アイコン ---- */
+type CategoryIconName =
+  | "layers"
+  | "code"
+  | "send"
+  | "users-round"
+  | "file-check"
+  | "book-open";
+
+const categoryIconPaths: Record<CategoryIconName, React.ReactNode> = {
+  layers: (
+    <>
+      <path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z" />
+      <path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12" />
+      <path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17" />
+    </>
+  ),
+  code: (
+    <>
+      <path d="m16 18 6-6-6-6" />
+      <path d="m8 6-6 6 6 6" />
+    </>
+  ),
+  send: (
+    <>
+      <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z" />
+      <path d="m21.854 2.147-10.94 10.939" />
+    </>
+  ),
+  "users-round": (
+    <>
+      <path d="M18 21a8 8 0 0 0-16 0" />
+      <circle cx="10" cy="8" r="5" />
+      <path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3" />
+    </>
+  ),
+  "file-check": (
+    <>
+      <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+      <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+      <path d="m9 15 2 2 4-4" />
+    </>
+  ),
+  "book-open": (
+    <>
+      <path d="M12 7v14" />
+      <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" />
+    </>
+  ),
+};
+
+function CategoryIcon({
+  icon,
+  size = "pc",
+}: {
+  icon: CategoryIconName;
+  size?: "pc" | "sp";
+}) {
+  const containerClass =
+    size === "pc"
+      ? "flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-gray-100"
+      : "flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-md bg-gray-100";
+  const svgClass = size === "pc" ? "h-4 w-4 text-gray-500" : "h-3.5 w-3.5 text-gray-500";
+
+  return (
+    <span className={containerClass}>
+      <svg
+        viewBox="0 0 24 24"
+        className={svgClass}
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        {categoryIconPaths[icon]}
+      </svg>
+    </span>
+  );
+}
+
 /* 24px SVG インジケーター — 案A: テキストより視覚記号を主役に */
 function ComparisonDash() {
   return (
@@ -38,34 +119,45 @@ function ComparisonCheck() {
   );
 }
 
-const comparisonItems = [
+const comparisonItems: {
+  category: string;
+  icon: CategoryIconName;
+  rpo: string;
+  reminus: string;
+}[] = [
   {
     category: "支援範囲",
+    icon: "layers",
     rpo: "スカウト・日程調整が中心",
     reminus: "全工程を一貫して伴走",
   },
   {
     category: "担当者の技術力",
+    icon: "code",
     rpo: "非エンジニアが対応",
     reminus: "CTO経験者が直接担当",
   },
   {
     category: "スカウト",
+    icon: "send",
     rpo: "テンプレート大量送信",
     reminus: "候補者ごとにカスタマイズ",
   },
   {
     category: "面接・見極め",
+    icon: "users-round",
     rpo: "日程調整・FB共有のみ",
     reminus: "設計・同席・録画FBまで",
   },
   {
     category: "オファー支援",
+    icon: "file-check",
     rpo: "対象外",
     reminus: "条件設計・レターレビュー",
   },
   {
     category: "ノウハウの蓄積",
+    icon: "book-open",
     rpo: "ブラックボックス化",
     reminus: "積極公開・内製化支援",
   },
@@ -130,7 +222,10 @@ export function Comparison({ className }: { className?: string }) {
                   }
                 >
                   <td className="bg-gray-50 px-6 py-5 text-sm font-bold tracking-wider text-gray-700">
-                    {item.category}
+                    <div className="flex items-center gap-2.5">
+                      <CategoryIcon icon={item.icon} size="pc" />
+                      <span>{item.category}</span>
+                    </div>
                   </td>
                   <td className="border-l border-solid border-gray-100 px-5 py-4 text-sm">
                     <div className="flex items-start gap-3">
@@ -163,9 +258,12 @@ export function Comparison({ className }: { className?: string }) {
             >
               {/* カテゴリーヘッダー */}
               <div className="bg-gray-50 px-4 py-2.5">
-                <span className="text-xs font-bold tracking-wider text-gray-600">
-                  {item.category}
-                </span>
+                <div className="flex items-center gap-2">
+                  <CategoryIcon icon={item.icon} size="sp" />
+                  <span className="text-xs font-bold tracking-wider text-gray-600">
+                    {item.category}
+                  </span>
+                </div>
               </div>
 
               {/* RPO */}
