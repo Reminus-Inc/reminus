@@ -97,12 +97,12 @@ export function WhyReminus({ className }: { className?: string }) {
                 {/* カード本体 — Pain→Solution 横並び図解（description削除） */}
                 <div className="flex-1 overflow-hidden rounded-2xl border border-solid border-gray-200 bg-white shadow-sm">
                   <div className="flex flex-col sm:flex-row sm:items-stretch">
-                    {/* 課題エリア */}
-                    <div className="flex items-center gap-3 border-b border-solid border-gray-100 bg-gray-50 px-5 py-3.5 sm:w-[46%] sm:border-b-0 sm:border-r sm:px-6 sm:py-4">
-                      <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-gray-200/70 lg:hidden">
+                    {/* 課題エリア — 案D: gray-100背景 + dashed border + amberアイコン */}
+                    <div className="flex items-center gap-3 bg-gray-100 px-5 py-3.5 sm:w-[43%] sm:px-6 sm:py-4">
+                      <div className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-amber-100 lg:hidden">
                         <SolutionIcon
                           path={solution.iconPath}
-                          className="h-3.5 w-3.5 text-gray-500"
+                          className="h-3.5 w-3.5 text-amber-500"
                         />
                       </div>
                       <div>
@@ -115,8 +115,37 @@ export function WhyReminus({ className }: { className?: string }) {
                       </div>
                     </div>
 
-                    {/* ソリューションエリア */}
-                    <div className="flex flex-1 items-center gap-3 px-5 py-3.5 sm:px-6 sm:py-4">
+                    {/* 案F: Pain→Solution 矢印インジケーター */}
+                    <div className="flex items-center justify-center border-y border-dashed border-gray-300 py-1 sm:border-x sm:border-y-0 sm:border-dashed sm:border-gray-300 sm:py-0 sm:px-1">
+                      <div className="flex items-center gap-1 sm:flex-col sm:gap-0">
+                        {/* SP: 下矢印 + ラベル */}
+                        <svg
+                          className="h-3.5 w-3.5 text-emerald-500 sm:hidden"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2.5}
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
+                        </svg>
+                        <span className="text-[9px] font-bold tracking-wide text-emerald-600 sm:hidden">
+                          Reminusなら
+                        </span>
+                        {/* PC: 右矢印 */}
+                        <svg
+                          className="hidden h-4 w-4 text-emerald-500 sm:block"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2.5}
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                        </svg>
+                      </div>
+                    </div>
+
+                    {/* ソリューションエリア — 案D: emerald-50背景 + emerald左ボーダー */}
+                    <div className="flex flex-1 items-center gap-3 bg-emerald-50/40 px-5 py-3.5 sm:border-l-2 sm:border-solid sm:border-emerald-400 sm:px-6 sm:py-4">
                       <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-emerald-100 sm:h-9 sm:w-9">
                         <svg
                           className="h-4 w-4 text-emerald-600 sm:h-5 sm:w-5"
