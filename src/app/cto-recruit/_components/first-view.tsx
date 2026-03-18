@@ -149,12 +149,14 @@ export function CtoRecruitFirstView() {
         <DownloadButton
           href="/cto-recruit/download"
           className="w-full max-w-[400px] sm:w-auto"
-        />
+        >
+          サービス資料を見てみる
+        </DownloadButton>
         <ContactButton
           href="/cto-recruit/contact"
           className="w-full max-w-[400px] sm:w-auto"
         >
-          まずは無料で相談する
+          無料で相談してみる
         </ContactButton>
       </div>
     </div>
