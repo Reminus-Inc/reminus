@@ -11,15 +11,16 @@ import { ChevronRight } from "lucide-react";
 interface DownloadButtonProps extends PrimaryButtonProps {
   onClick?: () => void;
   href?: string;
+  children?: React.ReactNode;
 }
 
-export const DownloadButton = ({ onClick, href = "/download", ...props }: DownloadButtonProps) => {
+export const DownloadButton = ({ onClick, href = "/download", children, ...props }: DownloadButtonProps) => {
   const handleClick = () => {
     trackCTAClick("download");
     onClick?.();
   };
 
-  const content = <span className="whitespace-nowrap">資料ダウンロード</span>;
+  const content = <span className="whitespace-nowrap">{children || "資料ダウンロード"}</span>;
 
   return (
     <PrimaryButton asChild {...props}>
