@@ -4,12 +4,12 @@
  * 目的: CTO/タレントネットワークを抽象的に表現し、FVのビジュアルインパクトを向上
  * 手法: 接続されたノード+ライン。中央に大きめCTOノード、周囲に候補者・スキルノード
  * カラー: emerald系統一（emerald-500 #10b981, emerald-400 #34d399, emerald-300 #6ee7b7）
- * SP: hidden（テキスト+CTAのみ表示）
+ * SP: サブコピー下にコンパクト表示（Phase C）。PC: 右カラムで表示（Phase B）
  */
 
 export function FvIllustration() {
   return (
-    <div className="hidden lg:block" aria-hidden="true">
+    <div aria-hidden="true">
       <svg
         viewBox="0 0 480 420"
         fill="none"
@@ -35,7 +35,7 @@ export function FvIllustration() {
           <line x1="160" y1="340" x2="120" y2="290" />
           <line x1="120" y1="290" x2="100" y2="200" />
           <line x1="100" y1="200" x2="130" y2="110" />
-          {/* 追加の斜め接続（ネットワークの密度を上げク） */}
+          {/* 追加の斜め接続（ネットワークの密度を上げる） */}
           <line x1="130" y1="110" x2="310" y2="160" />
           <line x1="310" y1="160" x2="380" y2="220" />
           <line x1="120" y1="290" x2="340" y2="320" />
