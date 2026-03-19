@@ -1,19 +1,14 @@
 import { Metadata } from "next";
 import { CtoRecruitFirstView } from "./_components/first-view";
 import { PainPoints } from "./_components/pain-points";
-// ServiceFlowはFVに統合したため非表示
-// import { ServiceFlow } from "./_components/service-flow";
+import { TransitionStatement } from "./_components/transition-statement";
 import { WhyReminus } from "./_components/why-reminus";
+import { CtoServiceDiagram } from "./_components/cto-service-diagram";
 import { Comparison } from "./_components/comparison";
-import { TrackRecord } from "./_components/track-record";
+import { Schedule } from "./_components/schedule";
 import { CtoRecruitCta } from "./_components/cta";
-import { MidCta } from "./_components/mid-cta";
-import { GettingStarted } from "./_components/getting-started";
 import { Faq } from "./_components/faq";
 import { CtoRecruitClientLogos } from "./_components/client-logos";
-// import { CtoRecruitCaseStudies } from "./_components/case-studies";
-import { Management } from "../_components/sections/management";
-import { CompanyOverview } from "../_components/sections/company-overview";
 
 export const metadata: Metadata = {
   title: "CTO採用支援 | 株式会社Reminus（レミナス）",
@@ -47,18 +42,13 @@ export default function CtoRecruitPage() {
       <CtoRecruitClientLogos />
       <div className="content-auto">
         <PainPoints className="bg-white" />
-        {/* ServiceFlowはFVに統合 */}
-        <MidCta className="bg-gray-50" />
-        <WhyReminus className="bg-emerald-50/40" />
-        <Comparison className="bg-gray-50" />
-        {/* 導入事例: クライアント許可取得後に再表示 */}
-        {/* <CtoRecruitCaseStudies className="bg-gray-50" /> */}
-        <TrackRecord className="bg-white" />
-        <GettingStarted className="bg-white" />
+        <TransitionStatement />
+        <WhyReminus className="bg-white" />
+        <CtoServiceDiagram className="bg-gray-50" />
+        <Comparison className="bg-white" />
+        <Schedule className="bg-gray-50" />
+        <CtoRecruitCta className="bg-white" />
         <Faq className="bg-gray-50" />
-        <CtoRecruitCta className="from-gray-50 to-gray-50" />
-        <Management className="bg-white sm:pb-12" />
-        <CompanyOverview className="pt-12" />
       </div>
     </>
   );
