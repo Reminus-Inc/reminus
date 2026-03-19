@@ -30,6 +30,11 @@ export function CtoRecruitFirstView() {
               媒体選定からスカウト・面接設計・オファーまで、一気通貫で支援します。
             </p>
 
+            {/* SP/タブレット用イラスト（lg未満で表示） */}
+            <div className="mx-auto mt-4 max-w-[240px] sm:mt-5 sm:max-w-[280px] md:max-w-[300px] lg:hidden">
+              <FvIllustration />
+            </div>
+
             {/* CTA - 2段階CV: 資料DL（ライト）+ 無料相談（ヘビー） */}
             <div className="mt-6 flex flex-col items-center gap-3 sm:mt-8 sm:flex-row sm:justify-center sm:gap-4 md:mt-10 lg:justify-start">
               <DownloadButton
