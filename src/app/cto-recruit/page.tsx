@@ -4,6 +4,7 @@ import { PainPoints } from "./_components/pain-points";
 import { TransitionStatement } from "./_components/transition-statement";
 import { WhyReminus } from "./_components/why-reminus";
 import { CtoServiceDiagram } from "./_components/cto-service-diagram";
+import { ServiceFlowCards } from "./_components/service-flow-cards";
 import { Comparison } from "./_components/comparison";
 import { Schedule } from "./_components/schedule";
 import { CtoRecruitCta } from "./_components/cta";
@@ -39,8 +40,9 @@ export default function CtoRecruitPage() {
   return (
     <>
       <CtoRecruitFirstView />
-      <CtoRecruitClientLogos className="bg-gray-50" />
+      <CtoRecruitClientLogos />
       <div className="content-auto">
+        <ServiceFlowCards className="bg-gray-50" />
         <PainPoints className="bg-white" />
         <TransitionStatement />
         <WhyReminus className="bg-white" />
