@@ -1,9 +1,9 @@
 import Image from "next/image";
 
-export function CtoRecruitClientLogos() {
+export function CtoRecruitClientLogos({ className }: { className?: string }) {
   return (
-    <div className="pt-4 sm:pt-8 pb-2 sm:pb-4">
-      <div className="mx-auto flex flex-wrap items-center justify-center gap-x-5 gap-y-1 px-6 sm:flex-nowrap sm:gap-x-12 md:gap-x-16 lg:gap-x-20 lg:px-12">
+    <div className={`pt-4 sm:pt-8 pb-2 sm:pb-4 ${className || ""}`}>
+      <div className="mx-auto flex items-center justify-center gap-8 px-6 sm:gap-12 md:gap-16 lg:gap-20 lg:px-12">
         <div className="flex h-10 items-center sm:h-12">
           <Image
             src="/logos/1backoffice.png"
