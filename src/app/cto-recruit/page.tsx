@@ -39,7 +39,7 @@ export default function CtoRecruitPage() {
   return (
     <>
       <CtoRecruitFirstView />
-      <CtoRecruitClientLogos />
+      <CtoRecruitClientLogos className="bg-gray-50" />
       <div className="content-auto">
         <PainPoints className="bg-white" />
         <TransitionStatement />
