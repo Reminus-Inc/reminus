@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { CtoRecruitFirstView } from "./_components/first-view";
 import { PainPoints } from "./_components/pain-points";
-import { TransitionStatement } from "./_components/transition-statement";
+import { ConceptSection } from "./_components/concept-section";
 import { WhyReminus } from "./_components/why-reminus";
 import { CtoServiceDiagram } from "./_components/cto-service-diagram";
 import { ServiceFlowCards } from "./_components/service-flow-cards";
@@ -44,7 +44,7 @@ export default function CtoRecruitPage() {
       <div className="content-auto">
         <ServiceFlowCards className="bg-gray-50" />
         <PainPoints className="bg-white" />
-        <TransitionStatement />
+        <ConceptSection />
         <WhyReminus className="bg-white" />
         <CtoServiceDiagram className="bg-gray-50" />
         <Comparison className="bg-white" />
