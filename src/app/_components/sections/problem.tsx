@@ -65,8 +65,8 @@ export function Problem({ className }: ProblemProps) {
           <div className="h-0 w-0 border-l-[40px] border-r-[40px] border-t-[34px] border-l-transparent border-r-transparent border-t-white sm:border-l-[60px] sm:border-r-[60px] sm:border-t-[50px]" />
         </div>
 
-        <div className="mx-auto w-[82%] max-w-[1200px] py-10 text-center sm:py-16">
-          <p className="text-2xl font-bold !leading-[1.6] tracking-wider text-white sm:text-3xl md:text-4xl lg:text-[40px]">
+        <div className="mx-auto w-[88%] max-w-[1200px] py-10 text-center sm:py-16">
+          <p className="text-xl font-bold !leading-[1.6] tracking-wider text-white min-[375px]:text-[23px] sm:text-3xl md:text-4xl lg:text-[40px]">
             そのお悩み、
             <span className="whitespace-nowrap">CTO代行にお任せください！</span>
           </p>
