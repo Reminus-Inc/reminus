@@ -7,6 +7,8 @@ import { MidCta } from "./_components/mid-cta";
 import { CtoServiceDiagram } from "./_components/cto-service-diagram";
 import { ServiceFlowCards } from "./_components/service-flow-cards";
 import { Comparison } from "./_components/comparison";
+import { TrackRecord } from "./_components/track-record";
+import { CtoRecruitCaseStudies } from "./_components/case-studies";
 import { Schedule } from "./_components/schedule";
 import { CtoRecruitCta } from "./_components/cta";
 import { Faq } from "./_components/faq";
@@ -50,6 +52,8 @@ export default function CtoRecruitPage() {
         <MidCta />
         <CtoServiceDiagram className="bg-gray-50" />
         <Comparison className="bg-white" />
+        <TrackRecord className="bg-gray-50" />
+        <CtoRecruitCaseStudies className="bg-white" />
         <Schedule className="bg-gray-50" />
         <CtoRecruitCta className="bg-white" />
         <Faq className="bg-gray-50" />
