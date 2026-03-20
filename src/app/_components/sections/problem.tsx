@@ -71,7 +71,7 @@ export function Problem({ className }: ProblemProps) {
             <span className="whitespace-nowrap">CTO代行にお任せください！</span>
           </p>
           <p className="mt-6 text-base font-medium !leading-[1.8] tracking-wider text-white sm:text-lg md:text-xl lg:mt-10 lg:text-2xl">
-            Reminus CTO パートナーは、
+            Reminus CTOパートナーは、
             <br />
             SaaS事業にまつわる技術の課題を解決するCTO代行サービスです。
           </p>
