@@ -2,6 +2,12 @@ import { cn } from "@/lib/utils";
 import { ContactButton } from "@/app/_components/ui/contact-button";
 import { DownloadButton } from "@/app/_components/ui/download-button";
 
+const trustStats = [
+  { value: "最大80%", label: "採用工数削減" },
+  { value: "6社以上", label: "CTO代行実績" },
+  { value: "全4工程", label: "企画〜オファー対応" },
+];
+
 export function MidCta({ className }: { className?: string }) {
   return (
     <section
@@ -20,6 +26,24 @@ export function MidCta({ className }: { className?: string }) {
           <p className="mt-1 text-sm tracking-wide text-gray-600">
             30分の無料相談で、最適な採用戦略をご提案します。
           </p>
+        </div>
+        {/* Trust stats */}
+        <div className="flex items-center gap-4 sm:gap-6">
+          {trustStats.map((stat, i) => (
+            <div key={stat.label} className="flex items-center gap-4 sm:gap-6">
+              {i > 0 && (
+                <div className="h-8 w-px bg-emerald-200" />
+              )}
+              <div className="text-center">
+                <p className="text-base font-bold leading-tight text-emerald-700 sm:text-lg">
+                  {stat.value}
+                </p>
+                <p className="mt-0.5 text-xs tracking-wide text-gray-500">
+                  {stat.label}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
         <div className="flex w-full flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-4">
           <DownloadButton
