@@ -44,7 +44,7 @@ export function ServiceOverview({ className }: { className?: string }) {
         <SectionHeader
           label="Service"
           align="center"
-          headingClassName="text-3xl sm:text-[40px] !leading-[1.7] sm:text-4xl"
+          headingClassName="text-3xl sm:text-[40px] !leading-[1.7]"
         >
           サービス概要
         </SectionHeader>
@@ -68,7 +68,7 @@ export function ServiceOverview({ className }: { className?: string }) {
                 />
               </div>
               <div className="flex flex-col gap-4 lg:gap-5">
-                <p className="text-xl font-bold !leading-[1.6] tracking-wide text-gray-800 sm:text-2xl md:text-3xl lg:text-4xl">
+                <p className="text-xl font-bold !leading-[1.6] tracking-wide text-gray-800 sm:text-2xl md:text-3xl lg:text-[34px]">
                   {feature.title}
                 </p>
                 <p className="whitespace-pre-line text-sm !leading-[1.9] tracking-wide text-gray-800 sm:text-base md:text-lg lg:max-w-[600px]">
