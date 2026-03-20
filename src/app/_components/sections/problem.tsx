@@ -60,7 +60,7 @@ export function Problem({ className }: ProblemProps) {
         </div>
       </div>
 
-      <div className="bg-emerald-500">
+      <div className="bg-gradient-to-br from-emerald-500 from-60% to-emerald-400">
         <div className="flex justify-center">
           <div className="h-0 w-0 border-l-[40px] border-r-[40px] border-t-[34px] border-l-transparent border-r-transparent border-t-white sm:border-l-[60px] sm:border-r-[60px] sm:border-t-[50px]" />
         </div>
