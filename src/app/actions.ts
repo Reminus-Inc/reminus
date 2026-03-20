@@ -132,10 +132,28 @@ const formSchema = z.object({
   phone: z
     .string()
     .min(1, { message: "電話番号を入力してください" })
-    .max(20, { message: "電話番号は20文字以内で入力してください" })
-    .regex(/^[0-9\-]+$/, {
-      message: "電話番号は数字とハイフンのみ使用できます",
-    }),
+    .transform((val) => val
+      .replace(/[０-９]/g, (ch) => String.fromCharCode(ch.charCodeAt(0) - 0xFEE0))
+      .replace(/[ー－—–]/g, "-")
+      .replace(/\u3000/g, " ")
+    )
+    .pipe(z.string()
+      .regex(/^\+?[0-9][0-9\- ]*$/, {
+        message: "電話番号の形式が正しくありません",
+      })
+      .refine((val) => !/[- ]$/.test(val), {
+        message: "電話番号の形式が正しくありません",
+      })
+      .refine((val) => !/--/.test(val), {
+        message: "電話番号の形式が正しくありません",
+      })
+      .refine((val) => {
+        const digits = val.replace(/[^0-9]/g, "").length;
+        return digits >= 10 && digits <= 15;
+      }, {
+        message: "電話番号の形式が正しくありません",
+      })
+    ),
   content: z
     .string()
     .max(5000, { message: "お問い合わせ内容は5000文字以内で入力してください" })
@@ -452,10 +470,28 @@ const documentRequestSchema = z.object({
   phone: z
     .string()
     .min(1, { message: "電話番号を入力してください" })
-    .max(20, { message: "電話番号は20文字以内で入力してください" })
-    .regex(/^[0-9\-]+$/, {
-      message: "電話番号は数字とハイフンのみ使用できます",
-    }),
+    .transform((val) => val
+      .replace(/[０-９]/g, (ch) => String.fromCharCode(ch.charCodeAt(0) - 0xFEE0))
+      .replace(/[ー－—–]/g, "-")
+      .replace(/\u3000/g, " ")
+    )
+    .pipe(z.string()
+      .regex(/^\+?[0-9][0-9\- ]*$/, {
+        message: "電話番号の形式が正しくありません",
+      })
+      .refine((val) => !/[- ]$/.test(val), {
+        message: "電話番号の形式が正しくありません",
+      })
+      .refine((val) => !/--/.test(val), {
+        message: "電話番号の形式が正しくありません",
+      })
+      .refine((val) => {
+        const digits = val.replace(/[^0-9]/g, "").length;
+        return digits >= 10 && digits <= 15;
+      }, {
+        message: "電話番号の形式が正しくありません",
+      })
+    ),
 }).superRefine((data, ctx) => {
   const domain = data.email.split('@')[1]?.toLowerCase();
 
