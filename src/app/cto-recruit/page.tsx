@@ -3,6 +3,7 @@ import { CtoRecruitFirstView } from "./_components/first-view";
 import { PainPoints } from "./_components/pain-points";
 import { ConceptSection } from "./_components/concept-section";
 import { WhyReminus } from "./_components/why-reminus";
+import { MidCta } from "./_components/mid-cta";
 import { CtoServiceDiagram } from "./_components/cto-service-diagram";
 import { ServiceFlowCards } from "./_components/service-flow-cards";
 import { Comparison } from "./_components/comparison";
@@ -46,6 +47,7 @@ export default function CtoRecruitPage() {
         <PainPoints className="bg-white" />
         <ConceptSection />
         <WhyReminus className="bg-white" />
+        <MidCta />
         <CtoServiceDiagram className="bg-gray-50" />
         <Comparison className="bg-white" />
         <Schedule className="bg-gray-50" />
