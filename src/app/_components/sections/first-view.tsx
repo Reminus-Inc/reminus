@@ -48,12 +48,12 @@ const Title = ({ className }: { className?: string }) => {
   return (
     <h1
       className={cn(
-        "text-2xl font-bold !leading-[1.5] tracking-wider text-gray-800 min-[375px]:text-[28px] sm:text-4xl md:text-5xl md:!leading-[1.4] lg:text-5xl lg:tracking-wide xl:text-[56px]",
+        "-mr-[8%] text-[23px] font-bold !leading-[1.5] tracking-wider text-gray-800 min-[375px]:text-[27px] sm:mr-0 sm:text-4xl md:text-5xl md:!leading-[1.4] lg:text-5xl lg:tracking-wide xl:text-[56px]",
         className
       )}
     >
-      <span className="block">CTO代行が即日参画。</span>
-      <span className="block">SaaS事業を最短で成長</span>
+      <span className="block">技術責任者不在の</span>
+      <span className="block">SaaS事業にCTO代行を。</span>
     </h1>
   );
 };
