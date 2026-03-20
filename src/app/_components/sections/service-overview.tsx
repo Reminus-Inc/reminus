@@ -42,7 +42,7 @@ export function ServiceOverview({ className }: { className?: string }) {
     >
       <div className="mx-auto w-[82%] max-w-[1200px] md:w-[86%]">
         <SectionHeader
-          label="Service"
+          label="What's Reminus?"
           align="center"
           headingClassName="text-3xl sm:text-4xl md:text-[40px] !leading-[1.7]"
         >

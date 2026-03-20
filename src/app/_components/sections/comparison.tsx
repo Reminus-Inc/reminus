@@ -30,7 +30,7 @@ const COMPARISON_DATA: ComparisonRow[] = [
     title: "コスト",
     reminus: { mark: MARK_TYPE.CIRCLE, description: "エグゼクティブ水準" },
     advisor: { mark: MARK_TYPE.DOUBLE_CIRCLE, description: "稼働を省力化" },
-    freelance: { mark: MARK_TYPE.CIRCLE_TO_DOUBLE_CIRCLE, description: ""},
+    freelance: { mark: MARK_TYPE.CIRCLE_TO_DOUBLE_CIRCLE, description: "" },
   },
 ];
 
@@ -42,14 +42,17 @@ export function Comparison({ className }: { className?: string }) {
     >
       <div className="mx-auto w-[82%] max-w-[1200px] md:w-[86%]">
         <SectionHeader
-          label="まとめ"
+          label="Summary"
           headingClassName="text-xl sm:text-2xl md:text-3xl xl:text-4xl !leading-[1.8]"
           align="center"
         >
           <span className="highlight-underline text-emerald-500">
             SaaS・経営目線・推進力
           </span>
-          &nbsp;なら、<br  /> ReminusのCTO代行を！
+          <span>
+            &nbsp;なら、
+            <br /> ReminusのCTO代行を！
+          </span>
         </SectionHeader>
 
         <div className="mt-16">
