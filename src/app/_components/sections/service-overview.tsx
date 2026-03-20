@@ -44,7 +44,7 @@ export function ServiceOverview({ className }: { className?: string }) {
         <SectionHeader
           label="Service"
           align="center"
-          headingClassName="text-3xl sm:text-[40px] !leading-[1.7]"
+          headingClassName="text-3xl sm:text-4xl md:text-[40px] !leading-[1.7]"
         >
           サービス概要
         </SectionHeader>
