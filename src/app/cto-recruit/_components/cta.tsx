@@ -2,6 +2,12 @@ import { cn } from "@/lib/utils";
 import { ContactButton } from "@/app/_components/ui/contact-button";
 import { DownloadButton } from "@/app/_components/ui/download-button";
 
+const trustStats = [
+  { value: "最大80%", label: "採用工数削減" },
+  { value: "6社以上", label: "CTO代行実績" },
+  { value: "全4工程", label: "企画〜オファー対応" },
+];
+
 export function CtoRecruitCta({ className }: { className?: string }) {
   return (
     <section
@@ -15,17 +21,36 @@ export function CtoRecruitCta({ className }: { className?: string }) {
           <div className="flex flex-col items-center gap-8 text-center">
             <div>
               <p className="text-2xl font-bold !leading-[1.5] tracking-wider text-white md:text-3xl xl:text-4xl">
-                技術がわかるパートナーに、<br className="block sm:hidden" />
-                CTO採用を相談しませんか？
+                CTO採用、<br className="block sm:hidden" />
+                一人で悩んでいませんか？
               </p>
 
               <p className="mt-4 text-sm !leading-[1.75] tracking-wide text-white/90 md:text-base">
-                CTO代行で培った技術と採用の知見で、
+                CTOの仕事を知り尽くしたReminusが、
                 <br className="hidden sm:inline" />
-                貴社に最適な採用戦略をご提案します。
+                貴社のCTO採用を成功に導きます。
                 <br />
                 まずはお気軽にご相談ください。
               </p>
+            </div>
+
+            {/* Trust stats */}
+            <div className="flex items-center gap-4 sm:gap-6">
+              {trustStats.map((stat, i) => (
+                <div key={stat.label} className="flex items-center gap-4 sm:gap-6">
+                  {i > 0 && (
+                    <div className="h-8 w-px bg-white/30" />
+                  )}
+                  <div className="text-center">
+                    <p className="text-base font-bold leading-tight text-white sm:text-lg">
+                      {stat.value}
+                    </p>
+                    <p className="mt-0.5 text-xs tracking-wide text-white/70">
+                      {stat.label}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
 
             <div className="flex w-full flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-4">
