@@ -85,9 +85,9 @@ export function ServiceMenu({ className }: { className?: string }) {
 
           <div className="mt-12 grid grid-cols-1 gap-12 md:mt-16 md:grid-cols-[1fr_1px_1fr] md:gap-12 lg:gap-16">
             <FeatureCard
-              src="/chat.svg"
-              width={400}
-              height={255}
+              src="/chat.png"
+              width={800}
+              height={510}
               title="チャットで、定例を待たずにすぐ相談"
               description="Slack Connectで気軽に相談できるのはもちろん、CTO代行側からも日常的に開発状況を確認し、必要な発信をします。社内にCTOがいるのと同じ感覚で、プロダクトに向き合えます。"
             />
@@ -95,9 +95,9 @@ export function ServiceMenu({ className }: { className?: string }) {
             <div className="hidden h-auto w-px bg-gray-200 md:block" />
 
             <FeatureCard
-              src="/calendar.svg"
-              width={399}
-              height={253}
+              src="/calendar.png"
+              width={802}
+              height={511}
               title="週次定例で、状況と優先度を可視化"
               description="週次の定例で、経営 ✕ 技術の両面で進捗を可視化し、優先順位を整理します。計画が毎週クリアになるので、重要な経営イシューを打ち漏らすことがありません。"
             />
