@@ -55,7 +55,7 @@ const caseStudyItemList: CaseStudyItem[] = [
     ],
   },
   {
-    category: "製造業 SaaS スタートアップ",
+    category: "社名非公開（製造業 SaaS スタートアップ）",
     title: "プロダクト構想を開発計画に落とし込み、ゼロから内製組織を立ち上げ。",
     scale: "資本金3,000万円",
     financialBackground: "自己資金",
@@ -83,7 +83,7 @@ const caseStudyItemList: CaseStudyItem[] = [
   },
 
   {
-    category: "経営管理 SaaS スタートアップ",
+    category: "社名非公開（経営管理SaaS）",
     title: "MVPを実現しシード調達に成功。チーム拡大後、CTO採用達成。",
 
     scale: "シード1億円調達",
@@ -97,7 +97,7 @@ const caseStudyItemList: CaseStudyItem[] = [
     ],
   },
   {
-    category: "士業特化バーティカルCRM SaaS スタートアップ",
+    category: "社名非公開（士業特化CRM）",
     title: "エンジニア2名・コードなしの状態から内製開発組織を立ち上げ。",
 
     scale: "従業員数10名",
