@@ -10,27 +10,27 @@ import { CustomDownloadButton } from "../ui/download-button";
 const COMPARISON_DATA: ComparisonRow[] = [
   {
     title: "ノウハウ",
-    reminus: { mark: MARK_TYPE.CIRCLE, description: "SaaS特化" },
+    reminus: { mark: MARK_TYPE.DOUBLE_CIRCLE, description: "SaaS特化" },
     advisor: { mark: MARK_TYPE.CIRCLE, description: "幅広い実績" },
-    freelance: { mark: MARK_TYPE.TRIANGLE, description: "属人的" },
+    freelance: { mark: MARK_TYPE.TRIANGLE_TO_CIRCLE, description: "属人的" },
   },
   {
-    title: "スピード",
-    reminus: { mark: MARK_TYPE.DOUBLE_CIRCLE },
-    advisor: { mark: MARK_TYPE.CIRCLE },
-    freelance: { mark: MARK_TYPE.CIRCLE },
-  },
-  {
-    title: "コスト",
-    reminus: { mark: MARK_TYPE.CIRCLE },
-    advisor: { mark: MARK_TYPE.DOUBLE_CIRCLE },
-    freelance: { mark: MARK_TYPE.DOUBLE_CIRCLE },
+    title: "技術力",
+    reminus: { mark: MARK_TYPE.DOUBLE_CIRCLE, description: "有名SaaSレベル" },
+    advisor: { mark: MARK_TYPE.CIRCLE, description: "幅広い実績" },
+    freelance: { mark: MARK_TYPE.TRIANGLE_TO_CIRCLE },
   },
   {
     title: "事業推進力",
-    reminus: { mark: MARK_TYPE.CIRCLE, description: "経営目線" },
+    reminus: { mark: MARK_TYPE.DOUBLE_CIRCLE, description: "伴走型・経営目線" },
     advisor: { mark: MARK_TYPE.TRIANGLE, description: "技術中心" },
-    freelance: { mark: MARK_TYPE.TRIANGLE_TO_CIRCLE, description: "属人的" },
+    freelance: { mark: MARK_TYPE.TRIANGLE_TO_CIRCLE },
+  },
+  {
+    title: "コスト",
+    reminus: { mark: MARK_TYPE.CIRCLE, description: "エグゼクティブ水準" },
+    advisor: { mark: MARK_TYPE.DOUBLE_CIRCLE, description: "稼働を省力化" },
+    freelance: { mark: MARK_TYPE.CIRCLE_TO_DOUBLE_CIRCLE, description: ""},
   },
 ];
 

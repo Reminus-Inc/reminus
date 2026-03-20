@@ -20,6 +20,7 @@ export const MARK_TYPE = {
   DOUBLE_CIRCLE: "doubleCircle",
   TRIANGLE: "triangle",
   TRIANGLE_TO_CIRCLE: "triangle-to-circle",
+  CIRCLE_TO_DOUBLE_CIRCLE: "circle-to-doubleCircle",
 } as const;
 type MarkType = (typeof MARK_TYPE)[keyof typeof MARK_TYPE];
 const MARK_ICON = {
@@ -27,7 +28,7 @@ const MARK_ICON = {
   [MARK_TYPE.DOUBLE_CIRCLE]: "/icon/double-circle.svg",
   [MARK_TYPE.TRIANGLE]: "/icon/triangle.svg",
 } as const satisfies Record<
-  Exclude<MarkType, typeof MARK_TYPE.TRIANGLE_TO_CIRCLE>,
+  Exclude<MarkType, typeof MARK_TYPE.TRIANGLE_TO_CIRCLE | typeof MARK_TYPE.CIRCLE_TO_DOUBLE_CIRCLE>,
   string
 >;
 
@@ -181,6 +182,27 @@ function MarkIcon({ mark }: { mark: MarkType }) {
         <span className="text-xs font-bold text-gray-800 lg:text-sm">〜</span>
         <Image
           src="/icon/circle.svg"
+          width={20}
+          height={20}
+          className="h-auto w-[16px] md:w-[20px] lg:w-[28px]"
+          alt=""
+        />
+      </span>
+    );
+  }
+  if (mark === MARK_TYPE.CIRCLE_TO_DOUBLE_CIRCLE) {
+    return (
+      <span className="flex items-center gap-1">
+        <Image
+          src="/icon/circle.svg"
+          width={20}
+          height={20}
+          className="h-auto w-[16px] md:w-[20px] lg:w-[28px]"
+          alt=""
+        />
+        <span className="text-xs font-bold text-gray-800 lg:text-sm">〜</span>
+        <Image
+          src="/icon/double-circle.svg"
           width={20}
           height={20}
           className="h-auto w-[16px] md:w-[20px] lg:w-[28px]"
