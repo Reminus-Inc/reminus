@@ -70,47 +70,73 @@ export function ServiceMenu({ className }: { className?: string }) {
         <ServiceMenuTable data={menuData} />
 
         <div className="mt-24">
-          <h3 className="text-xl font-bold tracking-widest sm:text-2xl md:text-3xl">
-            チャット ✕ 定例で伴走。1チームでグロースを目指す一体感
+          <h3 className="text-lg font-bold !leading-[1.7] tracking-wider sm:text-2xl md:text-3xl">
+            <span>
+              チャット<span className="mx-1.5 text-emerald-500">✕</span>
+              定例で伴走。
+            </span>
+            <br className="lg:hidden" />
+            <span>1チームでグロースを目指す一体感</span>
           </h3>
-          <p className="mt-4 text-sm !leading-[190%] text-gray-800 sm:text-base md:mt-6 md:text-lg">
+
+          <p className="mt-4 text-sm !leading-[190%] text-gray-800 sm:mt-6 sm:text-base md:text-lg">
             チャットツールと週次の定例を組み合わせ、伴走型でプロダクトを推進します。
           </p>
 
-          <div className="mt-8 grid grid-cols-1 gap-6 md:mt-10 md:grid-cols-2 md:gap-8">
-            <div className="flex flex-col items-center rounded-2xl border border-solid border-gray-200 bg-white p-6 text-center shadow-sm sm:p-8">
-              <Image
-                src="/icon-slack-chat.png"
-                alt=""
-                width={773}
-                height={507}
-                className="w-[200px] sm:w-[300px]"
-              />
-              <h4 className="mt-8 whitespace-pre-line text-base font-bold !leading-[1.6] tracking-wider text-gray-800 sm:mt-10 sm:text-lg md:text-xl">
-                チャットで、<br className="block sm:hidden" />定例を待たずにすぐ相談
-              </h4>
-              <p className="mt-3 text-sm !leading-[1.9] tracking-wide text-gray-800 text-left sm:text-base">
-              Slack Connectで気軽に相談できるのはもちろん、CTO代行側からも日常的に開発状況を確認し、必要な発信をします。社内にCTOがいるのと同じ感覚で、プロダクトに向き合えます。
-              </p>
-            </div>
-            <div className="flex flex-col items-center rounded-2xl border border-solid border-gray-200 bg-white p-6 text-center shadow-sm sm:p-8">
-              <Image
-                src="/service-menu-calendar.png"
-                alt=""
-                width={1170}
-                height={735}
-                className="w-[200px] sm:w-[300px]"
-              />
-              <h4 className="mt-8 whitespace-pre-line text-base font-bold !leading-[1.6] tracking-wider text-gray-800 sm:mt-10 sm:text-lg md:text-xl">
-                週次定例で、<br className="block sm:hidden" />状況と優先度を可視化
-              </h4>
-              <p className="mt-3 text-sm !leading-[1.9] tracking-wide text-gray-800 text-left sm:text-base">
-                週次の定例で、経営 ✕ 技術の両面で進捗を可視化し、優先順位を整理します。計画が毎週クリアになるので、重要な経営イシューを打ち漏らすことがありません。
-              </p>
-            </div>
+          <div className="mt-12 grid grid-cols-1 gap-12 md:mt-16 md:grid-cols-[1fr_1px_1fr] md:gap-12 lg:gap-16">
+            <FeatureCard
+              src="/chat.svg"
+              width={400}
+              height={255}
+              title="チャットで、定例を待たずにすぐ相談"
+              description="Slack Connectで気軽に相談できるのはもちろん、CTO代行側からも日常的に開発状況を確認し、必要な発信をします。社内にCTOがいるのと同じ感覚で、プロダクトに向き合えます。"
+            />
+
+            <div className="hidden h-auto w-px bg-gray-200 md:block" />
+
+            <FeatureCard
+              src="/calendar.svg"
+              width={399}
+              height={253}
+              title="週次定例で、状況と優先度を可視化"
+              description="週次の定例で、経営 ✕ 技術の両面で進捗を可視化し、優先順位を整理します。計画が毎週クリアになるので、重要な経営イシューを打ち漏らすことがありません。"
+            />
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+type FeatureCardProps = {
+  src: string;
+  width: number;
+  height: number;
+  title: string;
+  description: string;
+};
+function FeatureCard({
+  src,
+  width,
+  height,
+  title,
+  description,
+}: FeatureCardProps) {
+  return (
+    <div className="flex flex-col items-center">
+      <Image
+        src={src}
+        alt=""
+        width={width}
+        height={height}
+        className="w-[280px] sm:w-[320px] md:w-[400px]"
+      />
+      <h4 className="mt-6 text-base font-bold !leading-[1.6] tracking-wider text-gray-800 sm:mt-8 sm:text-xl lg:text-2xl">
+        {title}
+      </h4>
+      <p className="mt-3 text-sm !leading-[1.9] tracking-wide text-gray-800 sm:mt-5 sm:text-base">
+        {description}
+      </p>
+    </div>
   );
 }
