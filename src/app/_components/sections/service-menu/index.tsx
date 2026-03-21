@@ -1,4 +1,5 @@
 import { SectionHeader } from "../../ui/section-header";
+import { CustomDownloadButton } from "@/app/_components/ui/download-button";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { ServiceMenuTable } from "./service-menu-table";
@@ -102,6 +103,12 @@ export function ServiceMenu({ className }: { className?: string }) {
               description="週次の定例で、経営 ✕ 技術の両面で進捗を可視化し、優先順位を整理します。計画が毎週クリアになるので、重要な経営イシューを打ち漏らすことがありません。"
             />
           </div>
+        </div>
+
+        <div className="bleed mt-16 px-4">
+          <CustomDownloadButton
+            title="資料ダウンロード"
+          />
         </div>
       </div>
     </section>
