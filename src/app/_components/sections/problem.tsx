@@ -62,10 +62,10 @@ export function Problem({ className }: ProblemProps) {
 
       <div className="bg-gradient-to-br from-emerald-500 from-60% to-emerald-400">
         <div className="flex justify-center">
-          <div className="h-0 w-0 border-l-[37px] border-r-[37px] border-t-[34px] border-l-transparent border-r-transparent border-t-white sm:border-l-[55px] sm:border-r-[55px] sm:border-t-[50px]" />
+          <div className="h-0 w-0 border-l-[32px] border-r-[32px] border-t-[30px] border-l-transparent border-r-transparent border-t-white sm:border-l-[48px] sm:border-r-[48px] sm:border-t-[44px]" />
         </div>
 
-        <div className="mx-auto w-[88%] max-w-[1200px] pb-14 pt-8 text-center sm:pb-16 sm:pt-10">
+        <div className="mx-auto w-[88%] max-w-[1200px] pb-14 pt-8 text-center sm:pb-18 sm:pt-10">
           <p className="text-xl font-bold !leading-[1.6] tracking-wider text-white min-[375px]:text-[23px] sm:text-3xl md:text-4xl">
             そのお悩み、
             <span className="whitespace-nowrap">CTO代行にお任せください！</span>
