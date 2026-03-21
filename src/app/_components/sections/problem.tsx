@@ -62,7 +62,7 @@ export function Problem({ className }: ProblemProps) {
 
       <div className="bg-gradient-to-br from-emerald-500 from-60% to-emerald-400">
         <div className="flex justify-center">
-          <div className="h-0 w-0 border-l-[32px] border-r-[32px] border-t-[30px] border-l-transparent border-r-transparent border-t-white sm:border-l-[48px] sm:border-r-[48px] sm:border-t-[44px]" />
+          <div className="h-0 w-0 border-l-[40px] border-r-[40px] border-t-[34px] border-l-transparent border-r-transparent border-t-white sm:border-l-[60px] sm:border-r-[60px] sm:border-t-[50px]" />
         </div>
 
         <div className="mx-auto w-[88%] max-w-[1200px] pb-14 pt-8 text-center sm:pb-18 sm:pt-10">
