@@ -1,7 +1,7 @@
-import { SquareCheckBig } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/app/_components/ui/section-header";
 import { DownloadButton } from "@/app/_components/ui/download-button";
+import { TriangleAlert } from "lucide-react";
 
 const problems = [
   "MVPの構想〜開発スケジュールが定まらない、技術判断ができない",
@@ -32,7 +32,7 @@ export function Problem({ className }: ProblemProps) {
             <ul className="flex flex-col gap-4 md:gap-5">
               {problems.map((problem, i) => (
                 <li className="flex items-center gap-3" key={i}>
-                  <SquareCheckBig
+                  <TriangleAlert
                     strokeWidth={2.5}
                     className="h-[18px] w-[18px] shrink-0 text-red-500 sm:h-[22px] sm:w-[22px]"
                   />
