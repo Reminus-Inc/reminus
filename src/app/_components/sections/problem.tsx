@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/app/_components/ui/section-header";
-import { DownloadButton } from "@/app/_components/ui/download-button";
 import { TriangleAlert } from "lucide-react";
 
 const problems = [
