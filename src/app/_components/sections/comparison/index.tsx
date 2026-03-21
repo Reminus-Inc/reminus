@@ -1,11 +1,11 @@
 import { cn } from "@/lib/utils";
-import { SectionHeader } from "../ui/section-header";
+import { SectionHeader } from "@/app/_components/ui/section-header";
 import {
   ComparisonTable,
   MARK_TYPE,
   type ComparisonRow,
-} from "./why-reminus/comparison-table";
-import { CustomDownloadButton } from "../ui/download-button";
+} from "./comparison-table";
+import { CustomDownloadButton } from "@/app/_components/ui/download-button";
 
 const COMPARISON_DATA: ComparisonRow[] = [
   {

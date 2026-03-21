@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
-import { ReminusLogo } from "../../ui/reminus-logo";
+import { ReminusLogo } from "@/app/_components/ui/reminus-logo";
 import { cn } from "@/lib/utils";
 
 export type ComparisonRow = {
