@@ -83,7 +83,7 @@ export function ServiceMenu({ className }: { className?: string }) {
             チャットツールと週次の定例を組み合わせ、伴走型でプロダクトを推進します。
           </p>
 
-          <div className="mt-12 grid grid-cols-1 gap-12 md:mt-16 md:grid-cols-[1fr_1px_1fr] md:gap-12 lg:gap-16">
+          <div className="mt-12 grid grid-cols-1 gap-12 md:mt-16 md:grid-cols-[1fr_1px_1fr] md:gap-12 lg:gap-10">
             <FeatureCard
               src="/chat.png"
               width={800}
@@ -134,7 +134,7 @@ function FeatureCard({
       <h4 className="mt-6 text-base font-bold !leading-[1.6] tracking-wider text-gray-800 sm:mt-8 sm:text-xl lg:text-2xl">
         {title}
       </h4>
-      <p className="mt-3 text-sm !leading-[1.9] tracking-wide text-gray-800 sm:mt-5 sm:text-base">
+      <p className="mt-3 text-sm !leading-[1.9] tracking-wide text-gray-800 sm:mt-5 sm:text-base lg:max-w-[500px]">
         {description}
       </p>
     </div>
