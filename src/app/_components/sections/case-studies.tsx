@@ -1,4 +1,5 @@
 import { Carousel } from "@/components/ui/carousel";
+import { CircleAlert, CircleCheckBig } from "lucide-react";
 
 import { SectionHeader } from "../ui/section-header";
 import { cn } from "@/lib/utils";
@@ -8,13 +9,15 @@ type CaseStudyItemBase = {
   title: string;
   scale: string;
   financialBackground?: string;
-  challengeList?: string[];
-  supportContentList?: string[];
+  challengeList: string[];
   resultList: string[];
 };
 type CaseStudyItemWithLogo = CaseStudyItemBase & {
   companyName: string;
   logoPath: string;
+  logoWidth: number;
+  logoHeight: number;
+  logoClassName?: string;
 };
 type CaseStudyItemWithoutLogo = CaseStudyItemBase & {
   category: string;
@@ -27,6 +30,9 @@ const caseStudyItemList: CaseStudyItem[] = [
     title:
       "バックオフィスDXプロダクトの開発プロセス設計と初期エンジニア採用を一体で支援",
     logoPath: "/logos/1backoffice.png",
+    logoWidth: 526,
+    logoHeight: 40,
+    logoClassName: "w-[140px]",
     scale: "創業2年",
     financialBackground: "自己資金",
     challengeList: [
@@ -43,6 +49,9 @@ const caseStudyItemList: CaseStudyItem[] = [
     title:
       "農地法SaaSの製品構想を整理し、開発ロードマップ策定〜外注監修まで一気通貫",
     logoPath: "/logos/chiba-eco.webp",
+    logoWidth: 300,
+    logoHeight: 40,
+    logoClassName: "w-[100px]",
     scale: "売上高数億円",
     challengeList: [
       "システム開発のノウハウ・リソースがない",
@@ -55,7 +64,7 @@ const caseStudyItemList: CaseStudyItem[] = [
     ],
   },
   {
-    category: "社名非公開（製造業 SaaS スタートアップ）",
+    category: "製造業SaaS スタートアップ",
     title: "プロダクト構想を開発計画に落とし込み、ゼロから内製組織を立ち上げ。",
     scale: "資本金3,000万円",
     financialBackground: "自己資金",
@@ -65,11 +74,11 @@ const caseStudyItemList: CaseStudyItem[] = [
     ],
     resultList: [
       "プロダクト・業界特有の技術リスクを洗い出し、MVPロードマップと技術戦略を策定",
-      "技術基盤を構築し、業務委託エンジニアを1名採用。開発を予定どおり推進",
+      "技術基盤を構築し、業務委託エンジニアを1名採用。開発を予定通り推進",
     ],
   },
   {
-    category: "社名非公開（医療AI SaaS）",
+    category: "医療AI SaaS",
     title: "MVPを事業計画通りリリース。\nスカウト返信率改善で即戦力を2名獲得。",
     scale: "シード1億円調達",
     challengeList: [
@@ -81,11 +90,9 @@ const caseStudyItemList: CaseStudyItem[] = [
       "スカウト文面と役割設計を最適化し、入社意欲のあるエンジニアを2名獲得",
     ],
   },
-
   {
-    category: "社名非公開（経営管理SaaS）",
+    category: "経営管理SaaS",
     title: "MVPを実現しシード調達に成功。チーム拡大後、CTO採用達成。",
-
     scale: "シード1億円調達",
     challengeList: [
       "財務モデリングが技術的に複雑で設計・開発が困難",
@@ -97,9 +104,8 @@ const caseStudyItemList: CaseStudyItem[] = [
     ],
   },
   {
-    category: "社名非公開（士業特化CRM）",
+    category: "士業特化CRM",
     title: "エンジニア2名・コードなしの状態から内製開発組織を立ち上げ。",
-
     scale: "従業員数10名",
     financialBackground: "自己資金",
     challengeList: [
@@ -157,77 +163,84 @@ function CaseStudyCard({ caseStudyItem, className }: CaseStudyCardProps) {
   return (
     <div className={cn("flex h-full flex-col bg-white", className)}>
       <div className="rounded-t-lg bg-gradient-to-r from-emerald-500 from-60% to-emerald-500/85 px-4 py-4 sm:px-6">
-        <p className="whitespace-pre-wrap text-base font-bold !leading-[1.65] tracking-wide text-white sm:text-[22px]">
+        <p className="whitespace-pre-wrap text-base font-bold !leading-[1.7] tracking-wide text-white sm:text-lg md:text-xl lg:text-[22px]">
           {caseStudyItem.title}
         </p>
       </div>
 
-      <div className="flex-grow rounded-b-lg border-b border-l border-r border-solid border-gray-300">
-        <div className="mt-5 px-5 sm:px-8">
-          {hasLogo ? (
-            <div className="flex flex-col gap-2">
-              <p className="text-xs tracking-wide text-gray-600" data-nosnippet>
-                {caseStudyItem.companyName}
-              </p>
-              <div>
-                <Image
-                  src={caseStudyItem.logoPath}
-                  alt={caseStudyItem.companyName}
-                  width={120}
-                  height={40}
-                  className="h-auto max-h-[40px] w-auto object-contain"
-                />
-              </div>
-            </div>
-          ) : (
-            // ロゴなし
-            <p className="text-lg font-bold tracking-wide text-gray-800">
-              {caseStudyItem.category}
+      <div className="flex-grow rounded-b-lg border-b border-l border-r border-solid border-gray-300 p-4 sm:p-6">
+        {hasLogo ? (
+          // ロゴあり
+          <>
+            <Image
+              src={caseStudyItem.logoPath}
+              alt={caseStudyItem.companyName}
+              width={caseStudyItem.logoWidth}
+              height={caseStudyItem.logoHeight}
+              className={cn(
+                "h-auto w-auto object-contain",
+                caseStudyItem.logoClassName
+              )}
+            />
+            <p
+              className="mt-5 text-sm tracking-wider text-gray-800"
+              data-nosnippet
+            >
+              {caseStudyItem.companyName}
             </p>
-          )}
-        </div>
+            <div className="mt-2 flex flex-wrap gap-2">
+              <Chip label={caseStudyItem.scale} />
+              {caseStudyItem.financialBackground && (
+                <Chip label={caseStudyItem.financialBackground} />
+              )}
+            </div>
+          </>
+        ) : (
+          // ロゴなし
+          <>
+            <p className="text-lg font-bold tracking-wider text-gray-800">
+              社名非公開 ({caseStudyItem.category})
+            </p>
+            <div className="mt-2.5 flex flex-wrap gap-2">
+              <Chip label={caseStudyItem.scale} />
+              {caseStudyItem.financialBackground && (
+                <Chip label={caseStudyItem.financialBackground} />
+              )}
+            </div>
+          </>
+        )}
 
-        <div className="mt-4 flex flex-wrap gap-1.5 px-5 sm:px-8">
-          <span className="rounded-full bg-gray-100 px-3 py-1 text-xs tracking-wide text-gray-600">
-            #{caseStudyItem.scale}
-          </span>
-          {caseStudyItem.financialBackground && (
-            <span className="rounded-full bg-gray-100 px-3 py-1 text-xs tracking-wide text-gray-600">
-              #{caseStudyItem.financialBackground}
-            </span>
-          )}
-        </div>
-
-        <div className="mt-4 space-y-3 px-5 pb-5 sm:px-8">
-          {caseStudyItem.challengeList && (
-            <div>
-              <p className="text-xs font-bold tracking-wide text-gray-700 sm:text-sm">
+        <div className="mt-5">
+          {/* 課題 */}
+          <div className="flex flex-col gap-2 bg-gray-100/80 p-4">
+            <div className="flex items-center gap-2">
+              <CircleAlert
+                className="size-[16px] h-auto text-red-500 sm:size-[18px]"
+                strokeWidth={2.5}
+              />
+              <p className="text-xs font-bold tracking-wider text-gray-800 sm:text-sm">
                 抱えていた課題
               </p>
-              <ul className="mt-1.5 list-disc space-y-1 pl-4 text-xs leading-5 tracking-wide text-gray-800 sm:text-sm sm:leading-relaxed">
-                {caseStudyItem.challengeList.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
             </div>
-          )}
-          {caseStudyItem.supportContentList && (
-            <div>
-              <p className="text-xs font-bold tracking-wide text-gray-700 sm:text-sm">
-                支援内容
+            <ul className="list-disc space-y-1 pl-4 text-xs font-medium !leading-[1.5] tracking-wide text-gray-800 sm:pl-5 sm:text-sm">
+              {caseStudyItem.challengeList.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          {/* 効果 */}
+          <div className="flex flex-col gap-2 bg-sky-50 p-4">
+            <div className="flex items-center gap-2">
+              <CircleCheckBig
+                className="size-[16px] h-auto text-blue-500 sm:size-[18px]"
+                strokeWidth={2.5}
+              />
+              <p className="text-xs font-bold tracking-wider text-gray-800 sm:text-sm">
+                導入効果
               </p>
-              <ul className="mt-1.5 list-disc space-y-1 pl-4 text-xs leading-5 tracking-wide text-gray-800 sm:text-sm sm:leading-relaxed">
-                {caseStudyItem.supportContentList.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
             </div>
-          )}
-          <div>
-            <p className="text-xs font-bold tracking-wide text-gray-700 sm:text-sm">
-              導入効果
-            </p>
-            <ul className="mt-1.5 list-disc space-y-1 pl-4 text-xs leading-5 tracking-wide text-gray-800 sm:text-sm sm:leading-relaxed">
+            <ul className="list-disc space-y-1 pl-4 text-xs font-medium !leading-[1.5] tracking-wide text-gray-800 sm:pl-5 sm:text-sm">
               {caseStudyItem.resultList.map((item, index) => (
                 <li key={index}>{item}</li>
               ))}
@@ -236,5 +249,13 @@ function CaseStudyCard({ caseStudyItem, className }: CaseStudyCardProps) {
         </div>
       </div>
     </div>
+  );
+}
+
+function Chip({ label }: { label: string }) {
+  return (
+    <span className="rounded border border-gray-200 px-3 py-0.5 text-[11px] font-medium leading-5 text-gray-800">
+      {label}
+    </span>
   );
 }
