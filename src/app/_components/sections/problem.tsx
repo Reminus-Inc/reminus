@@ -62,10 +62,10 @@ export function Problem({ className }: ProblemProps) {
 
       <div className="bg-gradient-to-br from-emerald-500 from-60% to-emerald-400">
         <div className="flex justify-center">
-          <div className="h-0 w-0 border-l-[40px] border-r-[40px] border-t-[34px] border-l-transparent border-r-transparent border-t-white sm:border-l-[60px] sm:border-r-[60px] sm:border-t-[50px]" />
+          <div className="h-0 w-0 border-l-[37px] border-r-[37px] border-t-[34px] border-l-transparent border-r-transparent border-t-white sm:border-l-[55px] sm:border-r-[55px] sm:border-t-[50px]" />
         </div>
 
-        <div className="mx-auto w-[88%] max-w-[1200px] pb-12 pt-10 text-center sm:pb-14 sm:pt-12">
+        <div className="mx-auto w-[88%] max-w-[1200px] pb-14 pt-8 text-center sm:pb-16 sm:pt-10">
           <p className="text-xl font-bold !leading-[1.6] tracking-wider text-white min-[375px]:text-[23px] sm:text-3xl md:text-4xl">
             そのお悩み、
             <span className="whitespace-nowrap">CTO代行にお任せください！</span>
@@ -75,13 +75,6 @@ export function Problem({ className }: ProblemProps) {
             <br />
             SaaS事業にまつわる技術の課題を解決するCTO代行サービスです。
           </p>
-          <div className="mt-10 flex justify-center">
-            <DownloadButton
-              variant="filled"
-              color="white"
-              className="text-sm sm:text-base md:text-lg"
-            />
-          </div>
         </div>
       </div>
     </section>
