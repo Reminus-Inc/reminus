@@ -210,7 +210,7 @@ function CaseStudyCard({ caseStudyItem, className }: CaseStudyCardProps) {
           </>
         )}
 
-        <div className="mt-5">
+        <div className="mt-5 space-y-3">
           {/* 課題 */}
           <div className="flex flex-col gap-2 bg-gray-100/80 p-4">
             <div className="flex items-center gap-2">
@@ -218,11 +218,11 @@ function CaseStudyCard({ caseStudyItem, className }: CaseStudyCardProps) {
                 className="size-[16px] h-auto text-red-500 sm:size-[18px]"
                 strokeWidth={2.5}
               />
-              <p className="text-xs font-bold tracking-wider text-gray-800 sm:text-sm">
+              <p className="text-xs font-bold tracking-wider text-gray-900 sm:text-sm">
                 抱えていた課題
               </p>
             </div>
-            <ul className="list-disc space-y-1 pl-4 text-xs font-medium !leading-[1.5] tracking-wide text-gray-800 sm:pl-5 sm:text-sm">
+            <ul className="list-disc space-y-1 pl-4 text-xs !leading-[1.5] tracking-wide text-gray-900 sm:pl-5 sm:text-sm">
               {caseStudyItem.challengeList.map((item, index) => (
                 <li key={index}>{item}</li>
               ))}
@@ -236,11 +236,11 @@ function CaseStudyCard({ caseStudyItem, className }: CaseStudyCardProps) {
                 className="size-[16px] h-auto text-blue-500 sm:size-[18px]"
                 strokeWidth={2.5}
               />
-              <p className="text-xs font-bold tracking-wider text-gray-800 sm:text-sm">
+              <p className="text-xs font-bold tracking-wider text-gray-900 sm:text-sm">
                 導入効果
               </p>
             </div>
-            <ul className="list-disc space-y-1 pl-4 text-xs font-medium !leading-[1.5] tracking-wide text-gray-800 sm:pl-5 sm:text-sm">
+            <ul className="list-disc space-y-1 pl-4 text-xs !leading-[1.5] tracking-wide text-gray-900 sm:pl-5 sm:text-sm">
               {caseStudyItem.resultList.map((item, index) => (
                 <li key={index}>{item}</li>
               ))}
