@@ -218,7 +218,7 @@ function CaseStudyCard({ caseStudyItem, className }: CaseStudyCardProps) {
                 className="size-[16px] h-auto text-red-500 sm:size-[18px]"
                 strokeWidth={2.5}
               />
-              <p className="text-xs font-bold tracking-wider text-gray-900 sm:text-sm">
+              <p className="text-xs font-medium tracking-wider text-gray-900 sm:text-sm">
                 抱えていた課題
               </p>
             </div>
@@ -236,7 +236,7 @@ function CaseStudyCard({ caseStudyItem, className }: CaseStudyCardProps) {
                 className="size-[16px] h-auto text-blue-500 sm:size-[18px]"
                 strokeWidth={2.5}
               />
-              <p className="text-xs font-bold tracking-wider text-gray-900 sm:text-sm">
+              <p className="text-xs font-medium tracking-wider text-gray-900 sm:text-sm">
                 導入効果
               </p>
             </div>
