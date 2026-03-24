@@ -7,11 +7,34 @@ interface ConceptSectionProps {
 function PositioningMap() {
   return (
     <div className="mx-auto mt-8 w-full max-w-[480px] sm:mt-12">
+      {/* SP向け: テキストベースの簡略版（sm未満で表示） */}
+      <div className="sm:hidden">
+        <div className="grid grid-cols-2 gap-3">
+          {/* Reminus — 強調 */}
+          <div className="col-span-2 rounded-xl border-2 border-emerald-500 bg-emerald-50 px-4 py-3 text-center">
+            <p className="text-sm font-bold text-emerald-800">Reminus CTO採用</p>
+            <p className="mt-0.5 text-xs text-emerald-600">技術理解◎ ・ 全工程対応</p>
+            <p className="mt-1 text-[11px] text-gray-500">企画〜面接〜オファーまで</p>
+          </div>
+          {/* RPO各社 */}
+          <div className="rounded-lg border border-gray-200 bg-gray-50 px-3 py-2.5 text-center">
+            <p className="text-xs font-medium text-gray-600">RPO各社</p>
+            <p className="mt-0.5 text-[11px] text-gray-400">技術理解△ ・ 上流のみ</p>
+          </div>
+          {/* エグゼクティブサーチ */}
+          <div className="rounded-lg border border-gray-200 bg-gray-50 px-3 py-2.5 text-center">
+            <p className="text-xs font-medium text-gray-600">エグゼクティブサーチ</p>
+            <p className="mt-0.5 text-[11px] text-gray-400">技術理解○ ・ 紹介のみ</p>
+          </div>
+        </div>
+      </div>
+
+      {/* PC/タブレット向け: SVG版（sm以上で表示） */}
       <svg
         viewBox="0 0 480 360"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-full"
+        className="hidden w-full sm:block"
         role="img"
         aria-label="ポジショニングマップ: 技術理解と対応範囲の2軸でReminusの位置を示す図"
       >
