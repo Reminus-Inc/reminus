@@ -30,14 +30,14 @@ export function FloatingCta() {
         <Link
           href="/cto-recruit/download"
           onClick={() => trackCTAClick("download")}
-          className="flex flex-1 items-center justify-center rounded-full bg-gradient-to-r from-emerald-500 to-emerald-600 px-4 py-3 text-xs font-bold tracking-wider text-white transition-opacity hover:opacity-90"
+          className="flex flex-1 items-center justify-center rounded-full bg-gradient-to-r from-emerald-500 to-emerald-600 px-4 py-3.5 text-[13px] font-bold tracking-wider text-white transition-opacity hover:opacity-90"
         >
           資料ダウンロード
         </Link>
         <Link
           href="/cto-recruit/contact"
           onClick={() => trackCTAClick("contact")}
-          className="flex flex-1 items-center justify-center rounded-full px-4 py-3 text-xs font-bold tracking-wider text-emerald-600 ring-1 ring-inset ring-emerald-600 transition-colors hover:bg-emerald-50"
+          className="flex flex-1 items-center justify-center rounded-full px-4 py-3.5 text-[13px] font-bold tracking-wider text-emerald-600 ring-1 ring-inset ring-emerald-600 transition-colors hover:bg-emerald-50"
         >
           無料相談
         </Link>
