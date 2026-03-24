@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/app/_components/ui/section-header";
 
-/* ---- 案C: カテゴリ列 SVG アイコン ---- */
+/* ---- æ¡C: ã«ãã´ãªå SVG ã¢ã¤ã³ã³ ---- */
 type CategoryIconName =
   | "layers"
   | "code"
@@ -82,7 +82,7 @@ function CategoryIcon({
   );
 }
 
-/* 24px SVG インジケーター — 案A: テキストより視覚記号を主役に */
+/* 24px SVG ã¤ã³ã¸ã±ã¼ã¿ã¼ â æ¡A: ãã­ã¹ãããè¦è¦¤è¨å·ãä¸»å½¹ã« */
 function ComparisonDash() {
   return (
     <span className="mt-0.5 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full border border-gray-200 bg-gray-100">
@@ -126,40 +126,40 @@ const comparisonItems: {
   reminus: string;
 }[] = [
   {
-    category: "支援範囲",
+    category: "æ¯æ´ç¯å²",
     icon: "layers",
-    rpo: "スカウト・日程調整が中心",
-    reminus: "全工程を一貫して伴走",
+    rpo: "ã¹ã«ã¦ãã»æ¥ç¨èª¿æ´ãä¸­å¿",
+    reminus: "å¨å·¥ç¨ãä¸è²«ãã¦ä¼´èµ°",
   },
   {
-    category: "担当者の技術力",
+    category: "æå½èã®æè¡å",
     icon: "code",
-    rpo: "非エンジニアが対応",
-    reminus: "CTO経験者が直接担当",
+    rpo: "éã¨ã³ã¸ãã¢ãå¯¾å¿",
+    reminus: "CTOçµé¨èãç´æ¥æå½",
   },
   {
-    category: "スカウト",
+    category: "ã¹ã«ã¦ã",
     icon: "send",
-    rpo: "テンプレート大量送信",
-    reminus: "候補者ごとにカスタマイズ",
+    rpo: "ãã³ãã¬ã¼ãå¤§ééä¿¡",
+    reminus: "åè£èãã¨ã«ã«ã¹ã¿ãã¤ãº",
   },
   {
-    category: "面接・見極め",
+    category: "é¢æ¥ã»è¦æ¥µã",
     icon: "users-round",
-    rpo: "日程調整・FB共有のみ",
-    reminus: "設計・同席・録画FBまで",
+    rpo: "æ¥ç¨èª¿æ´ã»FBå±æã®ã¿",
+    reminus: "è¨­è¨ã»åå¸­ã»é²ç»FBã¾ã§",
   },
   {
-    category: "オファー支援",
+    category: "ãªãã¡ã¼æ¯æ´",
     icon: "file-check",
-    rpo: "対象外",
-    reminus: "条件設計・レターレビュー",
+    rpo: "å¯¾è±¡å¤",
+    reminus: "æ¡ä»¶è¨­è¨ã»ã¬ã¿ã¼ã¬ãã¥ã¼",
   },
   {
-    category: "ノウハウの蓄積",
+    category: "ãã¦ãã¦ã®èç©",
     icon: "book-open",
-    rpo: "ブラックボックス化",
-    reminus: "積極公開・内製化支援",
+    rpo: "ãã©ãã¯ããã¯ã¹å",
+    reminus: "ç©æ¥µå¬éã»åè£½åæ¯æ´",
   },
 ];
 
@@ -171,27 +171,27 @@ export function Comparison({ className }: { className?: string }) {
     >
       <div className="mx-auto w-[82%] max-w-[1200px] md:w-[86%]">
         <SectionHeader
-          label="エンジニアRPOとの違い"
+          label="ã¨ã³ã¸ãã¢RPOã¨ã®éã"
           headingClassName="text-xl sm:text-2xl md:text-3xl xl:text-4xl !leading-[1.8]"
           align="center"
         >
           <span className="highlight-underline text-emerald-500">
-            RPOが踏み込めない領域
+            RPOãè¸ã¿è¾¼ããªãé å
           </span>
-          こそ、
+          ããã
           <br className="hidden sm:inline" />
-          Reminusの本領。
+          Reminusã®æ¬é ã
         </SectionHeader>
 
         <p className="mt-4 text-center text-sm !leading-[1.9] tracking-wide text-gray-600 sm:mt-6 sm:text-base">
-          RPOの主業務は事務的な採用代行。
+          RPOã®ä¸»æ¥­åã¯äºåçãªæ¡ç¨ä»£è¡ã
           <br className="hidden sm:inline" />
-          Reminusは面接・見極め・オファーまで踏み込めます。
+          Reminusã¯é¢æ¥ã»è¦æ¥µãã»ãªãã¡ã¼ã¾ã§è¸ã¿è¾¼ãã¾ãã
         </p>
 
-        {/* PC: テーブル */}
+        {/* PC: ãã¼ãã« */}
         <div className="relative mt-10 hidden overflow-hidden rounded-2xl border border-solid border-gray-200 shadow-sm sm:mt-14 md:block">
-          {/* Reminusカラムハイライト */}
+          {/* Reminusã«ã©ã ãã¤ã©ã¤ã */}
           <div
             className="pointer-events-none absolute bottom-0 right-0 top-0 z-10 w-[39%] rounded-r-2xl"
             style={{
@@ -204,10 +204,10 @@ export function Comparison({ className }: { className?: string }) {
               <tr>
                 <th className="w-[22%] border-b border-solid border-gray-200 bg-gray-50 px-6 py-4 text-left text-sm font-bold tracking-wider text-gray-500" />
                 <th className="w-[39%] border-b border-l border-solid border-gray-200 bg-gray-50 px-6 py-4 text-center text-sm font-bold tracking-wider text-gray-500">
-                  一般的なエンジニアRPO
+                  ä¸è¬çãªã¨ã³ã¸ãã¢RPO
                 </th>
                 <th className="w-[39%] border-b border-l-2 border-solid border-emerald-300 bg-emerald-100 px-6 py-4 text-center text-sm font-bold tracking-wider text-emerald-700">
-                  Reminus CTO採用
+                  Reminus CTOæ¡ç¨
                 </th>
               </tr>
             </thead>
@@ -249,18 +249,18 @@ export function Comparison({ className }: { className?: string }) {
           </table>
         </div>
 
-        {/* SP: カード型（RPO vs Reminus を明確に区別） */}
+        {/* SP: ã«ã¼ãåï¼RPO vs Reminus ãæç¢ºã«åºå¥ï¼ */}
         <div className="mt-8 flex flex-col gap-4 md:hidden">
           {comparisonItems.map((item, index) => (
             <div
               key={index}
               className="overflow-hidden rounded-xl border border-solid border-gray-200 shadow-sm"
             >
-              {/* カテゴリーヘッダー */}
+              {/* ã«ãã´ãªã¼ãããã¼ */}
               <div className="bg-gray-50 px-4 py-2.5">
                 <div className="flex items-center gap-2">
                   <CategoryIcon icon={item.icon} size="sp" />
-                  <span className="text-xs font-bold tracking-wider text-gray-600">
+                  <span className="text-[13px] font-bold tracking-wider text-gray-600">
                     {item.category}
                   </span>
                 </div>
@@ -271,10 +271,10 @@ export function Comparison({ className }: { className?: string }) {
                 <div className="mb-1 flex items-center gap-2">
                   <ComparisonDash />
                   <span className="text-[11px] font-bold tracking-wider text-gray-400">
-                    一般的なRPO
+                    ä¸è¬çãªRPO
                   </span>
                 </div>
-                <p className="pl-[34px] text-[13px] !leading-[1.8] tracking-wide text-gray-500">
+                <p className="pl-[34px] text-sm !leading-[1.8] tracking-wide text-gray-500">
                   {item.rpo}
                 </p>
               </div>
@@ -287,7 +287,7 @@ export function Comparison({ className }: { className?: string }) {
                     Reminus
                   </span>
                 </div>
-                <p className="pl-[34px] text-[13px] font-medium !leading-[1.8] tracking-wide text-gray-800">
+                <p className="pl-[34px] text-sm font-medium !leading-[1.8] tracking-wide text-gray-800">
                   {item.reminus}
                 </p>
               </div>
@@ -295,9 +295,9 @@ export function Comparison({ className }: { className?: string }) {
           ))}
         </div>
 
-        {/* TrackRecordへの接続コピー */}
+        {/* TrackRecordã¸ã®æ¥ç¶ã³ãã¼ */}
         <p className="mt-10 text-center text-sm !leading-[1.9] tracking-wide text-gray-500 sm:mt-14 sm:text-base">
-          この対応力は、CTO代行として培ってきた実績に裏付けられています。
+          ãã®å¯¾å¿åã¯ãCTOä»£è¡ã¨ãã¦å¹ã£ã¦ããå®ç¸¾ã«è£ä»ãããã¦ãã¾ãã
         </p>
       </div>
     </section>
