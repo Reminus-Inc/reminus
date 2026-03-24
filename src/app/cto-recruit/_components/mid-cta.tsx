@@ -28,17 +28,17 @@ export function MidCta({ className }: { className?: string }) {
           </p>
         </div>
         {/* Trust stats */}
-        <div className="flex items-center gap-4 sm:gap-6">
+        <div className="flex items-center gap-3 sm:gap-6">
           {trustStats.map((stat, i) => (
-            <div key={stat.label} className="flex items-center gap-4 sm:gap-6">
+            <div key={stat.label} className="flex items-center gap-3 sm:gap-6">
               {i > 0 && (
                 <div className="h-8 w-px bg-emerald-200" />
               )}
               <div className="text-center">
-                <p className="text-base font-bold leading-tight text-emerald-700 sm:text-lg">
+                <p className="text-sm font-bold leading-tight text-emerald-700 sm:text-lg">
                   {stat.value}
                 </p>
-                <p className="mt-0.5 text-xs tracking-wide text-gray-500">
+                <p className="mt-0.5 text-[11px] tracking-wide text-gray-500 sm:text-xs">
                   {stat.label}
                 </p>
               </div>
