@@ -13,7 +13,7 @@ export function CtoRecruitFirstView() {
           {/* 左カラム: テキスト + CTA */}
           <div className="lg:flex-1 lg:max-w-[55%]">
             {/* ラベル */}
-            <p className="text-center text-xs font-bold tracking-wider text-emerald-600 sm:text-sm lg:text-left">
+            <p className="text-center text-[13px] font-bold tracking-wider text-emerald-600 sm:text-sm lg:text-left">
               累計6社以上のCTO代行実績から生まれた採用支援
             </p>
 
@@ -26,7 +26,7 @@ export function CtoRecruitFirstView() {
             </h1>
 
             {/* サブコピー */}
-            <p className="mt-2 text-center text-xs !leading-[1.8] tracking-wide text-gray-600 min-[375px]:text-sm sm:mt-3 sm:text-base md:text-lg lg:text-left">
+            <p className="mt-2 text-center text-[13px] !leading-[1.8] tracking-wide text-gray-600 min-[375px]:text-sm sm:mt-3 sm:text-base md:text-lg lg:text-left">
               媒体選定からスカウト・面接設計・オファーまで、一気通貫で支援します。
             </p>
 
