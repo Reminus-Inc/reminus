@@ -34,18 +34,18 @@ export function Management({ className }: { className?: string }) {
           </div>
 
           <div className="flex-1">
-            <h3 className="mb-4">
+            <h3>
               <span className="text-2xl font-bold tracking-wider text-gray-800 md:text-3xl">
                 太田 蓮
               </span>
-              <span className="ml-2 text-sm tracking-wide text-gray-700">
+              <span className="ml-3 text-sm font-medium tracking-wider text-gray-600">
                 代表取締役
               </span>
             </h3>
 
-            <div className="space-y-8">
+            <div className="mt-5 space-y-8">
               <div className="max-w-none text-left">
-                <p className="text-sm !leading-[1.9] tracking-wide text-gray-800 md:text-base">
+                <p className="text-sm !leading-[1.9] tracking-wide text-gray-900 md:text-base">
                   株式会社ヘンリーで医療SaaSをエンジニアとして牽引後、株式会社immedioでCTOとしてSaaS経営を技術から推進。社外CTO・技術顧問として累計6社支援。20社に携わるなかで、戦略も実行も経営者の情熱も揃っているのに、技術のせいで事業が停滞する&ldquo;もったいない&rdquo;を何度も目にする。魅力的なビジョンが技術で止まることなく事業として育っていく世界をつくるため、2025年にReminusを創業。
                 </p>
               </div>
@@ -54,7 +54,7 @@ export function Management({ className }: { className?: string }) {
                 href="https://v-tsushin.jp/interview/reminus/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex gap-5 rounded px-5 py-4 shadow-[0px_0px_24px_0px_rgba(0,0,0,0.04)] transition-shadow hover:shadow-[0px_0px_24px_0px_rgba(0,0,0,0.08)] sm:px-6 sm:py-5"
+                className="inline-flex gap-5 rounded border border-gray-300 px-5 py-4 shadow-[0px_0px_24px_0px_rgba(0,0,0,0.04)] transition-shadow hover:shadow-[0px_0px_24px_0px_rgba(0,0,0,0.08)] sm:px-6 sm:py-5"
               >
                 <div className="hidden shrink-0 pt-1.5 sm:block">
                   <Image
