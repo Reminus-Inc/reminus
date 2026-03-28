@@ -13,12 +13,14 @@ export const metadata: Metadata = {
 
 export default function DownloadPage() {
   return (
-    <div className="content-auto min-h-[calc(100svh-70px)] pb-10 pt-2 font-sans md:pb-16 md:pt-6">
+    <div className="content-auto min-h-[calc(100svh-70px)] pb-10 pt-2 font-sans lg:pt-0">
       <div className="mx-auto flex w-[82%] max-w-[1200px] md:w-[86%]">
         <div className="flex w-full flex-col justify-center gap-8 md:gap-14 lg:flex-row lg:gap-16">
           <div>
             <h1 className="text-xl font-bold !leading-[1.45] tracking-wide text-gray-800 sm:text-2xl md:text-3xl">
-              Reminus CTOパートナー サービス概要
+              Reminus CTOパートナー&nbsp;
+              <br className="sm:hidden" />
+              サービス概要
             </h1>
 
             <div className="mt-4 lg:mt-6">
@@ -34,13 +36,6 @@ export default function DownloadPage() {
               <li>導入メリット、導入の流れ、導入事例</li>
               <li>プランと料金</li>
             </ul>
-
-            <div className="mt-5 border-t border-solid border-gray-200 pt-5 text-sm !leading-[1.8] tracking-wide text-gray-600 sm:text-sm">
-              <p>
-                フォームに必要事項をご記入の上、「資料をダウンロードする」ボタンを押してください。
-              </p>
-              <p>すぐに資料をご覧いただけます。</p>
-            </div>
           </div>
 
           <div className="flex h-fit justify-center rounded-lg border border-gray-200 px-7 py-6 lg:max-w-[400px]">
