@@ -1,5 +1,3 @@
-import { SimpleHeader } from "@/app/_components/layout/simple-header";
-
 export default function DownloadLayout({
   children,
 }: {
@@ -7,7 +5,6 @@ export default function DownloadLayout({
 }) {
   return (
     <>
-      <SimpleHeader />
       <main>{children}</main>
     </>
   );

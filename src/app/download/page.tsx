@@ -13,32 +13,31 @@ export const metadata: Metadata = {
 
 export default function DownloadPage() {
   return (
-    <div className="content-auto min-h-[calc(100svh-70px)] pb-10 pt-2 font-sans lg:pt-0">
-      <div className="mx-auto flex w-[82%] max-w-[1200px] md:w-[86%]">
-        <div className="flex w-full flex-col justify-center gap-8 md:gap-14 lg:flex-row lg:gap-16">
+    <div className="content-auto min-h-[calc(100svh-70px)] bg-gray-50 pb-12 pt-12 font-sans">
+      <div className="mx-auto flex w-[82%] max-w-[1200px] md:w-[92%]">
+        <div className="flex w-full flex-col justify-center gap-8 md:flex-row md:gap-14 lg:gap-16">
           <div>
             <h1 className="text-xl font-bold !leading-[1.45] tracking-wide text-gray-800 sm:text-2xl md:text-3xl">
-              Reminus CTOパートナー&nbsp;
-              <br className="sm:hidden" />
-              サービス概要
+              <span className="whitespace-nowrap">CTOパートナー</span>{" "}
+              <span className="whitespace-nowrap">サービス概要</span>
             </h1>
 
             <div className="mt-4 lg:mt-6">
               <DownloadPreview />
             </div>
 
-            <p className="mt-6 text-lg font-bold !leading-[1.6] tracking-wide text-gray-800 sm:text-xl">
-              本資料を通して、こんなことが分かります。
+            <p className="mt-6 text-lg font-bold !leading-[1.6] tracking-wider text-gray-800 sm:text-xl">
+              この資料でわかること
             </p>
 
-            <ul className="mt-3 list-inside list-disc space-y-1 pl-2 text-sm !leading-[1.6] tracking-wide text-gray-800 sm:text-base">
+            <ul className="mt-2 list-inside list-disc space-y-1 pl-2 text-sm !leading-[1.6] tracking-wide text-gray-800 sm:text-base">
               <li>SaaS開発のよくある課題と解決方法</li>
               <li>導入メリット、導入の流れ、導入事例</li>
               <li>プランと料金</li>
             </ul>
           </div>
 
-          <div className="flex h-fit justify-center rounded-lg border border-gray-200 px-7 py-6 lg:max-w-[400px]">
+          <div className="flex h-fit justify-center rounded-md border border-gray-200 bg-white px-7 py-6 shadow-md lg:max-w-[400px]">
             <DownloadForm
               documentType={DOCUMENT_TYPE.CTO_PARTNER}
               formId="download-page-form"
