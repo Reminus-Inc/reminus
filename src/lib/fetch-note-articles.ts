@@ -38,7 +38,7 @@ export const fetchNoteArticleList = async (): Promise<NoteArticle[]> => {
         ? [channel.item]
         : [];
     return itemListRaw
-      .slice(0, 5) // 最新 5 件
+      .slice(0, 6) // 最新 6 件
       .map((item) => {
         return {
           title: item.title,

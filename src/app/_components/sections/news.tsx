@@ -8,26 +8,27 @@ import { SectionHeader } from "../ui/section-header";
 import { cn } from "@/lib/utils";
 import { Carousel } from "@/components/ui/carousel";
 
-const ARTICLE_TYPE = {
-  INTERVIEW: "インタビュー",
-  NOTE: "公式 note",
-} as const;
-type ArticleType = (typeof ARTICLE_TYPE)[keyof typeof ARTICLE_TYPE];
-
 export function News({ className }: { className?: string }) {
   return (
     <section
-      id="news"
-      className={cn("overflow-x-hidden py-24 sm:py-32 font-sans content-auto", className)}
+      id="media"
+      className={cn(
+        "content-auto overflow-x-hidden py-24 font-sans sm:py-32",
+        className
+      )}
     >
       <div className="mx-auto w-[82%] max-w-[1200px] md:w-[86%]">
         <SectionHeader
-          label="News"
+          label="Media"
           align="center"
           headingClassName="text-3xl sm:text-[40px] !leading-[1.7]"
         >
-          お知らせ
+          お役立ち情報
         </SectionHeader>
+
+        <p className="mt-6 text-center text-sm !leading-[1.8] tracking-wide text-gray-800 sm:text-base md:text-lg">
+          非エンジニア経営者向けに技術・エンジニア採用の実践知や考え方を発信しています。
+        </p>
 
         <div className="mt-12">
           <Suspense fallback={<NewsFallback />}>
@@ -61,20 +62,7 @@ function NewsFallback() {
 
 async function NewsList() {
   const noteArticles = await fetchNoteArticleList();
-  const formattedNoteArticles = noteArticles.map((article) => ({
-    ...article,
-    type: ARTICLE_TYPE.NOTE,
-  }));
-
-  const interviewArticle = {
-    title: "ベンチャー通信に弊社インタビューが掲載されました",
-    url: "https://v-tsushin.jp/interview/reminus",
-    publishDateLabel: "2025/12/06",
-    imageUrl: "/news-interview-1.jpg",
-    type: ARTICLE_TYPE.INTERVIEW,
-  };
-
-  const articles = [interviewArticle, ...formattedNoteArticles].slice(0, 6);
+  const articles = noteArticles;
   if (articles.length === 0) {
     return null;
   }
@@ -103,12 +91,9 @@ type Article = {
   url: string;
   publishDateLabel: string;
   imageUrl: string;
-  type: ArticleType;
 };
 
 function NewsCard({ article }: { article: Article }) {
-  const labelColor =
-    article.type === ARTICLE_TYPE.INTERVIEW ? "bg-blue-500" : "bg-emerald-500";
   return (
     <Link
       href={article.url}
@@ -128,14 +113,6 @@ function NewsCard({ article }: { article: Article }) {
         ) : (
           <FallbackImage />
         )}
-        <div
-          className={cn(
-            "absolute right-0 top-0 rounded-bl-md px-3 py-1 text-[11px] tracking-wide text-white",
-            labelColor
-          )}
-        >
-          {article.type}
-        </div>
       </div>
       <p className="mt-4 text-base font-bold leading-[1.5] tracking-wider text-gray-800">
         {article.title}
