@@ -38,12 +38,8 @@ export function NavMenu() {
 
   const menuItems = [
     {
-      href: isHomePage ? "#service-overview" : "/#service-overview",
-      label: "サービス概要",
-    },
-    {
       href: isHomePage ? "#service-menu" : "/#service-menu",
-      label: "提供メニュー",
+      label: "サービス概要",
     },
     {
       href: isHomePage ? "#case-studies" : "/#case-studies",
