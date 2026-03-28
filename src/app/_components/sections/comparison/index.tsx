@@ -21,14 +21,20 @@ const COMPARISON_DATA: ComparisonRow[] = [
     freelance: { mark: MARK_TYPE.TRIANGLE_TO_CIRCLE },
   },
   {
-    title: "事業推進力",
+    title: (
+      <>
+        事業
+        <br className="sm:hidden" />
+        推進力
+      </>
+    ),
     reminus: { mark: MARK_TYPE.DOUBLE_CIRCLE, description: "伴走型・経営目線" },
     advisor: { mark: MARK_TYPE.TRIANGLE, description: "技術中心" },
     freelance: { mark: MARK_TYPE.TRIANGLE_TO_CIRCLE },
   },
   {
     title: "コスト",
-    reminus: { mark: MARK_TYPE.CIRCLE, description: "エグゼクティブ水準" },
+    reminus: { mark: MARK_TYPE.CIRCLE, description: "経営層水準" },
     advisor: { mark: MARK_TYPE.DOUBLE_CIRCLE, description: "稼働を省力化" },
     freelance: { mark: MARK_TYPE.CIRCLE_TO_DOUBLE_CIRCLE, description: "" },
   },

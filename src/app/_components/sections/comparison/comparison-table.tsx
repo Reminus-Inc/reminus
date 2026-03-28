@@ -4,7 +4,7 @@ import { ReminusLogo } from "@/app/_components/ui/reminus-logo";
 import { cn } from "@/lib/utils";
 
 export type ComparisonRow = {
-  title: string;
+  title: ReactNode;
   reminus: CellData;
   advisor: CellData;
   freelance: CellData;
@@ -28,17 +28,21 @@ const MARK_ICON = {
   [MARK_TYPE.DOUBLE_CIRCLE]: "/icon/double-circle.svg",
   [MARK_TYPE.TRIANGLE]: "/icon/triangle.svg",
 } as const satisfies Record<
-  Exclude<MarkType, typeof MARK_TYPE.TRIANGLE_TO_CIRCLE | typeof MARK_TYPE.CIRCLE_TO_DOUBLE_CIRCLE>,
+  Exclude<
+    MarkType,
+    | typeof MARK_TYPE.TRIANGLE_TO_CIRCLE
+    | typeof MARK_TYPE.CIRCLE_TO_DOUBLE_CIRCLE
+  >,
   string
 >;
 
 export function ComparisonTable({ data }: { data: ComparisonRow[] }) {
   return (
-    <div className="bleed flex justify-center pl-6 lg:px-0">
+    <div className="bleed flex justify-center pl-4 lg:px-0">
       <div className="overflow-x-auto pb-2">
         <div className="flex items-center">
           {/* 1 列目 */}
-          <div className="sticky left-0 z-10 flex w-[88px] shrink-0 flex-col bg-white py-1 md:w-[140px] lg:w-[180px]">
+          <div className="sticky left-0 z-10 flex w-[72px] shrink-0 flex-col bg-white py-1 sm:w-[96px] md:w-[140px] lg:w-[180px]">
             <TitleEmptyCell />
             {data.map((row, i) => (
               <TitleCell
@@ -54,14 +58,14 @@ export function ComparisonTable({ data }: { data: ComparisonRow[] }) {
             <div className="relative -my-1 p-1 before:absolute before:left-0 before:top-0 before:h-full before:w-full before:border-[4px] before:border-emerald-500 before:content-['']">
               <Column
                 cells={data.map((r) => r.reminus)}
-                className="relative w-[148px] bg-emerald-50/80 md:w-[220px] lg:w-[280px]"
+                className="relative w-[132px] bg-emerald-50/80 md:w-[220px] lg:w-[280px]"
               />
             </div>
             <div className="w-[3px] shrink-0 self-stretch bg-white md:w-[4px]" />
             <Column
               header="技術顧問会社"
               cells={data.map((r) => r.advisor)}
-              className="w-[120px] md:w-[180px] lg:w-[240px]"
+              className="w-[112px] md:w-[180px] lg:w-[240px]"
             />
             <div className="w-[3px] shrink-0 self-stretch bg-white md:w-[4px]" />
             <Column
@@ -102,7 +106,7 @@ function CommonCell({
   return (
     <div
       className={cn(
-        "flex h-[60px] items-center justify-center px-2 md:h-[72px] lg:h-[88px]",
+        "flex h-[60px] items-center justify-center md:h-[72px] lg:h-[88px]",
         className
       )}
     >
@@ -111,7 +115,7 @@ function CommonCell({
   );
 }
 
-function TitleCell({ title, isLast }: { title: string; isLast: boolean }) {
+function TitleCell({ title, isLast }: { title: ReactNode; isLast: boolean }) {
   return (
     <CommonCell
       className={cn(
@@ -135,13 +139,19 @@ function HeaderCell({ title }: { title?: string }) {
     <CommonCell
       className={cn(title == null ? "bg-emerald-500" : "bg-gray-600")}
     >
-      <div className="flex items-baseline gap-1">
-        {title == null && (
-          <ReminusLogo className="h-auto w-[60px] text-white md:w-[90px] lg:w-[110px]" />
+      <div className="flex flex-col items-center gap-1.5 md:flex-row md:items-baseline md:gap-1">
+        {title == null ? (
+          <>
+            <ReminusLogo className="h-auto w-[80px] text-white md:w-[90px] lg:w-[110px]" />
+            <span className="text-sm font-bold !leading-[1.5] tracking-wider text-white md:text-base lg:text-lg">
+              CTO代行
+            </span>
+          </>
+        ) : (
+          <span className="text-xs font-bold !leading-[1.5] tracking-wider text-white md:text-base lg:text-lg">
+            {title}
+          </span>
         )}
-        <span className="text-xs font-bold !leading-[1.5] tracking-wider text-white md:text-base lg:text-lg">
-          {title ? title : "CTO代行"}
-        </span>
       </div>
     </CommonCell>
   );
