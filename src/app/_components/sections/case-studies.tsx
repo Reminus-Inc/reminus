@@ -168,33 +168,33 @@ function CaseStudyCard({ caseStudyItem, className }: CaseStudyCardProps) {
         </p>
       </div>
 
-      <div className="flex-grow rounded-b-lg border-b border-l border-r border-solid border-gray-300 p-4 sm:p-6">
+      <div className="flex-grow rounded-b-lg border-b border-l border-r border-solid border-gray-300 p-4 sm:p-5">
         {hasLogo ? (
           // ロゴあり
-          <>
+          <div className="flex flex-col justify-between gap-4 sm:flex-row-reverse">
             <Image
               src={caseStudyItem.logoPath}
               alt={caseStudyItem.companyName}
               width={caseStudyItem.logoWidth}
               height={caseStudyItem.logoHeight}
-              className={cn(
-                "h-auto w-auto object-contain",
-                caseStudyItem.logoClassName
-              )}
+              className={cn("h-fit", caseStudyItem.logoClassName)}
             />
-            <p
-              className="mt-5 text-sm tracking-wider text-gray-800"
-              data-nosnippet
-            >
-              {caseStudyItem.companyName}
-            </p>
-            <div className="mt-2 flex flex-wrap gap-2">
-              <Chip label={caseStudyItem.scale} />
-              {caseStudyItem.financialBackground && (
-                <Chip label={caseStudyItem.financialBackground} />
-              )}
+
+            <div className="flex flex-col gap-2">
+              <p
+                className="text-sm tracking-wider text-gray-800"
+                data-nosnippet
+              >
+                {caseStudyItem.companyName}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <Chip label={caseStudyItem.scale} />
+                {caseStudyItem.financialBackground && (
+                  <Chip label={caseStudyItem.financialBackground} />
+                )}
+              </div>
             </div>
-          </>
+          </div>
         ) : (
           // ロゴなし
           <>
