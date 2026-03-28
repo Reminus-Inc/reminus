@@ -9,6 +9,7 @@ import { Header } from "./header";
 import { DownloadButton } from "../ui/download-button";
 import { ContactButton } from "../ui/contact-button";
 import { cn } from "@/lib/utils";
+import { smoothScrollTo } from "@/lib/smooth-scroll";
 
 export function NavMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -62,7 +63,7 @@ export function NavMenu() {
       const id = href.substring(1);
       const element = document.getElementById(id);
       if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+        smoothScrollTo(element);
         window.history.pushState(null, "", href);
       }
     }
@@ -116,10 +117,7 @@ export function NavMenu() {
       <div className="hidden items-center space-x-4 md:flex lg:hidden">
         {/* CTA ボタン */}
         <div className="flex items-center space-x-3">
-          <DownloadButton
-            size="small"
-            className="min-w-[140px]"
-          />
+          <DownloadButton size="small" className="min-w-[140px]" />
           <ContactButton size="small" />
         </div>
 
