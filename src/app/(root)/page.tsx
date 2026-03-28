@@ -6,7 +6,6 @@ import { Cta } from "../_components/sections/cta";
 import { FirstView } from "../_components/sections/first-view";
 import { Management } from "../_components/sections/management";
 import { Problem } from "../_components/sections/problem";
-import { ServiceOverview } from "../_components/sections/service-overview";
 import { WhyReminus } from "../_components/sections/why-reminus";
 import { Comparison } from "../_components/sections/comparison";
 import { ServiceMenu } from "../_components/sections/service-menu";
@@ -19,10 +18,9 @@ export default function Home() {
       <ClientLogos />
       <div className="content-auto">
         <Problem />
-        <ServiceOverview />
-        <ServiceMenu className="bg-gray-50" />
-        <WhyReminus className="bg-white" />
-        <Cta className="from-white to-gray-50" />
+        <ServiceMenu className="bg-white" />
+        <WhyReminus className="bg-gray-50" />
+        <Cta className="from-gray-50 to-gray-50" />
         <CaseStudies className="bg-gray-50" />
         <Comparison className="bg-white" />
         <Management className="bg-gray-50" />

@@ -43,7 +43,7 @@ export const MemberCards = ({ members }: MemberCardsProps) => {
 
 const MemberCard = ({ label, title, career, strengths }: MemberCardData) => {
   return (
-    <div className="mx-auto flex h-full w-full flex-col rounded-lg border border-solid border-gray-300 p-4 pb-5 sm:h-auto sm:w-auto sm:max-w-[326px] sm:pb-6">
+    <div className="mx-auto flex h-full w-full flex-col rounded-lg border border-solid border-gray-200 bg-white p-4 pb-5 shadow-sm sm:h-auto sm:w-auto sm:max-w-[326px] sm:pb-6">
       <div>
         <div className="flex justify-center">
           <Image src="/member-icon.svg" width={90} height={90} alt="" />
