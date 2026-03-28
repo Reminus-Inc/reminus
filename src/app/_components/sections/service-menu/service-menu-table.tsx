@@ -8,7 +8,7 @@ export type MenuItem = {
 
 export function ServiceMenuTable({ data }: { data: MenuItem[] }) {
   return (
-    <div className="bleed md:bleed-none mt-12 pl-6 md:mt-16 md:pl-0">
+    <div className="bleed md:bleed-none pl-6 md:pl-0">
       <div className="overflow-x-auto pb-2 md:overflow-visible">
         <div className="bg-gray-50 md:mx-auto md:w-full md:max-w-[1000px]">
           {/* ヘッダー行 */}

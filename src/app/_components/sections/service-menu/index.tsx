@@ -3,6 +3,7 @@ import { CustomDownloadButton } from "@/app/_components/ui/download-button";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { ServiceMenuTable } from "./service-menu-table";
+import { ServiceMenuList } from "./service-menu-list";
 import type { MenuItem } from "./service-menu-table";
 
 const menuData: MenuItem[] = [
@@ -68,7 +69,14 @@ export function ServiceMenu({ className }: { className?: string }) {
           事業状況を踏まえて最適な進め方をご提案します。
         </SectionHeader>
 
-        <ServiceMenuTable data={menuData} />
+        <div className="mt-8 md:mt-16">
+          <div className="sm:hidden">
+            <ServiceMenuList data={menuData} />
+          </div>
+          <div className="hidden sm:block">
+            <ServiceMenuTable data={menuData} />
+          </div>
+        </div>
 
         <div className="mt-24">
           <h3 className="text-lg font-bold !leading-[1.7] tracking-wider sm:text-2xl md:text-3xl">
@@ -106,9 +114,7 @@ export function ServiceMenu({ className }: { className?: string }) {
         </div>
 
         <div className="bleed mt-16 px-4">
-          <CustomDownloadButton
-            title="資料ダウンロード"
-          />
+          <CustomDownloadButton title="資料ダウンロード" />
         </div>
       </div>
     </section>
