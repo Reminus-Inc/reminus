@@ -81,16 +81,14 @@ export function WhyReminus({ className }: { className?: string }) {
           headingClassName="text-xl sm:text-2xl md:text-3xl xl:text-4xl !leading-[1.8]"
         >
           <span className="highlight-underline text-emerald-500">
-            BtoB SaaS スタートアップに特化。
+            BtoB SaaSに特化。
           </span>
           <br />
-          経営視点を持ったメンバーが伴走支援します。
+          経営視点を持ったメンバーが伴走します。
         </SectionHeader>
 
-        <p className="mt-6 text-sm !leading-[1.9] tracking-wide text-gray-800 sm:text-base md:text-lg">
-          複雑化する技術課題に対応するため、Reminusには様々な専門領域と強みを持つメンバーが参画しています。
-          <br />
-          以下にご紹介するのはその一例です。貴社の課題解決に最適なメンバーが、チームの一員として伴走します。
+        <p className="mt-6 text-sm !leading-[1.8] tracking-wide text-gray-800 sm:text-base md:text-lg">
+          CTOに求められる広範な課題に対応するため、Reminusには様々な専門領域と強みを持つメンバーが参画しています。
         </p>
 
         <div className="bleed mt-16 px-6">
