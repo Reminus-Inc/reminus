@@ -46,7 +46,7 @@ export function NavMenu() {
     },
     {
       href: isHomePage ? "#case-studies" : "/#case-studies",
-      label: "事例紹介",
+      label: "導入事例",
     },
     { href: isHomePage ? "#management" : "/#management", label: "経営者紹介" },
   ];

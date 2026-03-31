@@ -134,7 +134,7 @@ export function CaseStudies({ className }: { className?: string }) {
           align="center"
           headingClassName="text-3xl sm:text-[40px] !leading-[1.7]"
         >
-          事例のご紹介
+          導入事例
         </SectionHeader>
 
         <div className="mt-12 sm:mt-16">
