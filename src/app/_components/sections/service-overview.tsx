@@ -46,7 +46,7 @@ export function ServiceOverview({ className }: { className?: string }) {
           align="center"
           headingClassName="text-3xl sm:text-4xl md:text-[40px] !leading-[1.7]"
         >
-          サービス概要
+          CTO代行とは？
         </SectionHeader>
 
         <div className="mt-16 flex flex-col gap-16 lg:gap-8 xl:gap-0">
