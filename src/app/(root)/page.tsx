@@ -10,6 +10,7 @@ import { WhyReminus } from "../_components/sections/why-reminus";
 import { Comparison } from "../_components/sections/comparison";
 import { ServiceMenu } from "../_components/sections/service-menu";
 import { DownloadRequest } from "../_components/sections/download-request";
+import { ServiceOverview } from "../_components/sections/service-overview";
 
 export default function Home() {
   return (
@@ -18,9 +19,10 @@ export default function Home() {
       <ClientLogos />
       <div className="content-auto">
         <Problem />
-        <ServiceMenu className="bg-white" />
-        <WhyReminus className="bg-gray-50" />
-        <Cta className="from-gray-50 to-gray-50" />
+        <ServiceOverview className="bg-white" />
+        <ServiceMenu className="bg-gray-50" />
+        <WhyReminus className="bg-white" />
+        <Cta className="from-white to-gray-50" />
         <CaseStudies className="bg-gray-50" />
         <Comparison className="bg-white" />
         <Management className="bg-gray-50" />

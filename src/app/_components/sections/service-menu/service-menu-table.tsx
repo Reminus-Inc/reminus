@@ -10,10 +10,10 @@ export function ServiceMenuTable({ data }: { data: MenuItem[] }) {
   return (
     <div className="bleed md:bleed-none pl-6 md:pl-0">
       <div className="overflow-x-auto pb-2 md:overflow-visible">
-        <div className="bg-white md:mx-auto md:w-full md:max-w-[1000px]">
+        <div className="bg-gray-50 md:mx-auto md:w-full md:max-w-[1000px]">
           {/* ヘッダー行 */}
           <div className="flex">
-            <div className="sticky left-0 z-10 w-[80px] shrink-0 bg-white sm:w-[100px] md:static md:w-[180px]" />
+            <div className="sticky left-0 z-10 w-[80px] shrink-0 bg-gray-50 sm:w-[100px] md:static md:w-[180px]" />
             <HeaderCell className="min-w-[240px] flex-1 rounded-tl-lg">
               戦略
             </HeaderCell>

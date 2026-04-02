@@ -101,7 +101,7 @@ export function ServiceMenu({ className }: { className?: string }) {
               description="Slack Connectで気軽に相談できるのはもちろん、CTO代行側からも日常的に開発状況を確認し、必要な発信をします。社内にCTOがいるのと同じ感覚で、プロダクトに向き合えます。"
             />
 
-            <div className="hidden h-auto w-px bg-gray-200 md:block" />
+            <div className="hidden h-auto w-px bg-gray-300 md:block" />
 
             <FeatureCard
               src="/calendar.png"
