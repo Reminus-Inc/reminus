@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function DownloadPage() {
   return (
-    <div className="content-auto min-h-[calc(100svh-70px)] bg-gray-50 pb-12 pt-12 font-sans">
+    <div className="content-auto min-h-[calc(100svh-70px)] bg-gray-50 pb-12 pt-8 font-sans">
       <div className="mx-auto flex w-[82%] max-w-[1200px] md:w-[92%]">
         <div className="flex w-full flex-col justify-center gap-8 md:flex-row md:gap-14 lg:gap-16">
           <div>
@@ -22,15 +22,15 @@ export default function DownloadPage() {
               <span className="whitespace-nowrap">サービス概要</span>
             </h1>
 
-            <div className="mt-4 lg:mt-6">
+            <div className="mt-4 hidden md:block lg:mt-6">
               <DownloadPreview />
             </div>
 
-            <p className="mt-6 text-lg font-bold !leading-[1.6] tracking-wider text-gray-800 sm:text-xl">
+            <p className="mt-6 text-base font-bold !leading-[1.6] tracking-wider text-gray-800 sm:text-lg">
               この資料でわかること
             </p>
 
-            <ul className="mt-2 list-inside list-disc space-y-1 pl-2 text-sm !leading-[1.6] tracking-wide text-gray-800 sm:text-base">
+            <ul className="mt-1.5 list-inside list-disc space-y-1 pl-2 text-sm !leading-[1.5] tracking-wide text-gray-800 sm:text-base">
               <li>SaaS開発のよくある課題と解決方法</li>
               <li>導入メリット、導入の流れ、導入事例</li>
               <li>プランと料金</li>
