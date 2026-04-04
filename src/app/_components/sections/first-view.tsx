@@ -1,5 +1,6 @@
 import { CustomDownloadButton } from "../ui/download-button";
 import { cn } from "@/lib/utils";
+import { Clock, HeartHandshake, UserRoundCheck } from "lucide-react";
 import Image from "next/image";
 
 export function FirstView() {
@@ -52,29 +53,50 @@ const Title = ({ className }: { className?: string }) => {
         className
       )}
     >
-      <span className="block">技術責任者不在の</span>
-      <span className="block">SaaS事業にCTO代行を。</span>
+      <span className="block">
+        <span className="text-emerald-500">
+          <span className="text-[105%]">SaaS</span>特化
+        </span>
+        <span className="text-[90%]">の</span>
+        <span className="text-emerald-500">
+          <span className="text-[105%]">CTO</span>代行
+        </span>
+        <span className="text-[90%]">が</span>
+      </span>
+      <span className="block">事業成長を技術で支える</span>
     </h1>
   );
 };
 
 const Description = ({ className }: { className?: string }) => {
   return (
-    <p
+    <ul
       className={cn(
-        "text-sm !leading-[1.8] tracking-wide text-gray-800 min-[375px]:text-base md:text-lg lg:text-base xl:text-lg",
+        "ml-1 space-y-1.5 text-sm !leading-[1.5] tracking-wide text-gray-800 min-[375px]:text-sm md:ml-3.5 md:text-lg lg:text-base xl:text-lg",
         className
       )}
     >
-      <span className="hidden sm:inline">
-        技術に明るくない経営者の右腕として、
-        <br className="hidden lg:block" />
-      </span>
-      <span className="whitespace-nowrap">
-        技術選定・エンジニア採用・開発計画まで
-      </span>
-      <br className="hidden lg:block" />
-      <span className="whitespace-nowrap">CTO代行が一気通貫で支えます。</span>
-    </p>
+      {(
+        [
+          {
+            icon: UserRoundCheck,
+            text: "フェーズに応じて最適なCTO担当者が対応",
+          },
+          {
+            icon: HeartHandshake,
+            text: "Reminusがチームの一員として内製推進",
+          },
+          { icon: Clock, text: "2ヶ月トライアル可" },
+        ] as const
+      ).map(({ icon: Icon, text }) => (
+        <li key={text} className="flex items-center gap-2">
+          <Icon
+            className="size-[1.1em] flex-none text-emerald-500"
+            strokeWidth={2.5}
+          />
+          {text}
+        </li>
+      ))}
+    </ul>
   );
 };
