@@ -1,4 +1,4 @@
-import { SimpleHeader } from "@/app/_components/layout/simple-header";
+import { Header } from "@/app/_components/layout/header";
 
 export default function DownloadLayout({
   children,
@@ -7,7 +7,7 @@ export default function DownloadLayout({
 }) {
   return (
     <>
-      <SimpleHeader />
+      <Header showNavMenu={false} />
       <main>{children}</main>
     </>
   );

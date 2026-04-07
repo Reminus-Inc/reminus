@@ -31,9 +31,9 @@ export default function DownloadPage() {
             </p>
 
             <ul className="mt-1.5 list-inside list-disc space-y-1 pl-2 text-sm !leading-[1.5] tracking-wide text-gray-800 sm:text-base">
-              <li>SaaS開発のよくある課題と解決方法</li>
-              <li>導入メリット、導入の流れ、導入事例</li>
-              <li>プランと料金</li>
+              <li>サービスの背景</li>
+              <li>提供内容</li>
+              <li>導入事例</li>
             </ul>
           </div>
 
