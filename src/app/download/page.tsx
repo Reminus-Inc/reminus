@@ -18,13 +18,19 @@ export default function DownloadPage() {
         <div className="flex w-full flex-col justify-center gap-8 md:flex-row md:gap-14 lg:gap-16">
           <div>
             <h1 className="text-xl font-bold !leading-[1.45] tracking-wide text-gray-800 sm:text-2xl md:text-3xl">
-              <span className="whitespace-nowrap">CTOパートナー</span>{" "}
-              <span className="whitespace-nowrap">サービス概要</span>
+              <span className="whitespace-nowrap">CTO代行</span>{" "}
+              <span className="whitespace-nowrap">サービス資料</span>
             </h1>
 
             <div className="mt-4 hidden md:block lg:mt-6">
               <DownloadPreview />
             </div>
+
+            <p className="mt-6 text-sm !leading-[1.7] tracking-wide text-gray-700 sm:text-base max-w-[500px]">
+              Reminus
+              CTOパートナーのサービス資料をご希望のお客様は、こちらのフォームにご入力ください。
+              すぐに資料をご覧いただけます。
+            </p>
 
             <p className="mt-6 text-base font-bold !leading-[1.6] tracking-wider text-gray-800 sm:text-lg">
               この資料でわかること
