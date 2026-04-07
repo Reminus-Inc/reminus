@@ -66,7 +66,10 @@ export function Comparison({ className }: { className?: string }) {
         </div>
 
         <div className="bleed mt-16 px-4 md:mt-20">
-          <CustomDownloadButton title="資料ダウンロード" />
+          <CustomDownloadButton
+            subtitle="Reminus CTOパートナー"
+            title="資料ダウンロード"
+          />
         </div>
       </div>
     </section>
