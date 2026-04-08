@@ -129,30 +129,8 @@ export const HookDownloadForm = ({
 
   return (
     <form id={formId} action={handleFormAction} className="w-full">
-      <div className="space-y-4">
-        <div className="space-y-1">
-          <Label htmlFor="company" className="text-sm text-gray-800">
-            会社名
-          </Label>
-          <Input
-            id="company"
-            name="company"
-            placeholder="株式会社Reminus"
-            required
-            autoComplete="organization"
-            value={formValues.company}
-            onChange={(e) => {
-              const value = e.target.value;
-              trackFormStartOnce(value);
-              setFormValues((prev) => ({ ...prev, company: value }));
-            }}
-          />
-          {companyError && (
-            <p className="text-xs text-red-500">{companyError}</p>
-          )}
-        </div>
-
-        <div className="flex gap-4">
+      <div className="space-y-3 sm:space-y-4">
+        <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
           <div className="flex-1 space-y-1">
             <Label htmlFor="lastname" className="text-sm text-gray-800">
               姓
@@ -169,7 +147,7 @@ export const HookDownloadForm = ({
                 trackFormStartOnce(value);
                 setFormValues((prev) => ({ ...prev, lastname: value }));
               }}
-              className="border-gray-200 transition-colors focus:border-gray-400"
+              className="border-gray-200 py-2 transition-colors focus:border-gray-400 sm:py-3"
             />
             {lastnameError && <p className="text-xs text-red-500">{lastnameError}</p>}
           </div>
@@ -189,10 +167,33 @@ export const HookDownloadForm = ({
                 trackFormStartOnce(value);
                 setFormValues((prev) => ({ ...prev, firstname: value }));
               }}
-              className="border-gray-200 transition-colors focus:border-gray-400"
+              className="border-gray-200 py-2 transition-colors focus:border-gray-400 sm:py-3"
             />
             {firstnameError && <p className="text-xs text-red-500">{firstnameError}</p>}
           </div>
+        </div>
+
+        <div className="space-y-1">
+          <Label htmlFor="company" className="text-sm text-gray-800">
+            会社名
+          </Label>
+          <Input
+            id="company"
+            name="company"
+            placeholder="株式会社Reminus"
+            required
+            autoComplete="organization"
+            value={formValues.company}
+            onChange={(e) => {
+              const value = e.target.value;
+              trackFormStartOnce(value);
+              setFormValues((prev) => ({ ...prev, company: value }));
+            }}
+            className="py-2 sm:py-3"
+          />
+          {companyError && (
+            <p className="text-xs text-red-500">{companyError}</p>
+          )}
         </div>
 
         <div className="space-y-1">
@@ -212,6 +213,7 @@ export const HookDownloadForm = ({
               trackFormStartOnce(value);
               setFormValues((prev) => ({ ...prev, email: value }));
             }}
+            className="py-2 sm:py-3"
           />
           {emailError && <p className="text-xs text-red-500">{emailError}</p>}
         </div>
@@ -233,6 +235,7 @@ export const HookDownloadForm = ({
               trackFormStartOnce(value);
               setFormValues((prev) => ({ ...prev, phone: value }));
             }}
+            className="py-2 sm:py-3"
           />
           {phoneError && <p className="text-xs text-red-500">{phoneError}</p>}
         </div>
