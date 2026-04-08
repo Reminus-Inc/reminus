@@ -14,13 +14,20 @@ interface DownloadButtonProps extends PrimaryButtonProps {
   children?: React.ReactNode;
 }
 
-export const DownloadButton = ({ onClick, href = "/download", children, ...props }: DownloadButtonProps) => {
+export const DownloadButton = ({
+  onClick,
+  href = "/download",
+  children,
+  ...props
+}: DownloadButtonProps) => {
   const handleClick = () => {
     trackCTAClick("download");
     onClick?.();
   };
 
-  const content = <span className="whitespace-nowrap">{children || "資料ダウンロード"}</span>;
+  const content = (
+    <span className="whitespace-nowrap">{children || "資料ダウンロード"}</span>
+  );
 
   return (
     <PrimaryButton asChild {...props}>
@@ -77,7 +84,7 @@ export const CustomDownloadButton = ({
             />
           </div>
 
-          <div className="flex flex-col justify-center gap-0.5 sm:gap-1.5">
+          <div className="flex flex-col justify-center gap-0.5 sm:gap-1">
             <span className="text-[10px] tracking-wider min-[375px]:text-[11px] sm:text-sm">
               {subtitle != null ? (
                 subtitle
@@ -86,7 +93,7 @@ export const CustomDownloadButton = ({
                   <span className="relative -bottom-[1px] mr-[2px] text-lg font-bold !leading-[1] sm:text-xl md:text-2xl">
                     3
                   </span>
-                  分でわかる! CTOパートナー
+                  分でわかる! CTO代行
                 </>
               )}
             </span>
