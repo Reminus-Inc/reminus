@@ -13,30 +13,31 @@ export const metadata: Metadata = {
 
 export default function DownloadPage() {
   return (
-    <div className="content-auto min-h-[calc(100svh-70px)] bg-gray-50 pb-12 pt-8 font-sans">
-      <div className="mx-auto flex w-[86%] max-w-[1200px] md:w-[92%]">
+    <div className="content-auto min-h-[calc(100svh-70px)] bg-gray-50 pb-12 pt-6 font-sans md:pt-12">
+      <div className="mx-auto flex w-[88%] max-w-[1200px] md:w-[92%]">
         <div className="flex w-full flex-col justify-center gap-8 md:flex-row md:gap-14 lg:gap-16">
           <div>
-            <h1 className="text-xl font-bold !leading-[1.45] tracking-wide text-gray-800 sm:text-2xl md:text-3xl">
-              <span className="whitespace-nowrap">CTO代行</span>{" "}
+            <h1 className="text-2xl font-bold !leading-[1.3] tracking-wide text-gray-800 md:text-3xl">
+              <span className="text-[60%]">
+                <span className="text-[105%]">3</span>分でわかる!
+              </span>
+              <br />
+              <span className="whitespace-nowrap">
+                <span className="text-[105%]">CTO</span>代行
+              </span>
+              <span>&nbsp;</span>
               <span className="whitespace-nowrap">サービス資料</span>
             </h1>
 
-            <div className="mt-4 hidden md:block lg:mt-6">
+            <div className="mt-4 lg:mt-6">
               <DownloadPreview />
             </div>
 
-            <p className="mt-6 text-sm !leading-[1.7] tracking-wide text-gray-700 sm:text-base max-w-[500px]">
-              Reminus
-              CTOパートナーのサービス資料をご希望のお客様は、こちらのフォームにご入力ください。
-              すぐに資料をご覧いただけます。
+            <p className="mt-6 max-w-[500px] text-sm !leading-[1.7] tracking-wide text-gray-700 sm:text-base">
+              サービス資料をご希望のお客様は以下のフォームにご入力ください。すぐに資料をご覧いただけます。
             </p>
 
-            <p className="mt-6 text-base font-bold !leading-[1.6] tracking-wider text-gray-800 sm:text-lg">
-              この資料でわかること
-            </p>
-
-            <ul className="mt-1.5 list-inside list-disc space-y-1 pl-2 text-sm !leading-[1.5] tracking-wide text-gray-800 sm:text-base">
+            <ul className="mt-3 list-inside list-disc space-y-1 pl-2 text-sm !leading-[1.5] tracking-wide text-gray-800 sm:text-base">
               <li>サービスの背景</li>
               <li>提供内容</li>
               <li>導入事例</li>

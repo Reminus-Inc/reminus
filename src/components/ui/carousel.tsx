@@ -325,4 +325,104 @@ const CarouselPagination = React.forwardRef<
 });
 CarouselPagination.displayName = "CarouselPagination";
 
-export { Carousel };
+const CarouselOverlayPrevious = React.forwardRef<
+  HTMLButtonElement,
+  React.ButtonHTMLAttributes<HTMLButtonElement>
+>(({ className, ...props }, ref) => {
+  const { scrollPrev, canScrollPrev } = useCarousel();
+
+  return (
+    <button
+      ref={ref}
+      type="button"
+      className={cn(
+        "absolute left-2 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 text-white transition-colors hover:bg-black/60 disabled:pointer-events-none disabled:opacity-40 sm:h-8 sm:w-8",
+        className
+      )}
+      disabled={!canScrollPrev}
+      onClick={scrollPrev}
+      {...props}
+    >
+      <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
+      <span className="sr-only">Previous slide</span>
+    </button>
+  );
+});
+CarouselOverlayPrevious.displayName = "CarouselOverlayPrevious";
+
+const CarouselOverlayNext = React.forwardRef<
+  HTMLButtonElement,
+  React.ButtonHTMLAttributes<HTMLButtonElement>
+>(({ className, ...props }, ref) => {
+  const { scrollNext, canScrollNext } = useCarousel();
+
+  return (
+    <button
+      ref={ref}
+      type="button"
+      className={cn(
+        "absolute right-2 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 text-white transition-colors hover:bg-black/60 disabled:pointer-events-none disabled:opacity-40 sm:h-8 sm:w-8",
+        className
+      )}
+      disabled={!canScrollNext}
+      onClick={scrollNext}
+      {...props}
+    >
+      <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
+      <span className="sr-only">Next slide</span>
+    </button>
+  );
+});
+CarouselOverlayNext.displayName = "CarouselOverlayNext";
+
+const CarouselOverlayPagination = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement> & { count: number }
+>(({ className, count, ...props }, ref) => {
+  const { api } = useCarousel();
+  const [current, setCurrent] = React.useState(0);
+
+  React.useEffect(() => {
+    if (!api) return;
+    setCurrent(api.selectedScrollSnap());
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
+
+  return (
+    <div
+      ref={ref}
+      className={cn(
+        "absolute bottom-2 left-1/2 flex -translate-x-1/2 items-center justify-center gap-2 sm:bottom-3 sm:gap-3",
+        className
+      )}
+      {...props}
+    >
+      {Array.from({ length: count }).map((_, index) => (
+        <button
+          key={index}
+          className={cn(
+            "h-2 w-2 rounded-full transition-colors sm:h-2.5 sm:w-2.5",
+            index === current ? "bg-gray-800" : "bg-gray-300 hover:bg-gray-400"
+          )}
+          onClick={() => api?.scrollTo(index)}
+        />
+      ))}
+    </div>
+  );
+});
+CarouselOverlayPagination.displayName = "CarouselOverlayPagination";
+
+export {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+  CarouselPagination,
+  CarouselOverlayPrevious,
+  CarouselOverlayNext,
+  CarouselOverlayPagination,
+  useCarousel,
+};
