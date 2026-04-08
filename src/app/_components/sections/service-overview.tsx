@@ -1,35 +1,66 @@
 import { CustomDownloadButton } from "@/app/_components/ui/download-button";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import type { ReactNode } from "react";
 import { SectionHeader } from "../ui/section-header";
 
-const features = [
+type Feature = {
+  image: string;
+  imageClassName?: string;
+  imageHeight: number;
+  title: ReactNode;
+  titleAlt: string;
+  points: string[];
+};
+
+const features: Feature[] = [
   {
     image: "/illust-service-overview-1.svg",
     imageClassName: "-mt-5",
     imageHeight: 178,
-    title: "プロダクト開発を最短で進める技術判断",
+    title: (
+      <>
+        最適なCTO担当者がリード。
+        <br className="" />
+        SaaSの複雑な課題に幅広く対応
+      </>
+    ),
+    titleAlt: "最適なCTO担当者がリード。SaaSの複雑な課題に幅広く対応",
     points: [
-      "MVP設計・機能の優先度・技術選定など、プロダクト成長に直結する技術判断を経営とセットで即断サポート。",
-      "技術の不安で足を止めず、プロダクトとマーケットに集中できる状態を作ります。",
+      "SaaSの課題は、技術や製品・組織・戦略判断から実行まで広範です。",
+      "Reminus CTOパートナーは、元CTO等の経験者から貴社に最適な担当者を選定します。人材紹介ではなく、Reminusが責任を持つCTO代行サービスです。"
     ],
   },
   {
     image: "/illust-service-overview-2.svg",
     imageHeight: 158,
-    title: "開発を停滞させない体制設計と採用支援",
+    title: (
+      <>
+        壁打ちで終わらない。
+        <br className="hidden lg:inline" />
+        チームに入り込んで推進するハンズオン型
+      </>
+    ),
+    titleAlt: "壁打ちで終わらない。チームに入り込んでハンズオン型",
     points: [
-      "事業戦略に沿った内製・外注の判断や体制設計から、採用やパートナー選定まで支援。",
-      "求人票やスカウト文面までサポート。採用コストと承諾率を最適化しエンジニア採用に向き合う土台を作ります。",
+      "一般的な外部顧問は壁打ち時間のみの提供です。Reminusでは作業時間を確保するため、貴社内にCTOがいるかのように内側から技術を判断・推進できます。",
+      "内製ノウハウの共有も強みです。",
     ],
   },
   {
     image: "/illust-service-overview-3.svg",
     imageHeight: 163,
-    title: "CTO採用待ちでプロダクトの進化を止めない",
+    title: (
+      <>
+        CTOクラスの能力をリーズナブルに。
+        <br />
+        2ヶ月トライアルも可能
+      </>
+    ),
+    titleAlt: "CTOクラスの能力をリーズナブルに。2ヶ月トライアルも可能",
     points: [
-      "次の資金調達に求められるARR（売上）から逆算し、CTO不在でも技術判断と開発体制づくりを代行。",
-      "専任CTOの採用を待たずに、今日から事業計画達成に向けてアクセルを踏める状態を作ります。",
+      "正社員CTOは年収1,000万円〜2,000万円。雇用はリスクもあり慎重な判断が必要です。",
+      "Reminusならリーズナブルな価格に利用でき、独自ノウハウで品質も◎。2ヶ月トライアルも可能です。",
     ],
   },
 ];
@@ -40,13 +71,13 @@ export function ServiceOverview({ className }: { className?: string }) {
       id="service-overview"
       className={cn("content-auto py-24 font-sans sm:py-32", className)}
     >
-      <div className="mx-auto w-[82%] max-w-[1200px] md:w-[86%]">
+      <div className="mx-auto w-[88%] max-w-[1200px] md:w-[86%]">
         <SectionHeader
-          label="What's Reminus?"
+          label="Feature"
           align="center"
           headingClassName="text-3xl sm:text-4xl md:text-[40px] !leading-[1.7]"
         >
-          CTO代行とは？
+          サービスの特長
         </SectionHeader>
 
         <div className="mt-16 flex flex-col gap-16 lg:gap-8 xl:gap-0">
@@ -63,15 +94,15 @@ export function ServiceOverview({ className }: { className?: string }) {
                   src={feature.image}
                   width={320}
                   height={feature.imageHeight}
-                  alt={feature.title}
+                  alt={feature.titleAlt}
                   className={feature.imageClassName}
                 />
               </div>
               <div className="flex flex-col gap-4 lg:gap-5">
-                <p className="text-xl font-bold !leading-[1.6] tracking-wide text-gray-800 sm:text-2xl md:text-3xl lg:text-[34px]">
+                <p className="text-lg font-bold !leading-[1.6] tracking-wide text-gray-800 sm:text-xl md:text-2xl lg:text-3xl">
                   {feature.title}
                 </p>
-                <p className="whitespace-pre-line text-sm !leading-[1.9] tracking-wide text-gray-800 sm:text-base md:text-lg lg:max-w-[600px]">
+                <p className="whitespace-pre-line text-sm !leading-[1.8] md:!leading-[1.9] tracking-wide text-gray-800 sm:text-base md:text-lg lg:max-w-[600px]">
                   {feature.points.join("")}
                 </p>
               </div>
