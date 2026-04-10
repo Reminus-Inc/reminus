@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { CaseStudies } from "@/app/_components/sections/case-studies";
+import { CaseStudies } from "../_components/sections/case-studies";
 import { ClientLogos } from "@/app/_components/sections/client-logos";
 import { CompanyOverview } from "@/app/_components/sections/company-overview";
 import { News } from "@/app/_components/sections/news";
 import { Cta } from "@/app/_components/sections/cta";
 import { FirstView } from "@/app/_components/sections/first-view";
 import { Management } from "@/app/_components/sections/management";
-import { Problem } from "@/app/_components/sections/problem";
-import { WhyReminus } from "@/app/_components/sections/why-reminus";
-import { ServiceMenu } from "@/app/_components/sections/service-menu";
+import { Problem } from "../_components/sections/problem";
+import { WhyReminus } from "../_components/sections/why-reminus";
+import { ServiceMenu } from "../_components/sections/service-menu";
 import { DownloadRequest } from "@/app/_components/sections/download-request";
 import { ServiceOverview } from "@/app/_components/sections/service-overview";
 
@@ -26,7 +26,7 @@ export default function HomeC() {
         <Problem />
         <ServiceOverview className="bg-white" />
         <CaseStudies className="bg-gray-50" />
-        <ServiceMenu className="bg-gray-50" showChatSection={false} />
+        <ServiceMenu className="bg-gray-50" />
         <WhyReminus className="bg-white" />
         <Cta className="from-white to-gray-50" />
         <Management className="bg-gray-50" />

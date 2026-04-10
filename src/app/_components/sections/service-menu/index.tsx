@@ -51,7 +51,7 @@ const menuData: MenuItem[] = [
   },
 ];
 
-export function ServiceMenu({ className, showChatSection = true }: { className?: string; showChatSection?: boolean }) {
+export function ServiceMenu({ className }: { className?: string }) {
   return (
     <section
       id="service-menu"
@@ -78,42 +78,40 @@ export function ServiceMenu({ className, showChatSection = true }: { className?:
           </div>
         </div>
 
-        {showChatSection && (
-          <div className="mt-24">
-            <h3 className="text-lg font-bold !leading-[1.7] tracking-wider sm:text-2xl md:text-3xl">
-              <span>
-                チャット<span className="mx-1.5 text-emerald-500">✕</span>
-                定例で伴走。
-              </span>
-              <br className="lg:hidden" />
-              <span>1チームでグロースを目指す一体感</span>
-            </h3>
+        <div className="mt-24">
+          <h3 className="text-lg font-bold !leading-[1.7] tracking-wider sm:text-2xl md:text-3xl">
+            <span>
+              チャット<span className="mx-1.5 text-emerald-500">✕</span>
+              定例で伴走。
+            </span>
+            <br className="lg:hidden" />
+            <span>1チームでグロースを目指す一体感</span>
+          </h3>
 
-            <p className="mt-4 text-sm !leading-[190%] text-gray-800 sm:mt-6 sm:text-base md:text-lg">
-              チャットツールと週次の定例を組み合わせ、伴走型でプロダクトを推進します。
-            </p>
+          <p className="mt-4 text-sm !leading-[190%] text-gray-800 sm:mt-6 sm:text-base md:text-lg">
+            チャットツールと週次の定例を組み合わせ、伴走型でプロダクトを推進します。
+          </p>
 
-            <div className="mt-12 grid grid-cols-1 gap-12 md:mt-16 md:grid-cols-[1fr_1px_1fr] md:gap-12 lg:gap-10">
-              <FeatureCard
-                src="/chat.png"
-                width={800}
-                height={510}
-                title="チャットで、定例を待たずにすぐ相談"
-                description="Slack Connectで気軽に相談できるのはもちろん、CTO代行側からも日常的に開発状況を確認し、必要な発信をします。社内にCTOがいるのと同じ感覚で、プロダクトに向き合えます。"
-              />
+          <div className="mt-12 grid grid-cols-1 gap-12 md:mt-16 md:grid-cols-[1fr_1px_1fr] md:gap-12 lg:gap-10">
+            <FeatureCard
+              src="/chat.png"
+              width={800}
+              height={510}
+              title="チャットで、定例を待たずにすぐ相談"
+              description="Slack Connectで気軽に相談できるのはもちろん、CTO代行側からも日常的に開発状況を確認し、必要な発信をします。社内にCTOがいるのと同じ感覚で、プロダクトに向き合えます。"
+            />
 
-              <div className="hidden h-auto w-px bg-gray-300 md:block" />
+            <div className="hidden h-auto w-px bg-gray-300 md:block" />
 
-              <FeatureCard
-                src="/calendar.png"
-                width={802}
-                height={511}
-                title="週次定例で、状況と優先度を可視化"
-                description="週次の定例で、経営 ✕ 技術の両面で進捗を可視化し、優先順位を整理します。計画が毎週クリアになるので、重要な経営イシューを打ち漏らすことがありません。"
-              />
-            </div>
+            <FeatureCard
+              src="/calendar.png"
+              width={802}
+              height={511}
+              title="週次定例で、状況と優先度を可視化"
+              description="週次の定例で、経営 ✕ 技術の両面で進捗を可視化し、優先順位を整理します。計画が毎週クリアになるので、重要な経営イシューを打ち漏らすことがありません。"
+            />
           </div>
-        )}
+        </div>
 
         <div className="bleed mt-16 px-4">
           <CustomDownloadButton
