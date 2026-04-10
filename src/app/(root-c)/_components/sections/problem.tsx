@@ -66,7 +66,7 @@ export function Problem({ className }: ProblemProps) {
           <p className="text-lg font-bold !leading-[1.6] tracking-wider text-white sm:text-xl md:text-2xl lg:text-3xl">
             Reminus CTOパートナーは、
             <br />
-            SaaS事業にまつわる技術の課題を解決するCTO代行サービスです。
+            SaaS事業の技術の課題を解決するCTO代行サービスです。
           </p>
         </div>
       </div>

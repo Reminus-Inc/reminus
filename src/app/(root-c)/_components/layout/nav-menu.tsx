@@ -36,18 +36,18 @@ export function NavMenu() {
 
   const menuItems = [
     {
-      href: isHomePage ? "#service-overview" : "/#service-overview",
+      href: isHomePage ? "#service-overview" : "/c#service-overview",
       label: "サービス概要",
     },
     {
-      href: isHomePage ? "#service-menu" : "/#service-menu",
+      href: isHomePage ? "#service-menu" : "/c#service-menu",
       label: "提供メニュー",
     },
     {
-      href: isHomePage ? "#case-studies" : "/#case-studies",
+      href: isHomePage ? "#case-studies" : "/c#case-studies",
       label: "導入事例",
     },
-    { href: isHomePage ? "#management" : "/#management", label: "経営者紹介" },
+    { href: isHomePage ? "#management" : "/c#management", label: "経営者紹介" },
   ];
 
   const handleLinkClick = (
@@ -106,8 +106,8 @@ export function NavMenu() {
 
         {/* CTA ボタン */}
         <div className="flex items-center space-x-4">
-          <DownloadButton size="small" />
-          <ContactButton size="small" />
+          <DownloadButton size="small" href="/c/download" />
+          <ContactButton size="small" href="/c/contact" />
         </div>
       </div>
 
@@ -117,8 +117,9 @@ export function NavMenu() {
           <DownloadButton
             size="small"
             className="min-w-[140px]"
+            href="/c/download"
           />
-          <ContactButton size="small" />
+          <ContactButton size="small" href="/c/contact" />
         </div>
 
         <MenuToggle isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
@@ -178,11 +179,13 @@ export function NavMenu() {
               <DownloadButton
                 size="small"
                 fullWidth
+                href="/c/download"
                 onClick={() => setTimeout(() => setIsOpen(false), 300)}
               />
               <ContactButton
                 size="small"
                 fullWidth
+                href="/c/contact"
                 onClick={() => setTimeout(() => setIsOpen(false), 300)}
               />
             </div>

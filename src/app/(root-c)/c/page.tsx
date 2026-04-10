@@ -3,14 +3,14 @@ import { CaseStudies } from "../_components/sections/case-studies";
 import { ClientLogos } from "@/app/_components/sections/client-logos";
 import { CompanyOverview } from "@/app/_components/sections/company-overview";
 import { News } from "@/app/_components/sections/news";
-import { Cta } from "@/app/_components/sections/cta";
-import { FirstView } from "@/app/_components/sections/first-view";
+import { Cta } from "../_components/sections/cta";
+import { FirstView } from "../_components/sections/first-view";
 import { Management } from "@/app/_components/sections/management";
 import { Problem } from "../_components/sections/problem";
 import { WhyReminus } from "../_components/sections/why-reminus";
 import { ServiceMenu } from "../_components/sections/service-menu";
 import { DownloadRequest } from "@/app/_components/sections/download-request";
-import { ServiceOverview } from "@/app/_components/sections/service-overview";
+import { ServiceOverview } from "../_components/sections/service-overview";
 
 export const metadata: Metadata = {
   robots: { index: false, follow: false },
