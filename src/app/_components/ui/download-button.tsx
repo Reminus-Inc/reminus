@@ -47,12 +47,14 @@ interface CustomDownloadButtonProps
   onClick?: () => void;
   title?: string;
   subtitle?: string;
+  href?: string;
 }
 export const CustomDownloadButton = ({
   className,
   onClick,
   title,
   subtitle,
+  href = "/download",
 }: CustomDownloadButtonProps) => {
   const handleClick = () => {
     trackCTAClick("download");
@@ -124,7 +126,7 @@ export const CustomDownloadButton = ({
   );
 
   return (
-    <Link href="/download" onClick={handleClick} className={baseClasses}>
+    <Link href={href} onClick={handleClick} className={baseClasses}>
       {content}
     </Link>
   );
