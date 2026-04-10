@@ -22,7 +22,8 @@ export const submitToHubSpotForm = async (
     pageName?: string;
   },
   utmParams?: UTMParameters,
-  service?: string
+  service?: string,
+  abTestVariant?: string
 ): Promise<void> => {
   const formGuid = formType === "contact" 
     ? process.env.HUBSPOT_CONTACT_GUID 
@@ -110,6 +111,14 @@ export const submitToHubSpotForm = async (
       fields.push({
         name: "otoiawasenaiyou",
         value: data.content,
+      });
+    }
+
+    // ABテストバリアントを追加
+    if (abTestVariant) {
+      fields.push({
+        name: "ab_test_variant",
+        value: abTestVariant,
       });
     }
 

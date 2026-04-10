@@ -29,6 +29,12 @@ async function getUTMFromCookies(): Promise<UTMParameters> {
   return utmParams;
 }
 
+// CookieからABテストバリアントを取得
+async function getABTestVariant(): Promise<string | undefined> {
+  const cookieStore = await cookies();
+  return cookieStore.get("ab-test-top")?.value;
+}
+
 // 共通のリード受付処理
 async function acceptLead({
   leadData,
@@ -39,6 +45,7 @@ async function acceptLead({
   formType,
   trackingContext,
   service,
+  abTestVariant,
 }: {
   leadData: {
     company: string;
@@ -61,6 +68,7 @@ async function acceptLead({
     pageName?: string;
   };
   service?: string;
+  abTestVariant?: string;
 }) {
   console.log("📋 acceptLead 開始:", {
     leadData,
@@ -92,7 +100,7 @@ async function acceptLead({
   }
 
   // HubSpotフォーム送信
-  const hubspotPromise = submitToHubSpotForm(leadData, isDevMode, formType, trackingContext, utmParams, service).catch(
+  const hubspotPromise = submitToHubSpotForm(leadData, isDevMode, formType, trackingContext, utmParams, service, abTestVariant).catch(
     (error) => {
       console.error("HubSpot通知エラー:", error);
       return null;
@@ -555,7 +563,10 @@ export async function submitInquiry(
     const service = formData.get('service') as string | null;
     const serviceSuffix = service ? `【${service}】` : "";
 
-    console.log("📝 submitInquiry - トラッキング情報:", trackingContext, "サービス:", service);
+    // ABテストバリアントを取得
+    const abTestVariant = await getABTestVariant();
+
+    console.log("📝 submitInquiry - トラッキング情報:", trackingContext, "サービス:", service, "ABテスト:", abTestVariant);
 
     await acceptLead({
       leadData: {
@@ -570,6 +581,7 @@ export async function submitInquiry(
       formType: "contact",
       trackingContext,
       service: service || undefined,
+      abTestVariant,
       slackBlocks: [
         {
           type: "header",
@@ -666,6 +678,9 @@ export async function requestDocument(
       pageName: formData.get('pageName') as string,
     };
 
+    // ABテストバリアントを取得
+    const abTestVariant = await getABTestVariant();
+
     const params = new URLSearchParams({
       email: validatedFields.email,
       name: `${validatedFields.lastname} ${validatedFields.firstname}`,
@@ -685,6 +700,7 @@ export async function requestDocument(
       slackNotificationType: SLACK_NOTIFICATION_TYPE.DOWNLOAD,
       formType: "download",
       trackingContext,
+      abTestVariant,
       slackBlocks: [
         {
           type: "header",
