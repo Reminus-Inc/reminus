@@ -4,10 +4,13 @@
  *
  * 実行:
  *   # 1記事: noteKeyとURLスラッグを指定
- *   pnpm tsx scripts/sync-blog-articles.ts <noteKey> <slug>
+ *   pnpm sync:blog:run <noteKey> <slug>
  *
  *   # 全件: RSSから取得して、既存の _articles/*.ts に noteKey 一致するものを更新
- *   pnpm tsx scripts/sync-blog-articles.ts
+ *   pnpm sync:blog:run
+ *
+ * ⚠ 通常は `pnpm sync:blog` (Claude Code 起動) から呼ばれる想定。
+ *    sync 後の CTA 差し替え等の手順は CLAUDE.md の「ブログ記事の同期」を参照。
  */
 import { XMLParser } from "fast-xml-parser";
 import { readdir, readFile, writeFile, mkdir } from "node:fs/promises";
@@ -16,7 +19,9 @@ import path from "node:path";
 const RSS_URL = "https://note.reminus.co.jp/rss";
 const NOTE_API = (key: string) => `https://note.com/api/v3/notes/${key}`;
 
-const ARTICLES_DIR = path.join(process.cwd(), "src/app/blog/_articles");
+const ARTICLES_ROOT = path.join(process.cwd(), "src/app/blog/_articles");
+const ARTICLES_DIR = path.join(ARTICLES_ROOT, "content");
+const INDEX_FILE = path.join(ARTICLES_ROOT, "index.ts");
 const PUBLIC_BLOG_DIR = path.join(process.cwd(), "public/blog");
 
 type RssItem = {

@@ -1,5 +1,5 @@
 import type { Article } from "./types";
-import { article as saasAiSurvival } from "./saas-ai-survival";
+import { article as saasAiSurvival } from "./content/saas-ai-survival";
 
 // 新しい順
 export const articles: Article[] = [saasAiSurvival].sort(

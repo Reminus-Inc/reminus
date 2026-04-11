@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "sync:blog": "claude '最新ブログ記事を sync してくれ。CLAUDE.md の「ブログ記事の同期」の手順通りに、最後の CTA 差し替えまでお願いします。'",
+    "sync:blog:run": "tsx scripts/sync-blog-articles.ts"
   },
   "dependencies": {
     "@next/third-parties": "^15.5.9",

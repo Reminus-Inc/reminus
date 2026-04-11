@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ChevronRight, ArrowUpRight } from "lucide-react";
 import { articles, getArticleBySlug } from "../_articles";
+import { ArticleCta } from "../_components/article-cta";
 
 type Params = { slug: string };
 
@@ -100,11 +101,14 @@ export default async function BlogArticlePage({
       {/* 本文 */}
       <article className="mx-auto mt-14 w-[88%] max-w-[760px] md:mt-20">
         <div
-          className="blog-body prose prose-slate max-w-none prose-headings:tracking-wider prose-headings:text-gray-800 prose-h2:mt-16 prose-h2:border-l-4 prose-h2:border-emerald-500 prose-h2:pl-4 prose-h2:text-2xl prose-h2:!leading-[1.5] md:prose-h2:text-[28px] prose-h3:mt-10 prose-h3:text-xl prose-h3:text-gray-800 md:prose-h3:text-2xl prose-p:!leading-[2] prose-p:tracking-wide prose-p:text-gray-700 prose-a:text-emerald-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-800 prose-blockquote:border-l-emerald-400 prose-blockquote:bg-emerald-50/40 prose-blockquote:py-0.5 prose-blockquote:not-italic prose-blockquote:text-gray-700 prose-figure:my-10 prose-figcaption:text-center prose-figcaption:text-xs prose-figcaption:text-gray-500 prose-img:rounded-md"
+          className="blog-body prose prose-slate max-w-none prose-headings:tracking-wider prose-headings:text-gray-800 prose-h2:mt-16 prose-h2:border-l-4 prose-h2:border-emerald-500 prose-h2:pl-4 prose-h2:text-2xl prose-h2:!leading-[1.5] md:prose-h2:text-[28px] prose-h3:mt-10 prose-h3:text-xl prose-h3:text-gray-800 md:prose-h3:text-2xl prose-p:!leading-[2] prose-p:tracking-wide prose-p:text-gray-700 prose-a:text-emerald-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-gray-800 prose-blockquote:border-l-emerald-400 prose-blockquote:bg-emerald-50/40 prose-blockquote:py-0.5 prose-blockquote:not-italic prose-blockquote:text-gray-700 prose-figure:mx-auto prose-figure:my-10 prose-figcaption:text-center prose-figcaption:text-xs prose-figcaption:text-gray-500 prose-img:mx-auto prose-img:rounded-md"
           // eslint-disable-next-line react/no-danger -- 自サイトのnote記事から取得した本文のため信頼できる
           dangerouslySetInnerHTML={{ __html: article.contentHtml }}
         />
       </article>
+
+      {/* 記事末尾CTA */}
+      <ArticleCta />
 
       {/* 記事一覧に戻る */}
       <div className="mx-auto mt-20 w-[88%] max-w-[820px]">

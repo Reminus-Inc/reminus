@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { articles } from "@/app/blog/_articles";
 import { SectionHeader } from "@/app/_components/ui/section-header";
+import { PrimaryButton } from "@/app/_components/ui/primary-button";
 import { cn } from "@/lib/utils";
 
 const MAX_ITEMS = 3;
@@ -24,11 +25,11 @@ export function Blog({ className }: { className?: string }) {
           align="center"
           headingClassName="text-3xl sm:text-[40px] !leading-[1.7]"
         >
-          お役立ち情報
+          コラム
         </SectionHeader>
 
-        <p className="mt-6 text-center text-sm !leading-[1.8] tracking-wide text-gray-800 sm:text-base md:text-lg">
-          非エンジニア経営者向けに技術・エンジニア採用の実践知や考え方を発信しています。
+        <p className="mt-6 text-left sm:text-center  text-sm !leading-[1.8] tracking-wide text-gray-800 sm:text-base md:text-lg">
+          SaaSと技術の最前線で成果を出しているReminusが、<br className="hidden md:block"/>具体的で今日からお役に立つ情報を提供しています。
         </p>
 
         {items.length > 0 && (
@@ -68,13 +69,9 @@ export function Blog({ className }: { className?: string }) {
         )}
 
         <div className="mt-12 flex justify-center sm:mt-16">
-          <Link
-            href="/blog/"
-            className="group inline-flex items-center gap-3 rounded-full border border-emerald-500/30 bg-white px-8 py-3 text-sm font-bold tracking-wider text-emerald-600 shadow-sm transition-all duration-300 hover:border-emerald-500 hover:bg-emerald-50 hover:shadow-md sm:text-base"
-          >
-            記事一覧を見る
-            <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </Link>
+          <PrimaryButton variant="outlined" asChild>
+            <Link href="/blog/">記事一覧を見る</Link>
+          </PrimaryButton>
         </div>
       </div>
     </section>
