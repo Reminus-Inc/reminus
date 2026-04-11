@@ -29,8 +29,8 @@ export default function HomeC() {
         <ServiceMenu className="bg-gray-50" />
         <WhyReminus className="bg-white" />
         <Cta className="from-white to-gray-50" />
-        <Management className="bg-gray-50" />
         <Blog />
+        <Management className="bg-gray-50" />
         <DownloadRequest />
         <CompanyOverview />
       </div>

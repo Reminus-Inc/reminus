@@ -44,13 +44,13 @@ export function NavMenu({ variant }: { variant?: NavVariant } = {}) {
     variant === "c"
       ? [
           ["service-overview", "サービス概要"],
-          ["service-menu", "提供メニュー"],
           ["case-studies", "導入事例"],
+          ["blog", "ブログ"],
           ["management", "経営者紹介"],
         ]
       : [
           ["service-menu", "サービス概要"],
-          ["case-studies", "導入事例"],
+        ["case-studies", "導入事例"],
           ["management", "経営者紹介"],
         ];
   const menuItems = rawItems.map(([hash, label]) => ({
