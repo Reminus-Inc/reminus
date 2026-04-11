@@ -23,10 +23,10 @@ export default function BlogIndexPage() {
               BLOG
             </p>
           </div>
-          <h1 className="mt-2 text-xl font-bold !leading-[1.4] tracking-wider text-white md:text-2xl lg:text-[26px]">
+          <h1 className="mt-2 text-xl font-bold !leading-[1.4] tracking-wider text-white md:text-2xl md:text-2xl lg:text-3xl">
             ブログ / コラム
           </h1>
-          <p className="mt-2 max-w-[640px] text-xs !leading-[1.8] tracking-wide text-white/80 md:mt-2.5 md:text-[13px]">
+          <p className="mt-2 max-w-[640px] text-base !leading-[1.8] tracking-wide text-white/80 md:mt-2.5 md:text-base lg:text-lg ">
             Reminusのノウハウを発信します。
           </p>
         </div>
@@ -41,7 +41,7 @@ export default function BlogIndexPage() {
               href={`/blog/${article.slug}/`}
               className="group block"
             >
-              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-md bg-gray-100">
+              <div className="relative aspect-[16/9] w-full overflow-hidden bg-gray-100">
                 {article.thumbnail && (
                   <Image
                     src={article.thumbnail}

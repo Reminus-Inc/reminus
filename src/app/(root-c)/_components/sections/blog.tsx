@@ -40,7 +40,7 @@ export function Blog({ className }: { className?: string }) {
                 href={`/blog/${article.slug}/`}
                 className="group block"
               >
-                <div className="relative aspect-[16/9] w-full overflow-hidden rounded-md bg-gray-100">
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-gray-100">
                   {article.thumbnail && (
                     <Image
                       src={article.thumbnail}

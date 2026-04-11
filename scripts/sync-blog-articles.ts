@@ -151,7 +151,7 @@ async function syncArticle(
   const processedBody = await processBody(data.body, slug);
 
   const fileContent = `// 自動生成ファイル (scripts/sync-blog-articles.ts)
-import type { Article } from "./types";
+import type { Article } from "../types";
 
 export const article: Article = {
   slug: ${JSON.stringify(slug)},
@@ -171,15 +171,13 @@ export const article: Article = {
   console.log(`  ✓ saved: ${destFile}`);
 }
 
-/** 既存の _articles/*.ts から noteKey → slug マッピングを構築 */
+/** 既存の _articles/content/*.ts から noteKey → slug マッピングを構築 */
 async function readExistingMap(): Promise<Map<string, string>> {
   const map = new Map<string, string>();
   try {
     const files = await readdir(ARTICLES_DIR);
     for (const file of files) {
-      if (!file.endsWith(".ts") || file === "types.ts" || file === "index.ts") {
-        continue;
-      }
+      if (!file.endsWith(".ts")) continue;
       const content = await readFile(path.join(ARTICLES_DIR, file), "utf-8");
       const noteKeyMatch = content.match(/noteKey:\s*"([^"]+)"/);
       const slugMatch = content.match(/slug:\s*"([^"]+)"/);
@@ -193,6 +191,42 @@ async function readExistingMap(): Promise<Map<string, string>> {
   return map;
 }
 
+/** content/*.ts をスキャンして index.ts を再生成 */
+async function regenerateIndex(): Promise<void> {
+  const files = (await readdir(ARTICLES_DIR))
+    .filter((f) => f.endsWith(".ts"))
+    .sort();
+
+  const entries: Array<{ slug: string; varName: string }> = [];
+  for (const file of files) {
+    const slug = file.replace(/\.ts$/, "");
+    // kebab-case → camelCase
+    const varName = slug.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
+    entries.push({ slug, varName });
+  }
+
+  const imports = entries
+    .map((e) => `import { article as ${e.varName} } from "./content/${e.slug}";`)
+    .join("\n");
+  const arrayItems = entries.map((e) => e.varName).join(", ");
+
+  const content = `import type { Article } from "./types";
+${imports}
+
+// 新しい順
+export const articles: Article[] = [${arrayItems}].sort(
+  (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+);
+
+export function getArticleBySlug(slug: string): Article | undefined {
+  return articles.find((a) => a.slug === slug);
+}
+`;
+
+  await writeFile(INDEX_FILE, content);
+  console.log(`  ✓ index regenerated: ${entries.length} article(s)`);
+}
+
 async function main() {
   const [arg1, arg2] = process.argv.slice(2);
 
@@ -202,6 +236,7 @@ async function main() {
     const rssItem = rssItems.find((item) => item.link.includes(arg1));
     const thumbnail = rssItem?.["media:thumbnail"] || "";
     await syncArticle(arg1, arg2, thumbnail);
+    await regenerateIndex();
     console.log(`\n✅ Done`);
     return;
   }
@@ -223,6 +258,7 @@ async function main() {
     synced += 1;
   }
 
+  await regenerateIndex();
   console.log(`\n✅ Done: ${synced} article(s)`);
 }
 
