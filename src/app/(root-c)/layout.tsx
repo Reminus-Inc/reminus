@@ -1,4 +1,4 @@
-import { Header } from "./_components/layout/header";
+import { Header } from "@/app/_components/layout/header";
 
 export default async function TopCLayout({
   children,
@@ -7,7 +7,7 @@ export default async function TopCLayout({
 }) {
   return (
     <>
-      <Header />
+      <Header variant="c" />
       <main>{children}</main>
     </>
   );

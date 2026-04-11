@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import { Blog } from "../_components/sections/blog";
 import { CaseStudies } from "../_components/sections/case-studies";
 import { ClientLogos } from "@/app/_components/sections/client-logos";
 import { CompanyOverview } from "@/app/_components/sections/company-overview";
-import { News } from "@/app/_components/sections/news";
 import { Cta } from "../_components/sections/cta";
 import { FirstView } from "../_components/sections/first-view";
 import { Management } from "@/app/_components/sections/management";
@@ -30,7 +30,7 @@ export default function HomeC() {
         <WhyReminus className="bg-white" />
         <Cta className="from-white to-gray-50" />
         <Management className="bg-gray-50" />
-        <News />
+        <Blog />
         <DownloadRequest />
         <CompanyOverview />
       </div>

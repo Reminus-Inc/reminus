@@ -11,10 +11,14 @@ import { ContactButton } from "../ui/contact-button";
 import { cn } from "@/lib/utils";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
 
-export function NavMenu() {
+export type NavVariant = "b" | "c";
+
+export function NavMenu({ variant }: { variant?: NavVariant } = {}) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-  const isHomePage = pathname === "/";
+  const homePath = variant ? `/${variant}` : "/";
+  const ctaPrefix = variant === "c" ? "/c" : "";
+  const isHomePage = pathname === homePath;
 
   useEffect(() => {
     if (isOpen) {
@@ -36,17 +40,23 @@ export function NavMenu() {
     };
   }, [isOpen]);
 
-  const menuItems = [
-    {
-      href: isHomePage ? "#service-menu" : "/#service-menu",
-      label: "サービス概要",
-    },
-    {
-      href: isHomePage ? "#case-studies" : "/#case-studies",
-      label: "導入事例",
-    },
-    { href: isHomePage ? "#management" : "/#management", label: "経営者紹介" },
-  ];
+  const rawItems: Array<[string, string]> =
+    variant === "c"
+      ? [
+          ["service-overview", "サービス概要"],
+          ["service-menu", "提供メニュー"],
+          ["case-studies", "導入事例"],
+          ["management", "経営者紹介"],
+        ]
+      : [
+          ["service-menu", "サービス概要"],
+          ["case-studies", "導入事例"],
+          ["management", "経営者紹介"],
+        ];
+  const menuItems = rawItems.map(([hash, label]) => ({
+    href: isHomePage ? `#${hash}` : `${homePath}#${hash}`,
+    label,
+  }));
 
   const handleLinkClick = (
     e?: React.MouseEvent<HTMLAnchorElement>,
@@ -104,8 +114,8 @@ export function NavMenu() {
 
         {/* CTA ボタン */}
         <div className="flex items-center space-x-4">
-          <DownloadButton size="small" />
-          <ContactButton size="small" />
+          <DownloadButton size="small" href={`${ctaPrefix}/download`} />
+          <ContactButton size="small" href={`${ctaPrefix}/contact`} />
         </div>
       </div>
 
@@ -113,8 +123,12 @@ export function NavMenu() {
       <div className="hidden items-center space-x-4 md:flex lg:hidden">
         {/* CTA ボタン */}
         <div className="flex items-center space-x-3">
-          <DownloadButton size="small" className="min-w-[140px]" />
-          <ContactButton size="small" />
+          <DownloadButton
+            size="small"
+            className="min-w-[140px]"
+            href={`${ctaPrefix}/download`}
+          />
+          <ContactButton size="small" href={`${ctaPrefix}/contact`} />
         </div>
 
         {/* ハンバーガーボタン */}
@@ -175,11 +189,13 @@ export function NavMenu() {
               <DownloadButton
                 size="small"
                 fullWidth
+                href={`${ctaPrefix}/download`}
                 onClick={() => setTimeout(() => setIsOpen(false), 300)}
               />
               <ContactButton
                 size="small"
                 fullWidth
+                href={`${ctaPrefix}/contact`}
                 onClick={() => setTimeout(() => setIsOpen(false), 300)}
               />
             </div>

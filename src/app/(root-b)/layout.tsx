@@ -7,7 +7,7 @@ export default async function TopBLayout({
 }) {
   return (
     <>
-      <Header />
+      <Header variant="b" />
       <main>{children}</main>
     </>
   );
