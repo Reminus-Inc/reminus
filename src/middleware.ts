@@ -39,6 +39,12 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // クローラには常に variant a（/）を見せる
+  const ua = request.headers.get("user-agent") ?? "";
+  if (/Googlebot|bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|facebookexternalhit|Twitterbot|LinkedInBot|bot|crawl|spider/i.test(ua)) {
+    return NextResponse.next();
+  }
+
   const variant =
     existingVariant && VARIANTS.includes(existingVariant as (typeof VARIANTS)[number])
       ? existingVariant
