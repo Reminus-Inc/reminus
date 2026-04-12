@@ -8,7 +8,6 @@ export const metadata: Metadata = {
   title: "Blog | Reminus",
   description:
     "Reminusの技術・経営・SaaSに関するお役立ち情報をお届けします。",
-  robots: { index: false, follow: false }, // 一旦noindex（本番公開時に外す）
 };
 
 export default function BlogIndexPage() {

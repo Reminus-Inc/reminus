@@ -18,10 +18,7 @@ export const metadata: Metadata = {
   title: "CTO採用支援 | 株式会社Reminus（レミナス）",
   description:
     "CTO代行で培った知見を活かし、CTO・エンジニアマネージャーの採用を支援。媒体選定・スカウト・面接設計・オファーまで一気通貫でサポートします。",
-  robots: {
-    index: false,
-    follow: false,
-  },
+  robots: { index: false, follow: false },
   openGraph: {
     title: "CTO採用支援 | 株式会社Reminus（レミナス）",
     description:

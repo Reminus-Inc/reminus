@@ -23,7 +23,6 @@ export async function generateMetadata({
   return {
     title: `${article.title} | Reminus Blog`,
     description: article.description || undefined,
-    robots: { index: false, follow: false }, // 一旦noindex
     openGraph: {
       title: article.title,
       description: article.description || undefined,
