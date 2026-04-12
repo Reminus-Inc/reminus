@@ -71,7 +71,7 @@ export function ServiceOverview({ className }: { className?: string }) {
       id="service-overview"
       className={cn("content-auto py-24 font-sans sm:py-32", className)}
     >
-      <div className="mx-auto w-[88%] max-w-[1200px] md:w-[86%]">
+      <div className="mx-auto w-[88%] max-w-[1000px] md:w-[86%]">
         <SectionHeader
           label="Feature"
           align="center"
@@ -80,16 +80,16 @@ export function ServiceOverview({ className }: { className?: string }) {
           サービスの特長
         </SectionHeader>
 
-        <div className="mt-16 flex flex-col gap-16 lg:gap-8 xl:gap-0">
+        <div className="mt-16 flex flex-col gap-16 lg:gap-12">
           {features.map((feature, index) => (
             <div
               key={index}
               className={cn(
-                "flex flex-col-reverse items-center gap-6 sm:gap-10 md:gap-20",
+                "flex flex-col-reverse items-center gap-8 sm:gap-12 lg:gap-16",
                 index % 2 === 1 ? "sm:flex-row-reverse" : "sm:flex-row"
               )}
             >
-              <div className="max-w-[180px] shrink-0 md:max-w-[240px] lg:max-w-[320px]">
+              <div className="max-w-[200px] shrink-0 md:max-w-[280px] lg:max-w-[360px]">
                 <Image
                   src={feature.image}
                   width={320}
@@ -98,11 +98,11 @@ export function ServiceOverview({ className }: { className?: string }) {
                   className={feature.imageClassName}
                 />
               </div>
-              <div className="flex flex-col gap-4 lg:gap-5">
+              <div className="flex max-w-[600px] flex-col gap-4 lg:gap-5">
                 <p className="text-lg font-bold !leading-[1.6] tracking-wide text-gray-800 sm:text-xl md:text-2xl lg:text-3xl">
                   {feature.title}
                 </p>
-                <p className="whitespace-pre-line text-sm !leading-[1.8] md:!leading-[1.9] tracking-wide text-gray-800 sm:text-base md:text-lg lg:max-w-[600px]">
+                <p className="whitespace-pre-line text-sm !leading-[1.8] md:!leading-[1.9] tracking-wide text-gray-800 sm:text-base md:text-lg">
                   {feature.points.join("")}
                 </p>
               </div>
