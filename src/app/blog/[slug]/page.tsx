@@ -48,8 +48,58 @@ export default async function BlogArticlePage({
     .filter((a) => a.slug !== article.slug)
     .slice(0, 3);
 
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: article.title,
+      description: article.description || undefined,
+      image: article.thumbnail || undefined,
+      datePublished: article.publishedAt,
+      author: {
+        "@type": "Organization",
+        name: "株式会社Reminus",
+        url: "https://www.reminus.co.jp",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "株式会社Reminus",
+        url: "https://www.reminus.co.jp",
+      },
+      mainEntityOfPage: `https://www.reminus.co.jp/blog/${slug}/`,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://www.reminus.co.jp/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Blog",
+          item: "https://www.reminus.co.jp/blog/",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: article.title,
+          item: `https://www.reminus.co.jp/blog/${slug}/`,
+        },
+      ],
+    },
+  ];
+
   return (
     <div className="bg-white font-sans">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* パンくず */}
       <div className="mx-auto w-[88%] max-w-[820px] pt-6 md:pt-10">
         <nav className="flex items-center gap-1.5 text-xs text-gray-500 md:text-sm">

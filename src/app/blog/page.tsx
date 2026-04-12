@@ -21,6 +21,37 @@ export const metadata: Metadata = {
 export default function BlogIndexPage() {
   return (
     <div className="min-h-[calc(100svh-80px)] bg-white pb-20 font-sans md:pb-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "CollectionPage",
+              name: "ブログ | Reminus",
+              url: "https://www.reminus.co.jp/blog/",
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://www.reminus.co.jp/",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Blog",
+                  item: "https://www.reminus.co.jp/blog/",
+                },
+              ],
+            },
+          ]),
+        }}
+      />
       {/* ヒーロー */}
       <div className="bg-emerald-600 pb-7 pt-7 md:pb-9 md:pt-10 lg:pb-10 lg:pt-11">
         <div className="mx-auto w-[88%] max-w-[1100px]">
