@@ -44,7 +44,7 @@ export default function BlogIndexPage() {
                 {
                   "@type": "ListItem",
                   position: 2,
-                  name: "ブログ / コラム",
+                  name: "ブログ/コラム",
                   item: "https://www.reminus.co.jp/blog/",
                 },
               ],
