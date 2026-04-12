@@ -64,15 +64,11 @@ export function Problem({ className }: ProblemProps) {
           <div className="h-0 w-0 border-l-[40px] border-r-[40px] border-t-[34px] border-l-transparent border-r-transparent border-t-white sm:border-l-[60px] sm:border-r-[60px] sm:border-t-[50px]" />
         </div>
 
-        <div className="mx-auto w-[88%] max-w-[1200px] pb-14 pt-8 text-center sm:pb-18 sm:pt-10">
-          <p className="text-xl font-bold !leading-[1.6] tracking-wider text-white min-[375px]:text-[23px] sm:text-3xl md:text-4xl">
-            そのお悩み、
-            <span className="whitespace-nowrap">CTO代行にお任せください！</span>
-          </p>
-          <p className="mt-6 text-base font-medium !leading-[1.8] tracking-wider text-white sm:text-lg md:text-xl lg:mt-8 lg:text-[22px]">
+        <div className="mx-auto w-[88%] max-w-[1200px] pb-11 pt-8 text-center sm:pb-12 sm:pt-10 lg:pb-16 lg:pt-11">
+          <p className="text-lg font-bold !leading-[1.7] tracking-wider text-white min-[375px]:text-xl sm:text-2xl md:text-3xl">
             Reminus CTOパートナーは、
             <br />
-            SaaS事業にまつわる技術の課題を解決するCTO代行サービスです。
+            SaaS事業の技術の課題を解決するCTO代行サービスです。
           </p>
         </div>
       </div>

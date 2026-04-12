@@ -24,10 +24,6 @@ export function ClientLogos() {
           />
         </div>
       </div>
-
-      <p className="mt-3 flex justify-center font-sans text-[10px] text-gray-400">
-        <span className="font-sans">※一部CTOパートナー以外を含む</span>
-      </p>
     </div>
   );
 }
