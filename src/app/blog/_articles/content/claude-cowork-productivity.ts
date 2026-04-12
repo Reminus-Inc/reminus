@@ -5,7 +5,7 @@ export const article: Article = {
   slug: "claude-cowork-productivity",
   noteKey: "n484379bce75e",
   title: "CTO代行も認めるClaude Cowork。営業・CS・マーケ・人事もAIで生産性2倍の時代",
-  description: "",
+  description: "商談中にAIがフォローアップメールを送り、見積書作成中にスカウトを送信。Claude Coworkが営業・CS・マーケ・人事などフロント職にもたらす生産性革命を、CTO代行の技術者・経営者目線で解説します。",
   publishedAt: "2026-03-10T13:48:28.000Z",
   publishedAtLabel: "2026/03/10",
   thumbnail: "/blog/claude-cowork-productivity/rectangle_large_type_2_c2103c8eb844dfb44f6a59d00c359afe.png",

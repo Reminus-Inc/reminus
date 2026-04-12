@@ -5,7 +5,7 @@ export const article: Article = {
   slug: "mvp-vs-maximum",
   noteKey: "n6b0729817b95",
   title: "MVP、気づいたら Maximum になってませんか？",
-  description: "",
+  description: "MVPのつもりがいつの間にかフルパッケージに。CTO代行の現場で頻出する「Maximum Viable Product」問題の原因と、本当に最小限で価値検証を回すための考え方を、開発・営業両方の経験から解説します。",
   publishedAt: "2025-12-01T06:59:49.000Z",
   publishedAtLabel: "2025/12/01",
   thumbnail: "/blog/mvp-vs-maximum/rectangle_large_type_2_e9473a16ecbf67b9f329d378341a5601.png",
