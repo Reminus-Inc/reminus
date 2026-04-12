@@ -7,7 +7,15 @@ import { articles } from "./_articles";
 export const metadata: Metadata = {
   title: "Blog | Reminus",
   description:
-    "Reminusの技術・経営・SaaSに関するお役立ち情報をお届けします。",
+    "SaaSと技術の最前線で成果を出しているReminusが、具体的で今日からお役に立つ情報を提供しています。",
+  alternates: { canonical: "/blog/" },
+  openGraph: {
+    title: "ブログ | Reminus",
+    description:
+      "SaaSと技術の最前線で成果を出しているReminusが、具体的で今日からお役に立つ情報を提供しています。",
+    url: "/blog/",
+    type: "website",
+  },
 };
 
 export default function BlogIndexPage() {

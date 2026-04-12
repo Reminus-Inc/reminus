@@ -23,9 +23,11 @@ export async function generateMetadata({
   return {
     title: `${article.title} | Reminus Blog`,
     description: article.description || undefined,
+    alternates: { canonical: `/blog/${slug}/` },
     openGraph: {
       title: article.title,
       description: article.description || undefined,
+      url: `/blog/${slug}/`,
       images: article.thumbnail ? [article.thumbnail] : undefined,
       type: "article",
       publishedTime: article.publishedAt,
