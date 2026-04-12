@@ -166,32 +166,6 @@ const formSchema = z.object({
     .string()
     .max(5000, { message: "お問い合わせ内容は5000文字以内で入力してください" })
     .optional(),
-}).superRefine((data, ctx) => {
-  const domain = data.email.split('@')[1]?.toLowerCase();
-
-  // 使い捨てメールドメインは完全にブロック
-  if (disposableEmailDomains.includes(domain)) {
-    ctx.addIssue({
-      code: z.ZodIssueCode.custom,
-      message: "エラーが発生しました",
-      path: ['email'],
-    });
-    return;
-  }
-
-  // 個人メールドメインの場合、会社名に許可キーワードが含まれているかチェック
-  if (personalEmailDomains.includes(domain)) {
-    const companyLower = data.company.toLowerCase();
-    const hasAllowedKeyword = allowedKeywords.some(keyword => companyLower.includes(keyword));
-
-    if (!hasAllowedKeyword) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        message: "メールアドレス: 個人の方はお問い合わせからご連絡ください",
-        path: ['email'],
-      });
-    }
-  }
 });
 
 // 一般的な個人メールドメイン（条件付きで許可）
