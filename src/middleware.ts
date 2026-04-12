@@ -16,6 +16,13 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const existingVariant = request.cookies.get(AB_TEST_COOKIE)?.value;
 
+  // /a: cookie を a に固定して / にリダイレクト（URL は / として表示される）
+  if (pathname === "/a") {
+    const response = NextResponse.redirect(new URL("/", request.url));
+    response.cookies.set(AB_TEST_COOKIE, "a", COOKIE_OPTIONS);
+    return response;
+  }
+
   // /b, /c のトップへの直接アクセスは、そのバリアントに cookie を合わせる
   // (共有リンク等で直接 B/C トップに来た人も以降一貫して同じバリアントで見せる)
   if (pathname === "/b" || pathname === "/c") {
@@ -58,5 +65,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/", "/b", "/c"],
+  matcher: ["/", "/a", "/b", "/c"],
 };
