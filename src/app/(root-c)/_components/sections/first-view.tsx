@@ -28,7 +28,7 @@ export function FirstView() {
           />
         </div>
         <div className="bleed lg:bleed-none relative z-[1] -mt-4 px-4 lg:mt-12 lg:px-0">
-          <CustomDownloadButton title="資料ダウンロード" className="lg:-ml-2" href="/c/download" />
+          <CustomDownloadButton title="資料ダウンロード" subtitle="Reminus CTOパートナー" className="lg:-ml-2" href="/c/download" />
         </div>
       </div>
 

@@ -113,7 +113,7 @@ export function ServiceOverview({ className }: { className?: string }) {
         <div className="bleed mt-16 px-4">
           <CustomDownloadButton
             title="資料ダウンロード"
-            subtitle="詳細事例とプランを公開中"
+            subtitle="提供内容と事例を公開中"
             href="/c/download"
           />
         </div>

@@ -1,3 +1,4 @@
+import { CustomDownloadButton } from "@/app/_components/ui/download-button";
 import { SectionHeader } from "@/app/_components/ui/section-header";
 import { cn } from "@/lib/utils";
 import { Fragment } from "react";
@@ -137,6 +138,14 @@ export function ServiceMenu({ className }: { className?: string }) {
               </Fragment>
             );
           })}
+        </div>
+
+        <div className="bleed mt-16 px-4">
+          <CustomDownloadButton
+            title="資料ダウンロード"
+            subtitle="Reminus CTOパートナー"
+            href="/c/download"
+          />
         </div>
       </div>
     </section>
