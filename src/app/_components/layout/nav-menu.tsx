@@ -50,7 +50,7 @@ export function NavMenu({ variant }: { variant?: NavVariant } = {}) {
         ]
       : [
           ["service-menu", "サービス概要"],
-        ["case-studies", "導入事例"],
+          ["case-studies", "導入事例"],
           ["management", "経営者紹介"],
         ];
   const menuItems = rawItems.map(([hash, label]) => ({
@@ -190,13 +190,13 @@ export function NavMenu({ variant }: { variant?: NavVariant } = {}) {
                 size="small"
                 fullWidth
                 href={`${ctaPrefix}/download`}
-                onClick={() => setTimeout(() => setIsOpen(false), 300)}
+                onClick={() => setIsOpen(false)}
               />
               <ContactButton
                 size="small"
                 fullWidth
                 href={`${ctaPrefix}/contact`}
-                onClick={() => setTimeout(() => setIsOpen(false), 300)}
+                onClick={() => setIsOpen(false)}
               />
             </div>
           </motion.div>
