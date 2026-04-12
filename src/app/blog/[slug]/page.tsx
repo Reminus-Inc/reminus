@@ -53,9 +53,10 @@ export default async function BlogArticlePage({
       "@context": "https://schema.org",
       "@type": "BlogPosting",
       headline: article.title,
-      description: article.description || undefined,
-      image: article.thumbnail || undefined,
+      ...(article.description && { description: article.description }),
+      ...(article.thumbnail && { image: article.thumbnail }),
       datePublished: article.publishedAt,
+      dateModified: article.publishedAt,
       author: {
         "@type": "Organization",
         name: "株式会社Reminus",
@@ -75,13 +76,13 @@ export default async function BlogArticlePage({
         {
           "@type": "ListItem",
           position: 1,
-          name: "Home",
+          name: "ホーム",
           item: "https://www.reminus.co.jp/",
         },
         {
           "@type": "ListItem",
           position: 2,
-          name: "Blog",
+          name: "ブログ/コラム",
           item: "https://www.reminus.co.jp/blog/",
         },
         {
@@ -101,17 +102,13 @@ export default async function BlogArticlePage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       {/* パンくず */}
-      <div className="mx-auto w-[88%] max-w-[820px] pt-6 md:pt-10">
-        <nav className="flex items-center gap-1.5 text-xs text-gray-500 md:text-sm">
-          <Link href="/" className="hover:text-emerald-600">
-            Home
-          </Link>
-          <ChevronRight className="size-3.5" />
-          <Link href="/blog/" className="hover:text-emerald-600">
-            Blog
-          </Link>
-          <ChevronRight className="size-3.5" />
-          <span className="truncate text-gray-400">{article.title}</span>
+      <div className="mx-auto w-[88%] max-w-[820px] pt-5 md:pt-7">
+        <nav className="text-xs text-gray-400 md:text-sm">
+          <Link href="/" className="hover:text-emerald-600">ホーム</Link>
+          <span className="mx-1">&gt;</span>
+          <Link href="/blog/" className="hover:text-emerald-600">ブログ/コラム</Link>
+          <span className="mx-1">&gt;</span>
+          <span className="text-gray-500">{article.title}</span>
         </nav>
       </div>
 
@@ -123,7 +120,7 @@ export default async function BlogArticlePage({
             BLOG
           </p>
         </div>
-        <h1 className="mt-5 text-2xl font-bold !leading-[1.5] tracking-wider text-gray-800 md:text-[34px] md:!leading-[1.55]">
+        <h1 className="mt-5 text-xl font-bold !leading-[1.5] tracking-wider text-gray-800 md:text-[28px] md:!leading-[1.55]">
           {article.title}
         </h1>
         <div className="mt-6 flex items-center gap-3 text-xs text-gray-500 md:text-sm">

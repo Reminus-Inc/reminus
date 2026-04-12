@@ -33,7 +33,7 @@ export function Blog({ className }: { className?: string }) {
         </p>
 
         {items.length > 0 && (
-          <div className="mt-12 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-12">
             {items.map((article) => (
               <Link
                 key={article.slug}
@@ -46,20 +46,19 @@ export function Blog({ className }: { className?: string }) {
                       src={article.thumbnail}
                       alt={article.title}
                       fill
-                      sizes="(min-width: 1024px) 340px, (min-width: 640px) 50vw, 86vw"
-                      className="object-cover transition-transform duration-[600ms] group-hover:scale-[1.04]"
+                      sizes="(min-width: 1024px) 340px, (min-width: 640px) 50vw, 88vw"
+                      className="object-cover transition-transform duration-[600ms] group-hover:scale-[1.04] border-2 border-gray-200"
                     />
                   )}
                 </div>
                 <div className="mt-4">
-                  <div className="flex items-center gap-3">
-                    <time className="text-xs font-medium tracking-wider text-gray-500">
+                  <div className="flex items-center gap-2">
+                    <time className="text-[11px] font-medium tracking-wider text-gray-500 md:text-xs">
                       {article.publishedAtLabel}
                     </time>
-                    <span className="h-px flex-1 bg-gray-200" />
-                    <ArrowUpRight className="size-4 text-gray-400 transition-colors group-hover:text-emerald-600" />
+                    <ArrowUpRight className="size-3.5 text-gray-400 transition-colors group-hover:text-emerald-600" />
                   </div>
-                  <h3 className="mt-2.5 text-base font-bold !leading-[1.7] tracking-wide text-gray-800 transition-colors group-hover:text-emerald-600 md:text-lg">
+                  <h3 className="mt-2.5 text-[15px] font-bold !leading-[1.65] tracking-wide text-gray-800 transition-colors group-hover:text-emerald-600 md:text-base">
                     {article.title}
                   </h3>
                 </div>

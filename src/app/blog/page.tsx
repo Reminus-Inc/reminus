@@ -38,13 +38,13 @@ export default function BlogIndexPage() {
                 {
                   "@type": "ListItem",
                   position: 1,
-                  name: "Home",
+                  name: "ホーム",
                   item: "https://www.reminus.co.jp/",
                 },
                 {
                   "@type": "ListItem",
                   position: 2,
-                  name: "Blog",
+                  name: "ブログ / コラム",
                   item: "https://www.reminus.co.jp/blog/",
                 },
               ],
@@ -68,6 +68,15 @@ export default function BlogIndexPage() {
             Reminusのノウハウを発信します。
           </p>
         </div>
+      </div>
+
+      {/* パンくず */}
+      <div className="mx-auto w-[88%] max-w-[1100px] pt-5 md:pt-7">
+        <nav className="text-xs text-gray-400 md:text-sm">
+          <Link href="/" className="hover:text-emerald-600">ホーム</Link>
+          <span className="mx-1">&gt;</span>
+          <span className="text-gray-500">ブログ/コラム</span>
+        </nav>
       </div>
 
       {/* 記事一覧 */}
@@ -99,7 +108,6 @@ export default function BlogIndexPage() {
                 </div>
                 <h2 className="mt-2.5 text-[15px] font-bold !leading-[1.65] tracking-wide text-gray-800 transition-colors group-hover:text-emerald-600 md:text-base">
                   {article.title}
-
                 </h2>
               </div>
             </Link>
