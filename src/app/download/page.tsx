@@ -18,10 +18,6 @@ export default function DownloadPage() {
         <div className="flex w-full flex-col justify-center gap-8 md:flex-row md:gap-14 lg:gap-16">
           <div>
             <h1 className="text-2xl font-bold !leading-[1.3] tracking-wide text-gray-800 md:text-3xl">
-              <span className="text-[60%]">
-                <span className="text-[105%]">3</span>分でわかる!
-              </span>
-              <br />
               <span className="whitespace-nowrap">
                 <span className="text-[105%]">CTO</span>代行
               </span>
