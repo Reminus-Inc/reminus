@@ -51,8 +51,8 @@ export function Problem({ className }: ProblemProps) {
           {problems.map(({ icon: Icon, title, description }, i) => (
             <div key={i} className="flex max-w-[240px] flex-col items-center">
               <h3 className="flex items-center gap-1 text-[13px] font-bold !leading-[1.5] tracking-wide text-gray-500 sm:text-sm md:gap-1.5 md:text-lg xl:text-xl">
-                {title}
                 <Cloudy strokeWidth={2} className="size-3.5 flex-none sm:size-4 md:size-5" />
+                {title}
               </h3>
               <div className="mt-3 flex size-24 items-center justify-center rounded-full bg-gray-100 sm:mt-4 sm:size-28 md:mt-5 md:size-32 xl:size-40">
                 <Icon
