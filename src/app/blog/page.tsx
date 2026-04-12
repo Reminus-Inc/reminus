@@ -15,6 +15,7 @@ export const metadata: Metadata = {
       "SaaSと技術の最前線で成果を出しているReminusが、具体的で今日からお役に立つ情報を提供しています。",
     url: "/blog/",
     type: "website",
+    images: ["/opengraph-image.png"],
   },
 };
 
