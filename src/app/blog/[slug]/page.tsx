@@ -22,15 +22,21 @@ export async function generateMetadata({
   if (!article) return {};
   return {
     title: `${article.title} | Reminus Blog`,
-    description: article.description || undefined,
+    description: article.description,
     alternates: { canonical: `/blog/${slug}/` },
     openGraph: {
       title: article.title,
-      description: article.description || undefined,
+      description: article.description,
       url: `/blog/${slug}/`,
       images: article.thumbnail ? [article.thumbnail] : undefined,
       type: "article",
       publishedTime: article.publishedAt,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: article.title,
+      description: article.description || undefined,
+      ...(article.thumbnail ? { images: [article.thumbnail] } : {}),
     },
   };
 }

@@ -5,7 +5,7 @@ export const article: Article = {
   slug: "founder-engineer-communication",
   noteKey: "nde0f56a019cf",
   title: "スタートアップ経営者のためのエンジニアとのコミュニケーション術",
-  description: "",
+  description: "「エンジニアと会話が噛み合わない」と悩む経営者へ。HOWを聞かない・WHYに目線を向ける・WHYを預けるの3ステップで、開発と経営の認識ズレを解消するコミュニケーション術を解説します。",
   publishedAt: "2025-10-29T00:46:11.000Z",
   publishedAtLabel: "2025/10/29",
   thumbnail: "/blog/founder-engineer-communication/rectangle_large_type_2_f031c2767eaae36941c37bfe714f2758.png",

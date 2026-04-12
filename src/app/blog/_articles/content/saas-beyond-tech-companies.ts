@@ -5,7 +5,7 @@ export const article: Article = {
   slug: "saas-beyond-tech-companies",
   noteKey: "n419bdd67a2e6",
   title: "SaaSをやるのは「テックカンパニー」ばかりじゃなくていい",
-  description: "",
+  description: "SaaSはテックカンパニーだけのものではない。AIで開発ハードルが下がった今、勝敗を分けるのは業界解像度と意思決定の質。業界知見を武器にSaaSに挑戦する企業が増えている背景と戦い方を解説します。",
   publishedAt: "2026-01-20T07:16:59.000Z",
   publishedAtLabel: "2026/01/20",
   thumbnail: "/blog/saas-beyond-tech-companies/rectangle_large_type_2_67bc0c4b3c86008294b51818412c9088.png",

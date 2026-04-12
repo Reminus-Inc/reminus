@@ -5,7 +5,7 @@ export const article: Article = {
   slug: "saas-ai-survival",
   noteKey: "n9c3ea4960a8b",
   title: "「SaaSの死」は本当か？AI時代に生き残るSaaSとは",
-  description: "",
+  description: "「SaaSの死」が囁かれる今、CACの高騰とLTVの構造変化にどう向き合うか。業界解像度・AIエージェント活用・顧客満足度の3軸から、AI時代に生き残るSaaSの条件をマーケティング視点で解説します。",
   publishedAt: "2026-04-10T04:52:15.000Z",
   publishedAtLabel: "2026/04/10",
   thumbnail: "/blog/saas-ai-survival/rectangle_large_type_2_77ff75399bd895abab84b65be372f63d.png",

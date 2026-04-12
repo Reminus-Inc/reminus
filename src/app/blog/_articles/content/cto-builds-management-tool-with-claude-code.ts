@@ -5,7 +5,7 @@ export const article: Article = {
   slug: "cto-builds-management-tool-with-claude-code",
   noteKey: "nad8183aa8226",
   title: "CTO代行がClaude Codeで経営判断ツールを自作 ── 開発リソースはプロダクトに集中させる",
-  description: "",
+  description: "開発リソースはプロダクトに集中させたい。CTO代行がClaude Codeを使い、SaaS事業のP&Lシミュレーターを約5分で自作した実例を紹介。AIに何を作らせるかの設計思考と、Excel脱却のメリットを解説します。",
   publishedAt: "2026-04-02T10:22:38.000Z",
   publishedAtLabel: "2026/04/02",
   thumbnail: "/blog/cto-builds-management-tool-with-claude-code/rectangle_large_type_2_4bbda5e6d0a8eccbbc3bf5824b24eac4.png",

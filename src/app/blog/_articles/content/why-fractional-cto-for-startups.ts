@@ -5,7 +5,7 @@ export const article: Article = {
   slug: "why-fractional-cto-for-startups",
   noteKey: "n405e691421f9",
   title: "CTO代行がなぜ日本のスタートアップに必要なのか",
-  description: "",
+  description: "日本のスタートアップではCTOのフルタイム雇用が難しく、そもそも不要なケースも多い。一方で重要局面の技術判断は欠かせません。現役CTOが自らの経験をもとに、CTO代行という選択肢の合理性を解説します。",
   publishedAt: "2025-10-06T03:38:38.000Z",
   publishedAtLabel: "2025/10/06",
   thumbnail: "/blog/why-fractional-cto-for-startups/rectangle_large_type_2_cfeb09b85a44cbc6afc46df43a2b47b0.png",

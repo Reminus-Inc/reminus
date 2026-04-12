@@ -5,7 +5,7 @@ export const article: Article = {
   slug: "early-stage-cto-hiring",
   noteKey: "n639cb4643ad4",
   title: "アーリースタートアップにCTO採用は必要か",
-  description: "",
+  description: "プレシード〜シリーズAのスタートアップにCTO採用は本当に必要か。CTOの役割を戦略・マネジメント・プレイヤーに分解し、フェーズごとに最適な技術組織の作り方とCTO代行の活用法を解説します。",
   publishedAt: "2025-08-26T23:30:00.000Z",
   publishedAtLabel: "2025/08/27",
   thumbnail: "/blog/early-stage-cto-hiring/rectangle_large_type_2_d31680f50383761718ea5ec46a0d710e.png",
