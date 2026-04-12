@@ -65,16 +65,16 @@ export const CustomDownloadButton = ({
     "rounded-full w-full min-[400px]:w-fit h-auto mx-auto",
     "flex items-center ",
     "text-white",
-    "pl-6 sm:pl-10 pr-3 sm:pr-6 py-2.5",
-    "bg-gradient-to-r from-emerald-500 from-60% to-emerald-600/80",
+    "pl-6 min-[375px]:pl-8 sm:pl-10 pr-3 sm:pr-4 py-3 sm:py-4",
+    "bg-emerald-500",
     "relative overflow-hidden group",
-    "shadow-xl shadow-emerald-100/50",
+    "shadow-[0_8px_36px_16px_rgba(16,185,129,0.1),0_8px_18px_-2px_rgba(16,185,129,0.28)]",
     className
   );
 
   const content = (
     <>
-      <div className="relative z-[1] inline-flex w-full items-center justify-between gap-4 min-[400px]:gap-6">
+      <div className="relative z-[1] inline-flex w-full items-center justify-between gap-4 min-[400px]:gap-5">
         <div className="flex items-center gap-4 sm:gap-5">
           <div className="flex-shrink-0 border-[3px] border-solid border-slate-200">
             <Image
@@ -82,17 +82,17 @@ export const CustomDownloadButton = ({
               alt="資料イメージ"
               width={480}
               height={270}
-              className="max-w-[64px] object-contain min-[375px]:max-w-[80px] sm:max-w-[120px]"
+              className="max-w-[64px] object-contain min-[375px]:max-w-[72px] sm:max-w-[100px]"
             />
           </div>
 
-          <div className="flex flex-col justify-center gap-0.5 sm:gap-1">
+          <div className="flex flex-col justify-center gap-0.5 sm:gap-1.5">
             <span className="text-[10px] tracking-wider min-[375px]:text-[11px] sm:text-sm">
               {subtitle != null ? (
                 subtitle
               ) : (
                 <>
-                  <span className="relative -bottom-[1px] mr-[2px] text-lg font-bold !leading-[1] sm:text-xl md:text-2xl">
+                  <span className="relative -bottom-[1px] mr-[1px] text-[150%] font-bold !leading-[1]">
                     3
                   </span>
                   分でわかる! CTO代行
