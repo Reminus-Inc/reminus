@@ -1,36 +1,26 @@
 import { cn } from "@/lib/utils";
-import {
-  ClipboardList,
-  Shield,
-  Users,
-  Search,
-  MessageCircleQuestion,
-  Cloudy,
-  Cloud,
-  CloudRain,
-  CloudCog, CloudFog
-} from "lucide-react";
+import { ClipboardList, Shield, Users, Search } from "lucide-react";
 
 const problems = [
   {
     icon: ClipboardList,
     title: "開発の見通しが不透明",
-    description: "プロダクトの開発構想やスケジュール、開発体制が定まらない",
+    description: "プロダクトの開発構想やスケジュール、開発体制が定まらない...",
   },
   {
     icon: Shield,
     title: "技術判断ができない",
-    description: "障害やリスクを対策したい、社内に技術判断能力を持ちたい",
+    description: "障害やリスク対策をしたい、社内に技術判断能力を持ちたい...",
   },
   {
     icon: Users,
     title: "外注の課題",
-    description: "外注先の選定・管理ができない、外注から脱却したい",
+    description: "外注先の選定・管理ができない、外注から脱却したい...",
   },
   {
     icon: Search,
     title: "採用が進まない",
-    description: "エンジニアやCTOの採用の進め方がわからない",
+    description: "エンジニアやCTOの採用の進め方がわからない...",
   },
 ];
 
@@ -42,25 +32,24 @@ export function Problem({ className }: ProblemProps) {
     <section className={cn("content-auto font-sans", className)}>
       <div className="mx-auto w-[88%] max-w-[1200px] pb-20 pt-24 sm:pb-28 sm:pt-32">
         <h2 className="text-center text-xl font-bold !leading-[1.7] tracking-wider text-gray-800 min-[375px]:text-[22px] sm:text-2xl  md:text-3xl lg:text-4xl">
-          プロダクト開発のなかで
+          技術・プロダクトの
           <br />
-          こんな悩みありませんか？
+          こんな悩み、ありませんか？
         </h2>
 
-        <div className="mx-auto mt-10 grid max-w-[1100px] grid-cols-2 place-items-center gap-x-6 gap-y-8 sm:mt-14 sm:gap-x-10 sm:gap-y-10 lg:grid-cols-4 lg:place-items-start lg:gap-x-14">
+        <div className="mx-auto mt-10 grid max-w-[1000px] grid-cols-2 gap-x-6 gap-y-8 sm:mt-14 sm:gap-x-10 sm:gap-y-10 lg:grid-cols-4 lg:gap-x-12">
           {problems.map(({ icon: Icon, title, description }, i) => (
-            <div key={i} className="flex max-w-[240px] flex-col items-center">
-              <h3 className="flex items-center gap-1 text-[13px] font-bold !leading-[1.5] tracking-wide text-gray-500 sm:text-sm md:gap-1.5 md:text-lg xl:text-xl">
-                <Cloudy strokeWidth={2} className="size-3.5 flex-none sm:size-4 md:size-5" />
-                {title}
-              </h3>
-              <div className="mt-3 flex size-24 items-center justify-center rounded-full bg-gray-100 sm:mt-4 sm:size-28 md:mt-5 md:size-32 xl:size-40">
+            <div key={i} className="flex flex-col items-center">
+              <div className="flex size-12 items-center justify-center rounded-full bg-gray-100 sm:size-14 md:size-18 xl:size-20">
                 <Icon
-                  strokeWidth={1.5}
-                  className="size-8 text-gray-400 sm:size-9 md:size-14 xl:size-16"
+                  strokeWidth={1.8}
+                  className="size-5 text-gray-500 sm:size-6 md:size-8 xl:size-9"
                 />
               </div>
-              <p className="mt-3 self-start text-[11px] !leading-[1.7] tracking-wide text-gray-700 sm:mt-4 sm:text-xs md:mt-5 md:text-base xl:mt-6 xl:text-lg">
+              <h3 className="mt-3 text-[13px] font-bold !leading-[1.5] tracking-wide text-gray-800 sm:mt-4 sm:text-sm md:mt-5 md:text-lg xl:mt-6 xl:text-xl">
+                {title}
+              </h3>
+              <p className="mt-1.5 self-start text-[11px] !leading-[1.7] tracking-wide text-gray-500 sm:mt-2 sm:text-xs md:mt-3 md:text-base xl:mt-4 xl:text-lg">
                 {description}
               </p>
             </div>
