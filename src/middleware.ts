@@ -17,7 +17,7 @@ export function middleware(request: NextRequest) {
   const existingVariant = request.cookies.get(AB_TEST_COOKIE)?.value;
 
   // development 環境では A/B テストをスキップし、各バリアントをそのまま表示する
-  if (process.env.APP_ENVIRONMENT === "development") {
+  if (process.env.APP_ENVIRONMENT === "development" && process.env.ABTEST !== "enabled") {
     // /a は / にリダイレクト
     if (pathname === "/a") {
       const url = request.nextUrl.clone();
