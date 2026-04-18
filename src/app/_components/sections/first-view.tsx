@@ -80,11 +80,11 @@ const Description = ({ className }: { className?: string }) => {
         [
           {
             icon: UserRoundCheck,
-            text: "フェーズに応じて最適なCTO担当者が対応",
+            text: "フェーズに応じて最適なCTOが対応",
           },
           {
             icon: HeartHandshake,
-            text: "Reminusがチームの一員として内製推進",
+            text: "貴社チームの一員として内製推進",
           },
           { icon: Clock, text: "2ヶ月トライアル可" },
         ] as const
