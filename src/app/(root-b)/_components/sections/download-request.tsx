@@ -5,7 +5,7 @@ export const DownloadRequest = () => {
   return (
     <section
       id="download-request"
-      className="rounded-tr-[100px_75px] bg-gradient-to-br from-emerald-500 from-30% to-emerald-600 py-24 sm:py-32 md:rounded-tr-[200px_150px] font-sans content-auto"
+      className="rounded-tr-[100px_75px] bg-gradient-to-br from-emerald-500 from-30% to-emerald-600 py-24 sm:py-32 md:rounded-tr-[200px_150px]"
     >
       <div className="mx-auto w-[88%] max-w-[1200px]">
         <h2 className="text-center text-white">
@@ -22,7 +22,7 @@ export const DownloadRequest = () => {
             <p className="mb-8 text-sm !leading-[1.7] text-gray-700 sm:mb-10 md:text-base">
               フォーム送信後、 すぐに資料をご覧いただけます。
             </p>
-            <DownloadForm documentType={DOCUMENT_TYPE.CTO_PARTNER} formId="top-download-form" />
+            <DownloadForm documentType={DOCUMENT_TYPE.CTO_PARTNER} formId="b-download-request" />
           </div>
         </div>
       </div>
