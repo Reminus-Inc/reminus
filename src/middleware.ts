@@ -16,6 +16,16 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const existingVariant = request.cookies.get(AB_TEST_COOKIE)?.value;
 
+  // development 環境では A/B テストをスキップし、各バリアントをそのまま表示する
+  if (process.env.APP_ENVIRONMENT === "development") {
+    // /a は / にリダイレクト
+    if (pathname === "/a") {
+      return NextResponse.redirect(new URL("/", request.url));
+    }
+    // /b, /c, / はそのまま表示
+    return NextResponse.next();
+  }
+
   // /a: cookie を a に固定して / にリダイレクト（URL は / として表示される）
   if (pathname === "/a") {
     const response = NextResponse.redirect(new URL("/", request.url));
