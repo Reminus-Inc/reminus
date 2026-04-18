@@ -20,7 +20,9 @@ export function middleware(request: NextRequest) {
   if (process.env.APP_ENVIRONMENT === "development") {
     // /a は / にリダイレクト
     if (pathname === "/a") {
-      return NextResponse.redirect(new URL("/", request.url));
+      const url = request.nextUrl.clone();
+      url.pathname = "/";
+      return NextResponse.redirect(url);
     }
     // /b, /c, / はそのまま表示
     return NextResponse.next();
@@ -28,7 +30,9 @@ export function middleware(request: NextRequest) {
 
   // /a: cookie を a に固定して / にリダイレクト（URL は / として表示される）
   if (pathname === "/a") {
-    const response = NextResponse.redirect(new URL("/", request.url));
+    const url = request.nextUrl.clone();
+    url.pathname = "/";
+    const response = NextResponse.redirect(url);
     response.cookies.set(AB_TEST_COOKIE, "a", COOKIE_OPTIONS);
     return response;
   }
@@ -64,8 +68,13 @@ export function middleware(request: NextRequest) {
   const needsCookieUpdate = existingVariant !== variant;
 
   // a 以外はそのバリアントのパスにリダイレクト
+  // pathname のみ書き換え、search (utm_* 等) と hash は保持する。
+  // これをしないと Meta 広告等の UTM クエリが redirect で落ち、
+  // GA4 のセッション参照元 / メディアが meta/paid_social として計測されなくなる。
   if (variant !== "a") {
-    const response = NextResponse.redirect(new URL(`/${variant}`, request.url));
+    const url = request.nextUrl.clone();
+    url.pathname = `/${variant}`;
+    const response = NextResponse.redirect(url);
     if (needsCookieUpdate) {
       response.cookies.set(AB_TEST_COOKIE, variant, COOKIE_OPTIONS);
     }
