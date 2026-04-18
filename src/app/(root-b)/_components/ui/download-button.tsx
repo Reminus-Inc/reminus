@@ -3,35 +3,60 @@
 import Link from "next/link";
 import { trackCTAClick } from "@/lib/analytics";
 import { PrimaryButton, PrimaryButtonProps } from "./primary-button";
+import { useDownloadDialogContext } from "./download-dialog-context";
 import * as React from "react";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
 
 interface DownloadButtonProps extends PrimaryButtonProps {
   onClick?: () => void;
+  asLink?: boolean;
 }
 
 export const DownloadButton = ({
   onClick,
+  asLink = false,
   ...props
 }: DownloadButtonProps) => {
-  const handleClick = () => {
+  const { openDownloadDialog } = useDownloadDialogContext();
+
+  const handleClick = (e?: React.MouseEvent) => {
     trackCTAClick("download");
+    if (!asLink) {
+      e?.preventDefault();
+      openDownloadDialog();
+    }
     onClick?.();
   };
 
-  const content = <span className="whitespace-nowrap">資料ダウンロード</span>;
+  const content = (
+    <span className="whitespace-nowrap">
+      資料ダウンロード
+    </span>
+  );
+
+  if (asLink) {
+    return (
+      <PrimaryButton asChild {...props}>
+        <Link
+          href="/download"
+          className="flex items-center gap-3"
+          onClick={handleClick}
+        >
+          {content}
+        </Link>
+      </PrimaryButton>
+    );
+  }
 
   return (
-    <PrimaryButton asChild {...props}>
-      <Link
-        href="/download"
-        className="flex items-center gap-3"
-        onClick={handleClick}
-      >
-        {content}
-      </Link>
+    <PrimaryButton
+      {...props}
+      onClick={handleClick}
+    >
+      {content}
     </PrimaryButton>
   );
 };
@@ -39,18 +64,24 @@ export const DownloadButton = ({
 interface CustomDownloadButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   onClick?: () => void;
-  title?: string;
   subtitle?: string;
+  asLink?: boolean;
 }
 export const CustomDownloadButton = ({
   className,
   onClick,
-  title,
-  subtitle,
+  subtitle = "Reminus CTOパートナー",
+  asLink = false,
+  ...props
 }: CustomDownloadButtonProps) => {
+  const { openDownloadDialog } = useDownloadDialogContext();
 
-  const handleClick = () => {
+  const handleClick = (e?: React.MouseEvent) => {
     trackCTAClick("download");
+    if (!asLink) {
+      e?.preventDefault();
+      openDownloadDialog();
+    }
     onClick?.();
   };
 
@@ -67,44 +98,24 @@ export const CustomDownloadButton = ({
 
   const content = (
     <>
-      <div className="relative z-[1] inline-flex w-full items-center justify-between gap-4 min-[400px]:gap-6">
-        <div className="flex items-center gap-4 sm:gap-5">
-          <div className="flex-shrink-0 border-[3px] border-solid border-slate-200">
-            <Image
-              src="/document-icon.png"
-              alt="資料イメージ"
-              width={480}
-              height={270}
-              className="max-w-[80px] object-contain sm:max-w-[120px]"
-            />
-          </div>
+      <div className="relative z-[1] inline-flex w-full items-center justify-between">
+        <div className="flex-shrink-0 border-[3px] border-solid border-slate-200">
+          <Image
+            src="/document-icon.png"
+            alt="資料イメージ"
+            width={480}
+            height={270}
+            className="max-w-[80px] object-contain sm:max-w-[120px]"
+          />
+        </div>
 
-          <div className="flex flex-col justify-center gap-0.5 sm:gap-1.5">
-            <span className="text-[11px] tracking-wider sm:text-sm">
-              {subtitle != null ? (
-                subtitle
-              ) : (
-                <>
-                  <span className="relative -bottom-[1px] mr-[2px] text-xl font-bold !leading-[1] sm:text-2xl">
-                    3
-                  </span>
-                  分でわかる! CTOパートナー
-                </>
-              )}
-            </span>
-            <span className="text-lg font-bold tracking-wider sm:text-2xl">
-              {title != null ? (
-                title
-              ) : (
-                <>
-                  まずは資料を読む
-                  <span className="ml-1 hidden text-sm font-normal sm:inline">
-                    (無料)
-                  </span>
-                </>
-              )}
-            </span>
-          </div>
+        <div className="flex flex-col justify-center gap-0 px-4 min-[400px]:px-8 sm:gap-1">
+          <span className="text-[11px] tracking-wider sm:text-sm">
+            {subtitle}
+          </span>
+          <span className="text-lg font-bold tracking-wider sm:text-2xl">
+            資料ダウンロード
+          </span>
         </div>
 
         <ChevronRight
@@ -118,9 +129,17 @@ export const CustomDownloadButton = ({
     </>
   );
 
+  if (asLink) {
+    return (
+      <Link href="/download" onClick={handleClick} className={baseClasses}>
+        {content}
+      </Link>
+    );
+  }
+
   return (
-    <Link href="/download" onClick={handleClick} className={baseClasses}>
+    <Button className={baseClasses} onClick={handleClick} {...props}>
       {content}
-    </Link>
+    </Button>
   );
 };

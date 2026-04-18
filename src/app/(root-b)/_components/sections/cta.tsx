@@ -8,7 +8,7 @@ type CtaProps = {
 export function Cta({ className }: CtaProps) {
   return (
     <section
-      className={cn("bg-gradient-to-b from-[50%] to-[50%] py-10 font-sans content-auto", className)}
+      className={cn("bg-gradient-to-b from-[50%] to-[50%] py-10", className)}
     >
       <div className="mx-auto w-[90%] max-w-[90%] xl:w-fit">
         <div className="rounded-2xl bg-gradient-to-br from-emerald-500 from-60% to-emerald-600 p-8 py-12 sm:p-10 sm:py-16 lg:p-16 lg:py-20">
@@ -42,6 +42,7 @@ export function Cta({ className }: CtaProps) {
                 variant="filled"
                 color="white"
                 className="mt-10 md:max-w-[300px]"
+                asLink={true}
               />
             </div>
           </div>

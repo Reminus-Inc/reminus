@@ -15,24 +15,22 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-// B版トップページ（39bb8f8 時点のセクション構成）
+// B版トップページ（614c920 時点のセクション構成）
 export default function HomeB() {
   return (
     <>
       <FirstView />
       <ClientLogos />
-      <div className="content-auto">
-        <ServiceOverview />
-        <CaseStudies className="bg-gray-50" />
-        <ServiceMenu />
-        <Cta className="from-white to-gray-50" />
-        <WhyReminus className="bg-gray-50" />
-        <Management />
-        <Cta className="from-white to-white" />
-        <News />
-        <DownloadRequest />
-        <CompanyOverview />
-      </div>
+      <ServiceOverview />
+      <ServiceMenu className="bg-gray-50" />
+      <Cta className="from-gray-50 to-gray-50" />
+      <WhyReminus className="bg-gray-50" />
+      <CaseStudies />
+      <Management className="bg-gray-50" />
+      <Cta className="from-gray-50 to-white" />
+      <News />
+      <DownloadRequest />
+      <CompanyOverview />
     </>
   );
 }
