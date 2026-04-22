@@ -22,7 +22,7 @@ const logos: Logo[] = [
 
 export function ClientLogos() {
   return (
-    <div className="pt-12 sm:pt-16 font-sans">
+    <div className="pt-12 sm:pt-16">
         {/* --- LG以上: 1行表示（ファーストビューが左右レイアウトの時） --- */}
         <div className="hidden lg:block mx-auto max-w-[1220px] lg:w-[90%]">
           <div className="flex max-w-none flex-nowrap items-center justify-between gap-x-4">
@@ -62,8 +62,8 @@ function LogoItem({ logo: l, className }: LogoItemProps) {
         alt={`${l.name} logo`}
         width={l.spWidth}
         height={l.spHeight}
-        className="block sm:hidden object-contain"
-        style={{ width: `${l.spWidth}px`, height: `${l.spHeight}px`, objectFit: "contain" }}
+        className="block sm:hidden object-contain w-full h-auto"
+        style={{ maxWidth: `${l.spWidth}px`, maxHeight: `${l.spHeight}px` }}
         priority={false}
       />
       {/* sm以上（640px〜） */}
@@ -79,3 +79,18 @@ function LogoItem({ logo: l, className }: LogoItemProps) {
     </div>
   );
 }
+
+function LogoBelt({ keyPrefix = "" }: { keyPrefix?: string }) {
+  return (
+    <div className="flex w-max items-center gap-0">
+      {logos.map((l) => (
+        <LogoItem
+          key={keyPrefix ? `${keyPrefix}-${l.name}` : l.name}
+          logo={l}
+          className="px-4 md:px-6"
+        />
+      ))}
+    </div>
+  );
+}
+
