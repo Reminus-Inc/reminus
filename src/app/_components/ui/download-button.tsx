@@ -48,6 +48,7 @@ interface CustomDownloadButtonProps
   title?: string;
   subtitle?: string;
   href?: string;
+  variant?: "primary" | "inverse" | "accent";
 }
 export const CustomDownloadButton = ({
   className,
@@ -55,20 +56,34 @@ export const CustomDownloadButton = ({
   title,
   subtitle,
   href = "/download",
+  variant = "primary",
 }: CustomDownloadButtonProps) => {
   const handleClick = () => {
     trackCTAClick("download");
     onClick?.();
   };
 
+  const variantClasses: Record<NonNullable<CustomDownloadButtonProps["variant"]>, string> = {
+    primary:
+      "bg-emerald-500 text-white shadow-[0_8px_36px_16px_rgba(16,185,129,0.1),0_8px_18px_-2px_rgba(16,185,129,0.28)]",
+    inverse:
+      "bg-white text-emerald-600 shadow-[0_8px_36px_16px_rgba(255,255,255,0.12),0_8px_18px_-2px_rgba(6,78,59,0.28)]",
+    accent:
+      "bg-amber-300 text-slate-900 shadow-[0_8px_36px_16px_rgba(251,191,36,0.18),0_8px_18px_-2px_rgba(120,53,15,0.30)]",
+  };
+
+  const hoverOverlay: Record<NonNullable<CustomDownloadButtonProps["variant"]>, string> = {
+    primary: "bg-emerald-600",
+    inverse: "bg-emerald-50",
+    accent: "bg-amber-400",
+  };
+
   const baseClasses = cn(
     "rounded-full w-full min-[400px]:w-fit h-auto mx-auto",
     "flex items-center ",
-    "text-white",
     "pl-6 min-[375px]:pl-8 sm:pl-10 pr-3 sm:pr-4 py-3 sm:py-4",
-    "bg-emerald-500",
     "relative overflow-hidden group",
-    "shadow-[0_8px_36px_16px_rgba(16,185,129,0.1),0_8px_18px_-2px_rgba(16,185,129,0.28)]",
+    variantClasses[variant],
     className
   );
 
@@ -121,7 +136,12 @@ export const CustomDownloadButton = ({
       </div>
 
       {/* hover 時の背景色 */}
-      <div className="pointer-events-none absolute left-0 top-0 z-[0] h-full w-full bg-emerald-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      <div
+        className={cn(
+          "pointer-events-none absolute left-0 top-0 z-[0] h-full w-full opacity-0 transition-opacity duration-300 group-hover:opacity-100",
+          hoverOverlay[variant]
+        )}
+      />
     </>
   );
 

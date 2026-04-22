@@ -30,7 +30,7 @@ type ProblemProps = {
 export function Problem({ className }: ProblemProps) {
   return (
     <section className={cn("content-auto font-sans", className)}>
-      <div className="mx-auto w-[88%] max-w-[1200px] pb-20 pt-24 sm:pb-28 sm:pt-32">
+      <div className="mx-auto w-[88%] max-w-[1200px] pb-20 pt-18 sm:pb-28 sm:pt-32">
         <h2 className="text-center text-xl font-bold !leading-[1.7] tracking-wider text-gray-800 min-[375px]:text-[22px] sm:text-2xl  md:text-3xl lg:text-4xl">
           技術・プロダクトの
           <br />

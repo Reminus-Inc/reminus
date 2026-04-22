@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function ClientLogos() {
   return (
-    <div className="pt-8 sm:pt-16">
+    <div className="pt-4 sm:pt-10">
       <div className="mx-auto flex justify-center px-6 lg:px-12">
         {/* 〜 md */}
         <div className="max-w-[400px] sm:max-w-[520px] md:max-w-[600px] lg:hidden">
