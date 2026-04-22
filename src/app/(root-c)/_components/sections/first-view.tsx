@@ -1,6 +1,6 @@
 import { CustomDownloadButton } from "@/app/_components/ui/download-button";
 import { cn } from "@/lib/utils";
-import { Check } from "lucide-react";
+import { Clock, HeartHandshake, UserRoundCheck } from "lucide-react";
 import Image from "next/image";
 
 export function FirstView() {
@@ -76,18 +76,24 @@ const Description = ({ className }: { className?: string }) => {
         className
       )}
     >
-      {[
-        "技術判断ができない経営者様へ",
-        "スタートアップやプロダクト新規事業へ",
-        "予算・状況で選べる3プラン。トライアル可",
-      ].map((text) => (
+      {(
+        [
+          {
+            icon: UserRoundCheck,
+            text: "フェーズに応じて最適なCTO担当者が対応",
+          },
+          {
+            icon: HeartHandshake,
+            text: "Reminusがチームの一員として内製推進",
+          },
+          { icon: Clock, text: "2ヶ月トライアル可" },
+        ] as const
+      ).map(({ icon: Icon, text }) => (
         <li key={text} className="flex items-center gap-2">
-          <span className="inline-flex size-[1.1em] flex-none items-center justify-center rounded-full bg-emerald-500">
-            <Check
-              className="size-[0.8em] text-white"
-              strokeWidth={3.5}
-            />
-          </span>
+          <Icon
+            className="size-[1.1em] flex-none text-emerald-500"
+            strokeWidth={2.5}
+          />
           {text}
         </li>
       ))}
