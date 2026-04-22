@@ -15,41 +15,39 @@ type Feature = {
 
 const features: Feature[] = [
   {
-    image: "/illust-service-overview-1.svg",
-    imageClassName: "-mt-5",
-    imageHeight: 178,
+    image: "/illust-service-overview-1-new.svg",
+    imageHeight: 240,
     title: (
       <>
-        最適なCTO担当者がリード。
+        最適なCTOがリード。
         <br className="" />
         SaaSの複雑な課題に幅広く対応
       </>
     ),
-    titleAlt: "最適なCTO担当者がリード。SaaSの複雑な課題に幅広く対応",
+    titleAlt: "最適なCTOがリード。SaaSの複雑な課題に幅広く対応",
     points: [
-      "SaaSの課題は、技術や製品・組織・戦略判断から実行まで広範です。",
-      "Reminus CTOパートナーは、元CTO等の経験者から貴社に最適な担当者を選定します。人材紹介ではなく、Reminusが責任を持つCTO代行サービスです。"
+      "元CTO等の経験者から貴社に最適なCTO代行担当者を選定します。人材紹介ではなく、Reminusが責任を持つCTO代行サービスです。"
     ],
   },
   {
-    image: "/illust-service-overview-2.svg",
-    imageHeight: 158,
+    image: "/illust-service-overview-2-new.svg",
+    imageHeight: 240,
     title: (
       <>
-        壁打ちで終わらない。
+        顧問や壁打ちではない。
         <br className="hidden lg:inline" />
         チームに入り込んで推進するハンズオン型
       </>
     ),
-    titleAlt: "壁打ちで終わらない。チームに入り込んでハンズオン型",
+    titleAlt: "顧問や壁打ちではない。チームに入り込んでハンズオン型",
     points: [
-      "一般的な外部顧問は壁打ち時間のみの提供です。Reminusでは作業時間を確保するため、貴社内にCTOがいるかのように内側から技術を判断・推進できます。",
+      "Reminusでは作業時間をしっかり確保するため、貴社内にCTOがいるかのように内側から技術を推進します。",
       "内製ノウハウの共有も強みです。",
     ],
   },
   {
-    image: "/illust-service-overview-3.svg",
-    imageHeight: 163,
+    image: "/illust-service-overview-3-new.svg",
+    imageHeight: 240,
     title: (
       <>
         CTOクラスの能力をリーズナブルに。
@@ -59,8 +57,8 @@ const features: Feature[] = [
     ),
     titleAlt: "CTOクラスの能力をリーズナブルに。2ヶ月トライアルも可能",
     points: [
-      "正社員CTOは年収1,000万円〜2,000万円。雇用はリスクもあり慎重な判断が必要です。",
-      "Reminusならリーズナブルな価格に利用でき、独自ノウハウで品質も◎。2ヶ月トライアルも可能です。",
+      "CTO雇用は年収1,000万〜と高額かつ相性リスクも。",
+      "Reminusならリーズナブルかつ独自ノウハウで品質も◎。2ヶ月トライアルも可能です。",
     ],
   },
 ];
@@ -80,7 +78,7 @@ export function ServiceOverview({ className }: { className?: string }) {
           サービスの特長
         </SectionHeader>
 
-        <div className="mt-16 flex flex-col gap-16 lg:gap-12">
+        <div className="mt-16 flex flex-col gap-16 lg:gap-18">
           {features.map((feature, index) => (
             <div
               key={index}
@@ -89,13 +87,13 @@ export function ServiceOverview({ className }: { className?: string }) {
                 index % 2 === 1 ? "sm:flex-row-reverse" : "sm:flex-row"
               )}
             >
-              <div className="max-w-[200px] shrink-0 md:max-w-[280px] lg:max-w-[360px]">
+              <div className="w-full max-w-[300px] shrink-0 overflow-hidden rounded-xl border border-gray-200 bg-white md:max-w-[340px] lg:max-w-[380px]">
                 <Image
                   src={feature.image}
                   width={320}
                   height={feature.imageHeight}
                   alt={feature.titleAlt}
-                  className={feature.imageClassName}
+                  className={cn("h-auto w-full", feature.imageClassName)}
                 />
               </div>
               <div className="flex max-w-[600px] flex-col gap-4 lg:gap-5">
@@ -110,7 +108,7 @@ export function ServiceOverview({ className }: { className?: string }) {
           ))}
         </div>
 
-        <div className="bleed mt-16 px-4">
+        <div className="bleed mt-20 px-4">
           <CustomDownloadButton
             title="資料ダウンロード"
             subtitle="提供内容と事例を公開中"
