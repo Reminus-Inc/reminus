@@ -5,8 +5,7 @@ import Image from "next/image";
 
 export function FirstView() {
   return (
-    <section className="relative overflow-hidden bg-[#1E3A8A]">
-      {/* 背景: Sales Marker 系ディープブルー + 光・深度 (SP=右上光 / LG以上=左暗右明) */}
+    <section className="relative min-h-[calc(100svh-60px)] overflow-hidden bg-[#1E3A8A] md:min-h-[calc(100svh-80px)] lg:min-h-[calc(100svh-80px)]">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 lg:hidden"
@@ -48,11 +47,22 @@ export function FirstView() {
         }}
       />
 
-      <div className="relative mx-auto flex w-[84%] max-w-[1200px] flex-col items-center gap-4 pb-4 pt-5 font-sans sm:gap-5 sm:pb-5 sm:pt-7 md:pb-12 md:pt-10 lg:w-[90%] lg:max-w-[1080px] lg:flex-row lg:gap-6 lg:pb-12 lg:pt-9 xl:max-w-[1160px] xl:gap-2">
+      {/* PC: 画像は section の右端にアンカー（max-width の影響を受けない） */}
+      <div className="pointer-events-none absolute inset-y-0 hidden items-center lg:right-[4%] lg:flex xl:right-[6%]">
+        <Image
+          src="/hero-c.png"
+          alt="CTO代行サービスイラスト"
+          width={868}
+          height={748}
+          className="lg:w-[560px] xl:w-[720px]"
+        />
+      </div>
+
+      <div className="relative mx-auto flex w-[84%] max-w-[1200px] flex-col items-center gap-4 pb-7 pt-8 font-sans sm:gap-5 sm:pb-8 sm:pt-10 md:pb-12 md:pt-12 lg:w-[90%] lg:max-w-[1080px] lg:flex-row lg:gap-6 lg:pb-14 lg:pt-14 xl:max-w-[1160px] xl:gap-2">
         <div className="relative z-[1] w-full lg:w-fit lg:flex-none">
           <Title />
-          <Description className="mt-2.5 sm:mt-3.5" />
-          <div className="-mt-3 flex justify-center sm:-mt-4 md:mt-4 lg:hidden">
+          <Description className="mt-5 sm:mt-6 md:mt-8 lg:mt-10" />
+          <div className="-mt-4 flex justify-center sm:-mt-6 md:mt-5 lg:hidden">
             <Image
               src="/hero-c.png"
               alt="CTO代行サービスイラスト"
@@ -60,22 +70,23 @@ export function FirstView() {
               height={748}
               preload
               fetchPriority="high"
-              className="w-[82%] max-w-[320px] sm:max-w-[380px]"
+              className="w-full max-w-[420px] sm:max-w-[480px]"
             />
           </div>
-          <div className="-mt-1 flex flex-col gap-2.5 sm:-mt-1 sm:gap-3 lg:mt-8 lg:items-start lg:gap-4">
-            <div className="order-1 w-screen max-w-[100vw] relative left-1/2 -translate-x-1/2 z-[1] px-4 sm:px-6 lg:order-2 lg:left-auto lg:translate-x-0 lg:w-auto lg:max-w-none lg:px-0">
+          {/* SP: ボタン→月桂冠 / PC: 月桂冠→ボタン */}
+          {/* SP 側 */}
+          <div className="-mt-3 flex flex-col gap-3 sm:-mt-4 sm:gap-4 lg:hidden">
+            <div className="bleed relative z-[1] px-4 sm:px-6">
               <CustomDownloadButton
                 title="資料ダウンロード"
                 subtitle="Reminus CTOパートナー"
-                className="lg:-ml-2"
                 href="/c/download"
               />
             </div>
             <div
               aria-hidden
               role="img"
-              className="order-2 mx-auto aspect-[405/75] w-full max-w-[180px] flex-none min-[375px]:max-w-[210px] sm:max-w-[240px] lg:order-1 lg:mx-0 lg:w-[220px] xl:w-[240px] mt-2"
+              className="mx-auto mt-2 aspect-[405/75] w-full max-w-[180px] flex-none min-[375px]:max-w-[210px] sm:max-w-[240px]"
               style={{
                 WebkitMaskImage: "url(/crown.png)",
                 maskImage: "url(/crown.png)",
@@ -89,16 +100,33 @@ export function FirstView() {
               }}
             />
           </div>
-        </div>
-
-        <div className="pointer-events-none absolute inset-y-0 right-0 hidden items-center lg:flex">
-          <Image
-            src="/hero-c.png"
-            alt="CTO代行サービスイラスト"
-            width={868}
-            height={748}
-            className="lg:w-[480px] xl:w-[560px]"
-          />
+          {/* PC 側 */}
+          <div className="mt-12 hidden flex-col items-start gap-4 lg:flex">
+            <div
+              aria-hidden
+              role="img"
+              className="aspect-[405/75] w-[220px] flex-none xl:w-[240px]"
+              style={{
+                WebkitMaskImage: "url(/crown.png)",
+                maskImage: "url(/crown.png)",
+                WebkitMaskSize: "contain",
+                maskSize: "contain",
+                WebkitMaskRepeat: "no-repeat",
+                maskRepeat: "no-repeat",
+                WebkitMaskPosition: "left center",
+                backgroundColor: "#D3B36B",
+                filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.2))",
+              }}
+            />
+            <div className="relative z-[1]">
+              <CustomDownloadButton
+                title="資料ダウンロード"
+                subtitle="Reminus CTOパートナー"
+                className="-ml-2"
+                href="/c/download"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -132,7 +160,7 @@ const Description = ({ className }: { className?: string }) => {
   return (
     <ul
       className={cn(
-        "ml-0 flex flex-col items-start gap-1 text-[11px] font-medium !leading-[1.5] tracking-wide min-[375px]:text-[12px] sm:gap-1.5 sm:text-[13px] md:ml-2.5 md:text-base lg:text-sm xl:text-base",
+        "ml-0 flex flex-col items-start gap-1 text-[11px] font-medium !leading-[1.5] tracking-wide min-[375px]:text-[12px] sm:gap-1.5 sm:text-[13px] md:ml-2.5 md:gap-2 md:text-base lg:text-sm xl:gap-2.5 xl:text-base",
         className
       )}
     >
@@ -151,7 +179,7 @@ const Description = ({ className }: { className?: string }) => {
       ).map(({ icon: Icon, text }) => (
         <li
           key={text}
-          className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-2.5 py-[3px] font-semibold text-emerald-900 shadow-[0_2px_10px_rgba(15,23,42,0.18)] ring-1 ring-inset ring-emerald-200 sm:gap-2 sm:px-3.5 sm:py-1"
+          className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-2.5 py-[3px] font-semibold text-emerald-900 shadow-[0_2px_10px_rgba(15,23,42,0.18)] ring-1 ring-inset ring-emerald-200 sm:gap-2 sm:px-3.5 sm:py-1 lg:px-4 lg:py-1.5"
         >
           <Icon
             className="size-[1.05em] flex-none text-emerald-600"
