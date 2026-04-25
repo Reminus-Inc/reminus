@@ -45,6 +45,19 @@ const caseStudyItemList: CaseStudyItem[] = [
     ],
   },
   {
+    category: "グローバルSaaS企業",
+    title: "グローバルSaaS企業の日本向け新プロダクトでPMF停滞を解消しGTMを構築",
+    scale: "上場企業・新規プロダクト",
+    challengeList: [
+      "新製品のPMFに向けた製品企画・開発の手法がわからず停滞",
+      "日本市場の製品開発と営業が分断され、適切な検証が進まない",
+    ],
+    resultList: [
+      "PMFに向けた意思決定の停滞を解消し、仮説検証が回る状態へ転換",
+      "SaaSのGTM戦略と組織体制を設計し、日本市場で売れる体制を構築",
+    ],
+  },
+  {
     companyName: "千葉エコ・エネルギー株式会社",
     title:
       "農地法SaaSの製品構想を整理し、開発ロードマップ策定〜外注監修まで一気通貫",
@@ -61,6 +74,20 @@ const caseStudyItemList: CaseStudyItem[] = [
       "農地法特有の業務手続きを踏まえ、開発ロードマップと技術戦略を策定",
       "セールスの戦略とスケジュールを踏まえてMVP範囲を精緻化",
       "外注先の選定と、発注後は外注管理サポート",
+    ],
+  },
+  {
+    category: "福利厚生SaaS",
+    title:
+      "シリーズAに向けた技術実現性の担保と開発実行体制の構築",
+    scale: "シード〜シリーズA",
+    challengeList: [
+      "シリーズAに向けた構想が現状の技術で実現可能か不透明",
+      "次の調達に向けて製品開発をやり切る必要があるが、遅延している",
+    ],
+    resultList: [
+      "技術診断を踏まえ、全体設計・体制・計画を再定義し、実現性を担保",
+      "開発オペレーションに伴走し、開発を計画通りに進行可能な状態へ",
     ],
   },
   {
@@ -101,20 +128,6 @@ const caseStudyItemList: CaseStudyItem[] = [
     resultList: [
       "設計支援によりMVPを実現し、シードラウンドでの資金調達に成功",
       "副業エンジニア6名まで開発組織を拡大後、CTO採用に成功",
-    ],
-  },
-  {
-    category: "士業特化CRM",
-    title: "エンジニア2名・コードなしの状態から内製開発組織を立ち上げ。",
-    scale: "従業員数10名",
-    financialBackground: "自己資金",
-    challengeList: [
-      "エンジニアはいるが、内製開発をどう進めればいいかわからない",
-      "仕様を正確かつ効率的にエンジニアに伝える方法が分からない",
-    ],
-    resultList: [
-      "1.5ヶ月で技術基盤と内製チームを立ち上げ、開発を開始",
-      "企画と開発を高速で回せる開発プロセスを仕組み化",
     ],
   },
 ];
@@ -199,7 +212,7 @@ function CaseStudyCard({ caseStudyItem, className }: CaseStudyCardProps) {
           // ロゴなし
           <>
             <p className="text-lg font-bold tracking-wider text-gray-800">
-              社名非公開 ({caseStudyItem.category})
+              社名非公開<br className="md:hidden"/> ({caseStudyItem.category})
             </p>
             <div className="mt-2.5 flex flex-wrap gap-2">
               <Chip label={caseStudyItem.scale} />
