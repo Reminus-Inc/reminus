@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ChevronRight, ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ChevronRight } from "lucide-react";
 import { articles, getArticleBySlug } from "../_articles";
 import { ArticleCta } from "../_components/article-cta";
+import { ColumnCard } from "@/app/_components/ui/column-card";
 
 type Params = { slug: string };
 
@@ -189,37 +190,9 @@ export default async function BlogArticlePage({
           <h2 className="mt-4 text-xl font-bold tracking-wider text-gray-800 md:text-2xl">
             その他の記事
           </h2>
-          <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {relatedArticles.map((related) => (
-              <Link
-                key={related.slug}
-                href={`/blog/${related.slug}/`}
-                className="group block"
-              >
-                <div className="relative aspect-[16/9] w-full overflow-hidden bg-gray-100">
-                  {related.thumbnail && (
-                    <Image
-                      src={related.thumbnail}
-                      alt={related.title}
-                      fill
-                      sizes="(min-width: 1024px) 340px, (min-width: 640px) 50vw, 88vw"
-                      className="object-cover transition-transform duration-[600ms] group-hover:scale-[1.04]"
-                    />
-                  )}
-                </div>
-                <div className="mt-5">
-                  <div className="flex items-center gap-3">
-                    <time className="text-xs font-medium tracking-wider text-gray-500">
-                      {related.publishedAtLabel}
-                    </time>
-                    <span className="h-px flex-1 bg-gray-200" />
-                    <ArrowUpRight className="size-4 text-gray-400 transition-colors group-hover:text-emerald-600" />
-                  </div>
-                  <h3 className="mt-3 text-base font-bold !leading-[1.7] tracking-wide text-gray-800 transition-colors group-hover:text-emerald-600">
-                    {related.title}
-                  </h3>
-                </div>
-              </Link>
+              <ColumnCard key={related.slug} article={related} />
             ))}
           </div>
         </section>

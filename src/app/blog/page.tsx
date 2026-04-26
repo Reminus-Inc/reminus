@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { articles } from "./_articles";
+import { ColumnCard } from "@/app/_components/ui/column-card";
 
 export const metadata: Metadata = {
   title: "Blog | Reminus",
@@ -82,36 +81,9 @@ export default function BlogIndexPage() {
 
       {/* 記事一覧 */}
       <div className="mx-auto mt-8 w-[88%] max-w-[1100px] md:mt-10 lg:mt-12">
-        <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {articles.map((article) => (
-            <Link
-              key={article.slug}
-              href={`/blog/${article.slug}/`}
-              className="group block"
-            >
-              <div className="relative aspect-[16/9] w-full overflow-hidden bg-gray-100">
-                {article.thumbnail && (
-                  <Image
-                    src={article.thumbnail}
-                    alt={article.title}
-                    fill
-                    sizes="(min-width: 1024px) 340px, (min-width: 640px) 50vw, 88vw"
-                    className="object-cover transition-transform duration-[600ms] group-hover:scale-[1.04] border-2 border-gray-200"
-                  />
-                )}
-              </div>
-              <div className="mt-4">
-                <div className="flex items-center gap-2">
-                  <time className="text-[11px] font-medium tracking-wider text-gray-500 md:text-xs">
-                    {article.publishedAtLabel}
-                  </time>
-                  <ArrowUpRight className="size-3.5 text-gray-400 transition-colors group-hover:text-emerald-600" />
-                </div>
-                <h2 className="mt-2.5 text-[15px] font-bold !leading-[1.65] tracking-wide text-gray-800 transition-colors group-hover:text-emerald-600 md:text-base">
-                  {article.title}
-                </h2>
-              </div>
-            </Link>
+            <ColumnCard key={article.slug} article={article} showDate />
           ))}
         </div>
       </div>

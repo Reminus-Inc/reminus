@@ -16,16 +16,25 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const existingVariant = request.cookies.get(AB_TEST_COOKIE)?.value;
 
-  // development 環境では A/B テストをスキップし、各バリアントをそのまま表示する
-  if (process.env.APP_ENVIRONMENT === "development" && process.env.ABTEST !== "enabled") {
+  // development 環境では A/B テストをスキップし、各バリアントをそのまま表示する。
+  // cookie は /blog などの下流で参照されるので、アクセスしたパスに合わせて同期する。
+  if (
+    process.env.APP_ENVIRONMENT === "development" &&
+    process.env.ABTEST !== "enabled"
+  ) {
     // /a は / にリダイレクト
     if (pathname === "/a") {
-      const url = request.nextUrl.clone();
-      url.pathname = "/";
-      return NextResponse.redirect(url);
+      const response = NextResponse.redirect(new URL("/", request.url));
+      response.cookies.set(AB_TEST_COOKIE, "a", COOKIE_OPTIONS);
+      return response;
     }
     // /b, /c, / はそのまま表示
-    return NextResponse.next();
+    const pathVariant = pathname === "/" ? "a" : pathname === "/b" ? "b" : "c";
+    const response = NextResponse.next();
+    if (existingVariant !== pathVariant) {
+      response.cookies.set(AB_TEST_COOKIE, pathVariant, COOKIE_OPTIONS);
+    }
+    return response;
   }
 
   // /a: cookie を a に固定して / にリダイレクト（URL は / として表示される）
@@ -55,12 +64,17 @@ export function middleware(request: NextRequest) {
 
   // クローラには常に variant a（/）を見せる
   const ua = request.headers.get("user-agent") ?? "";
-  if (/Googlebot|bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|facebookexternalhit|Twitterbot|LinkedInBot|bot|crawl|spider/i.test(ua)) {
+  if (
+    /Googlebot|bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|facebookexternalhit|Twitterbot|LinkedInBot|bot|crawl|spider/i.test(
+      ua
+    )
+  ) {
     return NextResponse.next();
   }
 
   const variant =
-    existingVariant && VARIANTS.includes(existingVariant as (typeof VARIANTS)[number])
+    existingVariant &&
+    VARIANTS.includes(existingVariant as (typeof VARIANTS)[number])
       ? existingVariant
       : VARIANTS[Math.floor(Math.random() * VARIANTS.length)];
 

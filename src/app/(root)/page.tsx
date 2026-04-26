@@ -1,7 +1,7 @@
 import { CaseStudies } from "@/app/_components/sections/case-studies";
 import { ClientLogos } from "../_components/sections/client-logos";
 import { CompanyOverview } from "../_components/sections/company-overview";
-import { News } from "../_components/sections/news";
+import { Column } from "../_components/sections/column";
 import { Cta } from "../_components/sections/cta";
 import { FirstView } from "../_components/sections/first-view";
 import { Management } from "../_components/sections/management";
@@ -26,7 +26,7 @@ export default function Home() {
         <CaseStudies className="bg-gray-50" />
         <Comparison className="bg-white" />
         <Management className="bg-gray-50" />
-        <News />
+        <Column />
         <DownloadRequest />
         <CompanyOverview />
       </div>
