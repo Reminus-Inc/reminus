@@ -61,10 +61,10 @@ export default function BlogIndexPage() {
               BLOG
             </p>
           </div>
-          <h1 className="mt-2 text-xl font-bold !leading-[1.4] tracking-wider text-white md:text-2xl md:text-2xl lg:text-3xl">
+          <h1 className="mt-2 text-xl font-bold !leading-[1.4] tracking-wider text-white md:text-2xl lg:text-3xl">
             ブログ / コラム
           </h1>
-          <p className="mt-2 max-w-[640px] text-base !leading-[1.8] tracking-wide text-white/80 md:mt-2.5 md:text-base lg:text-lg ">
+          <p className="mt-2 max-w-[640px] text-base !leading-[1.8] tracking-wide text-white/80 md:mt-2.5 md:text-base lg:text-lg">
             Reminusのノウハウを発信します。
           </p>
         </div>
@@ -73,7 +73,9 @@ export default function BlogIndexPage() {
       {/* パンくず */}
       <div className="mx-auto w-[88%] max-w-[1100px] pt-5 md:pt-7">
         <nav className="text-xs text-gray-400 md:text-sm">
-          <Link href="/" className="hover:text-emerald-600">ホーム</Link>
+          <Link href="/" className="hover:text-emerald-600">
+            ホーム
+          </Link>
           <span className="mx-1">&gt;</span>
           <span className="text-gray-500">ブログ/コラム</span>
         </nav>
