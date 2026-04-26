@@ -67,7 +67,7 @@ export function FirstView() {
             <div className="order-1 w-screen max-w-[100vw] relative left-1/2 -translate-x-1/2 z-[1] px-4 sm:px-6 lg:order-2 lg:left-auto lg:translate-x-0 lg:w-auto lg:max-w-none lg:px-0">
               <CustomDownloadButton
                 title="資料ダウンロード"
-                subtitle="Reminus CTOパートナー"
+                subtitle="Reminus CTO代行"
                 className="lg:-ml-2"
                 href="/c/download"
               />

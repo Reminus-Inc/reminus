@@ -10,7 +10,7 @@ import { Management } from "@/app/_components/sections/management";
 import { Problem } from "../_components/sections/problem";
 import { WhyReminus } from "../_components/sections/why-reminus";
 import { ServiceMenu } from "../_components/sections/service-menu";
-import { DownloadRequest } from "@/app/_components/sections/download-request";
+import { DownloadRequest } from "../_components/sections/download-request";
 import { ServiceOverview } from "../_components/sections/service-overview";
 
 export const metadata: Metadata = {

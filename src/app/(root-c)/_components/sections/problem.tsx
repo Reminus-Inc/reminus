@@ -144,7 +144,7 @@ export function Problem({ className }: ProblemProps) {
 
         <div className="mx-auto w-[88%] max-w-[1200px] pb-11 pt-8 text-center sm:pb-12 sm:pt-10 lg:pb-16 lg:pt-11">
           <p className="text-lg font-bold !leading-[1.7] tracking-wider text-white min-[375px]:text-xl sm:text-2xl md:text-3xl">
-            Reminus CTOパートナーは、
+            Reminus CTO代行は、
             <br />
             SaaS事業の技術の課題を解決するCTO代行サービスです。
           </p>

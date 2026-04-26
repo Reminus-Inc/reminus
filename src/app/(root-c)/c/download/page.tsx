@@ -23,11 +23,26 @@ export default function DownloadPage() {
                 <span className="text-[105%]">3</span>分でわかる
               </span>
               <br />
-              Reminus CTOパートナー
+              Reminus CTO代行
             </h1>
 
             <div className="mt-4 lg:mt-6">
-              <DownloadPreview />
+              <DownloadPreview
+                images={[
+                  {
+                    src: "/document-1-c.png",
+                    alt: "Reminus CTO代行資料イメージ1",
+                  },
+                  {
+                    src: "/document-2.png",
+                    alt: "Reminus CTO代行資料イメージ2",
+                  },
+                  {
+                    src: "/document-3.png",
+                    alt: "Reminus CTO代行資料イメージ3",
+                  },
+                ]}
+              />
             </div>
 
             <div className="mt-6 space-y-4">

@@ -26,13 +26,19 @@ const DOCUMENT_IMAGES = [
   },
 ] as const;
 
-export const DownloadPreview = () => {
+type DownloadPreviewImage = { src: string; alt: string };
+
+export const DownloadPreview = ({
+  images = DOCUMENT_IMAGES,
+}: {
+  images?: readonly DownloadPreviewImage[];
+}) => {
   return (
     <div className="w-full max-w-[520px]">
       <Carousel opts={{ loop: true }} showPagination={false}>
         <div className="relative border-[4px] border-solid border-gray-300">
           <CarouselContent className="overflow-hidden">
-            {DOCUMENT_IMAGES.map((image) => (
+            {images.map((image) => (
               <CarouselItem key={image.src}>
                 <Image
                   src={image.src}
@@ -47,7 +53,7 @@ export const DownloadPreview = () => {
           </CarouselContent>
           <CarouselOverlayPrevious />
           <CarouselOverlayNext />
-          <CarouselOverlayPagination count={DOCUMENT_IMAGES.length} />
+          <CarouselOverlayPagination count={images.length} />
         </div>
       </Carousel>
     </div>
