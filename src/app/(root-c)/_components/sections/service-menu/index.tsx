@@ -88,7 +88,7 @@ export function ServiceMenu({ className }: { className?: string }) {
           <CustomDownloadButton
             subtitle="Reminus CTO代行"
             title="資料ダウンロード"
-            href="/c/download"
+            href="/download"
           />
         </div>
       </div>

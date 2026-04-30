@@ -17,7 +17,6 @@ export function NavMenu({ variant }: { variant?: NavVariant } = {}) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const homePath = variant ? `/${variant}` : "/";
-  const ctaPrefix = variant === "c" ? "/c" : "";
   const isHomePage = pathname === homePath;
 
   useEffect(() => {
@@ -121,8 +120,8 @@ export function NavMenu({ variant }: { variant?: NavVariant } = {}) {
 
         {/* CTA ボタン */}
         <div className="flex items-center space-x-4">
-          <DownloadButton size="small" href={`${ctaPrefix}/download`} />
-          <ContactButton size="small" href={`${ctaPrefix}/contact`} />
+          <DownloadButton size="small" href="/download" />
+          <ContactButton size="small" href="/contact" />
         </div>
       </div>
 
@@ -133,9 +132,9 @@ export function NavMenu({ variant }: { variant?: NavVariant } = {}) {
           <DownloadButton
             size="small"
             className="min-w-[140px]"
-            href={`${ctaPrefix}/download`}
+            href="/download"
           />
-          <ContactButton size="small" href={`${ctaPrefix}/contact`} />
+          <ContactButton size="small" href="/contact" />
         </div>
 
         {/* ハンバーガーボタン */}
@@ -196,13 +195,13 @@ export function NavMenu({ variant }: { variant?: NavVariant } = {}) {
               <DownloadButton
                 size="small"
                 fullWidth
-                href={`${ctaPrefix}/download`}
+                href="/download"
                 onClick={() => setIsOpen(false)}
               />
               <ContactButton
                 size="small"
                 fullWidth
-                href={`${ctaPrefix}/contact`}
+                href="/contact"
                 onClick={() => setIsOpen(false)}
               />
             </div>

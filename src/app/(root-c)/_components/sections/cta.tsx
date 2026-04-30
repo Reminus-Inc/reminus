@@ -45,7 +45,7 @@ export function Cta({ className }: CtaProps) {
                     variant="filled"
                     color="white"
                     className="text-sm md:max-w-[300px]"
-                    href="/c/download"
+                    href="/download"
                   />
                 </div>
               </div>

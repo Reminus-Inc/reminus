@@ -112,7 +112,7 @@ export function ServiceOverview({ className }: { className?: string }) {
           <CustomDownloadButton
             title="資料ダウンロード"
             subtitle="提供内容と事例を公開中"
-            href="/c/download"
+            href="/download"
           />
         </div>
       </div>
