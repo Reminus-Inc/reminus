@@ -96,7 +96,7 @@ type ProblemProps = {
 export function Problem({ className }: ProblemProps) {
   return (
     <section className={cn("content-auto font-sans", className)}>
-      <div className="mx-auto w-[94%] max-w-[1200px] pb-10 pt-10 sm:w-[88%] sm:pb-24 sm:pt-28">
+      <div className="mx-auto w-[94%] max-w-[1200px] pb-10 pt-20 sm:w-[88%] sm:pb-24 sm:pt-28">
         <SectionHeader
           label="Problem"
           align="center"
