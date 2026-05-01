@@ -26,7 +26,10 @@ export function middleware(request: NextRequest) {
   ) {
     // /a は / にリダイレクト
     if (pathname === "/a") {
-      const response = NextResponse.redirect(new URL("/", request.url));
+      const url = request.nextUrl.clone();
+      url.pathname = "/";
+      url.search = new URL(request.url).search;
+      const response = NextResponse.redirect(url);
       response.cookies.set(AB_TEST_COOKIE, "a", COOKIE_OPTIONS);
       return response;
     }
@@ -43,6 +46,7 @@ export function middleware(request: NextRequest) {
   if (pathname === "/a") {
     const url = request.nextUrl.clone();
     url.pathname = "/";
+    url.search = new URL(request.url).search;
     const response = NextResponse.redirect(url);
     response.cookies.set(AB_TEST_COOKIE, "a", COOKIE_OPTIONS);
     return response;
@@ -90,6 +94,7 @@ export function middleware(request: NextRequest) {
   if (variant !== "a") {
     const url = request.nextUrl.clone();
     url.pathname = `/${variant}`;
+    url.search = new URL(request.url).search;
     const response = NextResponse.redirect(url);
     if (needsCookieUpdate) {
       response.cookies.set(AB_TEST_COOKIE, variant, COOKIE_OPTIONS);
