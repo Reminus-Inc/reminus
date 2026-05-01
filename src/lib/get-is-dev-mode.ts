@@ -1,14 +1,8 @@
 "use client";
 
-let isDevMode: boolean | null = null;
-export const getIsDevMode = (): boolean => {
-  if (isDevMode == null) {
-    isDevMode = computeIsDevMode();
-  }
-  return isDevMode;
-};
+const SESSION_STORAGE_KEY = "devMode";
 
-const computeIsDevMode = (): boolean => {
+export const getIsDevMode = (): boolean => {
   if (typeof window === "undefined") {
     return false;
   }
@@ -18,6 +12,10 @@ const computeIsDevMode = (): boolean => {
     }
     const url = new URL(window.location.href);
     if (url.searchParams.has("dev")) {
+      sessionStorage.setItem(SESSION_STORAGE_KEY, "1");
+      return true;
+    }
+    if (sessionStorage.getItem(SESSION_STORAGE_KEY) === "1") {
       return true;
     }
   } catch {
