@@ -7,7 +7,7 @@ export default function DownloadLayout({
 }) {
   return (
     <>
-      <Header showNavMenu={false} shadow />
+      <Header showNavMenu={false} />
       <main>{children}</main>
     </>
   );
