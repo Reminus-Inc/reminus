@@ -44,11 +44,11 @@ export default function DownloadPage() {
               />
             </div>
 
-            <p className="mt-6 max-w-[500px] text-base !leading-[1.7] tracking-wide text-gray-700 sm:text-lg">
+            <p className="mt-6 max-w-[500px] text-base !leading-[1.7] tracking-wide text-gray-700">
               資料をご希望のお客様はフォームにご入力ください。すぐに資料をご覧いただけます。
             </p>
 
-            <ul className="mt-3 list-inside list-disc space-y-1 pl-2 text-base !leading-[1.5] tracking-wide text-gray-800 sm:text-lg">
+            <ul className="mt-3 list-inside list-disc space-y-1 pl-2 text-base !leading-[1.5] tracking-wide text-gray-800">
               <li>サービスの背景</li>
               <li>提供内容</li>
               <li>導入事例</li>
