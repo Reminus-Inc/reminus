@@ -1,4 +1,4 @@
-import { FvDownloadButton } from "../ui/fv-download-button";
+import { CustomDownloadButton } from "@/app/_components/ui/download-button";
 import { cn } from "@/lib/utils";
 import { Clock, HeartHandshake, UserRoundCheck } from "lucide-react";
 import Image from "next/image";
@@ -63,11 +63,12 @@ export function FirstView() {
               className="w-[82%] max-w-[320px] sm:max-w-[380px]"
             />
           </div>
-          <div className="mt-4 flex flex-col gap-2.5 sm:mt-6 sm:gap-3 lg:mt-8 lg:items-start lg:gap-4">
+          <div className="-mt-1 flex flex-col gap-2.5 sm:-mt-1 sm:gap-3 lg:mt-8 lg:items-start lg:gap-4">
             <div className="order-1 w-screen max-w-[100vw] relative left-1/2 -translate-x-1/2 z-[1] px-4 sm:px-6 lg:order-2 lg:left-auto lg:translate-x-0 lg:w-auto lg:max-w-none lg:px-0">
-              <FvDownloadButton
+              <CustomDownloadButton
                 title="資料ダウンロード"
                 subtitle="Reminus CTO代行"
+                className="lg:-ml-2"
                 href="/download"
               />
             </div>

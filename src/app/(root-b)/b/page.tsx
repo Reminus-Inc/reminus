@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-// B版トップページ（現行 /c のクローン）
+// B版トップページ（eebbca6 直前の /c スナップショット）
 export default function HomeB() {
   return (
     <>
