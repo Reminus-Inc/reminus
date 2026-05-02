@@ -40,25 +40,19 @@ export function NavMenu({ variant }: { variant?: NavVariant } = {}) {
   }, [isOpen]);
 
   const rawItems: Array<[string, string]> =
-    variant === "c"
+    variant === "c" || variant === "b"
       ? [
           ["service-overview", "サービス概要"],
           ["case-studies", "導入事例"],
           ["column", "コラム"],
           ["management", "経営者紹介"],
         ]
-      : variant === "b"
-        ? [
-            ["service-menu", "サービス概要"],
-            ["case-studies", "導入事例"],
-            ["management", "経営者紹介"],
-          ]
-        : [
-            ["service-menu", "サービス概要"],
-            ["case-studies", "導入事例"],
-            ["column", "コラム"],
-            ["management", "経営者紹介"],
-          ];
+      : [
+          ["service-menu", "サービス概要"],
+          ["case-studies", "導入事例"],
+          ["column", "コラム"],
+          ["management", "経営者紹介"],
+        ];
   const menuItems = rawItems.map(([hash, label]) => ({
     href: isHomePage ? `#${hash}` : `${homePath}#${hash}`,
     label,

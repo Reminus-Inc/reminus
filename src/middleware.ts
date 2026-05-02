@@ -6,7 +6,7 @@ const AB_TEST_COOKIE = "ab-test-top";
 // 振り分け対象の variant。["a"] にすると全員 a（テスト停止）、複数あれば等確率で割り振る。
 // ここから外した variant に既に cookie が付いている人 (例: 旧 "b") は次回 / アクセス時に
 // VARIANTS.includes チェックで再抽選されるので、自動的に新しい振り分けに乗り換わる。
-const VARIANTS = ["a", "c"] as const;
+const VARIANTS = ["a", "b", "c"] as const;
 
 const COOKIE_OPTIONS = {
   maxAge: 60 * 60 * 24 * 30,

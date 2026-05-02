@@ -1,151 +1,153 @@
-import { CustomDownloadButton } from "../ui/download-button";
 import { Carousel } from "@/components/ui/carousel";
+import { CircleAlert, CircleCheckBig } from "lucide-react";
 
-import { SectionHeader } from "../ui/section-header";
-import {
-  Hospital,
-  Box,
-  ChartBarBig,
-  Users,
-  type LucideIcon,
-} from "lucide-react";
+import { SectionHeader } from "@/app/_components/ui/section-header";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 type CaseStudyItemBase = {
   title: string;
   scale: string;
-  financialBackground: string;
-  serviceTypeList: ServiceType[];
-  supportContentList: string[];
+  financialBackground?: string;
+  challengeList: string[];
   resultList: string[];
 };
 type CaseStudyItemWithLogo = CaseStudyItemBase & {
   companyName: string;
   logoPath: string;
+  logoWidth: number;
+  logoHeight: number;
+  logoClassName?: string;
 };
 type CaseStudyItemWithoutLogo = CaseStudyItemBase & {
   category: string;
-  icon: LucideIcon;
 };
 type CaseStudyItem = CaseStudyItemWithLogo | CaseStudyItemWithoutLogo;
 
-const SERVICE_TYPE = {
-  DEVELOPMENT: "技術",
-  PRODUCT: "プロダクト",
-  ORGANIZATION: "組織",
-  RECRUITMENT: "採用",
-} as const;
-type ServiceType = (typeof SERVICE_TYPE)[keyof typeof SERVICE_TYPE];
-
 const caseStudyItemList: CaseStudyItem[] = [
-  {
-    companyName: "千葉エコ・エネルギー株式会社",
-    title:
-      "農地法SaaSの製品構想を整理し、開発ロードマップ策定〜外注監修まで一気通貫",
-    logoPath: "/logos/chiba-eco.webp",
-    scale: "売上高数億円",
-    financialBackground: "非公開",
-    serviceTypeList: [SERVICE_TYPE.PRODUCT, SERVICE_TYPE.DEVELOPMENT],
-    supportContentList: [
-      "農地法特有の業務手続きを踏まえ、開発ロードマップと技術戦略を策定",
-      "セールスの戦略とスケジュールを踏まえてMVP範囲を精緻化",
-      "外注先の選定と、発注後の外注先管理をサポート",
-    ],
-    resultList: ["（現在ご支援中）"],
-  },
   {
     companyName: "1backoffice合同会社",
     title:
       "バックオフィスDXプロダクトの開発プロセス設計と初期エンジニア採用を一体で支援",
     logoPath: "/logos/1backoffice.png",
+    logoWidth: 526,
+    logoHeight: 40,
+    logoClassName: "w-[140px]",
     scale: "創業2年",
     financialBackground: "自己資金",
-    serviceTypeList: [SERVICE_TYPE.ORGANIZATION, SERVICE_TYPE.RECRUITMENT],
-    supportContentList: [
-      "製品仕様が明確という特徴を活かし、開発速度を最大化する開発プロセスを設計",
-      "開発プロセスに最適化されたエンジニア求人を定義し、採用方針を整理",
-    ],
-    resultList: ["（現在ご支援中）"],
-  },
-  {
-    category: "医療\u00d7AI SaaS スタートアップ",
-    title: "MVPを事業計画通りリリース。\nスカウト返信率改善で即戦力を2名獲得。",
-    icon: Hospital,
-    scale: "シードラウンド 1億円調達",
-    financialBackground: "エクイティファイナンス",
-    serviceTypeList: [SERVICE_TYPE.DEVELOPMENT, SERVICE_TYPE.RECRUITMENT],
-    supportContentList: [
-      "CTO代行が技術投資に優先度をつけ、工数を削減",
-      "事業状況に適した役割設計とスカウト文面の最適化",
+    challengeList: [
+      "バックオフィスSaaSは機能数が多いため開発生産性の見通しが重要",
+      "開発プロセスが未整備で、自社に最適な1人目エンジニアの要件が曖昧",
     ],
     resultList: [
-      "顧客への機能開発に集中し、事業計画に沿ってMVPリリース",
-      "候補者から返信率が向上し、入社意欲のあるエンジニアを2名獲得",
+      "エンジニアが最も効率よくAIと分担・協働できる仕組みを構築",
+      "開発プロセスに最適化したエンジニア要件を定義し、採用活動を推進",
     ],
   },
   {
-    category: "製造業 SaaS スタートアップ",
+    category: "グローバルSaaS企業",
+    title: "グローバルSaaS企業の日本向け新プロダクトでPMF停滞を解消しGTMを構築",
+    scale: "上場企業・新規プロダクト",
+    challengeList: [
+      "新製品のPMFに向けた製品企画・開発の手法がわからず停滞",
+      "日本市場の製品開発と営業が分断され、適切な検証が進まない",
+    ],
+    resultList: [
+      "PMFに向けた意思決定の停滞を解消し、仮説検証が回る状態へ転換",
+      "SaaSのGTM戦略と組織体制を設計し、日本市場で売れる体制を構築",
+    ],
+  },
+  {
+    companyName: "千葉エコ・エネルギー株式会社",
     title:
-      "プロダクト構想を開発計画に落とし込み、\nゼロから内製組織を立ち上げ。",
-    icon: Box,
-    scale: "資本金 3,000万円",
-    financialBackground: "自己資金（黒字）",
-    serviceTypeList: [SERVICE_TYPE.DEVELOPMENT, SERVICE_TYPE.PRODUCT],
-    supportContentList: [
-      "販売戦略から逆算して、MVPの開発ロードマップと技術戦略を策定",
-      "内製リソースがゼロの状態から3名の初期チームと開発基盤を構築",
-    ],
-    resultList: ["（現在ご支援中）"],
-  },
-  {
-    category: "経営管理 SaaS スタートアップ",
-    title: "MVPを実現しシード調達に成功。\n副業エンジニア拡大後、CTO採用達成。",
-    icon: ChartBarBig,
-    scale: "シードラウンド 1億円調達",
-    financialBackground: "エクイティファイナンス",
-    serviceTypeList: [
-      SERVICE_TYPE.DEVELOPMENT,
-      SERVICE_TYPE.ORGANIZATION,
-      SERVICE_TYPE.RECRUITMENT,
-    ],
-    supportContentList: [
-      "競争優位性となる財務モデリングに特化して全体設計を策定",
-      "CTO代行がエンジニアに訴求できる採用プロセスを構築",
+      "農地法SaaSの製品構想を整理し、開発ロードマップ策定〜外注監修まで一気通貫",
+    logoPath: "/logos/chiba-eco.webp",
+    logoWidth: 300,
+    logoHeight: 40,
+    logoClassName: "w-[100px]",
+    scale: "売上高数億円",
+    challengeList: [
+      "システム開発のノウハウ・リソースがない",
+      "外注先選定・管理のポイントがわからない",
     ],
     resultList: [
-      "MVPを実現し、シードラウンドでの資金調達に成功",
+      "農地法特有の業務手続きを踏まえ、開発ロードマップと技術戦略を策定",
+      "セールスの戦略とスケジュールを踏まえてMVP範囲を精緻化",
+      "外注先の選定と、発注後は外注管理サポート",
+    ],
+  },
+  {
+    category: "福利厚生SaaS",
+    title:
+      "シリーズAに向けた技術実現性の担保と開発実行体制の構築",
+    scale: "シード〜シリーズA",
+    challengeList: [
+      "シリーズAに向けた構想が現状の技術で実現可能か不透明",
+      "次の調達に向けて製品開発をやり切る必要があるが、遅延している",
+    ],
+    resultList: [
+      "技術診断を踏まえ、全体設計・体制・計画を再定義し、実現性を担保",
+      "開発オペレーションに伴走し、開発を計画通りに進行可能な状態へ",
+    ],
+  },
+  {
+    category: "製造業SaaS スタートアップ",
+    title: "プロダクト構想を開発計画に落とし込み、ゼロから内製組織を立ち上げ。",
+    scale: "資本金3,000万円",
+    financialBackground: "自己資金",
+    challengeList: [
+      "製造業の業務知見はあるが、SaaS化にあたって技術の実現可否を判断できる人材がいない",
+      "エンジニアがゼロで、開発体制の作り方も開発の進め方もわからない",
+    ],
+    resultList: [
+      "プロダクト・業界特有の技術リスクを洗い出し、MVPロードマップと技術戦略を策定",
+      "技術基盤を構築し、業務委託エンジニアを1名採用。開発を予定通り推進",
+    ],
+  },
+  {
+    category: "医療AI SaaS",
+    title: "MVPを事業計画通りリリース。\nスカウト返信率改善で即戦力を2名獲得。",
+    scale: "シード1億円調達",
+    challengeList: [
+      "CTO不在で技術投資の優先順位がつけられず、開発工数が分散",
+      "即戦力エンジニアを採用したいが、スカウトの返信率が低い",
+    ],
+    resultList: [
+      "CTO代行が技術投資に優先度をつけ工数を削減し、事業計画どおりMVPをリリース",
+      "スカウト文面と役割設計を最適化し、入社意欲のあるエンジニアを2名獲得",
+    ],
+  },
+  {
+    category: "経営管理SaaS",
+    title: "MVPを実現しシード調達に成功。チーム拡大後、CTO採用達成。",
+    scale: "シード1億円調達",
+    challengeList: [
+      "財務モデリングが技術的に複雑で設計・開発が困難",
+      "エンジニア採用のノウハウがなく、外注の内製化が難しい",
+    ],
+    resultList: [
+      "設計支援によりMVPを実現し、シードラウンドでの資金調達に成功",
       "副業エンジニア6名まで開発組織を拡大後、CTO採用に成功",
-    ],
-  },
-  {
-    category: "士業特化バーティカルCRM SaaS スタートアップ",
-    title: "エンジニア2名・コードなしの状態から内製開発組織を立ち上げ。",
-    icon: Users,
-    scale: "従業員数10名",
-    financialBackground: "自己資金（新規事業）",
-    serviceTypeList: [SERVICE_TYPE.DEVELOPMENT, SERVICE_TYPE.ORGANIZATION],
-    supportContentList: [
-      "CTO代行がシステム構想からMVP範囲を決め、スケジュールを策定",
-      "Reminusエンジニアが2名コードを書きながら開発体制を立ち上げ",
-    ],
-    resultList: [
-      "1.5ヶ月で内製開発を立ち上げ",
-      "企画と開発を高速で回せる開発プロセスの仕組み化を実現",
     ],
   },
 ];
 
 export function CaseStudies({ className }: { className?: string }) {
   return (
-    <section id="case-studies" className={cn("overflow-x-hidden py-24 sm:py-32", className)}>
+    <section
+      id="case-studies"
+      className={cn(
+        "content-auto overflow-x-hidden py-24 font-sans sm:py-32",
+        className
+      )}
+    >
       <div className="mx-auto w-[82%] max-w-[1200px] md:w-[86%]">
         <SectionHeader
           label="Case Studies"
           align="center"
           headingClassName="text-3xl sm:text-[40px] !leading-[1.7]"
         >
-          事例のご紹介
+          導入事例
         </SectionHeader>
 
         <div className="mt-12 sm:mt-16">
@@ -158,10 +160,6 @@ export function CaseStudies({ className }: { className?: string }) {
               ))}
             />
           </div>
-        </div>
-
-        <div className="bleed mt-16 px-4">
-          <CustomDownloadButton subtitle="成果の詳細を公開中" asLink />
         </div>
       </div>
     </section>
@@ -176,129 +174,101 @@ function CaseStudyCard({ caseStudyItem, className }: CaseStudyCardProps) {
   const hasLogo = "logoPath" in caseStudyItem;
 
   return (
-    <div
-      className={cn(
-        "h-full overflow-hidden rounded-md border border-solid border-gray-300 bg-white",
-        className
-      )}
-    >
-      <div className="bg-gradient-to-r from-emerald-500 to-emerald-500/80 px-4 py-4 sm:px-6">
-        <p className="whitespace-pre-wrap text-lg font-bold !leading-[1.65] tracking-wide text-white sm:text-[22px]">
+    <div className={cn("flex h-full flex-col bg-white", className)}>
+      <div className="rounded-t-lg bg-gradient-to-r from-emerald-500 from-60% to-emerald-500/85 px-4 py-4 sm:px-6">
+        <p className="whitespace-pre-wrap text-base font-bold !leading-[1.7] tracking-wide text-white sm:text-lg md:text-xl lg:text-[22px]">
           {caseStudyItem.title}
         </p>
       </div>
 
-      <div className="mt-5 px-5 sm:px-8">
+      <div className="flex-grow rounded-b-lg border-b border-l border-r border-solid border-gray-300 p-4 sm:p-5">
         {hasLogo ? (
-          <div className="flex flex-col gap-2">
-            <p className="text-xs tracking-wide text-gray-600" data-nosnippet>
-              {caseStudyItem.companyName}
-            </p>
-            <div>
-              <Image
-                src={caseStudyItem.logoPath}
-                alt={caseStudyItem.companyName}
-                width={120}
-                height={40}
-                className="h-auto max-h-[40px] w-auto object-contain"
-              />
+          // ロゴあり
+          <div className="flex flex-col justify-between gap-4 sm:flex-row-reverse">
+            <Image
+              src={caseStudyItem.logoPath}
+              alt={caseStudyItem.companyName}
+              width={caseStudyItem.logoWidth}
+              height={caseStudyItem.logoHeight}
+              className={cn("h-fit", caseStudyItem.logoClassName)}
+            />
+
+            <div className="flex flex-col gap-2">
+              <p
+                className="text-sm tracking-wider text-gray-800"
+                data-nosnippet
+              >
+                {caseStudyItem.companyName}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <Chip label={caseStudyItem.scale} />
+                {caseStudyItem.financialBackground && (
+                  <Chip label={caseStudyItem.financialBackground} />
+                )}
+              </div>
             </div>
           </div>
         ) : (
           // ロゴなし
-          <div className="flex items-center gap-3">
-            <caseStudyItem.icon
-              className="h-7 w-7 text-gray-600"
-              strokeWidth={2}
-            />
-            <p className="text-lg font-bold tracking-wide text-gray-800">
-              {caseStudyItem.category}
+          <>
+            <p className="text-lg font-bold tracking-wider text-gray-800">
+              社名非公開<br className="md:hidden"/> ({caseStudyItem.category})
             </p>
-          </div>
-        )}
-      </div>
-
-      <div className="mt-4 overflow-hidden px-3 pb-5 sm:px-6">
-        <Row isEven={false}>
-          <Head>会社規模</Head>
-          <Body>{caseStudyItem.scale}</Body>
-        </Row>
-        <Row isEven={true}>
-          <Head>財務状況</Head>
-          <Body>{caseStudyItem.financialBackground}</Body>
-        </Row>
-        <Row isEven={false}>
-          <Head>支援業務</Head>
-          <Body>
-            <div className="flex flex-wrap gap-2">
-              {caseStudyItem.serviceTypeList.map((item, index) => (
-                <div
-                  key={index}
-                  className="rounded border border-gray-200 px-3 py-0.5"
-                >
-                  <p className="text-[11px] font-medium leading-5 text-gray-800">
-                    {item}
-                  </p>
-                </div>
-              ))}
+            <div className="mt-2.5 flex flex-wrap gap-2">
+              <Chip label={caseStudyItem.scale} />
+              {caseStudyItem.financialBackground && (
+                <Chip label={caseStudyItem.financialBackground} />
+              )}
             </div>
-          </Body>
-        </Row>
-        <Row isEven={true}>
-          <Head>支援内容</Head>
-          <Body>
-            <ul className="flex list-disc flex-col gap-1">
-              {caseStudyItem.supportContentList.map((item, index) => (
+          </>
+        )}
+
+        <div className="mt-5 space-y-3">
+          {/* 課題 */}
+          <div className="flex flex-col gap-2 p-4">
+            <div className="-mx-4 -mt-4 flex items-center gap-2 bg-gray-100/80 px-4 py-2.5">
+              <CircleAlert
+                className="size-[16px] h-auto text-red-500 sm:size-[18px]"
+                strokeWidth={2.5}
+              />
+              <p className="text-xs font-medium tracking-wider text-gray-900 sm:text-sm">
+                抱えていた課題
+              </p>
+            </div>
+            <ul className="list-disc space-y-1 pl-4 text-xs !leading-[1.5] tracking-wide text-gray-900 sm:pl-5 sm:text-sm">
+              {caseStudyItem.challengeList.map((item, index) => (
                 <li key={index}>{item}</li>
               ))}
             </ul>
-          </Body>
-        </Row>
-        <Row isEven={false}>
-          <Head>成果</Head>
-          <Body>
-            <ul className="flex list-disc flex-col gap-1">
+          </div>
+
+          {/* 効果 */}
+          <div className="flex flex-col gap-2 p-4">
+            <div className="-mx-4 -mt-4 flex items-center gap-2 bg-sky-50 px-4 py-2.5">
+              <CircleCheckBig
+                className="size-[16px] h-auto text-blue-500 sm:size-[18px]"
+                strokeWidth={2.5}
+              />
+              <p className="text-xs font-medium tracking-wider text-gray-900 sm:text-sm">
+                導入効果
+              </p>
+            </div>
+            <ul className="list-disc space-y-1 pl-4 text-xs !leading-[1.5] tracking-wide text-gray-900 sm:pl-5 sm:text-sm">
               {caseStudyItem.resultList.map((item, index) => (
                 <li key={index}>{item}</li>
               ))}
             </ul>
-          </Body>
-        </Row>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
-function Row({
-  isEven,
-  children,
-}: {
-  isEven: boolean;
-  children: React.ReactNode;
-}) {
+function Chip({ label }: { label: string }) {
   return (
-    <div className={`flex w-full ${isEven ? "bg-gray-50" : ""}`}>
-      {children}
-    </div>
-  );
-}
-
-function Head({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="py-2.5 pl-3 sm:pl-5">
-      <p className="w-[60px] text-xs leading-5 tracking-wide text-gray-800 sm:w-[68px] sm:text-sm sm:leading-relaxed">
-        {children}
-      </p>
-    </div>
-  );
-}
-
-function Body({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="grow py-2.5 pl-6 pr-2">
-      <div className="text-xs leading-5 tracking-wide text-gray-800 sm:text-sm sm:leading-relaxed">
-        {children}
-      </div>
-    </div>
+    <span className="rounded border border-gray-200 px-3 py-0.5 text-[11px] font-medium leading-5 text-gray-800">
+      {label}
+    </span>
   );
 }
