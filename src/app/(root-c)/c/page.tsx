@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Blog } from "../_components/sections/blog";
 import { CaseStudies } from "../_components/sections/case-studies";
+import { Column } from "@/app/_components/sections/column";
 import { ClientLogos } from "@/app/_components/sections/client-logos";
 import { CompanyOverview } from "@/app/_components/sections/company-overview";
 import { Cta } from "../_components/sections/cta";
@@ -29,10 +29,10 @@ export default function HomeC() {
         <CaseStudies className="bg-gray-50" />
         <ServiceMenu className="bg-gray-50" />
         <WhyReminus className="bg-white" />
-        <Cta className="from-white to-gray-50" />
-        <Blog />
+        <Cta className="from-white to-white" />
+        <Column className="bg-white" />
         <Faq className="bg-gray-50" />
-        <Management className="bg-gray-50" />
+        <Management className="bg-white" />
         <DownloadRequest />
         <CompanyOverview />
       </div>
