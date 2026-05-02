@@ -36,7 +36,7 @@ export const DownloadPreview = ({
   return (
     <div className="w-full max-w-[520px]">
       <Carousel opts={{ loop: true }} showPagination={false}>
-        <div className="relative border-[4px] border-solid border-gray-300">
+        <div className="relative">
           <CarouselContent className="overflow-hidden">
             {images.map((image) => (
               <CarouselItem key={image.src}>

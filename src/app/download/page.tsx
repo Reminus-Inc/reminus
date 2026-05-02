@@ -26,14 +26,29 @@ export default function DownloadPage() {
             </h1>
 
             <div className="mt-4 lg:mt-6">
-              <DownloadPreview />
+              <DownloadPreview
+                images={[
+                  {
+                    src: "/document-cover-c.png",
+                    alt: "Reminus CTOパートナー資料イメージ1",
+                  },
+                  {
+                    src: "/document-2.png",
+                    alt: "Reminus CTOパートナー資料イメージ2",
+                  },
+                  {
+                    src: "/document-3.png",
+                    alt: "Reminus CTOパートナー資料イメージ3",
+                  },
+                ]}
+              />
             </div>
 
-            <p className="mt-6 max-w-[500px] text-sm !leading-[1.7] tracking-wide text-gray-700 sm:text-base">
-              サービス資料をご希望のお客様は以下のフォームにご入力ください。すぐに資料をご覧いただけます。
+            <p className="mt-6 max-w-[500px] text-base !leading-[1.7] tracking-wide text-gray-700 sm:text-lg">
+              資料をご希望のお客様はフォームにご入力ください。すぐに資料をご覧いただけます。
             </p>
 
-            <ul className="mt-3 list-inside list-disc space-y-1 pl-2 text-sm !leading-[1.5] tracking-wide text-gray-800 sm:text-base">
+            <ul className="mt-3 list-inside list-disc space-y-1 pl-2 text-base !leading-[1.5] tracking-wide text-gray-800 sm:text-lg">
               <li>サービスの背景</li>
               <li>提供内容</li>
               <li>導入事例</li>
