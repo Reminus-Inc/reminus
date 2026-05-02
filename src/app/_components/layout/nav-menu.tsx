@@ -44,7 +44,7 @@ export function NavMenu({ variant }: { variant?: NavVariant } = {}) {
       ? [
           ["service-overview", "サービス概要"],
           ["case-studies", "導入事例"],
-          ["blog", "ブログ"],
+          ["column", "コラム"],
           ["management", "経営者紹介"],
         ]
       : variant === "b"

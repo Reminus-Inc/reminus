@@ -21,7 +21,7 @@ export default function BlogLayout({
 
   return (
     <>
-      <Header shadow variant={variant} />
+      <Header variant={variant} />
       <main>{children}</main>
     </>
   );
