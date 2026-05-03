@@ -26,10 +26,10 @@ export default function HomeC() {
       <div className="content-auto">
         <Problem />
         <ServiceOverview className="bg-white" />
-        <CaseStudies className="bg-gray-50" />
         <ServiceMenu className="bg-gray-50" />
         <WhyReminus className="bg-white" />
-        <Cta className="from-white to-white" />
+        <Cta className="from-white to-gray-50" />
+        <CaseStudies className="bg-gray-50" />
         <Column className="bg-white" />
         <Faq className="bg-gray-50" />
         <Management className="bg-white" />
