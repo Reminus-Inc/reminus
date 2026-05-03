@@ -73,7 +73,10 @@ export function WhyReminus({ className }: { className?: string }) {
   return (
     <section
       id="why-reminus"
-      className={cn("content-auto py-24 font-sans sm:py-32", className)}
+      className={cn(
+        "content-auto overflow-x-hidden py-24 font-sans sm:py-32",
+        className
+      )}
     >
       <div className="mx-auto w-[82%] max-w-[1200px] md:w-[86%]">
         <SectionHeader
