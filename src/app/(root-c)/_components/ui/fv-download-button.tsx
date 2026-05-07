@@ -50,6 +50,7 @@ export const FvDownloadButton = ({
               alt="資料イメージ"
               width={480}
               height={270}
+              sizes="100px"
               className="max-w-[64px] object-contain min-[375px]:max-w-[72px] sm:max-w-[100px]"
             />
           </div>

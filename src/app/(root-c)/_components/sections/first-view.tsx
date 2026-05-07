@@ -60,6 +60,7 @@ export function FirstView() {
               preload
               fetchPriority="high"
               loading="eager"
+              sizes="(min-width: 640px) 380px, 82vw"
               className="w-[82%] max-w-[320px] sm:max-w-[380px]"
             />
           </div>
@@ -99,6 +100,7 @@ export function FirstView() {
             preload
             fetchPriority="high"
             loading="eager"
+            sizes="(min-width: 1280px) 560px, 480px"
             className="lg:w-[480px] xl:w-[560px]"
           />
         </div>
