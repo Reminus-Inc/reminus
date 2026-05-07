@@ -10,7 +10,6 @@ import { Management } from "@/app/_components/sections/management";
 import { Problem } from "../_components/sections/problem";
 import { WhyReminus } from "../_components/sections/why-reminus";
 import { ServiceMenu } from "../_components/sections/service-menu";
-import { DownloadRequest } from "../_components/sections/download-request";
 import { ServiceOverview } from "../_components/sections/service-overview";
 
 export const metadata: Metadata = {
@@ -33,7 +32,7 @@ export default function HomeB() {
         <Blog />
         <Faq className="bg-gray-50" />
         <Management className="bg-gray-50" />
-        <DownloadRequest />
+        <Cta className="from-gray-50 to-white" />
         <CompanyOverview />
       </div>
     </>

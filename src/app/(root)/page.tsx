@@ -9,7 +9,6 @@ import { Problem } from "../_components/sections/problem";
 import { WhyReminus } from "../_components/sections/why-reminus";
 import { Comparison } from "../_components/sections/comparison";
 import { ServiceMenu } from "../_components/sections/service-menu";
-import { DownloadRequest } from "../_components/sections/download-request";
 import { ServiceOverview } from "../_components/sections/service-overview";
 
 export default function Home() {
@@ -27,7 +26,7 @@ export default function Home() {
         <Comparison className="bg-white" />
         <Management className="bg-gray-50" />
         <Column />
-        <DownloadRequest />
+        <Cta className="from-white to-white" />
         <CompanyOverview />
       </div>
     </>

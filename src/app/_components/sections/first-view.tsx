@@ -24,6 +24,7 @@ export function FirstView() {
             height={539}
             preload
             fetchPriority="high"
+            loading="eager"
             className="w-[80%] max-w-[320px] sm:max-w-[380px]"
           />
         </div>
@@ -38,6 +39,9 @@ export function FirstView() {
           alt="CTO代行サービスイラスト"
           width={580}
           height={521}
+          preload
+          fetchPriority="high"
+          loading="eager"
           className="lg:w-[560px] xl:w-[620px]"
         />
       </div>

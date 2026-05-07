@@ -6,7 +6,6 @@ import Image from "next/image";
 export function FirstView() {
   return (
     <section className="relative overflow-hidden bg-[#1E3A8A]">
-      {/* 背景: Sales Marker 系ディープブルー + 光・深度 (SP=右上光 / LG以上=左暗右明) */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 lg:hidden"
@@ -60,6 +59,7 @@ export function FirstView() {
               height={748}
               preload
               fetchPriority="high"
+              loading="eager"
               className="w-[82%] max-w-[320px] sm:max-w-[380px]"
             />
           </div>
@@ -96,6 +96,9 @@ export function FirstView() {
             alt="CTO代行サービスイラスト"
             width={868}
             height={748}
+            preload
+            fetchPriority="high"
+            loading="eager"
             className="lg:w-[480px] xl:w-[560px]"
           />
         </div>
