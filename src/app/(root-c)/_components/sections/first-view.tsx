@@ -97,9 +97,6 @@ export function FirstView() {
             alt="CTO代行サービスイラスト"
             width={868}
             height={748}
-            preload
-            fetchPriority="high"
-            loading="eager"
             sizes="(min-width: 1280px) 560px, 480px"
             className="lg:w-[480px] xl:w-[560px]"
           />
