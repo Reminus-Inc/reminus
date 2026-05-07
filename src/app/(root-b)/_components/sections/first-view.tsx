@@ -49,22 +49,22 @@ export function FirstView() {
       />
 
       <div className="relative mx-auto flex w-[84%] max-w-[1200px] flex-col items-center gap-4 pb-4 pt-5 font-sans sm:gap-5 sm:pb-5 sm:pt-7 md:pb-12 md:pt-10 lg:w-[90%] lg:max-w-[1080px] lg:flex-row lg:gap-6 lg:pb-12 lg:pt-9 xl:max-w-[1160px] xl:gap-2">
-        <div className="relative z-[1] w-full lg:w-fit lg:flex-none">
+        <div className="z-[1] w-full lg:w-fit lg:flex-none">
           <Title />
           <Description className="mt-2.5 sm:mt-3.5" />
-          <div className="-mt-3 flex justify-center sm:-mt-4 md:mt-4 lg:hidden">
-            <Image
-              src="/hero-c.png"
-              alt="CTO代行サービスイラスト"
-              width={868}
-              height={748}
-              preload
-              fetchPriority="high"
-              loading="eager"
-              sizes="(min-width: 640px) 380px, 82vw"
-              className="w-[82%] max-w-[320px] sm:max-w-[380px]"
-            />
-          </div>
+          <Image
+            src="/hero-c.png"
+            alt="CTO代行サービスイラスト"
+            width={868}
+            height={748}
+            fetchPriority="high"
+            loading="eager"
+            sizes="(min-width: 1280px) 560px, (min-width: 1024px) 480px, (min-width: 640px) 380px, 82vw"
+            className={cn(
+              "block mx-auto -mt-3 w-[82%] max-w-[320px] sm:-mt-4 sm:max-w-[380px] md:mt-4",
+              "lg:pointer-events-none lg:absolute lg:inset-y-0 lg:right-0 lg:m-auto lg:max-w-none lg:w-[480px] xl:w-[560px]"
+            )}
+          />
           <div className="-mt-1 flex flex-col gap-2.5 sm:-mt-1 sm:gap-3 lg:mt-8 lg:items-start lg:gap-4">
             <div className="order-1 w-screen max-w-[100vw] relative left-1/2 -translate-x-1/2 z-[1] px-4 sm:px-6 lg:order-2 lg:left-auto lg:translate-x-0 lg:w-auto lg:max-w-none lg:px-0">
               <CustomDownloadButton
@@ -91,17 +91,6 @@ export function FirstView() {
               }}
             />
           </div>
-        </div>
-
-        <div className="pointer-events-none absolute inset-y-0 right-0 hidden items-center lg:flex">
-          <Image
-            src="/hero-c.png"
-            alt="CTO代行サービスイラスト"
-            width={868}
-            height={748}
-            sizes="(min-width: 1280px) 560px, 480px"
-            className="lg:w-[480px] xl:w-[560px]"
-          />
         </div>
       </div>
     </section>
