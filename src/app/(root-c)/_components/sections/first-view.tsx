@@ -5,15 +5,15 @@ import Image from "next/image";
 
 export function FirstView() {
   return (
-    <section className="relative overflow-hidden bg-[#1E3A8A]">
+    <section className="relative overflow-hidden bg-[#10B981]">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 lg:hidden"
         style={{
           backgroundImage: [
             "radial-gradient(95% 70% at 110% -5%, rgba(255,255,255,0.32) 0%, rgba(255,255,255,0.12) 35%, rgba(255,255,255,0) 70%)",
-            "radial-gradient(110% 90% at -10% 115%, rgba(15,23,42,0.55) 0%, rgba(15,23,42,0.15) 45%, rgba(15,23,42,0) 75%)",
-            "linear-gradient(225deg, #2E4FC7 0%, #1E3A8A 45%, #1E1B4B 100%)",
+            "radial-gradient(110% 90% at -10% 115%, rgba(2,44,34,0.55) 0%, rgba(2,44,34,0.15) 45%, rgba(2,44,34,0) 75%)",
+            "linear-gradient(225deg, #10B981 0%, #059669 45%, #022C22 100%)",
           ].join(", "),
         }}
       />
@@ -23,8 +23,8 @@ export function FirstView() {
         style={{
           backgroundImage: [
             "radial-gradient(120% 130% at 110% -10%, rgba(255,255,255,0.34) 0%, rgba(255,255,255,0.14) 28%, rgba(255,255,255,0.04) 55%, rgba(255,255,255,0) 82%)",
-            "radial-gradient(120% 130% at -20% 110%, rgba(15,23,42,0.60) 0%, rgba(15,23,42,0.28) 35%, rgba(15,23,42,0.08) 60%, rgba(15,23,42,0) 82%)",
-            "linear-gradient(225deg, #2E4FC7 0%, #1E3A8A 50%, #1E1B4B 100%)",
+            "radial-gradient(120% 130% at -20% 110%, rgba(2,44,34,0.60) 0%, rgba(2,44,34,0.28) 35%, rgba(2,44,34,0.08) 60%, rgba(2,44,34,0) 82%)",
+            "linear-gradient(225deg, #10B981 0%, #059669 50%, #022C22 100%)",
           ].join(", "),
         }}
       />
@@ -47,10 +47,10 @@ export function FirstView() {
         }}
       />
 
-      <div className="relative mx-auto flex w-[84%] max-w-[1200px] flex-col items-center gap-4 pb-4 pt-5 font-sans sm:gap-5 sm:pb-5 sm:pt-7 md:pb-12 md:pt-10 lg:w-[90%] lg:max-w-[1080px] lg:flex-row lg:gap-6 lg:pb-12 lg:pt-9 xl:max-w-[1160px] xl:gap-2">
+      <div className="relative mx-auto flex w-[84%] max-w-[1200px] flex-col items-center gap-4 pb-14 pt-10 font-sans sm:gap-5 sm:pb-20 sm:pt-14 md:pb-24 md:pt-20 lg:w-[90%] lg:max-w-[1080px] lg:flex-row lg:gap-6 lg:pb-24 lg:pt-20 xl:max-w-[1160px] xl:gap-2 xl:pb-28 xl:pt-24">
         <div className="relative z-[1] w-full lg:w-fit lg:flex-none">
           <Title />
-          <Description className="mt-2.5 sm:mt-3.5" />
+          <Description className="mt-3 sm:mt-4 lg:mt-5" />
           <div className="-mt-3 flex justify-center sm:-mt-4 md:mt-4 lg:hidden">
             <Image
               src="/hero-c.png"
@@ -61,7 +61,7 @@ export function FirstView() {
               fetchPriority="high"
               loading="eager"
               sizes="(min-width: 640px) 380px, 82vw"
-              className="w-[82%] max-w-[320px] sm:max-w-[380px]"
+              className="w-[88%] max-w-[400px] sm:max-w-[460px]"
             />
           </div>
           <div className="mt-4 flex flex-col gap-2.5 sm:mt-6 sm:gap-3 lg:mt-8 lg:items-start lg:gap-4">
@@ -98,7 +98,7 @@ export function FirstView() {
             width={868}
             height={748}
             sizes="(min-width: 1280px) 560px, 480px"
-            className="lg:w-[480px] xl:w-[560px]"
+            className="lg:w-[540px] xl:w-[640px]"
           />
         </div>
       </div>
@@ -110,16 +110,16 @@ const Title = ({ className }: { className?: string }) => {
   return (
     <h1
       className={cn(
-        "-mr-[8%] text-[23px] font-bold !leading-[1.5] tracking-wider text-white min-[375px]:text-[27px] sm:mr-0 sm:text-4xl md:text-5xl md:!leading-[1.4] lg:text-5xl lg:tracking-wide xl:text-[56px]",
+        "-mr-[8%] text-[24px] font-bold !leading-[1.5] tracking-wider text-white min-[375px]:text-[28px] sm:mr-0 sm:text-[40px] md:text-[52px] md:!leading-[1.4] lg:text-[52px] lg:tracking-wide xl:text-[60px]",
         className
       )}
     >
       <span className="block">
-        <span className="text-emerald-300">
+        <span className="text-amber-200">
           <span className="text-[105%]">SaaS</span>特化
         </span>
         <span className="text-[90%]">の</span>
-        <span className="text-emerald-300">
+        <span className="text-amber-200">
           <span className="text-[105%]">CTO</span>代行
         </span>
         <span className="text-[90%]">が</span>

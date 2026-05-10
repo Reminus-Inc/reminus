@@ -21,7 +21,9 @@ export default function HomeC() {
   return (
     <>
       <FirstView />
-      <ClientLogos />
+      <div className="pt-6 sm:pt-10 lg:pt-12">
+        <ClientLogos />
+      </div>
       <div className="content-auto">
         <Problem />
         <ServiceOverview className="bg-white" />
