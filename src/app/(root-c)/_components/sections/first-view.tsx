@@ -47,25 +47,25 @@ export function FirstView() {
         }}
       />
 
-      <div className="relative mx-auto flex w-[84%] max-w-[1200px] flex-col items-center gap-4 pb-14 pt-10 font-sans sm:gap-5 sm:pb-20 sm:pt-14 md:pb-24 md:pt-20 lg:w-[90%] lg:max-w-[1080px] lg:flex-row lg:gap-6 lg:pb-24 lg:pt-16 xl:max-w-[1160px] xl:gap-2 xl:pb-28 xl:pt-20">
-        <div className="relative z-[1] w-full lg:w-fit lg:flex-none">
+      <div className="relative mx-auto flex w-[84%] max-w-[1200px] flex-col items-center gap-4 pb-14 pt-10 font-sans sm:gap-5 sm:pb-20 sm:pt-14 md:pb-24 md:pt-20 lg:w-[92%] lg:max-w-[1180px] lg:flex-row lg:gap-6 lg:pb-16 lg:pt-12 xl:max-w-[1280px] xl:gap-2 xl:pb-20 xl:pt-14">
+        <div className="z-[1] w-full lg:w-fit lg:flex-none">
           <Title />
           <Description className="mt-3 sm:mt-4 lg:mt-7" />
-          <div className="-mt-3 flex justify-center sm:-mt-4 md:mt-4 lg:hidden">
-            <Image
-              src="/hero-c.png"
-              alt="CTO代行サービスイラスト"
-              width={868}
-              height={748}
-              preload
-              fetchPriority="high"
-              loading="eager"
-              sizes="(min-width: 640px) 380px, 82vw"
-              className="w-[88%] max-w-[400px] sm:max-w-[460px]"
-            />
-          </div>
+          <Image
+            src="/hero-c.png"
+            alt="CTO代行サービスイラスト"
+            width={868}
+            height={748}
+            fetchPriority="high"
+            loading="eager"
+            sizes="(min-width: 1280px) 640px, (min-width: 1024px) 540px, (min-width: 640px) 460px, 88vw"
+            className={cn(
+              "block mx-auto -mt-3 w-[88%] max-w-[400px] sm:-mt-4 sm:max-w-[460px] md:mt-4",
+              "lg:pointer-events-none lg:absolute lg:inset-y-0 lg:right-[10px] lg:m-auto lg:max-w-none lg:w-[540px] xl:w-[640px]"
+            )}
+          />
           <div className="mt-4 flex flex-col gap-2.5 sm:mt-6 sm:gap-3 lg:mt-20 lg:items-start lg:gap-8">
-            <div className="order-1 w-screen max-w-[100vw] relative left-1/2 -translate-x-1/2 z-[1] px-4 sm:px-6 lg:order-2 lg:left-auto lg:translate-x-0 lg:w-auto lg:max-w-none lg:px-0">
+            <div className="order-1 w-screen max-w-[100vw] relative left-1/2 -translate-x-1/2 z-[1] px-4 sm:px-6 lg:order-1 lg:left-auto lg:translate-x-0 lg:w-auto lg:max-w-none lg:px-0">
               <FvDownloadButton
                 title="資料ダウンロード"
                 subtitle="Reminus CTO代行"
@@ -75,7 +75,7 @@ export function FirstView() {
             <div
               aria-hidden
               role="img"
-              className="order-2 mx-auto aspect-[405/75] w-full max-w-[180px] flex-none min-[375px]:max-w-[210px] sm:max-w-[240px] lg:order-1 lg:mx-0 lg:w-[220px] xl:w-[240px] mt-2"
+              className="order-2 mx-auto aspect-[405/75] w-full max-w-[180px] flex-none min-[375px]:max-w-[210px] sm:max-w-[240px] lg:order-2 lg:mx-0 lg:w-[220px] xl:w-[240px] mt-2"
               style={{
                 WebkitMaskImage: "url(/crown.png)",
                 maskImage: "url(/crown.png)",
@@ -89,17 +89,6 @@ export function FirstView() {
               }}
             />
           </div>
-        </div>
-
-        <div className="pointer-events-none absolute inset-y-0 right-0 hidden items-center lg:flex">
-          <Image
-            src="/hero-c.png"
-            alt="CTO代行サービスイラスト"
-            width={868}
-            height={748}
-            sizes="(min-width: 1280px) 560px, 480px"
-            className="lg:w-[540px] xl:w-[640px]"
-          />
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-import { CustomDownloadButton } from "@/app/_components/ui/download-button";
+import { FvDownloadButton } from "../ui/fv-download-button";
 import { cn } from "@/lib/utils";
 import { Clock, HeartHandshake, UserRoundCheck } from "lucide-react";
 import Image from "next/image";
@@ -6,7 +6,6 @@ import Image from "next/image";
 export function FirstView() {
   return (
     <section className="relative overflow-hidden bg-[#1E3A8A]">
-      {/* 背景: Sales Marker 系ディープブルー + 光・深度 (SP=右上光 / LG以上=左暗右明) */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 lg:hidden"
@@ -65,12 +64,11 @@ export function FirstView() {
               "lg:pointer-events-none lg:absolute lg:inset-y-0 lg:right-0 lg:m-auto lg:max-w-none lg:w-[480px] xl:w-[560px]"
             )}
           />
-          <div className="-mt-1 flex flex-col gap-2.5 sm:-mt-1 sm:gap-3 lg:mt-8 lg:items-start lg:gap-4">
+          <div className="mt-4 flex flex-col gap-2.5 sm:mt-6 sm:gap-3 lg:mt-8 lg:items-start lg:gap-4">
             <div className="order-1 w-screen max-w-[100vw] relative left-1/2 -translate-x-1/2 z-[1] px-4 sm:px-6 lg:order-2 lg:left-auto lg:translate-x-0 lg:w-auto lg:max-w-none lg:px-0">
-              <CustomDownloadButton
+              <FvDownloadButton
                 title="資料ダウンロード"
                 subtitle="Reminus CTO代行"
-                className="lg:-ml-2"
                 href="/download"
               />
             </div>

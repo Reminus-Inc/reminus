@@ -1,4 +1,4 @@
-import { CustomDownloadButton } from "@/app/_components/ui/download-button";
+import { FvDownloadButton } from "../ui/fv-download-button";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import type { ReactNode } from "react";
@@ -109,7 +109,9 @@ export function ServiceOverview({ className }: { className?: string }) {
         </div>
 
         <div className="bleed mt-20 px-4">
-          <CustomDownloadButton
+          <FvDownloadButton
+            variant="filled"
+            imageSrc="/document-3.png"
             title="資料ダウンロード"
             subtitle="提供内容と事例を公開中"
             href="/download"

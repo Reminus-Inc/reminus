@@ -1,5 +1,5 @@
 import { SectionHeader } from "@/app/_components/ui/section-header";
-import { CustomDownloadButton } from "@/app/_components/ui/download-button";
+import { FvDownloadButton } from "../../ui/fv-download-button";
 import { cn } from "@/lib/utils";
 import { Code2, Layers, Network, UserPlus } from "lucide-react";
 import { ServiceMenuTable } from "./service-menu-table";
@@ -85,7 +85,9 @@ export function ServiceMenu({ className }: { className?: string }) {
         </div>
 
         <div className="bleed mt-16 px-4">
-          <CustomDownloadButton
+          <FvDownloadButton
+            variant="filled"
+            imageSrc="/document-3.png"
             subtitle="Reminus CTO代行"
             title="資料ダウンロード"
             href="/download"
