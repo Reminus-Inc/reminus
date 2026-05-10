@@ -47,12 +47,12 @@ export function FirstView() {
         }}
       />
 
-      <div className="relative mx-auto flex w-[84%] max-w-[1200px] flex-col items-center gap-4 pb-14 pt-10 font-sans sm:gap-5 sm:pb-20 sm:pt-14 md:pb-24 md:pt-20 lg:w-[92%] lg:max-w-[1180px] lg:flex-row lg:gap-6 lg:pb-16 lg:pt-12 xl:max-w-[1280px] xl:gap-2 xl:pb-20 xl:pt-14">
+      <div className="relative mx-auto flex w-[84%] max-w-[1200px] flex-col items-center gap-4 pb-14 pt-8 font-sans sm:gap-5 sm:pb-20 sm:pt-12 md:pb-24 md:pt-20 lg:w-[92%] lg:max-w-[1180px] lg:flex-row lg:gap-6 lg:pb-16 lg:pt-12 xl:max-w-[1280px] xl:gap-2 xl:pb-20 xl:pt-14">
         <div className="z-[1] w-full lg:w-fit lg:flex-none">
           <Title />
           <Description className="mt-3 sm:mt-4 lg:mt-7" />
           <Image
-            src="/hero-c.png"
+            src="/ChatGPT_Image_2026年5月10日_21_53_55-removebg.png"
             alt="CTO代行サービスイラスト"
             width={868}
             height={748}
@@ -60,11 +60,11 @@ export function FirstView() {
             loading="eager"
             sizes="(min-width: 1280px) 640px, (min-width: 1024px) 540px, (min-width: 640px) 460px, 88vw"
             className={cn(
-              "block mx-auto -mt-3 w-[88%] max-w-[400px] sm:-mt-4 sm:max-w-[460px] md:mt-4",
-              "lg:pointer-events-none lg:absolute lg:inset-y-0 lg:right-[10px] lg:m-auto lg:max-w-none lg:w-[540px] xl:w-[640px]"
+              "block relative left-1/2 -translate-x-1/2 mt-2 w-screen max-w-[338px] sm:mt-5 sm:max-w-[478px] md:mt-4",
+              "lg:pointer-events-none lg:absolute lg:inset-y-0 lg:right-[10px] lg:left-auto lg:translate-x-0 lg:m-auto lg:max-w-none lg:w-[540px] xl:w-[640px]"
             )}
           />
-          <div className="mt-4 flex flex-col gap-2.5 sm:mt-6 sm:gap-3 lg:mt-20 lg:items-start lg:gap-8">
+          <div className="-mt-[42px] flex flex-col gap-2.5 sm:-mt-[50px] sm:gap-3 lg:mt-20 lg:items-start lg:gap-8">
             <div className="order-1 w-screen max-w-[100vw] relative left-1/2 -translate-x-1/2 z-[1] px-4 sm:px-6 lg:order-1 lg:left-auto lg:translate-x-0 lg:w-auto lg:max-w-none lg:px-0">
               <FvDownloadButton
                 title="資料ダウンロード"
