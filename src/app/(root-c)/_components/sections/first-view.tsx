@@ -47,7 +47,7 @@ export function FirstView() {
         }}
       />
 
-      <div className="relative mx-auto flex w-[84%] max-w-[1200px] flex-col items-center gap-4 pb-14 pt-8 font-sans sm:gap-5 sm:pb-20 sm:pt-12 md:pb-24 md:pt-20 lg:w-[92%] lg:max-w-[1180px] lg:flex-row lg:gap-6 lg:pb-16 lg:pt-12 xl:max-w-[1280px] xl:gap-2 xl:pb-20 xl:pt-14">
+      <div className="relative mx-auto flex w-[84%] max-w-[1200px] flex-col items-center gap-4 pb-14 pt-8 font-sans sm:gap-5 sm:pb-20 sm:pt-12 md:pb-24 md:pt-20 lg:w-[92%] lg:max-w-[1180px] lg:flex-row lg:gap-6 lg:pb-10 lg:pt-12 xl:max-w-[1280px] xl:gap-2 xl:pb-12 xl:pt-14">
         <div className="z-[1] w-full lg:w-fit lg:flex-none">
           <Title />
           <Description className="mt-3 sm:mt-4 lg:mt-7" />
