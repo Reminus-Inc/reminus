@@ -47,10 +47,10 @@ export function FirstView() {
         }}
       />
 
-      <div className="relative mx-auto flex w-[84%] max-w-[1200px] flex-col items-center gap-4 pb-14 pt-10 font-sans sm:gap-5 sm:pb-20 sm:pt-14 md:pb-24 md:pt-20 lg:w-[90%] lg:max-w-[1080px] lg:flex-row lg:gap-6 lg:pb-24 lg:pt-20 xl:max-w-[1160px] xl:gap-2 xl:pb-28 xl:pt-24">
+      <div className="relative mx-auto flex w-[84%] max-w-[1200px] flex-col items-center gap-4 pb-14 pt-10 font-sans sm:gap-5 sm:pb-20 sm:pt-14 md:pb-24 md:pt-20 lg:w-[90%] lg:max-w-[1080px] lg:flex-row lg:gap-6 lg:pb-24 lg:pt-16 xl:max-w-[1160px] xl:gap-2 xl:pb-28 xl:pt-20">
         <div className="relative z-[1] w-full lg:w-fit lg:flex-none">
           <Title />
-          <Description className="mt-3 sm:mt-4 lg:mt-5" />
+          <Description className="mt-3 sm:mt-4 lg:mt-7" />
           <div className="-mt-3 flex justify-center sm:-mt-4 md:mt-4 lg:hidden">
             <Image
               src="/hero-c.png"
@@ -64,7 +64,7 @@ export function FirstView() {
               className="w-[88%] max-w-[400px] sm:max-w-[460px]"
             />
           </div>
-          <div className="mt-4 flex flex-col gap-2.5 sm:mt-6 sm:gap-3 lg:mt-8 lg:items-start lg:gap-4">
+          <div className="mt-4 flex flex-col gap-2.5 sm:mt-6 sm:gap-3 lg:mt-20 lg:items-start lg:gap-8">
             <div className="order-1 w-screen max-w-[100vw] relative left-1/2 -translate-x-1/2 z-[1] px-4 sm:px-6 lg:order-2 lg:left-auto lg:translate-x-0 lg:w-auto lg:max-w-none lg:px-0">
               <FvDownloadButton
                 title="資料ダウンロード"
@@ -124,7 +124,7 @@ const Title = ({ className }: { className?: string }) => {
         </span>
         <span className="text-[90%]">が</span>
       </span>
-      <span className="block">事業成長を技術で支える</span>
+      <span className="block text-[90%]">事業成長を技術で支える</span>
     </h1>
   );
 };
