@@ -40,7 +40,7 @@ export const FvDownloadButton = ({
 
   const variantClasses: Record<Variant, string> = {
     white: cn(
-      "bg-white text-emerald-700 ring-2 ring-transparent",
+      "bg-white text-emerald-800 ring-2 ring-transparent",
       // toB LP の CTA として、濃さと広がりを一段強めた 2 層ドロップ。
       "shadow-[0_3px_6px_rgba(15,23,42,0.18),0_18px_36px_-6px_rgba(15,23,42,0.30)]",
       "hover:bg-emerald-700 hover:text-white hover:ring-white hover:shadow-none"
@@ -80,7 +80,7 @@ export const FvDownloadButton = ({
           )}
 
           <div className="flex flex-col justify-center gap-0.5 sm:gap-1.5">
-            <span className="text-[10px] tracking-wider min-[375px]:text-[11px] sm:text-sm">
+            <span className="text-[10px] font-bold tracking-wider min-[375px]:text-[11px] sm:text-sm">
               {subtitle}
             </span>
             <span className="text-[15px] font-bold tracking-wider min-[375px]:text-lg sm:text-2xl">
