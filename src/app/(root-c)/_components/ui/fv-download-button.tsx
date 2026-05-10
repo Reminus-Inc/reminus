@@ -41,7 +41,8 @@ export const FvDownloadButton = ({
   const variantClasses: Record<Variant, string> = {
     white: cn(
       "bg-white text-emerald-700 ring-2 ring-transparent",
-      "shadow-[0_8px_36px_16px_rgba(255,255,255,0.12),0_8px_18px_-2px_rgba(6,78,59,0.28)]",
+      // toB LP の CTA として、濃さと広がりを一段強めた 2 層ドロップ。
+      "shadow-[0_3px_6px_rgba(15,23,42,0.18),0_18px_36px_-6px_rgba(15,23,42,0.30)]",
       "hover:bg-emerald-700 hover:text-white hover:ring-white hover:shadow-none"
     ),
     filled: cn(
