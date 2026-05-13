@@ -5,91 +5,69 @@ import Image from "next/image";
 
 export function FirstView() {
   return (
-    <section className="relative overflow-hidden bg-[#10B981]">
+    <section className="relative overflow-hidden bg-[#008255]">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 lg:hidden"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(120% 80% at 50% 0%, #00c386 0%, #00a86d 45%, #008255 100%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 [--grid-size:40px] md:[--grid-size:64px] lg:[--grid-size:80px]"
         style={{
           backgroundImage: [
-            "radial-gradient(95% 70% at 110% -5%, rgba(255,255,255,0.32) 0%, rgba(255,255,255,0.12) 35%, rgba(255,255,255,0) 70%)",
-            "radial-gradient(110% 90% at -10% 115%, rgba(2,44,34,0.55) 0%, rgba(2,44,34,0.15) 45%, rgba(2,44,34,0) 75%)",
-            "linear-gradient(225deg, #10B981 0%, #059669 45%, #022C22 100%)",
+            "linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)",
+            "linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)",
           ].join(", "),
-        }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 hidden lg:block"
-        style={{
-          backgroundImage: [
-            "radial-gradient(120% 130% at 110% -10%, rgba(255,255,255,0.34) 0%, rgba(255,255,255,0.14) 28%, rgba(255,255,255,0.04) 55%, rgba(255,255,255,0) 82%)",
-            "radial-gradient(120% 130% at -20% 110%, rgba(2,44,34,0.60) 0%, rgba(2,44,34,0.28) 35%, rgba(2,44,34,0.08) 60%, rgba(2,44,34,0) 82%)",
-            "linear-gradient(225deg, #10B981 0%, #059669 50%, #022C22 100%)",
+          backgroundSize:
+            "var(--grid-size) var(--grid-size), var(--grid-size) var(--grid-size)",
+          WebkitMaskImage: [
+            "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 22%, black 40%, black 60%, rgba(0,0,0,0.5) 78%, transparent 100%)",
+            "linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.7) 12%, black 28%, black 72%, rgba(0,0,0,0.7) 88%, rgba(0,0,0,0.5) 100%)",
           ].join(", "),
-        }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.07] mix-blend-soft-light"
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='200' height='200' filter='url(%23n)' opacity='0.6'/></svg>\")",
-          backgroundSize: "180px 180px",
-        }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.06]"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.8) 1px, transparent 0)",
-          backgroundSize: "24px 24px",
+          WebkitMaskComposite: "source-in",
+          maskImage: [
+            "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 22%, black 40%, black 60%, rgba(0,0,0,0.5) 78%, transparent 100%)",
+            "linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.7) 12%, black 28%, black 72%, rgba(0,0,0,0.7) 88%, rgba(0,0,0,0.5) 100%)",
+          ].join(", "),
+          maskComposite: "intersect",
         }}
       />
 
-      <div className="relative mx-auto flex w-[84%] max-w-[1200px] flex-col items-center gap-4 pb-14 pt-8 font-sans sm:gap-5 sm:pb-20 sm:pt-12 md:pb-24 md:pt-20 lg:w-[92%] lg:max-w-[1180px] lg:flex-row lg:gap-6 lg:pb-10 lg:pt-12 xl:max-w-[1280px] xl:gap-2 xl:pb-12 xl:pt-14">
-        <div className="z-[1] w-full lg:w-fit lg:flex-none">
+      <div className="relative mx-auto flex w-[88%] max-w-[1200px] flex-col gap-6 pb-12 pt-10 font-sans sm:gap-7 sm:pb-16 sm:pt-12 lg:w-[92%] lg:max-w-[1180px] lg:flex-row lg:gap-6 lg:pb-12 lg:pt-16 xl:max-w-[1220px]">
+        <div className="z-[1] w-full lg:w-fit lg:max-w-[720px] lg:flex-none xl:max-w-[820px]">
           <Title />
-          <Description className="mt-3 sm:mt-4 lg:mt-7" />
-          <Image
-            src="/ChatGPT_Image_2026年5月10日_21_53_55-removebg.png"
-            alt="CTO代行サービスイラスト"
-            width={868}
-            height={748}
-            fetchPriority="high"
-            loading="eager"
-            sizes="(min-width: 1280px) 640px, (min-width: 1024px) 540px, (min-width: 640px) 460px, 88vw"
-            className={cn(
-              "block relative left-1/2 -translate-x-1/2 mt-2 w-screen max-w-[338px] sm:mt-5 sm:max-w-[478px] md:mt-4",
-              "lg:pointer-events-none lg:absolute lg:inset-y-0 lg:right-[10px] lg:left-auto lg:translate-x-0 lg:m-auto lg:max-w-none lg:w-[540px] xl:w-[640px]"
-            )}
-          />
-          <div className="-mt-[42px] flex flex-col gap-2.5 sm:-mt-[50px] sm:gap-3 lg:mt-20 lg:items-start lg:gap-8">
-            <div className="order-1 w-screen max-w-[100vw] relative left-1/2 -translate-x-1/2 z-[1] px-4 sm:px-6 lg:order-1 lg:left-auto lg:translate-x-0 lg:w-auto lg:max-w-none lg:px-0">
-              <FvDownloadButton
-                title="資料ダウンロード"
-                subtitle="Reminus CTO代行"
-                href="/download"
-              />
-            </div>
-            <div
-              aria-hidden
-              role="img"
-              className="order-2 mx-auto aspect-[405/75] w-full max-w-[180px] flex-none min-[375px]:max-w-[210px] sm:max-w-[240px] lg:order-2 lg:mx-0 lg:w-[220px] xl:w-[240px] mt-2"
-              style={{
-                WebkitMaskImage: "url(/crown.png)",
-                maskImage: "url(/crown.png)",
-                WebkitMaskSize: "contain",
-                maskSize: "contain",
-                WebkitMaskRepeat: "no-repeat",
-                maskRepeat: "no-repeat",
-                WebkitMaskPosition: "center center",
-                backgroundColor: "#D3B36B",
-                filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.2))",
-              }}
+          <Description className="mt-6 sm:mt-8" />
+          <div className="mt-7 sm:mt-9 lg:mt-10">
+            <FvDownloadButton
+              title="資料ダウンロード"
+              subtitle="3分でわかるCTO代行"
+              href="/download"
+              className="mx-auto sm:mx-0"
             />
           </div>
+          <Image
+            src="/crown-c.png"
+            alt="サービス長期継続率85% / 開発立ち上げまで平均2ヶ月"
+            width={640}
+            height={119}
+            className="mx-auto mt-5 block w-full max-w-[320px] sm:mx-0 sm:mt-6 sm:max-w-[380px] lg:mt-8"
+          />
         </div>
+
+        <Image
+          src="/ChatGPT_Image_2026年5月10日_21_53_55-removebg.png"
+          alt="CTO代行サービスイラスト"
+          width={868}
+          height={748}
+          fetchPriority="high"
+          loading="eager"
+          sizes="(min-width: 1280px) 640px, (min-width: 1024px) 540px, 0px"
+          className="pointer-events-none hidden lg:absolute lg:inset-y-0 lg:right-[10px] lg:m-auto lg:block lg:w-[540px] xl:w-[640px]"
+        />
       </div>
     </section>
   );
@@ -97,23 +75,28 @@ export function FirstView() {
 
 const Title = ({ className }: { className?: string }) => {
   return (
-    <h1
-      className={cn(
-        "-mr-[8%] text-[24px] font-bold !leading-[1.5] tracking-wider text-white min-[375px]:text-[28px] sm:mr-0 sm:text-[40px] md:text-[52px] md:!leading-[1.4] lg:text-[52px] lg:tracking-wide xl:text-[60px]",
-        className
-      )}
-    >
-      <span className="block">
-        <span className="text-amber-200">
-          <span className="text-[105%]">SaaS</span>特化
+    <h1 className={cn("font-extrabold tracking-widest", className)}>
+      <span className="mb-3 flex flex-wrap items-end gap-x-2 gap-y-2 lg:mb-4 lg:flex-nowrap">
+        <span className="flex items-end gap-2 whitespace-nowrap">
+          <span className="bg-white px-2 py-1 text-[32px] leading-none text-emerald-600 min-[375px]:text-[40px] sm:text-[44px] md:text-[52px] lg:text-[60px]">
+            <span className="text-[108%]">SaaS</span>特化
+          </span>
+          <span className="text-[24px] leading-none text-white min-[375px]:text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px]">
+            の
+          </span>
         </span>
-        <span className="text-[90%]">の</span>
-        <span className="text-amber-200">
-          <span className="text-[105%]">CTO</span>代行
+        <span className="flex items-end gap-2 whitespace-nowrap">
+          <span className="bg-white px-2 py-1 text-[32px] leading-none text-emerald-600 min-[375px]:text-[40px] sm:text-[44px] md:text-[52px] lg:text-[60px]">
+            <span className="text-[108%]">CTO</span>代行
+          </span>
+          <span className="text-[24px] leading-none text-white min-[375px]:text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px]">
+            が
+          </span>
         </span>
-        <span className="text-[90%]">が</span>
       </span>
-      <span className="block text-[90%]">事業成長を技術で支える</span>
+      <span className="block text-[22px] !leading-tight text-white min-[375px]:text-[28px] sm:text-[32px] md:text-[36px] lg:text-[44px]">
+        事業成長を技術で支える
+      </span>
     </h1>
   );
 };
@@ -122,7 +105,7 @@ const Description = ({ className }: { className?: string }) => {
   return (
     <ul
       className={cn(
-        "ml-0 flex flex-col items-start gap-1 text-[11px] font-medium !leading-[1.5] tracking-wide min-[375px]:text-[12px] sm:gap-1.5 sm:text-[13px] md:ml-2.5 md:text-base lg:text-sm xl:text-base",
+        "flex flex-col items-start gap-1.5 text-white sm:gap-2",
         className
       )}
     >
@@ -134,20 +117,17 @@ const Description = ({ className }: { className?: string }) => {
           },
           {
             icon: HeartHandshake,
-            text: "チームの一員として開発推進",
+            text: "貴社チームの一員として参画",
           },
           { icon: Clock, text: "2ヶ月トライアル可" },
         ] as const
       ).map(({ icon: Icon, text }) => (
         <li
           key={text}
-          className="inline-flex items-center gap-1.5 rounded-full bg-emerald-100 px-2.5 py-[3px] font-semibold text-emerald-900 shadow-[0_2px_10px_rgba(15,23,42,0.18)] ring-1 ring-inset ring-emerald-200 sm:gap-2 sm:px-3.5 sm:py-1"
+          className="flex items-center gap-2 text-base font-medium tracking-wider sm:text-lg lg:gap-3 lg:text-xl"
         >
-          <Icon
-            className="size-[1.05em] flex-none text-emerald-600"
-            strokeWidth={2.5}
-          />
-          {text}
+          <Icon className="size-5 flex-none sm:size-6" strokeWidth={2.5} />
+          <span>{text}</span>
         </li>
       ))}
     </ul>

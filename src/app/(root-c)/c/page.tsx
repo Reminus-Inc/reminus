@@ -21,7 +21,7 @@ export default function HomeC() {
   return (
     <>
       <FirstView />
-      <div className="pt-6 sm:pt-10 lg:pt-12">
+      <div className="mt-4 sm:mt-10">
         <ClientLogos />
       </div>
       <div className="content-auto">

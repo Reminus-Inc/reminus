@@ -15,7 +15,9 @@ export default function Home() {
   return (
     <>
       <FirstView />
-      <ClientLogos />
+      <div className="mt-4 sm:mt-10">
+        <ClientLogos />
+      </div>
       <div className="content-auto">
         <Problem />
         <ServiceOverview className="bg-white" />
