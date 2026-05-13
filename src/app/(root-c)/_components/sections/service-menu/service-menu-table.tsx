@@ -1,4 +1,5 @@
 import type { LucideIcon } from "lucide-react";
+import { Check } from "lucide-react";
 
 export type MenuItem = {
   category: string;
@@ -9,7 +10,7 @@ export type MenuItem = {
 
 export function ServiceMenuTable({ data }: { data: MenuItem[] }) {
   return (
-    <div className="grid grid-cols-2 gap-6">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
       {data.map((item, index) => (
         <Card key={index} index={index} item={item} />
       ))}
@@ -18,32 +19,31 @@ export function ServiceMenuTable({ data }: { data: MenuItem[] }) {
 }
 
 function Card({ index, item }: { index: number; item: MenuItem }) {
-  const Icon = item.icon;
   return (
-    <article className="rounded-2xl bg-white p-8 shadow-[0_18px_48px_-18px_rgba(17,24,39,0.12)] ring-1 ring-gray-200/60 md:p-10">
-      <div className="flex items-start justify-between">
-        <div className="flex items-baseline gap-3 md:gap-4">
-          <span className="text-[40px] font-bold italic !leading-none text-emerald-500 md:text-[44px]">
-            {String(index + 1).padStart(2, "0")}
-          </span>
-          <div>
-            <p className="text-[10px] font-medium tracking-[0.3em] text-gray-500 md:text-[10.5px]">
-              {item.en.toUpperCase()}
-            </p>
-            <h3 className="mt-0.5 text-xl font-bold tracking-[0.1em] text-gray-800 md:text-[22px]">
-              {item.category}
-            </h3>
-          </div>
-        </div>
-        <div className="flex size-10 items-center justify-center rounded-xl bg-emerald-50 md:size-11">
-          <Icon className="size-5 text-emerald-600" strokeWidth={1.7} />
-        </div>
+    <article className="rounded-lg border border-gray-200/60 bg-white p-5 shadow-[0_0_20px_rgba(15,23,42,0.025),0_2px_6px_rgba(15,23,42,0.015)] sm:p-6 md:p-8">
+      <div className="ml-0.5 flex flex-col">
+        <span className="block h-[0.8em] overflow-hidden text-xs font-extrabold !leading-none text-emerald-500 sm:text-sm">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <div className="h-px w-6 bg-emerald-500" />
       </div>
-      <ul className="mt-6 space-y-2.5 text-sm !leading-[1.8] text-gray-800 md:mt-7 md:text-[15px]">
+
+      <h3 className="mt-1.5 text-xl font-bold tracking-wide text-gray-800 sm:text-2xl md:text-3xl">
+        {item.category}
+      </h3>
+
+      <ul className="mt-4 flex flex-col gap-2 sm:mt-5">
         {item.items.map((text, i) => (
-          <li key={i} className="flex items-baseline gap-3">
-            <span className="mt-[0.55em] block size-[5px] shrink-0 rounded-full bg-emerald-500" />
-            <span>{text}</span>
+          <li key={i} className="flex items-baseline gap-2">
+            <span className="inline-flex h-[18px] w-[18px] flex-none items-center justify-center rounded-full bg-emerald-50 text-emerald-500 sm:h-[20px] sm:w-[20px]">
+              <Check
+                className="size-3 sm:h-[13px] sm:w-[13px]"
+                strokeWidth={4}
+              />
+            </span>
+            <span className="text-sm !leading-[1.5] tracking-wide text-gray-800 sm:text-base">
+              {text}
+            </span>
           </li>
         ))}
       </ul>

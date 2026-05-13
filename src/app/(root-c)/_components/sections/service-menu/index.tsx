@@ -3,7 +3,6 @@ import { FvDownloadButton } from "../../ui/fv-download-button";
 import { cn } from "@/lib/utils";
 import { Code2, Layers, Network, UserPlus } from "lucide-react";
 import { ServiceMenuTable } from "./service-menu-table";
-import { ServiceMenuList } from "./service-menu-list";
 import type { MenuItem } from "./service-menu-table";
 
 const menuData: MenuItem[] = [
@@ -76,12 +75,7 @@ export function ServiceMenu({ className }: { className?: string }) {
         </SectionHeader>
 
         <div className="mt-8 md:mt-16">
-          <div className="sm:hidden">
-            <ServiceMenuList data={menuData} />
-          </div>
-          <div className="hidden sm:block">
-            <ServiceMenuTable data={menuData} />
-          </div>
+          <ServiceMenuTable data={menuData} />
         </div>
 
         <div className="bleed mt-16 px-4">
