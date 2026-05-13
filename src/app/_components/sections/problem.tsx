@@ -19,11 +19,10 @@ export function Problem({ className }: ProblemProps) {
     <section className={cn("content-auto font-sans", className)}>
       <div className="mx-auto w-[88%] max-w-[1200px] pb-20 pt-24 sm:pb-28 sm:pt-32">
         <SectionHeader
-          label="Problem"
           align="center"
           headingClassName="text-xl min-[375px]:text-[22px] sm:text-3xl md:text-4xl lg:text-[40px] !leading-[1.7]"
         >
-          こんなお悩みありませんか？
+          こんなお悩み、ありませんか？
         </SectionHeader>
 
         <div className="mt-10 flex justify-center sm:mt-14">
@@ -59,7 +58,7 @@ export function Problem({ className }: ProblemProps) {
         </div>
       </div>
 
-      <div className="bg-gradient-to-br from-emerald-500 from-60% to-emerald-400">
+      <div className="bg-emerald-500">
         <div className="flex justify-center">
           <div className="h-0 w-0 border-l-[40px] border-r-[40px] border-t-[34px] border-l-transparent border-r-transparent border-t-white sm:border-l-[60px] sm:border-r-[60px] sm:border-t-[50px]" />
         </div>

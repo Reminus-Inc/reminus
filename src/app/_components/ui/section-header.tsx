@@ -2,9 +2,9 @@ import { cn } from "@/lib/utils";
 
 interface SectionHeaderProps {
   /**
-   * 上部に表示するラベルテキスト
+   * 上部に表示するラベルテキスト。省略するとラベル行ごと非表示。
    */
-  label: string;
+  label?: string;
   /**
    * メイン見出しの内容
    */
@@ -38,17 +38,19 @@ export function SectionHeader({
   return (
     <div className={cn("flex flex-col gap-2 sm:gap-3", className)}>
       {/* 上部ラベル */}
-      <div
-        className={cn(
-          "-ml-3 flex items-center gap-2 sm:-ml-5 sm:gap-2.5",
-          align === "center" && "justify-center"
-        )}
-      >
-        <div className="h-2.5 w-2.5 rounded-full bg-emerald-200 sm:h-3 sm:w-3" />
-        <p className="text-sm tracking-wider text-gray-800 sm:text-base md:text-lg">
-          {label}
-        </p>
-      </div>
+      {label && (
+        <div
+          className={cn(
+            "-ml-3 flex items-center gap-2 sm:-ml-5 sm:gap-2.5",
+            align === "center" && "justify-center"
+          )}
+        >
+          <div className="h-2.5 w-2.5 rounded-full bg-emerald-200 sm:h-3 sm:w-3" />
+          <p className="text-sm tracking-wider text-gray-800 sm:text-base md:text-lg">
+            {label}
+          </p>
+        </div>
+      )}
 
       {/* メイン見出し */}
       <Tag

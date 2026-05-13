@@ -27,8 +27,7 @@ export function Column({ className }: { className?: string }) {
         </SectionHeader>
 
         <p className="mt-6 text-center text-sm !leading-[1.8] tracking-wide text-gray-800 sm:text-base md:text-lg">
-          SaaSと技術の最前線で成果を出しているReminusが
-          <span className="md:hidden">、</span>
+          SaaSと技術の最前線で成果を出しているReminusが、
           <br className="hidden md:block" />
           今日から役立つ具体的な情報をお届けしています。
         </p>
@@ -58,4 +57,3 @@ export function Column({ className }: { className?: string }) {
     </section>
   );
 }
-
