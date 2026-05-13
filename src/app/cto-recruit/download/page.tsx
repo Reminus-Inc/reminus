@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function CtoRecruitDownloadPage() {
   return (
-    <div className="content-auto min-h-[calc(100svh-70px)] pb-10 pt-2 font-sans md:pb-16 md:pt-6">
+    <div className="content-auto min-h-svh pb-10 pt-2 font-sans md:pb-16 md:pt-6">
       <div className="mx-auto flex w-[82%] max-w-[1200px] md:w-[86%]">
         <div className="flex w-full flex-col justify-center gap-8 md:gap-14 lg:flex-row lg:gap-16">
           <div>
