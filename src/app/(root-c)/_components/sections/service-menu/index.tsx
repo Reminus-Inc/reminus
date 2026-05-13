@@ -28,7 +28,7 @@ const menuData: MenuItem[] = [
       "製品開発・企画のプロセス化",
       "価格設計やGTM戦略、PMFの進め方",
       "ARPA向上の機能整理",
-      "AI機能の企画"
+      "AI機能の企画",
     ],
   },
   {
@@ -87,10 +87,11 @@ export function ServiceMenu({ className }: { className?: string }) {
         <div className="bleed mt-16 px-4">
           <FvDownloadButton
             variant="filled"
-            imageSrc="/document-3.png"
+            imageSrc="/document-cover-c-white.png"
             subtitle="Reminus CTO代行"
             title="資料ダウンロード"
             href="/download"
+            className="mx-auto"
           />
         </div>
       </div>
