@@ -12,6 +12,7 @@ export function FirstView() {
           alt=""
           width={405}
           height={75}
+          sizes="(min-width: 1280px) 405px, (min-width: 768px) 360px, (min-width: 640px) 320px, (min-width: 375px) 244px, 224px"
           className="-ml-1 max-w-[224px] min-[375px]:max-w-[244px] sm:max-w-[320px] md:max-w-[360px] xl:max-w-[405px]"
         />
         <Title className="mt-2.5" />

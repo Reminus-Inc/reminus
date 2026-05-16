@@ -22,6 +22,7 @@ export function Cta({ className }: CtaProps) {
                 alt="Reminus CTO パートナー概要資料"
                 width={1326}
                 height={842}
+                sizes="(min-width: 1280px) 420px, (min-width: 1024px) 320px, (min-width: 768px) 400px, (min-width: 640px) 360px, 300px"
                 className="w-full max-w-[300px] rounded-sm sm:max-w-[360px] md:max-w-[400px] lg:max-w-[320px] xl:max-w-[420px]"
               />
             </div>

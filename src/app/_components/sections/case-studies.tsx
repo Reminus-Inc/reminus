@@ -177,6 +177,7 @@ function CaseStudyCard({ caseStudyItem, className }: CaseStudyCardProps) {
               alt={caseStudyItem.companyName}
               width={caseStudyItem.logoWidth}
               height={caseStudyItem.logoHeight}
+              sizes="160px"
               className={cn("h-fit", caseStudyItem.logoClassName)}
             />
 

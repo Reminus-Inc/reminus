@@ -10,6 +10,7 @@ export function ClientLogos() {
           alt="クライアント様ロゴ"
           width={1011}
           height={252}
+          sizes="(min-width: 768px) 600px, (min-width: 640px) 520px, 400px"
         />
       </div>
 
@@ -20,6 +21,7 @@ export function ClientLogos() {
           alt="クライアント様ロゴ"
           width={2088}
           height={72}
+          sizes="1200px"
         />
       </div>
     </div>

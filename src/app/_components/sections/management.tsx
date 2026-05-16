@@ -28,6 +28,7 @@ export function Management({ className }: { className?: string }) {
                 alt=""
                 width={400}
                 height={400}
+                sizes="(min-width: 768px) 360px, min(80vw, 400px)"
                 className="h-full w-full object-cover"
               />
             </div>

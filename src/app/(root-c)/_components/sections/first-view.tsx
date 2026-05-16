@@ -54,6 +54,7 @@ export function FirstView() {
             alt="サービス長期継続率85% / 開発立ち上げまで平均2ヶ月"
             width={640}
             height={119}
+            sizes="(min-width: 640px) 380px, 320px"
             className="mx-auto mt-5 block w-full max-w-[320px] sm:mx-0 sm:mt-6 sm:max-w-[380px] lg:mt-8"
           />
         </div>

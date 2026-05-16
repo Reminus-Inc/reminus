@@ -145,6 +145,7 @@ function FeatureCard({
         alt=""
         width={width}
         height={height}
+        sizes="(min-width: 768px) 400px, (min-width: 640px) 320px, 240px"
         className="w-[240px] sm:w-[320px] md:w-[400px]"
       />
       <h4 className="mt-6 text-base font-bold !leading-[1.6] tracking-wider text-gray-800 sm:mt-8 sm:text-xl lg:text-2xl">
