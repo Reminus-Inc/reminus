@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 import { Toaster } from "@/components/ui/toaster";
-import { GoogleTagManager } from "@next/third-parties/google";
 import { Footer } from "./_components/layout/footer";
 import { PersistUtm } from "./_components/PersistUtm"
 
@@ -38,11 +38,11 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // RootLayout はサーバーコンポーネントなので process.env.GTM_ID は描画時に
+  // インラインスクリプト本文へ埋め込まれる。クライアントランタイムは参照しない。
+  const gtmId = process.env.GTM_ID;
   return (
     <html lang="ja">
-      {!!process.env.GTM_ID && (
-        <GoogleTagManager gtmId={process.env.GTM_ID}  />
-      )}
       <body
         className={`${inter.variable} ${notoSansJP.variable} flex min-h-svh flex-col`}
       >
@@ -50,6 +50,15 @@ export default async function RootLayout({
         <Footer />
         <Toaster />
         <PersistUtm />
+        {!!gtmId && (
+          <Script id="gtm-init" strategy="lazyOnload">
+            {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${gtmId}');`}
+          </Script>
+        )}
       </body>
     </html>
   );
