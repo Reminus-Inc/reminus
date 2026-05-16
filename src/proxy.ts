@@ -14,7 +14,7 @@ const COOKIE_OPTIONS = {
   sameSite: "lax",
 } as const;
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const existingVariant = request.cookies.get(AB_TEST_COOKIE)?.value;
 
