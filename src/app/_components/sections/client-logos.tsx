@@ -10,6 +10,9 @@ export function ClientLogos() {
           alt="クライアント様ロゴ"
           width={1011}
           height={252}
+          loading="eager"
+          priority
+          fetchPriority="high"
           sizes="(min-width: 768px) 600px, (min-width: 640px) 520px, 400px"
         />
       </div>
