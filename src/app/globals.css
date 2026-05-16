@@ -113,11 +113,18 @@ body {
     @apply bg-[image:linear-gradient(to_right,theme(colors.gray.300)_3px,transparent_3px)] bg-[length:6px_1px] bg-bottom bg-repeat-x;
   }
 
-  /* 一旦コメントアウト。Clarity の表示崩れが改善するか試す */
-  /* .content-auto {
+  /*
+   * オフスクリーンセクションのレンダリングをスキップして LCP / INP を改善する。
+   * `auto 1200px` の `auto` キーワードで、一度描画された後は実測値を記憶させて
+   * 再 skip 時のサイズ予測を安定化させる (= スクロール時の全高ジャンプを抑え、
+   * Clarity のリプレイ/ヒートマップが崩れにくくなる狙い)。
+   * fallback 値は当 LP セクションの実高 (FAQ / case-studies ≈ 1000-1500px) に
+   * 寄せて 1200px。
+   */
+  .content-auto {
     content-visibility: auto;
-    contain-intrinsic-size: 500px;
-  } */
+    contain-intrinsic-size: auto 1200px;
+  }
 }
 
 main {
