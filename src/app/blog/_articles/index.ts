@@ -6,10 +6,11 @@ import { article as founderEngineerCommunication } from "./content/founder-engin
 import { article as mvpVsMaximum } from "./content/mvp-vs-maximum";
 import { article as saasAiSurvival } from "./content/saas-ai-survival";
 import { article as saasBeyondTechCompanies } from "./content/saas-beyond-tech-companies";
+import { article as saasStartupPitfalls5 } from "./content/saas-startup-pitfalls-5";
 import { article as whyFractionalCtoForStartups } from "./content/why-fractional-cto-for-startups";
 
 // 新しい順
-export const articles: Article[] = [claudeCoworkProductivity, ctoBuildsManagementToolWithClaudeCode, earlyStageCtoHiring, founderEngineerCommunication, mvpVsMaximum, saasAiSurvival, saasBeyondTechCompanies, whyFractionalCtoForStartups].sort(
+export const articles: Article[] = [claudeCoworkProductivity, ctoBuildsManagementToolWithClaudeCode, earlyStageCtoHiring, founderEngineerCommunication, mvpVsMaximum, saasAiSurvival, saasBeyondTechCompanies, saasStartupPitfalls5, whyFractionalCtoForStartups].sort(
   (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
 );
 
