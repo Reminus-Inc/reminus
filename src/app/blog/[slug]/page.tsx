@@ -51,9 +51,11 @@ export default async function BlogArticlePage({
   const article = getArticleBySlug(slug);
   if (!article) notFound();
 
-  const relatedArticles = articles
-    .filter((a) => a.slug !== article.slug)
-    .slice(0, 3);
+  const relatedArticles = article.relatedSlugs
+    ? article.relatedSlugs
+        .map((slug) => articles.find((a) => a.slug === slug))
+        .filter((a): a is (typeof articles)[number] => !!a)
+    : articles.filter((a) => a.slug !== article.slug).slice(0, 3);
 
   const jsonLd = [
     {
@@ -188,7 +190,7 @@ export default async function BlogArticlePage({
             </p>
           </div>
           <h2 className="mt-4 text-xl font-bold tracking-wider text-gray-800 md:text-2xl">
-            その他の記事
+            関連記事
           </h2>
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {relatedArticles.map((related) => (
