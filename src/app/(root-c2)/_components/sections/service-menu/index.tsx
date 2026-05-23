@@ -1,9 +1,8 @@
 import { SectionHeader } from "@/app/_components/ui/section-header";
-import { CustomDownloadButton } from "@/app/_components/ui/download-button";
+import { FvDownloadButton } from "../../ui/fv-download-button";
 import { cn } from "@/lib/utils";
 import { Code2, Layers, Network, UserPlus } from "lucide-react";
 import { ServiceMenuTable } from "./service-menu-table";
-import { ServiceMenuList } from "./service-menu-list";
 import type { MenuItem } from "./service-menu-table";
 
 const menuData: MenuItem[] = [
@@ -28,7 +27,7 @@ const menuData: MenuItem[] = [
       "製品開発・企画のプロセス化",
       "価格設計やGTM戦略、PMFの進め方",
       "ARPA向上の機能整理",
-      "AI機能の企画"
+      "AI機能の企画",
     ],
   },
   {
@@ -76,19 +75,17 @@ export function ServiceMenu({ className }: { className?: string }) {
         </SectionHeader>
 
         <div className="mt-8 md:mt-16">
-          <div className="sm:hidden">
-            <ServiceMenuList data={menuData} />
-          </div>
-          <div className="hidden sm:block">
-            <ServiceMenuTable data={menuData} />
-          </div>
+          <ServiceMenuTable data={menuData} />
         </div>
 
         <div className="bleed mt-16 px-4">
-          <CustomDownloadButton
+          <FvDownloadButton
+            variant="filled"
+            imageSrc="/document-cover-c-white.png"
             subtitle="Reminus CTO代行"
             title="資料ダウンロード"
             href="/download"
+            className="mx-auto"
           />
         </div>
       </div>

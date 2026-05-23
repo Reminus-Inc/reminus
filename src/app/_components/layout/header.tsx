@@ -12,6 +12,7 @@ interface HeaderProps {
   logoHref?: string;
   shadow?: boolean;
   variant?: NavVariant;
+  lp?: string;
 }
 
 export function Header({
@@ -21,8 +22,11 @@ export function Header({
   logoHref,
   shadow = false,
   variant,
+  lp,
 }: HeaderProps) {
-  const resolvedLogoHref = logoHref ?? (variant ? `/${variant}` : "/");
+  // lp(ページのパス) があればそれをホームに、無ければ variant から導出。
+  const resolvedLogoHref =
+    logoHref ?? lp ?? (variant ? `/${variant}` : "/");
   const handleLogoClick = (e: React.MouseEvent) => {
     // ロゴのhrefと現在のパスが一致する場合はトップにスクロール
     if (
@@ -54,7 +58,8 @@ export function Header({
               />
             </Link>
           </div>
-          {rightContent || (showNavMenu && <NavMenu variant={variant} />)}
+          {rightContent ||
+            (showNavMenu && <NavMenu variant={variant} lp={lp} />)}
         </div>
       </div>
     </header>

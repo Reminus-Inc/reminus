@@ -16,7 +16,7 @@ export default function BlogLayout({
   useEffect(() => {
     const match = document.cookie.match(/(?:^|;\s*)ab-test-top=([^;]+)/);
     const v = match?.[1];
-    if (v === "b" || v === "c") setVariant(v);
+    if (v === "c") setVariant(v);
   }, []);
 
   return (

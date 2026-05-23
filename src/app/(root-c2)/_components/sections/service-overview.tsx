@@ -1,4 +1,4 @@
-import { CustomDownloadButton } from "@/app/_components/ui/download-button";
+import { FvDownloadButton } from "../ui/fv-download-button";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import type { ReactNode } from "react";
@@ -26,7 +26,7 @@ const features: Feature[] = [
     ),
     titleAlt: "最適なCTOがリード。SaaSの複雑な課題に幅広く対応",
     points: [
-      "元CTO等の経験者から貴社に最適なCTO代行担当者を選定します。人材紹介ではなく、Reminusが責任を持つCTO代行サービスです。"
+      "元CTO等の経験者から貴社に最適なCTO代行担当者を選定します。人材紹介ではなく、Reminusが責任を持つCTO代行サービスです。",
     ],
   },
   {
@@ -100,7 +100,7 @@ export function ServiceOverview({ className }: { className?: string }) {
                 <p className="text-lg font-bold !leading-[1.6] tracking-wide text-gray-800 sm:text-xl md:text-2xl lg:text-3xl">
                   {feature.title}
                 </p>
-                <p className="whitespace-pre-line text-sm !leading-[1.8] md:!leading-[1.9] tracking-wide text-gray-800 sm:text-base md:text-lg">
+                <p className="whitespace-pre-line text-sm !leading-[1.8] tracking-wide text-gray-800 sm:text-base md:text-lg md:!leading-[1.9]">
                   {feature.points.join("")}
                 </p>
               </div>
@@ -109,10 +109,13 @@ export function ServiceOverview({ className }: { className?: string }) {
         </div>
 
         <div className="bleed mt-20 px-4">
-          <CustomDownloadButton
+          <FvDownloadButton
+            variant="filled"
+            imageSrc="/document-cover-c-white.png"
             title="資料ダウンロード"
             subtitle="提供内容と事例を公開中"
             href="/download"
+            className="mx-auto"
           />
         </div>
       </div>

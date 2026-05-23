@@ -11,12 +11,49 @@ import { ContactButton } from "../ui/contact-button";
 import { cn } from "@/lib/utils";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
 
-export type NavVariant = "b" | "c";
+export type NavVariant = "c" | "c2";
 
-export function NavMenu({ variant }: { variant?: NavVariant } = {}) {
+type MenuItem = readonly [hash: string, label: string];
+
+const COLUMN_MENU: readonly MenuItem[] = [
+  ["service-overview", "サービス概要"],
+  ["case-studies", "導入事例"],
+  ["column", "コラム"],
+  ["management", "経営者紹介"],
+];
+
+const STARTUP_MENU: readonly MenuItem[] = [
+  ["service-overview", "サービス概要"],
+  ["case-studies", "導入事例"],
+  ["news", "お知らせ"],
+  ["management", "経営者紹介"],
+];
+
+const DEFAULT_MENU: readonly MenuItem[] = [
+  ["service-menu", "サービス概要"],
+  ["case-studies", "導入事例"],
+  ["column", "コラム"],
+  ["management", "経営者紹介"],
+];
+
+// lp(ページのパス) と variant(AB バリアント) の複合キーでメニューを引く。
+// AB ページ(c/c2)は variant だけ、/startup のように variant を持たないページは lp だけで決まる。
+const navKey = (lp?: string, variant?: NavVariant) => `${lp ?? ""}|${variant ?? ""}`;
+
+const NAV_MENUS: Record<string, readonly MenuItem[]> = {
+  [navKey(undefined, "c")]: COLUMN_MENU,
+  [navKey(undefined, "c2")]: COLUMN_MENU,
+  [navKey("/startup")]: STARTUP_MENU,
+};
+
+export function NavMenu({
+  variant,
+  lp,
+}: { variant?: NavVariant; lp?: string } = {}) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-  const homePath = variant ? `/${variant}` : "/";
+  // ホームのパスも複合キーと同じ考え方で導出：lp があればそれ、無ければ variant から。
+  const homePath = lp ?? (variant ? `/${variant}` : "/");
   const isHomePage = pathname === homePath;
 
   useEffect(() => {
@@ -39,27 +76,7 @@ export function NavMenu({ variant }: { variant?: NavVariant } = {}) {
     };
   }, [isOpen]);
 
-  const rawItems: Array<[string, string]> =
-    variant === "c"
-      ? [
-          ["service-overview", "サービス概要"],
-          ["case-studies", "導入事例"],
-          ["column", "コラム"],
-          ["management", "経営者紹介"],
-        ]
-      : variant === "b"
-        ? [
-            ["service-overview", "サービス概要"],
-            ["case-studies", "導入事例"],
-            ["blog", "ブログ"],
-            ["management", "経営者紹介"],
-          ]
-        : [
-            ["service-menu", "サービス概要"],
-            ["case-studies", "導入事例"],
-            ["column", "コラム"],
-            ["management", "経営者紹介"],
-          ];
+  const rawItems = NAV_MENUS[navKey(lp, variant)] ?? DEFAULT_MENU;
   const menuItems = rawItems.map(([hash, label]) => ({
     href: isHomePage ? `#${hash}` : `${homePath}#${hash}`,
     label,

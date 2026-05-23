@@ -1,12 +1,13 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { VARIANTS } from "@/lib/ab-test";
 
 const AB_TEST_COOKIE = "ab-test-top";
 
-// 振り分け対象の variant。単一にすると全員そのバリアントに固定（テスト停止）、複数あれば等確率で割り振る。
-// ここから外した variant に既に cookie が付いている人 (例: 旧 "a"/"b") は次回 / アクセス時に
-// VARIANTS.includes チェックで再抽選されるので、自動的に新しい振り分けに乗り換わる。
-const VARIANTS = ["c"] as const;
+// 振り分け対象の variant (VARIANTS) は @/lib/ab-test に定義。単一にすると全員そのバリアントに
+// 固定（テスト停止）、複数あれば等確率で割り振る。ここから外した variant に既に cookie が付いて
+// いる人 (例: 旧 "a"/"b") は次回 / アクセス時に VARIANTS.includes チェックで再抽選されるので、
+// 自動的に新しい振り分けに乗り換わる。
 
 const COOKIE_OPTIONS = {
   maxAge: 60 * 60 * 24 * 30,
@@ -30,8 +31,8 @@ export function middleware(request: NextRequest) {
       response.cookies.set(AB_TEST_COOKIE, "a", COOKIE_OPTIONS);
       return response;
     }
-    // /b, /c, / はそのまま表示
-    const pathVariant = pathname === "/" ? "a" : pathname === "/b" ? "b" : "c";
+    // /c, / はそのまま表示
+    const pathVariant = pathname === "/" ? "a" : "c";
     const response = NextResponse.next();
     if (existingVariant !== pathVariant) {
       response.cookies.set(AB_TEST_COOKIE, pathVariant, COOKIE_OPTIONS);
@@ -48,9 +49,9 @@ export function middleware(request: NextRequest) {
     return response;
   }
 
-  // /b, /c のトップへの直接アクセスは、そのバリアントに cookie を合わせる
-  // (共有リンク等で直接 B/C トップに来た人も以降一貫して同じバリアントで見せる)
-  if (pathname === "/b" || pathname === "/c") {
+  // /c のトップへの直接アクセスは、そのバリアントに cookie を合わせる
+  // (共有リンク等で直接 C トップに来た人も以降一貫して同じバリアントで見せる)
+  if (pathname === "/c") {
     const variant = pathname.slice(1);
     const response = NextResponse.next();
     if (existingVariant !== variant) {
@@ -64,14 +65,16 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // クローラには常に variant a（/）を見せる
+  // クローラには URL を / のまま、本命 variant (VARIANTS[0]) の中身を /bot 経由で見せる。
+  // /c 等の variant ルートに直接 rewrite すると variant 側の noindex metadata が / に
+  // 巻き込まれてしまうため、noindex を持たない /bot に rewrite する。
   const ua = request.headers.get("user-agent") ?? "";
   if (
     /Googlebot|bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|facebookexternalhit|Twitterbot|LinkedInBot|bot|crawl|spider/i.test(
       ua
     )
   ) {
-    return NextResponse.next();
+    return NextResponse.rewrite(new URL("/bot", request.url));
   }
 
   const variant =
@@ -106,5 +109,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/", "/a", "/b", "/c"],
+  matcher: ["/", "/a", "/c"],
 };
