@@ -19,6 +19,18 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const existingVariant = request.cookies.get(AB_TEST_COOKIE)?.value;
 
+  // /startup は AB 振り分け対象外の単独ページ。/blog から戻る先 (ヘッダーナビ) を
+  // /startup にするため、cookie をこのページ識別子に固定する。dev/prod 共通で
+  // 効かせたいので dev 分岐より前に処理する。次回 / アクセス時は "startup" が
+  // VARIANTS に無いため自動で再抽選される。
+  if (pathname === "/startup") {
+    const response = NextResponse.next();
+    if (existingVariant !== "startup") {
+      response.cookies.set(AB_TEST_COOKIE, "startup", COOKIE_OPTIONS);
+    }
+    return response;
+  }
+
   // development 環境では A/B テストをスキップし、各バリアントをそのまま表示する。
   // cookie は /blog などの下流で参照されるので、アクセスしたパスに合わせて同期する。
   if (
@@ -109,5 +121,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/", "/a", "/c"],
+  matcher: ["/", "/a", "/c", "/startup"],
 };
