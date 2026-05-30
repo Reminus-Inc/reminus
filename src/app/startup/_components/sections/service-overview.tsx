@@ -13,6 +13,7 @@ import { Heading } from "../ui/heading";
 import { cn } from "@/lib/utils";
 import { MainHeading } from "../ui/main-heading";
 import { CustomDownloadButton } from "../ui/download-button";
+import { FvDownloadButton } from "../ui/fv-download-button";
 import { SectionHeader } from "../ui/section-header";
 
 const features = [
@@ -48,7 +49,10 @@ const features = [
 
 export function ServiceOverview({ className }: { className?: string }) {
   return (
-    <section id="service-overview" className={cn("py-24 sm:py-32", className)}>
+    <section
+      id="service-overview"
+      className={cn("content-auto py-24 font-sans sm:py-32", className)}
+    >
       <div className="mx-auto w-[82%] max-w-[1200px] md:w-[86%]">
         <SectionHeader
           label="Reminus CTO パートナーとは？"
@@ -93,10 +97,14 @@ export function ServiceOverview({ className }: { className?: string }) {
           ))}
         </div>
 
-        <div className="bleed mt-16 px-4">
-          <CustomDownloadButton
-            subtitle="詳細事例とプランを公開中"
-            asLink={true}
+        <div className="bleed mt-20 px-4">
+          <FvDownloadButton
+            variant="filled"
+            imageSrc="/document-cover-c-white.png"
+            title="資料ダウンロード"
+            subtitle="提供内容と事例を公開中"
+            href="/download"
+            className="mx-auto"
           />
         </div>
       </div>
