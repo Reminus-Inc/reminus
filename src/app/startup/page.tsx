@@ -3,7 +3,7 @@ import { CaseStudies } from "@/app/_components/sections/case-studies";
 import { ClientLogos } from "@/app/_components/sections/client-logos";
 import { CompanyOverview } from "./_components/sections/company-overview";
 import { Column } from "@/app/_components/sections/column";
-import { Cta } from "./_components/sections/cta";
+import { Cta } from "@/app/_components/sections/cta";
 import { FirstView } from "./_components/sections/first-view";
 import { Management } from "@/app/_components/sections/management";
 import { ServiceOverview } from "./_components/sections/service-overview";

@@ -36,7 +36,7 @@ export function Cta({ className }: CtaProps) {
                 </p>
 
                 <p className="mt-4 text-sm !leading-[1.75] tracking-wide text-white md:text-base">
-                  Reminus CTOパートナー概要資料です。
+                  Reminus CTO代行概要資料です。
                   <br />
                   サービスの背景、提供内容、事例などをまとめています。
                 </p>
@@ -46,6 +46,7 @@ export function Cta({ className }: CtaProps) {
                     variant="filled"
                     color="white"
                     className="text-sm md:max-w-[300px]"
+                    href="/download"
                   />
                 </div>
               </div>
