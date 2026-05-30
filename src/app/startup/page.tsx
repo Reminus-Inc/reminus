@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { CaseStudies } from "@/app/_components/sections/case-studies";
 import { ClientLogos } from "@/app/_components/sections/client-logos";
-import { CompanyOverview } from "./_components/sections/company-overview";
+import { CompanyOverview } from "@/app/_components/sections/company-overview";
 import { Column } from "@/app/_components/sections/column";
 import { Cta } from "@/app/_components/sections/cta";
 import { FirstView } from "./_components/sections/first-view";
@@ -24,12 +24,12 @@ export default function HomeB() {
       </div>
       <ServiceOverview />
       <ServiceMenu className="bg-gray-50" />
-      <Cta className="from-gray-50 to-gray-50" />
-      <WhyReminus className="bg-gray-50" />
-      <CaseStudies />
-      <Management className="bg-gray-50" />
+      <Cta className="from-gray-50 to-white" />
+      <WhyReminus className="bg-white" />
+      <CaseStudies className="bg-gray-50" />
       <Cta className="from-gray-50 to-white" />
       <Column className="bg-white" />
+      <Management className="bg-gray-50" />
       <CompanyOverview />
     </>
   );
