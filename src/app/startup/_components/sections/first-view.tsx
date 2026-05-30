@@ -1,83 +1,135 @@
-import { CustomDownloadButton } from "../ui/download-button";
+import { FvDownloadButton } from "../ui/fv-download-button";
 import { cn } from "@/lib/utils";
+import { Clock, HeartHandshake, UserRoundCheck } from "lucide-react";
 import Image from "next/image";
 
 export function FirstView() {
   return (
-    <div className="relative mx-auto flex w-[80%] max-w-[1200px] flex-col items-center gap-8 pt-6 md:pt-10 lg:w-[90%] lg:flex-row lg:pt-6 xl:gap-2">
-      <div className="relative z-[1] w-full lg:w-fit lg:flex-none">
-        <Image
-          src="/crown.png"
-          alt=""
-          width={405}
-          height={75}
-          className="-ml-1 max-w-[200px] sm:max-w-[280px] md:max-w-[320px] lg:max-w-[280px] xl:max-w-[405px]"
-        />
-        <Title className="mt-2" />
-        <Description className="mt-4" />
-        <div className="mt-2 flex justify-center sm:mt-4 lg:hidden">
+    <section className="relative overflow-hidden bg-[#008255]">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(120% 80% at 50% 0%, #00c386 0%, #00a86d 45%, #008255 100%)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 [--grid-size:40px] md:[--grid-size:64px] lg:[--grid-size:80px]"
+        style={{
+          backgroundImage: [
+            "linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)",
+            "linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)",
+          ].join(", "),
+          backgroundSize:
+            "var(--grid-size) var(--grid-size), var(--grid-size) var(--grid-size)",
+          WebkitMaskImage: [
+            "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 22%, black 40%, black 60%, rgba(0,0,0,0.5) 78%, transparent 100%)",
+            "linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.7) 12%, black 28%, black 72%, rgba(0,0,0,0.7) 88%, rgba(0,0,0,0.5) 100%)",
+          ].join(", "),
+          WebkitMaskComposite: "source-in",
+          maskImage: [
+            "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 22%, black 40%, black 60%, rgba(0,0,0,0.5) 78%, transparent 100%)",
+            "linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.7) 12%, black 28%, black 72%, rgba(0,0,0,0.7) 88%, rgba(0,0,0,0.5) 100%)",
+          ].join(", "),
+          maskComposite: "intersect",
+        }}
+      />
+
+      <div className="relative mx-auto flex w-[88%] max-w-[1200px] flex-col gap-6 pb-12 pt-10 font-sans sm:gap-7 sm:pb-16 sm:pt-12 lg:w-[92%] lg:max-w-[1180px] lg:flex-row lg:gap-6 lg:pb-12 lg:pt-16 xl:max-w-[1220px]">
+        <div className="z-[1] w-full lg:w-fit lg:max-w-[720px] lg:flex-none xl:max-w-[820px]">
+          <Title />
+          <Description className="mt-6 sm:mt-8" />
+          <div className="mt-7 sm:mt-9 lg:mt-10">
+            <FvDownloadButton
+              title="資料ダウンロード"
+              subtitle="3分でわかるCTO代行"
+              href="/download"
+              className="mx-auto sm:mx-0"
+            />
+          </div>
           <Image
-            src="/hero.png"
-            alt=""
-            width={600}
-            height={539}
-            priority
-            fetchPriority="high"
-            loading="eager"
-            className="w-[80%] max-w-[320px] sm:max-w-[380px]"
+            src="/crown-c.png"
+            alt="サービス長期継続率85% / 開発立ち上げまで平均2ヶ月"
+            width={640}
+            height={119}
+            sizes="(min-width: 640px) 380px, 320px"
+            className="mx-auto mt-5 block w-full max-w-[320px] sm:mx-0 sm:mt-6 sm:max-w-[380px] lg:mt-8"
           />
         </div>
-        <div className="bleed lg:bleed-none relative z-[1] -mt-4 px-4 lg:mt-12 lg:px-0">
-          <CustomDownloadButton className="lg:-ml-2" asLink={true} />
-        </div>
-      </div>
 
-      <div className="absolute right-0 hidden lg:block bottom-[-20px]">
         <Image
-          src="/hero.png"
-          alt=""
-          width={580}
-          height={521}
-          priority
-          fetchPriority="high"
-          className="lg:w-[560px] xl:w-[620px]"
+          src="/ChatGPT_Image_2026年5月10日_21_53_55-removebg.png"
+          alt="CTO代行サービスイラスト"
+          width={868}
+          height={748}
+          sizes="(min-width: 1280px) 640px, (min-width: 1024px) 540px, 0px"
+          className="pointer-events-none hidden lg:absolute lg:right-[10px] lg:top-[48px] lg:m-auto lg:block lg:w-[580px] xl:w-[660px]"
         />
       </div>
-    </div>
+    </section>
   );
 }
 
 const Title = ({ className }: { className?: string }) => {
   return (
-    <h1
-      className={cn(
-        "text-[25px] font-bold !leading-[1.45] tracking-wider text-gray-800 sm:text-4xl md:text-5xl lg:text-5xl lg:tracking-wide xl:text-[56px]",
-        className
-      )}
-    >
-      <span className="block">スタートアップの経営を</span>
-      <span className="block">技術判断で加速させる</span>
+    <h1 className={cn("font-extrabold tracking-widest", className)}>
+      <span className="mb-2.5 flex flex-col items-start gap-y-2.5 md:mb-3.5 md:gap-y-3.5">
+        <span className="flex items-end gap-2 whitespace-nowrap lg:gap-2.5">
+          <span className="bg-white px-2 py-1 text-[25px] leading-none text-emerald-600 min-[375px]:text-[30px] sm:text-[44px] md:text-[52px] lg:text-[60px]">
+            スタートアップ特化
+          </span>
+          <span className="text-[22px] leading-none text-white min-[375px]:text-[26px] sm:text-[36px] md:text-[40px] lg:text-[48px]">
+            の
+          </span>
+        </span>
+        <span className="flex items-end gap-2 whitespace-nowrap lg:gap-2.5">
+          <span className="bg-white px-2 py-1 text-[25px] leading-none text-emerald-600 min-[375px]:text-[30px] sm:text-[44px] md:text-[52px] lg:text-[60px]">
+            <span className="text-[108%]">CTO</span>代行
+          </span>
+          <span className="text-[22px] leading-none text-white min-[375px]:text-[26px] sm:text-[36px] md:text-[40px] lg:text-[48px]">
+            が
+          </span>
+        </span>
+      </span>
+
+      <span className="block !leading-tight text-[22x] text-white min-[375px]:text-[25px] sm:text-[32px] md:text-[36px] lg:text-[44px]">
+        事業成長を技術で支える。
+      </span>
     </h1>
   );
 };
 
 const Description = ({ className }: { className?: string }) => {
   return (
-    <p
+    <ul
       className={cn(
-        "text-sm !leading-[1.8] tracking-wide text-gray-800 sm:text-base md:text-lg lg:text-base xl:text-lg",
+        "flex flex-col items-start gap-1.5 text-white sm:gap-2",
         className
       )}
     >
-      技術に明るくない経営者の右腕として、
-      <br className="hidden lg:block" />
-      <span className="whitespace-nowrap">
-        技術選定・エンジニア採用・開発計画まで
-      </span>
-      <br className="hidden lg:block" />
-      <span className="whitespace-nowrap">
-        CTO代行が一気通貫で判断を支えます。
-      </span>
-    </p>
+      {(
+        [
+          {
+            icon: UserRoundCheck,
+            text: "フェーズに応じて最適なCTOが対応",
+          },
+          {
+            icon: HeartHandshake,
+            text: "貴社チームの一員として参画",
+          },
+          { icon: Clock, text: "2ヶ月トライアル可" },
+        ] as const
+      ).map(({ icon: Icon, text }) => (
+        <li
+          key={text}
+          className="flex items-center gap-2 text-base font-medium tracking-wider sm:text-lg lg:gap-3 lg:text-xl"
+        >
+          <Icon className="size-5 flex-none sm:size-6" strokeWidth={2.5} />
+          <span>{text}</span>
+        </li>
+      ))}
+    </ul>
   );
 };
