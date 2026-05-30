@@ -2,14 +2,13 @@ import type { Metadata } from "next";
 import { CaseStudies } from "./_components/sections/case-studies";
 import { ClientLogos } from "./_components/sections/client-logos";
 import { CompanyOverview } from "./_components/sections/company-overview";
-import { News } from "./_components/sections/news";
+import { Column } from "@/app/_components/sections/column";
 import { Cta } from "./_components/sections/cta";
 import { FirstView } from "./_components/sections/first-view";
 import { Management } from "./_components/sections/management";
 import { ServiceOverview } from "./_components/sections/service-overview";
 import { WhyReminus } from "./_components/sections/why-reminus";
 import { ServiceMenu } from "./_components/sections/service-menu";
-import { DownloadRequest } from "./_components/sections/download-request";
 
 export const metadata: Metadata = {
   robots: { index: false, follow: false },
@@ -28,8 +27,7 @@ export default function HomeB() {
       <CaseStudies />
       <Management className="bg-gray-50" />
       <Cta className="from-gray-50 to-white" />
-      <News />
-      <DownloadRequest />
+      <Column className="bg-white" />
       <CompanyOverview />
     </>
   );

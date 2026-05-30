@@ -25,7 +25,7 @@ const COLUMN_MENU: readonly MenuItem[] = [
 const STARTUP_MENU: readonly MenuItem[] = [
   ["service-overview", "サービス概要"],
   ["case-studies", "導入事例"],
-  ["news", "お知らせ"],
+  ["column", "コラム"],
   ["management", "経営者紹介"],
 ];
 
