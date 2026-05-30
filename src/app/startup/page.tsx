@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { CaseStudies } from "@/app/_components/sections/case-studies";
-import { ClientLogos } from "./_components/sections/client-logos";
+import { ClientLogos } from "@/app/_components/sections/client-logos";
 import { CompanyOverview } from "./_components/sections/company-overview";
 import { Column } from "@/app/_components/sections/column";
 import { Cta } from "./_components/sections/cta";
@@ -19,7 +19,9 @@ export default function HomeB() {
   return (
     <>
       <FirstView />
-      <ClientLogos />
+      <div className="mt-4 sm:mt-10">
+        <ClientLogos />
+      </div>
       <ServiceOverview />
       <ServiceMenu className="bg-gray-50" />
       <Cta className="from-gray-50 to-gray-50" />
