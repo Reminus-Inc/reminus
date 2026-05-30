@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { CaseStudies } from "./_components/sections/case-studies";
+import { CaseStudies } from "@/app/_components/sections/case-studies";
 import { ClientLogos } from "./_components/sections/client-logos";
 import { CompanyOverview } from "./_components/sections/company-overview";
 import { Column } from "@/app/_components/sections/column";
