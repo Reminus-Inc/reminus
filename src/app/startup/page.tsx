@@ -5,7 +5,7 @@ import { CompanyOverview } from "./_components/sections/company-overview";
 import { Column } from "@/app/_components/sections/column";
 import { Cta } from "./_components/sections/cta";
 import { FirstView } from "./_components/sections/first-view";
-import { Management } from "./_components/sections/management";
+import { Management } from "@/app/_components/sections/management";
 import { ServiceOverview } from "./_components/sections/service-overview";
 import { WhyReminus } from "./_components/sections/why-reminus";
 import { ServiceMenu } from "./_components/sections/service-menu";
