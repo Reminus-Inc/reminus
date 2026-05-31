@@ -1,9 +1,11 @@
 import { Carousel } from "@/components/ui/carousel";
-import { CircleAlert, CircleCheckBig } from "lucide-react";
+import { ArrowUpRight, CircleAlert, CircleCheckBig } from "lucide-react";
 
 import { SectionHeader } from "../ui/section-header";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import Link from "next/link";
+import { META as CHIBA_ECO_META } from "@/app/case/chiba-eco/page";
 
 type CaseStudyItemBase = {
   title: string;
@@ -24,6 +26,27 @@ type CaseStudyItemWithoutLogo = CaseStudyItemBase & {
 };
 type CaseStudyItem = CaseStudyItemWithLogo | CaseStudyItemWithoutLogo;
 
+// ─── メイン事例 (詳細インタビュー記事ありの事例) ─────────────────────────
+// 各事例の META は詳細ページ側 (/case/<slug>/page.tsx) で定義し、ここでは
+// import するだけ。タグ/サムネ/会社情報の二重管理を避ける。
+// 新しい事例を書き起こしたら CASE_META_LIST に追加。
+type FeaturedCaseItem = {
+  slug: string;
+  title: string;
+  thumbnail: string;
+  thumbnailAlt: string;
+  companyName: string;
+  logoPath: string;
+  logoWidth: number;
+  logoHeight: number;
+  logoClassName?: string;
+  chips: string[];
+};
+
+const featuredItemList: FeaturedCaseItem[] = [CHIBA_ECO_META];
+
+// ─── その他事例 (記事化していない事例) ───────────────────────────────────
+// LP 上では緑帯ヘッダの既存カードでカルーセル表示するだけ。詳細ページ無し。
 const caseStudyItemList: CaseStudyItem[] = [
   {
     companyName: "1backoffice合同会社",
@@ -55,25 +78,6 @@ const caseStudyItemList: CaseStudyItem[] = [
     resultList: [
       "PMFに向けた意思決定の停滞を解消し、仮説検証が回る状態へ転換",
       "SaaSのGTM戦略と組織体制を設計し、日本市場で売れる体制を構築",
-    ],
-  },
-  {
-    companyName: "千葉エコ・エネルギー株式会社",
-    title:
-      "農地法SaaSの製品構想を整理し、開発ロードマップ策定〜外注監修まで一気通貫",
-    logoPath: "/logos/chiba-eco.webp",
-    logoWidth: 300,
-    logoHeight: 40,
-    logoClassName: "w-[100px]",
-    scale: "売上高数億円",
-    challengeList: [
-      "システム開発のノウハウ・リソースがない",
-      "外注先選定・管理のポイントがわからない",
-    ],
-    resultList: [
-      "農地法特有の業務手続きを踏まえ、開発ロードマップと技術戦略を策定",
-      "セールスの戦略とスケジュールを踏まえてMVP範囲を精緻化",
-      "外注先の選定と、発注後は外注管理サポート",
     ],
   },
   {
@@ -150,19 +154,111 @@ export function CaseStudies({ className }: { className?: string }) {
           導入事例
         </SectionHeader>
 
-        <div className="mt-12 sm:mt-16">
-          <div className="bleed md:bleed-none">
-            <Carousel
-              className="mx-6 sm:mx-12 lg:mx-0"
-              itemClassName="px-1.5 sm:px-3 xl:px-4 lg:basis-[50%]"
-              items={caseStudyItemList.map((item, index) => (
-                <CaseStudyCard key={index} caseStudyItem={item} />
-              ))}
-            />
+        {/* メイン事例: 1件なら中央寄せ、複数件ならグリッド */}
+        <div
+          className={cn(
+            "mt-12 sm:mt-16",
+            featuredItemList.length === 1
+              ? "mx-auto max-w-[640px]"
+              : "grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8"
+          )}
+        >
+          {featuredItemList.map((item) => (
+            <FeaturedCaseCard key={item.slug} item={item} />
+          ))}
+        </div>
+
+        {/* その他事例 (既存カルーセル) */}
+        <div className="mt-20 md:mt-28">
+          <div className="flex items-center justify-center gap-3">
+            <span className="h-px w-8 bg-emerald-500" />
+            <p className="text-[11px] font-bold tracking-[0.22em] text-emerald-600 sm:text-xs">
+              OTHER CASES
+            </p>
+          </div>
+          <h3 className="mt-3 text-center text-lg font-bold tracking-wider text-gray-800 sm:text-xl md:text-2xl">
+            その他の事例
+          </h3>
+
+          <div className="mt-10 sm:mt-12">
+            <div className="bleed md:bleed-none">
+              <Carousel
+                className="mx-6 sm:mx-12 lg:mx-0"
+                itemClassName="px-1.5 sm:px-3 xl:px-4 lg:basis-[50%]"
+                items={caseStudyItemList.map((item, index) => (
+                  <CaseStudyCard key={index} caseStudyItem={item} />
+                ))}
+              />
+            </div>
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+// ─── メイン事例の特集カード ───────────────────────────────────────────────
+function FeaturedCaseCard({ item }: { item: FeaturedCaseItem }) {
+  return (
+    <Link
+      href={`/case/${item.slug}/`}
+      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-shadow duration-300 hover:shadow-[0_30px_60px_-30px_rgba(15,23,42,0.22)]"
+    >
+      <div className="relative aspect-[16/9] w-full overflow-hidden bg-emerald-50">
+        <Image
+          src={item.thumbnail}
+          alt={item.thumbnailAlt}
+          fill
+          sizes="(min-width: 640px) 640px, 88vw"
+          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+        />
+        <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1 text-[10px] font-bold tracking-[0.22em] text-emerald-700 backdrop-blur">
+          INTERVIEW
+        </span>
+      </div>
+
+      <div className="flex flex-1 flex-col p-6 sm:p-7">
+        <div className="flex items-center gap-4">
+          <Image
+            src={item.logoPath}
+            alt={item.companyName}
+            width={item.logoWidth}
+            height={item.logoHeight}
+            sizes="140px"
+            className={cn("h-auto object-contain", item.logoClassName)}
+          />
+          <p
+            className="text-xs tracking-wider text-gray-500"
+            data-nosnippet
+          >
+            {item.companyName}
+          </p>
+        </div>
+
+        <h3 className="mt-4 text-base font-bold !leading-[1.65] tracking-wide text-gray-800 md:text-lg lg:text-xl">
+          {item.title}
+        </h3>
+
+        <div className="mt-5 flex flex-wrap gap-1.5">
+          {item.chips.map((label) => (
+            <span
+              key={label}
+              className="rounded-full bg-emerald-50 px-3 py-1 text-[11px] font-medium tracking-wider text-emerald-700"
+            >
+              #{label}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-auto flex items-center justify-end gap-1.5 pt-5 text-sm font-bold tracking-wider text-emerald-600">
+          記事を読む
+          <ArrowUpRight
+            className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            strokeWidth={2.25}
+          />
+        </div>
+      </div>
+    </Link>
   );
 }
 
