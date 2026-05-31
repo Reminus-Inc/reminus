@@ -10,7 +10,7 @@ export function ArticleCta() {
         {/* ヘッダーバー */}
         <div className="bg-gradient-to-r from-emerald-500 from-60% to-emerald-600 px-5 py-3 md:py-3.5">
           <p className="text-center text-base font-bold tracking-wider text-white md:text-lg">
-            プロダクトの技術でお困りの方へ
+            技術判断でお困りの方へ
           </p>
         </div>
 
