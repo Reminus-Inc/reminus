@@ -1,7 +1,7 @@
 import { DownloadButton } from "@/app/_components/ui/download-button";
 import { ContactButton } from "@/app/_components/ui/contact-button";
 
-const concerns = ["技術が正しいか判断できない", "CTOがいない"];
+const concerns = ["技術が正しいか判断できない", "CTOやリードエンジニアがいない"];
 
 export function ArticleCta() {
   return (
