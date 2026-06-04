@@ -350,7 +350,7 @@ export default function ChibaEcoCasePage() {
         </div>
 
         <div className="mx-auto mt-10 w-[88%] max-w-[820px] pb-16 md:mt-14 md:pb-20">
-          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl bg-gray-100 md:aspect-[2/1]">
+          <div className="relative aspect-[16/9] w-full overflow-hidden bg-gray-100 md:aspect-[2/1]">
             <Image
               src={META.thumbnail}
               alt={META.thumbnailAlt}
@@ -455,7 +455,7 @@ export default function ChibaEcoCasePage() {
             </h2>
 
             <figure className="mt-8 md:mt-10">
-              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-gray-100">
+              <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-100">
                 <Image
                   src={s.image.src}
                   alt={s.image.alt}
