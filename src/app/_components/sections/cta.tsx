@@ -18,7 +18,7 @@ export function Cta({ className }: CtaProps) {
           <div className="flex flex-col gap-10 md:gap-12 lg:flex-row lg:gap-16">
             <div className="flex justify-center lg:block lg:flex-shrink-0">
               <Image
-                src="/document-1.png"
+                src="/document-cover-c-white.png"
                 alt="Reminus CTO パートナー概要資料"
                 width={1326}
                 height={842}

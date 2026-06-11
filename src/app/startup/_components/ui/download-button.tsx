@@ -70,10 +70,10 @@ export const CustomDownloadButton = ({
       <div className="relative z-[1] inline-flex w-full items-center justify-between">
         <div className="flex-shrink-0 border-[3px] border-solid border-slate-200">
           <Image
-            src="/document-icon.png"
+            src="/document-cover-c-white.png"
             alt="資料イメージ"
-            width={480}
-            height={270}
+            width={1920}
+            height={1080}
             className="max-w-[80px] object-contain sm:max-w-[120px]"
           />
         </div>
