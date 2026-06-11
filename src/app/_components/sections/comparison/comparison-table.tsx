@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
-import { ReminusLogo } from "@/app/_components/ui/reminus-logo";
 import { cn } from "@/lib/utils";
 
 export type ComparisonRow = {
@@ -142,7 +141,13 @@ function HeaderCell({ title }: { title?: string }) {
       <div className="flex flex-col items-center gap-1.5 md:flex-row md:items-baseline md:gap-1">
         {title == null ? (
           <>
-            <ReminusLogo className="h-auto w-[80px] text-white md:w-[90px] lg:w-[110px]" />
+            <Image
+              src="/logo-reminus.svg"
+              alt="Reminus"
+              width={400}
+              height={74}
+              className="h-auto w-[80px] brightness-0 invert md:w-[90px] lg:w-[110px]"
+            />
             <span className="text-sm font-bold !leading-[1.5] tracking-wider text-white md:text-base lg:text-lg">
               CTO代行
             </span>
