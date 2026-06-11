@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { NavMenu, type NavVariant } from "./nav-menu";
-import { ReminusLogo } from "@/app/_components/ui/reminus-logo";
 import { cn } from "@/lib/utils";
 
 interface HeaderProps {
@@ -52,9 +52,13 @@ export function Header({
         <div className="flex h-full items-center justify-between">
           <div className="flex items-center">
             <Link href={resolvedLogoHref} onClick={handleLogoClick}>
-              <ReminusLogo
-                className="h-4 w-auto md:h-6 md:scale-90 lg:-mt-0.5"
-                aria-label="Reminus"
+              <Image
+                src="/logo-reminus.svg"
+                alt="Reminus"
+                width={400}
+                height={74}
+                priority
+                className="h-auto w-[102px] md:w-[153px] md:scale-90 lg:-mt-0.5"
               />
             </Link>
           </div>
