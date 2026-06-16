@@ -19,7 +19,7 @@ export function Cta({ className }: CtaProps) {
             <div className="flex justify-center lg:block lg:flex-shrink-0">
               <Image
                 src="/document-cover-c-white.png"
-                alt="Reminus CTO パートナー概要資料"
+                alt="レミナスCTO代行概要資料"
                 width={1326}
                 height={842}
                 sizes="(min-width: 1280px) 420px, (min-width: 1024px) 320px, (min-width: 768px) 400px, (min-width: 640px) 360px, 300px"
@@ -36,7 +36,7 @@ export function Cta({ className }: CtaProps) {
                 </p>
 
                 <p className="mt-4 text-sm !leading-[1.75] tracking-wide text-white md:text-base">
-                  Reminus CTO代行概要資料です。
+                  レミナスCTO代行概要資料です。
                   <br />
                   サービスの背景、提供内容、事例などをまとめています。
                 </p>

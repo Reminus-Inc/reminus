@@ -82,7 +82,7 @@ export function ServiceMenu({ className }: { className?: string }) {
           <FvDownloadButton
             variant="filled"
             imageSrc="/document-cover-c-white.png"
-            subtitle="Reminus CTO代行"
+            subtitle="レミナスCTO代行"
             title="資料ダウンロード"
             href="/download"
             className="mx-auto"

@@ -4,7 +4,7 @@ export const DOCUMENT_TYPE = {
   CTO_RECRUIT: "cto_recruit",
 } as const;
 export const DOCUMENT_TYPE_MAP = {
-  [DOCUMENT_TYPE.CTO_PARTNER]: "CTOパートナー",
+  [DOCUMENT_TYPE.CTO_PARTNER]: "CTO代行",
   [DOCUMENT_TYPE.CTO_UNIT]: "CTOユニット",
   [DOCUMENT_TYPE.CTO_RECRUIT]: "CTO採用支援",
 } as const;

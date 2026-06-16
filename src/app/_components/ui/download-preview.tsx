@@ -14,15 +14,15 @@ import {
 const DOCUMENT_IMAGES = [
   {
     src: "/document-1.png",
-    alt: "Reminus CTOパートナー資料イメージ1",
+    alt: "レミナスCTO代行資料イメージ1",
   },
   {
     src: "/document-2.png",
-    alt: "Reminus CTOパートナー資料イメージ2",
+    alt: "レミナスCTO代行資料イメージ2",
   },
   {
     src: "/document-3.png",
-    alt: "Reminus CTOパートナー資料イメージ3",
+    alt: "レミナスCTO代行資料イメージ3",
   },
 ] as const;
 

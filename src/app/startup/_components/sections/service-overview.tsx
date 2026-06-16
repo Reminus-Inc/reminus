@@ -55,7 +55,7 @@ export function ServiceOverview({ className }: { className?: string }) {
     >
       <div className="mx-auto w-[82%] max-w-[1200px] md:w-[86%]">
         <SectionHeader
-          label="Reminus CTO パートナーとは？"
+          label="レミナスCTO代行とは？"
           headingClassName="text-xl sm:text-2xl md:text-3xl xl:text-4xl !leading-[1.8]"
           tag="h2"
         >

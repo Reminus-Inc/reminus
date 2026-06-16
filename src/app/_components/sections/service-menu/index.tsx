@@ -115,7 +115,7 @@ export function ServiceMenu({ className }: { className?: string }) {
 
         <div className="bleed mt-16 px-4">
           <CustomDownloadButton
-            subtitle="Reminus CTOパートナー"
+            subtitle="レミナスCTO代行"
             title="資料ダウンロード"
           />
         </div>

@@ -45,7 +45,7 @@ interface CustomDownloadButtonProps
 export const CustomDownloadButton = ({
   className,
   onClick,
-  subtitle = "Reminus CTOパートナー",
+  subtitle = "レミナスCTO代行",
   asLink: _asLink,
   ...props
 }: CustomDownloadButtonProps) => {

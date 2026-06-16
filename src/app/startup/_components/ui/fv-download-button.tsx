@@ -30,7 +30,7 @@ export const FvDownloadButton = ({
   className,
   onClick,
   title = "資料ダウンロード",
-  subtitle = "Reminus CTO代行",
+  subtitle = "レミナスCTO代行",
   href = "/download",
   variant = "white",
   imageSrc = "/document-cover-c.png",

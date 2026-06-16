@@ -10,7 +10,7 @@ export const DownloadRequest = () => {
       <div className="mx-auto w-[88%] max-w-[1200px]">
         <h2 className="text-center text-white">
           <span className="block text-base !leading-[1.7] tracking-widest sm:text-lg md:text-xl">
-            3分でわかるReminus CTO代行
+            3分でわかるレミナスCTO代行
           </span>
           <span className="mt-2 block text-3xl font-bold !leading-[1.7] tracking-wider sm:text-4xl md:text-5xl">
             資料ダウンロード
