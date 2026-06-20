@@ -1,11 +1,12 @@
 import { Carousel } from "@/components/ui/carousel";
-import { ArrowUpRight, CircleAlert, CircleCheckBig } from "lucide-react";
+import { ArrowRight, CircleAlert, CircleCheckBig } from "lucide-react";
 
 import { SectionHeader } from "../ui/section-header";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 import { META as CHIBA_ECO_META } from "@/app/case/chiba-eco/page";
+import { META as XNEXT_META } from "@/app/case/xnext/page";
 
 type CaseStudyItemBase = {
   title: string;
@@ -43,7 +44,7 @@ type FeaturedCaseItem = {
   chips: string[];
 };
 
-const featuredItemList: FeaturedCaseItem[] = [CHIBA_ECO_META];
+const featuredItemList: FeaturedCaseItem[] = [CHIBA_ECO_META, XNEXT_META];
 
 // ─── その他事例 (記事化していない事例) ───────────────────────────────────
 // LP 上では緑帯ヘッダの既存カードでカルーセル表示するだけ。詳細ページ無し。
@@ -51,7 +52,7 @@ const caseStudyItemList: CaseStudyItem[] = [
   {
     companyName: "1backoffice合同会社",
     title:
-      "バックオフィスDXプロダクトの開発プロセス設計と初期エンジニア採用を一体で支援",
+      "バックオフィスDX SaaSの開発プロセス設計と初期エンジニア採用を一体で支援",
     logoPath: "/logos/1backoffice.png",
     logoWidth: 526,
     logoHeight: 40,
@@ -78,20 +79,6 @@ const caseStudyItemList: CaseStudyItem[] = [
     resultList: [
       "PMFに向けた意思決定の停滞を解消し、仮説検証が回る状態へ転換",
       "SaaSのGTM戦略と組織体制を設計し、日本市場で売れる体制を構築",
-    ],
-  },
-  {
-    category: "福利厚生SaaS",
-    title:
-      "シリーズAに向けた技術実現性の担保と開発実行体制の構築",
-    scale: "シード〜シリーズA",
-    challengeList: [
-      "シリーズAに向けた構想が現状の技術で実現可能か不透明",
-      "次の調達に向けて製品開発をやり切る必要があるが、遅延している",
-    ],
-    resultList: [
-      "技術診断を踏まえ、全体設計・体制・計画を再定義し、実現性を担保",
-      "開発オペレーションに伴走し、開発を計画通りに進行可能な状態へ",
     ],
   },
   {
@@ -154,13 +141,15 @@ export function CaseStudies({ className }: { className?: string }) {
           導入事例
         </SectionHeader>
 
-        {/* メイン事例: 1件なら中央寄せ、複数件ならグリッド */}
+        {/* メイン事例: 1件なら中央寄せ、2件なら2カラム、3件以上は3カラム */}
         <div
           className={cn(
             "mt-12 sm:mt-16",
             featuredItemList.length === 1
               ? "mx-auto max-w-[640px]"
-              : "grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8"
+              : featuredItemList.length === 2
+                ? "mx-auto grid max-w-[920px] grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8"
+                : "grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8"
           )}
         >
           {featuredItemList.map((item) => (
@@ -197,27 +186,39 @@ export function CaseStudies({ className }: { className?: string }) {
   );
 }
 
+// 会社名が「〜株式会社」のように法人格で終わる場合、SP では法人格の前で改行し、
+// 中途半端な位置で折り返さないようにする (PC は 1 行のまま)。
+function CompanyName({ name }: { name: string }) {
+  const suffixes = ["株式会社", "合同会社"];
+  const suffix = suffixes.find((s) => name.endsWith(s) && name.length > s.length);
+  if (!suffix) return <>{name}</>;
+  return (
+    <>
+      {name.slice(0, -suffix.length)}
+      <br className="sm:hidden" />
+      {suffix}
+    </>
+  );
+}
+
 // ─── メイン事例の特集カード ───────────────────────────────────────────────
 function FeaturedCaseCard({ item }: { item: FeaturedCaseItem }) {
   return (
     <Link
       href={`/case/${item.slug}/`}
-      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-shadow duration-300 hover:shadow-[0_30px_60px_-30px_rgba(15,23,42,0.22)]"
+      className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-shadow duration-300 hover:shadow-[0_30px_60px_-30px_rgba(15,23,42,0.22)]"
     >
-      <div className="relative aspect-[16/9] w-full overflow-hidden bg-emerald-50">
+      <div className="relative aspect-[3/2] w-full overflow-hidden bg-emerald-50 md:aspect-[16/9]">
         <Image
           src={item.thumbnail}
           alt={item.thumbnailAlt}
           fill
-          sizes="(min-width: 640px) 640px, 88vw"
+          sizes="(min-width: 768px) 460px, 88vw"
           className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
         />
-        <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1 text-[10px] font-bold tracking-[0.22em] text-emerald-700 backdrop-blur">
-          INTERVIEW
-        </span>
       </div>
 
-      <div className="flex flex-1 flex-col p-6 sm:p-7">
+      <div className="flex flex-1 flex-col p-5 pb-4 sm:p-6 sm:pb-4">
         <div className="flex items-center gap-4">
           <Image
             src={item.logoPath}
@@ -231,29 +232,28 @@ function FeaturedCaseCard({ item }: { item: FeaturedCaseItem }) {
             className="text-xs tracking-wider text-gray-500"
             data-nosnippet
           >
-            {item.companyName}
+            <CompanyName name={item.companyName} />
           </p>
         </div>
 
-        <h3 className="mt-4 text-base font-bold !leading-[1.65] tracking-wide text-gray-800 md:text-lg lg:text-xl">
+        <h3 className="mt-3.5 text-base font-bold !leading-[1.65] tracking-wide text-gray-800 md:text-lg lg:text-xl">
           {item.title}
         </h3>
 
-        <div className="mt-5 flex flex-wrap gap-1.5">
-          {item.chips.map((label) => (
-            <span
-              key={label}
-              className="rounded-full bg-emerald-50 px-3 py-1 text-[11px] font-medium tracking-wider text-emerald-700"
-            >
-              #{label}
-            </span>
-          ))}
-        </div>
-
-        <div className="mt-auto flex items-center justify-end gap-1.5 pt-5 text-sm font-bold tracking-wider text-emerald-600">
-          記事を読む
-          <ArrowUpRight
-            className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+        {/* タグ + 矢印。テキスト/# は省きアイコンのみ。カード下部に固定 (Sales Marker / IVRy 参考) */}
+        <div className="mt-auto flex items-end justify-between gap-2 pt-6">
+          <div className="flex min-w-0 flex-1 flex-wrap gap-1.5">
+            {item.chips.map((label) => (
+              <span
+                key={label}
+                className="rounded bg-emerald-50 px-2 py-1 text-[10px] font-medium tracking-wide text-emerald-700"
+              >
+                {label}
+              </span>
+            ))}
+          </div>
+          <ArrowRight
+            className="size-5 shrink-0 text-emerald-600 transition-transform group-hover:translate-x-0.5"
             strokeWidth={2.25}
           />
         </div>
