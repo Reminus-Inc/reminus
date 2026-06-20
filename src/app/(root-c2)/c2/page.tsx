@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-// C2版トップページ（C版コピー、ABテスト未投入）
+// C2版トップページ（C版コピー、AB テスト対象）
 export default function HomeC2() {
   return (
     <>

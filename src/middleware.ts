@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { VARIANTS } from "@/lib/ab-test";
+import { VARIANTS, type Variant } from "@/lib/ab-test";
 
 const AB_TEST_COOKIE = "ab-test-top";
 
@@ -31,8 +31,8 @@ export function middleware(request: NextRequest) {
       response.cookies.set(AB_TEST_COOKIE, "a", COOKIE_OPTIONS);
       return response;
     }
-    // /c, / はそのまま表示
-    const pathVariant = pathname === "/" ? "a" : "c";
+    // /c, /c2, / はそのまま表示
+    const pathVariant = pathname === "/" ? "a" : pathname.slice(1);
     const response = NextResponse.next();
     if (existingVariant !== pathVariant) {
       response.cookies.set(AB_TEST_COOKIE, pathVariant, COOKIE_OPTIONS);
@@ -49,9 +49,9 @@ export function middleware(request: NextRequest) {
     return response;
   }
 
-  // /c のトップへの直接アクセスは、そのバリアントに cookie を合わせる
-  // (共有リンク等で直接 C トップに来た人も以降一貫して同じバリアントで見せる)
-  if (pathname === "/c") {
+  // /c, /c2 のトップへの直接アクセスは、そのバリアントに cookie を合わせる
+  // (共有リンク等で直接 variant トップに来た人も以降一貫して同じバリアントで見せる)
+  if (VARIANTS.includes(pathname.slice(1) as Variant)) {
     const variant = pathname.slice(1);
     const response = NextResponse.next();
     if (existingVariant !== variant) {
@@ -109,5 +109,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/", "/a", "/c"],
+  matcher: ["/", "/a", "/c", "/c2"],
 };
