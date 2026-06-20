@@ -26,7 +26,7 @@ export default function HomeC2() {
       </div>
       <div className="content-auto">
         <Problem />
-        <ServiceOverview className="bg-white" />
+        <ServiceOverview className="bg-gray-50" />
         <ServiceMenu className="bg-gray-50" />
         <WhyReminus className="bg-white" />
         <Cta className="from-white to-gray-50" />
