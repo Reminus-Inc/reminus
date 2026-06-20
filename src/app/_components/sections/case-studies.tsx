@@ -1,12 +1,11 @@
 import { Carousel } from "@/components/ui/carousel";
-import { ArrowRight, CircleAlert, CircleCheckBig } from "lucide-react";
+import { CircleAlert, CircleCheckBig } from "lucide-react";
 
 import { SectionHeader } from "../ui/section-header";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import Link from "next/link";
-import { META as CHIBA_ECO_META } from "@/app/case/chiba-eco/page";
-import { META as XNEXT_META } from "@/app/case/xnext/page";
+import { featuredCases } from "@/app/case/_cases";
+import { FeaturedCaseGrid } from "@/app/case/_case-card";
 
 type CaseStudyItemBase = {
   title: string;
@@ -26,25 +25,6 @@ type CaseStudyItemWithoutLogo = CaseStudyItemBase & {
   category: string;
 };
 type CaseStudyItem = CaseStudyItemWithLogo | CaseStudyItemWithoutLogo;
-
-// ─── メイン事例 (詳細インタビュー記事ありの事例) ─────────────────────────
-// 各事例の META は詳細ページ側 (/case/<slug>/page.tsx) で定義し、ここでは
-// import するだけ。タグ/サムネ/会社情報の二重管理を避ける。
-// 新しい事例を書き起こしたら CASE_META_LIST に追加。
-type FeaturedCaseItem = {
-  slug: string;
-  title: string;
-  thumbnail: string;
-  thumbnailAlt: string;
-  companyName: string;
-  logoPath: string;
-  logoWidth: number;
-  logoHeight: number;
-  logoClassName?: string;
-  chips: string[];
-};
-
-const featuredItemList: FeaturedCaseItem[] = [CHIBA_ECO_META, XNEXT_META];
 
 // ─── その他事例 (記事化していない事例) ───────────────────────────────────
 // LP 上では緑帯ヘッダの既存カードでカルーセル表示するだけ。詳細ページ無し。
@@ -141,21 +121,8 @@ export function CaseStudies({ className }: { className?: string }) {
           導入事例
         </SectionHeader>
 
-        {/* メイン事例: 1件なら中央寄せ、2件なら2カラム、3件以上は3カラム */}
-        <div
-          className={cn(
-            "mt-12 sm:mt-16",
-            featuredItemList.length === 1
-              ? "mx-auto max-w-[640px]"
-              : featuredItemList.length === 2
-                ? "mx-auto grid max-w-[920px] grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8"
-                : "grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8"
-          )}
-        >
-          {featuredItemList.map((item) => (
-            <FeaturedCaseCard key={item.slug} item={item} />
-          ))}
-        </div>
+        {/* メイン事例: 詳細ページありの事例カード */}
+        <FeaturedCaseGrid items={featuredCases} className="mt-12 sm:mt-16" />
 
         {/* その他事例 (既存カルーセル) */}
         <div className="mt-20 md:mt-28">
@@ -183,82 +150,6 @@ export function CaseStudies({ className }: { className?: string }) {
         </div>
       </div>
     </section>
-  );
-}
-
-// 会社名が「〜株式会社」のように法人格で終わる場合、SP では法人格の前で改行し、
-// 中途半端な位置で折り返さないようにする (PC は 1 行のまま)。
-function CompanyName({ name }: { name: string }) {
-  const suffixes = ["株式会社", "合同会社"];
-  const suffix = suffixes.find((s) => name.endsWith(s) && name.length > s.length);
-  if (!suffix) return <>{name}</>;
-  return (
-    <>
-      {name.slice(0, -suffix.length)}
-      <br className="sm:hidden" />
-      {suffix}
-    </>
-  );
-}
-
-// ─── メイン事例の特集カード ───────────────────────────────────────────────
-function FeaturedCaseCard({ item }: { item: FeaturedCaseItem }) {
-  return (
-    <Link
-      href={`/case/${item.slug}/`}
-      className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-shadow duration-300 hover:shadow-[0_30px_60px_-30px_rgba(15,23,42,0.22)]"
-    >
-      <div className="relative aspect-[3/2] w-full overflow-hidden bg-emerald-50 md:aspect-[16/9]">
-        <Image
-          src={item.thumbnail}
-          alt={item.thumbnailAlt}
-          fill
-          sizes="(min-width: 768px) 460px, 88vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-        />
-      </div>
-
-      <div className="flex flex-1 flex-col p-5 pb-4 sm:p-6 sm:pb-4">
-        <div className="flex items-center gap-4">
-          <Image
-            src={item.logoPath}
-            alt={item.companyName}
-            width={item.logoWidth}
-            height={item.logoHeight}
-            sizes="140px"
-            className={cn("h-auto object-contain", item.logoClassName)}
-          />
-          <p
-            className="text-xs tracking-wider text-gray-500"
-            data-nosnippet
-          >
-            <CompanyName name={item.companyName} />
-          </p>
-        </div>
-
-        <h3 className="mt-3.5 text-base font-bold !leading-[1.65] tracking-wide text-gray-800 md:text-lg lg:text-xl">
-          {item.title}
-        </h3>
-
-        {/* タグ + 矢印。テキスト/# は省きアイコンのみ。カード下部に固定 (Sales Marker / IVRy 参考) */}
-        <div className="mt-auto flex items-end justify-between gap-2 pt-6">
-          <div className="flex min-w-0 flex-1 flex-wrap gap-1.5">
-            {item.chips.map((label) => (
-              <span
-                key={label}
-                className="rounded bg-emerald-50 px-2 py-1 text-[10px] font-medium tracking-wide text-emerald-700"
-              >
-                {label}
-              </span>
-            ))}
-          </div>
-          <ArrowRight
-            className="size-5 shrink-0 text-emerald-600 transition-transform group-hover:translate-x-0.5"
-            strokeWidth={2.25}
-          />
-        </div>
-      </div>
-    </Link>
   );
 }
 

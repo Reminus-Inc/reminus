@@ -5,29 +5,8 @@ import { Quote } from "lucide-react";
 import { Fragment } from "react";
 
 import { ArticleCta } from "@/app/blog/_components/article-cta";
-
-// ─── メタ ───────────────────────────────────────────────────────────────
-// LP の特集カード (case-studies.tsx) もこの META を import して使う。
-// タグ/サムネ/会社情報は二重管理しない。
-export const META = {
-  slug: "chiba-eco",
-  title:
-    "構想から半年で農地法SaaSを立ち上げへ。「事業会社 × 外部CTO」によるSaaS経営体制",
-  description:
-    "千葉エコ・エネルギー様が、SaaS経験者の採用やITコンサルではなく、外部CTO(CTO代行)という第3の選択肢を選んだ理由。半年でMVPを立ち上げ、外注先・3社体制を機能させた軌跡を伺いました。",
-  publishedAt: "2026-05-30T00:00:00.000Z",
-  publishedAtLabel: "2026/05/30",
-  thumbnail: "/case/chiba-eco/hero.jpg",
-  thumbnailAlt: "千葉エコ・エネルギー株式会社 萩原領氏のインタビューカット",
-  ogImage: "/case/chiba-eco/og.jpg",
-  companyName: "千葉エコ・エネルギー株式会社",
-  companyUrl: "https://www.chiba-eco.co.jp/",
-  logoPath: "/logos/chiba-eco.webp",
-  logoWidth: 300,
-  logoHeight: 40,
-  logoClassName: "w-[110px]",
-  chips: ["新規プロダクト立ち上げ", "売上高数億円", "業界特化SaaS"],
-};
+import { RelatedCases } from "../_related-cases";
+import { chibaEcoMeta as META } from "../_cases";
 
 const CHALLENGES = [
   "SaaS 開発のノウハウ・リソースが社内になく、技術での実装方針が決められない",
@@ -497,6 +476,10 @@ export default function ChibaEcoCasePage() {
           ここの wrapper で間隔を取る) */}
       <div className="mt-16 md:mt-24">
         <ArticleCta />
+      </div>
+
+      <div className="mt-20 md:mt-28">
+        <RelatedCases currentSlug={META.slug} />
       </div>
 
       <div className="pb-24 md:pb-32" />

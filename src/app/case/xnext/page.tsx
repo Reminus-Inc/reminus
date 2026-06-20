@@ -4,29 +4,8 @@ import Link from "next/link";
 import { Fragment } from "react";
 
 import { ArticleCta } from "@/app/blog/_components/article-cta";
-
-// ─── メタ ───────────────────────────────────────────────────────────────
-// LP の特集カード (case-studies.tsx) もこの META を import して使う。
-// タグ/サムネ/会社情報は二重管理しない。
-export const META = {
-  slug: "xnext",
-  title:
-    "福利厚生サービスの急拡大構想に開発の見通しを確立。投資判断から開発実行まで最適化を推し進め、事業加速に手応え",
-  description:
-    "ECを中心とした福利厚生「社割NEXT」を展開する株式会社xNEXT様が、CTO代行を選んだ理由。トライアル2ヶ月で開発ロードマップと投資計画の見通しを確立し、開発現場の実行改善まで進めた軌跡を伺いました。",
-  publishedAt: "2026-06-18T00:00:00.000Z",
-  publishedAtLabel: "2026/06/18",
-  thumbnail: "/case/xnext/hero.jpg",
-  thumbnailAlt: "株式会社xNEXT 粟田氏のインタビューカット",
-  ogImage: "/case/xnext/og.jpg",
-  companyName: "株式会社xNEXT",
-  companyUrl: "https://company.xnext.co.jp/service/",
-  logoPath: "/logos/xnext.png",
-  logoWidth: 300,
-  logoHeight: 40,
-  logoClassName: "w-[110px]",
-  chips: ["福利厚生×EC", "開発ロードマップ策定", "開発速度・品質向上"],
-};
+import { RelatedCases } from "../_related-cases";
+import { xnextMeta as META } from "../_cases";
 
 const CHALLENGES = [
   "将来構想はあるが、どれぐらいの期間とコストで実現できるのか、投資判断の根拠になる見通しがなかった",
@@ -336,7 +315,7 @@ export default function XnextCasePage() {
               fill
               priority
               sizes="(min-width: 820px) 820px, 88vw"
-              className="object-cover object-[50%_18%]"
+              className={`object-cover ${META.thumbnailFocusClassName ?? ""}`}
             />
           </div>
         </div>
@@ -471,6 +450,10 @@ export default function XnextCasePage() {
           ここの wrapper で間隔を取る) */}
       <div className="mt-16 md:mt-24">
         <ArticleCta />
+      </div>
+
+      <div className="mt-20 md:mt-28">
+        <RelatedCases currentSlug={META.slug} />
       </div>
 
       <div className="pb-24 md:pb-32" />
