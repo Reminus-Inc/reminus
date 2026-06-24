@@ -47,7 +47,7 @@ export function Management({ className }: { className?: string }) {
             <div className="mt-5 space-y-8">
               <div className="max-w-none text-left">
                 <p className="text-sm !leading-[1.9] tracking-wide text-gray-900 md:text-base">
-                  株式会社ヘンリーで医療SaaSをエンジニアとして牽引後、株式会社immedioでCTOとしてSaaS経営を技術から推進。社外CTO・技術顧問として累計6社支援。20社に携わるなかで、戦略も実行も経営者の情熱も揃っているのに、技術のせいで事業が停滞する&ldquo;もったいない&rdquo;を何度も目にする。魅力的なビジョンが技術で止まることなく事業として育っていく世界をつくるため、2025年にReminusを創業。
+                  30億円調達の医療SaaS・株式会社ヘンリーでエンジニアとして開発を牽引後、営業支援SaaS・株式会社immedioのCTOに就任。社外CTO・技術顧問として6社を支援するなど、累計20社に携わるなかで、戦略も実行も情熱も揃うのに技術で事業が停滞する状況を何度も目にする。魅力的な事業の成長を技術で支えられるよう、2025年にReminusを創業。
                 </p>
               </div>
 

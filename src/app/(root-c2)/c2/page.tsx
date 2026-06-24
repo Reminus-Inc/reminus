@@ -31,7 +31,7 @@ export default function HomeC2() {
         <WhyReminus className="bg-white" />
         <Cta className="from-white to-gray-50" />
         <CaseStudies className="bg-gray-50" />
-        <Column className="bg-white" />
+        <Column className="bg-white" stackOnMobile />
         <Faq className="bg-gray-50" />
         <Management className="bg-white" />
         <Cta className="from-white to-white" />

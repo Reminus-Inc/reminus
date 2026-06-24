@@ -6,7 +6,13 @@ import { ColumnCard } from "../ui/column-card";
 import { Carousel } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
 
-export function Column({ className }: { className?: string }) {
+export function Column({
+  className,
+  stackOnMobile = false,
+}: {
+  className?: string;
+  stackOnMobile?: boolean;
+}) {
   const items = articles.slice(0, 3);
 
   return (
@@ -38,14 +44,22 @@ export function Column({ className }: { className?: string }) {
               <ColumnCard key={article.slug} article={article} />
             ))}
           </div>
-          <div className="bleed md:hidden">
-            <Carousel
-              className="mx-8 sm:mx-16"
-              items={items.map((article) => (
+          {stackOnMobile ? (
+            <div className="flex flex-col gap-4 md:hidden">
+              {items.map((article) => (
                 <ColumnCard key={article.slug} article={article} />
               ))}
-            />
-          </div>
+            </div>
+          ) : (
+            <div className="bleed md:hidden">
+              <Carousel
+                className="mx-8 sm:mx-16"
+                items={items.map((article) => (
+                  <ColumnCard key={article.slug} article={article} />
+                ))}
+              />
+            </div>
+          )}
         </div>
 
         <div className="mt-10 flex justify-center md:mt-8">
