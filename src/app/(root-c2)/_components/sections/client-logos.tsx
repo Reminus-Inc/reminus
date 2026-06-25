@@ -14,7 +14,7 @@ export function ClientLogos() {
     <div className="mx-auto flex justify-center lg:px-12">
       {/* 〜lg: マーキー */}
       <div className="w-full overflow-hidden lg:hidden">
-        <div className="flex w-max animate-[c2-logo-marquee_36s_linear_infinite] will-change-transform motion-reduce:animate-none">
+        <div className="flex w-max animate-[c2-logo-marquee_70s_linear_infinite] will-change-transform motion-reduce:animate-none">
           {[0, 1, 2, 3].map((copy) => (
             <div
               key={copy}
