@@ -7,7 +7,7 @@ import { Cta } from "@/app/_components/sections/cta";
 import { Faq } from "../_components/sections/faq";
 import { FirstView } from "../_components/sections/first-view";
 import { Management } from "@/app/_components/sections/management";
-import { Problem } from "@/app/_components/sections/problem";
+import { Problem } from "../_components/sections/problem";
 import { WhyReminus } from "../_components/sections/why-reminus";
 import { ServiceMenu } from "../_components/sections/service-menu";
 import { ServiceOverview } from "../_components/sections/service-overview";
