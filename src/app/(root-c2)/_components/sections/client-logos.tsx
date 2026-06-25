@@ -24,8 +24,8 @@ export function ClientLogos() {
               <Image
                 src="/logos/logo-sp-sushi.png"
                 alt={copy === 0 ? "クライアント様ロゴ" : ""}
-                width={580}
-                height={40}
+                width={2176}
+                height={108}
                 priority={copy === 0}
                 className="h-14 w-auto max-w-none sm:h-16"
               />
