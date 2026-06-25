@@ -87,12 +87,13 @@ export function ServiceOverview({ className }: { className?: string }) {
                 index % 2 === 0 ? "sm:flex-row-reverse" : "sm:flex-row"
               )}
             >
-              <div className="w-full max-w-[300px] shrink-0 overflow-hidden rounded-xl border border-gray-200 bg-white md:max-w-[340px] lg:max-w-[380px]">
+              <div className="w-full max-w-[460px] shrink-0 overflow-hidden rounded-lg border border-gray-200 bg-white sm:max-w-[300px] md:max-w-[340px] lg:max-w-[380px]">
                 <Image
                   src={feature.image}
                   width={320}
                   height={feature.imageHeight}
                   alt={feature.titleAlt}
+                  sizes="(min-width: 1024px) 380px, (min-width: 768px) 340px, (min-width: 640px) 300px, 460px"
                   className={cn("h-auto w-full", feature.imageClassName)}
                 />
               </div>
