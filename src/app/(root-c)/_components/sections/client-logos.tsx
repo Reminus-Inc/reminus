@@ -16,11 +16,7 @@ export function ClientLogos() {
       <div className="w-full overflow-hidden lg:hidden">
         <div className="flex w-max animate-[c2-logo-marquee_70s_linear_infinite] will-change-transform motion-reduce:animate-none">
           {[0, 1, 2, 3].map((copy) => (
-            <div
-              key={copy}
-              aria-hidden={copy !== 0}
-              className="shrink-0 pl-6"
-            >
+            <div key={copy} aria-hidden={copy !== 0} className="shrink-0 pl-6">
               <Image
                 src="/logos/logo-sp-sushi.png"
                 alt={copy === 0 ? "クライアント様ロゴ" : ""}
@@ -40,8 +36,8 @@ export function ClientLogos() {
         <Image
           src="/logos/logo-pc.png"
           alt="クライアント様ロゴ"
-          width={2088}
-          height={72}
+          width={2429}
+          height={108}
           sizes="1200px"
         />
       </div>
