@@ -4,7 +4,6 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Footer } from "./_components/layout/footer";
-import { PersistUtm } from "./_components/PersistUtm"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const notoSansJP = Noto_Sans_JP({
@@ -49,7 +48,6 @@ export default async function RootLayout({
         {children}
         <Footer />
         <Toaster />
-        <PersistUtm />
       </body>
     </html>
   );
