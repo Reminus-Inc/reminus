@@ -20,7 +20,7 @@ export function ClientLogos() {
               <Image
                 src="/logos/logo-sp-sushi.png"
                 alt={copy === 0 ? "クライアント様ロゴ" : ""}
-                width={2176}
+                width={2521}
                 height={108}
                 priority={copy === 0}
                 className="h-14 w-auto max-w-none sm:h-16"
@@ -32,13 +32,13 @@ export function ClientLogos() {
       </div>
 
       {/* lg〜: 従来の静止表示 */}
-      <div className="hidden max-w-[1200px] lg:block">
+      <div className="hidden max-w-[1280px] lg:block">
         <Image
           src="/logos/logo-pc.png"
           alt="クライアント様ロゴ"
-          width={2429}
+          width={2745}
           height={108}
-          sizes="1200px"
+          sizes="1280px"
         />
       </div>
     </div>
