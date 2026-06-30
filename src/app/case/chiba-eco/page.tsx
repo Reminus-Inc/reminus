@@ -5,29 +5,8 @@ import { Quote } from "lucide-react";
 import { Fragment } from "react";
 
 import { ArticleCta } from "@/app/blog/_components/article-cta";
-
-// ─── メタ ───────────────────────────────────────────────────────────────
-// LP の特集カード (case-studies.tsx) もこの META を import して使う。
-// タグ/サムネ/会社情報は二重管理しない。
-export const META = {
-  slug: "chiba-eco",
-  title:
-    "構想から半年で農地法SaaSを立ち上げへ。「事業会社 × 外部CTO」によるSaaS経営体制",
-  description:
-    "千葉エコ・エネルギー様が、SaaS経験者の採用やITコンサルではなく、外部CTO(CTO代行)という第3の選択肢を選んだ理由。半年でMVPを立ち上げ、外注先・3社体制を機能させた軌跡を伺いました。",
-  publishedAt: "2026-05-30T00:00:00.000Z",
-  publishedAtLabel: "2026/05/30",
-  thumbnail: "/case/chiba-eco/hero.jpg",
-  thumbnailAlt: "千葉エコ・エネルギー株式会社 萩原領氏のインタビューカット",
-  ogImage: "/case/chiba-eco/og.jpg",
-  companyName: "千葉エコ・エネルギー株式会社",
-  companyUrl: "https://www.chiba-eco.co.jp/",
-  logoPath: "/logos/chiba-eco.webp",
-  logoWidth: 300,
-  logoHeight: 40,
-  logoClassName: "w-[110px]",
-  chips: ["新規プロダクト立ち上げ", "売上高数億円", "業界特化SaaS"],
-};
+import { RelatedCases } from "../_related-cases";
+import { chibaEcoMeta as META } from "../_cases";
 
 const CHALLENGES = [
   "SaaS 開発のノウハウ・リソースが社内になく、技術での実装方針が決められない",
@@ -318,9 +297,6 @@ export default function ChibaEcoCasePage() {
                 className="h-auto w-[120px] object-contain"
               />
               <div className="flex flex-col gap-1.5">
-                <p className="text-[11px] font-bold tracking-[0.18em] text-gray-400">
-                  COMPANY
-                </p>
                 <p
                   className="text-base font-bold tracking-wider text-gray-800 md:whitespace-nowrap md:text-lg"
                   data-nosnippet
@@ -350,7 +326,7 @@ export default function ChibaEcoCasePage() {
           </div>
         </div>
 
-        <div className="mx-auto mt-10 w-[88%] max-w-[820px] pb-16 md:mt-14 md:pb-20">
+        <div className="mx-auto mt-10 w-[88%] max-w-[820px] pb-10 md:mt-14 md:pb-12">
           <div className="relative aspect-[16/9] w-full overflow-hidden bg-gray-100 md:aspect-[2/1]">
             <Image
               src={META.thumbnail}
@@ -364,75 +340,8 @@ export default function ChibaEcoCasePage() {
         </div>
       </div>
 
-      {/* 課題 / 効果 サマリ — 2枚のカードに分けて縦に並べる。
-          各カード: icon + 灰/水色 label 帯 + dot bullets。 */}
-      <div className="mx-auto mt-12 w-[88%] max-w-[820px] space-y-5 md:mt-16">
-        <div className="overflow-hidden rounded-lg border border-gray-200 bg-white">
-          <div className="flex items-center gap-2.5 bg-gray-100/80 px-5 py-3 md:px-6">
-            <svg
-              viewBox="0 0 24 24"
-              className="h-5 w-5 text-rose-500"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2.4}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden
-            >
-              <circle cx="12" cy="12" r="10" />
-              <line x1="12" y1="8" x2="12" y2="12" />
-              <line x1="12" y1="16" x2="12.01" y2="16" />
-            </svg>
-            <h2 className="text-sm font-bold tracking-wider text-gray-900 md:text-base">
-              抱えていた課題
-            </h2>
-          </div>
-          <ul className="space-y-2 px-5 py-5 text-sm !leading-[1.75] tracking-wide text-gray-800 md:px-6">
-            {CHALLENGES.map((text, i) => (
-              <li key={i} className="flex gap-2.5">
-                <span aria-hidden className="text-gray-400">
-                  ・
-                </span>
-                <span>{text}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="overflow-hidden rounded-lg border border-gray-200 bg-white">
-          <div className="flex items-center gap-2.5 bg-sky-50 px-5 py-3 md:px-6">
-            <svg
-              viewBox="0 0 24 24"
-              className="h-5 w-5 text-blue-500"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2.4}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden
-            >
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-              <polyline points="22 4 12 14.01 9 11.01" />
-            </svg>
-            <h2 className="text-sm font-bold tracking-wider text-gray-900 md:text-base">
-              導入効果
-            </h2>
-          </div>
-          <ul className="space-y-2 px-5 py-5 text-sm !leading-[1.75] tracking-wide text-gray-800 md:px-6">
-            {RESULTS.map((text, i) => (
-              <li key={i} className="flex gap-2.5">
-                <span aria-hidden className="text-gray-400">
-                  ・
-                </span>
-                <span>{text}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
       {/* リード本文 + プルクオート */}
-      <article className="mx-auto mt-16 w-[88%] max-w-[820px] md:mt-24">
+      <article className="mx-auto mt-8 w-[88%] max-w-[820px] md:mt-10">
         <div className="space-y-5 text-sm !leading-[2] tracking-wide text-gray-700 md:space-y-6 md:text-[15px]">
           {LEAD.map((p, i) => (
             <p key={i}>{p}</p>
@@ -447,6 +356,72 @@ export default function ChibaEcoCasePage() {
             </p>
           </div>
         </figure>
+
+        {/* 課題 / 効果 サマリ — リード/プルクオートの下に配置 */}
+        <div className="mt-14 space-y-5 md:mt-20">
+          <div className="overflow-hidden rounded-lg border border-gray-200 bg-white">
+            <div className="flex items-center gap-2.5 bg-gray-100/80 px-5 py-3 md:px-6">
+              <svg
+                viewBox="0 0 24 24"
+                className="h-5 w-5 text-rose-500"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2.4}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden
+              >
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>
+              <h2 className="text-sm font-bold tracking-wider text-gray-900 md:text-base">
+                抱えていた課題
+              </h2>
+            </div>
+            <ul className="space-y-2 px-5 py-5 text-sm !leading-[1.75] tracking-wide text-gray-800 md:px-6">
+              {CHALLENGES.map((text, i) => (
+                <li key={i} className="flex gap-2.5">
+                  <span aria-hidden className="text-gray-400">
+                    ・
+                  </span>
+                  <span>{text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="overflow-hidden rounded-lg border border-gray-200 bg-white">
+            <div className="flex items-center gap-2.5 bg-sky-50 px-5 py-3 md:px-6">
+              <svg
+                viewBox="0 0 24 24"
+                className="h-5 w-5 text-blue-500"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2.4}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden
+              >
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <h2 className="text-sm font-bold tracking-wider text-gray-900 md:text-base">
+                導入効果
+              </h2>
+            </div>
+            <ul className="space-y-2 px-5 py-5 text-sm !leading-[1.75] tracking-wide text-gray-800 md:px-6">
+              {RESULTS.map((text, i) => (
+                <li key={i} className="flex gap-2.5">
+                  <span aria-hidden className="text-gray-400">
+                    ・
+                  </span>
+                  <span>{text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
 
         {/* 本文セクション群 (IVRy 風: h2 左に emerald のバー、horizontal line なし) */}
         {SECTIONS.map((s, idx) => (
@@ -501,6 +476,10 @@ export default function ChibaEcoCasePage() {
           ここの wrapper で間隔を取る) */}
       <div className="mt-16 md:mt-24">
         <ArticleCta />
+      </div>
+
+      <div className="mt-20 md:mt-28">
+        <RelatedCases currentSlug={META.slug} />
       </div>
 
       <div className="pb-24 md:pb-32" />
