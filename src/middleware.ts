@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { VARIANTS } from "@/lib/ab-test";
+import { VARIANTS, type Variant } from "@/lib/ab-test";
+import { UTM_KEYS } from "@/lib/utm-constants";
 
 const AB_TEST_COOKIE = "ab-test-top";
 
@@ -15,7 +16,27 @@ const COOKIE_OPTIONS = {
   sameSite: "lax",
 } as const;
 
+// URL に utm_* が乗っていれば response に cookie を焼いて返す。乗っていないキーは既存 cookie を
+// 上書きしない (= クライアントの旧 PersistUtm と同じ「値があるときだけ書く」セマンティクス)。
+// 何も無ければ渡された response をそのまま返すだけ。JS/GTM 発火前=サーバー側で確実に捕捉する
+// ので、アプリ内ブラウザや JS 無効環境、hydration 前の即送信でも取りこぼさない。
+function persistUtm(request: NextRequest, response: NextResponse): NextResponse {
+  const sp = request.nextUrl.searchParams;
+  for (const key of UTM_KEYS) {
+    const value = sp.get(key);
+    if (value) {
+      response.cookies.set(key, value, COOKIE_OPTIONS);
+    }
+  }
+  return response;
+}
+
 export function middleware(request: NextRequest) {
+  // A/B 振り分けの結果 response を作り、最後に一度だけ utm cookie を焼いて返す。
+  return persistUtm(request, resolveAbTest(request));
+}
+
+function resolveAbTest(request: NextRequest): NextResponse {
   const { pathname } = request.nextUrl;
   const existingVariant = request.cookies.get(AB_TEST_COOKIE)?.value;
 
@@ -31,8 +52,8 @@ export function middleware(request: NextRequest) {
       response.cookies.set(AB_TEST_COOKIE, "a", COOKIE_OPTIONS);
       return response;
     }
-    // /c, / はそのまま表示
-    const pathVariant = pathname === "/" ? "a" : "c";
+    // /c, /c2, / はそのまま表示
+    const pathVariant = pathname === "/" ? "a" : pathname.slice(1);
     const response = NextResponse.next();
     if (existingVariant !== pathVariant) {
       response.cookies.set(AB_TEST_COOKIE, pathVariant, COOKIE_OPTIONS);
@@ -49,9 +70,9 @@ export function middleware(request: NextRequest) {
     return response;
   }
 
-  // /c のトップへの直接アクセスは、そのバリアントに cookie を合わせる
-  // (共有リンク等で直接 C トップに来た人も以降一貫して同じバリアントで見せる)
-  if (pathname === "/c") {
+  // /c, /c2 のトップへの直接アクセスは、そのバリアントに cookie を合わせる
+  // (共有リンク等で直接 variant トップに来た人も以降一貫して同じバリアントで見せる)
+  if (VARIANTS.includes(pathname.slice(1) as Variant)) {
     const variant = pathname.slice(1);
     const response = NextResponse.next();
     if (existingVariant !== variant) {
@@ -60,7 +81,6 @@ export function middleware(request: NextRequest) {
     return response;
   }
 
-  // ここから下はトップページのみ
   if (pathname !== "/") {
     return NextResponse.next();
   }
@@ -109,5 +129,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/", "/a", "/c"],
+  matcher: ["/", "/a", "/c", "/c2"],
 };

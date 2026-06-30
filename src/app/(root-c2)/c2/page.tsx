@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { CaseStudies } from "@/app/_components/sections/case-studies";
 import { Column } from "@/app/_components/sections/column";
-import { ClientLogos } from "@/app/_components/sections/client-logos";
+import { ClientLogos } from "../_components/sections/client-logos";
 import { CompanyOverview } from "@/app/_components/sections/company-overview";
 import { Cta } from "@/app/_components/sections/cta";
 import { Faq } from "../_components/sections/faq";
@@ -16,12 +16,12 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-// C2版トップページ（C版コピー、ABテスト未投入）
-export default function HomeC2() {
+// C版トップページ（A版ベース）
+export default function HomeC() {
   return (
     <>
       <FirstView />
-      <div className="mt-4 sm:mt-10">
+      <div className="mt-10 sm:mt-12">
         <ClientLogos />
       </div>
       <div className="content-auto">
