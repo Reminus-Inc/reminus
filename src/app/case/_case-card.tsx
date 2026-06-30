@@ -41,6 +41,8 @@ export function FeaturedCaseCard({ item }: { item: CaseMeta }) {
       </div>
 
       <div className="flex flex-1 flex-col p-5 pb-4 sm:p-6 sm:pb-4">
+        {/* ロゴは高さ h-11 をこのカード側で固定し、会社名の縦位置を事例間で揃える。
+            幅は w-auto でアスペクト比なり (各事例の logoClassName 指定は不要)。 */}
         <div className="flex items-center gap-4">
           <Image
             src={item.logoPath}
@@ -48,19 +50,19 @@ export function FeaturedCaseCard({ item }: { item: CaseMeta }) {
             width={item.logoWidth}
             height={item.logoHeight}
             sizes="140px"
-            className={cn("h-auto object-contain", item.logoClassName)}
+            className={cn("h-11 w-auto object-contain", item.logoClassName)}
           />
           <p className="text-xs tracking-wider text-gray-500" data-nosnippet="true">
             <CompanyName name={item.companyName} />
           </p>
         </div>
 
-        <h3 className="mt-3.5 text-base font-bold !leading-[1.65] tracking-wide text-gray-800 md:text-lg lg:text-xl">
+        <h3 className="mt-5 text-base font-bold !leading-[1.65] tracking-wide text-gray-800 md:text-lg lg:text-xl">
           {item.title}
         </h3>
 
         {/* タグ + 矢印。テキスト/# は省きアイコンのみ。カード下部に固定 (Sales Marker / IVRy 参考) */}
-        <div className="mt-auto flex items-end justify-between gap-2 pt-6">
+        <div className="mt-auto flex items-end justify-between gap-2 pt-3">
           <div className="flex min-w-0 flex-1 flex-wrap gap-1.5">
             {item.chips.map((label) => (
               <span

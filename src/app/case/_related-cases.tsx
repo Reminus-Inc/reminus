@@ -32,7 +32,7 @@ function RecommendedCard({ item }: { item: CaseMeta }) {
           width={item.logoWidth}
           height={item.logoHeight}
           sizes="108px"
-          className="h-auto w-[108px] object-contain"
+          className="h-11 w-auto object-contain"
         />
         <p className="mt-5 text-xs tracking-wider text-gray-500" data-nosnippet="true">
           {item.companyName}

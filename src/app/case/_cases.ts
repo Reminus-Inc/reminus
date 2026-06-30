@@ -18,6 +18,8 @@ export type CaseMeta = {
   logoPath: string;
   logoWidth: number;
   logoHeight: number;
+  // ロゴ高さはカード側 (h-11) で固定し事例間で揃える。これは例外的な
+  // 微調整用の任意オーバーライド (通常は未指定でよい)。
   logoClassName?: string;
   chips: string[];
   // サムネの object-position 調整 (人物の頭が見切れる場合など)。
@@ -39,9 +41,8 @@ export const chibaEcoMeta: CaseMeta = {
   companyName: "千葉エコ・エネルギー株式会社",
   companyUrl: "https://www.chiba-eco.co.jp/",
   logoPath: "/logos/chiba-eco.webp",
-  logoWidth: 300,
-  logoHeight: 40,
-  logoClassName: "w-[110px]",
+  logoWidth: 460,
+  logoHeight: 190,
   chips: ["新規プロダクト立ち上げ", "売上高数億円", "業界特化SaaS"],
 };
 
@@ -61,7 +62,6 @@ export const xnextMeta: CaseMeta = {
   logoPath: "/logos/xnext.svg",
   logoWidth: 304,
   logoHeight: 111,
-  logoClassName: "w-[88px]",
   chips: ["福利厚生×EC", "開発ロードマップ策定", "開発速度・品質向上"],
   // 集合写真で頭が上端ぎりぎり。上寄せして下側をトリムする。
   thumbnailFocusClassName: "object-[50%_18%]",
