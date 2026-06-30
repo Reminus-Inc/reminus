@@ -7,7 +7,7 @@ import { Cta } from "@/app/_components/sections/cta";
 import { Faq } from "../_components/sections/faq";
 import { FirstView } from "../_components/sections/first-view";
 import { Management } from "@/app/_components/sections/management";
-import { Problem } from "../_components/sections/problem";
+import { Problem } from "@/app/_components/sections/problem";
 import { WhyReminus } from "../_components/sections/why-reminus";
 import { ServiceMenu } from "../_components/sections/service-menu";
 import { ServiceOverview } from "../_components/sections/service-overview";
@@ -16,8 +16,8 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-// C2版トップページ（C版コピー、AB テスト対象）
-export default function HomeC2() {
+// C版トップページ（A版ベース）
+export default function HomeC() {
   return (
     <>
       <FirstView />
@@ -26,12 +26,12 @@ export default function HomeC2() {
       </div>
       <div className="content-auto">
         <Problem />
-        <ServiceOverview className="bg-gray-50" />
+        <ServiceOverview className="bg-white" />
         <ServiceMenu className="bg-gray-50" />
         <WhyReminus className="bg-white" />
         <Cta className="from-white to-gray-50" />
         <CaseStudies className="bg-gray-50" />
-        <Column className="bg-white" stackOnMobile />
+        <Column className="bg-white" />
         <Faq className="bg-gray-50" />
         <Management className="bg-white" />
         <Cta className="from-white to-white" />

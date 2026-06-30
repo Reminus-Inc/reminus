@@ -15,7 +15,7 @@ type Feature = {
 
 const features: Feature[] = [
   {
-    image: "/illust-service-overview-1-v2.png",
+    image: "/illust-service-overview-1-new.svg",
     imageHeight: 240,
     title: (
       <>
@@ -26,7 +26,7 @@ const features: Feature[] = [
     ),
     titleAlt: "最適なCTOがリード。SaaSの複雑な課題に幅広く対応",
     points: [
-      "元CTOや有名企業のリードエンジニアといった経験者から、貴社に最適なCTOを選定します。人材紹介ではなく、Reminusが責任を持つCTO代行サービスです。",
+      "元CTO等の経験者から貴社に最適なCTO代行担当者を選定します。人材紹介ではなく、Reminusが責任を持つCTO代行サービスです。",
     ],
   },
   {
@@ -36,17 +36,17 @@ const features: Feature[] = [
       <>
         顧問や壁打ちではない。
         <br className="hidden lg:inline" />
-        チームに入り込んで推進する伴走型
+        チームに入り込んで推進するハンズオン型
       </>
     ),
-    titleAlt: "顧問や壁打ちではない。チームに入り込んで推進する伴走型",
+    titleAlt: "顧問や壁打ちではない。チームに入り込んでハンズオン型",
     points: [
-      "レミナスCTO代行では作業時間をしっかり確保し、貴社内にCTOがいるかのように内側から技術を推進します。",
-      "ノウハウも惜しみなくシェアします。",
+      "Reminusでは作業時間をしっかり確保するため、貴社内にCTOがいるかのように内側から技術を推進します。",
+      "内製ノウハウの共有も強みです。",
     ],
   },
   {
-    image: "/illust-service-overview-3-v2.svg",
+    image: "/illust-service-overview-3-new.svg",
     imageHeight: 240,
     title: (
       <>
@@ -55,10 +55,10 @@ const features: Feature[] = [
         2ヶ月トライアルも可能
       </>
     ),
-    titleAlt: "CTOクラスの能力をリーズナブルに。2ヶ月トライアルあり",
+    titleAlt: "CTOクラスの能力をリーズナブルに。2ヶ月トライアルも可能",
     points: [
-      "CTO雇用は高額かつリスク大。初年度は採用費含め2000万円も。",
-      "レミナスCTO代行は独自ノウハウで品質が高く、柔軟にご利用いただけます。",
+      "CTO雇用は年収1,000万〜と高額かつ相性リスクも。",
+      "Reminusならリーズナブルかつ独自ノウハウで品質も◎。2ヶ月トライアルも可能です。",
     ],
   },
 ];
@@ -84,23 +84,19 @@ export function ServiceOverview({ className }: { className?: string }) {
               key={index}
               className={cn(
                 "flex flex-col-reverse items-center gap-8 sm:gap-12 lg:gap-16",
-                index % 2 === 0 ? "sm:flex-row-reverse" : "sm:flex-row"
+                index % 2 === 1 ? "sm:flex-row-reverse" : "sm:flex-row"
               )}
             >
-              <div className="w-full max-w-[460px] shrink-0 overflow-hidden rounded-lg border border-gray-200 bg-white sm:max-w-[300px] md:max-w-[340px] lg:max-w-[380px]">
+              <div className="w-full max-w-[300px] shrink-0 overflow-hidden rounded-xl border border-gray-200 bg-white md:max-w-[340px] lg:max-w-[380px]">
                 <Image
                   src={feature.image}
                   width={320}
                   height={feature.imageHeight}
                   alt={feature.titleAlt}
-                  sizes="(min-width: 1024px) 380px, (min-width: 768px) 340px, (min-width: 640px) 300px, 460px"
                   className={cn("h-auto w-full", feature.imageClassName)}
                 />
               </div>
               <div className="flex max-w-[600px] flex-col gap-4 lg:gap-5">
-                <span className="w-fit text-sm font-bold tracking-wider text-emerald-600 underline decoration-emerald-400 decoration-2 underline-offset-4 sm:text-base">
-                  特長 {index + 1}
-                </span>
                 <p className="text-lg font-bold !leading-[1.6] tracking-wide text-gray-800 sm:text-xl md:text-2xl lg:text-3xl">
                   {feature.title}
                 </p>
