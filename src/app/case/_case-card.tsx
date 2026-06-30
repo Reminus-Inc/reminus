@@ -98,7 +98,7 @@ export function FeaturedCaseGrid({
         items.length === 1
           ? "mx-auto max-w-[640px]"
           : items.length === 2
-            ? "mx-auto grid max-w-[920px] grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8"
+            ? "mx-auto grid max-w-[920px] grid-cols-1 gap-8 md:grid-cols-2 md:gap-10 lg:gap-14"
             : "grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8",
         className
       )}
