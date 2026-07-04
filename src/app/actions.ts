@@ -120,6 +120,95 @@ async function acceptLead({
   await Promise.race([hubspotPromise, slackPromise]);
 }
 
+// バリデーションNG時の Slack 通知。
+// 弾かれてリード化されなかった入力も検知できるよう、フォーム入力値
+// (メール/電話番号など) をそのまま載せて contact チャンネルへ送る。
+async function notifyValidationError({
+  formType,
+  formData,
+  reasons,
+  isDevMode,
+  documentType,
+}: {
+  formType: "contact" | "download";
+  formData: FormData;
+  reasons: string[];
+  isDevMode: boolean;
+  documentType?: DocumentType;
+}) {
+  const slackWebhookUrl = await getSlackWebhookUrl(
+    isDevMode,
+    SLACK_NOTIFICATION_TYPE.CONTACT
+  );
+  if (slackWebhookUrl == null) {
+    return;
+  }
+
+  const formLabel =
+    formType === "download"
+      ? `${documentType ? DOCUMENT_TYPE_MAP[documentType] : "資料請求"}の資料請求`
+      : "お問い合わせ";
+
+  const emptyToPlaceholder = (value: FormDataEntryValue | null) => {
+    const str = typeof value === "string" ? value.trim() : "";
+    return str.length > 0 ? str : "(未入力)";
+  };
+
+  const company = emptyToPlaceholder(formData.get("company"));
+  const name = `${emptyToPlaceholder(formData.get("lastname"))} ${emptyToPlaceholder(formData.get("firstname"))}`;
+  const email = emptyToPlaceholder(formData.get("email"));
+  const phone = emptyToPlaceholder(formData.get("phone"));
+  const content = typeof formData.get("content") === "string"
+    ? (formData.get("content") as string).trim()
+    : "";
+
+  const blocks: any[] = [
+    {
+      type: "header",
+      text: {
+        type: "plain_text",
+        text: `⚠️ ${formLabel}のバリデーションNG`,
+        emoji: true,
+      },
+    },
+    {
+      type: "section",
+      fields: [
+        { type: "mrkdwn", text: `*会社名:*\n${company}` },
+        { type: "mrkdwn", text: `*お名前:*\n${name}` },
+        { type: "mrkdwn", text: `*メール:*\n${email}` },
+        { type: "mrkdwn", text: `*電話番号:*\n${phone}` },
+      ],
+    },
+    {
+      type: "section",
+      text: {
+        type: "mrkdwn",
+        text: `*NG理由:*\n${reasons.map((reason) => `• ${reason}`).join("\n")}`,
+      },
+    },
+  ];
+
+  if (content.length > 0) {
+    blocks.push({
+      type: "section",
+      text: {
+        type: "mrkdwn",
+        text: `*お問い合わせ内容:*\n${content}`,
+      },
+    });
+  }
+
+  await fetch(slackWebhookUrl, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ blocks }),
+  }).catch((error) => {
+    console.error("バリデーションNG Slack通知エラー:", error);
+    return null;
+  });
+}
+
 const formSchema = z.object({
   company: z
     .string()
@@ -612,9 +701,16 @@ export async function submitInquiry(
     };
   } catch (error) {
     if (error instanceof z.ZodError) {
+      const reasons = error.errors.map((e) => e.message);
+      await notifyValidationError({
+        formType: "contact",
+        formData,
+        reasons,
+        isDevMode,
+      });
       return {
         message: "エラーが発生しました",
-        errors: error.errors.map((e) => e.message),
+        errors: reasons,
         status: "error",
       };
     }
@@ -732,9 +828,17 @@ export async function requestDocument(
     console.log(`❌ 資料請求処理エラー: ${totalTime.toFixed(2)}ms`, error);
 
     if (error instanceof z.ZodError) {
+      const reasons = error.errors.map((e) => e.message);
+      await notifyValidationError({
+        formType: "download",
+        formData,
+        reasons,
+        isDevMode,
+        documentType,
+      });
       return {
         message: "エラーが発生しました",
-        errors: error.errors.map((e) => e.message),
+        errors: reasons,
         status: "error",
       };
     }
