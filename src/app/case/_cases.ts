@@ -56,7 +56,7 @@ export const xnextMeta: CaseMeta = {
   publishedAtLabel: "2026/06/18",
   thumbnail: "/case/xnext/hero.jpg",
   thumbnailAlt: "株式会社xNEXT 粟田氏のインタビューカット",
-  ogImage: "/case/xnext/og.jpg",
+  ogImage: "/case/xnext/xnext-ogp.jpg",
   companyName: "株式会社xNEXT",
   companyUrl: "https://company.xnext.co.jp/service/",
   logoPath: "/logos/xnext.svg",
