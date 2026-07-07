@@ -32,6 +32,15 @@ function persistUtm(request: NextRequest, response: NextResponse): NextResponse 
 }
 
 export function middleware(request: NextRequest) {
+  // xNEXT 事例の共有用エイリアス。SNS (X 等) が og:image を画像URL単位で不採用
+  // キャッシュした場合に、未見のURLとして新規クロールさせて OGP を取り直させる。
+  // search (utm_* 等) は保持したまま本体 /case/xnext/ へ 307 で飛ばす。
+  if (request.nextUrl.pathname === "/xnext_case") {
+    const url = request.nextUrl.clone();
+    url.pathname = "/case/xnext/";
+    return NextResponse.redirect(url);
+  }
+
   // A/B 振り分けの結果 response を作り、最後に一度だけ utm cookie を焼いて返す。
   return persistUtm(request, resolveAbTest(request));
 }
@@ -129,5 +138,5 @@ function resolveAbTest(request: NextRequest): NextResponse {
 }
 
 export const config = {
-  matcher: ["/", "/a", "/c", "/c2"],
+  matcher: ["/", "/a", "/c", "/c2", "/xnext_case"],
 };
