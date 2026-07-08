@@ -130,7 +130,7 @@ export const HookDownloadForm = ({
   return (
     <form id={formId} action={handleFormAction} className="w-full">
       <div className="space-y-3 sm:space-y-4">
-        <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
+        <div className="flex flex-row gap-3 sm:gap-4">
           <div className="flex-1 space-y-1">
             <Label htmlFor="lastname" className="text-sm text-gray-800">
               姓
