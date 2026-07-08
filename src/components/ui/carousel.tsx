@@ -336,14 +336,14 @@ const CarouselOverlayPrevious = React.forwardRef<
       ref={ref}
       type="button"
       className={cn(
-        "absolute left-2 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 text-white transition-colors hover:bg-black/60 disabled:pointer-events-none disabled:opacity-40 sm:h-8 sm:w-8",
+        "absolute left-0 top-1/2 flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-gray-800 shadow-md transition-colors hover:bg-white/90 disabled:pointer-events-none disabled:opacity-40 sm:h-11 sm:w-11",
         className
       )}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
       {...props}
     >
-      <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
+      <ChevronLeft className="h-6 w-6 sm:h-7 sm:w-7" strokeWidth={2} />
       <span className="sr-only">Previous slide</span>
     </button>
   );
@@ -361,14 +361,14 @@ const CarouselOverlayNext = React.forwardRef<
       ref={ref}
       type="button"
       className={cn(
-        "absolute right-2 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 text-white transition-colors hover:bg-black/60 disabled:pointer-events-none disabled:opacity-40 sm:h-8 sm:w-8",
+        "absolute right-0 top-1/2 flex h-9 w-9 -translate-y-1/2 translate-x-1/2 items-center justify-center rounded-full bg-white/80 text-gray-800 shadow-md transition-colors hover:bg-white/90 disabled:pointer-events-none disabled:opacity-40 sm:h-11 sm:w-11",
         className
       )}
       disabled={!canScrollNext}
       onClick={scrollNext}
       {...props}
     >
-      <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
+      <ChevronRight className="h-6 w-6 sm:h-7 sm:w-7" strokeWidth={2} />
       <span className="sr-only">Next slide</span>
     </button>
   );
