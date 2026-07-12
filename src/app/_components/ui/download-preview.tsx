@@ -9,6 +9,7 @@ import {
   CarouselOverlayPrevious,
   CarouselOverlayNext,
   CarouselOverlayPagination,
+  useCarousel,
 } from "@/components/ui/carousel";
 
 const DOCUMENT_IMAGES = [
@@ -28,6 +29,31 @@ const DOCUMENT_IMAGES = [
 
 type DownloadPreviewImage = { src: string; alt: string };
 
+// 画像タップでdead clickになっていたため、タップで次のスライドへ送る
+const ClickToNextItem = ({ image }: { image: DownloadPreviewImage }) => {
+  const { scrollNext } = useCarousel();
+
+  return (
+    <CarouselItem>
+      <button
+        type="button"
+        aria-label="次の資料イメージを表示"
+        onClick={() => scrollNext()}
+        className="block w-full"
+      >
+        <Image
+          src={image.src}
+          alt={image.alt}
+          width={1654}
+          height={932}
+          priority
+          className="h-auto w-full object-cover"
+        />
+      </button>
+    </CarouselItem>
+  );
+};
+
 export const DownloadPreview = ({
   images = DOCUMENT_IMAGES,
 }: {
@@ -39,16 +65,7 @@ export const DownloadPreview = ({
         <div className="relative">
           <CarouselContent className="overflow-hidden">
             {images.map((image) => (
-              <CarouselItem key={image.src}>
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  width={1654}
-                  height={932}
-                  priority
-                  className="h-auto w-full object-cover"
-                />
-              </CarouselItem>
+              <ClickToNextItem key={image.src} image={image} />
             ))}
           </CarouselContent>
           <CarouselOverlayPrevious />
