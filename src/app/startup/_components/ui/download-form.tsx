@@ -224,7 +224,7 @@ export const HookDownloadForm = ({
             id="phone"
             name="phone"
             type="tel"
-            placeholder="03-1234-5678"
+            placeholder="090-0000-0000"
             required
             autoComplete="tel"
             value={formValues.phone}

@@ -45,7 +45,7 @@ export function Header({
     <header
       className={cn(
         "sticky left-0 top-0 z-10 flex h-[60px] items-center bg-white font-sans md:h-[80px]",
-        shadow && "shadow-[0_4px_20px_rgba(0,0,0,0.06)]"
+        shadow && "shadow-[0_2px_4px_rgba(0,48,16,0.063)]"
       )}
     >
       <div className="mx-auto w-full max-w-[1360px] px-4 sm:px-6">

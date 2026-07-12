@@ -97,7 +97,12 @@ export const ContactForm = ({
   };
 
   return (
-    <form id="contact-form" ref={ref} onSubmit={handleSubmit} className="w-full space-y-7">
+    <form
+      id="contact-form"
+      ref={ref}
+      onSubmit={handleSubmit}
+      className="w-full space-y-7"
+    >
       {service && <input type="hidden" name="service" value={service} />}
       <div className="space-y-5">
         <div className="space-y-2">
@@ -191,7 +196,7 @@ export const ContactForm = ({
             id="phone"
             name="phone"
             type="tel"
-            placeholder="03-1234-5678"
+            placeholder="090-0000-0000"
             required
             autoComplete="tel"
             onChange={(e) => {
