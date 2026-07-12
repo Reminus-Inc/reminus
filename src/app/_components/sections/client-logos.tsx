@@ -2,14 +2,14 @@ import Image from "next/image";
 
 export function ClientLogos() {
   return (
-    <div className="mx-auto flex justify-center px-4 lg:px-12">
+    <div className="mx-auto flex justify-center px-0 lg:px-12">
       {/* 〜 md */}
       <div className="max-w-[400px] sm:max-w-[520px] md:max-w-[600px] lg:hidden">
         <Image
           src={"/logos/logo-sp-notsushi.png"}
           alt="クライアント様ロゴ"
           width={1152}
-          height={432}
+          height={472}
           loading="eager"
           priority
           fetchPriority="high"
