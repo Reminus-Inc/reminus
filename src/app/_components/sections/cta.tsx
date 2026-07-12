@@ -4,8 +4,9 @@ import { cn } from "@/lib/utils";
 
 type CtaProps = {
   className: string;
+  downloadHref?: string;
 };
-export function Cta({ className }: CtaProps) {
+export function Cta({ className, downloadHref = "/download" }: CtaProps) {
   return (
     <section
       className={cn(
@@ -46,7 +47,7 @@ export function Cta({ className }: CtaProps) {
                     variant="filled"
                     color="white"
                     className="text-sm md:max-w-[300px]"
-                    href="/download"
+                    href={downloadHref}
                   />
                 </div>
               </div>

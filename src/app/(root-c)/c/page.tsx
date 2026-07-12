@@ -29,12 +29,12 @@ export default function HomeC() {
         <ServiceOverview className="bg-white" />
         <ServiceMenu className="bg-gray-50" />
         <WhyReminus className="bg-white" />
-        <Cta className="from-white to-gray-50" />
+        <Cta className="from-white to-gray-50" downloadHref="/c/download" />
         <CaseStudies className="bg-gray-50" />
         <Column className="bg-white" />
         <Faq className="bg-gray-50" />
         <Management className="bg-white" />
-        <Cta className="from-white to-white" />
+        <Cta className="from-white to-white" downloadHref="/c/download" />
         <CompanyOverview />
       </div>
     </>
