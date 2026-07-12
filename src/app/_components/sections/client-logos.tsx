@@ -6,7 +6,7 @@ export function ClientLogos() {
       {/* 〜 md */}
       <div className="max-w-[400px] sm:max-w-[520px] md:max-w-[600px] lg:hidden">
         <Image
-          src={"/logos/logo-sp-notsushi.png"}
+          src={"/logos/logo-sp-notsushi.png?v=2"}
           alt="クライアント様ロゴ"
           width={1152}
           height={472}
