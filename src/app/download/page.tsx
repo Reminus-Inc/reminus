@@ -45,7 +45,7 @@ export default function DownloadPage() {
             </div>
 
             <p className="mt-6 max-w-[500px] text-base !leading-[1.7] tracking-wide text-gray-700">
-              資料をご希望のお客様はフォームにご入力ください。すぐに資料をご覧いただけます。
+              レミナスCTO代行のご検討に必要な3点セットを無料ダウンロード
             </p>
 
             <ul className="mt-3 list-inside list-disc space-y-1 pl-2 text-base !leading-[1.5] tracking-wide text-gray-800">
@@ -55,7 +55,7 @@ export default function DownloadPage() {
             </ul>
           </div>
 
-          <div className="flex h-fit justify-center rounded-md border border-gray-200 bg-white px-7 py-6 shadow-md lg:max-w-[400px]">
+          <div className="flex h-fit justify-center rounded-xl bg-white px-6 py-6 sm:px-8 sm:py-8 lg:max-w-[400px] lg:rounded-md lg:border lg:border-gray-200 lg:shadow-md">
             <DownloadForm
               documentType={DOCUMENT_TYPE.CTO_PARTNER}
               formId="download-page-form"
