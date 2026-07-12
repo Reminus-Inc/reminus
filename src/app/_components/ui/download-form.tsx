@@ -156,7 +156,7 @@ export const HookDownloadForm = ({
                 trackFormStartOnce(value);
                 setFormValues((prev) => ({ ...prev, lastname: value }));
               }}
-              className="h-12 border-gray-200 px-3 py-0 text-sm transition-colors focus:border-gray-400"
+              className="h-12 border-gray-200 px-3 py-0 transition-colors focus:border-gray-400"
             />
             {lastnameError && (
               <p className="text-xs text-red-500">{lastnameError}</p>
@@ -181,7 +181,7 @@ export const HookDownloadForm = ({
                 trackFormStartOnce(value);
                 setFormValues((prev) => ({ ...prev, firstname: value }));
               }}
-              className="h-12 border-gray-200 px-3 py-0 text-sm transition-colors focus:border-gray-400"
+              className="h-12 border-gray-200 px-3 py-0 transition-colors focus:border-gray-400"
             />
             {firstnameError && (
               <p className="text-xs text-red-500">{firstnameError}</p>
@@ -209,7 +209,7 @@ export const HookDownloadForm = ({
               trackFormStartOnce(value);
               setFormValues((prev) => ({ ...prev, company: value }));
             }}
-            className="h-12 px-3 py-0 text-sm"
+            className="h-12 px-3 py-0"
           />
           {companyError && (
             <p className="text-xs text-red-500">{companyError}</p>
@@ -237,7 +237,7 @@ export const HookDownloadForm = ({
               trackFormStartOnce(value);
               setFormValues((prev) => ({ ...prev, email: value }));
             }}
-            className="h-12 px-3 py-0 text-sm"
+            className="h-12 px-3 py-0"
           />
           {emailError && <p className="text-xs text-red-500">{emailError}</p>}
         </div>
@@ -263,7 +263,7 @@ export const HookDownloadForm = ({
               trackFormStartOnce(value);
               setFormValues((prev) => ({ ...prev, phone: value }));
             }}
-            className="h-12 px-3 py-0 text-sm"
+            className="h-12 px-3 py-0"
           />
           {phoneError && <p className="text-xs text-red-500">{phoneError}</p>}
         </div>
