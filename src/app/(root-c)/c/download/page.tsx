@@ -34,7 +34,7 @@ export default function DownloadPageC() {
                     src: "/document-cover-c.png",
                     alt: "レミナスCTO代行資料イメージ1",
                   },
-                  {を
+                  {
                     src: "/document-2.png",
                     alt: "レミナスCTO代行資料イメージ2",
                   },
