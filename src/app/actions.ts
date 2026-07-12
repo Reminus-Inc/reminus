@@ -35,6 +35,39 @@ async function getABTestVariant(): Promise<string | undefined> {
   return cookieStore.get("ab-test-top")?.value;
 }
 
+// ダウンロード資料請求の Slack 通知ブロック。通常フォーム (requestDocument) と
+// HubSpot 埋め込みフォーム (notifyDownloadLead) の両方から流用する。
+function buildDownloadSlackBlocks(
+  documentType: DocumentType,
+  lead: {
+    company: string;
+    lastname: string;
+    firstname: string;
+    email: string;
+    phone: string;
+  }
+): any[] {
+  return [
+    {
+      type: "header",
+      text: {
+        type: "plain_text",
+        text: `📄 ${DOCUMENT_TYPE_MAP[documentType]}の資料請求がありました`,
+        emoji: true,
+      },
+    },
+    {
+      type: "section",
+      fields: [
+        { type: "mrkdwn", text: `*会社名:*\n${lead.company}` },
+        { type: "mrkdwn", text: `*お名前:*\n${lead.lastname} ${lead.firstname}` },
+        { type: "mrkdwn", text: `*メール:*\n${lead.email}` },
+        { type: "mrkdwn", text: `*電話番号:*\n${lead.phone}` },
+      ],
+    },
+  ];
+}
+
 // 共通のリード受付処理
 async function acceptLead({
   leadData,
@@ -722,6 +755,40 @@ export async function submitInquiry(
   }
 }
 
+// HubSpot 埋め込みフォーム (/c/download) 用。フォーム送信自体は HubSpot が直接受けるため、
+// ここでは既存のダウンロード用 Slack 通知だけを流用してブラウザから叩く。
+// (DB 保存・捨てメアド弾き等のサーバー処理は通らない。担保するのは GA と Slack のみ。)
+export async function notifyDownloadLead(
+  lead: {
+    company: string;
+    lastname: string;
+    firstname: string;
+    email: string;
+    phone: string;
+  },
+  documentType: DocumentType,
+  isDevMode: boolean
+): Promise<{ ok: boolean }> {
+  const slackWebhookUrl = await getSlackWebhookUrl(
+    isDevMode,
+    SLACK_NOTIFICATION_TYPE.DOWNLOAD
+  );
+  if (slackWebhookUrl == null) {
+    return { ok: false };
+  }
+
+  await fetch(slackWebhookUrl, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ blocks: buildDownloadSlackBlocks(documentType, lead) }),
+  }).catch((error) => {
+    console.error("Slack通知エラー(HubSpot埋め込みDL):", error);
+    return null;
+  });
+
+  return { ok: true };
+}
+
 export async function requestDocument(
   _: DocumentRequestActionState,
   formData: FormData,
@@ -771,37 +838,13 @@ export async function requestDocument(
       formType: "download",
       trackingContext,
       abTestVariant,
-      slackBlocks: [
-        {
-          type: "header",
-          text: {
-            type: "plain_text",
-            text: `📄 ${DOCUMENT_TYPE_MAP[documentType]}の資料請求がありました`,
-            emoji: true,
-          },
-        },
-        {
-          type: "section",
-          fields: [
-            {
-              type: "mrkdwn",
-              text: `*会社名:*\n${validatedFields.company}`,
-            },
-            {
-              type: "mrkdwn",
-              text: `*お名前:*\n${validatedFields.lastname} ${validatedFields.firstname}`,
-            },
-            {
-              type: "mrkdwn",
-              text: `*メール:*\n${validatedFields.email}`,
-            },
-            {
-              type: "mrkdwn",
-              text: `*電話番号:*\n${validatedFields.phone}`,
-            },
-          ],
-        },
-      ],
+      slackBlocks: buildDownloadSlackBlocks(documentType, {
+        company: validatedFields.company,
+        lastname: validatedFields.lastname,
+        firstname: validatedFields.firstname,
+        email: validatedFields.email,
+        phone: validatedFields.phone,
+      }),
       dbSaveFunction: () => prisma.documentRequest.create({
         data: {
           company: validatedFields.company,
