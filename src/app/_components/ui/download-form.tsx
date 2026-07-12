@@ -142,8 +142,7 @@ export const HookDownloadForm = ({
               htmlFor="lastname"
               className="flex items-center gap-2 text-sm font-bold text-gray-800"
             >
-              <RequiredBadge />
-              姓
+              <RequiredBadge />姓
             </Label>
             <Input
               id="lastname"
@@ -159,15 +158,16 @@ export const HookDownloadForm = ({
               }}
               className="h-12 border-gray-200 px-3 py-0 text-sm transition-colors focus:border-gray-400"
             />
-            {lastnameError && <p className="text-xs text-red-500">{lastnameError}</p>}
+            {lastnameError && (
+              <p className="text-xs text-red-500">{lastnameError}</p>
+            )}
           </div>
           <div className="flex-1 space-y-2">
             <Label
               htmlFor="firstname"
               className="flex items-center gap-2 text-sm font-bold text-gray-800"
             >
-              <RequiredBadge />
-              名
+              <RequiredBadge />名
             </Label>
             <Input
               id="firstname"
@@ -183,7 +183,9 @@ export const HookDownloadForm = ({
               }}
               className="h-12 border-gray-200 px-3 py-0 text-sm transition-colors focus:border-gray-400"
             />
-            {firstnameError && <p className="text-xs text-red-500">{firstnameError}</p>}
+            {firstnameError && (
+              <p className="text-xs text-red-500">{firstnameError}</p>
+            )}
           </div>
         </div>
 
@@ -265,9 +267,6 @@ export const HookDownloadForm = ({
           />
           {phoneError && <p className="text-xs text-red-500">{phoneError}</p>}
         </div>
-      </div>
-
-      <div className="mt-8 space-y-3">
         <p className="text-left text-xs leading-5 text-gray-500">
           資料請求いただくことで、当社の
           <a
@@ -280,16 +279,19 @@ export const HookDownloadForm = ({
           </a>
           に同意したものとみなします。
         </p>
+      </div>
 
-        <PrimaryButton
-          type="submit"
-          disabled={pending}
-          variant="filled"
-          size="medium"
-          fullWidth
-        >
-          {pending ? "送信中..." : "資料をダウンロードする"}
-        </PrimaryButton>
+      <div className="mt-8 space-y-6">
+        <div className="flex justify-center">
+          <PrimaryButton
+            type="submit"
+            disabled={pending}
+            variant="filled"
+            size="medium"
+          >
+            {pending ? "送信中..." : "資料をダウンロードする"}
+          </PrimaryButton>
+        </div>
 
         {otherError && (
           <p className="text-center text-sm text-red-500">{otherError}</p>
