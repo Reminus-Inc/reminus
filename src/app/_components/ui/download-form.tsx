@@ -14,6 +14,12 @@ import { PrimaryButton } from "./primary-button";
 import { getIsDevMode } from "@/lib/get-is-dev-mode";
 import { getHubSpotContext } from "@/lib/hubspot-tracking";
 
+const RequiredBadge = () => (
+  <span className="rounded bg-[#F36775] px-1 py-0.5 text-[10px] font-bold leading-[14px] text-white">
+    必須
+  </span>
+);
+
 type FormValues = {
   company: string;
   lastname: string;
@@ -129,10 +135,14 @@ export const HookDownloadForm = ({
 
   return (
     <form id={formId} action={handleFormAction} className="w-full">
-      <div className="space-y-3 sm:space-y-4">
+      <div className="space-y-4">
         <div className="flex flex-row gap-3 sm:gap-4">
-          <div className="flex-1 space-y-1">
-            <Label htmlFor="lastname" className="text-sm text-gray-800">
+          <div className="flex-1 space-y-2">
+            <Label
+              htmlFor="lastname"
+              className="flex items-center gap-2 text-sm font-bold text-gray-800"
+            >
+              <RequiredBadge />
               姓
             </Label>
             <Input
@@ -147,12 +157,16 @@ export const HookDownloadForm = ({
                 trackFormStartOnce(value);
                 setFormValues((prev) => ({ ...prev, lastname: value }));
               }}
-              className="border-gray-200 py-2 transition-colors focus:border-gray-400 sm:py-3"
+              className="h-12 border-gray-200 px-3 py-0 text-sm transition-colors focus:border-gray-400"
             />
             {lastnameError && <p className="text-xs text-red-500">{lastnameError}</p>}
           </div>
-          <div className="flex-1 space-y-1">
-            <Label htmlFor="firstname" className="text-sm text-gray-800">
+          <div className="flex-1 space-y-2">
+            <Label
+              htmlFor="firstname"
+              className="flex items-center gap-2 text-sm font-bold text-gray-800"
+            >
+              <RequiredBadge />
               名
             </Label>
             <Input
@@ -167,14 +181,18 @@ export const HookDownloadForm = ({
                 trackFormStartOnce(value);
                 setFormValues((prev) => ({ ...prev, firstname: value }));
               }}
-              className="border-gray-200 py-2 transition-colors focus:border-gray-400 sm:py-3"
+              className="h-12 border-gray-200 px-3 py-0 text-sm transition-colors focus:border-gray-400"
             />
             {firstnameError && <p className="text-xs text-red-500">{firstnameError}</p>}
           </div>
         </div>
 
-        <div className="space-y-1">
-          <Label htmlFor="company" className="text-sm text-gray-800">
+        <div className="space-y-2">
+          <Label
+            htmlFor="company"
+            className="flex items-center gap-2 text-sm font-bold text-gray-800"
+          >
+            <RequiredBadge />
             会社名
           </Label>
           <Input
@@ -189,15 +207,19 @@ export const HookDownloadForm = ({
               trackFormStartOnce(value);
               setFormValues((prev) => ({ ...prev, company: value }));
             }}
-            className="py-2 sm:py-3"
+            className="h-12 px-3 py-0 text-sm"
           />
           {companyError && (
             <p className="text-xs text-red-500">{companyError}</p>
           )}
         </div>
 
-        <div className="space-y-1">
-          <Label htmlFor="email" className="text-sm text-gray-800">
+        <div className="space-y-2">
+          <Label
+            htmlFor="email"
+            className="flex items-center gap-2 text-sm font-bold text-gray-800"
+          >
+            <RequiredBadge />
             メールアドレス
           </Label>
           <Input
@@ -213,20 +235,24 @@ export const HookDownloadForm = ({
               trackFormStartOnce(value);
               setFormValues((prev) => ({ ...prev, email: value }));
             }}
-            className="py-2 sm:py-3"
+            className="h-12 px-3 py-0 text-sm"
           />
           {emailError && <p className="text-xs text-red-500">{emailError}</p>}
         </div>
 
-        <div className="space-y-1">
-          <Label htmlFor="phone" className="text-sm text-gray-800">
+        <div className="space-y-2">
+          <Label
+            htmlFor="phone"
+            className="flex items-center gap-2 text-sm font-bold text-gray-800"
+          >
+            <RequiredBadge />
             電話番号
           </Label>
           <Input
             id="phone"
             name="phone"
             type="tel"
-            placeholder="03-1234-5678"
+            placeholder="090-0000-0000"
             required
             autoComplete="tel"
             value={formValues.phone}
@@ -235,13 +261,26 @@ export const HookDownloadForm = ({
               trackFormStartOnce(value);
               setFormValues((prev) => ({ ...prev, phone: value }));
             }}
-            className="py-2 sm:py-3"
+            className="h-12 px-3 py-0 text-sm"
           />
           {phoneError && <p className="text-xs text-red-500">{phoneError}</p>}
         </div>
       </div>
 
       <div className="mt-8 space-y-3">
+        <p className="text-left text-xs leading-5 text-gray-500">
+          資料請求いただくことで、当社の
+          <a
+            href="/privacy-policy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline transition-colors hover:text-gray-700"
+          >
+            プライバシーポリシー
+          </a>
+          に同意したものとみなします。
+        </p>
+
         <PrimaryButton
           type="submit"
           disabled={pending}
@@ -255,19 +294,6 @@ export const HookDownloadForm = ({
         {otherError && (
           <p className="text-center text-sm text-red-500">{otherError}</p>
         )}
-
-        <p className="text-center text-xs leading-5 text-gray-500 lg:text-left">
-          資料請求いただくことで、当社の
-          <a
-            href="/privacy-policy"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-center underline transition-colors hover:text-gray-700"
-          >
-            プライバシーポリシー
-          </a>
-          に同意したものとみなします。
-        </p>
       </div>
     </form>
   );
