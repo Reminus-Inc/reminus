@@ -55,6 +55,8 @@ export function NavMenu({
   // ホームのパスも複合キーと同じ考え方で導出：lp があればそれ、無ければ variant から。
   const homePath = lp ?? (variant ? `/${variant}` : "/");
   const isHomePage = pathname === homePath;
+  // c バリアントの資料DLは HubSpot 埋め込みの /c/download へ（それ以外は従来どおり）。
+  const downloadHref = variant === "c" ? "/c/download" : "/download";
 
   useEffect(() => {
     if (isOpen) {
@@ -138,7 +140,7 @@ export function NavMenu({
 
         {/* CTA ボタン */}
         <div className="flex items-center space-x-4">
-          <DownloadButton size="small" href="/download" />
+          <DownloadButton size="small" href={downloadHref} />
           <ContactButton size="small" href="/contact" />
         </div>
       </div>
@@ -150,7 +152,7 @@ export function NavMenu({
           <DownloadButton
             size="small"
             className="min-w-[140px]"
-            href="/download"
+            href={downloadHref}
           />
           <ContactButton size="small" href="/contact" />
         </div>
@@ -213,7 +215,7 @@ export function NavMenu({
               <DownloadButton
                 size="small"
                 fullWidth
-                href="/download"
+                href={downloadHref}
                 onClick={() => setIsOpen(false)}
               />
               <ContactButton
