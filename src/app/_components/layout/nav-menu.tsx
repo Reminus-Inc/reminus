@@ -187,10 +187,18 @@ export function NavMenu({
                 showNavMenu={false}
                 onLogoClick={handleLinkClick}
                 rightContent={
-                  <MenuToggle
-                    isOpen={isOpen}
-                    onClick={() => setIsOpen(false)}
-                  />
+                  <div className="flex items-center gap-1.5">
+                    <DownloadButton
+                      size="small"
+                      href={downloadHref}
+                      className="hidden px-4 py-2.5 min-[360px]:inline-flex"
+                      onClick={() => setIsOpen(false)}
+                    />
+                    <MenuToggle
+                      isOpen={isOpen}
+                      onClick={() => setIsOpen(false)}
+                    />
+                  </div>
                 }
               />
             </div>
