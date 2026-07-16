@@ -25,8 +25,7 @@ export function Header({
   lp,
 }: HeaderProps) {
   // lp(ページのパス) があればそれをホームに、無ければ variant から導出。
-  const resolvedLogoHref =
-    logoHref ?? lp ?? (variant ? `/${variant}` : "/");
+  const resolvedLogoHref = logoHref ?? lp ?? (variant ? `/${variant}` : "/");
   const handleLogoClick = (e: React.MouseEvent) => {
     // ロゴのhrefと現在のパスが一致する場合はトップにスクロール
     if (
@@ -58,7 +57,7 @@ export function Header({
                 width={400}
                 height={74}
                 priority
-                className="h-auto w-[102px] md:w-[153px] md:scale-90 lg:-mt-0.5"
+                className="h-auto w-[124px] md:w-[152px] md:scale-90 lg:-mt-0.5"
               />
             </Link>
           </div>

@@ -38,7 +38,8 @@ const DEFAULT_MENU: readonly MenuItem[] = [
 
 // lp(ページのパス) と variant(AB バリアント) の複合キーでメニューを引く。
 // AB ページ(c/c2)は variant だけ、/startup のように variant を持たないページは lp だけで決まる。
-const navKey = (lp?: string, variant?: NavVariant) => `${lp ?? ""}|${variant ?? ""}`;
+const navKey = (lp?: string, variant?: NavVariant) =>
+  `${lp ?? ""}|${variant ?? ""}`;
 
 const NAV_MENUS: Record<string, readonly MenuItem[]> = {
   [navKey(undefined, "c")]: COLUMN_MENU,
@@ -161,12 +162,15 @@ export function NavMenu({
         <MenuToggle isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
       </div>
 
-      {/* モバイルハンバーガーボタン */}
-      <MenuToggle
-        isOpen={isOpen}
-        onClick={() => setIsOpen(!isOpen)}
-        className="md:hidden"
-      />
+      {/* モバイル: 資料ダウンロードボタン + ハンバーガー */}
+      <div className="flex items-center gap-1.5 md:hidden">
+        <DownloadButton
+          size="small"
+          href={downloadHref}
+          className="hidden px-4 py-2.5 min-[360px]:inline-flex"
+        />
+        <MenuToggle isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
+      </div>
 
       {/* モバイルメニューオーバーレイ */}
       <AnimatePresence>
@@ -251,8 +255,8 @@ const MenuToggle = ({
       aria-label={isOpen ? "メニューを閉じる" : "メニューを開く"}
     >
       <svg
-        width="24"
-        height="24"
+        width="30"
+        height="30"
         viewBox="0 0 24 24"
         className="text-foreground"
       >
