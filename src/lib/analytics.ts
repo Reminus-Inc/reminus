@@ -11,7 +11,7 @@ declare global {
         event_category?: string;
         event_label?: string;
         [key: string]: unknown;
-      },
+      }
     ) => void;
     twq?: (
       command: string,
@@ -20,7 +20,7 @@ declare global {
         content_name?: string;
         event_name?: string;
         [key: string]: unknown;
-      },
+      }
     ) => void;
     fbq?: (
       command: string,
@@ -31,7 +31,7 @@ declare global {
         value?: number;
         currency?: string;
         [key: string]: unknown;
-      },
+      }
     ) => void;
   }
 }
@@ -43,10 +43,7 @@ interface EventParameters {
   [key: string]: unknown;
 }
 
-const trackEvent = (
-  eventName: string,
-  parameters: EventParameters = {},
-) => {
+const trackEvent = (eventName: string, parameters: EventParameters = {}) => {
   if (getIsDevMode()) {
     return;
   }
@@ -115,18 +112,29 @@ const trackEvent = (
   }
 
   // --- Meta Pixel (Facebook) tracking ---
-  if (typeof window !== "undefined" && window.fbq && (parameters.interaction_type !== "contact" && parameters.interaction_type !== "spir")) {
+  if (
+    typeof window !== "undefined" &&
+    window.fbq &&
+    parameters.interaction_type !== "contact" &&
+    parameters.interaction_type !== "spir"
+  ) {
     switch (eventName) {
+      case "cta_click":
+        window.fbq("trackCustom", "MicroCV", { value: 1, currency: "JPY" });
+        break;
+
       case "form_start":
         window.fbq("track", "InitiateCheckout", {
           content_name: parameters.interaction_type,
         });
+        window.fbq("trackCustom", "MicroCV", { value: 10, currency: "JPY" });
         break;
 
       case "generate_lead":
         window.fbq("track", "Lead", {
           content_name: parameters.interaction_type,
         });
+        window.fbq("trackCustom", "MicroCV", { value: 100, currency: "JPY" });
         break;
     }
   }
@@ -134,7 +142,7 @@ const trackEvent = (
 
 // Specific event tracking functions
 export const trackCTAClick = (
-  interactionType: "download" | "contact" | "spir",
+  interactionType: "download" | "contact" | "spir"
 ) => {
   trackEvent("cta_click", {
     interaction_type: interactionType,
@@ -165,7 +173,7 @@ export const trackGenerateLead = (
     phone?: string;
     name?: string;
     company?: string;
-  },
+  }
 ) => {
   trackEvent("generate_lead", {
     interaction_type: interactionType,
