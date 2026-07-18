@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
 
-type Variant = "white" | "filled";
+type Variant = "white" | "filled" | "yellow";
 
 interface FvDownloadButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -51,6 +51,13 @@ export const FvDownloadButton = ({
       "shadow-[0_8px_36px_16px_rgba(16,185,129,0.18),0_8px_18px_-2px_rgba(6,78,59,0.28)]",
       "hover:bg-white hover:text-emerald-600 hover:ring-emerald-500 hover:shadow-none",
       "px-3 py-3 md:px-4 md:py-3.5"
+    ),
+    // FV の黄色塗り CTA。文字は視認性のため濃い緑。影は発光させず、暗めでタイトに。
+    yellow: cn(
+      "bg-[#f5d64a] text-emerald-950 ring-2 ring-transparent",
+      "shadow-[0_1px_2px_rgba(15,23,42,0.08),0_10px_24px_-8px_rgba(15,23,42,0.28)]",
+      "hover:bg-white hover:text-emerald-700 hover:ring-white hover:shadow-none",
+      "px-3 py-3 md:px-4"
     ),
   };
 
