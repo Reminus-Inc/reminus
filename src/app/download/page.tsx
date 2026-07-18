@@ -2,6 +2,7 @@ import { DownloadForm } from "@/app/_components/ui/download-form";
 import { DOCUMENT_TYPE } from "@/app/constants";
 import { Metadata } from "next";
 import { DownloadPreview } from "@/app/_components/ui/download-preview";
+import { CheckCircleIcon } from "@/app/_components/ui/check-circle-icon";
 
 export const metadata: Metadata = {
   title: "資料ダウンロード | Reminus",
@@ -48,10 +49,13 @@ export default function DownloadPage() {
               レミナスCTO代行のご検討に必要な3点セットを無料ダウンロード
             </p>
 
-            <ul className="mt-3 list-inside list-disc space-y-1 pl-2 text-base !leading-[1.5] tracking-wide text-gray-800">
-              <li>サービスの背景</li>
-              <li>提供内容</li>
-              <li>導入事例</li>
+            <ul className="mt-3 flex flex-col gap-1.5 text-base !leading-[1.5] tracking-wide text-gray-800">
+              {["サービスの背景", "提供内容", "導入事例"].map((text) => (
+                <li key={text} className="flex items-start gap-2">
+                  <CheckCircleIcon className="size-5 flex-none translate-y-[2px] text-[#0A965B]" />
+                  <span className="font-bold">{text}</span>
+                </li>
+              ))}
             </ul>
           </div>
 

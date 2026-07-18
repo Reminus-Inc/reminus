@@ -1,6 +1,7 @@
 import { DownloadForm } from "@/app/_components/ui/download-form";
 import { DOCUMENT_TYPE } from "@/app/constants";
 import { Metadata } from "next";
+import { CheckCircleIcon } from "@/app/_components/ui/check-circle-icon";
 
 export const metadata: Metadata = {
   title: "CTO採用支援 資料ダウンロード | Reminus",
@@ -34,13 +35,18 @@ export default function CtoRecruitDownloadPage() {
               本資料を通して、こんなことが分かります。
             </p>
 
-            <ul className="mt-3 list-inside list-disc space-y-1 pl-2 text-sm !leading-[1.6] tracking-wide text-gray-800 sm:text-base">
-              <li>CTO・EM採用でよくある課題と解決アプローチ</li>
-              <li>
-                支援メニュー（母集団形成〜面接・オファーまでの一気通貫支援）
-              </li>
-              <li>エンジニアRPOとの違い・Reminusの強み</li>
-              <li>ご利用の流れ・料金イメージ</li>
+            <ul className="mt-3 flex flex-col gap-1.5 text-sm !leading-[1.6] tracking-wide text-gray-800 sm:text-base">
+              {[
+                "CTO・EM採用でよくある課題と解決アプローチ",
+                "支援メニュー（母集団形成〜面接・オファーまでの一気通貫支援）",
+                "エンジニアRPOとの違い・Reminusの強み",
+                "ご利用の流れ・料金イメージ",
+              ].map((text) => (
+                <li key={text} className="flex items-start gap-2">
+                  <CheckCircleIcon className="size-5 flex-none translate-y-[2px] text-[#0A965B]" />
+                  <span className="font-bold">{text}</span>
+                </li>
+              ))}
             </ul>
 
             <div className="mt-5 border-t border-solid border-gray-200 pt-5 text-sm !leading-[1.8] tracking-wide text-gray-600 sm:text-sm">

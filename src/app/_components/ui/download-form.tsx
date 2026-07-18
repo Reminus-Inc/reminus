@@ -142,7 +142,7 @@ export const HookDownloadForm = ({
               htmlFor="lastname"
               className="flex items-center gap-2 text-sm font-bold text-gray-800"
             >
-              <RequiredBadge />姓
+              <RequiredBadge />お名前（姓）
             </Label>
             <Input
               id="lastname"
@@ -167,7 +167,7 @@ export const HookDownloadForm = ({
               htmlFor="firstname"
               className="flex items-center gap-2 text-sm font-bold text-gray-800"
             >
-              <RequiredBadge />名
+              <RequiredBadge />お名前（名）
             </Label>
             <Input
               id="firstname"
@@ -222,7 +222,7 @@ export const HookDownloadForm = ({
             className="flex items-center gap-2 text-sm font-bold text-gray-800"
           >
             <RequiredBadge />
-            メールアドレス
+            担当者メールアドレス
           </Label>
           <Input
             id="email"
@@ -248,7 +248,7 @@ export const HookDownloadForm = ({
             className="flex items-center gap-2 text-sm font-bold text-gray-800"
           >
             <RequiredBadge />
-            電話番号
+            担当者電話番号
           </Label>
           <Input
             id="phone"
@@ -268,7 +268,7 @@ export const HookDownloadForm = ({
           {phoneError && <p className="text-xs text-red-500">{phoneError}</p>}
         </div>
         <p className="text-left text-xs leading-5 text-gray-500">
-          資料請求いただくことで、当社の
+          このフォームから送信いただくことで、当社の
           <a
             href="/privacy-policy"
             target="_blank"

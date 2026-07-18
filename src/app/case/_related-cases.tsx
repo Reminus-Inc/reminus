@@ -7,7 +7,7 @@ import { featuredCases, type CaseMeta } from "./_cases";
 // 事例詳細ページ下部の「あなたにおすすめの事例」。
 // トップの特集カードより控えめな、コンパクト 3 カラムのカード
 // (画像 + 社名 + タイトル。タグ/矢印は省く) で他事例へ誘導する。
-// IVRy・バクラク等のベンチに準拠。ブログは含めず事例のみ。
+// ブログは含めず事例のみ。
 
 function RecommendedCard({ item }: { item: CaseMeta }) {
   return (
@@ -15,7 +15,7 @@ function RecommendedCard({ item }: { item: CaseMeta }) {
       href={`/case/${item.slug}/`}
       className="group flex w-full flex-col overflow-hidden rounded-lg border border-gray-200 bg-white transition-shadow duration-300 hover:shadow-[0_14px_32px_-22px_rgba(15,23,42,0.22)] sm:w-[356px]"
     >
-      {/* バクラク(LayerX)準拠。画像アスペクト 2.06、画像はカード高さの約47% */}
+      {/* 画像アスペクト 2.06、画像はカード高さの約47% */}
       <div className="relative aspect-[103/50] w-full overflow-hidden bg-emerald-50">
         <Image
           src={item.thumbnail}

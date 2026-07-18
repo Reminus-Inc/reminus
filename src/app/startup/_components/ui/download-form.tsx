@@ -98,7 +98,7 @@ export const HookDownloadForm = ({
     [state.errors]
   );
   const lastnameError = useMemo(
-    () => state.errors?.find((error) => error.includes("姓")),
+    () => state.errors?.find((error) => error.includes(" 姓")),
     [state.errors]
   );
   const firstnameError = useMemo(
@@ -254,7 +254,7 @@ export const HookDownloadForm = ({
         )}
 
         <p className="text-center text-xs leading-5 text-gray-500 lg:text-left">
-          資料請求いただくことで、当社の
+          このフォームから送信いただくことで、当社の
           <a
             href="/privacy-policy"
             target="_blank"

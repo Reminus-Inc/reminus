@@ -395,7 +395,7 @@ export default function XnextCasePage() {
           </div>
         </div>
 
-        {/* 本文セクション群 (IVRy 風: h2 左に emerald のバー、horizontal line なし) */}
+        {/* 本文セクション群 (h2 左に emerald のバー、horizontal line なし) */}
         {SECTIONS.map((s, idx) => (
           <section key={idx} className="mt-20 md:mt-28">
             <h2 className="border-l-[5px] border-emerald-500 pl-5 text-[22px] font-bold !leading-[1.5] tracking-wider text-gray-800 md:pl-6 md:text-[30px] md:!leading-[1.5]">
