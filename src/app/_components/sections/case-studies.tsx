@@ -103,7 +103,13 @@ const caseStudyItemList: CaseStudyItem[] = [
   },
 ];
 
-export function CaseStudies({ className }: { className?: string }) {
+export function CaseStudies({
+  className,
+  showOtherCases = true,
+}: {
+  className?: string;
+  showOtherCases?: boolean;
+}) {
   return (
     <section
       id="case-studies"
@@ -124,7 +130,8 @@ export function CaseStudies({ className }: { className?: string }) {
         {/* メイン事例: 詳細ページありの事例カード */}
         <FeaturedCaseGrid items={featuredCases} className="mt-12 sm:mt-16" />
 
-        {/* その他事例 (既存カルーセル) */}
+        {/* その他事例 (既存カルーセル)。d/e では showOtherCases=false で非表示 */}
+        {showOtherCases && (
         <div className="mt-20 md:mt-28">
           <div className="flex items-center justify-center gap-3">
             <span className="h-px w-8 bg-emerald-500" />
@@ -148,6 +155,7 @@ export function CaseStudies({ className }: { className?: string }) {
             </div>
           </div>
         </div>
+        )}
       </div>
     </section>
   );
