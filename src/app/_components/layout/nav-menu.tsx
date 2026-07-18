@@ -11,7 +11,7 @@ import { ContactButton } from "../ui/contact-button";
 import { cn } from "@/lib/utils";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
 
-export type NavVariant = "c" | "d" | "e";
+export type NavVariant = "c" | "d" | "e" | "f";
 
 type MenuItem = readonly [hash: string, label: string];
 
@@ -36,13 +36,6 @@ const DEFAULT_MENU: readonly MenuItem[] = [
   ["management", "経営者紹介"],
 ];
 
-// d/e は経営者紹介(Management)セクションを載せないので、ナビからも外す。
-const DE_MENU: readonly MenuItem[] = [
-  ["service-overview", "サービス概要"],
-  ["case-studies", "導入事例"],
-  ["column", "コラム"],
-];
-
 // lp(ページのパス) と variant(AB バリアント) の複合キーでメニューを引く。
 // AB ページ(c/d/e)は variant だけ、/startup のように variant を持たないページは lp だけで決まる。
 const navKey = (lp?: string, variant?: NavVariant) =>
@@ -50,8 +43,9 @@ const navKey = (lp?: string, variant?: NavVariant) =>
 
 const NAV_MENUS: Record<string, readonly MenuItem[]> = {
   [navKey(undefined, "c")]: COLUMN_MENU,
-  [navKey(undefined, "d")]: DE_MENU,
-  [navKey(undefined, "e")]: DE_MENU,
+  [navKey(undefined, "d")]: COLUMN_MENU,
+  [navKey(undefined, "e")]: COLUMN_MENU,
+  [navKey(undefined, "f")]: COLUMN_MENU,
   [navKey("/startup")]: STARTUP_MENU,
 };
 

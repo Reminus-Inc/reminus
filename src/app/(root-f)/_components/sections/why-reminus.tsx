@@ -51,7 +51,7 @@ export function WhyReminus({ className }: { className?: string }) {
 
         <div className="bleed mt-16 px-6">
 
-          <div className="flex w-full flex-col items-center">
+          <div className="mt-18 flex w-full flex-col items-center">
             <div className="space-y-14 sm:space-y-16 md:flex md:flex-wrap md:justify-center md:gap-x-12 md:gap-y-14 md:space-y-0 lg:gap-x-12 xl:gap-x-12">
               {GRAPH_DATA.map((member, i) => (
                 <GraphCard key={i} {...member} />

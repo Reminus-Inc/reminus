@@ -15,8 +15,8 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-// C版トップページ（A版ベース）
-export default function HomeC() {
+// F版トップページ（E版ベース）
+export default function HomeF() {
   return (
     <>
       <FirstView />

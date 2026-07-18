@@ -5,6 +5,7 @@ import { ClientLogos } from "@/app/_components/sections/client-logos";
 import { CompanyOverview } from "@/app/_components/sections/company-overview";
 import { Cta } from "@/app/_components/sections/cta";
 import { FirstView } from "../_components/sections/first-view";
+import { Management } from "@/app/_components/sections/management";
 import { Problem } from "@/app/_components/sections/problem";
 import { WhyReminus } from "../_components/sections/why-reminus";
 import { ServiceMenu } from "../_components/sections/service-menu";
@@ -30,6 +31,7 @@ export default function HomeC() {
         <Cta className="from-white to-gray-50" downloadHref="/download" />
         <CaseStudies className="bg-gray-50" showOtherCases={false} />
         <Column className="bg-white" />
+        <Management className="bg-white" />
         <Cta className="from-white to-white" downloadHref="/download" />
         <CompanyOverview />
       </div>
