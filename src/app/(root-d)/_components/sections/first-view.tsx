@@ -55,7 +55,7 @@ export function FirstView() {
             width={640}
             height={119}
             sizes="(min-width: 640px) 380px, 320px"
-            className="mx-auto mt-5 block w-full max-w-[320px] sm:mx-0 sm:mt-6 sm:max-w-[380px] lg:mt-8"
+            className="mx-auto mt-6 block w-full max-w-[320px] sm:mx-0 sm:mt-7 sm:max-w-[380px] lg:mt-9"
           />
         </div>
 
