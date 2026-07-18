@@ -65,7 +65,7 @@ export function FirstView() {
           width={868}
           height={748}
           sizes="(min-width: 1280px) 640px, (min-width: 1024px) 540px, 0px"
-          className="pointer-events-none hidden lg:absolute lg:right-[10px] lg:top-[48px] lg:m-auto lg:block lg:w-[580px] xl:w-[660px]"
+          className="pointer-events-none hidden lg:absolute lg:inset-y-0 lg:right-[10px] lg:m-auto lg:block lg:w-[540px] xl:w-[640px]"
         />
       </div>
     </section>
@@ -75,27 +75,26 @@ export function FirstView() {
 const Title = ({ className }: { className?: string }) => {
   return (
     <h1 className={cn("font-extrabold tracking-widest", className)}>
-      <span className="mb-2.5 flex flex-col items-start gap-y-2.5 md:mb-3.5 md:gap-y-3.5">
-        <span className="flex items-end gap-2 whitespace-nowrap lg:gap-2.5">
-          <span className="bg-white px-2 py-1 text-[25px] leading-none text-emerald-600 min-[375px]:text-[30px] sm:text-[44px] md:text-[52px] lg:text-[60px]">
-            スタートアップ特化
+      <span className="mb-3 flex flex-wrap items-end gap-x-2 gap-y-2 lg:mb-4 lg:flex-nowrap">
+        <span className="flex items-end gap-2 whitespace-nowrap">
+          <span className="bg-white px-2 py-1 text-[32px] leading-none text-emerald-600 min-[375px]:text-[40px] sm:text-[44px] md:text-[52px] lg:text-[60px]">
+            <span className="text-[108%]">SaaS</span>特化
           </span>
-          <span className="text-[22px] leading-none text-white min-[375px]:text-[26px] sm:text-[36px] md:text-[40px] lg:text-[48px]">
+          <span className="text-[24px] leading-none text-white min-[375px]:text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px]">
             の
           </span>
         </span>
-        <span className="flex items-end gap-2 whitespace-nowrap lg:gap-2.5">
-          <span className="bg-white px-2 py-1 text-[25px] leading-none text-emerald-600 min-[375px]:text-[30px] sm:text-[44px] md:text-[52px] lg:text-[60px]">
+        <span className="flex items-end gap-2 whitespace-nowrap">
+          <span className="bg-white px-2 py-1 text-[32px] leading-none text-emerald-600 min-[375px]:text-[40px] sm:text-[44px] md:text-[52px] lg:text-[60px]">
             <span className="text-[108%]">CTO</span>代行
           </span>
-          <span className="text-[22px] leading-none text-white min-[375px]:text-[26px] sm:text-[36px] md:text-[40px] lg:text-[48px]">
+          <span className="text-[24px] leading-none text-white min-[375px]:text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px]">
             が
           </span>
         </span>
       </span>
-
-      <span className="block !leading-tight text-[22x] text-white min-[375px]:text-[25px] sm:text-[32px] md:text-[36px] lg:text-[44px]">
-        事業成長を技術で支える。
+      <span className="block text-[22px] !leading-tight text-white min-[375px]:text-[28px] sm:text-[32px] md:text-[36px] lg:text-[44px]">
+        事業成長を技術で支える
       </span>
     </h1>
   );
