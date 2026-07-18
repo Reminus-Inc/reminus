@@ -165,7 +165,7 @@ export const HookDownloadForm = ({
           <div className="flex-1 space-y-2">
             <Label
               htmlFor="firstname"
-              className="flex items-center gap-2 text-sm font-bold text-gray-800"
+              className="flex items-center gap-2 text-sm font-semibold text-gray-800"
             >
               <RequiredBadge />お名前（名）
             </Label>
@@ -192,7 +192,7 @@ export const HookDownloadForm = ({
         <div className="space-y-2">
           <Label
             htmlFor="company"
-            className="flex items-center gap-2 text-sm font-bold text-gray-800"
+            className="flex items-center gap-2 text-sm font-semibold text-gray-800"
           >
             <RequiredBadge />
             会社名
@@ -219,7 +219,7 @@ export const HookDownloadForm = ({
         <div className="space-y-2">
           <Label
             htmlFor="email"
-            className="flex items-center gap-2 text-sm font-bold text-gray-800"
+            className="flex items-center gap-2 text-sm font-semibold text-gray-800"
           >
             <RequiredBadge />
             担当者メールアドレス
@@ -245,7 +245,7 @@ export const HookDownloadForm = ({
         <div className="space-y-2">
           <Label
             htmlFor="phone"
-            className="flex items-center gap-2 text-sm font-bold text-gray-800"
+            className="flex items-center gap-2 text-sm font-semibold text-gray-800"
           >
             <RequiredBadge />
             担当者電話番号
