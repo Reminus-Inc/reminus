@@ -44,7 +44,7 @@ export default function CtoRecruitDownloadPage() {
               ].map((text) => (
                 <li key={text} className="flex items-start gap-2">
                   <CheckCircleIcon className="size-5 flex-none translate-y-[2px] text-[#0A965B]" />
-                  <span className="font-bold">{text}</span>
+                  <span className="font-semibold">{text}</span>
                 </li>
               ))}
             </ul>

@@ -140,7 +140,7 @@ export const HookDownloadForm = ({
           <div className="flex-1 space-y-2">
             <Label
               htmlFor="lastname"
-              className="flex items-center gap-2 text-sm font-bold text-gray-800"
+              className="flex items-center gap-2 text-sm font-semibold text-gray-800"
             >
               <RequiredBadge />お名前（姓）
             </Label>
