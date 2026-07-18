@@ -1,13 +1,13 @@
 import { Header } from "@/app/_components/layout/header";
 
-export default async function TopC2Layout({
+export default async function TopDLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
     <>
-      <Header variant="c2" />
+      <Header variant="d" />
       <main>{children}</main>
     </>
   );

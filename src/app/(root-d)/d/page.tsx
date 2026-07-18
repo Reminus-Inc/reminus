@@ -21,7 +21,7 @@ export default function HomeC() {
   return (
     <>
       <FirstView />
-      <div className="mt-10 sm:mt-12">
+      <div className="mt-8 sm:mt-14">
         <ClientLogos />
       </div>
       <div className="content-auto">
@@ -29,12 +29,12 @@ export default function HomeC() {
         <ServiceOverview className="bg-white" />
         <ServiceMenu className="bg-gray-50" />
         <WhyReminus className="bg-white" />
-        <Cta className="from-white to-gray-50" />
+        <Cta className="from-white to-gray-50" downloadHref="/download" />
         <CaseStudies className="bg-gray-50" />
         <Column className="bg-white" />
         <Faq className="bg-gray-50" />
         <Management className="bg-white" />
-        <Cta className="from-white to-white" />
+        <Cta className="from-white to-white" downloadHref="/download" />
         <CompanyOverview />
       </div>
     </>
