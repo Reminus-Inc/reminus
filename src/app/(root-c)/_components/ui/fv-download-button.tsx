@@ -41,7 +41,7 @@ export const FvDownloadButton = ({
 
   const variantClasses: Record<Variant, string> = {
     white: cn(
-      "bg-white text-emerald-600 ring-2 ring-transparent",
+      "bg-white text-emerald-900 ring-2 ring-transparent",
       "shadow-[0_1px_2px_rgba(15,23,42,0.06),0_8px_20px_-6px_rgba(15,23,42,0.14)]",
       "hover:bg-emerald-700 hover:text-white hover:ring-white hover:shadow-none",
       "px-3 py-3 md:px-4"
@@ -68,14 +68,16 @@ export const FvDownloadButton = ({
       <div className="relative z-[1] inline-flex w-full items-center justify-between gap-2.5 min-[375px]:gap-3 sm:gap-4 md:gap-5">
         <div className="flex items-center gap-2.5 min-[375px]:gap-3 md:gap-4">
           {imageSrc && (
-            <div className="flex-shrink-0">
+            // サムネの箱は元サイズ(80/96/110/124)のまま確保し、中の画像だけ小さく中央寄せ。
+            // これでボタンの幅・高さを変えずに、縮めた分がそのまま上下左右の余白になる。
+            <div className="flex aspect-[480/270] w-[80px] flex-shrink-0 items-center justify-center min-[375px]:w-[96px] sm:w-[110px] lg:w-[124px]">
               <Image
                 src={imageSrc}
                 alt="資料イメージ"
                 width={480}
                 height={270}
                 sizes="120px"
-                className="h-auto w-[80px] object-contain min-[375px]:w-[96px] sm:w-[110px] lg:w-[124px]"
+                className="h-auto w-[60px] object-contain min-[375px]:w-[72px] sm:w-[84px] lg:w-[96px]"
               />
             </div>
           )}
