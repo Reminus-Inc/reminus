@@ -61,7 +61,7 @@ function resolveAbTest(request: NextRequest): NextResponse {
       response.cookies.set(AB_TEST_COOKIE, "a", COOKIE_OPTIONS);
       return response;
     }
-    // /c, /d, /e, / はそのまま表示
+    // /c, /d, /e, /f, / はそのまま表示
     const pathVariant = pathname === "/" ? "a" : pathname.slice(1);
     const response = NextResponse.next();
     if (existingVariant !== pathVariant) {
@@ -79,7 +79,7 @@ function resolveAbTest(request: NextRequest): NextResponse {
     return response;
   }
 
-  // /c, /d, /e のトップへの直接アクセスは、そのバリアントに cookie を合わせる
+  // /c, /d, /e, /f のトップへの直接アクセスは、そのバリアントに cookie を合わせる
   // (共有リンク等で直接 variant トップに来た人も以降一貫して同じバリアントで見せる)
   if (VARIANTS.includes(pathname.slice(1) as Variant)) {
     const variant = pathname.slice(1);
@@ -138,5 +138,5 @@ function resolveAbTest(request: NextRequest): NextResponse {
 }
 
 export const config = {
-  matcher: ["/", "/a", "/c", "/d", "/e", "/xnext_case"],
+  matcher: ["/", "/a", "/c", "/d", "/e", "/f", "/xnext_case"],
 };

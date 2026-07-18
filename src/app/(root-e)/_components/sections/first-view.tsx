@@ -43,6 +43,7 @@ export function FirstView() {
           <Description className="mt-6 sm:mt-8" />
           <div className="mt-7 sm:mt-9 lg:mt-10">
             <FvDownloadButton
+              variant="yellow"
               title="資料ダウンロード"
               subtitle="3分でわかるCTO代行"
               href="/download"
