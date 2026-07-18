@@ -78,10 +78,10 @@ const Title = ({ className }: { className?: string }) => {
       <span className="mb-3 flex flex-wrap items-end gap-x-2 gap-y-2 lg:mb-4 lg:flex-nowrap">
         <span className="flex items-end gap-2 whitespace-nowrap">
           <span className="bg-white px-2 py-1 text-[32px] leading-none text-emerald-600 min-[375px]:text-[40px] sm:text-[44px] md:text-[52px] lg:text-[60px]">
-            <span className="text-[108%]">SaaS</span>特化
+            <span className="text-[108%]">経営者</span>
           </span>
           <span className="text-[24px] leading-none text-white min-[375px]:text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px]">
-            の
+            のための
           </span>
         </span>
         <span className="flex items-end gap-2 whitespace-nowrap">
