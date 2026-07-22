@@ -44,7 +44,7 @@ export function FirstView() {
           <div className="mt-7 sm:mt-9 lg:mt-10">
             <FvDownloadButton
               title="資料ダウンロード"
-              subtitle="3分でわかるレミナス"
+              subtitle="レミナスがわかる"
               href="/download"
               className="mx-auto sm:mx-0"
             />
@@ -74,29 +74,32 @@ export function FirstView() {
 
 const Title = ({ className }: { className?: string }) => {
   return (
-    <h1 className={cn("font-extrabold tracking-widest", className)}>
-      <span className="mb-3 flex flex-wrap items-end gap-x-2 gap-y-2 lg:mb-4 lg:flex-nowrap">
-        <span className="flex items-end gap-2 whitespace-nowrap">
-          <span className="bg-white px-2 py-1 text-[32px] leading-none text-emerald-600 min-[375px]:text-[40px] sm:text-[44px] md:text-[52px] lg:text-[60px]">
-            <span className="text-[108%]">経営者</span>
-          </span>
-          <span className="text-[24px] leading-none text-white min-[375px]:text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px]">
-            のための
-          </span>
+    <div className={className}>
+      {/* 「非エンジニア経営者向け」の吹き出しラベル（h1 の上・下向きの尻尾つき） */}
+      <div className="relative mb-3.5 inline-block sm:mb-4">
+        <span className="block rounded-lg bg-[#ffe100] px-3 py-1.5 text-sm font-bold tracking-wider text-emerald-900 sm:px-4 sm:text-base">
+          非エンジニア経営者向け
         </span>
-        <span className="flex items-end gap-2 whitespace-nowrap">
-          <span className="bg-white px-2 py-1 text-[32px] leading-none text-emerald-600 min-[375px]:text-[40px] sm:text-[44px] md:text-[52px] lg:text-[60px]">
+        <span
+          aria-hidden
+          className="absolute left-6 top-full h-0 w-0 border-x-[7px] border-t-[9px] border-x-transparent border-t-[#ffe100] sm:left-8"
+        />
+      </div>
+
+      <h1 className="font-extrabold tracking-widest">
+        <span className="mb-3 flex items-end gap-2 whitespace-nowrap lg:mb-4">
+          <span className="bg-white px-2 py-1 text-[34px] leading-none text-emerald-600 min-[375px]:text-[42px] sm:text-[48px] md:text-[56px] lg:text-[64px]">
             <span className="text-[108%]">CTO</span>代行
           </span>
-          <span className="text-[24px] leading-none text-white min-[375px]:text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px]">
+          <span className="text-[26px] leading-none text-white min-[375px]:text-[32px] sm:text-[38px] md:text-[42px] lg:text-[50px]">
             が
           </span>
         </span>
-      </span>
-      <span className="block text-[22px] !leading-tight text-white min-[375px]:text-[28px] sm:text-[32px] md:text-[36px] lg:text-[44px]">
-        事業成長を技術で支える
-      </span>
-    </h1>
+        <span className="block text-[24px] !leading-tight text-white min-[375px]:text-[28px] sm:text-[32px] md:text-[36px] lg:text-[44px]">
+          事業成長を技術で支える
+        </span>
+      </h1>
+    </div>
   );
 };
 

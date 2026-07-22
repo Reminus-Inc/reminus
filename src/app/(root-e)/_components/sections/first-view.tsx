@@ -45,7 +45,7 @@ export function FirstView() {
             <FvDownloadButton
               variant="yellow"
               title="資料ダウンロード"
-              subtitle="3分でわかるレミナス"
+              subtitle="レミナスがわかる"
               href="/download"
               className="mx-auto sm:mx-0"
             />

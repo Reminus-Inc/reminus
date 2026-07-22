@@ -28,11 +28,11 @@ export default function HomeF() {
         <ServiceOverview className="bg-white" />
         <ServiceMenu className="bg-gray-50" />
         <WhyReminus className="bg-white" />
-        <Cta className="from-white to-gray-50" downloadHref="/download" />
+        <Cta className="from-white to-gray-50" downloadHref="/c/download" />
         <CaseStudies className="bg-gray-50" showOtherCases={false} />
         <Column className="bg-white" />
         <Management className="bg-white" />
-        <Cta className="from-white to-white" downloadHref="/download" />
+        <Cta className="from-white to-white" downloadHref="/c/download" />
         <CompanyOverview />
       </div>
     </>

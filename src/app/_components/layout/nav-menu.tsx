@@ -58,8 +58,9 @@ export function NavMenu({
   // ホームのパスも複合キーと同じ考え方で導出：lp があればそれ、無ければ variant から。
   const homePath = lp ?? (variant ? `/${variant}` : "/");
   const isHomePage = pathname === homePath;
-  // c バリアントの資料DLは HubSpot 埋め込みの /c/download へ（それ以外は従来どおり）。
-  const downloadHref = variant === "c" ? "/c/download" : "/download";
+  // c/f バリアントの資料DLは HubSpot 埋め込みの /c/download へ（それ以外は従来どおり）。
+  const downloadHref =
+    variant === "c" || variant === "f" ? "/c/download" : "/download";
 
   useEffect(() => {
     if (isOpen) {

@@ -45,8 +45,8 @@ export function FirstView() {
             <FvDownloadButton
               variant="yellow"
               title="資料ダウンロード"
-              subtitle="3分でわかる外部CTO"
-              href="/download"
+              subtitle="外部CTOがわかる"
+              href="/c/download"
               className="mx-auto sm:mx-0"
             />
           </div>

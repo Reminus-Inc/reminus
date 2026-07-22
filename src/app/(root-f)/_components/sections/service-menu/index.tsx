@@ -84,7 +84,7 @@ export function ServiceMenu({ className }: { className?: string }) {
             imageSrc="/document-cover-c-white.png"
             subtitle="レミナス外部CTO"
             title="資料ダウンロード"
-            href="/download"
+            href="/c/download"
             className="mx-auto"
           />
         </div>

@@ -114,7 +114,7 @@ export function ServiceOverview({ className }: { className?: string }) {
             imageSrc="/document-cover-c-white.png"
             title="資料ダウンロード"
             subtitle="提供内容と事例を公開中"
-            href="/download"
+            href="/c/download"
             className="mx-auto"
           />
         </div>
