@@ -118,7 +118,7 @@ export function CaseStudies({
         className
       )}
     >
-      <div className="mx-auto w-[82%] max-w-[1200px] md:w-[86%]">
+      <div className="mx-auto w-[86%] max-w-[1200px]">
         <SectionHeader
           label="Case Studies"
           align="center"
@@ -132,29 +132,30 @@ export function CaseStudies({
 
         {/* その他事例 (既存カルーセル)。d/e では showOtherCases=false で非表示 */}
         {showOtherCases && (
-        <div className="mt-20 md:mt-28">
-          <div className="flex items-center justify-center gap-3">
-            <span className="h-px w-8 bg-emerald-500" />
-            <p className="text-[11px] font-bold tracking-[0.22em] text-emerald-600 sm:text-xs">
-              OTHER CASES
-            </p>
-          </div>
-          <h3 className="mt-3 text-center text-lg font-bold tracking-wider text-gray-800 sm:text-xl md:text-2xl">
-            その他の事例
-          </h3>
+          <div className="mt-20 md:mt-28">
+            <div className="flex items-center justify-center gap-3">
+              <span className="h-px w-8 bg-emerald-500" />
+              <p className="text-[11px] font-bold tracking-[0.22em] text-emerald-600 sm:text-xs">
+                OTHER CASES
+              </p>
+            </div>
 
-          <div className="mt-10 sm:mt-12">
-            <div className="bleed md:bleed-none">
-              <Carousel
-                className="mx-6 sm:mx-12 lg:mx-0"
-                itemClassName="px-1.5 sm:px-3 xl:px-4 lg:basis-[50%]"
-                items={caseStudyItemList.map((item, index) => (
-                  <CaseStudyCard key={index} caseStudyItem={item} />
-                ))}
-              />
+            <h3 className="mt-3 text-center text-lg font-bold tracking-wider text-gray-800 sm:text-xl md:text-2xl">
+              その他の事例
+            </h3>
+
+            <div className="mt-10 sm:mt-12">
+              <div className="bleed md:bleed-none">
+                <Carousel
+                  className="mx-6 sm:mx-12 lg:mx-0"
+                  itemClassName="px-1.5 sm:px-3 xl:px-4 lg:basis-[50%]"
+                  items={caseStudyItemList.map((item, index) => (
+                    <CaseStudyCard key={index} caseStudyItem={item} />
+                  ))}
+                />
+              </div>
             </div>
           </div>
-        </div>
         )}
       </div>
     </section>
@@ -208,7 +209,8 @@ function CaseStudyCard({ caseStudyItem, className }: CaseStudyCardProps) {
           // ロゴなし
           <>
             <p className="text-lg font-bold tracking-wider text-gray-800">
-              社名非公開<br className="md:hidden"/> ({caseStudyItem.category})
+              社名非公開
+              <br className="md:hidden" /> ({caseStudyItem.category})
             </p>
             <div className="mt-2.5 flex flex-wrap gap-2">
               <Chip label={caseStudyItem.scale} />
