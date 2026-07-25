@@ -16,21 +16,21 @@ export type NavVariant = "c" | "d" | "e" | "f";
 type MenuItem = readonly [hash: string, label: string];
 
 const COLUMN_MENU: readonly MenuItem[] = [
-  ["service-overview", "サービス概要"],
+  ["service-overview", "特長"],
   ["case-studies", "導入事例"],
   ["column", "コラム"],
   ["management", "経営者紹介"],
 ];
 
 const STARTUP_MENU: readonly MenuItem[] = [
-  ["service-overview", "サービス概要"],
+  ["service-overview", "特長"],
   ["case-studies", "導入事例"],
   ["column", "コラム"],
   ["management", "経営者紹介"],
 ];
 
 const DEFAULT_MENU: readonly MenuItem[] = [
-  ["service-menu", "サービス概要"],
+  ["service-menu", "特長"],
   ["case-studies", "導入事例"],
   ["column", "コラム"],
   ["management", "経営者紹介"],
