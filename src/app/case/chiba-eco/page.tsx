@@ -133,8 +133,7 @@ const SECTIONS: Section[] = [
     ],
   },
   {
-    title:
-      "開発会社含めて3社で築けた体制、社内で触って確信した「これは楽だ」",
+    title: "開発会社含めて3社で築けた体制、社内で触って確信した「これは楽だ」",
     image: {
       src: "/case/chiba-eco/section-4.jpg",
       alt: "対話する萩原氏",
@@ -157,7 +156,7 @@ const SECTIONS: Section[] = [
       {
         q: "外部CTOが第三者として入る構造自体に価値があるということでしょうか",
         a: [
-          'はい、安心材料としても価値を感じていました。有事の際に即座に動ける伴走者としてそばに居てくれる点で、<strong>「保険として安心を買える」</strong>というのは、投資判断の上でも非常に重要でした。蓋を開けてみたら開発が全然進んでいなかったとなると、時間も資金も一気に手戻りが発生してしまう。',
+          "はい、安心材料としても価値を感じていました。有事の際に即座に動ける伴走者としてそばに居てくれる点で、<strong>「保険として安心を買える」</strong>というのは、投資判断の上でも非常に重要でした。蓋を開けてみたら開発が全然進んでいなかったとなると、時間も資金も一気に手戻りが発生してしまう。",
           "社内の従業員や部下ではない、第三者としての忖度のない視点で、発注者と外注先をきちんと見てもらえる。その姿勢があったことが、何よりありがたかったです。",
         ],
       },
@@ -177,7 +176,8 @@ const SECTIONS: Section[] = [
     ],
   },
   {
-    title: "同じ立場の経営者へ。「いきなり採用」の前に、相談というワンステップを",
+    title:
+      "同じ立場の経営者へ。「いきなり採用」の前に、相談というワンステップを",
     image: {
       src: "/case/chiba-eco/section-5.jpg",
       alt: "穏やかに語る萩原氏",
@@ -241,16 +241,34 @@ export default function ChibaEcoCasePage() {
       image: `${baseUrl}${META.ogImage}`,
       datePublished: META.publishedAt,
       dateModified: META.publishedAt,
-      author: { "@type": "Organization", name: "株式会社Reminus", url: baseUrl },
-      publisher: { "@type": "Organization", name: "株式会社Reminus", url: baseUrl },
+      author: {
+        "@type": "Organization",
+        name: "株式会社Reminus",
+        url: baseUrl,
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "株式会社Reminus",
+        url: baseUrl,
+      },
       mainEntityOfPage: `${baseUrl}/case/chiba-eco/`,
     },
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "ホーム", item: `${baseUrl}/` },
-        { "@type": "ListItem", position: 2, name: META.title, item: `${baseUrl}/case/chiba-eco/` },
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "ホーム",
+          item: `${baseUrl}/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: META.title,
+          item: `${baseUrl}/case/chiba-eco/`,
+        },
       ],
     },
   ];
@@ -276,7 +294,9 @@ export default function ChibaEcoCasePage() {
 
         <div className="mx-auto w-[88%] max-w-[820px] pt-6 md:pt-9">
           <nav className="text-xs text-gray-400 md:text-sm">
-            <Link href="/" className="hover:text-emerald-600">ホーム</Link>
+            <Link href="/" className="hover:text-emerald-600">
+              ホーム
+            </Link>
             <span className="mx-1.5">/</span>
             {/* 一覧ページが無いので leaf 内で「導入事例：」をプレフィックス */}
             <span className="text-gray-500">導入事例：{META.companyName}</span>
@@ -350,7 +370,10 @@ export default function ChibaEcoCasePage() {
 
         <figure className="mt-10 md:mt-12">
           <div className="flex gap-4 border-l-2 border-emerald-400 bg-emerald-50/40 py-4 pl-6 pr-5 md:gap-5 md:pl-8 md:pr-7">
-            <Quote className="mt-1 h-5 w-5 shrink-0 text-emerald-500" strokeWidth={2} />
+            <Quote
+              className="mt-1 h-5 w-5 shrink-0 text-emerald-500"
+              strokeWidth={2}
+            />
             <p className="text-sm !leading-[2] tracking-wide text-gray-700 md:text-[15px]">
               {PULL_QUOTE}
             </p>
@@ -448,7 +471,7 @@ export default function ChibaEcoCasePage() {
                   <p
                     className={[
                       i > 0 ? "mt-12" : "",
-                      "text-base font-bold tracking-wider text-gray-800 !leading-[1.85] md:text-[17px]",
+                      "text-base font-bold !leading-[1.85] tracking-wider text-gray-800 md:text-[17px]",
                     ].join(" ")}
                   >
                     ― {item.q}
@@ -458,7 +481,7 @@ export default function ChibaEcoCasePage() {
                       {item.a.map((html, j) => (
                         <p
                           key={j}
-                          className="text-sm tracking-wide text-gray-700 !leading-[2] md:text-[15px] [&_strong]:text-gray-800"
+                          className="text-sm !leading-[2] tracking-wide text-gray-700 md:text-[15px] [&_strong]:text-gray-800"
                           // eslint-disable-next-line react/no-danger -- 自社で組んだHTML (一部段落の <strong> 強調用)
                           dangerouslySetInnerHTML={{ __html: html }}
                         />

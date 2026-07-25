@@ -122,8 +122,7 @@ const SECTIONS: Section[] = [
     ],
   },
   {
-    title:
-      "開発と経営が一体になり、短期も長期も、迷いなく事業を伸ばしていける",
+    title: "開発と経営が一体になり、短期も長期も、迷いなく事業を伸ばしていける",
     image: {
       src: "/case/xnext/section-3.jpg",
       alt: "今後の展望を話す粟田氏",
@@ -220,16 +219,34 @@ export default function XnextCasePage() {
       image: `${baseUrl}${META.ogImage}`,
       datePublished: META.publishedAt,
       dateModified: META.publishedAt,
-      author: { "@type": "Organization", name: "株式会社Reminus", url: baseUrl },
-      publisher: { "@type": "Organization", name: "株式会社Reminus", url: baseUrl },
+      author: {
+        "@type": "Organization",
+        name: "株式会社Reminus",
+        url: baseUrl,
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "株式会社Reminus",
+        url: baseUrl,
+      },
       mainEntityOfPage: `${baseUrl}/case/xnext/`,
     },
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "ホーム", item: `${baseUrl}/` },
-        { "@type": "ListItem", position: 2, name: META.title, item: `${baseUrl}/case/xnext/` },
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "ホーム",
+          item: `${baseUrl}/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: META.title,
+          item: `${baseUrl}/case/xnext/`,
+        },
       ],
     },
   ];
@@ -255,7 +272,9 @@ export default function XnextCasePage() {
 
         <div className="mx-auto w-[88%] max-w-[820px] pt-6 md:pt-9">
           <nav className="text-xs text-gray-400 md:text-sm">
-            <Link href="/" className="hover:text-emerald-600">ホーム</Link>
+            <Link href="/" className="hover:text-emerald-600">
+              ホーム
+            </Link>
             <span className="mx-1.5">/</span>
             {/* 一覧ページが無いので leaf 内で「導入事例：」をプレフィックス */}
             <span className="text-gray-500">導入事例：{META.companyName}</span>
@@ -422,7 +441,7 @@ export default function XnextCasePage() {
                   <p
                     className={[
                       i > 0 ? "mt-12" : "",
-                      "text-base font-bold tracking-wider text-gray-800 !leading-[1.85] md:text-[17px]",
+                      "text-base font-bold !leading-[1.85] tracking-wider text-gray-800 md:text-[17px]",
                     ].join(" ")}
                   >
                     ― {item.q}
@@ -432,7 +451,7 @@ export default function XnextCasePage() {
                       {item.a.map((html, j) => (
                         <p
                           key={j}
-                          className="text-sm tracking-wide text-gray-700 !leading-[2] md:text-[15px] [&_strong]:text-gray-800"
+                          className="text-sm !leading-[2] tracking-wide text-gray-700 md:text-[15px] [&_strong]:text-gray-800"
                           // eslint-disable-next-line react/no-danger -- 自社で組んだHTML (一部段落の <strong> 強調用)
                           dangerouslySetInnerHTML={{ __html: html }}
                         />
