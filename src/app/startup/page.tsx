@@ -6,6 +6,7 @@ import { Column } from "@/app/_components/sections/column";
 import { Cta } from "@/app/_components/sections/cta";
 import { FirstView } from "./_components/sections/first-view";
 import { Management } from "@/app/_components/sections/management";
+import { Problem } from "./_components/sections/problem";
 import { ServiceOverview } from "./_components/sections/service-overview";
 import { WhyReminus } from "./_components/sections/why-reminus";
 import { ServiceMenu } from "./_components/sections/service-menu";
@@ -19,17 +20,17 @@ export default function HomeB() {
   return (
     <>
       <FirstView />
-      <div className="mt-4 sm:mt-10">
+      <div className="mt-8 sm:mt-14">
         <ClientLogos />
       </div>
+      <Problem />
       <ServiceOverview />
       <ServiceMenu className="bg-gray-50" />
-      <Cta className="from-gray-50 to-white" />
       <WhyReminus className="bg-white" />
-      <CaseStudies className="bg-gray-50" />
-      <Cta className="from-gray-50 to-white" />
+      <CaseStudies className="bg-gray-50" showOtherCases={false} />
       <Column className="bg-white" />
       <Management className="bg-gray-50" />
+      <Cta className="from-gray-50 to-white" downloadHref="/download" />
       <CompanyOverview />
     </>
   );

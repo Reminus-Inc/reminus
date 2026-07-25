@@ -21,18 +21,18 @@ const MEMBERS_DATA = [
     width: 332,
     height: 285,
   },
-  {
-    title: "混沌のシード〜アーリーを\n牽引してきた精鋭揃い。",
-    image: "/member-4.svg",
-    width: 411,
-    height: 287,
-  },
-  {
-    title: "YoY300%の成長速度を\nくぐり抜けてきたメンバー多数。",
-    image: "/member-5.svg",
-    width: 337,
-    height: 273,
-  },
+  // {
+  //   title: "混沌のシード〜アーリーを\n牽引してきた精鋭揃い。",
+  //   image: "/member-4.svg",
+  //   width: 411,
+  //   height: 287,
+  // },
+  // {
+  //   title: "YoY300%の成長速度を\nくぐり抜けてきたメンバー多数。",
+  //   image: "/member-5.svg",
+  //   width: 337,
+  //   height: 273,
+  // },
 ];
 
 export function WhyReminus({ className }: { className?: string }) {

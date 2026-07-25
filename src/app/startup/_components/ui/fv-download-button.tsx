@@ -42,7 +42,7 @@ export const FvDownloadButton = ({
 
   const variantClasses: Record<Variant, string> = {
     white: cn(
-      "bg-white text-emerald-600 ring-2 ring-transparent",
+      "bg-white text-emerald-700 ring-2 ring-transparent",
       "shadow-[0_1px_2px_rgba(15,23,42,0.06),0_8px_20px_-6px_rgba(15,23,42,0.14)]",
       "hover:bg-emerald-700 hover:text-white hover:ring-white hover:shadow-none",
       "px-3 py-3 md:px-4"

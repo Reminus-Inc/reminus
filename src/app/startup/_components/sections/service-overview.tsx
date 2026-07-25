@@ -55,16 +55,11 @@ export function ServiceOverview({ className }: { className?: string }) {
     >
       <div className="mx-auto w-[82%] max-w-[1200px] md:w-[86%]">
         <SectionHeader
-          label="レミナスCTO代行とは？"
-          headingClassName="text-xl sm:text-2xl md:text-3xl xl:text-4xl !leading-[1.8]"
-          tag="h2"
+          label="Feature"
+          align="center"
+          headingClassName="text-3xl sm:text-4xl md:text-[40px] !leading-[1.7]"
         >
-          技術・採用・開発体制に不安を抱えるスタートアップに、
-          <br className="hidden lg:inline" />
-          <span className="highlight-underline text-emerald-500">
-            経営直下で伴走するCTO代行サービス
-          </span>
-          です。
+          サービスの特長
         </SectionHeader>
 
         <div className="mt-16 flex flex-col gap-16 lg:gap-8 xl:gap-0">
