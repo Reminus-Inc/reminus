@@ -51,7 +51,7 @@ export function FeaturedCaseCard({ item }: { item: CaseMeta }) {
         </p>
 
         {/* タグ + 矢印。テキスト/# は省きアイコンのみ。カード下部に固定 */}
-        <div className="mt-auto flex items-end justify-between gap-2 pt-6">
+        <div className="mt-auto flex items-end justify-between gap-2 pt-8">
           <div className="flex min-w-0 flex-1 flex-wrap gap-2">
             {item.chips.map((label) => (
               <span

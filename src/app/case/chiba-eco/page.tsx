@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Quote } from "lucide-react";
+import { ChevronRight, Quote } from "lucide-react";
 import { Fragment } from "react";
 
 import { ArticleCta } from "@/app/blog/_components/article-cta";
@@ -256,6 +256,9 @@ export default function ChibaEcoCasePage() {
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
+      // 表示上は「ホーム › 事例 › 会社名」の3段だが、事例一覧ページが存在せず
+      // 「事例」はトップのセクション (/#case-studies) を指すだけなので、
+      // 正規化すると位置1と同じ URL になる。階層の宣言としては2段に留める。
       itemListElement: [
         {
           "@type": "ListItem",
@@ -266,7 +269,7 @@ export default function ChibaEcoCasePage() {
         {
           "@type": "ListItem",
           position: 2,
-          name: META.title,
+          name: META.companyName,
           item: `${baseUrl}/case/chiba-eco/`,
         },
       ],
@@ -280,45 +283,65 @@ export default function ChibaEcoCasePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* ヒーロー (パンくず → タイトル → 会社情報 → 写真) */}
-      <div className="relative overflow-hidden bg-gradient-to-b from-emerald-50/60 via-white to-white">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -top-10 right-[-80px] hidden h-[420px] w-[420px] opacity-[0.18] md:block"
-          style={{
-            backgroundImage:
-              "radial-gradient(rgb(16 185 129) 1px, transparent 1px)",
-            backgroundSize: "14px 14px",
-          }}
-        />
+      <nav aria-label="パンくずリスト" className="bg-gray-100">
+        <div className="mx-auto flex w-[88%] max-w-[960px] items-center gap-1.5 py-3 text-xs tracking-wide text-gray-500 md:gap-2 md:text-[13px]">
+          <Link
+            href="/"
+            className="font-medium text-gray-600 transition-colors hover:text-emerald-600"
+          >
+            ホーム
+          </Link>
+          <ChevronRight
+            aria-hidden
+            strokeWidth={2}
+            className="size-4 shrink-0 text-gray-600"
+          />
+          <Link
+            href="/#case-studies"
+            className="font-medium text-gray-600 transition-colors hover:text-emerald-600"
+          >
+            導入事例
+          </Link>
+          <ChevronRight
+            aria-hidden
+            strokeWidth={2}
+            className="size-4 shrink-0 text-gray-600"
+          />
+          <span className="font-medium text-gray-600">{META.companyName}</span>
+        </div>
+      </nav>
 
-        <div className="mx-auto w-[88%] max-w-[820px] pt-6 md:pt-9">
-          <nav className="text-xs text-gray-400 md:text-sm">
-            <Link href="/" className="hover:text-emerald-600">
-              ホーム
-            </Link>
-            <span className="mx-1.5">/</span>
-            {/* 一覧ページが無いので leaf 内で「導入事例：」をプレフィックス */}
-            <span className="text-gray-500">導入事例：{META.companyName}</span>
-          </nav>
+      {/* ヒーロー (タグ → タイトル → 会社情報 → 写真) */}
+      <div className="relative overflow-hidden">
+        <div className="mx-auto w-[88%] max-w-[820px] pt-10 md:pt-14">
+          <div className="flex flex-wrap items-center gap-2">
+            {META.chips.map((label) => (
+              <span
+                key={label}
+                className="inline-flex items-center rounded-full border border-gray-200 bg-white px-3 py-1 text-[11px] font-medium tracking-wider text-gray-700"
+              >
+                {label}
+              </span>
+            ))}
+          </div>
 
-          <h1 className="mt-9 text-[22px] font-bold !leading-[1.5] tracking-wider text-gray-800 md:mt-12 md:text-[28px] md:!leading-[1.55]">
+          <h1 className="mt-2 text-[22px] font-bold !leading-[1.5] tracking-wider text-gray-800 md:mt-4 md:text-[28px] md:!leading-[1.55]">
             {META.title}
           </h1>
 
-          <div className="mt-8 flex flex-col gap-4 md:mt-10 md:flex-row md:items-center md:justify-between md:gap-8">
-            <div className="flex items-start gap-5 md:shrink-0 md:gap-7">
+          <div className="px-2 pb-12 pt-8 md:px-3 md:pb-18 md:pt-12">
+            <div className="flex items-center gap-4 md:shrink-0 md:gap-7">
               <Image
                 src={META.logoPath}
                 alt={META.companyName}
                 width={META.logoWidth}
                 height={META.logoHeight}
                 sizes="160px"
-                className="h-auto w-[120px] object-contain"
+                className="h-auto w-[100px] object-contain md:w-[120px]"
               />
-              <div className="flex flex-col gap-1.5">
+              <div className="flex min-w-0 flex-col gap-1">
                 <p
-                  className="text-base font-bold tracking-wider text-gray-800 md:whitespace-nowrap md:text-lg"
+                  className="text-base tracking-wider text-gray-800 md:whitespace-nowrap md:text-xl"
                   data-nosnippet
                 >
                   {META.companyName}
@@ -327,34 +350,24 @@ export default function ChibaEcoCasePage() {
                   href={META.companyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs tracking-wide text-emerald-600 underline-offset-4 hover:underline md:text-sm"
+                  className="break-all text-xs tracking-wide text-emerald-600 underline-offset-4 hover:underline md:text-sm"
                 >
-                  {META.companyUrl.replace(/^https?:\/\//, "")}
+                  {META.companyUrl}
                 </a>
               </div>
-            </div>
-            <div className="flex flex-wrap items-center gap-2 md:justify-end">
-              {META.chips.map((label) => (
-                <span
-                  key={label}
-                  className="inline-flex items-center rounded-full border border-gray-200 bg-white px-3 py-1 text-[11px] font-medium tracking-wider text-gray-700"
-                >
-                  #{label}
-                </span>
-              ))}
             </div>
           </div>
         </div>
 
-        <div className="mx-auto mt-10 w-[88%] max-w-[820px] pb-10 md:mt-14 md:pb-12">
-          <div className="relative aspect-[16/9] w-full overflow-hidden bg-gray-100 md:aspect-[2/1]">
+        <div className="mx-auto w-[88%] max-w-[960px] pb-10 md:pb-12">
+          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-md bg-gray-100 md:aspect-[2/1]">
             <Image
               src={META.thumbnail}
               alt={META.thumbnailAlt}
               fill
               priority
               sizes="(min-width: 820px) 820px, 88vw"
-              className="object-cover"
+              className={`object-cover ${META.thumbnailFocusClassName ?? ""}`}
             />
           </div>
         </div>
