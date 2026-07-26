@@ -26,20 +26,25 @@ function RecommendedCard({ item }: { item: CaseMeta }) {
         />
       </div>
       <div className="flex flex-1 flex-col p-6">
-        <Image
-          src={item.logoPath}
-          alt={item.companyName}
-          width={item.logoWidth}
-          height={item.logoHeight}
-          sizes="108px"
-          className="h-11 w-auto object-contain"
-        />
-        <p className="mt-5 text-xs tracking-wider text-gray-500" data-nosnippet="true">
-          {item.companyName}
-        </p>
-        <h3 className="mt-3 line-clamp-3 text-base font-bold !leading-[1.8] tracking-wide text-gray-800">
+        <div className="pl-2">
+          <Image
+            src={item.logoPath}
+            alt={item.companyName}
+            width={item.logoWidth}
+            height={item.logoHeight}
+            sizes="108px"
+            className="h-11 w-auto object-contain"
+          />
+        </div>
+        <h3 className="mt-5 line-clamp-3 text-base font-bold !leading-[1.5] tracking-wide text-gray-800">
           {item.title}
         </h3>
+        <p
+          className="mt-2 text-sm tracking-wider text-gray-600"
+          data-nosnippet="true"
+        >
+          {item.companyName}
+        </p>
       </div>
     </Link>
   );
