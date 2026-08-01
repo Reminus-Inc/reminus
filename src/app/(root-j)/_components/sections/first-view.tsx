@@ -40,7 +40,9 @@ export function FirstView() {
       <div className="relative mx-auto flex w-[88%] max-w-[1200px] flex-col gap-6 pb-12 pt-6 font-sans sm:gap-7 sm:pb-16 sm:pt-12 lg:w-[92%] lg:max-w-[1180px] lg:flex-row lg:gap-6 lg:pb-12 lg:pt-16 xl:max-w-[1220px]">
         {/* SP は CTA・月桂冠が中央寄せ (mx-auto sm:mx-0) なので、見出しブロックも
             そこに揃えて中央寄せにする。sm 以上は従来どおり左寄せ。 */}
-        <div className="z-[1] w-full text-center sm:text-left lg:w-fit lg:max-w-[720px] lg:flex-none xl:max-w-[820px]">
+        {/* lg (1024〜1279px) では写真が右に絶対配置されるので、テキスト幅を絞らないと
+            見出しが写真の面に重なる (1024px で 46px 重なっていた)。 */}
+        <div className="z-[1] w-full text-center sm:text-left lg:w-fit lg:max-w-[580px] lg:flex-none xl:max-w-[820px]">
           <Title />
           {/* J版の写真。透過余白は不透明部分で切り抜き済みなので、写真の枠 = 人物の
               見た目の範囲。lg 以上は幅ではなく高さで抑えないと FV からはみ出すため
@@ -54,7 +56,7 @@ export function FirstView() {
             className={cn(
               "relative mx-auto mt-4 h-[218px] w-full max-w-[158px] sm:mt-5 sm:h-[254px] sm:max-w-[188px]",
               // lg 以上は FV 右側に絶対配置。固定サイズで inset-y-0 を効かせるには my-auto が要る。
-              "lg:pointer-events-none lg:absolute lg:inset-y-0 lg:right-[34px] lg:mx-0 lg:my-auto lg:h-[274px] lg:w-[206px] lg:max-w-none xl:h-[310px] xl:w-[234px]"
+              "lg:pointer-events-none lg:absolute lg:inset-y-0 lg:right-[34px] lg:mx-0 lg:my-auto lg:h-[346px] lg:w-[260px] lg:max-w-none xl:h-[380px] xl:w-[286px]"
             )}
           >
             <span
@@ -109,7 +111,9 @@ const Title = ({ className }: { className?: string }) => {
       </p>
 
       <h1>
-        <span className="flex flex-wrap items-end justify-center gap-x-2 gap-y-1.5 sm:justify-start lg:flex-nowrap">
+        {/* 1行に収めるのは xl 以上だけ。lg (1024〜1279px) で nowrap にすると見出しが
+            カラム幅を超えて右の写真に迫るため、この帯域では折り返させる。 */}
+        <span className="flex flex-wrap items-end justify-center gap-x-2 gap-y-1.5 sm:justify-start xl:flex-nowrap">
           {/* F版に倣い、白抜き (白背景 × 緑文字) ではなく黄色文字で強調する。
               「プロダクト特化」は「SaaS特化」より横幅が広く小さい端末で見切れるため、
               小さい breakpoint を縮め 108% の強調も外している (sm 以上は c と同サイズ)。 */}
