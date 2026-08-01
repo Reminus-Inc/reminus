@@ -7,7 +7,7 @@ export default async function TopBLayout({
 }) {
   return (
     <>
-      <Header lp="/startup" />
+      <Header lp="startup" />
       <main>{children}</main>
     </>
   );

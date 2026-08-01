@@ -1,27 +1,19 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { Header } from "@/app/_components/layout/header";
-import type { NavVariant } from "@/app/_components/layout/nav-menu";
+import { useLpContext } from "@/hooks/use-lp-context";
 
 export default function BlogLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  // 初期描画はデフォルト (ルート扱い) で進め、hydration 後に cookie から
-  // variant を復元する。描画をブロックしないための実装。
-  const [variant, setVariant] = useState<NavVariant | undefined>(undefined);
-
-  useEffect(() => {
-    const match = document.cookie.match(/(?:^|;\s*)ab-test-top=([^;]+)/);
-    const v = match?.[1];
-    if (v === "c") setVariant(v);
-  }, []);
+  // 直前に見ていた LP / variant に合わせたナビを出す (復元ロジックは useLpContext に集約)。
+  const { lp, variant } = useLpContext();
 
   return (
     <>
-      <Header variant={variant} />
+      <Header lp={lp} variant={variant} />
       <main>{children}</main>
     </>
   );
