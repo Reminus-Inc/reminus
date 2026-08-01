@@ -101,14 +101,14 @@ const Title = ({ className }: { className?: string }) => {
               「プロダクト特化」は「SaaS特化」より横幅が広く小さい端末で見切れるため、
               小さい breakpoint を縮め 108% の強調も外している (sm 以上は c と同サイズ)。 */}
           <span className="flex items-end gap-2 whitespace-nowrap">
-            <span className="text-[26px] leading-tight text-[#ffe100] min-[375px]:text-[32px] sm:text-[44px] md:text-[52px] lg:text-[60px]">
+            <span className="text-[26px] !leading-[1.1] text-[#ffe100] min-[375px]:text-[32px] sm:text-[44px] md:text-[52px] lg:text-[60px]">
               プロダクト特化
             </span>
-            <span className="text-[20px] leading-tight text-white min-[375px]:text-[28px] sm:text-[36px] md:text-[40px] lg:text-[48px]">
+            <span className="text-[20px] !leading-[1.1] text-white min-[375px]:text-[28px] sm:text-[36px] md:text-[40px] lg:text-[48px]">
               の
             </span>
           </span>
-          <span className="text-[26px] leading-tight text-[#ffe100] min-[375px]:text-[32px] sm:text-[44px] md:text-[52px] lg:text-[60px]">
+          <span className="text-[26px] !leading-[1.1] text-[#ffe100] min-[375px]:text-[32px] sm:text-[44px] md:text-[52px] lg:text-[60px]">
             <span className="text-[108%]">CTO</span>代行
           </span>
         </span>
@@ -129,7 +129,7 @@ const SubCopy = ({ className }: { className?: string }) => {
     >
       技術に詳しくない経営者の代わりに、
       <br />
-      技術戦略から開発まで一気通貫で技術を推進
+      技術戦略から開発まで、技術を一気通貫
     </p>
   );
 };
