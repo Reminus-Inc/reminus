@@ -17,7 +17,7 @@ export default function DownloadPage() {
     <div className="content-auto min-h-svh bg-gray-50 pb-12 pt-6 font-sans md:pt-12">
       <div className="mx-auto flex w-[88%] max-w-[1200px] md:w-[92%]">
         <div className="flex w-full flex-col justify-center gap-8 md:flex-row md:gap-14 lg:gap-16">
-          <div>
+          <div className="flex flex-col">
             <h1 className="text-2xl font-bold !leading-[1.3] tracking-wide text-gray-800 md:text-3xl">
               <span className="whitespace-nowrap">
                 <span className="text-[105%]">CTO</span>代行
@@ -26,7 +26,20 @@ export default function DownloadPage() {
               <span className="whitespace-nowrap">サービス資料</span>
             </h1>
 
-            <div className="mt-4 lg:mt-6">
+            <p className="order-2 mt-4 max-w-[500px] text-base !leading-[1.7] tracking-wide text-gray-700 md:order-3 md:mt-6">
+              レミナスCTO代行のご検討に必要な3点セットを無料ダウンロード
+            </p>
+
+            <ul className="order-2 mt-3 grid grid-cols-2 gap-x-6 gap-y-1.5 text-base !leading-[1.5] tracking-wide text-gray-800 md:order-4 md:flex md:flex-col">
+              {["サービスの背景", "提供内容", "導入事例"].map((text) => (
+                <li key={text} className="flex items-start gap-2">
+                  <CheckCircleIcon className="size-5 flex-none translate-y-[2px] text-[#0A965B]" />
+                  <span className="font-semibold">{text}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="order-4 mt-6 md:order-2 md:mt-4 lg:mt-6">
               <DownloadPreview
                 images={[
                   {
@@ -44,19 +57,6 @@ export default function DownloadPage() {
                 ]}
               />
             </div>
-
-            <p className="mt-6 max-w-[500px] text-base !leading-[1.7] tracking-wide text-gray-700">
-              レミナスCTO代行のご検討に必要な3点セットを無料ダウンロード
-            </p>
-
-            <ul className="mt-3 flex flex-col gap-1.5 text-base !leading-[1.5] tracking-wide text-gray-800">
-              {["サービスの背景", "提供内容", "導入事例"].map((text) => (
-                <li key={text} className="flex items-start gap-2">
-                  <CheckCircleIcon className="size-5 flex-none translate-y-[2px] text-[#0A965B]" />
-                  <span className="font-semibold">{text}</span>
-                </li>
-              ))}
-            </ul>
           </div>
 
           <div className="flex h-fit justify-center rounded-xl bg-white px-6 py-6 sm:px-8 sm:py-8 lg:max-w-[400px] lg:rounded-md lg:border lg:border-gray-200 lg:shadow-md">

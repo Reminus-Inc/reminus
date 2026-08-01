@@ -336,7 +336,7 @@ const CarouselOverlayPrevious = React.forwardRef<
       ref={ref}
       type="button"
       className={cn(
-        "absolute left-0 top-1/2 flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-gray-800 shadow-md transition-colors hover:bg-white/90 disabled:pointer-events-none disabled:opacity-40 sm:h-11 sm:w-11",
+        "absolute left-2 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-gray-800 shadow-md transition-colors hover:bg-white/90 disabled:pointer-events-none disabled:opacity-40 sm:left-3 sm:h-11 sm:w-11",
         className
       )}
       disabled={!canScrollPrev}
@@ -361,7 +361,7 @@ const CarouselOverlayNext = React.forwardRef<
       ref={ref}
       type="button"
       className={cn(
-        "absolute right-0 top-1/2 flex h-9 w-9 -translate-y-1/2 translate-x-1/2 items-center justify-center rounded-full bg-white/80 text-gray-800 shadow-md transition-colors hover:bg-white/90 disabled:pointer-events-none disabled:opacity-40 sm:h-11 sm:w-11",
+        "absolute right-2 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-gray-800 shadow-md transition-colors hover:bg-white/90 disabled:pointer-events-none disabled:opacity-40 sm:right-3 sm:h-11 sm:w-11",
         className
       )}
       disabled={!canScrollNext}
