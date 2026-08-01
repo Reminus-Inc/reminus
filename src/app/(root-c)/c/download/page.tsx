@@ -22,7 +22,7 @@ export default function DownloadPageC() {
           <div>
             <h1 className="text-2xl font-bold !leading-[1.3] tracking-wide text-gray-800 md:text-3xl">
               <span className="whitespace-nowrap">
-                <span className="text-[105%]">CTO</span>代行
+                レミナス
               </span>
               <span>&nbsp;</span>
               <span className="whitespace-nowrap">サービス資料</span>
