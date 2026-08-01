@@ -77,23 +77,26 @@ const Title = ({ className }: { className?: string }) => {
     <h1 className={cn("font-extrabold tracking-widest", className)}>
       <span className="mb-3 flex flex-wrap items-end gap-x-2 gap-y-2 lg:mb-4 lg:flex-nowrap">
         <span className="flex items-end gap-2 whitespace-nowrap">
-          <span className="bg-white px-2 py-1 text-[32px] leading-none text-emerald-600 min-[375px]:text-[40px] sm:text-[44px] md:text-[52px] lg:text-[60px]">
-            <span className="text-[108%]">プロダクト</span>特化
+          {/* 「プロダクト特化」は「SaaS特化」より横幅が広く小さい端末で見切れるため、
+              startup の「スタートアップ特化」と同じ考え方で小さい breakpoint を縮め、
+              108% の強調も外している (sm 以上は c と同サイズ)。 */}
+          <span className="bg-white px-2 py-1 text-[26px] leading-none text-emerald-600 min-[375px]:text-[32px] sm:text-[44px] md:text-[52px] lg:text-[60px]">
+            プロダクト特化
           </span>
-          <span className="text-[24px] leading-none text-white min-[375px]:text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px]">
+          <span className="text-[22px] leading-none text-white min-[375px]:text-[28px] sm:text-[36px] md:text-[40px] lg:text-[48px]">
             の
           </span>
         </span>
         <span className="flex items-end gap-2 whitespace-nowrap">
-          <span className="bg-white px-2 py-1 text-[32px] leading-none text-emerald-600 min-[375px]:text-[40px] sm:text-[44px] md:text-[52px] lg:text-[60px]">
+          <span className="bg-white px-2 py-1 text-[26px] leading-none text-emerald-600 min-[375px]:text-[32px] sm:text-[44px] md:text-[52px] lg:text-[60px]">
             <span className="text-[108%]">CTO</span>代行
           </span>
-          <span className="text-[24px] leading-none text-white min-[375px]:text-[32px] sm:text-[36px] md:text-[40px] lg:text-[48px]">
+          <span className="text-[22px] leading-none text-white min-[375px]:text-[28px] sm:text-[36px] md:text-[40px] lg:text-[48px]">
             が
           </span>
         </span>
       </span>
-      <span className="block text-[22px] !leading-tight text-white min-[375px]:text-[28px] sm:text-[32px] md:text-[36px] lg:text-[44px]">
+      <span className="block text-[20px] !leading-tight text-white min-[375px]:text-[25px] sm:text-[32px] md:text-[36px] lg:text-[44px]">
         事業成長を技術で支える
       </span>
     </h1>
