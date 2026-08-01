@@ -294,12 +294,12 @@ export default function ChibaEcoCasePage() {
             strokeWidth={2}
             className="size-4 shrink-0 text-gray-600"
           />
-          <Link
-            href="/#case-studies"
+          <LpHomeLink
+            hash="#case-studies"
             className="font-medium text-gray-600 transition-colors hover:text-emerald-600"
           >
             導入事例
-          </Link>
+          </LpHomeLink>
           <ChevronRight
             aria-hidden
             strokeWidth={2}

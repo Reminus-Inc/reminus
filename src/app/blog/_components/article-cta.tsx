@@ -1,9 +1,17 @@
+"use client";
+
 import { DownloadButton } from "@/app/_components/ui/download-button";
 import { ContactButton } from "@/app/_components/ui/contact-button";
+import { useLpContext } from "@/hooks/use-lp-context";
+import { lpDownloadPath } from "@/lib/lp";
 
 const concerns = ["技術が正しいか判断できない", "CTOやリードエンジニアがいない"];
 
 export function ArticleCta() {
+  // ブログ・事例は LP に属さないので、資料DL の遷移先は cookie 由来の LP × variant から導出する。
+  // ヘッダーのボタンと同じ lpDownloadPath を通すため、両者がズレることはない。
+  const { lp, variant } = useLpContext();
+
   return (
     <div className="mx-auto mt-6 w-[88%] max-w-[640px] md:mt-8">
       <div className="overflow-hidden border-[3px] border-emerald-500">
@@ -37,7 +45,7 @@ export function ArticleCta() {
             <DownloadButton
               size="medium"
               fullWidth
-              href="/download"
+              href={lpDownloadPath(lp, variant)}
               className="sm:w-auto"
             />
             <ContactButton

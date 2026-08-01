@@ -13,11 +13,16 @@ type VariantDef = {
   // 新規訪問者の抽選対象かどうか。false でも直アクセス時の表示と cookie による
   // スティッキーは維持される (成果の低い variant の退避先)。
   readonly lottery: boolean;
+  // 資料DL の遷移先。省略時は LP の downloadPath、それも無ければ DEFAULT_DOWNLOAD_PATH。
+  // ヘッダーのボタンも記事内 CTA もここを引くので、片方だけ対応が漏れることがない。
+  readonly downloadPath?: string;
 };
 
 type LpDef = {
   readonly id: string;
   readonly home: string;
+  // LP 全体の資料DL 遷移先 (variant 側の指定があればそちらが優先)。
+  readonly downloadPath?: string;
   // クローラ向けに home を rewrite する先。UA がボットのとき URL を home のまま
   // このパスの中身を見せる。variant ルートへ直接 rewrite すると variant 側の
   // noindex metadata が home に巻き込まれるため、noindex を持たない専用ページを指す。
@@ -34,10 +39,11 @@ export const LPS = [
     home: "/",
     botPath: "/bot",
     variants: [
-      { id: "c", path: "/c", lottery: true },
+      // c と f は HubSpot 埋め込みの専用 DL ページを使う
+      { id: "c", path: "/c", lottery: true, downloadPath: "/c/download" },
       { id: "d", path: "/d", lottery: true },
       { id: "e", path: "/e", lottery: false },
-      { id: "f", path: "/f", lottery: false },
+      { id: "f", path: "/f", lottery: false, downloadPath: "/c/download" },
     ],
   },
   {
@@ -96,6 +102,19 @@ export const findVariant = (
 export function lpHomePath(lpId?: string, variantId?: string): string {
   const lp = findLp(lpId) ?? LPS[0];
   return findVariant(lp, variantId)?.path ?? lp.home;
+}
+
+const DEFAULT_DOWNLOAD_PATH = "/download";
+
+// 資料DL の遷移先を LP × variant から導出する。ヘッダーのボタンも記事内 CTA もここを通すので、
+// 「ヘッダーは /c/download なのに CTA は /download」といった不一致が起きない。
+export function lpDownloadPath(lpId?: string, variantId?: string): string {
+  const lp: LpDef = findLp(lpId) ?? LPS[0];
+  return (
+    findVariant(lp, variantId)?.downloadPath ??
+    lp.downloadPath ??
+    DEFAULT_DOWNLOAD_PATH
+  );
 }
 
 // middleware の config.matcher が網羅すべきパス一覧。matcher 自体は Next.js が
