@@ -25,11 +25,16 @@ export default function HomeG() {
   return (
     <>
       <FirstView />
-      <div className="mt-8 sm:mt-14">
+      {/* 直後が グレー背景の導入事例 なので、白地側に余白を持たせて境界がロゴに
+          張り付かないようにする。その分だけ導入事例の上余白 (既定 py-24/sm:py-32) を詰める。 */}
+      <div className="mt-8 pb-12 sm:mt-14 sm:pb-16">
         <ClientLogos />
       </div>
       <div className="content-auto">
-        <CaseStudies className="bg-gray-50" showOtherCases={false} />
+        <CaseStudies
+          className="bg-gray-50 pt-16 sm:pt-24"
+          showOtherCases={false}
+        />
         <Problem />
         <ServiceOverview className="bg-white" />
         <ServiceMenu className="bg-gray-50" />
