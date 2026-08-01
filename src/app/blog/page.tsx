@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { articles } from "./_articles";
 import { ColumnCard } from "@/app/_components/ui/column-card";
+import { LpHomeLink } from "@/app/_components/ui/lp-home-link";
 
 export const metadata: Metadata = {
   title: "Blog | Reminus",
@@ -73,9 +74,9 @@ export default function BlogIndexPage() {
       {/* パンくず */}
       <div className="mx-auto w-[88%] max-w-[1100px] pt-5 md:pt-7">
         <nav className="text-xs text-gray-400 md:text-sm">
-          <Link href="/" className="hover:text-emerald-600">
+          <LpHomeLink className="hover:text-emerald-600">
             ホーム
-          </Link>
+          </LpHomeLink>
           <span className="mx-1">&gt;</span>
           <span className="text-gray-500">ブログ/コラム</span>
         </nav>

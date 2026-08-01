@@ -7,6 +7,7 @@ import { Fragment } from "react";
 import { ArticleCta } from "@/app/blog/_components/article-cta";
 import { RelatedCases } from "../_related-cases";
 import { chibaEcoMeta as META } from "../_cases";
+import { LpHomeLink } from "@/app/_components/ui/lp-home-link";
 
 const CHALLENGES = [
   "SaaS 開発のノウハウ・リソースが社内になく、技術での実装方針が決められない",
@@ -285,12 +286,9 @@ export default function ChibaEcoCasePage() {
 
       <nav aria-label="パンくずリスト" className="bg-gray-100">
         <div className="mx-auto flex w-[88%] max-w-[960px] items-center gap-1.5 py-3 text-xs tracking-wide text-gray-500 md:gap-2 md:text-[13px]">
-          <Link
-            href="/"
-            className="font-medium text-gray-600 transition-colors hover:text-emerald-600"
-          >
+          <LpHomeLink className="font-medium text-gray-600 transition-colors hover:text-emerald-600">
             ホーム
-          </Link>
+          </LpHomeLink>
           <ChevronRight
             aria-hidden
             strokeWidth={2}

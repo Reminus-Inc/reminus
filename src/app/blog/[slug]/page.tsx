@@ -6,6 +6,7 @@ import { ArrowLeft, ChevronRight } from "lucide-react";
 import { articles, getArticleBySlug } from "../_articles";
 import { ArticleCta } from "../_components/article-cta";
 import { ColumnCard } from "@/app/_components/ui/column-card";
+import { LpHomeLink } from "@/app/_components/ui/lp-home-link";
 
 type Params = { slug: string };
 
@@ -113,7 +114,7 @@ export default async function BlogArticlePage({
       {/* パンくず */}
       <div className="mx-auto w-[88%] max-w-[820px] pt-5 md:pt-7">
         <nav className="text-xs text-gray-400 md:text-sm">
-          <Link href="/" className="hover:text-emerald-600">ホーム</Link>
+          <LpHomeLink className="hover:text-emerald-600">ホーム</LpHomeLink>
           <span className="mx-1">&gt;</span>
           <Link href="/blog/" className="hover:text-emerald-600">ブログ/コラム</Link>
           <span className="mx-1">&gt;</span>
