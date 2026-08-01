@@ -47,11 +47,11 @@ export default function DownloadPage() {
                     alt: "レミナスCTO代行資料イメージ1",
                   },
                   {
-                    src: "/document-2.png",
+                    src: "/document-3.png",
                     alt: "レミナスCTO代行資料イメージ2",
                   },
                   {
-                    src: "/document-3.png",
+                    src: "/document-4.png",
                     alt: "レミナスCTO代行資料イメージ3",
                   },
                 ]}

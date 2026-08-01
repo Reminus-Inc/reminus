@@ -1,6 +1,6 @@
 import { DOCUMENT_TYPE } from "@/app/constants";
 import { Metadata } from "next";
-import { DownloadPreview } from "@/app/_components/ui/download-preview";
+import Image from "next/image";
 import { HubSpotDownloadForm } from "@/app/_components/ui/hubspot-download-form";
 import { CheckCircleIcon } from "@/app/_components/ui/check-circle-icon";
 
@@ -41,23 +41,19 @@ export default function DownloadPageC() {
               ))}
             </ul>
 
+            {/* HubSpot 版はカルーセルを使わず表紙のみ。幅は DownloadPreview と同じ
+                max-w-[520px] に揃えてレイアウトを踏襲する。 */}
             <div className="order-4 mt-6 md:order-2 md:mt-4 lg:mt-6">
-              <DownloadPreview
-                images={[
-                  {
-                    src: "/document-cover-c.png",
-                    alt: "レミナスCTO代行資料イメージ1",
-                  },
-                  {
-                    src: "/document-2.png",
-                    alt: "レミナスCTO代行資料イメージ2",
-                  },
-                  {
-                    src: "/document-3.png",
-                    alt: "レミナスCTO代行資料イメージ3",
-                  },
-                ]}
-              />
+              <div className="w-full max-w-[520px]">
+                <Image
+                  src="/document-cover-c.png"
+                  alt="レミナスCTO代行資料の表紙"
+                  width={1654}
+                  height={932}
+                  priority
+                  className="h-auto w-full object-cover"
+                />
+              </div>
             </div>
           </div>
 

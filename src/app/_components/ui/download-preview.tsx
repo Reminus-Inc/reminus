@@ -12,21 +12,6 @@ import {
   useCarousel,
 } from "@/components/ui/carousel";
 
-const DOCUMENT_IMAGES = [
-  {
-    src: "/document-1.png",
-    alt: "レミナスCTO代行資料イメージ1",
-  },
-  {
-    src: "/document-2.png",
-    alt: "レミナスCTO代行資料イメージ2",
-  },
-  {
-    src: "/document-3.png",
-    alt: "レミナスCTO代行資料イメージ3",
-  },
-] as const;
-
 type DownloadPreviewImage = { src: string; alt: string };
 
 // 画像タップでdead clickになっていたため、タップで次のスライドへ送る
@@ -55,9 +40,9 @@ const ClickToNextItem = ({ image }: { image: DownloadPreviewImage }) => {
 };
 
 export const DownloadPreview = ({
-  images = DOCUMENT_IMAGES,
+  images,
 }: {
-  images?: readonly DownloadPreviewImage[];
+  images: readonly DownloadPreviewImage[];
 }) => {
   return (
     <div className="w-full max-w-[520px]">
