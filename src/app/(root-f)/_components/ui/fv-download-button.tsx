@@ -73,7 +73,7 @@ export const FvDownloadButton = ({
   return (
     <Link href={href} onClick={handleClick} className={baseClasses}>
       <div className="relative z-[1] inline-flex w-full items-center justify-between gap-2.5 min-[375px]:gap-3 sm:gap-4 md:gap-5">
-        <div className="flex items-center gap-2.5 min-[375px]:gap-3 md:gap-4">
+        <div className="flex flex-1 items-center gap-2.5 min-[375px]:gap-3 md:gap-4">
           {imageSrc && (
             // サムネの箱は元サイズ(80/96/110/124)のまま確保し、中の画像だけ小さく中央寄せ。
             // これでボタンの幅・高さを変えずに、縮めた分がそのまま上下左右の余白になる。
@@ -89,7 +89,7 @@ export const FvDownloadButton = ({
             </div>
           )}
 
-          <div className="-mb-0.5 flex flex-col justify-center gap-1 md:gap-1.5">
+          <div className="-mb-0.5 flex flex-1 flex-col items-center justify-center gap-1 sm:flex-none sm:items-start md:gap-1.5">
             <span className="text-[11px] font-medium tracking-wider min-[375px]:text-xs sm:text-sm md:text-base">
               {subtitle}
             </span>

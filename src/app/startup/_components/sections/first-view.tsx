@@ -46,7 +46,7 @@ export function FirstView() {
               title="資料ダウンロード"
               subtitle="3分でわかるCTO代行"
               href="/download"
-              className="mx-auto sm:mx-0"
+              className="mx-auto w-full max-w-[440px] sm:mx-0 sm:w-fit sm:max-w-none"
             />
           </div>
           <Image

@@ -45,6 +45,8 @@ export const LPS = [
       { id: "e", path: "/e", lottery: false },
       { id: "f", path: "/f", lottery: false, downloadPath: "/c/download" },
       { id: "g", path: "/g", lottery: true, downloadPath: "/c/download" },
+      // h は g の FirstView 違い (箇条書き→サブコピー / SP でもヒーロー画像)
+      { id: "h", path: "/h", lottery: true, downloadPath: "/c/download" },
     ],
   },
   {
