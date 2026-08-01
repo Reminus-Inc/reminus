@@ -1,8 +1,8 @@
 // LP (ランディングページ) の定義。1 LP = ホーム 1 つ + 0 個以上の variant。
-// ここが唯一の源で、middleware の振り分け・cookie 名・ヘッダーのナビ/ホームリンクは
+// ここが唯一の源で、middleware の振り分け・cookie 名・ヘッダーのホームリンクは
 // すべてこの定義から導出される。LP を増やすときは LPS にエントリを 1 つ足す
-// (加えて middleware の config.matcher に literal 追加と、nav-menu の NAV_MENUS に
-//  その LP のメニュー定義が必要。matcher の漏れは assertMatcherCoversLps が警告する)。
+// (加えて middleware の config.matcher にも literal で追記が必要。Next.js の静的解析の
+//  都合でここから生成できないため。漏れは assertMatcherCoversLps が開発時に警告する)。
 
 type VariantDef = {
   readonly id: string;
@@ -88,10 +88,6 @@ export const findVariant = (
   lp: LpDef,
   variantId: string | undefined
 ): VariantDef | undefined => lp.variants.find((v) => v.id === variantId);
-
-// 未知/未設定の LP は先頭の LP にフォールバックする。LP_COOKIE を焼く前からの訪問者や、
-// LP を経由せず直接 /blog・/case に来た人がここを通る。
-export const resolveLpId = (lpId?: string): LpId => (findLp(lpId) ?? LPS[0]).id;
 
 // LP + variant からホーム (ロゴやアンカーリンクの起点) のパスを導出する。
 // variant が決まっていればその表示パス (top の c なら /c) を返すので、ここへのリンクは
