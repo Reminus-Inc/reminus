@@ -70,9 +70,11 @@ export const FvDownloadButton = ({
             残った領域の中央に置く (w-fit に戻る sm 以上では見た目は変わらない)。 */}
         <div className="flex flex-1 items-center gap-2.5 min-[375px]:gap-3 md:gap-4">
           {imageSrc && (
-            // サムネの箱は元サイズ(80/96/110/124)のまま確保し、中の画像だけ小さく中央寄せ。
-            // これでボタンの幅・高さを変えずに、縮めた分がそのまま上下左右の余白になる。
-            <div className="flex aspect-[480/270] w-[80px] flex-shrink-0 items-center justify-center min-[375px]:w-[96px] sm:w-[110px] lg:w-[124px]">
+            // 箱の高さは元サイズ(80/96/110/124 の 480:270)のまま確保しつつ、幅は画像に
+            // 合わせて横の余白を落とす。横に 12px ずつ余白があると画像が左端に付いて
+            // 見えず、テキストの使える幅も狭くなるため。高さは据え置きなのでボタンの
+            // 高さは変わらない。
+            <div className="flex h-[45px] w-[60px] flex-shrink-0 items-center justify-center min-[375px]:h-[54px] min-[375px]:w-[72px] sm:h-[62px] sm:w-[84px] lg:h-[70px] lg:w-[96px]">
               <Image
                 src={imageSrc}
                 alt="資料イメージ"

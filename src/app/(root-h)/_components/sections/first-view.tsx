@@ -37,7 +37,7 @@ export function FirstView() {
         }}
       />
 
-      <div className="relative mx-auto flex w-[88%] max-w-[1200px] flex-col gap-6 pb-12 pt-10 font-sans sm:gap-7 sm:pb-16 sm:pt-12 lg:w-[92%] lg:max-w-[1180px] lg:flex-row lg:gap-6 lg:pb-12 lg:pt-16 xl:max-w-[1220px]">
+      <div className="relative mx-auto flex w-[88%] max-w-[1200px] flex-col gap-6 pb-12 pt-6 font-sans sm:gap-7 sm:pb-16 sm:pt-12 lg:w-[92%] lg:max-w-[1180px] lg:flex-row lg:gap-6 lg:pb-12 lg:pt-16 xl:max-w-[1220px]">
         {/* SP は CTA・月桂冠が中央寄せ (mx-auto sm:mx-0) なので、見出しブロックも
             そこに揃えて中央寄せにする。sm 以上は従来どおり左寄せ。 */}
         <div className="z-[1] w-full text-center sm:text-left lg:w-fit lg:max-w-[720px] lg:flex-none xl:max-w-[820px]">
@@ -91,7 +91,7 @@ const Title = ({ className }: { className?: string }) => {
       {/* D版の吹き出しラベルと同じ位置 (見出しの上) に置くリード。尻尾は付けず、
           シンプルな濃い緑の帯 + 白抜き文字。縦padding と行間を詰めて高さを抑える。
           この行が先に来るぶん、下の見出し末尾の「が」は落としている。 */}
-      <p className="mb-2.5 inline-block bg-[#00603d] px-3 py-1 text-base !leading-tight tracking-wider text-white sm:mb-3 sm:px-4 sm:py-1.5 sm:text-lg lg:text-2xl">
+      <p className="mb-4 inline-block bg-[#00603d] px-3 py-1 text-base !leading-tight tracking-wider text-white sm:mb-3 sm:px-4 sm:py-1.5 sm:text-lg lg:text-2xl">
         事業成長を技術で支える
       </p>
 
@@ -101,14 +101,14 @@ const Title = ({ className }: { className?: string }) => {
               「プロダクト特化」は「SaaS特化」より横幅が広く小さい端末で見切れるため、
               小さい breakpoint を縮め 108% の強調も外している (sm 以上は c と同サイズ)。 */}
           <span className="flex items-end gap-2 whitespace-nowrap">
-            <span className="text-[26px] leading-none text-[#ffe100] min-[375px]:text-[32px] sm:text-[44px] md:text-[52px] lg:text-[60px]">
+            <span className="text-[26px] leading-tight text-[#ffe100] min-[375px]:text-[32px] sm:text-[44px] md:text-[52px] lg:text-[60px]">
               プロダクト特化
             </span>
-            <span className="text-[22px] leading-none text-white min-[375px]:text-[28px] sm:text-[36px] md:text-[40px] lg:text-[48px]">
+            <span className="text-[20px] leading-tight text-white min-[375px]:text-[28px] sm:text-[36px] md:text-[40px] lg:text-[48px]">
               の
             </span>
           </span>
-          <span className="text-[26px] leading-none text-[#ffe100] min-[375px]:text-[32px] sm:text-[44px] md:text-[52px] lg:text-[60px]">
+          <span className="text-[26px] leading-tight text-[#ffe100] min-[375px]:text-[32px] sm:text-[44px] md:text-[52px] lg:text-[60px]">
             <span className="text-[108%]">CTO</span>代行
           </span>
         </span>
