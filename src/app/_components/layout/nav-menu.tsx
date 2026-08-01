@@ -10,53 +10,28 @@ import { DownloadButton } from "../ui/download-button";
 import { ContactButton } from "../ui/contact-button";
 import { cn } from "@/lib/utils";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
-
-export type NavVariant = "c" | "d" | "e" | "f";
+import { lpHomePath, type LpId, type Variant } from "@/lib/lp";
 
 type MenuItem = readonly [hash: string, label: string];
 
-const COLUMN_MENU: readonly MenuItem[] = [
+// メニュー項目は全 LP / 全 variant で共通。各セクションの id はどの LP にも存在するので、
+// 遷移先は homePath (LP × variant で決まるホーム) を前置して組み立てるだけでよい。
+const MENU: readonly MenuItem[] = [
   ["service-overview", "特長"],
   ["case-studies", "導入事例"],
   ["column", "コラム"],
   ["management", "経営者紹介"],
 ];
-
-const STARTUP_MENU: readonly MenuItem[] = [
-  ["service-overview", "特長"],
-  ["case-studies", "導入事例"],
-  ["column", "コラム"],
-  ["management", "経営者紹介"],
-];
-
-const DEFAULT_MENU: readonly MenuItem[] = [
-  ["service-menu", "特長"],
-  ["case-studies", "導入事例"],
-  ["column", "コラム"],
-  ["management", "経営者紹介"],
-];
-
-// lp(ページのパス) と variant(AB バリアント) の複合キーでメニューを引く。
-// AB ページ(c/d/e)は variant だけ、/startup のように variant を持たないページは lp だけで決まる。
-const navKey = (lp?: string, variant?: NavVariant) =>
-  `${lp ?? ""}|${variant ?? ""}`;
-
-const NAV_MENUS: Record<string, readonly MenuItem[]> = {
-  [navKey(undefined, "c")]: COLUMN_MENU,
-  [navKey(undefined, "d")]: COLUMN_MENU,
-  [navKey(undefined, "e")]: COLUMN_MENU,
-  [navKey(undefined, "f")]: COLUMN_MENU,
-  [navKey("/startup")]: STARTUP_MENU,
-};
 
 export function NavMenu({
   variant,
   lp,
-}: { variant?: NavVariant; lp?: string } = {}) {
+}: { variant?: Variant; lp?: LpId } = {}) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-  // ホームのパスも複合キーと同じ考え方で導出：lp があればそれ、無ければ variant から。
-  const homePath = lp ?? (variant ? `/${variant}` : "/");
+  // ホームのパスは LP 定義から導出する。variant が決まっていればその表示パス
+  // (top の c なら /c) を指すので、ロゴから戻ったときに再抽選もリダイレクトも発生しない。
+  const homePath = lpHomePath(lp, variant);
   const isHomePage = pathname === homePath;
   // c/f バリアントの資料DLは HubSpot 埋め込みの /c/download へ（それ以外は従来どおり）。
   const downloadHref =
@@ -82,8 +57,7 @@ export function NavMenu({
     };
   }, [isOpen]);
 
-  const rawItems = NAV_MENUS[navKey(lp, variant)] ?? DEFAULT_MENU;
-  const menuItems = rawItems.map(([hash, label]) => ({
+  const menuItems = MENU.map(([hash, label]) => ({
     href: isHomePage ? `#${hash}` : `${homePath}#${hash}`,
     label,
   }));

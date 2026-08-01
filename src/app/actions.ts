@@ -9,6 +9,7 @@ import {
 } from "./constants";
 import { getSlackWebhookUrl } from "@/lib/get-slack-webhook-url";
 import { submitToHubSpotForm } from "@/lib/hubspot";
+import { LPS, variantCookie } from "@/lib/lp";
 import { cookies } from "next/headers";
 import { UTM_KEYS, type UTMParameters } from "@/lib/utm-constants";
 
@@ -29,10 +30,11 @@ async function getUTMFromCookies(): Promise<UTMParameters> {
   return utmParams;
 }
 
-// CookieからABテストバリアントを取得
+// Cookie から AB テストバリアントを取得。variant cookie は LP ごとに分かれているが、
+// HubSpot 側の過去データとの継続性のため、ここで送るのは主 LP (top) の variant のみ。
 async function getABTestVariant(): Promise<string | undefined> {
   const cookieStore = await cookies();
-  return cookieStore.get("ab-test-top")?.value;
+  return cookieStore.get(variantCookie(LPS[0].id))?.value;
 }
 
 // ダウンロード資料請求の Slack 通知ブロック。通常フォーム (requestDocument) と

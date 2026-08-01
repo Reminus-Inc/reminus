@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { NavMenu, type NavVariant } from "./nav-menu";
+import { NavMenu } from "./nav-menu";
 import { cn } from "@/lib/utils";
+import { lpHomePath, type LpId, type Variant } from "@/lib/lp";
 
 interface HeaderProps {
   showNavMenu?: boolean;
@@ -11,8 +12,8 @@ interface HeaderProps {
   onLogoClick?: () => void;
   logoHref?: string;
   shadow?: boolean;
-  variant?: NavVariant;
-  lp?: string;
+  variant?: Variant;
+  lp?: LpId;
 }
 
 export function Header({
@@ -24,8 +25,8 @@ export function Header({
   variant,
   lp,
 }: HeaderProps) {
-  // lp(ページのパス) があればそれをホームに、無ければ variant から導出。
-  const resolvedLogoHref = logoHref ?? lp ?? (variant ? `/${variant}` : "/");
+  // ロゴのリンク先は LP 定義から導出 (lp × variant → その variant の表示パス)。
+  const resolvedLogoHref = logoHref ?? lpHomePath(lp, variant);
   const handleLogoClick = (e: React.MouseEvent) => {
     // ロゴのhrefと現在のパスが一致する場合はトップにスクロール
     if (
