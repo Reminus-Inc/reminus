@@ -7,6 +7,7 @@ import { Fragment } from "react";
 import { ArticleCta } from "@/app/blog/_components/article-cta";
 import { RelatedCases } from "../_related-cases";
 import { xnextMeta as META } from "../_cases";
+import { LpHomeLink } from "@/app/_components/ui/lp-home-link";
 
 const CHALLENGES = [
   "将来構想はあるが、どれぐらいの期間とコストで実現できるのか、投資判断の根拠になる見通しがなかった",
@@ -264,23 +265,20 @@ export default function XnextCasePage() {
 
       <nav aria-label="パンくずリスト" className="bg-gray-100">
         <div className="mx-auto flex w-[88%] max-w-[960px] items-center gap-1.5 py-3 text-xs tracking-wide text-gray-500 md:gap-2 md:text-[13px]">
-          <Link
-            href="/"
-            className="font-medium text-gray-600 transition-colors hover:text-emerald-600"
-          >
+          <LpHomeLink className="font-medium text-gray-600 transition-colors hover:text-emerald-600">
             ホーム
-          </Link>
+          </LpHomeLink>
           <ChevronRight
             aria-hidden
             strokeWidth={2}
             className="size-4 shrink-0 text-gray-600"
           />
-          <Link
-            href="/#case-studies"
+          <LpHomeLink
+            hash="#case-studies"
             className="font-medium text-gray-600 transition-colors hover:text-emerald-600"
           >
             導入事例
-          </Link>
+          </LpHomeLink>
           <ChevronRight
             aria-hidden
             strokeWidth={2}

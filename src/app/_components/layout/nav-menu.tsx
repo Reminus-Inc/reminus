@@ -10,7 +10,12 @@ import { DownloadButton } from "../ui/download-button";
 import { ContactButton } from "../ui/contact-button";
 import { cn } from "@/lib/utils";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
-import { lpHomePath, type LpId, type Variant } from "@/lib/lp";
+import {
+  lpDownloadPath,
+  lpHomePath,
+  type LpId,
+  type Variant,
+} from "@/lib/lp";
 
 type MenuItem = readonly [hash: string, label: string];
 
@@ -33,9 +38,8 @@ export function NavMenu({
   // (top の c なら /c) を指すので、ロゴから戻ったときに再抽選もリダイレクトも発生しない。
   const homePath = lpHomePath(lp, variant);
   const isHomePage = pathname === homePath;
-  // c/f バリアントの資料DLは HubSpot 埋め込みの /c/download へ（それ以外は従来どおり）。
-  const downloadHref =
-    variant === "c" || variant === "f" ? "/c/download" : "/download";
+  // 資料DL の遷移先は LP 定義から導出 (c/f は HubSpot 埋め込みの /c/download)。
+  const downloadHref = lpDownloadPath(lp, variant);
 
   useEffect(() => {
     if (isOpen) {
