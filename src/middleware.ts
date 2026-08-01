@@ -1,14 +1,14 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { VARIANTS, type Variant } from "@/lib/ab-test";
+import { LOTTERY_POOL, VARIANTS, type Variant } from "@/lib/ab-test";
 import { UTM_KEYS } from "@/lib/utm-constants";
 
 const AB_TEST_COOKIE = "ab-test-top";
 
-// 振り分け対象の variant (VARIANTS) は @/lib/ab-test に定義。単一にすると全員そのバリアントに
-// 固定（テスト停止）、複数あれば等確率で割り振る。ここから外した variant に既に cookie が付いて
-// いる人 (例: 旧 "a"/"b") は次回 / アクセス時に VARIANTS.includes チェックで再抽選されるので、
-// 自動的に新しい振り分けに乗り換わる。
+// variant の定義 (有効一覧 VARIANTS / 抽選プール LOTTERY_POOL) は @/lib/ab-test に集約。
+// 抽選から外れても VARIANTS に残っている variant は、直アクセス時の表示・cookie 同期と
+// 既存 cookie 保持者のスティッキーが維持される。VARIANTS からも外した variant に cookie が
+// 付いている人 (例: 旧 "a"/"b") は次回 / アクセス時に再抽選される。
 
 const COOKIE_OPTIONS = {
   maxAge: 60 * 60 * 24 * 30,
@@ -110,7 +110,7 @@ function resolveAbTest(request: NextRequest): NextResponse {
     existingVariant &&
     VARIANTS.includes(existingVariant as (typeof VARIANTS)[number])
       ? existingVariant
-      : VARIANTS[Math.floor(Math.random() * VARIANTS.length)];
+      : LOTTERY_POOL[Math.floor(Math.random() * LOTTERY_POOL.length)];
 
   // cookie が未設定 or 変わった場合は更新
   const needsCookieUpdate = existingVariant !== variant;
