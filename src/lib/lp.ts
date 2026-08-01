@@ -44,6 +44,7 @@ export const LPS = [
       { id: "d", path: "/d", lottery: true },
       { id: "e", path: "/e", lottery: false },
       { id: "f", path: "/f", lottery: false, downloadPath: "/c/download" },
+      { id: "g", path: "/g", lottery: true, downloadPath: "/c/download" },
     ],
   },
   {

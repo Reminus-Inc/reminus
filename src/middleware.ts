@@ -139,7 +139,7 @@ function resolveLpRouting(request: NextRequest): NextResponse {
 // matcher は Next.js がビルド時に静的解析するため literal 必須で、LPS から生成できない
 // (変数を渡すと静的解析できず無視される)。LP を増やしたらここにも追記すること。
 export const config = {
-  matcher: ["/", "/c", "/d", "/e", "/f", "/startup", "/xnext_case"],
+  matcher: ["/", "/c", "/d", "/e", "/f", "/g", "/startup", "/xnext_case"],
 };
 
 // 定義と matcher のズレを開発時に警告する。
