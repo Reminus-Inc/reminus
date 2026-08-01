@@ -1,20 +1,31 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { LOTTERY_POOL, VARIANTS, type Variant } from "@/lib/ab-test";
+import {
+  LP_COOKIE,
+  assertMatcherCoversLps,
+  botPathOf,
+  findVariant,
+  lotteryPool,
+  resolveLpPath,
+  variantCookie,
+  type Lp,
+} from "@/lib/lp";
 import { UTM_KEYS } from "@/lib/utm-constants";
 
-const AB_TEST_COOKIE = "ab-test-top";
-
-// variant の定義 (有効一覧 VARIANTS / 抽選プール LOTTERY_POOL) は @/lib/ab-test に集約。
-// 抽選から外れても VARIANTS に残っている variant は、直アクセス時の表示・cookie 同期と
-// 既存 cookie 保持者のスティッキーが維持される。VARIANTS からも外した variant に cookie が
-// 付いている人 (例: 旧 "a"/"b") は次回 / アクセス時に再抽選される。
+// LP / variant の定義は @/lib/lp に集約。ここは「定義をどう URL と cookie に落とすか」だけを持つ。
+// 焼く cookie は 2 種類:
+//   - LP_COOKIE      : 最後にいた LP。/blog や /case が文脈に合ったヘッダーを出すのに使う。
+//   - variantCookie(): その LP での variant。LP ごとに独立した cookie なので、
+//                      複数 LP を回遊しても互いの値を上書きしない。
 
 const COOKIE_OPTIONS = {
   maxAge: 60 * 60 * 24 * 30,
   path: "/",
   sameSite: "lax",
 } as const;
+
+const CRAWLER_UA =
+  /Googlebot|bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|facebookexternalhit|Twitterbot|LinkedInBot|bot|crawl|spider/i;
 
 // URL に utm_* が乗っていれば response に cookie を焼いて返す。乗っていないキーは既存 cookie を
 // 上書きしない (= クライアントの旧 PersistUtm と同じ「値があるときだけ書く」セマンティクス)。
@@ -41,102 +52,97 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
-  // A/B 振り分けの結果 response を作り、最後に一度だけ utm cookie を焼いて返す。
-  return persistUtm(request, resolveAbTest(request));
+  // LP / A/B 振り分けの結果 response を作り、最後に一度だけ utm cookie を焼いて返す。
+  const revoleRoutingResponse = resolveLpRouting(request);
+  return persistUtm(request, revoleRoutingResponse);
 }
 
-function resolveAbTest(request: NextRequest): NextResponse {
-  const { pathname } = request.nextUrl;
-  const existingVariant = request.cookies.get(AB_TEST_COOKIE)?.value;
-
-  // development 環境では A/B テストをスキップし、各バリアントをそのまま表示する。
-  // cookie は /blog などの下流で参照されるので、アクセスしたパスに合わせて同期する。
-  if (
-    process.env.APP_ENVIRONMENT === "development" &&
-    process.env.ABTEST !== "enabled"
-  ) {
-    // /a は / にリダイレクト
-    if (pathname === "/a") {
-      const response = NextResponse.redirect(new URL("/", request.url));
-      response.cookies.set(AB_TEST_COOKIE, "a", COOKIE_OPTIONS);
-      return response;
-    }
-    // /c, /d, /e, /f, / はそのまま表示
-    const pathVariant = pathname === "/" ? "a" : pathname.slice(1);
-    const response = NextResponse.next();
-    if (existingVariant !== pathVariant) {
-      response.cookies.set(AB_TEST_COOKIE, pathVariant, COOKIE_OPTIONS);
-    }
-    return response;
+// 不要な Set-Cookie は付けない (レスポンスの CDN キャッシュを無駄に無効化しないため)。
+function setCookies(
+  request: NextRequest,
+  response: NextResponse,
+  lp: Lp,
+  variantId?: string
+): NextResponse {
+  if (request.cookies.get(LP_COOKIE)?.value !== lp.id) {
+    response.cookies.set(LP_COOKIE, lp.id, COOKIE_OPTIONS);
   }
-
-  // /a: cookie を a に固定して / にリダイレクト（URL は / として表示される）
-  if (pathname === "/a") {
-    const url = request.nextUrl.clone();
-    url.pathname = "/";
-    const response = NextResponse.redirect(url);
-    response.cookies.set(AB_TEST_COOKIE, "a", COOKIE_OPTIONS);
-    return response;
-  }
-
-  // /c, /d, /e, /f のトップへの直接アクセスは、そのバリアントに cookie を合わせる
-  // (共有リンク等で直接 variant トップに来た人も以降一貫して同じバリアントで見せる)
-  if (VARIANTS.includes(pathname.slice(1) as Variant)) {
-    const variant = pathname.slice(1);
-    const response = NextResponse.next();
-    if (existingVariant !== variant) {
-      response.cookies.set(AB_TEST_COOKIE, variant, COOKIE_OPTIONS);
-    }
-    return response;
-  }
-
-  if (pathname !== "/") {
-    return NextResponse.next();
-  }
-
-  // クローラには URL を / のまま、本命 variant (VARIANTS[0]) の中身を /bot 経由で見せる。
-  // /c 等の variant ルートに直接 rewrite すると variant 側の noindex metadata が / に
-  // 巻き込まれてしまうため、noindex を持たない /bot に rewrite する。
-  const ua = request.headers.get("user-agent") ?? "";
-  if (
-    /Googlebot|bingbot|Slurp|DuckDuckBot|Baiduspider|YandexBot|facebookexternalhit|Twitterbot|LinkedInBot|bot|crawl|spider/i.test(
-      ua
-    )
-  ) {
-    return NextResponse.rewrite(new URL("/bot", request.url));
-  }
-
-  const variant =
-    existingVariant &&
-    VARIANTS.includes(existingVariant as (typeof VARIANTS)[number])
-      ? existingVariant
-      : LOTTERY_POOL[Math.floor(Math.random() * LOTTERY_POOL.length)];
-
-  // cookie が未設定 or 変わった場合は更新
-  const needsCookieUpdate = existingVariant !== variant;
-
-  // a 以外はそのバリアントのパスにリダイレクト
-  // pathname のみ書き換え、search (utm_* 等) と hash は保持する。
-  // これをしないと Meta 広告等の UTM クエリが redirect で落ち、
-  // GA4 のセッション参照元 / メディアが meta/paid_social として計測されなくなる。
-  if (variant !== "a") {
-    const url = request.nextUrl.clone();
-    url.pathname = `/${variant}`;
-    const response = NextResponse.redirect(url);
-    if (needsCookieUpdate) {
-      response.cookies.set(AB_TEST_COOKIE, variant, COOKIE_OPTIONS);
-    }
-    return response;
-  }
-
-  // a の場合はそのまま
-  const response = NextResponse.next();
-  if (needsCookieUpdate) {
-    response.cookies.set(AB_TEST_COOKIE, variant, COOKIE_OPTIONS);
+  const name = variantCookie(lp.id);
+  if (variantId && request.cookies.get(name)?.value !== variantId) {
+    response.cookies.set(name, variantId, COOKIE_OPTIONS);
   }
   return response;
 }
 
+function resolveLpRouting(request: NextRequest): NextResponse {
+  const { pathname } = request.nextUrl;
+  const hit = resolveLpPath(pathname);
+  // matcher には載っているが LP 定義に無いパス (定義と matcher がズレたとき) は素通し。
+  if (!hit) return NextResponse.next();
+
+  const { lp, variant } = hit;
+  const existing = request.cookies.get(variantCookie(lp.id))?.value;
+
+  // variant の表示パスへの直接アクセスは、その variant に cookie を合わせる。
+  // 抽選から外れた variant (lottery: false) もここを通るので、共有リンク等で直接来た人は
+  // 表示されるしスティッキーにもなる。
+  if (variant) {
+    return setCookies(request, NextResponse.next(), lp, variant.id);
+  }
+
+  // ここから先は LP のホーム。variant を持たない LP は lp cookie だけ焼いて終わり。
+  if (lp.variants.length === 0) {
+    return setCookies(request, NextResponse.next(), lp);
+  }
+
+  // development 環境では A/B テストをスキップし、ホームをそのまま表示する
+  // (各 variant は /c のような表示パスに直接アクセスして確認する)。
+  if (
+    process.env.APP_ENVIRONMENT === "development" &&
+    process.env.ABTEST !== "enabled"
+  ) {
+    return setCookies(request, NextResponse.next(), lp);
+  }
+
+  // クローラには URL をホームのまま、本命 variant の中身を botPath 経由で見せる。
+  // variant ルートに直接 rewrite すると variant 側の noindex metadata がホームに
+  // 巻き込まれてしまうため、noindex を持たない専用ページに rewrite する。
+  const botPath = botPathOf(lp);
+  if (botPath && CRAWLER_UA.test(request.headers.get("user-agent") ?? "")) {
+    return setCookies(
+      request,
+      NextResponse.rewrite(new URL(botPath, request.url)),
+      lp
+    );
+  }
+
+  // 既存 cookie が今も有効ならそれを維持 (スティッキー)、無ければ抽選プールから選ぶ。
+  const pool = lotteryPool(lp);
+  const chosen =
+    findVariant(lp, existing) ??
+    (pool.length > 0
+      ? pool[Math.floor(Math.random() * pool.length)]
+      : undefined);
+  // 抽選対象が 1 つも無い場合のフォールバック (定義のミス)。ホームをそのまま出す。
+  if (!chosen) return setCookies(request, NextResponse.next(), lp);
+
+  // 決まった variant の表示パスへリダイレクトする。variant の path はホームと別である前提
+  // (@/lib/lp の VariantDef 参照) なので、variant を持つ LP のホームは必ずここを通る。
+  // pathname のみ書き換え、search (utm_* 等) と hash は保持する。
+  // これをしないと Meta 広告等の UTM クエリが redirect で落ち、
+  // GA4 のセッション参照元 / メディアが meta/paid_social として計測されなくなる。
+  const url = request.nextUrl.clone();
+  url.pathname = chosen.path;
+  return setCookies(request, NextResponse.redirect(url), lp, chosen.id);
+}
+
+// matcher は Next.js がビルド時に静的解析するため literal 必須で、LPS から生成できない
+// (変数を渡すと静的解析できず無視される)。LP を増やしたらここにも追記すること。
 export const config = {
-  matcher: ["/", "/a", "/c", "/d", "/e", "/f", "/xnext_case"],
+  matcher: ["/", "/c", "/d", "/e", "/f", "/startup", "/xnext_case"],
 };
+
+// 定義と matcher のズレを開発時に警告する。
+if (process.env.NODE_ENV !== "production") {
+  assertMatcherCoversLps(config.matcher);
+}
