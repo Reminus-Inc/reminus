@@ -42,10 +42,10 @@ export default function HomeJ() {
         <ServiceOverview className="bg-white" />
         <ServiceMenu className="bg-gray-50" />
         <WhyReminus className="bg-white" />
-        <Cta className="from-white to-gray-50" downloadHref="/c/download" />
+        <Cta className="from-white to-gray-50" downloadHref="/download" />
         <Column className="bg-white" />
         <Management className="bg-gray-50" />
-        <Cta className="from-white to-white" downloadHref="/c/download" />
+        <Cta className="from-white to-white" downloadHref="/download" />
         <CompanyOverview />
       </div>
     </>

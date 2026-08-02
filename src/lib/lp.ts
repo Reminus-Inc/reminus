@@ -49,8 +49,9 @@ export const LPS = [
       { id: "h", path: "/h", lottery: true, downloadPath: "/c/download" },
       // i は h のヒーロー画像違い (写真: 猫とラップトップ)
       { id: "i", path: "/i", lottery: true, downloadPath: "/c/download" },
-      // j は i のヒーロー写真違い (人物写真 + 角丸のグラデ面)
-      { id: "j", path: "/j", lottery: true, downloadPath: "/c/download" },
+      // j は i のヒーロー写真違い (人物写真 + 角丸のグラデ面)。
+      // 資料DL は HubSpot 埋め込みではない通常の /download を使う。
+      { id: "j", path: "/j", lottery: true },
     ],
   },
   {
