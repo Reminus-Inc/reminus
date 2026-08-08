@@ -41,14 +41,14 @@ export const LPS = [
     variants: [
       // c と f は HubSpot 埋め込みの専用 DL ページを使う
       { id: "c", path: "/c", lottery: true, downloadPath: "/c/download" },
-      { id: "d", path: "/d", lottery: true },
+      { id: "d", path: "/d", lottery: false },
       { id: "e", path: "/e", lottery: false },
       { id: "f", path: "/f", lottery: false, downloadPath: "/c/download" },
       { id: "g", path: "/g", lottery: true, downloadPath: "/c/download" },
       // h は g の FirstView 違い (箇条書き→サブコピー / SP でもヒーロー画像)
       { id: "h", path: "/h", lottery: true, downloadPath: "/c/download" },
       // i は h のヒーロー画像違い (写真: 猫とラップトップ)
-      { id: "i", path: "/i", lottery: true, downloadPath: "/c/download" },
+      { id: "i", path: "/i", lottery: false, downloadPath: "/c/download" },
       // j は i のヒーロー写真違い (人物写真 + 角丸のグラデ面)。
       // 資料DL は HubSpot 埋め込みではない通常の /download を使う。
       { id: "j", path: "/j", lottery: true },
