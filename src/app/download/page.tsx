@@ -19,9 +19,7 @@ export default function DownloadPage() {
         <div className="flex w-full flex-col justify-center gap-8 md:flex-row md:gap-14 lg:gap-16">
           <div className="flex flex-col">
             <h1 className="text-2xl font-bold !leading-[1.3] tracking-wide text-gray-800 md:text-3xl">
-              <span className="whitespace-nowrap">
-                <span className="text-[105%]">CTO</span>代行
-              </span>
+              <span className="whitespace-nowrap">レミナス</span>
               <span>&nbsp;</span>
               <span className="whitespace-nowrap">サービス資料</span>
             </h1>
