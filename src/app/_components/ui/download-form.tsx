@@ -32,15 +32,24 @@ type DocumentFormProps = {
   documentType: DocumentType;
   beforeThanks?: (formValues: FormValues) => void;
   formId: string;
+  // プライバシーポリシーの同意文をどこに置くか。既定は入力欄の直下 (従来どおり)。
+  // "below-button" にすると送信ボタンの下に回す。
+  privacyNotice?: "above-button" | "below-button";
 };
 
 export const DownloadForm = ({
   documentType,
   beforeThanks,
   formId,
+  privacyNotice,
 }: DocumentFormProps) => {
   return (
-    <HookDownloadForm documentType={documentType} beforeThanks={beforeThanks} formId={formId} />
+    <HookDownloadForm
+      documentType={documentType}
+      beforeThanks={beforeThanks}
+      formId={formId}
+      privacyNotice={privacyNotice}
+    />
   );
 };
 
@@ -48,6 +57,7 @@ export const HookDownloadForm = ({
   documentType,
   beforeThanks,
   formId,
+  privacyNotice = "above-button",
 }: DocumentFormProps) => {
   const router = useRouter();
 
@@ -267,18 +277,7 @@ export const HookDownloadForm = ({
           />
           {phoneError && <p className="text-xs text-red-500">{phoneError}</p>}
         </div>
-        <p className="text-left text-xs leading-5 text-gray-500">
-          このフォームから送信いただくことで、当社の
-          <a
-            href="/privacy-policy"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline transition-colors hover:text-gray-700"
-          >
-            プライバシーポリシー
-          </a>
-          に同意したものとみなします。
-        </p>
+        {privacyNotice === "above-button" && <PrivacyNotice />}
       </div>
 
       <div className="mt-8 space-y-6">
@@ -293,6 +292,8 @@ export const HookDownloadForm = ({
           </PrimaryButton>
         </div>
 
+        {privacyNotice === "below-button" && <PrivacyNotice />}
+
         {otherError && (
           <p className="text-center text-sm text-red-500">{otherError}</p>
         )}
@@ -300,3 +301,18 @@ export const HookDownloadForm = ({
     </form>
   );
 };
+
+const PrivacyNotice = () => (
+  <p className="text-left text-xs leading-5 text-gray-500">
+    このフォームから送信いただくことで、当社の
+    <a
+      href="/privacy-policy"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="underline transition-colors hover:text-gray-700"
+    >
+      プライバシーポリシー
+    </a>
+    に同意したものとみなします。
+  </p>
+);

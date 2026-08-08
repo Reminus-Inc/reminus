@@ -57,10 +57,12 @@ export default function DownloadPage() {
             </div>
           </div>
 
-          <div className="flex h-fit justify-center rounded-xl bg-white px-6 py-6 sm:px-8 sm:py-8 lg:max-w-[400px] lg:rounded-md lg:border lg:border-gray-200 lg:shadow-md">
+          {/* 枠線と影は以前 lg 以上だけだったが、SP でもカードとして見えるよう全幅で付ける */}
+          <div className="flex h-fit justify-center rounded-xl border border-gray-200 bg-white px-6 py-6 shadow-md sm:px-8 sm:py-8 lg:max-w-[400px] lg:rounded-md">
             <DownloadForm
               documentType={DOCUMENT_TYPE.CTO_PARTNER}
               formId="download-page-form"
+              privacyNotice="below-button"
             />
           </div>
         </div>

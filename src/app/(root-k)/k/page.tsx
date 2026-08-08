@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CaseStudies } from "../_components/sections/case-studies";
-import { ClientLogos } from "../_components/sections/client-logos";
+// クライアントロゴだけは当時のスナップショットではなく現行の共有コンポーネントを使う
+import { ClientLogos } from "@/app/_components/sections/client-logos";
 import { CompanyOverview } from "../_components/sections/company-overview";
 import { NoteArticles } from "../_components/sections/note-articles";
 import { Cta } from "../_components/sections/cta";
