@@ -5,8 +5,14 @@ import { cn } from "@/lib/utils";
 type CtaProps = {
   className: string;
   downloadHref?: string;
+  // 見出しを差し替えたい LP 用。省略時は従来の文言。
+  heading?: React.ReactNode;
 };
-export function Cta({ className, downloadHref = "/download" }: CtaProps) {
+export function Cta({
+  className,
+  downloadHref = "/download",
+  heading,
+}: CtaProps) {
   return (
     <section
       className={cn(
@@ -31,9 +37,13 @@ export function Cta({ className, downloadHref = "/download" }: CtaProps) {
             <div className="flex justify-center">
               <div>
                 <p className="text-2xl font-bold !leading-[1.5] tracking-wider text-white md:text-3xl xl:text-4xl">
-                  技術から、
-                  <br />
-                  経営とプロダクトを加速させませんか？
+                  {heading ?? (
+                    <>
+                      技術から、
+                      <br />
+                      経営とプロダクトを加速させませんか？
+                    </>
+                  )}
                 </p>
 
                 <p className="mt-4 text-sm !leading-[1.75] tracking-wide text-white md:text-base">

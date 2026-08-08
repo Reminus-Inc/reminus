@@ -118,11 +118,17 @@ body {
    * `auto 1200px` の `auto` キーワードで、一度描画された後は実測値を記憶させて
    * 再 skip 時のサイズ予測を安定化させる (= スクロール時の全高ジャンプを抑え、
    * Clarity のリプレイ/ヒートマップが崩れにくくなる狙い)。
-   * fallback 値は当 LP セクションの実高 (FAQ / case-studies ≈ 1000-1500px) に
+   * fallback 値は当 LP セ  クションの実高 (FAQ / case-studies ≈ 1000-1500px) に
    * 寄せて 1200px。
+   *
+   * ON/OFF は下の --content-visibility 一箇所だけで全 LP に効く。
+   * .content-auto は 100 箇所近くに付いているので、切り分けのために剥がして回らないこと。
+   *   visible = 無効 (常に描画。計測ツールのリプレイ崩れ等を切り分けたいとき)
+   *   auto    = 有効
    */
   .content-auto {
-    content-visibility: auto;
+    --content-visibility: visible;
+    content-visibility: var(--content-visibility);
     contain-intrinsic-size: auto 1200px;
   }
 }

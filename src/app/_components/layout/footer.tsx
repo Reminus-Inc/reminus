@@ -2,11 +2,15 @@
 
 import { usePathname } from "next/navigation";
 
+// イラストの出典表記は d7a69bf (2026-07-25) で全ページから削除したが、
+// storyset 系のイラストを使っているページだけは出す。
+//   /k        : 当時のトップを復元したものなので当時どおり
+//   /mvp(/a)  : サービスの特長で旧 LP の storyset イラストを使っている
+const ATTRIBUTION_PATHS = ["/k", "/mvp/a"];
+
 export const Footer = () => {
   const pathname = usePathname();
-  // イラストの出典表記は d7a69bf (2026-07-25) で全ページから削除したが、
-  // 当時のトップを復元した /k だけは当時どおり出す。
-  const showAttribution = pathname === "/k";
+  const showAttribution = ATTRIBUTION_PATHS.includes(pathname);
 
   return (
     <footer className="py-4 font-sans">
