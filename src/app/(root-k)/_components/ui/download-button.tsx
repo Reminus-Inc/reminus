@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { trackCTAClick } from "@/lib/analytics";
 import {PrimaryButton, PrimaryButtonProps} from "./primary-button";
+import { useDownloadDialogContext } from "../download-dialog-context";
 import * as React from "react";
 import {cn} from "@/lib/utils";
 import {Button} from "@/components/ui/button";
@@ -18,6 +19,7 @@ export const DownloadButton = ({
   asLink = false,
   ...props
 }: DownloadButtonProps) => {
+  const { openDownloadDialog } = useDownloadDialogContext();
 
   if (asLink) {
     return (
@@ -39,22 +41,19 @@ export const DownloadButton = ({
     );
   }
 
-  // 当時はダイアログを開いていたが、Provider が現存しないので常に /download へ遷移させる
   return (
-    <PrimaryButton asChild {...props}>
-      <Link
-        href="/download"
-        className="flex items-center gap-3"
-        onClick={() => {
-          trackCTAClick("download");
-          onClick?.();
-        }}
-      >
-        <span className="whitespace-nowrap lg:hidden">資料を見る</span>
-        <span className="hidden whitespace-nowrap lg:inline">
-          資料ダウンロード
-        </span>
-      </Link>
+    <PrimaryButton
+      {...props}
+      onClick={() => {
+        trackCTAClick("download");
+        openDownloadDialog();
+        onClick?.();
+      }}
+    >
+      <span className="whitespace-nowrap lg:hidden">資料を見る</span>
+      <span className="hidden whitespace-nowrap lg:inline">
+        資料ダウンロード
+      </span>
     </PrimaryButton>
   );
 };
@@ -79,9 +78,11 @@ export const CustomDownloadButton = ({
                                         ...props
 
                                       }: CustomDownloadButtonProps) => {
+  const { openDownloadDialog } = useDownloadDialogContext();
 
   const handleClick = () => {
     trackCTAClick("download");
+    if (!asLink) openDownloadDialog();
     onClick?.();
   };
 
@@ -133,12 +134,9 @@ export const CustomDownloadButton = ({
     );
   }
 
-  // 当時はダイアログを開いていたが、Provider が現存しないので常に /download へ遷移させる
   return (
-    <Button asChild className={baseClasses}>
-      <Link href="/download" onClick={handleClick}>
-        {content}
-      </Link>
+    <Button className={baseClasses} onClick={handleClick} {...props}>
+      {content}
     </Button>
   );
 };

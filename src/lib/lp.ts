@@ -54,6 +54,9 @@ export const LPS = [
       { id: "j", path: "/j", lottery: true },
       // k は 2025-11-19 時点 (ca8daf4) のトップを復元したもの
       { id: "k", path: "/k", lottery: true },
+      // l は c の完全コピーで、資料DL だけ HubSpot 埋め込み (/c/download) ではなく
+      // 通常フォーム (/download) を使う。フォームの違いだけを比較するための対。
+      { id: "l", path: "/l", lottery: true },
     ],
   },
   {

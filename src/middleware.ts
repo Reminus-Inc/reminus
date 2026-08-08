@@ -141,6 +141,7 @@ export const config = {
     "/i",
     "/j",
     "/k",
+    "/l",
     "/startup",
   ],
 };
