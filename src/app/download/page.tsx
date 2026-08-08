@@ -27,7 +27,7 @@ export default function DownloadPage() {
             </h1>
 
             <p className="order-2 mt-4 max-w-[500px] text-base !leading-[1.7] tracking-wide text-gray-700 md:order-3 md:mt-6">
-              レミナスCTO代行のご検討に必要な3点セットを無料ダウンロード
+              レミナスのご検討に必要な3点セットを無料ダウンロード
             </p>
 
             <ul className="order-2 mt-3 grid grid-cols-2 gap-x-6 gap-y-1.5 text-base !leading-[1.5] tracking-wide text-gray-800 md:order-4 md:flex md:flex-col">
