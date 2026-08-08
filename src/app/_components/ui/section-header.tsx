@@ -25,6 +25,11 @@ interface SectionHeaderProps {
    * メイン見出しのクラス名 (フォントサイズ、行間などの調整用)
    */
   headingClassName?: string;
+  /**
+   * ラベル行のクラス名。既定では丸を見出しより外にぶら下げる (-ml-3 / sm:-ml-5) ので、
+   * 見出しと左端を揃えたいセクションで `ml-0 sm:ml-0` を渡して打ち消す用途。
+   */
+  labelClassName?: string;
 }
 
 export function SectionHeader({
@@ -34,6 +39,7 @@ export function SectionHeader({
   align = "left",
   className,
   headingClassName,
+  labelClassName,
 }: SectionHeaderProps) {
   return (
     <div className={cn("flex flex-col gap-2 sm:gap-3", className)}>
@@ -42,7 +48,8 @@ export function SectionHeader({
         <div
           className={cn(
             "-ml-3 flex items-center gap-2 sm:-ml-5 sm:gap-2.5",
-            align === "center" && "justify-center"
+            align === "center" && "justify-center",
+            labelClassName
           )}
         >
           <div className="h-2.5 w-2.5 rounded-full bg-emerald-200 sm:h-3 sm:w-3" />

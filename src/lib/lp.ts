@@ -59,6 +59,13 @@ export const LPS = [
     ],
   },
   {
+    // MVP 外注後の立て直し訴求 LP。/h をベースにコピーとセクションを差し替えたもの。
+    id: "mvp",
+    home: "/mvp",
+    downloadPath: "/c/download",
+    variants: [{ id: "a", path: "/mvp/a", lottery: true }],
+  },
+  {
     id: "startup",
     home: "/startup",
     variants: [],
@@ -67,7 +74,7 @@ export const LPS = [
 
 export type Lp = (typeof LPS)[number];
 export type LpId = Lp["id"];
-export type Variant = (typeof LPS)[0]["variants"][number]["id"];
+export type Variant = (typeof LPS)[number]["variants"][number]["id"];
 
 // LP ごとの variant を保存する cookie 名。id から導出するので定義には持たせない。
 // top → "ab-test-top" となり既存 cookie と一致するため移行不要。
