@@ -22,8 +22,7 @@ const RequiredBadge = () => (
 
 type FormValues = {
   company: string;
-  lastname: string;
-  firstname: string;
+  name: string;
   email: string;
   phone: string;
 };
@@ -75,8 +74,7 @@ export const HookDownloadForm = ({
   const [triedServerAction, setTriedServerAction] = useState(false);
   const [formValues, setFormValues] = useState({
     company: "",
-    lastname: "",
-    firstname: "",
+    name: "",
     email: "",
     phone: "",
   });
@@ -113,12 +111,8 @@ export const HookDownloadForm = ({
     () => state.errors?.find((error) => error.includes("会社名")),
     [state.errors]
   );
-  const lastnameError = useMemo(
-    () => state.errors?.find((error) => error.includes("姓")),
-    [state.errors]
-  );
-  const firstnameError = useMemo(
-    () => state.errors?.find((error) => error.includes("名")),
+  const nameError = useMemo(
+    () => state.errors?.find((error) => error.includes("お名前")),
     [state.errors]
   );
   const emailError = useMemo(
@@ -132,8 +126,6 @@ export const HookDownloadForm = ({
   const otherError: string | undefined = useMemo(() => {
     if (
       !companyError &&
-      !lastnameError &&
-      !firstnameError &&
       !emailError &&
       !phoneError &&
       state.errors != null &&
@@ -141,64 +133,34 @@ export const HookDownloadForm = ({
     ) {
       return state.errors[0];
     }
-  }, [state.errors, companyError, lastnameError, firstnameError, emailError, phoneError]);
+  }, [state.errors, companyError, nameError, emailError, phoneError]);
 
   return (
     <form id={formId} action={handleFormAction} className="w-full">
       <div className="space-y-4">
-        <div className="flex flex-row gap-3 sm:gap-4">
-          <div className="flex-1 space-y-2">
+          <div className="space-y-2">
             <Label
-              htmlFor="lastname"
+              htmlFor="name"
               className="flex items-center gap-2 text-sm font-semibold text-gray-800"
             >
-              <RequiredBadge />お名前（姓）
+              <RequiredBadge />お名前
             </Label>
             <Input
-              id="lastname"
-              name="lastname"
-              placeholder="山田"
+              id="name"
+              name="name"
+              placeholder="山田 太郎"
               required
-              autoComplete="family-name"
-              value={formValues.lastname}
+              autoComplete="name"
+              value={formValues.name}
               onChange={(e) => {
                 const value = e.target.value;
                 trackFormStartOnce(value);
-                setFormValues((prev) => ({ ...prev, lastname: value }));
+                setFormValues((prev) => ({ ...prev, name: value }));
               }}
               className="h-12 border-gray-200 px-3 py-0 transition-colors focus:border-gray-400"
             />
-            {lastnameError && (
-              <p className="text-xs text-red-500">{lastnameError}</p>
-            )}
+            {nameError && <p className="text-xs text-red-500">{nameError}</p>}
           </div>
-          <div className="flex-1 space-y-2">
-            <Label
-              htmlFor="firstname"
-              className="flex items-center gap-2 text-sm font-semibold text-gray-800"
-            >
-              <RequiredBadge />お名前（名）
-            </Label>
-            <Input
-              id="firstname"
-              name="firstname"
-              placeholder="太郎"
-              required
-              autoComplete="given-name"
-              value={formValues.firstname}
-              onChange={(e) => {
-                const value = e.target.value;
-                trackFormStartOnce(value);
-                setFormValues((prev) => ({ ...prev, firstname: value }));
-              }}
-              className="h-12 border-gray-200 px-3 py-0 transition-colors focus:border-gray-400"
-            />
-            {firstnameError && (
-              <p className="text-xs text-red-500">{firstnameError}</p>
-            )}
-          </div>
-        </div>
-
         <div className="space-y-2">
           <Label
             htmlFor="company"
