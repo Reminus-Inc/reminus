@@ -10,6 +10,7 @@ import {
 import { getSlackWebhookUrl } from "@/lib/get-slack-webhook-url";
 import { submitToHubSpotForm } from "@/lib/hubspot";
 import { LPS, variantCookie } from "@/lib/lp";
+import { splitFullName } from "@/lib/split-name";
 import { cookies } from "next/headers";
 import { UTM_KEYS, type UTMParameters } from "@/lib/utm-constants";
 
@@ -828,15 +829,11 @@ export async function requestDocument(
 
     // 氏名は「姓+名」でも「お名前」1 つでも受け付ける。1 つで来た場合はここで分解し、
     // 以降 (Slack / HubSpot / DB) は従来どおり lastname / firstname を参照する。
-    const [lastname, firstname] = (() => {
+    const { lastname, firstname } = (() => {
       const ln = validatedFields.lastname?.trim();
       const fn = validatedFields.firstname?.trim();
-      if (ln && fn) return [ln, fn];
-      const full = (validatedFields.name ?? "").trim().replace(/\u3000/g, " ");
-      const sep = full.indexOf(" ");
-      return sep === -1
-        ? [full, ""]
-        : [full.slice(0, sep), full.slice(sep + 1).trim()];
+      if (ln && fn) return { lastname: ln, firstname: fn };
+      return splitFullName(validatedFields.name ?? "");
     })();
     // DB は従来どおり name 1 カラム。姓のみのときに末尾へ空白が入らないようにする。
     const fullName = [lastname, firstname].filter(Boolean).join(" ");

@@ -1,5 +1,6 @@
 import "server-only";
 import { UTM_KEYS, type UTMParameters } from "@/lib/utm-constants";
+import { splitFullName } from "@/lib/split-name";
 
 type HubSpotContactData = {
   company: string;
@@ -57,22 +58,12 @@ export const submitToHubSpotForm = async (
       },
     ];
 
-    // HubSpot のコンタクトは lastname / firstname の 2 プロパティしか持てないので、
-    // 「お名前」1 つで受けたケースもここで必ずどちらかに載せる。
-    // 空白があれば分割し、無ければ全体を lastname に入れる (日本語名は姓名を機械的に
-    // 分けられないため。firstname は空でも HubSpot 側は受け付ける)。
-    const splitName = (full: string): [string, string] => {
-      const normalized = full.trim().replace(/　/g, " ");
-      const sep = normalized.indexOf(" ");
-      return sep === -1
-        ? [normalized, ""]
-        : [normalized.slice(0, sep), normalized.slice(sep + 1).trim()];
-    };
-
-    const [lastname, firstname] =
+    // HubSpot のコンタクトは lastname / firstname しか持てないので、「お名前」1 つで
+    // 受けたケースもここで必ずどちらかに載せる。分割ルールは splitFullName に集約。
+    const { lastname, firstname } =
       data.lastname?.trim() && data.firstname?.trim()
-        ? [data.lastname.trim(), data.firstname.trim()]
-        : splitName(data.lastname?.trim() || data.name || "");
+        ? { lastname: data.lastname.trim(), firstname: data.firstname.trim() }
+        : splitFullName(data.lastname?.trim() || data.name || "");
 
     if (lastname) {
       fields.push({ name: "lastname", value: lastname });
