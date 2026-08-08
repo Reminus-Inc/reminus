@@ -1,5 +1,7 @@
 import { Header } from "@/app/_components/layout/header";
 
+// LP ホーム (/mvp) 専用のレイアウト。ここは「まだ variant が決まっていない状態」なので
+// variant は渡さない。ロゴの戻り先は /mvp、資料DL は LP 定義の downloadPath になる。
 export default async function MvpLayout({
   children,
 }: {
@@ -7,8 +9,7 @@ export default async function MvpLayout({
 }) {
   return (
     <>
-      {/* LP は mvp、variant は a。ロゴの戻り先と資料DL の遷移先が LP 定義から導出される。 */}
-      <Header lp="mvp" variant="a" />
+      <Header lp="mvp" />
       <main>{children}</main>
     </>
   );

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import MvpA from "./a/page";
+import MvpA from "@/app/(root-mvp-a)/mvp/a/page";
 
 // /mvp は LP のホーム = 抽選の入口。本番では middleware が variant (/mvp/a) へ
 // リダイレクトするのでここは描画されず、A/B を止めている開発環境でだけ表示される。
