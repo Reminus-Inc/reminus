@@ -81,7 +81,7 @@ export function FirstView() {
             <FvDownloadButton
               title="資料ダウンロード"
               subtitle="CTO代行がわかる"
-              href="/download"
+              href="/c/download"
               className="mx-auto w-full max-w-[440px] sm:mx-0 sm:w-fit sm:max-w-none"
             />
           </div>
