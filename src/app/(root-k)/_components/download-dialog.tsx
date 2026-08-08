@@ -1,6 +1,6 @@
 "use client";
 
-import { DownloadForm } from "@/app/_components/ui/download-form";
+import { DownloadForm } from "./ui/download-form";
 import { Heading } from "./ui/heading";
 import Image from "next/image";
 import { CheckCircle2, X } from "lucide-react";
@@ -88,12 +88,9 @@ export const DownloadDialog = () => {
             </div>
 
             <div className="flex h-fit justify-center rounded-lg border border-gray-300 px-7 py-6 lg:max-w-[400px]">
-              {/* 当時は formId が無かったが、現行の DownloadForm では必須なので付ける。
-                  送信〜/download-thanks への遷移は現行フォームの挙動をそのまま使う。 */}
-              <DownloadForm
-                documentType={DOCUMENT_TYPE.CTO_PARTNER}
-                formId="k-download-dialog-form"
-              />
+              {/* 当時のフォーム (お名前 1 フィールド)。送信先は現行の requestDocument
+                  なので、Slack / HubSpot / DB は現行仕様のまま。 */}
+              <DownloadForm documentType={DOCUMENT_TYPE.CTO_PARTNER} />
             </div>
           </div>
         </div>

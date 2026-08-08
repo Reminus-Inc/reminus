@@ -561,14 +561,21 @@ const documentRequestSchema = z.object({
     .string()
     .min(1, { message: "会社名を入力してください" })
     .max(100, { message: "会社名は100文字以内で入力してください" }),
+  // 氏名は「姓+名」の 2 フィールドと「お名前」の 1 フィールドの両方を受ける。
+  // 1 つで来た場合は requestDocument 側で分割するので、以降の処理は従来どおり
+  // lastname/firstname を見ればよい。姓名を分けないフォーム用。
   lastname: z
     .string()
-    .min(1, { message: "姓を入力してください" })
-    .max(50, { message: "姓は50文字以内で入力してください" }),
+    .max(50, { message: "姓は50文字以内で入力してください" })
+    .optional(),
   firstname: z
     .string()
-    .min(1, { message: "名を入力してください" })
-    .max(50, { message: "名は50文字以内で入力してください" }),
+    .max(50, { message: "名は50文字以内で入力してください" })
+    .optional(),
+  name: z
+    .string()
+    .max(100, { message: "お名前は100文字以内で入力してください" })
+    .optional(),
   email: z
     .string()
     .email({ message: "有効なメールアドレスを入力してください" })
@@ -599,6 +606,19 @@ const documentRequestSchema = z.object({
       })
     ),
 }).superRefine((data, ctx) => {
+  // 氏名は「姓+名」か「お名前」のどちらかが必須
+  const hasSplit = !!data.lastname?.trim() && !!data.firstname?.trim();
+  const hasSingle = !!data.name?.trim();
+  if (!hasSplit && !hasSingle) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      message: data.name !== undefined
+        ? "お名前を入力してください"
+        : "姓を入力してください",
+      path: [data.name !== undefined ? "name" : "lastname"],
+    });
+  }
+
   const domain = data.email.split('@')[1]?.toLowerCase();
 
   // 使い捨てメールドメインは完全にブロック
@@ -805,6 +825,21 @@ export async function requestDocument(
     const validatedFields = documentRequestSchema.parse(
       Object.fromEntries(formData)
     );
+
+    // 氏名は「姓+名」でも「お名前」1 つでも受け付ける。1 つで来た場合はここで分解し、
+    // 以降 (Slack / HubSpot / DB) は従来どおり lastname / firstname を参照する。
+    const [lastname, firstname] = (() => {
+      const ln = validatedFields.lastname?.trim();
+      const fn = validatedFields.firstname?.trim();
+      if (ln && fn) return [ln, fn];
+      const full = (validatedFields.name ?? "").trim().replace(/\u3000/g, " ");
+      const sep = full.indexOf(" ");
+      return sep === -1
+        ? [full, ""]
+        : [full.slice(0, sep), full.slice(sep + 1).trim()];
+    })();
+    // DB は従来どおり name 1 カラム。姓のみのときに末尾へ空白が入らないようにする。
+    const fullName = [lastname, firstname].filter(Boolean).join(" ");
     const validationEnd = performance.now();
     console.log(
       `✅ バリデーション完了: ${(validationEnd - validationStart).toFixed(2)}ms`
@@ -822,7 +857,7 @@ export async function requestDocument(
 
     const params = new URLSearchParams({
       email: validatedFields.email,
-      name: `${validatedFields.lastname} ${validatedFields.firstname}`,
+      name: fullName,
       company: validatedFields.company,
       documentType: documentType,
     });
@@ -830,8 +865,8 @@ export async function requestDocument(
     await acceptLead({
       leadData: {
         company: validatedFields.company,
-        lastname: validatedFields.lastname,
-        firstname: validatedFields.firstname,
+        lastname,
+        firstname,
         email: validatedFields.email,
         phone: validatedFields.phone,
         isDownloadRequest: true,
@@ -842,15 +877,15 @@ export async function requestDocument(
       abTestVariant,
       slackBlocks: buildDownloadSlackBlocks(documentType, {
         company: validatedFields.company,
-        lastname: validatedFields.lastname,
-        firstname: validatedFields.firstname,
+        lastname,
+        firstname,
         email: validatedFields.email,
         phone: validatedFields.phone,
       }),
       dbSaveFunction: () => prisma.documentRequest.create({
         data: {
           company: validatedFields.company,
-          name: `${validatedFields.lastname} ${validatedFields.firstname}`,
+          name: fullName,
           email: validatedFields.email,
           phone: validatedFields.phone,
         },
