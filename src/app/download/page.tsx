@@ -12,9 +12,11 @@ export const metadata: Metadata = {
   },
 };
 
+// 47b1a3d (2026-03-28) 時点の体裁に戻している。ページ全体は白地で、フォームは枠線だけの
+// カード (SP でもカード)。その後 bg-gray-50 + 白カード + 影 に変わっていた。
 export default function DownloadPage() {
   return (
-    <div className="content-auto min-h-svh bg-gray-50 pb-12 pt-6 font-sans md:pt-12">
+    <div className="content-auto min-h-svh pb-12 pt-6 font-sans md:pt-12">
       <div className="mx-auto flex w-[88%] max-w-[1200px] md:w-[92%]">
         <div className="flex w-full flex-col justify-center gap-8 md:flex-row md:gap-14 lg:gap-16">
           <div className="flex flex-col">
@@ -57,8 +59,7 @@ export default function DownloadPage() {
             </div>
           </div>
 
-          {/* 枠線と影は以前 lg 以上だけだったが、SP でもカードとして見えるよう全幅で付ける */}
-          <div className="flex h-fit justify-center rounded-xl border border-gray-200 bg-white px-6 py-6 shadow-md sm:px-8 sm:py-8 lg:max-w-[400px] lg:rounded-md">
+          <div className="flex h-fit justify-center rounded-lg border border-gray-200 px-7 py-6 lg:max-w-[400px]">
             <DownloadForm
               documentType={DOCUMENT_TYPE.CTO_PARTNER}
               formId="download-page-form"
