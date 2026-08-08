@@ -75,7 +75,8 @@ export function BeforeAfter({ className }: { className?: string }) {
 
       {/* 面の切り替えを示す下向きの三角 */}
       <div aria-hidden className="flex justify-center bg-[#F5F5F5]">
-        <div className="translate-y-full border-x-[20px] border-t-[18px] border-x-transparent border-t-[#F5F5F5] sm:border-x-[24px] sm:border-t-[22px]" />
+        {/* PC は面の幅が広いぶん、SP と同じ大きさだと点にしか見えないので段階的に広げる */}
+        <div className="translate-y-full border-x-[20px] border-t-[18px] border-x-transparent border-t-[#F5F5F5] sm:border-x-[24px] sm:border-t-[22px] md:border-x-[32px] md:border-t-[28px] lg:border-x-[40px] lg:border-t-[34px]" />
       </div>
 
       {/* After: 白 + ミント面 */}
