@@ -52,6 +52,8 @@ export const LPS = [
       // j は i のヒーロー写真違い (人物写真 + 角丸のグラデ面)。
       // 資料DL は HubSpot 埋め込みではない通常の /download を使う。
       { id: "j", path: "/j", lottery: true },
+      // k は 2025-11-19 時点 (ca8daf4) のトップを復元したもの。まずは直アクセスで確認する
+      { id: "k", path: "/k", lottery: false },
     ],
   },
   {

@@ -149,6 +149,7 @@ export const config = {
     "/h",
     "/i",
     "/j",
+    "/k",
     "/startup",
     "/xnext_case",
   ],
