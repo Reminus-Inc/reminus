@@ -43,21 +43,16 @@ export default function MvpA() {
   return (
     <>
       <FirstView />
-      {/* 直後がグレー背景のビフォーアフターなので、白地側に余白を持たせて
-          境界がロゴに張り付かないようにする (H版と同じ扱い)。
-          さらに、この帯自体をグラデにしてロゴから Before に入る境目を消す
-          (margin だと上に白が残るので padding)。白 → #F5F5F5 は 255→245 の差しかなく
-          階調が見えないので、ヒーローの緑を受けた薄いミントを中間に挟んでいる。 */}
       {/* ロゴは白地のまま。ロゴ画像は白背景が焼き込まれた不透明 PNG なので、
           ここにグラデを敷くと画像の途中から色が乗って不自然になる。 */}
       <div className="bg-white pb-8 pt-8 sm:pb-10 sm:pt-14">
         <ClientLogos />
       </div>
-      {/* ロゴの下だけでグラデ。白 → Before 面の #F5F5F5 は 255→245 の差しかなく
-          階調が見えないので、ヒーローの緑を受けた薄いミントを中間に挟む。 */}
+      {/* ロゴの下だけで Before 面の #F5F5F5 に繋ぐ。ロゴ帯とは別要素にしてあるので
+          ロゴには一切かからない。 */}
       <div
         aria-hidden
-        className="h-12 bg-gradient-to-b from-white via-emerald-50 to-[#F5F5F5] sm:h-16"
+        className="h-12 bg-gradient-to-b from-white to-[#F5F5F5] sm:h-16"
       />
       <div className="content-auto">
         <BeforeAfter className="bg-gray-50" />
