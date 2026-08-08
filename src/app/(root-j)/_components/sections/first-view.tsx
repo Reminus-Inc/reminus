@@ -80,7 +80,7 @@ export function FirstView() {
                 左右が余る。SP は横幅いっぱいに伸ばし、sm 以上は内容幅に戻す。 */}
             <FvDownloadButton
               title="資料ダウンロード"
-              subtitle="CTO代行がわかる"
+              subtitle="レミナスがわかる"
               href="/c/download"
               className="mx-auto w-full max-w-[440px] sm:mx-0 sm:w-fit sm:max-w-none"
             />

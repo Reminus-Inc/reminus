@@ -5,6 +5,7 @@ import { CompanyOverview } from "@/app/_components/sections/company-overview";
 import { Cta } from "@/app/_components/sections/cta";
 import { Column } from "../_components/sections/column";
 import { FirstView } from "../_components/sections/first-view";
+import { FvDownloadButton } from "../_components/ui/fv-download-button";
 import { Management } from "../_components/sections/management";
 import { Problem } from "../_components/sections/problem";
 import { WhyReminus } from "../_components/sections/why-reminus";
@@ -35,9 +36,18 @@ export default function HomeI() {
       </div>
       <div className="content-auto">
         <CaseStudies
-          className="bg-gray-50 pt-16 sm:pt-24"
+          className="bg-gray-50 pt-16 sm:pt-24 pb-10 sm:pb-14"
           showOtherCases={false}
         />
+        <div className="flex justify-center bg-gray-50 px-4 pb-16 sm:pb-24">
+          <FvDownloadButton
+            variant="filled"
+            imageSrc="/document-cover-c-white.png"
+            title="資料ダウンロード"
+            subtitle="レミナスがわかる"
+            href="/c/download"
+          />
+        </div>
         <Problem />
         <ServiceOverview className="bg-white" />
         <ServiceMenu className="bg-gray-50" />
