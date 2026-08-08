@@ -22,7 +22,10 @@ export default function HomeK() {
   return (
     <>
       <FirstView />
-      <ClientLogos />
+      {/* ロゴが上下の要素と接して窮屈だったので余白を持たせる */}
+      <div className="py-8 sm:py-12">
+        <ClientLogos />
+      </div>
       <ServiceOverview />
       <Solutions />
       <Cta className="from-white to-white" />

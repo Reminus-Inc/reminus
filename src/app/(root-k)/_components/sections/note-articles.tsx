@@ -1,12 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Section } from "@/app/(root-k)/_components/ui/section";
-import { fetchNoteArticleList } from "@/lib/fetch-note-articles";
+import { articles } from "@/app/blog/_articles";
 import { MainHeading } from "@/app/(root-k)/_components/ui/main-heading";
 import { ReminusLogo } from "../ui/reminus-logo";
-import { Suspense } from "react";
-
-import { Skeleton } from "@/components/ui/skeleton";
 
 export function NoteArticles() {
   return (
@@ -16,67 +13,41 @@ export function NoteArticles() {
       </MainHeading>
 
       <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 md:-mt-6 lg:grid-cols-3">
-        <Suspense fallback={<NoteArticlesFallback />}>
-          <NoteArticleList />
-        </Suspense>
+        <NoteArticleList />
       </div>
     </Section>
   );
 }
 
-function NoteArticlesFallback() {
-  const skeleton = (
-    <div className="p-4 md:p-6">
-      <Skeleton className="h-60 w-full bg-gray-200" />
-    </div>
-  );
-  return (
-    <>
-      {skeleton}
-      {skeleton}
-      {skeleton}
-    </>
-  );
-}
-
-async function NoteArticleList() {
-  const articleList = await fetchNoteArticleList();
-  if (articleList == null || articleList.length === 0) {
-    return null;
-  }
+// 当時は note の記事を RSS から取っていたが、現在はサイト内ブログに移行しているので
+// blog/_articles を描画する (見た目は当時のカードのまま)。
+function NoteArticleList() {
+  const articleList = articles.slice(0, 3);
+  if (articleList.length === 0) return null;
 
   return (
     <>
-      {articleList.map((article) => {
-        return (
-          <Link
-            href={article.url}
-            target="_blank"
-            rel="nofollow noopener noreferrer"
-            key={article.url}
-            className="rounded-md p-4 duration-300 hover:bg-muted md:p-6"
-          >
-            <div className="relative aspect-[128/67] overflow-hidden rounded-md">
-              {article.imageUrl ? (
-                <Image
-                  src={article.imageUrl}
-                  alt={article.title}
-                  fill
-                  unoptimized
-                />
-              ) : (
-                <FallbackImage />
-              )}
-            </div>
-            <p className="mt-4 text-base font-bold tracking-wider">
-              {article.title}
-            </p>
-            <p className="mt-1 text-sm text-gray-500">
-              {article.publishDateLabel}
-            </p>
-          </Link>
-        );
-      })}
+      {articleList.map((article) => (
+        <Link
+          href={`/blog/${article.slug}/`}
+          key={article.slug}
+          className="rounded-md p-4 duration-300 hover:bg-muted md:p-6"
+        >
+          <div className="relative aspect-[128/67] overflow-hidden rounded-md">
+            {article.thumbnail ? (
+              <Image src={article.thumbnail} alt={article.title} fill />
+            ) : (
+              <FallbackImage />
+            )}
+          </div>
+          <p className="mt-4 text-base font-bold tracking-wider">
+            {article.title}
+          </p>
+          <p className="mt-1 text-sm text-gray-500">
+            {article.publishedAtLabel}
+          </p>
+        </Link>
+      ))}
     </>
   );
 }
