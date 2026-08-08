@@ -55,7 +55,10 @@ export function FirstView() {
             sizes="(min-width: 1280px) 640px, (min-width: 1024px) 540px, (min-width: 640px) 460px, 88vw"
             className={cn(
               "relative left-1/2 mt-4 block w-screen max-w-[338px] -translate-x-1/2 sm:mt-6 sm:max-w-[478px]",
-              "lg:pointer-events-none lg:absolute lg:inset-y-0 lg:left-auto lg:right-[10px] lg:m-auto lg:mt-0 lg:w-[540px] lg:max-w-none lg:translate-x-0 xl:w-[640px]"
+              // lg 以上は右側に絶対配置して上下中央寄せ。inset-y-0 + m-auto で中央に
+              // 寄るので、SP 用の mt-4 を打ち消す mt-0 は付けないこと (margin-top が
+              // 0 に固定されて中央寄せが効かなくなり、画像が上端に貼り付く)。
+              "lg:pointer-events-none lg:absolute lg:inset-y-0 lg:left-auto lg:right-[10px] lg:m-auto lg:w-[540px] lg:max-w-none lg:translate-x-0 xl:w-[640px]"
             )}
           />
           {/* SP は画像が縦幅を食うので、旧 c 版 (b6965e5) と同じく CTA を画像に
@@ -92,7 +95,7 @@ const Title = ({ className }: { className?: string }) => {
           (「売れるプロ / ダクト」) で切れるので、3 行の改行位置を全幅で固定する。 */}
       <h1 className="text-[26px] !leading-[1.35] text-white min-[375px]:text-[30px] sm:text-[40px] md:text-[46px] xl:text-[52px]">
         そのMVP、
-        <br />
+        <br className=""/>
         <span className="text-[#ffe100]">&ldquo;売れるプロダクト&rdquo;</span>
         に
         <br />
