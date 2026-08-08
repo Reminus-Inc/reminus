@@ -6,15 +6,15 @@ import { Check, TriangleAlert } from "lucide-react";
 // Before はダークグレー面、After は白+ミント面。面の切り替えでコントラストを作る。
 // 外注そのものを否定せず、「外注だけでは事業判断込みの開発体制にならない」という立て付け。
 const BEFORE = [
-  "外注やAIで作ったMVP、本番リリースしていい品質か誰も判断できない",
-  "外注は顧客理解が浅く、出てくるものがズレる。しかも遅い",
-  "リリース後も、障害対応・セキュリティ・改善開発——技術でやるべきことが無限にある。担える体制がない",
+  "外注やAIで作ったMVPはあるが、本番リリースしていい品質か、誰も判断できない",
+  "外注は顧客理解が浅く、出てくるものがズレる。受注のために求められる瞬発力も出ない",
+  "リリースはスタート地点。問い合わせ対応・顧客要望開発・障害対策——技術でやるべき膨大なタスクを担える体制がない",
 ];
 
 const AFTER = [
   "データ消失や情報漏えい——顧客の信頼を一瞬で失う事故の芽を、CTOが本番前に診断して潰す",
   "顧客・市場ファーストで開発を推進。顧客価値と売上につながるものを最優先に",
-  "事業としてプロダクトを提供し続けるための開発・運用の仕組みを導入。内製でも外注でも回る体制になり、将来の内製化にもそのまま繋がる",
+  "事業としてプロダクトを提供し続けるための開発・運用体制を構築。内製でも外注でも回る体制から、将来の内製化準備まで",
 ];
 
 export function BeforeAfter({ className }: { className?: string }) {
@@ -42,9 +42,9 @@ export function BeforeAfter({ className }: { className?: string }) {
             <Image
               src="/questions.svg"
               alt=""
-              width={160}
-              height={160}
-              className="w-32 shrink-0 lg:w-40"
+              width={240}
+              height={240}
+              className="w-32 shrink-0 md:w-44 lg:w-56"
             />
           </div>
 
@@ -86,18 +86,21 @@ export function BeforeAfter({ className }: { className?: string }) {
               <p className="text-xs font-semibold uppercase tracking-[0.14em] text-emerald-600 sm:text-[13px]">
                 After
               </p>
-              <h2 className="mt-3 text-xl font-bold !leading-[1.6] tracking-wide text-gray-900 min-[375px]:text-[22px] sm:text-3xl md:text-4xl lg:text-[32px]">
+              {/* Before 側と同じ字送り。他セクションの見出しも lg で 40px */}
+              <h2 className="mt-3 text-xl font-bold !leading-[1.6] tracking-wide text-gray-900 min-[375px]:text-[22px] sm:text-3xl md:text-4xl lg:text-[40px]">
                 Reminus導入後は、
                 <br className="sm:hidden" />
                 こうなります
               </h2>
             </div>
+            {/* 実寸 1200x1078。width/height は実際の比率に合わせる
+                (190x160 だと縦に潰れる) */}
             <Image
               src="/hero.png"
               alt=""
-              width={190}
-              height={160}
-              className="w-36 shrink-0 lg:w-48"
+              width={320}
+              height={287}
+              className="w-36 shrink-0 md:w-52 lg:w-64"
             />
           </div>
 
